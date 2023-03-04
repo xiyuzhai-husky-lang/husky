@@ -114,7 +114,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
@@ -124,7 +124,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
@@ -134,7 +134,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
@@ -463,7 +463,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
@@ -473,7 +473,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
@@ -536,7 +536,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
@@ -598,7 +598,7 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 3,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
@@ -1166,7 +1166,7 @@ Ok(
                                                 data: [
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1183,7 +1183,7 @@ Ok(
                                                     },
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -1379,7 +1379,7 @@ Ok(
                                                         data: [
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 0,
-                                                                entity_path: Some(
+                                                                path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1396,7 +1396,7 @@ Ok(
                                                             },
                                                             Expr::EntityPath {
                                                                 entity_path_expr: 1,
-                                                                entity_path: Some(
+                                                                path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
                                                                             TypePath(`core::num::f32`, `Extern`),

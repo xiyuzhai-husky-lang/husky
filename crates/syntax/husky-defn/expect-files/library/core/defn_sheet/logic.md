@@ -103,7 +103,7 @@ Ok(
                                                 data: [
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::logic::Prop`, `Extern`),
@@ -113,7 +113,7 @@ Ok(
                                                     },
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::logic::Prop`, `Extern`),
@@ -344,7 +344,7 @@ Ok(
                                                 data: [
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::logic::Prop`, `Extern`),
@@ -354,7 +354,7 @@ Ok(
                                                     },
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
-                                                        entity_path: Some(
+                                                        path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
                                                                     TypePath(`core::logic::Prop`, `Extern`),

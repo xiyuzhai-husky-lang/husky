@@ -2,30 +2,12 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectEqsFunctionType {
-    return_ty_destination: Option<LocalTerm>,
+    final_destination: FinalDestination,
 }
 
 impl ExpectEqsFunctionType {
-    pub(crate) fn new(return_ty_destination: Option<LocalTerm>) -> Self {
-        Self {
-            return_ty_destination,
-        }
-    }
-}
-
-impl ProvideEntityPathTypeExpectation for ExpectEqsFunctionType {
-    #[inline(always)]
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        match self.return_ty_destination {
-            Some(return_ty_destination) => {
-                return_ty_destination.entity_path_ty_expectation(db, unresolved_terms)
-            }
-            None => EntityPathTypeExpectation::FunctionType, // EntityPathTypeExpectation::Any,
-        }
+    pub(crate) fn new(final_destination: FinalDestination) -> Self {
+        Self { final_destination }
     }
 }
 
@@ -42,23 +24,8 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        todo!()
+        self.final_destination
     }
-}
-
-/// final destination of `A1 -> ... -> An` is equal to that of `An`
-///
-/// final destination of `A1 ... An` is equal to that of `A1`
-///
-/// final destination of `Sort` is `FinalDestination::Sort`
-///
-/// final destination of a type path `A` is `FinalDestination::TypePath(A)`
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum FinalDestination {
-    Sort,
-    TypePath(TypePath),
-    NoneOriginal,
-    NoneDerived,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -174,7 +141,6 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Term::Abstraction(_) => todo!(),
             Term::Application(_) => todo!(),
-            Term::Composition(_) => todo!(),
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),

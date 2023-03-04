@@ -2,9 +2,9 @@
 #![feature(const_trait_impl)]
 #![feature(const_default_impls)]
 mod db;
+mod disambiguation;
 mod entity;
 mod error;
-mod expectation;
 mod field;
 mod intrinsic_ty;
 mod method;
@@ -15,10 +15,9 @@ mod ty_call;
 mod variance;
 
 pub use self::db::*;
-pub use self::entity::entity_path_ty;
+pub use self::disambiguation::*;
 pub use self::entity::*;
 pub use self::error::*;
-pub use self::expectation::*;
 pub use self::intrinsic_ty::*;
 pub use self::term::*;
 

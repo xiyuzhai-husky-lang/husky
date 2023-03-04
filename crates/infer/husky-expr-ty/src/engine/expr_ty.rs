@@ -37,8 +37,9 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: E,
         local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
-        let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
-        
+        let expectation_idx =
+            self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
+
         match expectation_idx.into_option() {
             Some(expectation_idx) => local_term_region[expectation_idx]
                 .resolve_progress()
@@ -67,7 +68,8 @@ impl<'a> ExprTypeEngine<'a> {
     where
         E::Outcome: Clone,
     {
-        let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
+        let expectation_idx =
+            self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
         let resolved_ok = match expectation_idx.into_option() {
             Some(expectation_idx) => local_term_region[expectation_idx]
@@ -80,25 +82,20 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-     fn infer_new_expr_ty_aux<E: ExpectLocalTerm>(
+    fn infer_new_expr_ty_aux<E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
         local_term_region: &mut LocalTermRegion,
-    ) -> OptionLocalTermExpectationIdx
-    {
+    ) -> OptionLocalTermExpectationIdx {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation, local_term_region);
-        let expectation_idx = match 
-        ty_result {
-            Ok((_, Ok(ty))) =>  {
+        let expectation_idx = match ty_result {
+            Ok((_, Ok(ty))) => {
                 self.add_expectation_rule(expr_idx, ty, expr_ty_expectation, local_term_region)
             }
             _ => Default::default(),
         };
-        self.save_new_expr_ty(
-            expr_idx,
-            ExprTypeInfo::new(ty_result,  expectation_idx),
-        );
+        self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
         expectation_idx
     }
@@ -125,26 +122,8 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             Expr::EntityPath {
                 entity_path_expr,
-                entity_path,
-            } => Ok((
-                ExprDisambiguation::Trivial,
-                match entity_path {
-                    Some(entity_path) => {
-                        match husky_ty::entity_path_ty(
-                            self.db,
-                            expr_ty_expectation.entity_path_ty_expectation(
-                                self.db,
-                                local_term_region.unresolved_terms(),
-                            ),
-                            entity_path,
-                        ) {
-                            Ok(ty) => Ok(ty.into()),
-                            Err(_) => Err(DerivedExprTypeError::EntityTypeError.into()),
-                        }
-                    }
-                    None => Err(DerivedExprTypeError::EntityPathError.into()),
-                },
-            )),
+                path,
+            } => self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region),
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,
@@ -253,9 +232,14 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplicationOrComposition { function, argument } => {
-                self.calc_explicit_application_or_composition()
-            }
+            Expr::ExplicitApplicationOrComposition { function, argument } => self
+                .calc_explicit_application_or_composition(
+                    expr_ty_expectation
+                        .final_destination(self.db(), local_term_region.unresolved_terms()),
+                    function,
+                    argument,
+                    local_term_region,
+                ),
             Expr::Bracketed { item, .. } => Ok((
                 ExprDisambiguation::Trivial,
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
@@ -278,11 +262,12 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region.unresolved_terms(),
                     self.entity_path_menu.list_ty_path(),
                 ) {
-                    TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
-                    TypePathDisambiguation::InstanceOrConstructor => todo!(),
-                    TypePathDisambiguation::ErrDifferentTypePath {  } => todo!(),
-                    TypePathDisambiguation::ErrFromNoneOriginal => todo!(),
-                    TypePathDisambiguation::ErrFromNoneDerived => Err(DerivedExprTypeError::AmbiguateListExpr.into()),
+                    TypePathDisambiguationResult::Ok(_) => todo!(),
+                    TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
+                    TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),
+                    TypePathDisambiguationResult::ErrFromNoneDerived => {
+                        Err(DerivedExprTypeError::AmbiguateListExpr.into())
+                    }
                 }
                 // Ok(disambiguation) => match disambiguation {
                 //     TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
@@ -322,6 +307,56 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
+    fn calc_entity_path_expr_ty(
+        &mut self,
+        path: Option<EntityPath>,
+        expr_ty_expectation: &impl ExpectLocalTerm,
+        local_term_region: &mut LocalTermRegion,
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+        match path {
+            None => Err(DerivedExprTypeError::EntityPathError.into()),
+            Some(path) => match path {
+                EntityPath::Module(_) => todo!(),
+                EntityPath::ModuleItem(path) => match path {
+                    ModuleItemPath::Type(ty_path) => {
+                        self.calc_ty_path_expr_ty(expr_ty_expectation, ty_path, local_term_region)
+                    }
+                    ModuleItemPath::Trait(_) => todo!(),
+                    ModuleItemPath::Form(_) => todo!(),
+                },
+                EntityPath::AssociatedItem(_) => todo!(),
+                EntityPath::Variant(_) => todo!(),
+            },
+        }
+    }
+
+    fn calc_ty_path_expr_ty(
+        &mut self,
+        expr_ty_expectation: &impl ExpectLocalTerm,
+        ty_path: TypePath,
+        local_term_region: &mut LocalTermRegion,
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+        match expr_ty_expectation.disambiguate_ty_path(
+            self.db(),
+            local_term_region.unresolved_terms(),
+            ty_path,
+        ) {
+            TypePathDisambiguationResult::Ok(disambiguation) => Ok((
+                disambiguation.into(),
+                self.db
+                    .ty_path_ty(ty_path, disambiguation)
+                    .map(Into::into)
+                    .map_err(|e| match e {
+                        TypeError::Original(_) => todo!(),
+                        TypeError::Derived(_) => todo!(),
+                    }),
+            )),
+            TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
+            TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),
+            TypePathDisambiguationResult::ErrFromNoneDerived => todo!(),
+        }
+    }
+
     fn calc_explicit_application_or_ritchie_call_expr_ty(
         &mut self,
         function: idx_arena::ArenaIdx<Expr>,
@@ -332,17 +367,17 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         let Some(expectation_ok) = self.infer_new_expr_ty_with_expectation_returned(
                 function,
-                ExpectEqsFunctionType::new(expr_ty_expectation.destination()),
+                ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self.db(), local_term_region.unresolved_terms())),
                 local_term_region,
             ) else {
                 for item in items {
                     self.infer_new_expr_ty(item, ExpectAnyDerived, local_term_region);
                 }
-                return  
+                return
                     Err(
                         DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
                             .into(),
-                    ) 
+                    )
             };
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
@@ -358,12 +393,12 @@ impl<'a> ExprTypeEngine<'a> {
                     *items,
                     local_term_region,
                 );
-                Ok((ExprDisambiguation::ExplicitApplicationOrRitchieCall(
-                    ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
-                ),
+                Ok((
+                    ExprDisambiguation::ExplicitApplicationOrRitchieCall(
+                        ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
+                    ),
                     Ok(expectation_ok.return_ty()),
-            )   
-                )
+                ))
             }
             ExpectEqsFunctionTypeOutcomeVariant::Curry {} => todo!(),
         }
@@ -389,7 +424,16 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_explicit_application_or_composition(
         &mut self,
+        final_destination: FinalDestination,
+        function: ExprIdx,
+        argument: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+        self.infer_new_expr_ty_with_expectation_returned(
+            function,
+            ExpectEqsFunctionType::new(final_destination),
+            local_term_region,
+        );
         todo!("disambiguate")
         // (
         //     self.calc_explicit_application_expr_ty(function, argument, local_term_region),

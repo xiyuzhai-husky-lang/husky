@@ -6,16 +6,6 @@ pub(crate) struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectInsSort {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        todo!()
-    }
-}
-
 impl ExpectLocalTerm for ExpectInsSort {
     type Outcome = ExpectInsSortOutcome;
 

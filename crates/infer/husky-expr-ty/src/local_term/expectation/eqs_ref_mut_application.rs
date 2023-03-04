@@ -9,16 +9,6 @@ pub(crate) struct ExpectEqsRefMutApplication {
     pub(crate) lifetime: UnresolvedTermIdx,
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectEqsRefMutApplication {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        todo!()
-    }
-}
-
 impl ExpectLocalTerm for ExpectEqsRefMutApplication {
     type Outcome = ExpectEqsRefMutApplicationOutcome;
 

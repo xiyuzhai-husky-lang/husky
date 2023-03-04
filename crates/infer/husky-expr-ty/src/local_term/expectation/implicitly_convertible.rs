@@ -14,16 +14,6 @@ pub(crate) struct ExpectImplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectImplicitlyConvertible {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        todo!()
-    }
-}
-
 impl ExpectImplicitlyConvertible {
     pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
         &self,
@@ -126,7 +116,7 @@ impl<'a> ExprTypeEngine<'a> {
                                         Term::Entity(EntityPath::ModuleItem(
                                             ModuleItemPath::Type(f),
                                         )) if f == ty_path => {
-                                            match ty_path_ty(self.db(), ty_path) {
+                                            match ty_path_ty(self.db(), ty_path, todo!()) {
                                                 Ok(_) => todo!(),
                                                 Err(error) => Some(LocalTermExpectationEffect {
                                                     result: Err(match error {
@@ -142,7 +132,6 @@ impl<'a> ExprTypeEngine<'a> {
                                         _ => todo!(),
                                     }
                                 }
-                                Term::Composition(_) => todo!(),
                                 Term::Subentity(_) => todo!(),
                                 Term::AsTraitSubentity(_) => todo!(),
                                 Term::TraitConstraint(_) => todo!(),
@@ -314,7 +303,6 @@ impl<'a> ExprTypeEngine<'a> {
                     Term::Ritchie(_) => todo!(),
                     Term::Abstraction(_) => todo!(),
                     Term::Application(_) => todo!(),
-                    Term::Composition(_) => todo!(),
                     Term::Subentity(_) => todo!(),
                     Term::AsTraitSubentity(_) => todo!(),
                     Term::TraitConstraint(_) => todo!(),

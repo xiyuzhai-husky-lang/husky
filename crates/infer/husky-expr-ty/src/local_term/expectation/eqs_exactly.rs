@@ -6,17 +6,6 @@ pub(crate) struct ExpectEqsExactly {
     destination: LocalTerm,
 }
 
-impl ProvideEntityPathTypeExpectation for ExpectEqsExactly {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        self.destination
-            .entity_path_ty_expectation(db, unresolved_terms)
-    }
-}
-
 impl ExpectLocalTerm for ExpectEqsExactly {
     type Outcome = ExpectEqsExactlyOutcome;
 

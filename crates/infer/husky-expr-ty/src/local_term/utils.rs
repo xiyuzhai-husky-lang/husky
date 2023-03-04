@@ -12,70 +12,64 @@ impl LocalTerm {
         }
     }
 
-    pub(crate) fn entity_path_ty_expectation(
+    pub(crate) fn final_destination(
         self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
+    ) -> FinalDestination {
         match self.curry_destination(db, unresolved_terms) {
-        LocalTerm::Resolved(resolved_term) => match resolved_term.term() {
-            Term::Literal(_) => todo!(),
-            Term::Symbol(_) => todo!(),
-            Term::Entity(path) => match path {
-                EntityPath::Module(_) => todo!(),
-                EntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(ty_path) => {
-                        EntityPathTypeExpectation::FinalCurryDestinationEqsTypePathOrItsApplication {
-                            ty_path,
-                        }
-                    }
-                    ModuleItemPath::Trait(_) => todo!(),
-                    ModuleItemPath::Form(_) => todo!(),
-                },
-                EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
-            },
-            Term::Category(_) => EntityPathTypeExpectation::FinalCurryDestinationEqsSort,
-            Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => {
-                let expansion = db.term_application_expansion(resolved_term);
-                match expansion.f() {
-                    Term::Literal(_) => todo!(),
-                    Term::Symbol(_) => todo!(),
-                    Term::Entity(path) => match path {
-                        EntityPath::Module(_) => todo!(),
-                        EntityPath::ModuleItem(path) => match path {
-                            ModuleItemPath::Type(ty_path) => EntityPathTypeExpectation::FinalCurryDestinationEqsTypePathOrItsApplication {
-                                ty_path
-                            },
-                            ModuleItemPath::Trait(_) => todo!(),
-                            ModuleItemPath::Form(_) => todo!(),
-                        },
-                        EntityPath::AssociatedItem(_) => todo!(),
-                        EntityPath::Variant(_) => todo!(),
+            LocalTerm::Resolved(resolved_term) => match resolved_term.term() {
+                Term::Literal(_) => todo!(),
+                Term::Symbol(_) => todo!(),
+                Term::Entity(path) => match path {
+                    EntityPath::Module(_) => todo!(),
+                    EntityPath::ModuleItem(path) => match path {
+                        ModuleItemPath::Type(ty_path) => FinalDestination::TypePath(ty_path),
+                        ModuleItemPath::Trait(_) => todo!(),
+                        ModuleItemPath::Form(_) => todo!(),
                     },
-                    Term::Category(_) => todo!(),
-                    Term::Universe(_) => todo!(),
-                    Term::Curry(_) => todo!(),
-                    Term::Ritchie(_) => todo!(),
-                    Term::Abstraction(_) => todo!(),
-                    Term::Application(_) => todo!(),
-                    Term::Composition(_) => todo!(),
-                    Term::Subentity(_) => todo!(),
-                    Term::AsTraitSubentity(_) => todo!(),
-                    Term::TraitConstraint(_) => todo!(),
+                    EntityPath::AssociatedItem(_) => todo!(),
+                    EntityPath::Variant(_) => todo!(),
+                },
+                Term::Category(_) => FinalDestination::Sort,
+                Term::Universe(_) => todo!(),
+                Term::Curry(_) => todo!(),
+                Term::Ritchie(_) => todo!(),
+                Term::Abstraction(_) => todo!(),
+                Term::Application(_) => {
+                    let expansion = db.term_application_expansion(resolved_term);
+                    match expansion.f() {
+                        Term::Literal(_) => todo!(),
+                        Term::Symbol(_) => todo!(),
+                        Term::Entity(path) => match path {
+                            EntityPath::Module(_) => todo!(),
+                            EntityPath::ModuleItem(path) => match path {
+                                ModuleItemPath::Type(ty_path) => {
+                                    FinalDestination::TypePath(ty_path)
+                                }
+                                ModuleItemPath::Trait(_) => todo!(),
+                                ModuleItemPath::Form(_) => todo!(),
+                            },
+                            EntityPath::AssociatedItem(_) => todo!(),
+                            EntityPath::Variant(_) => todo!(),
+                        },
+                        Term::Category(_) => todo!(),
+                        Term::Universe(_) => todo!(),
+                        Term::Curry(_) => todo!(),
+                        Term::Ritchie(_) => todo!(),
+                        Term::Abstraction(_) => todo!(),
+                        Term::Application(_) => todo!(),
+                        Term::Subentity(_) => todo!(),
+                        Term::AsTraitSubentity(_) => todo!(),
+                        Term::TraitConstraint(_) => todo!(),
+                    }
                 }
+                Term::Subentity(_) => todo!(),
+                Term::AsTraitSubentity(_) => todo!(),
+                Term::TraitConstraint(_) => todo!(),
             },
-            Term::Composition(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::AsTraitSubentity(_) => todo!(),
-            Term::TraitConstraint(_) => todo!(),
-        },
-        LocalTerm::Unresolved(_) => todo!(),
-    }
+            LocalTerm::Unresolved(_) => todo!(),
+        }
     }
 }
 
@@ -99,7 +93,6 @@ fn curry_destination(db: &dyn ExprTypeDb, resolved_term: ReducedTerm) -> Reduced
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
         Term::Application(_) => resolved_term,
-        Term::Composition(_) => todo!(),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

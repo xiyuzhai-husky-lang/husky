@@ -5,14 +5,14 @@ use crate::*;
 #[inline(always)]
 pub fn entity_path_ty(
     db: &dyn TypeDb,
-    context: EntityPathTypeExpectation,
+    disambiguation: TypePathDisambiguation,
     path: EntityPath,
 ) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_path_ty(db, path),
+            ModuleItemPath::Type(path) => ty_path_ty(db, path, disambiguation),
             ModuleItemPath::Trait(path) => trai_entity_ty(db, path),
             ModuleItemPath::Form(path) => form_entity_ty(db, path),
         },
@@ -37,7 +37,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.bool_ty_path().into(),
         ),
         Ok(reduced_term_menu.ty0())
@@ -46,7 +46,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -55,7 +55,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -64,7 +64,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -73,7 +73,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -82,7 +82,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -91,7 +91,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -100,7 +100,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -109,7 +109,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -118,7 +118,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -127,7 +127,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -136,7 +136,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -145,7 +145,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -154,7 +154,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -163,7 +163,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            EntityPathTypeExpectation::Any,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
@@ -176,7 +176,11 @@ fn entity_path_path_term_ty_works() {
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub fn ty_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<ReducedTerm> {
+pub fn ty_path_ty(
+    db: &dyn TypeDb,
+    path: TypePath,
+    disambiguation: TypePathDisambiguation,
+) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -189,13 +193,16 @@ pub fn ty_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<ReducedTerm> {
     let Ok(variances) = ty_entity_variances(db, path) else {
         todo!()
     };
-    Ok(curry_from_implicit_parameter_tys(
-        db,
-        TermCurryKind::Explicit,
-        variances,
-        signature.implicit_parameters(db),
-        term_menu.ty0().into(),
-    ))
+    match disambiguation {
+        TypePathDisambiguation::TypeItselfOrTemplate => Ok(curry_from_implicit_parameter_tys(
+            db,
+            TermCurryKind::Explicit,
+            variances,
+            signature.implicit_parameters(db),
+            term_menu.ty0().into(),
+        )),
+        TypePathDisambiguation::InstanceOrConstructor => todo!(),
+    }
 }
 
 #[salsa::tracked(jar = TypeJar)]

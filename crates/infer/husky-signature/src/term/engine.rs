@@ -175,7 +175,7 @@ impl<'a> SignatureTermEngine<'a> {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
-                entity_path,
+                path: entity_path,
             } => match entity_path {
                 Some(entity_path) => Ok(Term::Entity(entity_path)),
                 None => Err(DerivedSignatureTermError::InvalidEntityPath.into()),
@@ -250,7 +250,7 @@ impl<'a> SignatureTermEngine<'a> {
                     PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => self.term_menu.option_ty_path(),
                 };
-                Ok(TermApplication::new(self.db, tmpl, opd).into())
+                Ok(TermApplication::new(self.db, tmpl, opd, /* ad hoc */ 0).into())
             }
             Expr::Suffix {
                 opd,
@@ -275,19 +275,24 @@ impl<'a> SignatureTermEngine<'a> {
                             self.db,
                             self.term_menu.slice_ty_path(),
                             argument,
+                            /* ad hoc */ 0,
                         )
                         .into()),
                         _ => todo!(),
                     },
                     Expr::List { items, .. } => match items.len() {
-                        0 => Ok(
-                            TermApplication::new(self.db, self.term_menu.list(), argument).into(),
-                        ),
+                        0 => Ok(TermApplication::new(
+                            self.db,
+                            self.term_menu.list(),
+                            argument,
+                            /* ad hoc */ 0,
+                        )
+                        .into()),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),
                             Expr::EntityPath {
                                 entity_path_expr,
-                                entity_path,
+                                path: entity_path,
                             } => todo!(),
                             Expr::InheritedSymbol {
                                 ident,

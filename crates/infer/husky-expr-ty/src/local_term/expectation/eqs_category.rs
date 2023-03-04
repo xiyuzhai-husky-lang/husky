@@ -13,16 +13,6 @@ impl ExpectEqsCategory {
     }
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectEqsCategory {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        EntityPathTypeExpectation::FinalCurryDestinationEqsSort
-    }
-}
-
 impl ExpectLocalTerm for ExpectEqsCategory {
     type Outcome = ExpectEqsSortOutcome;
 
@@ -36,7 +26,7 @@ impl ExpectLocalTerm for ExpectEqsCategory {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        todo!()
+        FinalDestination::Sort
     }
 }
 

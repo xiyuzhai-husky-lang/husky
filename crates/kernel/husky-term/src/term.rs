@@ -2,7 +2,6 @@ mod abstraction;
 mod application;
 mod as_trai_subentity;
 mod category;
-mod composition;
 mod constraint;
 mod curry;
 mod literal;
@@ -17,7 +16,6 @@ pub use self::abstraction::TermAbstraction;
 pub use self::application::TermApplication;
 pub use self::as_trai_subentity::*;
 pub use self::category::*;
-pub use self::composition::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::literal::*;
@@ -48,18 +46,21 @@ pub enum Term {
     Ritchie(TermRitchie),
     /// lambda x => expr
     Abstraction(TermAbstraction),
-    /// f x, apply a function to term
+
+    /// in husky, application is generalized to include composition as a special case;
+    ///
+    /// when shift is `0`, this is the normal application;
+    ///
+    /// when shift is `1`, this is composition,
+    ///
+    /// in general when shift is `n`, this is equavalent to
+    ///
+    /// use abstraction `n` times, and then apply original argument to them,
+    ///
+    /// then apply function to the result,
+    ///
+    /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
     Application(TermApplication),
-    /// composition of curries
-    ///
-    /// if f: A -> B, g: B -> C,
-    ///
-    /// then f \circ g : A -> C
-    ///
-    /// Example, F: Type u -> Type u, List: Type u -> Type u,
-    ///
-    /// then F \circ List : Type u -> Type u
-    Composition(TermComposition),
     /// ::<ident>
     Subentity(TermSubentity),
     /// (<type> as <trait>)::<ident>
@@ -114,7 +115,6 @@ impl Term {
             Term::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
             Term::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::Composition(_) => todo!(),
             Term::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),

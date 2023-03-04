@@ -23,23 +23,18 @@ use husky_print_utils::p;
 use idx_arena::Arena;
 use thiserror::Error;
 
-#[const_trait]
-pub trait ProvideEntityPathTypeExpectation {
-    #[inline(always)]
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation;
-}
-
-pub(crate) trait ExpectLocalTerm:
-    ProvideEntityPathTypeExpectation + Into<LocalTermExpectation> + Clone
-{
+pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     type Outcome: ExpectLocalTermOutcome;
 
     fn destination(&self) -> Option<LocalTerm>;
 
+    /// final destination of `A1 -> ... -> An` is equal to that of `An`
+    ///
+    /// final destination of `A1 ... An` is equal to that of `A1`
+    ///
+    /// final destination of `Sort` is `FinalDestination::Sort`
+    ///
+    /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
     #[inline(always)]
     fn final_destination(
         &self,
@@ -54,17 +49,17 @@ pub(crate) trait ExpectLocalTerm:
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
         ty_path: TypePath,
-    ) -> TypePathDisambiguation {
+    ) -> TypePathDisambiguationResult {
         match self.final_destination(db, unresolved_terms) {
-            FinalDestination::Sort => todo!(),
+            FinalDestination::Sort => TypePathDisambiguation::TypeItselfOrTemplate.into(),
             FinalDestination::TypePath(final_destination_ty_path) => {
                 match final_destination_ty_path == ty_path {
-                    true => todo!(),
+                    true => TypePathDisambiguation::InstanceOrConstructor.into(),
                     false => todo!(),
                 }
             }
-            FinalDestination::NoneOriginal => TypePathDisambiguation::ErrFromNoneOriginal,
-            FinalDestination::NoneDerived => TypePathDisambiguation::ErrFromNoneDerived,
+            FinalDestination::NoneOriginal => TypePathDisambiguationResult::ErrFromNoneOriginal,
+            FinalDestination::NoneDerived => TypePathDisambiguationResult::ErrFromNoneDerived,
         }
         // LocalTerm::Resolved(term) if let Term::Category(_) = term.term()  => todo!(),
         // LocalTerm::Resolved(term) if term.term() == ty_path.into() => todo!(),
@@ -72,13 +67,25 @@ pub(crate) trait ExpectLocalTerm:
     }
 }
 
+/// final destination of `A1 -> ... -> An` is equal to that of `An`
+///
+/// final destination of `A1 ... An` is equal to that of `A1`
+///
+/// final destination of `Sort` is `FinalDestination::Sort`
+///
+/// final destination of a type path `A` is `FinalDestination::TypePath(A)`
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FinalDestination {
+    Sort,
+    TypePath(TypePath),
+    NoneOriginal,
+    NoneDerived,
+}
+
 /// disambiguate between type itself (or template) and its instance or constructor
-pub enum TypePathDisambiguation {
-    TypeItselfOrTemplate,
-    /// if type is a unit struct, this will become an instance,
-    ///
-    /// otherwise constructor
-    InstanceOrConstructor,
+#[enum_class::from_variants]
+pub enum TypePathDisambiguationResult {
+    Ok(TypePathDisambiguation),
     ErrDifferentTypePath {},
     ErrFromNoneOriginal,
     ErrFromNoneDerived,
