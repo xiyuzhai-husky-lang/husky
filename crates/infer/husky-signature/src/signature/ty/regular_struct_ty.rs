@@ -44,6 +44,7 @@ pub struct RegularStructTypeSignature {
 impl RegularStructTypeSignature {}
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub struct RegularStructFieldSignature {
     ident: Identifier,
     ty: Term,

@@ -28,6 +28,7 @@ pub struct TupleStructTypeSignature {
 impl TupleStructTypeSignature {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub struct TupleStructFieldSignature {
     ty: Term,
 }
