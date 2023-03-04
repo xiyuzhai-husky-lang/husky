@@ -13,8 +13,8 @@ pub fn entity_path_ty(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => ty_path_ty(db, path, disambiguation),
-            ModuleItemPath::Trait(path) => trai_entity_ty(db, path),
-            ModuleItemPath::Form(path) => form_entity_ty(db, path),
+            ModuleItemPath::Trait(path) => trai_path_ty(db, path),
+            ModuleItemPath::Form(path) => form_path_ty(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
@@ -206,7 +206,7 @@ pub fn ty_path_ty(
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<ReducedTerm> {
+pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<ReducedTerm> {
     let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
@@ -229,7 +229,7 @@ pub(crate) fn trai_entity_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Red
 }
 
 #[salsa::tracked(jar = TypeJar)]
-pub(crate) fn form_entity_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<ReducedTerm> {
+pub(crate) fn form_path_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<ReducedTerm> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedTypeError::DeclError.into()),

@@ -8,11 +8,12 @@ use husky_expr::ExprIdx;
 use husky_ty::*;
 use thiserror::Error;
 
-#[derive(Debug, PartialEq, Eq)]
-#[enum_class::from_variants]
+#[derive(Debug, Error, PartialEq, Eq)]
 pub enum ExprTypeError {
-    Original(OriginalExprTypeError),
-    Derived(DerivedExprTypeError),
+    #[error("original {0}")]
+    Original(#[from] OriginalExprTypeError),
+    #[error("original {0}")]
+    Derived(#[from] DerivedExprTypeError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -96,6 +97,8 @@ pub enum DerivedExprTypeError {
     FinalDestination,
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
+    #[error("form path type error {0}")]
+    FormPathTypeError(DerivedTypeError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

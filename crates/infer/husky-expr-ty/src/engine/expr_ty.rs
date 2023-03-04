@@ -321,8 +321,28 @@ impl<'a> ExprTypeEngine<'a> {
                     ModuleItemPath::Type(ty_path) => {
                         self.calc_ty_path_expr_ty(expr_ty_expectation, ty_path, local_term_region)
                     }
-                    ModuleItemPath::Trait(_) => todo!(),
-                    ModuleItemPath::Form(_) => todo!(),
+                    ModuleItemPath::Trait(trai_path) => Ok((
+                        ExprDisambiguation::Trivial,
+                        self.db
+                            .trai_path_ty(trai_path)
+                            .map(Into::into)
+                            .map_err(|e| match e {
+                                TypeError::Original(_) => todo!(),
+                                TypeError::Derived(_) => todo!(),
+                            }),
+                    )),
+                    ModuleItemPath::Form(form_path) => Ok((
+                        ExprDisambiguation::Trivial,
+                        self.db
+                            .form_path_ty(form_path)
+                            .map(Into::into)
+                            .map_err(|e| match e {
+                                TypeError::Original(_) => todo!(),
+                                TypeError::Derived(e) => {
+                                    DerivedExprTypeError::FormPathTypeError(e).into()
+                                }
+                            }),
+                    )),
                 },
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::Variant(_) => todo!(),

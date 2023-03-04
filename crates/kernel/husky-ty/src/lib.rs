@@ -3,7 +3,7 @@
 #![feature(const_default_impls)]
 mod db;
 mod disambiguation;
-mod entity;
+mod entity_path;
 mod error;
 mod field;
 mod intrinsic_ty;
@@ -16,7 +16,7 @@ mod variance;
 
 pub use self::db::*;
 pub use self::disambiguation::*;
-pub use self::entity::*;
+pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::intrinsic_ty::*;
 pub use self::term::*;
@@ -37,8 +37,8 @@ use variance::*;
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar(
     ty_path_ty,
-    trai_entity_ty,
-    form_entity_ty,
+    trai_path_ty,
+    form_path_ty,
     ty_entity_variances,
     ty_entity_variance_reprs,
     ty_entity_variance_crate_dependencies,
