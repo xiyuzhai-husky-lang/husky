@@ -44,6 +44,9 @@ husky-expr-ty = { path = "../../infer/husky-expr-ty" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-raw-term = { path = "../../kernel/husky-raw-term" }
+husky-precise-term = { path = "../../kernel/husky-precise-term" }
+husky-valid-term = { path = "../../kernel/husky-valid-term" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ty = { path = "../../kernel/husky-ty" }

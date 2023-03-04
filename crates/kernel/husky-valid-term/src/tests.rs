@@ -1,8 +1,7 @@
-use crate::TermJar;
+use crate::*;
 use husky_entity_path::EntityPathJar;
 use husky_precise_term::PreciseTermJar;
 use husky_raw_term::RawTermJar;
-use husky_valid_term::ValidTermJar;
 use husky_vfs::VfsJar;
 use husky_word::WordJar;
 
@@ -12,12 +11,11 @@ use husky_word::WordJar;
     WordJar,
     RawTermJar,
     PreciseTermJar,
-    ValidTermJar,
-    TermJar
+    ValidTermJar
 )]
 #[derive(Default)]
-pub(crate) struct TermTestsDb {
-    storage: salsa::Storage<TermTestsDb>,
+pub(crate) struct DB {
+    storage: salsa::Storage<DB>,
 }
 
-impl salsa::Database for TermTestsDb {}
+impl salsa::Database for DB {}

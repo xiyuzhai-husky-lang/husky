@@ -7,7 +7,10 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
+use husky_precise_term::PreciseTermJar;
+use husky_raw_term::RawTermJar;
 use husky_token::TokenJar;
+use husky_valid_term::ValidTermJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -21,6 +24,9 @@ use husky_word::WordJar;
     ManifestJar,
     ExprJar,
     DeclJar,
+    RawTermJar,
+    PreciseTermJar,
+    ValidTermJar,
     TermJar,
     SignatureJar
 )]
