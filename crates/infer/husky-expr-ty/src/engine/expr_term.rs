@@ -25,9 +25,19 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
-                path: entity_path,
-            } => match entity_path {
-                Some(entity_path) => Ok(self.db.reduced_term(entity_path.into()).into()),
+                path,
+            } => match path {
+                Some(path) => match path {
+                    EntityPath::Module(_) => todo!(),
+                    EntityPath::ModuleItem(path) => match path {
+                        ModuleItemPath::Type(ty_path) => todo!(),
+                        ModuleItemPath::Trait(_) => todo!(),
+                        ModuleItemPath::Form(_) => todo!(),
+                    },
+                    EntityPath::AssociatedItem(_) => todo!(),
+                    EntityPath::Variant(_) => todo!(),
+                },
+                //  Ok(self.db.reduced_term(entity_path.into()).into()),
                 None => todo!(),
             },
             Expr::InheritedSymbol {

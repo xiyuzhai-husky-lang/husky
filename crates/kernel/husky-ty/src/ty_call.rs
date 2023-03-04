@@ -9,16 +9,20 @@ pub(crate) fn ty_call_ty(
     match ty_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => match path {
-            EntityPath::Module(_) => todo!(),
-            EntityPath::ModuleItem(path) => match path {
-                ModuleItemPath::Type(path) => ty_path_ty_call_ty(db, path, toolchain),
-                ModuleItemPath::Trait(_) => todo!(),
-                ModuleItemPath::Form(_) => todo!(),
-            },
-            EntityPath::AssociatedItem(_) => todo!(),
-            EntityPath::Variant(_) => todo!(),
+        Term::EntityPath(path) => match path {
+            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Trait(_) => todo!(),
+            TermEntityPath::TypeOntology(_) => todo!(),
+            TermEntityPath::TypeConstructor(_) => todo!(),
         },
+        // EntityPath::Module(_) => todo!(),
+        // EntityPath::ModuleItem(path) => match path {
+        //     ModuleItemPath::Type(path) => ty_path_ty_call_ty(db, path, toolchain),
+        //     ModuleItemPath::Trait(_) => todo!(),
+        //     ModuleItemPath::Form(_) => todo!(),
+        // },
+        // EntityPath::AssociatedItem(_) => todo!(),
+        // EntityPath::Variant(_) => todo!(),
         Term::Category(_) => todo!(),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),

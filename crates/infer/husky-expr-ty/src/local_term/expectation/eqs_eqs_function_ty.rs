@@ -102,7 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
         match expectee.term() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
-            Term::Entity(_) => todo!(),
+            Term::EntityPath(_) => todo!(),
             Term::Category(_) => Some(LocalTermExpectationEffect {
                 // ad hoc
                 result: Err(todo!()),

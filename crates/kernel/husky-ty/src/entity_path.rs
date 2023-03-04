@@ -3,6 +3,16 @@ use salsa::assert_eq_with_db;
 use crate::*;
 
 #[inline(always)]
+pub fn term_entity_path_ty(db: &dyn TypeDb, path: TermEntityPath) -> TypeResult<ReducedTerm> {
+    match path {
+        TermEntityPath::Form(_) => todo!(),
+        TermEntityPath::Trait(_) => todo!(),
+        TermEntityPath::TypeOntology(_) => todo!(),
+        TermEntityPath::TypeConstructor(_) => todo!(),
+    }
+}
+
+#[inline(always)]
 pub fn entity_path_ty(
     db: &dyn TypeDb,
     disambiguation: TypePathDisambiguation,
