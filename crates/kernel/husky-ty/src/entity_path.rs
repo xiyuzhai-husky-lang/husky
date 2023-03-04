@@ -206,7 +206,7 @@ pub fn ty_path_ty(
     match disambiguation {
         TypePathDisambiguation::TypeItselfOrTemplate => Ok(curry_from_implicit_parameter_tys(
             db,
-            TermCurryKind::Explicit,
+            CurryKind::Explicit,
             variances,
             signature.implicit_parameters(db),
             term_menu.ty0().into(),
@@ -231,7 +231,7 @@ pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Reduc
     };
     Ok(curry_from_implicit_parameter_tys(
         db,
-        TermCurryKind::Explicit,
+        CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         term_menu.trai_ty().into(),
@@ -276,7 +276,7 @@ pub(crate) fn function_entity_ty(
     let return_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameter_tys(
         db,
-        TermCurryKind::Implicit,
+        CurryKind::Implicit,
         variances,
         signature.implicit_parameters(db),
         TermRitchie::new(db, TermRitchieKind::Fp, param_tys, return_ty).into(),
@@ -293,7 +293,7 @@ pub(crate) fn feature_entity_ty(
 
 fn curry_from_implicit_parameter_tys(
     db: &dyn TypeDb,
-    term_curry_kind: TermCurryKind,
+    term_curry_kind: CurryKind,
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],
     mut term: Term,

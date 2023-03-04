@@ -35,7 +35,7 @@ impl ValidTermMenu2 {
             .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: ValidTermCurry::new(
                 db,
-                ValidTermCurryKind::Explicit,
+                ValidCurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),
@@ -43,7 +43,7 @@ impl ValidTermMenu2 {
             ),
             ex_co_lifetime_to_ex_ct_ty0_to_ty0: ValidTermCurry::new(
                 db,
-                ValidTermCurryKind::Explicit,
+                ValidCurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),
@@ -51,7 +51,7 @@ impl ValidTermMenu2 {
             ),
             ex_co_lifetime_to_ex_inv_ty0_to_ty0: ValidTermCurry::new(
                 db,
-                ValidTermCurryKind::Explicit,
+                ValidCurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),

@@ -29,15 +29,7 @@ pub(crate) fn entity_ty_field_ty(
     ty_path: TypePath,
     ident: Identifier,
 ) -> TypeResult<Option<ReducedTerm>> {
-    let decl = match db.ty_decl(ty_path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let signature = match db.ty_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
-    };
-    Err(OriginalTypeError::Todo.into())
+    todo!()
 }
 
 #[salsa::tracked(jar = TypeJar)]
@@ -76,13 +68,5 @@ fn entity_application_ty_field_ty(
     arguments: &[Term],
     ident: Identifier,
 ) -> TypeResult<Option<ReducedTerm>> {
-    let decl = match db.ty_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let signature = match db.ty_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
-    };
     todo!()
 }

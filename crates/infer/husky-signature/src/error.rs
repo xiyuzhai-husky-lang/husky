@@ -6,10 +6,10 @@ use std::convert::Infallible;
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum SignatureError {
-    TermError,
-    ParameterTypeTermError(u8),
-    FieldTypeTermError(u8),
-    OutputTypeTermError,
+    RawTermError,
+    ParameterTypeRawTermError(u8),
+    FieldTypeRawTermError(u8),
+    OutputTypeRawTermError,
     // derived
     DeclError,
     DeclExprError,

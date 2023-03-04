@@ -39,7 +39,7 @@ impl TermMenu1 {
             .into(),
             explicit_invariant_ty0_to_trai_ty: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),
@@ -47,7 +47,7 @@ impl TermMenu1 {
             ),
             explicit_covariant_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu0.ty0().into(),
@@ -55,7 +55,7 @@ impl TermMenu1 {
             ),
             explicit_contravariant_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Contravariant,
                 None,
                 menu0.ty0().into(),
@@ -63,7 +63,7 @@ impl TermMenu1 {
             ),
             explicit_invariant_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),

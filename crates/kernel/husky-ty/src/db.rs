@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
+pub trait TypeDb: salsa::DbWithJar<TypeJar> + TermDb {
     fn ty_method_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
     fn field_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>>;
     fn reduced_term(&self, term: Term) -> ReducedTerm;
@@ -28,7 +28,7 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
 
 impl<Db> TypeDb for Db
 where
-    Db: salsa::DbWithJar<TypeJar> + SignatureDb,
+    Db: salsa::DbWithJar<TypeJar> + TermDb,
 {
     fn ty_method_ty(&self, ty: ReducedTerm, ident: Identifier) -> TypeResult<Option<ReducedTerm>> {
         ty_method_ty(self, ty, ident)

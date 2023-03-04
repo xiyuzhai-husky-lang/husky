@@ -25,7 +25,7 @@ impl TermMenu2 {
                 .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),
@@ -33,7 +33,7 @@ impl TermMenu2 {
             ),
             ex_co_lifetime_to_ex_ct_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),
@@ -41,7 +41,7 @@ impl TermMenu2 {
             ),
             ex_co_lifetime_to_ex_inv_ty0_to_ty0: TermCurry::new(
                 db,
-                TermCurryKind::Explicit,
+                CurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),

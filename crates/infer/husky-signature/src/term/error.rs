@@ -1,34 +1,34 @@
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureTermError {
-    Original(OriginalSignatureTermError),
-    Derived(DerivedSignatureTermError),
+pub enum SignatureRawTermError {
+    Original(OriginalSignatureRawTermError),
+    Derived(DerivedSignatureRawTermError),
 }
 
-impl From<OriginalSignatureTermError> for SignatureTermError {
-    fn from(v: OriginalSignatureTermError) -> Self {
+impl From<OriginalSignatureRawTermError> for SignatureRawTermError {
+    fn from(v: OriginalSignatureRawTermError) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedSignatureTermError> for SignatureTermError {
-    fn from(v: DerivedSignatureTermError) -> Self {
+impl From<DerivedSignatureRawTermError> for SignatureRawTermError {
+    fn from(v: DerivedSignatureRawTermError) -> Self {
         Self::Derived(v)
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalSignatureTermError {}
+pub enum OriginalSignatureRawTermError {}
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum DerivedSignatureTermError {
+pub enum DerivedSignatureRawTermError {
     InvalidEntityPath,
-    CannotInferFunctionTermInApplication,
-    CannotInferArgumentTermInApplication,
-    CannotInferOperandTermInPrefix,
+    CannotInferFunctionRawTermInApplication,
+    CannotInferArgumentRawTermInApplication,
+    CannotInferOperandRawTermInPrefix,
     ExprError,
-    TermAbortion,
-    CannotInferArgumentTermInBoxList,
+    RawTermAbortion,
+    CannotInferArgumentRawTermInBoxList,
 }
 
-pub type SignatureTermResult<T> = Result<T, SignatureTermError>;
-pub type SignatureTermResultBorrowed<'a, T> = Result<T, &'a SignatureTermError>;
+pub type SignatureRawTermResult<T> = Result<T, SignatureRawTermError>;
+pub type SignatureRawTermResultBorrowed<'a, T> = Result<T, &'a SignatureRawTermError>;

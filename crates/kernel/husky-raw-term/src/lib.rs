@@ -14,6 +14,7 @@ pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
+use husky_term_attrs::*;
 use husky_vfs::Toolchain;
 use husky_word::*;
 

@@ -21,6 +21,7 @@ pub use self::term::*;
 
 use husky_entity_path::EntityPath;
 use husky_print_utils::p;
+use husky_term_attrs::*;
 use husky_vfs::*;
 use husky_word::Identifier;
 

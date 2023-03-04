@@ -41,13 +41,5 @@ pub(crate) fn ty_path_ty_call_ty(
     path: TypePath,
     toolchain: Toolchain,
 ) -> TypeResult<ReducedTerm> {
-    let decl = match db.ty_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let signature = match db.ty_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
-    };
-    Err(OriginalTypeError::Todo.into())
+    todo!()
 }
