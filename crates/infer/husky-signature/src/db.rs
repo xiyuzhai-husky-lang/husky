@@ -3,7 +3,7 @@ use husky_expr::ExprRegion;
 use crate::*;
 
 pub trait SignatureDb: salsa::DbWithJar<SignatureJar> + DeclDb + RawTermDb {
-    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureRawTermRegion;
+    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureTermRegion;
     fn signature(&self, decl: Decl) -> SignatureResultRef<Signature>;
     fn ty_signature(&self, decl: TypeDecl) -> SignatureResultRef<TypeSignature>;
     fn trai_signature(&self, decl: TraitDecl) -> SignatureResultRef<TraitSignature>;
@@ -14,7 +14,7 @@ impl<Db> SignatureDb for Db
 where
     Db: salsa::DbWithJar<SignatureJar> + DeclDb + RawTermDb,
 {
-    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureRawTermRegion {
+    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureTermRegion {
         signature_term_region(self, expr_region)
     }
 

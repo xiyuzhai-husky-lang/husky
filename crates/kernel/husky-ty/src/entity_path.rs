@@ -191,75 +191,17 @@ pub fn ty_path_ty(
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> TypeResult<ReducedTerm> {
-    let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
-    let decl = match db.ty_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let signature = match db.ty_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
-    };
-    let Ok(variances) = ty_entity_variances(db, path) else {
-        todo!()
-    };
-    match disambiguation {
-        TypePathDisambiguation::TypeItselfOrTemplate => Ok(curry_from_implicit_parameter_tys(
-            db,
-            CurryKind::Explicit,
-            variances,
-            signature.implicit_parameters(db),
-            term_menu.ty0().into(),
-        )),
-        TypePathDisambiguation::InstanceOrConstructor => todo!(),
-    }
+    todo!()
 }
 
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<ReducedTerm> {
-    let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
-    let decl = match db.trai_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let Ok(variances) = trai_entity_variances(db, path) else {
-        todo!()
-    };
-    let signature = match db.trai_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => todo!(),
-    };
-    Ok(curry_from_implicit_parameter_tys(
-        db,
-        CurryKind::Explicit,
-        variances,
-        signature.implicit_parameters(db),
-        term_menu.trai_ty().into(),
-    ))
+    todo!()
 }
 
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn form_path_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<ReducedTerm> {
-    let decl = match db.form_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
-    };
-    let signature = match db.form_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
-    };
-    let Ok(variances) = form_entity_variances(db, path) else {
-        todo!()
-    };
-    let term_menu = db.term_menu(path.toolchain(db)).as_ref().unwrap();
-    match signature {
-        FormSignature::Function(signature) => {
-            function_entity_ty(db, variances, signature, term_menu)
-        }
-        FormSignature::Feature(signature) => feature_entity_ty(db, signature, term_menu),
-        FormSignature::Morphism(_) => todo!(),
-        FormSignature::Value(_) => todo!(),
-    }
+    todo!()
 }
 
 pub(crate) fn function_entity_ty(
@@ -268,19 +210,7 @@ pub(crate) fn function_entity_ty(
     signature: FunctionSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<ReducedTerm> {
-    let param_tys = signature
-        .parameters(db)
-        .iter()
-        .map(|param| TermRitchieParameter::new(param.ty()))
-        .collect();
-    let return_ty = signature.return_ty(db);
-    Ok(curry_from_implicit_parameter_tys(
-        db,
-        CurryKind::Implicit,
-        variances,
-        signature.implicit_parameters(db),
-        TermRitchie::new(db, TermRitchieKind::Fp, param_tys, return_ty).into(),
-    ))
+    todo!()
 }
 
 pub(crate) fn feature_entity_ty(
@@ -288,7 +218,7 @@ pub(crate) fn feature_entity_ty(
     signature: FeatureSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<ReducedTerm> {
-    Ok(calc_reduced_term(db, signature.return_ty(db)))
+    todo!()
 }
 
 fn curry_from_implicit_parameter_tys(
@@ -298,22 +228,5 @@ fn curry_from_implicit_parameter_tys(
     implicit_parameters: &[ImplicitParameterSignature],
     mut term: Term,
 ) -> ReducedTerm {
-    assert_eq!(variances.len(), implicit_parameters.len());
-    for (variance, implicit_parameter) in
-        std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
-    {
-        let symbol = implicit_parameter.symbol();
-        assert_eq!(symbol.ty(db), Ok(implicit_parameter.ty()));
-        let symbol = db.term_contains_symbol(term, symbol).then_some(symbol);
-        term = TermCurry::new(
-            db,
-            term_curry_kind,
-            *variance,
-            symbol,
-            implicit_parameter.ty(),
-            term,
-        )
-        .into()
-    }
-    calc_reduced_term(db, term)
+    todo!()
 }

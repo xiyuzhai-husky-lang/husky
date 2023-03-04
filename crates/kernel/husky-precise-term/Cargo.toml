@@ -28,8 +28,19 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
 [dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
-# fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-raw-term = { path = "../../kernel/husky-raw-term" }
+# infer
+husky-manifest = { path = "../../infer/husky-manifest" }
+husky-signature = { path = "../../infer/husky-signature" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-decl = { path = "../../syntax/husky-decl" }
+husky-expr = { path = "../../syntax/husky-expr" }

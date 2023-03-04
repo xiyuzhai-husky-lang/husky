@@ -11,7 +11,7 @@ pub trait PreciseTermDb: DbWithJar<PreciseTermJar> + RawTypeDb {
 
 impl<Db> PreciseTermDb for Db
 where
-    Db: DbWithJar<PreciseTermJar> + RawTermDb,
+    Db: DbWithJar<PreciseTermJar> + RawTypeDb,
 {
     fn precise_term_menu(&self, toolchain: Toolchain) -> &PreciseTermResult<PreciseTermMenu> {
         precise_term_menu(self, toolchain)
