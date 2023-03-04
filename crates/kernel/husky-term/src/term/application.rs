@@ -1,10 +1,24 @@
 use crate::*;
 use std::fmt::{Debug, Display};
 
+/// in husky, application is generalized to include composition as a special case;
+///
+/// when shift is `0`, this is the normal application;
+///
+/// when shift is `1`, this is composition,
+///
+/// in general when shift is `n`, this is equavalent to
+///
+/// use abstraction `n` times, and then apply original argument to them,
+///
+/// then apply function to the result,
+///
+/// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermApplication {
     pub function: Term,
     pub argument: Term,
+    pub shift: u8,
 }
 
 impl TermApplication {
@@ -51,7 +65,7 @@ impl TermRewriteCopy for TermApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        TermApplication::new(db, m, n)
+        TermApplication::new(db, m, n, self.shift(db))
     }
 }
 

@@ -6,7 +6,7 @@ use husky_entity_tree::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_print_utils::p;
 use husky_token::*;
-use husky_vfs::{CratePath};
+use husky_vfs::CratePath;
 use parsec::*;
 use salsa::DebugWithDb;
 use vec_like::{VecMapGetEntry, VecPairMap};
@@ -171,14 +171,13 @@ impl<'a> DeclParser<'a> {
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
-        let implicit_parameters = ctx.parse() ;
+        let implicit_parameters = ctx.parse();
         Ok(EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
     }
 
@@ -187,7 +186,7 @@ None,
         let Some(entity_symbol) = self
             .module_entity_tree
             .module_symbols()
-            .resolve_ident(ident) 
+            .resolve_ident(ident)
             else {
                 use salsa::DisplayWithDb;
                 panic!(r#"
@@ -225,10 +224,9 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
@@ -255,10 +253,9 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
@@ -282,17 +279,16 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse();
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
-            let field_comma_list = parse_separated_list(&mut ctx) ;
-            let rcurl= ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace) ;
+            let field_comma_list = parse_separated_list(&mut ctx);
+            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace);
             Ok(RegularStructTypeDecl::new(
                 self.db,
                 path,
@@ -300,7 +296,7 @@ None,
                 parser.finish(),
                 implicit_parameters,
                 lcurl,
-                field_comma_list, 
+                field_comma_list,
                 rcurl,
             )
             .into())
@@ -346,10 +342,9 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
@@ -378,15 +373,17 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameters = ctx.parse();
-        Ok(ExternTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
+        Ok(
+            ExternTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
+                .into(),
+        )
     }
 
     fn parse_form_decl(&self, path: FormPath) -> DeclResult<FormDecl> {
@@ -454,10 +451,9 @@ None,
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
@@ -488,15 +484,15 @@ None,
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
-None,
+            None,
             self.token_sheet_data
                 .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
         );
         let implicit_parameter_decl_list = ctx.parse();
-        let parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
+        let parameter_decl_list =
+            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -542,7 +538,6 @@ None,
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
-            
         );
         let mut ctx = parser.ctx(
             None,
@@ -639,7 +634,6 @@ None,
             Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
-            
         );
         let mut ctx = parser.ctx(
             None,
@@ -652,7 +646,8 @@ None,
             None => None,
             _ => unreachable!(),
         };
-        let  parameter_decl_list  = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList) ;
+        let parameter_decl_list =
+            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -685,7 +680,6 @@ None,
             Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
-            
         );
         let mut ctx = parser.ctx(
             None,
@@ -730,7 +724,7 @@ None,
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
             Some(impl_decl.expr_region(self.db)),
             AllowSelfType::True,
-            AllowSelfValue::True, 
+            AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(
             None,
@@ -743,7 +737,8 @@ None,
             None => None,
             _ => unreachable!(),
         };
-        let parameter_decl_list = ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
+        let parameter_decl_list =
+            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);

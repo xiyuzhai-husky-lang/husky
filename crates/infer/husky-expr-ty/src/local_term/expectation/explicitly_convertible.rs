@@ -7,16 +7,6 @@ pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
-impl const ProvideEntityPathTypeExpectation for ExpectExplicitlyConvertible {
-    fn entity_path_ty_expectation(
-        &self,
-        db: &dyn ExprTypeDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> EntityPathTypeExpectation {
-        todo!()
-    }
-}
-
 impl ExpectExplicitlyConvertible {
     pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
         &self,

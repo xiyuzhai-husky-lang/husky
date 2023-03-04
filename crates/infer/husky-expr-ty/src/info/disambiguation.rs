@@ -1,9 +1,12 @@
+use husky_ty::TypePathDisambiguation;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum ExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
     UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
     ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
+    TypePath(TypePathDisambiguation),
     List(ListExprDisambiguation),
     Trivial,
 }

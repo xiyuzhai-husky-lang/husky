@@ -1048,7 +1048,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i8`, `Extern`),
@@ -1209,7 +1209,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::i8`, `Extern`),
@@ -1285,7 +1285,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::i8`, `Extern`),
@@ -1412,7 +1412,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::i8`, `Extern`),
@@ -1488,7 +1488,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::i8`, `Extern`),
@@ -1702,7 +1702,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i16`, `Extern`),
@@ -1863,7 +1863,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::i16`, `Extern`),
@@ -1939,7 +1939,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::i16`, `Extern`),
@@ -2066,7 +2066,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::i16`, `Extern`),
@@ -2142,7 +2142,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::i16`, `Extern`),
@@ -2356,7 +2356,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i32`, `Extern`),
@@ -2517,7 +2517,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::i32`, `Extern`),
@@ -2593,7 +2593,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::i32`, `Extern`),
@@ -2720,7 +2720,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::i32`, `Extern`),
@@ -2796,7 +2796,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::i32`, `Extern`),
@@ -3010,7 +3010,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i64`, `Extern`),
@@ -3171,7 +3171,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::i64`, `Extern`),
@@ -3247,7 +3247,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::i64`, `Extern`),
@@ -3374,7 +3374,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::i64`, `Extern`),
@@ -3450,7 +3450,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::i64`, `Extern`),
@@ -3664,7 +3664,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::i128`, `Extern`),
@@ -3825,7 +3825,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::i128`, `Extern`),
@@ -3901,7 +3901,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::i128`, `Extern`),
@@ -4028,7 +4028,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::i128`, `Extern`),
@@ -4104,7 +4104,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::i128`, `Extern`),
@@ -4318,7 +4318,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::isize`, `Extern`),
@@ -4479,7 +4479,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::isize`, `Extern`),
@@ -4555,7 +4555,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::isize`, `Extern`),
@@ -4682,7 +4682,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::isize`, `Extern`),
@@ -4758,7 +4758,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::isize`, `Extern`),
@@ -4972,7 +4972,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::u8`, `Extern`),
@@ -5133,7 +5133,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::u8`, `Extern`),
@@ -5209,7 +5209,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::u8`, `Extern`),
@@ -5336,7 +5336,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::u8`, `Extern`),
@@ -5412,7 +5412,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::u8`, `Extern`),
@@ -5626,7 +5626,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::u16`, `Extern`),
@@ -5787,7 +5787,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::u16`, `Extern`),
@@ -5863,7 +5863,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::u16`, `Extern`),
@@ -5990,7 +5990,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::u16`, `Extern`),
@@ -6066,7 +6066,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::u16`, `Extern`),
@@ -6280,7 +6280,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::u32`, `Extern`),
@@ -6441,7 +6441,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::u32`, `Extern`),
@@ -6517,7 +6517,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::u32`, `Extern`),
@@ -6644,7 +6644,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::u32`, `Extern`),
@@ -6720,7 +6720,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::u32`, `Extern`),
@@ -6934,7 +6934,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::u64`, `Extern`),
@@ -7095,7 +7095,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::u64`, `Extern`),
@@ -7171,7 +7171,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::u64`, `Extern`),
@@ -7298,7 +7298,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::u64`, `Extern`),
@@ -7374,7 +7374,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::u64`, `Extern`),
@@ -7588,7 +7588,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::u128`, `Extern`),
@@ -7749,7 +7749,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::u128`, `Extern`),
@@ -7825,7 +7825,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::u128`, `Extern`),
@@ -7952,7 +7952,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::u128`, `Extern`),
@@ -8028,7 +8028,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::u128`, `Extern`),
@@ -8242,7 +8242,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::usize`, `Extern`),
@@ -8403,7 +8403,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::usize`, `Extern`),
@@ -8479,7 +8479,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::usize`, `Extern`),
@@ -8606,7 +8606,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::usize`, `Extern`),
@@ -8682,7 +8682,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::usize`, `Extern`),
@@ -8896,7 +8896,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -9057,7 +9057,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::f32`, `Extern`),
@@ -9133,7 +9133,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::f32`, `Extern`),
@@ -9260,7 +9260,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::f32`, `Extern`),
@@ -9336,7 +9336,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::f32`, `Extern`),
@@ -9550,7 +9550,7 @@ Ok(
                                             data: [
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
-                                                    entity_path: Some(
+                                                    path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`core::num::f64`, `Extern`),
@@ -9711,7 +9711,7 @@ Ok(
                                                                 data: [
                                                                     Expr::EntityPath {
                                                                         entity_path_expr: 0,
-                                                                        entity_path: Some(
+                                                                        path: Some(
                                                                             EntityPath::ModuleItem(
                                                                                 ModuleItemPath::Type(
                                                                                     TypePath(`core::num::f64`, `Extern`),
@@ -9787,7 +9787,7 @@ Ok(
                                                     data: [
                                                         Expr::EntityPath {
                                                             entity_path_expr: 0,
-                                                            entity_path: Some(
+                                                            path: Some(
                                                                 EntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
                                                                         TypePath(`core::num::f64`, `Extern`),
@@ -9914,7 +9914,7 @@ Ok(
                                                                         data: [
                                                                             Expr::EntityPath {
                                                                                 entity_path_expr: 0,
-                                                                                entity_path: Some(
+                                                                                path: Some(
                                                                                     EntityPath::ModuleItem(
                                                                                         ModuleItemPath::Type(
                                                                                             TypePath(`core::num::f64`, `Extern`),
@@ -9990,7 +9990,7 @@ Ok(
                                                             data: [
                                                                 Expr::EntityPath {
                                                                     entity_path_expr: 0,
-                                                                    entity_path: Some(
+                                                                    path: Some(
                                                                         EntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
                                                                                 TypePath(`core::num::f64`, `Extern`),

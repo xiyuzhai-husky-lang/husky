@@ -4,7 +4,7 @@ use husky_vfs::Toolchain;
 #[inline(always)]
 pub fn term_ty(
     db: &dyn TypeDb,
-    context: EntityPathTypeExpectation,
+    disambiguation: TypePathDisambiguation,
     reduced_term: ReducedTerm,
     toolchain: Toolchain,
     reduced_term_menu: ReducedTermMenu,
@@ -12,7 +12,7 @@ pub fn term_ty(
     match reduced_term.term() {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Entity(path) => entity_path_ty(db, context, path),
+        Term::Entity(path) => entity_path_ty(db, disambiguation, path),
         Term::Category(cat) => cat
             .ty()
             .map(Into::into)
@@ -26,7 +26,6 @@ pub fn term_ty(
         }),
         Term::Abstraction(_) => todo!(),
         Term::Application(term) => application_term_ty(db, term),
-        Term::Composition(_) => todo!(),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

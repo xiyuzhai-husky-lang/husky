@@ -44,7 +44,11 @@ fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<R
         .map(|path| {
             (
                 path.into(),
-                entity_path_ty(db, EntityPathTypeExpectation::Any, path.into()),
+                entity_path_ty(
+                    db,
+                    TypePathDisambiguation::TypeItselfOrTemplate,
+                    path.into(),
+                ),
             )
         })
         .collect()

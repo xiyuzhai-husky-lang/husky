@@ -220,7 +220,7 @@ impl<'a> ExprRangeCalculator<'a> {
             Expr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             Expr::EntityPath {
                 entity_path_expr,
-                entity_path,
+                path: entity_path,
             } => self[*entity_path_expr],
             Expr::Be {
                 src,

@@ -25,7 +25,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
                 entity_path_expr,
-                entity_path,
+                path: entity_path,
             } => match entity_path {
                 Some(entity_path) => Ok(self.db.reduced_term(entity_path.into()).into()),
                 None => todo!(),

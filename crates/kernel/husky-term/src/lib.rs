@@ -31,7 +31,6 @@ pub struct TermJar(
     TermRitchie,
     TermAbstraction,
     TermApplication,
-    TermComposition,
     TermSubentity,
     TermAsTraitSubentity,
     TermTraitConstraint,

@@ -262,7 +262,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             self.parse_entity_path_expr(token_idx, ident, entity_path);
                         Expr::EntityPath {
                             entity_path_expr,
-                            entity_path,
+                            path: entity_path,
                         }
                     }
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
