@@ -19,23 +19,24 @@ mod symbol;
 mod tests;
 mod utils;
 
-pub use associated_item::*;
-pub use associated_item::*;
-pub use bundle::*;
-pub use db::EntityTreeDb;
-pub use error::EntityTreeError;
-pub use error::*;
-pub use expr::*;
-pub use im::*;
-pub use prelude::*;
-pub use presheet::*;
-pub use region_path::*;
-pub use sheet::*;
-pub use submodule::*;
-pub use symbol::*;
+pub use self::associated_item::*;
+pub use self::bundle::*;
+pub use self::db::EntityTreeDb;
+pub use self::error::*;
+pub use self::expr::*;
+pub use self::im::*;
+pub use self::prelude::*;
+pub use self::presheet::*;
+pub use self::region_path::*;
+pub use self::sheet::*;
+pub use self::submodule::*;
+pub use self::symbol::*;
 
-use collector::*;
-use context::*;
+use self::collector::*;
+use self::context::*;
+use self::subentity::*;
+#[cfg(test)]
+use self::tests::*;
 use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
@@ -45,9 +46,6 @@ use husky_vfs::*;
 use husky_word::{Identifier, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
-use subentity::*;
-#[cfg(test)]
-use tests::*;
 use vec_like::{AsVecMapEntry, VecMap};
 
 #[salsa::jar(db = EntityTreeDb)]

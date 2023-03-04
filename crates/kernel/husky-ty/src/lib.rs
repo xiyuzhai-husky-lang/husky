@@ -12,7 +12,6 @@ mod term;
 #[cfg(test)]
 mod tests;
 mod ty_call;
-mod variance;
 
 pub use self::db::*;
 pub use self::disambiguation::*;
@@ -21,33 +20,24 @@ pub use self::error::*;
 pub use self::intrinsic_ty::*;
 pub use self::term::*;
 
-use field::*;
+use self::field::*;
+use self::method::*;
+#[cfg(test)]
+use self::tests::*;
+use self::ty_call::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;
 use husky_term::*;
+use husky_term_attrs::*;
 use husky_vfs::Toolchain;
 use husky_word::*;
-use method::*;
-#[cfg(test)]
-use tests::*;
-use ty_call::*;
-use variance::*;
 
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar(
     ty_path_ty,
     trai_path_ty,
     form_path_ty,
-    ty_entity_variances,
-    ty_entity_variance_reprs,
-    ty_entity_variance_crate_dependencies,
-    trai_entity_variances,
-    trai_entity_variance_reprs,
-    trai_entity_variance_crate_dependencies,
-    form_entity_variances,
-    form_entity_variance_reprs,
-    form_entity_variance_crate_dependencies,
     application_expansion_salsa,
     ApplicationArguments,
     entity_ty_method_ty,

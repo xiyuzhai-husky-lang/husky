@@ -5,7 +5,7 @@ use husky_entity_path::EntityPathDb;
 use husky_raw_term::RawTermDb;
 use salsa::DbWithJar;
 
-pub trait PreciseTermDb: DbWithJar<PreciseTermJar> + RawTermDb {
+pub trait PreciseTermDb: DbWithJar<PreciseTermJar> + RawTypeDb {
     fn precise_term_menu(&self, toolchain: Toolchain) -> &PreciseTermResult<PreciseTermMenu>;
 }
 

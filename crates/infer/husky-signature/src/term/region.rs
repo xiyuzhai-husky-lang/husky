@@ -3,17 +3,17 @@ use husky_entity_tree::RegionPath;
 use husky_expr::{CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SignatureTermRegion {
+pub struct SignatureRawTermRegion {
     path: RegionPath,
-    term_symbol_region: TermSymbolRegion,
-    expr_terms: ExprMap<SignatureTermResult<Term>>,
+    term_symbol_region: RawTermSymbolRegion,
+    expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
 }
 
-impl SignatureTermRegion {
+impl SignatureRawTermRegion {
     pub fn new(
         path: RegionPath,
-        term_symbol_region: TermSymbolRegion,
-        expr_terms: ExprMap<SignatureTermResult<Term>>,
+        term_symbol_region: RawTermSymbolRegion,
+        expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
     ) -> Self {
         Self {
             path,
@@ -22,16 +22,19 @@ impl SignatureTermRegion {
         }
     }
 
-    pub fn term_symbol_region(&self) -> &TermSymbolRegion {
+    pub fn term_symbol_region(&self) -> &RawTermSymbolRegion {
         &self.term_symbol_region
     }
 
-    pub fn current_symbol_term(&self, current_symbol_idx: CurrentSymbolIdx) -> Option<TermSymbol> {
+    pub fn current_symbol_term(
+        &self,
+        current_symbol_idx: CurrentSymbolIdx,
+    ) -> Option<RawTermSymbol> {
         self.term_symbol_region
             .current_symbol_term(current_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: ExprIdx) -> SignatureTermResultBorrowed<Term> {
+    pub fn expr_term(&self, expr: ExprIdx) -> SignatureRawTermResultBorrowed<RawTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 
@@ -44,10 +47,10 @@ impl SignatureTermRegion {
 pub(crate) fn signature_term_region(
     db: &dyn SignatureDb,
     expr_region: ExprRegion,
-) -> SignatureTermRegion {
+) -> SignatureRawTermRegion {
     let expr_region_data = expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
         parent_expr_region.map(|r| signature_term_region(db, r).term_symbol_region());
-    SignatureTermEngine::new(db, expr_region, parent_term_symbol_region).finish()
+    SignatureRawTermEngine::new(db, expr_region, parent_term_symbol_region).finish()
 }

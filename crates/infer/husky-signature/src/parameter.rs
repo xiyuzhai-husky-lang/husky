@@ -6,16 +6,16 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignature {
     annotated_variance: Option<Variance>,
-    symbol: TermSymbol,
-    ty: Term,
-    traits: Vec<Term>,
+    symbol: RawTermSymbol,
+    ty: RawTerm,
+    traits: Vec<RawTerm>,
 }
 
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
-        region: &SignatureTermRegion,
-        term_menu: &TermMenu,
+        region: &SignatureRawTermRegion,
+        raw_term_menu: &RawTermMenu,
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
         let symbol = pattern.symbol();
@@ -28,7 +28,7 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
                     symbol: region.current_symbol_term(symbol).expect("not none"),
-                    ty: term_menu.ty0().into(),
+                    ty: raw_term_menu.ty0().into(),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -38,7 +38,7 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
                 ImplicitParameterSignature {
                     symbol: region.current_symbol_term(symbol).expect("not none"),
-                    ty: term_menu.lifetime_ty().into(),
+                    ty: raw_term_menu.lifetime_ty().into(),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -48,15 +48,15 @@ impl ImplicitParameterSignature {
         }
     }
 
-    pub fn symbol(&self) -> TermSymbol {
+    pub fn symbol(&self) -> RawTermSymbol {
         self.symbol
     }
 
-    pub fn ty(&self) -> Term {
+    pub fn ty(&self) -> RawTerm {
         self.ty
     }
 
-    pub fn traits(&self) -> &[Term] {
+    pub fn traits(&self) -> &[RawTerm] {
         self.traits.as_ref()
     }
 
@@ -73,8 +73,8 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
-        signature_term_region: &SignatureTermRegion,
-        term_menu: &TermMenu,
+        signature_term_region: &SignatureRawTermRegion,
+        raw_term_menu: &RawTermMenu,
     ) -> Self {
         Self {
             data: implicit_parameters
@@ -83,7 +83,7 @@ impl ImplicitParameterSignatures {
                     ImplicitParameterSignature::from_decl(
                         parameter,
                         signature_term_region,
-                        term_menu,
+                        raw_term_menu,
                     )
                 })
                 .collect(),
@@ -106,11 +106,11 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ParameterSignature {
     pattern: ParameterSignaturePattern,
-    ty: Term,
+    ty: RawTerm,
 }
 
 impl ParameterSignature {
-    pub fn ty(&self) -> Term {
+    pub fn ty(&self) -> RawTerm {
         self.ty
     }
 }
@@ -134,7 +134,7 @@ impl std::ops::Deref for RegularParameterSignatures {
 impl RegularParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[ExplicitParameterDeclPattern],
-        sheet: &SignatureTermRegion,
+        sheet: &SignatureRawTermRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {
             parameters: parameters
@@ -145,7 +145,7 @@ impl RegularParameterSignatures {
                     let ty = match sheet.expr_term(ty) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(SignatureError::ParameterTypeTermError(
+                            return Err(SignatureError::ParameterTypeRawTermError(
                                 i.try_into().unwrap(),
                             ))
                         }

@@ -7,10 +7,12 @@ edition = "2021"
 [dependencies]
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstraction/enum-class" }
 # kernel
-husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-term-attrs = { path = "../../kernel/husky-term-attrs" }
+husky-raw-term = { path = "../../kernel/husky-raw-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
@@ -25,9 +27,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # kernel
-husky-raw-term = { path = "../../kernel/husky-raw-term" }
-husky-precise-term = { path = "../../kernel/husky-precise-term" }
-husky-valid-term = { path = "../../kernel/husky-valid-term" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # syntax

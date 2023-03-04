@@ -170,7 +170,7 @@ impl<'a> ExprTypeEngine<'a> {
             ));
             match expectee.return_ty(self.db()) {
                 Term::Curry(new_expectee)
-                    if new_expectee.curry_kind(self.db()) == TermCurryKind::Implicit =>
+                    if new_expectee.curry_kind(self.db()) == CurryKind::Implicit =>
                 {
                     expectee = new_expectee
                 }

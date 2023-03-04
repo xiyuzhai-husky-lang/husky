@@ -8,12 +8,15 @@ pub(crate) fn ty_method_signature(
     let im = decl.associated_item(db).im(db);
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
-    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db
+        .raw_term_menu(expr_region.toolchain(db))
+        .as_ref()
+        .unwrap();
 
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db)?,
         signature_term_region,
-        term_menu,
+        raw_term_menu,
     );
 
     let parameters =
@@ -23,7 +26,7 @@ pub(crate) fn ty_method_signature(
             Ok(return_ty) => return_ty,
             Err(_) => todo!(),
         },
-        Err(_) => todo!(), //  Err(SignatureTermAbortion::ExprError),
+        Err(_) => todo!(), //  Err(SignatureRawTermAbortion::ExprError),
     };
     Ok(TypeMethodSignature::new(
         db,
@@ -39,5 +42,5 @@ pub struct TypeMethodSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub parameters: RegularParameterSignatures,
-    pub return_ty: Term,
+    pub return_ty: RawTerm,
 }

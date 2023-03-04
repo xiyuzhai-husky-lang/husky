@@ -7,15 +7,16 @@ mod term;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use error::*;
-pub use parameter::*;
-pub use signature::*;
-pub use term::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::parameter::*;
+pub use self::signature::*;
+pub use self::term::*;
 
 use husky_decl::*;
 use husky_entity_path::*;
-use husky_term::*;
+use husky_raw_term::*;
+use husky_term_attrs::*;
 use husky_word::*;
 
 #[cfg(test)]
@@ -23,6 +24,8 @@ use tests::*;
 
 #[salsa::jar(db = SignatureDb)]
 pub struct SignatureJar(
+    SignatureRawTermApplication,
+    SignatureRawTermCurry,
     signature_term_region,
     // type
     enum_ty_signature,

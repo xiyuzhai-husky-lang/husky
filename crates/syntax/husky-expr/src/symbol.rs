@@ -6,7 +6,6 @@ pub use region::*;
 
 use crate::*;
 use husky_entity_tree::{CrateSymbolContext, ModuleSymbolContext, PreludeResult};
-use husky_term::Term;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]

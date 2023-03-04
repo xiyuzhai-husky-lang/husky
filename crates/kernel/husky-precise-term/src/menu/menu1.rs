@@ -41,7 +41,7 @@ impl PreciseTermMenu1 {
             .into(),
             explicit_invariant_ty0_to_trai_ty: PreciseTermCurry::new(
                 db,
-                PreciseTermCurryKind::Explicit,
+                PreciseCurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),
@@ -49,7 +49,7 @@ impl PreciseTermMenu1 {
             ),
             explicit_covariant_ty0_to_ty0: PreciseTermCurry::new(
                 db,
-                PreciseTermCurryKind::Explicit,
+                PreciseCurryKind::Explicit,
                 Variance::Covariant,
                 None,
                 menu0.ty0().into(),
@@ -57,7 +57,7 @@ impl PreciseTermMenu1 {
             ),
             explicit_contravariant_ty0_to_ty0: PreciseTermCurry::new(
                 db,
-                PreciseTermCurryKind::Explicit,
+                PreciseCurryKind::Explicit,
                 Variance::Contravariant,
                 None,
                 menu0.ty0().into(),
@@ -65,7 +65,7 @@ impl PreciseTermMenu1 {
             ),
             explicit_invariant_ty0_to_ty0: PreciseTermCurry::new(
                 db,
-                PreciseTermCurryKind::Explicit,
+                PreciseCurryKind::Explicit,
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),

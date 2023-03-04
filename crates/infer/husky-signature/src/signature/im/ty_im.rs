@@ -9,11 +9,14 @@ pub(crate) fn ty_im_signature(
 ) -> SignatureResult<TypeImplSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
-    let term_menu = db.term_menu(expr_region.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db
+        .raw_term_menu(expr_region.toolchain(db))
+        .as_ref()
+        .unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db)?,
         &signature_term_region,
-        term_menu,
+        raw_term_menu,
     );
     let ty = decl.ty(db);
     let ty = match signature_term_region.expr_term(ty.expr()) {
@@ -25,7 +28,7 @@ pub(crate) fn ty_im_signature(
         ImplicitParameterSignatures::from_decl(
             decl.implicit_parameters(db)?,
             signature_term_region,
-            term_menu,
+            raw_term_menu,
         ),
         ty,
     ))
@@ -35,5 +38,5 @@ pub(crate) fn ty_im_signature(
 pub struct TypeImplSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
-    pub ty: Term,
+    pub ty: RawTerm,
 }
