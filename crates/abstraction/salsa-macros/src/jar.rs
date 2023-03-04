@@ -46,7 +46,7 @@ impl crate::options::AllowedOptions for Jar {
 
     const LRU: bool = false;
 
-    const CONSTRUCTOR_NAME: bool = false;
+    const CONSTRUCTOR: bool = false;
 
     const OVERRIDE_DEBUG: bool = true;
 }

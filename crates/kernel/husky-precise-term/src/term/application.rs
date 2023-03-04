@@ -14,7 +14,7 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
+#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_unchecked)]
 pub struct PreciseTermApplication {
     pub function: PreciseTerm,
     pub argument: PreciseTerm,
@@ -22,6 +22,15 @@ pub struct PreciseTermApplication {
 }
 
 impl PreciseTermApplication {
+    pub fn new(
+        db: &dyn PreciseTermDb,
+        function: PreciseTerm,
+        argument: PreciseTerm,
+        shift: u8,
+    ) -> PreciseTermResult<Self> {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -70,6 +79,7 @@ impl PreciseTermRewriteCopy for PreciseTermApplication {
             return self;
         }
         PreciseTermApplication::new(db, m, n, self.shift(db))
+            .expect("substitution shouldn't return Err")
     }
 }
 

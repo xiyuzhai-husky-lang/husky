@@ -1,5 +1,5 @@
 [package]
-name = "husky-precise-precise_term"
+name = "husky-precise-term"
 version = "0.1.0"
 edition = "2021"
 
@@ -29,3 +29,5 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }

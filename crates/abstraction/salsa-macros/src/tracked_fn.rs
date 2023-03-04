@@ -77,7 +77,7 @@ impl crate::options::AllowedOptions for TrackedFn {
 
     const LRU: bool = true;
 
-    const CONSTRUCTOR_NAME: bool = false;
+    const CONSTRUCTOR: bool = false;
 
     const OVERRIDE_DEBUG: bool = false;
 }
@@ -179,7 +179,7 @@ impl crate::options::AllowedOptions for TrackedImpl {
 
     const LRU: bool = false;
 
-    const CONSTRUCTOR_NAME: bool = false;
+    const CONSTRUCTOR: bool = false;
 
     const SINGLETON: bool = false;
 

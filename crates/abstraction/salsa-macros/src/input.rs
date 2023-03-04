@@ -46,7 +46,7 @@ impl crate::options::AllowedOptions for InputStruct {
 
     const LRU: bool = false;
 
-    const CONSTRUCTOR_NAME: bool = true;
+    const CONSTRUCTOR: bool = true;
 
     const OVERRIDE_DEBUG: bool = true;
 }
