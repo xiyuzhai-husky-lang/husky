@@ -22,6 +22,8 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + SignatureDb {
         path: TypePath,
         disambiguation: TypePathDisambiguation,
     ) -> TypeResult<ReducedTerm>;
+    fn trai_path_ty(&self, trai_path: TraitPath) -> TypeResult<ReducedTerm>;
+    fn form_path_ty(&self, form_path: FormPath) -> TypeResult<ReducedTerm>;
 }
 
 impl<Db> TypeDb for Db
@@ -76,5 +78,13 @@ where
         disambiguation: TypePathDisambiguation,
     ) -> TypeResult<ReducedTerm> {
         ty_path_ty(self, path, disambiguation)
+    }
+
+    fn trai_path_ty(&self, trai_path: TraitPath) -> TypeResult<ReducedTerm> {
+        trai_path_ty(self, trai_path)
+    }
+
+    fn form_path_ty(&self, form_path: FormPath) -> TypeResult<ReducedTerm> {
+        form_path_ty(self, form_path)
     }
 }
