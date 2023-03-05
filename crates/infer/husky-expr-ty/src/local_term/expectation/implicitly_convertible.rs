@@ -167,17 +167,15 @@ impl<'a> ExprTypeEngine<'a> {
                 .into()),
                 actions: vec![],
             }),
-            expectee if expectee == self.reduced_term_menu().never() => {
-                Some(LocalTermExpectationEffect {
-                    result: Ok(ExpectImplicitlyConvertibleOutcome {
-                        implicit_conversion: ImplicitConversion::Never,
-                        expectee: expectee.into(),
-                        destination: destination.into(),
-                    }
-                    .into()),
-                    actions: vec![],
-                })
-            }
+            expectee if expectee == self.term_menu().never() => Some(LocalTermExpectationEffect {
+                result: Ok(ExpectImplicitlyConvertibleOutcome {
+                    implicit_conversion: ImplicitConversion::Never,
+                    expectee: expectee.into(),
+                    destination: destination.into(),
+                }
+                .into()),
+                actions: vec![],
+            }),
             _ => Some(LocalTermExpectationEffect {
                 result: Err(todo!()),
                 actions: vec![],

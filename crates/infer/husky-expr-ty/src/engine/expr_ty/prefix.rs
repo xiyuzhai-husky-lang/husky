@@ -46,7 +46,7 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region,
                 );
                 // here we differs from Rust, but agrees with C
-                Ok(self.reduced_term_menu.bool().into())
+                Ok(self.term_menu.bool().into())
             }
             PrefixOpr::BitNot => {
                 match self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region) {

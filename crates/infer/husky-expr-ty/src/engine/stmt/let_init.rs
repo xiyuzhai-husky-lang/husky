@@ -48,9 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
         }
         match pattern_ty {
-            Some(ty) if ty == self.reduced_term_menu.never().into() => {
-                Some(self.reduced_term_menu.never().into())
-            }
+            Some(ty) if ty == self.term_menu.never().into() => Some(self.term_menu.never().into()),
             Some(ty) => {
                 match let_variable_pattern {
                     Ok(let_variable_pattern) => self.infer_pattern_and_symbols_ty(
@@ -60,9 +58,9 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     Err(_) => todo!(),
                 };
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
-            None => Some(self.reduced_term_menu.unit().into()),
+            None => Some(self.term_menu.unit().into()),
         }
     }
 }

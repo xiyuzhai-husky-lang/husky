@@ -212,7 +212,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.expect_implicitly_convertible_to_bool(),
             local_term_region,
         );
-        Ok(self.reduced_term_menu.bool().into())
+        Ok(self.term_menu.bool().into())
     }
 
     fn calc_ins_expr_ty(
@@ -242,7 +242,7 @@ impl<'a> ExprTypeEngine<'a> {
         //     }
         //     _ => todo!(),
         // }
-        Ok(self.reduced_term_menu.prop().into())
+        Ok(self.term_menu.prop().into())
     }
 
     fn calc_as_expr_ty(
@@ -298,7 +298,8 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Category(y_cat) => y_cat.universe(),
             _ => return Err(todo!()),
         };
-        Ok(Term::new_category(x_u.max(y_u)).into())
+        todo!()
+        // Ok(Term::new_category(x_u.max(y_u)).into())
     }
 
     fn calc_assign_expr_ty(
@@ -347,7 +348,7 @@ impl<'a> ExprTypeEngine<'a> {
         //         self.infer_new_expr_ty(ropd, LocalTermExpectation::None);
         //     }
         // };
-        Ok(self.reduced_term_menu.unit().into())
+        Ok(self.term_menu.unit().into())
     }
 
     fn infer_basic_assign_ropd_ty(

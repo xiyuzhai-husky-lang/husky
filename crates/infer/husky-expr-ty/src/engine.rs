@@ -153,4 +153,8 @@ impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn toolchain(&self) -> Toolchain {
         self.toolchain
     }
+
+    pub(crate) fn term_menu(&self) -> &TermMenu {
+        self.term_menu
+    }
 }

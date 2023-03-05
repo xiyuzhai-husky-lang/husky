@@ -98,7 +98,7 @@ impl<'a> ExprTypeEngine<'a> {
     #[inline(always)]
     pub(crate) fn expect_eqs_exactly_ty(&self) -> ExpectEqsExactly {
         ExpectEqsExactly {
-            destination: self.reduced_term_menu().ty0().into(),
+            destination: self.term_menu().ty0().into(),
         }
     }
 }
