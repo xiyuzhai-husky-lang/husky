@@ -43,6 +43,18 @@ impl PreciseTermEntityPath {
     }
 }
 
+pub(super) fn precise_term_entity_path_raw_ty(
+    db: &dyn PreciseTermDb,
+    path: PreciseTermEntityPath,
+) -> RawTerm {
+    match path {
+        PreciseTermEntityPath::Form(_) => todo!(),
+        PreciseTermEntityPath::Trait(_) => todo!(),
+        PreciseTermEntityPath::TypeOntology(_) => todo!(),
+        PreciseTermEntityPath::TypeConstructor(_) => todo!(),
+    }
+}
+
 impl From<FormPath> for PreciseTermEntityPath {
     fn from(value: FormPath) -> Self {
         PreciseTermEntityPath::Form(value)

@@ -34,6 +34,7 @@ pub struct PreciseTermJar(
     PreciseTermRitchie,
     PreciseTermAbstraction,
     PreciseTermApplication,
+    precise_term_application_from_raw,
     PreciseTermSubentity,
     PreciseTermAsTraitSubentity,
     PreciseTermTraitConstraint,

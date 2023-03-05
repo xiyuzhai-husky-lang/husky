@@ -13,8 +13,8 @@ mod universe;
 
 use std::fmt::{Debug, Display};
 
-pub use self::abstraction::PreciseTermAbstraction;
-pub use self::application::PreciseTermApplication;
+pub use self::abstraction::*;
+pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::category::*;
 pub use self::constraint::*;
@@ -117,6 +117,27 @@ impl PreciseTerm {
                 PreciseTermTraitConstraint::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
         })
+    }
+
+    fn raw_ty(self, db: &dyn PreciseTermDb) -> RawTerm {
+        precise_term_raw_ty(db, self)
+    }
+}
+
+fn precise_term_raw_ty(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> RawTerm {
+    match precise_term {
+        PreciseTerm::Literal(_) => todo!(),
+        PreciseTerm::Symbol(_) => todo!(),
+        PreciseTerm::EntityPath(path) => precise_term_entity_path_raw_ty(db, path),
+        PreciseTerm::Category(_) => todo!(),
+        PreciseTerm::Universe(_) => todo!(),
+        PreciseTerm::Curry(_) => todo!(),
+        PreciseTerm::Ritchie(_) => todo!(),
+        PreciseTerm::Abstraction(_) => todo!(),
+        PreciseTerm::Application(_) => todo!(),
+        PreciseTerm::Subentity(_) => todo!(),
+        PreciseTerm::AsTraitSubentity(_) => todo!(),
+        PreciseTerm::TraitConstraint(_) => todo!(),
     }
 }
 

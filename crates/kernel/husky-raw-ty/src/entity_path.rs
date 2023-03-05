@@ -24,7 +24,12 @@ pub fn entity_path_raw_ty(
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_path_raw_ty(db, path, disambiguation),
+            ModuleItemPath::Type(path) => match disambiguation {
+                TypePathDisambiguation::TypeItselfOrTemplate => ty_ontology_path_raw_ty(db, path),
+                TypePathDisambiguation::InstanceOrConstructor => {
+                    ty_constructor_path_raw_ty(db, path)
+                }
+            },
             ModuleItemPath::Trait(path) => trai_path_raw_ty(db, path),
             ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
         },
@@ -188,11 +193,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_path_raw_ty(
-    db: &dyn RawTypeDb,
-    path: TypePath,
-    disambiguation: TypePathDisambiguation,
-) -> RawTypeResult<RawTerm> {
+pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -205,16 +206,30 @@ pub fn ty_path_raw_ty(
     let Ok(variances) = raw_ty_entity_variances(db, path) else {
         todo!()
     };
-    match disambiguation {
-        TypePathDisambiguation::TypeItselfOrTemplate => Ok(curry_from_implicit_parameter_raw_tys(
-            db,
-            CurryKind::Explicit,
-            variances,
-            signature.implicit_parameters(db),
-            raw_term_menu.ty0().into(),
-        )),
-        TypePathDisambiguation::InstanceOrConstructor => todo!(),
-    }
+    Ok(curry_from_implicit_parameter_raw_tys(
+        db,
+        CurryKind::Explicit,
+        variances,
+        signature.implicit_parameters(db),
+        raw_term_menu.ty0().into(),
+    ))
+}
+
+#[salsa::tracked(jar = RawTypeJar)]
+pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let decl = match db.ty_decl(path) {
+        Ok(decl) => decl,
+        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+    };
+    let signature = match db.ty_signature(decl) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
+    };
+    let Ok(variances) = raw_ty_entity_variances(db, path) else {
+        todo!()
+    };
+    todo!()
 }
 
 #[salsa::tracked(jar = RawTypeJar)]

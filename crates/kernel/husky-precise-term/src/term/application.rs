@@ -36,7 +36,7 @@ impl PreciseTermApplication {
         raw_term: RawTermApplication,
         raw_ty_expectation: TypeExpectation,
     ) -> PreciseTermResult<Self> {
-        todo!()
+        precise_term_application_from_raw(db, raw_term, raw_ty_expectation)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -49,6 +49,18 @@ impl PreciseTermApplication {
         f.write_str(" ")?;
         self.argument(db).show_with_db_fmt(f, db, ctx)
     }
+}
+
+#[salsa::tracked(jar = PreciseTermJar)]
+pub(crate) fn precise_term_application_from_raw(
+    db: &dyn PreciseTermDb,
+    raw_term_application: RawTermApplication,
+    raw_ty_expectation: TypeExpectation,
+) -> PreciseTermResult<PreciseTermApplication> {
+    let function =
+        PreciseTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
+    let function_raw_ty = function.raw_ty(db);
+    todo!()
 }
 
 impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplication {
