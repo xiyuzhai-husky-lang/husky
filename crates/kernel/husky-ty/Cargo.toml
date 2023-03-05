@@ -33,6 +33,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-precise-term = { path = "../../kernel/husky-precise-term" }
 husky-valid-term = { path = "../../kernel/husky-valid-term" }
+husky-precise-ty = { path = "../../kernel/husky-precise-ty" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # lex

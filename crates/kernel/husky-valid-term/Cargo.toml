@@ -20,6 +20,7 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-attrs = { path = "../../kernel/husky-term-attrs" }
 husky-precise-term = { path = "../../kernel/husky-precise-term" }
+husky-precise-ty = { path = "../../kernel/husky-precise-ty" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # utils

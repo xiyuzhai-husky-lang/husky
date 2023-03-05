@@ -1,14 +1,15 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+mod db;
+mod entity_path;
+mod error;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub use self::db::*;
+pub use self::entity_path::*;
+pub use self::error::*;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+use husky_entity_path::*;
+use husky_precise_term::*;
+use husky_ty_expectation::*;
+use husky_vfs::*;
+
+#[salsa::jar(db = PreciseTypeDb)]
+pub struct PreciseTypeJar(ty_path_precise_ty);

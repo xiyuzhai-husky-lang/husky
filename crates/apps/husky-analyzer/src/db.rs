@@ -14,6 +14,7 @@ use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
 use husky_precise_term::PreciseTermJar;
+use husky_precise_ty::PreciseTypeJar;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::RawTypeJar;
 use husky_rust_code_gen::RustTranspileJar;
@@ -44,7 +45,7 @@ use husky_word::WordJar;
     // kernel
     RawTermJar,
     RawTypeJar,
-    PreciseTermJar,
+    PreciseTermJar,PreciseTypeJar,
     ValidTermJar,
     ValidTypeJar,
     TermJar,
