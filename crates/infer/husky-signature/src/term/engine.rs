@@ -70,7 +70,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     ) -> Self {
         let toolchain = expr_region.toolchain(db);
         // ad hoc
-        let raw_term_menu = db.raw_term_menu(toolchain).as_ref().unwrap();
+        let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
         let expr_region_data = &expr_region.data(db);
         let mut this = Self {
             db,

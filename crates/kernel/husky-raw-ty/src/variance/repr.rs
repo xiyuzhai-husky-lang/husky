@@ -28,7 +28,7 @@ pub(crate) fn entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: EntityPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -52,7 +52,7 @@ pub(crate) fn raw_ty_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
@@ -100,7 +100,7 @@ pub(crate) fn trai_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),

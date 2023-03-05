@@ -31,4 +31,5 @@ impl From<&EntityPathError> for RawTermError {
 }
 
 pub type RawTermResult<T> = Result<T, RawTermError>;
+pub type RawTermResultRef<'a, T> = Result<T, &'a RawTermError>;
 pub type RawTermResultArc<T> = Result<Arc<T>, RawTermError>;

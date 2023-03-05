@@ -39,7 +39,7 @@ impl RawTermMenu {
     }
 }
 
-#[salsa::tracked(jar = RawTermJar,return_ref)]
+#[salsa::tracked(jar = RawTermJar, return_ref)]
 pub(crate) fn raw_term_menu(
     db: &dyn RawTermDb,
     toolchain: Toolchain,

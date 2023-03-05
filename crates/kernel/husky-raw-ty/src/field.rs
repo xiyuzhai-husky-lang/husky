@@ -2,10 +2,10 @@ use crate::*;
 
 pub(crate) fn field_raw_ty(
     db: &dyn RawTypeDb,
-    owner_raw_ty: ReducedRawTerm,
+    owner_raw_ty: RawTerm,
     ident: Identifier,
-) -> RawTypeResult<Option<ReducedRawTerm>> {
-    match owner_raw_ty.raw_term() {
+) -> RawTypeResult<Option<RawTerm>> {
+    match owner_raw_ty {
         RawTerm::Literal(_) => unreachable!(),
         RawTerm::Symbol(_) => Ok(None),
         RawTerm::EntityPath(path) => {
@@ -28,7 +28,7 @@ pub(crate) fn entity_raw_ty_field_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
     ident: Identifier,
-) -> RawTypeResult<Option<ReducedRawTerm>> {
+) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(raw_ty_path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
@@ -45,7 +45,7 @@ pub(crate) fn application_raw_ty_field_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty: RawTermApplication,
     ident: Identifier,
-) -> RawTypeResult<Option<ReducedRawTerm>> {
+) -> RawTypeResult<Option<RawTerm>> {
     use salsa::DebugWithDb;
     let application_expansion = application_expansion_salsa(db, raw_ty);
     let f = application_expansion.f();
@@ -75,7 +75,7 @@ fn entity_application_raw_ty_field_raw_ty(
     path: TypePath,
     arguments: &[RawTerm],
     ident: Identifier,
-) -> RawTypeResult<Option<ReducedRawTerm>> {
+) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),

@@ -7,10 +7,7 @@ pub fn feature_signature(
 ) -> SignatureResult<FeatureSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db
-        .raw_term_menu(expr_region.toolchain(db))
-        .as_ref()
-        .unwrap();
+    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     let return_ty = match decl.return_ty(db) {
         Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
             Ok(return_ty) => return_ty,

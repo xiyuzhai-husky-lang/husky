@@ -1,4 +1,6 @@
 use crate::*;
+use husky_raw_term::RawTermError;
+use husky_raw_ty::RawTypeError;
 use thiserror::Error;
 
 pub type PreciseTypeResult<T> = Result<T, PreciseTypeError>;
@@ -6,20 +8,20 @@ pub type PreciseTypeResult<T> = Result<T, PreciseTypeError>;
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum PreciseTypeError {
     #[error("original `{0}`")]
-    Original(OriginalPreciseTypeError),
+    Original(#[from] OriginalPreciseTypeError),
     #[error("derived `{0}`")]
-    Derived(DerivedPreciseTypeError),
+    Derived(#[from] DerivedPreciseTypeError),
 }
 
-impl From<OriginalPreciseTypeError> for PreciseTypeError {
-    fn from(v: OriginalPreciseTypeError) -> Self {
-        Self::Original(v)
+impl From<PreciseTermError> for PreciseTypeError {
+    fn from(value: PreciseTermError) -> Self {
+        todo!()
     }
 }
 
-impl From<DerivedPreciseTypeError> for PreciseTypeError {
-    fn from(v: DerivedPreciseTypeError) -> Self {
-        Self::Derived(v)
+impl From<RawTypeError> for PreciseTypeError {
+    fn from(value: RawTypeError) -> Self {
+        todo!()
     }
 }
 

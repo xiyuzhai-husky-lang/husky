@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod db;
 mod entity_path;
 mod error;

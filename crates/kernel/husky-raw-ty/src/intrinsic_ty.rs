@@ -1,16 +1,16 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct IntrinsicRawType(ReducedRawTerm);
+pub struct IntrinsicRawType(RawTerm);
 
 impl IntrinsicRawType {
-    pub fn reduced_raw_term(self) -> ReducedRawTerm {
+    pub fn reduced_raw_term(self) -> RawTerm {
         self.0
     }
 }
 
-pub(crate) fn intrinsic_raw_ty(db: &dyn RawTypeDb, raw_ty: ReducedRawTerm) -> IntrinsicRawType {
-    match raw_ty.raw_term() {
+pub(crate) fn intrinsic_raw_ty(db: &dyn RawTypeDb, raw_ty: RawTerm) -> IntrinsicRawType {
+    match raw_ty {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(_) => todo!(),
         RawTerm::Entiraw_tyPath(path) => match path {

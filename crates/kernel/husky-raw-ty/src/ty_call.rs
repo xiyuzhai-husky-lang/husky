@@ -2,11 +2,11 @@ use crate::*;
 
 pub(crate) fn raw_ty_call_raw_ty(
     db: &dyn RawTypeDb,
-    raw_ty_raw_term: ReducedRawTerm,
+    raw_ty_raw_term: RawTerm,
     toolchain: Toolchain,
-    reduced_raw_term_menu: ReducedRawTermMenu,
-) -> RawTypeResult<ReducedRawTerm> {
-    match raw_ty_raw_term.raw_term() {
+    reduced_raw_term_menu: RawTermMenu,
+) -> RawTypeResult<RawTerm> {
+    match raw_ty_raw_term {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(_) => todo!(),
         RawTerm::EntityPath(path) => match path {
@@ -16,7 +16,7 @@ pub(crate) fn raw_ty_call_raw_ty(
         },
         // EntityPath::Module(_) => todo!(),
         // EntityPath::ModuleItem(path) => match path {
-        //     ModuleItemPath::Type(path) => raw_ty_path_raw_ty_call_raw_ty(db, path, toolchain),
+        //     ModuleItemPath::Type(path) => ty_path_raw_ty_call_raw_ty(db, path, toolchain),
         //     ModuleItemPath::Trait(_) => todo!(),
         //     ModuleItemPath::Form(_) => todo!(),
         // },
@@ -35,11 +35,11 @@ pub(crate) fn raw_ty_call_raw_ty(
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub(crate) fn raw_ty_path_raw_ty_call_raw_ty(
+pub(crate) fn ty_path_raw_ty_call_raw_ty(
     db: &dyn RawTypeDb,
     path: TypePath,
     toolchain: Toolchain,
-) -> RawTypeResult<ReducedRawTerm> {
+) -> RawTypeResult<RawTerm> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
