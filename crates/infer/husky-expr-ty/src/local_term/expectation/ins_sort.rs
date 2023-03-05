@@ -75,7 +75,7 @@ impl<'a> ExprTypeEngine<'a> {
                     todo!(),
                     resolved_expectee,
                     self.toolchain(),
-                    self.reduced_term_menu(),
+                    self.term_menu(),
                 );
                 Some(match expectee_ty {
                     Ok(expectee_ty) => match expectee_ty {

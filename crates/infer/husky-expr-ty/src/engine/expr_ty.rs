@@ -183,7 +183,7 @@ impl<'a> ExprTypeEngine<'a> {
                 };
                 Ok((
                     ExprDisambiguation::Trivial,
-                    Ok(self.reduced_term_menu.bool().into()),
+                    Ok(self.term_menu.bool().into()),
                 ))
             }
             Expr::Prefix { opr, opd, .. } => Ok((

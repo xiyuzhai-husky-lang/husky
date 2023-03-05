@@ -125,7 +125,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 .parameter_tys(db)
                                 .iter()
                                 .map(|param| LocalTermRitchieParameter {
-                                    ty: db.reduced_term(param.ty()).into(),
+                                    ty: param.ty().into(),
                                 })
                                 .collect(),
                         },

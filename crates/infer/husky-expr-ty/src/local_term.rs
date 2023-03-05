@@ -19,6 +19,77 @@ pub enum LocalTerm {
     Unresolved(UnresolvedTermIdx),
 }
 
+impl From<TermLiteral> for LocalTerm {
+    fn from(value: TermLiteral) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+impl From<TermSymbol> for LocalTerm {
+    fn from(value: TermSymbol) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermEntityPath> for LocalTerm {
+    fn from(value: TermEntityPath) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermCategory> for LocalTerm {
+    fn from(value: TermCategory) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermUniverse> for LocalTerm {
+    fn from(value: TermUniverse) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermCurry> for LocalTerm {
+    fn from(value: TermCurry) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermRitchie> for LocalTerm {
+    fn from(value: TermRitchie) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermAbstraction> for LocalTerm {
+    fn from(value: TermAbstraction) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermApplication> for LocalTerm {
+    fn from(value: TermApplication) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermSubentity> for LocalTerm {
+    fn from(value: TermSubentity) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermAsTraitSubentity> for LocalTerm {
+    fn from(value: TermAsTraitSubentity) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
+impl From<TermTraitConstraint> for LocalTerm {
+    fn from(value: TermTraitConstraint) -> Self {
+        LocalTerm::Resolved(value.into())
+    }
+}
+
 impl LocalTerm {
     pub fn unresolved(self) -> Option<UnresolvedTermIdx> {
         match self {

@@ -14,25 +14,25 @@ impl<'a> ExprTypeEngine<'a> {
             Token::Literal(literal) => match literal {
                 Literal::Unit => todo!(),
                 Literal::Char(_) => todo!(),
-                Literal::String(_) => Ok(self.reduced_term_menu.static_str_ref().into()),
+                Literal::String(_) => Ok(self.term_menu.static_str_ref().into()),
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLikeLiteral::Unspecified => match expectation.destination() {
                         // MOM
-                        Some(term) if term == self.reduced_term_menu.i32().into() => {
-                            Ok(self.reduced_term_menu.i32().into())
+                        Some(term) if term == self.term_menu.i32().into() => {
+                            Ok(self.term_menu.i32().into())
                         }
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i8().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i16().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
-                        Some(term) if term == self.reduced_term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i8().into() => todo!(),
+                        Some(term) if term == self.term_menu.i16().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
+                        Some(term) if term == self.term_menu.i64().into() => todo!(),
                         _ => Ok(local_term_region
                             .new_implicit_symbol(
                                 expr_idx,
@@ -42,13 +42,13 @@ impl<'a> ExprTypeEngine<'a> {
                     },
                     IntegerLikeLiteral::I8(_) => todo!(),
                     IntegerLikeLiteral::I16(_) => todo!(),
-                    IntegerLikeLiteral::I32(_) => Ok(self.reduced_term_menu.i32().into()),
+                    IntegerLikeLiteral::I32(_) => Ok(self.term_menu.i32().into()),
                     IntegerLikeLiteral::I64(_) => todo!(),
                     IntegerLikeLiteral::I128(_) => todo!(),
                     IntegerLikeLiteral::ISize(_) => todo!(),
                     IntegerLikeLiteral::R8(_) => todo!(),
                     IntegerLikeLiteral::R16(_) => todo!(),
-                    IntegerLikeLiteral::R32(_) => Ok(self.reduced_term_menu.r32().into()),
+                    IntegerLikeLiteral::R32(_) => Ok(self.term_menu.r32().into()),
                     IntegerLikeLiteral::R64(_) => todo!(),
                     IntegerLikeLiteral::R128(_) => todo!(),
                     IntegerLikeLiteral::RSize(_) => todo!(),
@@ -61,11 +61,11 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => match expectation.destination() {
-                        Some(term) if term == self.reduced_term_menu.f32().into() => {
-                            Ok(self.reduced_term_menu.f32().into())
+                        Some(term) if term == self.term_menu.f32().into() => {
+                            Ok(self.term_menu.f32().into())
                         }
-                        Some(term) if term == self.reduced_term_menu.f64().into() => {
-                            Ok(self.reduced_term_menu.f64().into())
+                        Some(term) if term == self.term_menu.f64().into() => {
+                            Ok(self.term_menu.f64().into())
                         }
                         Some(_) => todo!(),
                         None => Ok(local_term_region
@@ -79,7 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FloatLiteral::F64(_) => todo!(),
                 },
                 Literal::TupleIndex(_) => todo!(),
-                Literal::Bool(_) => Ok(self.reduced_term_menu.bool().into()),
+                Literal::Bool(_) => Ok(self.term_menu.bool().into()),
             },
             _ => unreachable!(),
         }

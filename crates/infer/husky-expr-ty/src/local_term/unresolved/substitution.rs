@@ -42,10 +42,10 @@ impl UnresolvedTerms {
             Term::Symbol(symbol) => {
                 match substitution_rules.iter().find(|rule| rule.symbol == symbol) {
                     Some(substitution_rule) => substitution_rule.substitute,
-                    None => db.reduced_term(term).into(),
+                    None => term.into(),
                 }
             }
-            Term::EntityPath(_) => db.reduced_term(term).into(),
+            Term::EntityPath(_) => term.into(),
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
@@ -94,7 +94,7 @@ impl UnresolvedTerms {
     ) -> LocalTerm {
         let mut t =
             |term: Term| self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);
-        let expansion = db.term_application_expansion(db.reduced_term(term.into()));
+        let expansion = db.term_application_expansion(term.into());
         let unresolved_term = match expansion.f() {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),

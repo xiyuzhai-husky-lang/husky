@@ -63,7 +63,7 @@ impl<'a> ExprTypeEngine<'a> {
                         }
                     }
                 };
-                Some(self.reduced_term_menu.never().into())
+                Some(self.term_menu.never().into())
             }
             Stmt::Require { ref condition, .. } => {
                 if let Ok(condition) = condition {
@@ -73,7 +73,7 @@ impl<'a> ExprTypeEngine<'a> {
                         local_term_region,
                     );
                 };
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
             Stmt::Assert { ref condition, .. } => {
                 if let Ok(condition) = condition {
@@ -83,9 +83,9 @@ impl<'a> ExprTypeEngine<'a> {
                         local_term_region,
                     );
                 };
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
-            Stmt::Break { .. } => Some(self.reduced_term_menu.never().into()),
+            Stmt::Break { .. } => Some(self.term_menu.never().into()),
             Stmt::Eval { expr_idx } => {
                 self.infer_new_expr_ty(expr_idx, expr_expectation, local_term_region)
             }
@@ -132,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation, local_term_region);
                 }
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
             Stmt::ForIn {
                 ref condition,
@@ -145,7 +145,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation, local_term_region);
                 }
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
             Stmt::While {
                 ref condition,
@@ -168,7 +168,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expect_unit = self.expect_unit();
                     self.infer_new_block(block, expect_unit, local_term_region)
                 });
-                Some(self.reduced_term_menu.unit().into())
+                Some(self.term_menu.unit().into())
             }
             Stmt::IfElse {
                 ref if_branch,
@@ -314,7 +314,7 @@ impl<'a> ExprTypeEngine<'a> {
             branch_tys.visit_branch(self, &else_branch.block, local_term_region);
         }
         // exhaustive iff else branch exists
-        branch_tys.merge(else_branch.is_some(), &self.reduced_term_menu)
+        branch_tys.merge(else_branch.is_some(), &self.term_menu)
     }
 }
 
@@ -348,7 +348,7 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
                 local_term_region,
             ) {
                 Some(LocalTerm::Resolved(new_block_ty))
-                    if new_block_ty == engine.reduced_term_menu.never() =>
+                    if new_block_ty == engine.term_menu.never() =>
                 {
                     ()
                 }
