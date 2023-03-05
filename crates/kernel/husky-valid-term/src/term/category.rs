@@ -11,6 +11,12 @@ impl ValidTermCategory {
         Self { universe }
     }
 
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermCategory) -> Self {
+        ValidTermCategory {
+            universe: ValidTermUniverse::from_precise(db, precise_term.universe()),
+        }
+    }
+
     pub fn ty(self) -> ValidTermResult<ValidTerm> {
         Ok(Self {
             universe: self.universe.next()?,

@@ -31,6 +31,7 @@ use husky_entity_path::EntityPath;
 use husky_precise_term::PreciseTerm;
 use husky_raw_term::RawTerm;
 use husky_raw_ty::RawTypeExpectation;
+use husky_valid_term::ValidTerm;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -75,9 +76,39 @@ pub enum Term {
 }
 
 impl Term {
-    pub fn new(db: &dyn TermDb, raw_term: RawTerm, raw_ty_expectation: RawTypeExpectation) -> Self {
-        let precise_term = PreciseTerm::new(db, raw_term, raw_ty_expectation);
-        todo!()
+    pub fn from_raw(
+        db: &dyn TermDb,
+        raw_term: RawTerm,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
+        let precise_term = PreciseTerm::from_raw(db, raw_term, raw_ty_expectation);
+        let valid_term = ValidTerm::from_precise(db, precise_term);
+        Self::from_valid(db, valid_term)
+    }
+
+    fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {
+        match valid_term {
+            ValidTerm::Literal(valid_term) => TermLiteral::from_valid(db, valid_term).into(),
+            ValidTerm::Symbol(valid_term) => TermSymbol::from_valid(db, valid_term).into(),
+            ValidTerm::EntityPath(valid_term) => TermEntityPath::from_valid(db, valid_term).into(),
+            ValidTerm::Category(valid_term) => TermCategory::from_valid(db, valid_term).into(),
+            ValidTerm::Universe(valid_term) => TermUniverse::from_valid(db, valid_term).into(),
+            ValidTerm::Curry(valid_term) => TermCurry::from_valid(db, valid_term).into(),
+            ValidTerm::Ritchie(valid_term) => TermRitchie::from_valid(db, valid_term).into(),
+            ValidTerm::Abstraction(valid_term) => {
+                TermAbstraction::from_valid(db, valid_term).into()
+            }
+            ValidTerm::Application(valid_term) => {
+                TermApplication::from_valid(db, valid_term).into()
+            }
+            ValidTerm::Subentity(valid_term) => TermSubentity::from_valid(db, valid_term).into(),
+            ValidTerm::AsTraitSubentity(valid_term) => {
+                TermAsTraitSubentity::from_valid(db, valid_term).into()
+            }
+            ValidTerm::TraitConstraint(valid_term) => {
+                TermTraitConstraint::from_valid(db, valid_term).into()
+            }
+        }
     }
 }
 

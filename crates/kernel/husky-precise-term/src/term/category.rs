@@ -7,6 +7,17 @@ pub struct PreciseTermCategory {
 }
 
 impl PreciseTermCategory {
+    #[inline(always)]
+    pub fn from_raw(
+        db: &dyn PreciseTermDb,
+        raw_term: RawTermCategory,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
+        PreciseTermCategory {
+            universe: PreciseTermUniverse::from_raw(db, raw_term.universe(), raw_ty_expectation),
+        }
+    }
+
     pub fn new(universe: PreciseTermUniverse) -> Self {
         Self { universe }
     }

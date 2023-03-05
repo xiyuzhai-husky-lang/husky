@@ -73,12 +73,49 @@ pub enum PreciseTerm {
 }
 
 impl PreciseTerm {
-    pub fn new(
+    pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTerm,
         raw_ty_expectation: RawTypeExpectation,
     ) -> Self {
-        todo!()
+        match raw_term {
+            RawTerm::Literal(raw_term) => {
+                PreciseTermLiteral::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Symbol(raw_term) => {
+                PreciseTermSymbol::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::EntityPath(raw_term) => {
+                PreciseTermEntityPath::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Category(raw_term) => {
+                PreciseTermCategory::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Universe(raw_term) => {
+                PreciseTermUniverse::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Curry(raw_term) => {
+                PreciseTermCurry::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Ritchie(raw_term) => {
+                PreciseTermRitchie::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Abstraction(raw_term) => {
+                PreciseTermAbstraction::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Application(raw_term) => {
+                PreciseTermApplication::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::Subentity(raw_term) => {
+                PreciseTermSubentity::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::AsTraitSubentity(raw_term) => {
+                PreciseTermAsTraitSubentity::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+            RawTerm::TraitConstraint(raw_term) => {
+                PreciseTermTraitConstraint::from_raw(db, raw_term, raw_ty_expectation).into()
+            }
+        }
     }
 }
 

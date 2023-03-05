@@ -11,6 +11,10 @@ impl TermCategory {
         Self { universe }
     }
 
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermCategory) -> Self {
+        todo!()
+    }
+
     pub fn ty(self) -> TermResult<Term> {
         Ok(Self {
             universe: self.universe.next()?,

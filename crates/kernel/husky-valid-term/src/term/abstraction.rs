@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::interned(db = ValidTermDb, jar = ValidTermJar, constructor = new_inner)]
 pub struct ValidTermAbstraction {
@@ -7,6 +7,10 @@ pub struct ValidTermAbstraction {
 }
 
 impl ValidTermAbstraction {
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermAbstraction) -> Self {
+        todo!()
+    }
+
     pub fn ty(&self) -> ValidTerm {
         todo!()
     }

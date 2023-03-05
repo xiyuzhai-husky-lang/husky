@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .inherited_symbol_term(inherited_symbol_idx)
                 .ty(self.db)
             {
-                let ty = Term::new(self.db, ty, RawTypeExpectation::FinalDestinationEqsSort);
+                let ty = Term::from_raw(self.db, ty, RawTypeExpectation::FinalDestinationEqsSort);
                 self.inherited_symbol_tys
                     .insert_new(inherited_symbol_idx, ty)
             }
@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                     return
                 };
             if let Ok(ty) = current_symbol_term.ty(self.db) {
-                let ty = Term::new(self.db, ty, RawTypeExpectation::FinalDestinationEqsSort);
+                let ty = Term::from_raw(self.db, ty, RawTypeExpectation::FinalDestinationEqsSort);
                 self.current_symbol_tys
                     .insert_new(current_symbol_idx, ty.into())
             }

@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_word::Identifier;
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
@@ -8,6 +8,11 @@ pub struct TermSubentity {
 }
 
 impl TermSubentity {
+    #[inline(always)]
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermSubentity) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

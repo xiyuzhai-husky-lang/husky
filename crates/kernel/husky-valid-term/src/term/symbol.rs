@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use thiserror::Error;
 
 #[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
@@ -10,6 +10,10 @@ pub struct ValidTermSymbol {
 }
 
 impl ValidTermSymbol {
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermSymbol) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

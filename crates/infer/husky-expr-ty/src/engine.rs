@@ -54,7 +54,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::new(db, term, RawTypeExpectation::FinalDestinationEqsSort));
+            .map(|term| Term::from_raw(db, term, RawTypeExpectation::FinalDestinationEqsSort));
         // todo: improve this
         let self_ty = expr_region_data
             .parent()
@@ -64,7 +64,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::new(db, term, RawTypeExpectation::FinalDestinationEqsSort));
+            .map(|term| Term::from_raw(db, term, RawTypeExpectation::FinalDestinationEqsSort));
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         let toolchain = expr_region.toolchain(db);

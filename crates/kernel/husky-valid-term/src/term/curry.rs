@@ -1,6 +1,5 @@
-pub use context::*;
-
-use crate::*;
+use super::*;
+use context::*;
 
 /// representing valid_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
@@ -22,6 +21,10 @@ pub enum ValidCurryKind {
 }
 
 impl ValidTermCurry {
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermCurry) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

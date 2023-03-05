@@ -28,6 +28,7 @@ pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
+use husky_precise_term::*;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -69,6 +70,49 @@ pub enum ValidTerm {
     AsTraitSubentity(ValidTermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(ValidTermTraitConstraint),
+}
+
+impl ValidTerm {
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> Self {
+        match precise_term {
+            PreciseTerm::Literal(precise_term) => {
+                ValidTermLiteral::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Symbol(precise_term) => {
+                ValidTermSymbol::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::EntityPath(precise_term) => {
+                ValidTermEntityPath::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Category(precise_term) => {
+                ValidTermCategory::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Universe(precise_term) => {
+                ValidTermUniverse::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Curry(precise_term) => {
+                ValidTermCurry::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Ritchie(precise_term) => {
+                ValidTermRitchie::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Abstraction(precise_term) => {
+                ValidTermAbstraction::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Application(precise_term) => {
+                ValidTermApplication::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::Subentity(precise_term) => {
+                ValidTermSubentity::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::AsTraitSubentity(precise_term) => {
+                ValidTermAsTraitSubentity::from_precise(db, precise_term).into()
+            }
+            PreciseTerm::TraitConstraint(precise_term) => {
+                ValidTermTraitConstraint::from_precise(db, precise_term).into()
+            }
+        }
+    }
 }
 
 #[test]

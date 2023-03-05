@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
 pub struct PreciseTermTraitConstraint {
@@ -7,6 +7,14 @@ pub struct PreciseTermTraitConstraint {
 }
 
 impl PreciseTermTraitConstraint {
+    pub fn from_raw(
+        db: &dyn PreciseTermDb,
+        raw_term: RawTermTraitConstraint,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
