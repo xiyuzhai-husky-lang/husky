@@ -23,6 +23,9 @@ impl UnresolvedTerms {
         term: Term,
         substitution_rules: &[ImplicitParameterSubstitution],
     ) -> Option<LocalTerm> {
+        if substitution_rules.len() == 0 {
+            return None;
+        }
         let substituted = self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);
         match substituted {
             LocalTerm::Resolved(substituted) if substituted == term => None,
@@ -37,6 +40,7 @@ impl UnresolvedTerms {
         term: Term,
         substitution_rules: &[ImplicitParameterSubstitution],
     ) -> LocalTerm {
+        assert!(substitution_rules.len() > 0);
         match term {
             Term::Literal(_) => todo!(),
             Term::Symbol(symbol) => {
@@ -48,7 +52,9 @@ impl UnresolvedTerms {
             Term::EntityPath(_) => term.into(),
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
+            Term::Curry(_) => {
+                todo!()
+            }
             Term::Ritchie(term) => {
                 self.substitute_into_term_ritchie(db, src_expr_idx, term, substitution_rules)
             }

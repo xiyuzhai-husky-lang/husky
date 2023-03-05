@@ -10,7 +10,7 @@ impl ExpectLocalTerm for ExpectEqsExactly {
     type Outcome = ExpectEqsExactlyOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
-        None
+        Some(self.destination)
     }
 
     #[inline(always)]
@@ -19,7 +19,7 @@ impl ExpectLocalTerm for ExpectEqsExactly {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        todo!()
+        self.destination.final_destination(db, unresolved_terms)
     }
 }
 

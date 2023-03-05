@@ -262,9 +262,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 template,
                 implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplicationOrComposition { function, argument } => {
-                self[function].join(self[argument])
-            }
+            Expr::ExplicitApplication { function, argument } => self[function].join(self[argument]),
             Expr::Bracketed {
                 lpar_token_idx,
                 rpar_token_idx,

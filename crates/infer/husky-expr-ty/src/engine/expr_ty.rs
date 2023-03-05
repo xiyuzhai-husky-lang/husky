@@ -102,6 +102,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn save_new_expr_ty(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
+        self.print_debug_expr(expr_idx);
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
@@ -233,14 +234,13 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplicationOrComposition { function, argument } => self
-                .calc_explicit_application_or_composition(
-                    expr_ty_expectation
-                        .final_destination(self.db(), local_term_region.unresolved_terms()),
-                    function,
-                    argument,
-                    local_term_region,
-                ),
+            Expr::ExplicitApplication { function, argument } => self.calc_explicit_application(
+                function,
+                argument,
+                expr_ty_expectation
+                    .final_destination(self.db(), local_term_region.unresolved_terms()),
+                local_term_region,
+            ),
             Expr::Bracketed { item, .. } => Ok((
                 ExprDisambiguation::Trivial,
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
@@ -419,13 +419,13 @@ impl<'a> ExprTypeEngine<'a> {
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
         }
-        match expectation_ok.variant() {
+        match expectation_ok.variant {
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                 ritchie_kind,
                 parameter_liasoned_tys,
             } => {
                 self.calc_ritchie_call_arguments_expr_ty(
-                    *ritchie_kind,
+                    ritchie_kind,
                     parameter_liasoned_tys.to_vec(),
                     *items,
                     local_term_region,
@@ -434,10 +434,10 @@ impl<'a> ExprTypeEngine<'a> {
                     ExprDisambiguation::ExplicitApplicationOrRitchieCall(
                         ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
                     ),
-                    Ok(expectation_ok.return_ty()),
+                    Ok(expectation_ok.return_ty),
                 ))
             }
-            ExpectEqsFunctionTypeOutcomeVariant::Curry {} => todo!(),
+            ExpectEqsFunctionTypeOutcomeVariant::Curry { .. } => todo!(),
         }
     }
 
@@ -459,22 +459,21 @@ impl<'a> ExprTypeEngine<'a> {
         todo!()
     }
 
-    fn calc_explicit_application_or_composition(
+    fn calc_explicit_application(
         &mut self,
-        final_destination: FinalDestination,
         function: ExprIdx,
         argument: ExprIdx,
+        final_destination: FinalDestination,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        self.infer_new_expr_ty_with_expectation_returned(
-            function,
-            ExpectEqsFunctionType::new(final_destination),
-            local_term_region,
-        );
-        todo!("disambiguate")
-        // (
-        //     self.calc_explicit_application_expr_ty(function, argument, local_term_region),
-        //     Ok(ExprDisambiguation::Trivial),
-        // )
+        Ok((
+            ExprDisambiguation::Trivial,
+            self.calc_explicit_application_expr_ty(
+                function,
+                argument,
+                final_destination,
+                local_term_region,
+            ),
+        ))
     }
 }

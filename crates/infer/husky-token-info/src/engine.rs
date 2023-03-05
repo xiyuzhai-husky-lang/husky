@@ -303,7 +303,7 @@ impl<'a> AuxInferEngine<'a> {
             | Expr::Be { .. } => (),
             Expr::BoxColonList { .. } => (),
             Expr::ExplicitApplicationOrRitchieCall { function, .. }
-            | Expr::ExplicitApplicationOrComposition { function, .. } => {
+            | Expr::ExplicitApplication { function, .. } => {
                 match self.expr_region_data[*function] {
                     Expr::List {
                         lbox_token_idx,

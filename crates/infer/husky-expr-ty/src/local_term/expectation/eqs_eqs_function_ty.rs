@@ -31,10 +31,10 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsFunctionTypeOutcome {
-    destination: LocalTerm,
-    implicit_parameter_substitutions: Vec<ImplicitParameterSubstitution>,
-    return_ty: LocalTerm,
-    variant: ExpectEqsFunctionTypeOutcomeVariant,
+    pub(crate) destination: LocalTerm,
+    pub(crate) implicit_parameter_substitutions: Vec<ImplicitParameterSubstitution>,
+    pub(crate) return_ty: LocalTerm,
+    pub(crate) variant: ExpectEqsFunctionTypeOutcomeVariant,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -44,7 +44,11 @@ pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
         ritchie_kind: TermRitchieKind,
         parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
     },
-    Curry {},
+    Curry {
+        input_symbol: Option<LocalTerm>,
+        input_ty: LocalTerm,
+        return_ty: LocalTerm,
+    },
 }
 
 impl ExpectLocalTermOutcome for ExpectEqsFunctionTypeOutcome {
@@ -60,20 +64,6 @@ impl ExpectLocalTermOutcome for ExpectEqsFunctionTypeOutcome {
     }
 }
 
-impl ExpectEqsFunctionTypeOutcome {
-    pub(crate) fn expectee(&self) -> LocalTerm {
-        self.destination
-    }
-
-    pub(crate) fn return_ty(&self) -> LocalTerm {
-        self.return_ty
-    }
-
-    pub(crate) fn variant(&self) -> &ExpectEqsFunctionTypeOutcomeVariant {
-        &self.variant
-    }
-}
-
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_function_ty(
         &self,
@@ -83,7 +73,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(expectee) => {
-                self.resolved_expectee_to(src_expr_idx, expectee, unresolved_terms)
+                self.resolve_term_to_function_ty(src_expr_idx, expectee, unresolved_terms)
             }
             LocalTerm::Unresolved(expectee) => {
                 self.unresolved_expectee_to(src_expr_idx, expectee, unresolved_terms)
@@ -92,7 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     /// resolve the expectation that a resolved ty is equal to a ritchie call type
-    fn resolved_expectee_to(
+    fn resolve_term_to_function_ty(
         &self,
         src_expr_idx: ExprIdx,
         expectee: Term,
@@ -110,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
             }),
             Term::Universe(_) => todo!(),
             Term::Curry(expectee) => {
-                self.resolved_curry_expectee_to(src_expr_idx, expectee, unresolved_terms)
+                self.resolved_curry_term_to(src_expr_idx, expectee, unresolved_terms)
             }
             Term::Ritchie(term) => {
                 let ritchie_kind = term.ritchie_kind(db);
@@ -147,47 +137,65 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn resolved_curry_expectee_to(
+    fn resolved_curry_term_to(
         &self,
         src_expr_idx: ExprIdx,
         mut expectee: TermCurry,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        let mut substitution_rules = vec![];
-        let destination = loop {
-            let Some(input_symbol) = expectee.input_symbol(self.db())
-            else {
-                todo!("report error")
-            };
-            let implicit_symbol = unresolved_terms.new_implicit_symbol_from_input_symbol(
-                self.db(),
-                src_expr_idx,
-                input_symbol,
-            );
-            substitution_rules.push(ImplicitParameterSubstitution::new(
-                input_symbol,
-                implicit_symbol,
-            ));
-            match expectee.return_ty(self.db()) {
-                Term::Curry(new_expectee)
-                    if new_expectee.curry_kind(self.db()) == CurryKind::Implicit =>
-                {
-                    expectee = new_expectee
+        let db = self.db();
+        match expectee.curry_kind(db) {
+            CurryKind::Explicit => Some(LocalTermExpectationEffect {
+                result: Ok(ExpectEqsFunctionTypeOutcome {
+                    destination: expectee.into(),
+                    implicit_parameter_substitutions: vec![],
+                    return_ty: expectee.return_ty(db).into(),
+                    variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
+                        input_symbol: expectee.input_symbol(db).map(Into::into),
+                        input_ty: expectee.input_ty(db).into(),
+                        return_ty: expectee.return_ty(db).into(),
+                    },
                 }
-                term => break term,
-            }
-        };
-        let destination = unresolved_terms
-            .substitute_into_term(self.db(), src_expr_idx, destination, &substitution_rules)
-            .unwrap()
-            .unresolved()
-            .unwrap();
-        self.unresolved_expectee_to_aux(
-            src_expr_idx,
-            destination,
-            substitution_rules,
-            unresolved_terms,
-        )
+                .into()),
+                actions: vec![],
+            }),
+            CurryKind::Implicit => match expectee.input_symbol(db) {
+                Some(input_symbol) => {
+                    let implicit_symbol = unresolved_terms.new_implicit_symbol_from_input_symbol(
+                        self.db(),
+                        src_expr_idx,
+                        input_symbol,
+                    );
+                    let mut implicit_parameter_substitutions =
+                        vec![ImplicitParameterSubstitution::new(
+                            input_symbol,
+                            implicit_symbol,
+                        )];
+                    let expectee = expectee.return_ty(self.db());
+                    let expectee = unresolved_terms
+                        .substitute_into_term(
+                            self.db(),
+                            src_expr_idx,
+                            expectee,
+                            &implicit_parameter_substitutions,
+                        )
+                        .expect("input symbol exists, so ...")
+                        .unresolved()
+                        .unwrap();
+                    self.unresolved_expectee_to_aux(
+                        src_expr_idx,
+                        expectee,
+                        implicit_parameter_substitutions,
+                        unresolved_terms,
+                    )
+                }
+                None => self.resolve_term_to_function_ty(
+                    src_expr_idx,
+                    expectee.return_ty(db),
+                    unresolved_terms,
+                ),
+            },
+        }
     }
 
     fn unresolved_expectee_to(

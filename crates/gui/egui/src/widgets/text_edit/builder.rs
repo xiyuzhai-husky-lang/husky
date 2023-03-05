@@ -53,6 +53,7 @@ use super::{CCursorRange, CursorRange, TextEditOutput, TextEditState};
 pub struct TextEdit<'t> {
     text: &'t mut dyn TextBuffer,
     hint_text: WidgetText,
+    /// egui tracks widgets frame-to-frame using `Id`s.
     id: Option<Id>,
     id_source: Option<Id>,
     font_selection: FontSelection,

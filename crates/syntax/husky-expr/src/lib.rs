@@ -164,7 +164,7 @@ pub enum Expr {
         template: ExprIdx,
         implicit_arguments: ImplicitArgumentList,
     },
-    ExplicitApplicationOrComposition {
+    ExplicitApplication {
         function: ExprIdx,
         argument: ExprIdx,
     },
