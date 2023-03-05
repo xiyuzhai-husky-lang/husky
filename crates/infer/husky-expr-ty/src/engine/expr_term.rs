@@ -26,20 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::EntityPath {
                 entity_path_expr,
                 path,
-            } => match path {
-                Some(path) => match path {
-                    EntityPath::Module(_) => todo!(),
-                    EntityPath::ModuleItem(path) => match path {
-                        ModuleItemPath::Type(ty_path) => todo!(),
-                        ModuleItemPath::Trait(_) => todo!(),
-                        ModuleItemPath::Form(_) => todo!(),
-                    },
-                    EntityPath::AssociatedItem(_) => todo!(),
-                    EntityPath::Variant(_) => todo!(),
-                },
-                //  Ok(Term::new(db,entity_path.into()).into()),
-                None => todo!(),
-            },
+            } => self.calc_entity_path_term(expr_idx, path),
             Expr::InheritedSymbol {
                 ident,
                 token_idx,
@@ -108,6 +95,40 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token_idx,
             } => todo!(),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
+        }
+    }
+
+    fn calc_entity_path_term(
+        &mut self,
+        expr_idx: ExprIdx,
+        path: Option<EntityPath>,
+    ) -> Result<LocalTerm, ExprTermError> {
+        match path {
+            Some(path) => match path {
+                EntityPath::Module(_) => todo!(),
+                EntityPath::ModuleItem(path) => match path {
+                    ModuleItemPath::Type(path) => match self.expr_disambiguation(expr_idx) {
+                        Ok(disambiguation) => match disambiguation {
+                            ExprDisambiguation::TypePath(disambiguation) => self
+                                .db
+                                .ty_path_ty(path, disambiguation)
+                                .map(Into::into)
+                                .map_err(|e| match e {
+                                    TypeError::Original(_) => todo!(),
+                                    TypeError::Derived(_) => todo!(),
+                                }),
+                            _ => unreachable!(),
+                        },
+                        Err(_) => todo!(),
+                    },
+                    ModuleItemPath::Trait(_) => todo!(),
+                    ModuleItemPath::Form(_) => todo!(),
+                },
+                EntityPath::AssociatedItem(_) => todo!(),
+                EntityPath::Variant(_) => todo!(),
+            },
+            //  Ok(Term::new(db,entity_path.into()).into()),
+            None => todo!(),
         }
     }
 }
