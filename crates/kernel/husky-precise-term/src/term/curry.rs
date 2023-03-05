@@ -4,7 +4,7 @@ use context::*;
 /// representing precise_term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
 pub struct PreciseTermCurry {
-    pub curry_kind: PreciseCurryKind,
+    pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
     pub input_symbol: Option<PreciseTermSymbol>,
@@ -14,19 +14,19 @@ pub struct PreciseTermCurry {
     pub return_ty: PreciseTerm,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum PreciseCurryKind {
-    Explicit,
-    Implicit,
-}
-
 impl PreciseTermCurry {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
-        raw_term: RawTermCurry,
+        raw_term_curry: RawTermCurry,
         raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
-        todo!()
+        match raw_ty_expectation {
+            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
+                return Err(PreciseTermError::ExpectationNotMatchedForCurry)
+            }
+            TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => (),
+        }
+        precise_term_curry_from_raw(db, raw_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -54,6 +54,26 @@ impl PreciseTermCurry {
             self.return_ty(db).show_with_db_fmt(f, db, ctx)
         }
     }
+}
+
+#[salsa::tracked(jar = PreciseTermJar)]
+pub(crate) fn precise_term_curry_from_raw(
+    db: &dyn PreciseTermDb,
+    raw_term_curry: RawTermCurry,
+) -> PreciseTermResult<PreciseTermCurry> {
+    let t =
+        |raw_ty| PreciseTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
+    Ok(PreciseTermCurry::new(
+        db,
+        raw_term_curry.curry_kind(db),
+        raw_term_curry.variance(db),
+        match raw_term_curry.input_symbol(db) {
+            Some(_) => todo!(),
+            None => todo!(),
+        },
+        t(raw_term_curry.input_ty(db))?,
+        t(raw_term_curry.return_ty(db))?,
+    ))
 }
 
 impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermCurry {

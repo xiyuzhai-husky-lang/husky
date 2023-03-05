@@ -17,6 +17,8 @@ pub enum PreciseTermError {
     NoDeclForEntityPath { entity_path: EntityPath },
     #[error("raw type error")]
     RawTypeError(#[from] RawTypeError),
+    #[error("ExpectationNotMatchedForCurry")]
+    ExpectationNotMatchedForCurry,
 }
 
 impl From<&EntityPathError> for PreciseTermError {
