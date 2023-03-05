@@ -43,7 +43,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<ReducedTerm>)> {
+fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<Term>)> {
     let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
         return vec![]
     };

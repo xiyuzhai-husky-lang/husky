@@ -25,7 +25,7 @@ impl UnresolvedTerms {
     ) -> Option<LocalTerm> {
         let substituted = self.substitute_into_term_aux(db, src_expr_idx, term, substitution_rules);
         match substituted {
-            LocalTerm::Resolved(substituted) if substituted.term() == term => None,
+            LocalTerm::Resolved(substituted) if substituted == term => None,
             _ => Some(substituted),
         }
     }

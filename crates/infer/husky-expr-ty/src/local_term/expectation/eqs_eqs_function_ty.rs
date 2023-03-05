@@ -95,11 +95,11 @@ impl<'a> ExprTypeEngine<'a> {
     fn resolved_expectee_to(
         &self,
         src_expr_idx: ExprIdx,
-        expectee: ReducedTerm,
+        expectee: Term,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         let db = self.db();
-        match expectee.term() {
+        match expectee {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
             Term::EntityPath(_) => todo!(),
@@ -118,7 +118,7 @@ impl<'a> ExprTypeEngine<'a> {
                     TermRitchieKind::Fp => Ok(ExpectEqsFunctionTypeOutcome {
                         destination: expectee.into(),
                         implicit_parameter_substitutions: vec![],
-                        return_ty: db.reduced_term(term.return_ty(db)).into(),
+                        return_ty: term.return_ty(db).into(),
                         variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                             ritchie_kind,
                             parameter_liasoned_tys: term

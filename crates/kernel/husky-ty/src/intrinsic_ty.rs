@@ -1,16 +1,16 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct IntrinsicType(ReducedTerm);
+pub struct IntrinsicType(Term);
 
 impl IntrinsicType {
-    pub fn reduced_term(self) -> ReducedTerm {
+    pub fn reduced_term(self) -> Term {
         self.0
     }
 }
 
-pub(crate) fn intrinsic_ty(db: &dyn TypeDb, ty: ReducedTerm) -> IntrinsicType {
-    match ty.term() {
+pub(crate) fn intrinsic_ty(db: &dyn TypeDb, ty: Term) -> IntrinsicType {
+    match ty {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => match path {

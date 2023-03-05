@@ -18,7 +18,7 @@ impl LocalTerm {
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         match self.curry_destination(db, unresolved_terms) {
-            LocalTerm::Resolved(resolved_term) => match resolved_term.term() {
+            LocalTerm::Resolved(resolved_term) => match resolved_term {
                 Term::Literal(_) => todo!(),
                 Term::Symbol(_) => todo!(),
                 Term::EntityPath(path) => match path {
@@ -73,8 +73,8 @@ impl LocalTerm {
     }
 }
 
-fn curry_destination(db: &dyn ExprTypeDb, resolved_term: ReducedTerm) -> ReducedTerm {
-    match resolved_term.term() {
+fn curry_destination(db: &dyn ExprTypeDb, resolved_term: Term) -> Term {
+    match resolved_term {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => match path {

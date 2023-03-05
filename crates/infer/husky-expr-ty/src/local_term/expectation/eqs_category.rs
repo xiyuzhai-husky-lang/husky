@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
-                match resolved_expectee.term() {
+                match resolved_expectee {
                     Term::Category(cat) => {
                         Some(match cat.universe() >= expectation.smallest_universe {
                             true => LocalTermExpectationEffect {
@@ -99,8 +99,8 @@ impl<'a> ExprTypeEngine<'a> {
     }
 }
 
-// LocalTermExpectationRuleVariant::Sort => match db.term_ty(resolved_term.term()) {
-//     Ok(term_ty) => match term_ty.term() {
+// LocalTermExpectationRuleVariant::Sort => match db.term_ty(resolved_term) {
+//     Ok(term_ty) => match term_ty {
 //         Term::Category(cat) => match cat.universe().raw() {
 //             0 => todo!(),
 //             _ => LocalTermExpectationResolveProgress::Resolved(

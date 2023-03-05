@@ -42,7 +42,7 @@ impl ExpectLocalTermOutcome for ExpectEqsExactlyOutcome {
 }
 
 impl ExpectEqsExactlyOutcome {
-    pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
+    pub(crate) fn resolved(&self) -> Option<Term> {
         todo!()
     }
 }
@@ -65,7 +65,7 @@ impl<'a> ExprTypeEngine<'a> {
     #[inline(always)]
     fn eqs_exactly_res_to(
         &self,
-        expectee: ReducedTerm,
+        expectee: Term,
         destination: LocalTerm,
     ) -> Option<LocalTermExpectationEffect> {
         match destination {
@@ -79,8 +79,8 @@ impl<'a> ExprTypeEngine<'a> {
     #[inline(always)]
     fn eqs_exactly_res_to_res(
         &self,
-        expectee: ReducedTerm,
-        destination: ReducedTerm,
+        expectee: Term,
+        destination: Term,
     ) -> LocalTermExpectationEffect {
         match expectee == destination {
             true => LocalTermExpectationEffect {

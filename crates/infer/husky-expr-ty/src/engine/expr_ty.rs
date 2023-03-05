@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         expr_ty_expectation: impl ExpectLocalTerm,
         local_term_region: &mut LocalTermRegion,
-    ) -> Option<ReducedTerm> {
+    ) -> Option<Term> {
         let ty = self.infer_new_expr_ty(expr_idx, expr_ty_expectation, local_term_region)?;
         match ty {
             LocalTerm::Resolved(ty) => Some(ty),
