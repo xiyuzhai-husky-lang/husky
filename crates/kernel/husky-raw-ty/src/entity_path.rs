@@ -6,7 +6,7 @@ use crate::*;
 pub fn raw_term_entity_path_raw_ty(
     db: &dyn RawTypeDb,
     path: RawTermEntityPath,
-) -> RawTypeResult<ReducedRawTerm> {
+) -> RawTypeResult<RawTerm> {
     match path {
         RawTermEntityPath::Form(_) => todo!(),
         RawTermEntityPath::Trait(_) => todo!(),
@@ -19,12 +19,12 @@ pub fn entity_path_raw_ty(
     db: &dyn RawTypeDb,
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
-) -> RawTypeResult<ReducedRawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+) -> RawTypeResult<RawTerm> {
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => raw_ty_path_raw_ty(db, path, disambiguation),
+            ModuleItemPath::Type(path) => ty_path_raw_ty(db, path, disambiguation),
             ModuleItemPath::Trait(path) => trai_path_raw_ty(db, path),
             ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
         },
@@ -38,13 +38,13 @@ fn entity_path_path_raw_term_raw_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-    let reduced_raw_term_menu = db.reduced_raw_term_menu(toolchain).unwrap();
-    let invariant_ty0_to_trai_ty = reduced_raw_term_menu.invariant_ty0_to_trai_ty();
-    let covariant_lifetime_to_covariant_ty0_to_ty0 =
-        reduced_raw_term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0();
-    let covariant_lifetime_to_invariant_ty0_to_ty0 =
-        reduced_raw_term_menu.covariant_lifetime_to_invariant_ty0_to_ty0();
-    let trai_ty = reduced_raw_term_menu.trai_ty();
+    let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
+    let invariant_ty0_to_trai_ty: RawTerm = raw_term_menu.invariant_ty0_to_trai_ty().into();
+    let ex_co_lifetime_to_ex_co_ty0_to_ty0: RawTerm =
+        raw_term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0().into();
+    let ex_co_lifetime_to_ex_inv_ty0_to_ty0: RawTerm =
+        raw_term_menu.ex_co_lifetime_to_ex_inv_ty0_to_ty0().into();
+    let trai_ty = raw_term_menu.trai_ty();
     assert_eq_with_db!(
         db,
         entity_path_raw_ty(
@@ -52,7 +52,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
             TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.bool_ty_path().into(),
         ),
-        Ok(reduced_raw_term_menu.ty0())
+        Ok(raw_term_menu.ty0().into())
     );
     assert_eq_with_db!(
         db,
@@ -188,12 +188,12 @@ fn entity_path_path_raw_term_raw_ty_works() {
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn raw_ty_path_raw_ty(
+pub fn ty_path_raw_ty(
     db: &dyn RawTypeDb,
     path: TypePath,
     disambiguation: TypePathDisambiguation,
-) -> RawTypeResult<ReducedRawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+) -> RawTypeResult<RawTerm> {
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
@@ -218,11 +218,8 @@ pub fn raw_ty_path_raw_ty(
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub(crate) fn trai_path_raw_ty(
-    db: &dyn RawTypeDb,
-    path: TraitPath,
-) -> RawTypeResult<ReducedRawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+pub(crate) fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<RawTerm> {
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
@@ -244,10 +241,7 @@ pub(crate) fn trai_path_raw_ty(
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub(crate) fn form_path_raw_ty(
-    db: &dyn RawTypeDb,
-    path: FormPath,
-) -> RawTypeResult<ReducedRawTerm> {
+pub(crate) fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
@@ -259,7 +253,7 @@ pub(crate) fn form_path_raw_ty(
     let Ok(variances) = form_entity_variances(db, path) else {
         todo!()
     };
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match signature {
         FormSignature::Function(signature) => {
             function_entity_raw_ty(db, variances, signature, raw_term_menu)
@@ -275,7 +269,7 @@ pub(crate) fn function_entity_raw_ty(
     variances: &[Variance],
     signature: FunctionSignature,
     raw_term_menu: &RawTermMenu,
-) -> RawTypeResult<ReducedRawTerm> {
+) -> RawTypeResult<RawTerm> {
     let param_raw_tys = signature
         .parameters(db)
         .iter()
@@ -295,8 +289,8 @@ pub(crate) fn feature_entity_raw_ty(
     db: &dyn RawTypeDb,
     signature: FeatureSignature,
     raw_term_menu: &RawTermMenu,
-) -> RawTypeResult<ReducedRawTerm> {
-    Ok(calc_reduced_raw_term(db, signature.return_ty(db)))
+) -> RawTypeResult<RawTerm> {
+    Ok(signature.return_ty(db))
 }
 
 fn curry_from_implicit_parameter_raw_tys(
@@ -305,7 +299,7 @@ fn curry_from_implicit_parameter_raw_tys(
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],
     mut raw_term: RawTerm,
-) -> ReducedRawTerm {
+) -> RawTerm {
     assert_eq!(variances.len(), implicit_parameters.len());
     for (variance, implicit_parameter) in
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
@@ -325,5 +319,5 @@ fn curry_from_implicit_parameter_raw_tys(
         )
         .into()
     }
-    calc_reduced_raw_term(db, raw_term)
+    raw_term
 }

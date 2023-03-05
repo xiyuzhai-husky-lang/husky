@@ -53,7 +53,7 @@ pub(crate) fn raw_ty_entity_variance_crate_dependencies(
     path: TypePath,
     idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).as_ref().unwrap();
+    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),

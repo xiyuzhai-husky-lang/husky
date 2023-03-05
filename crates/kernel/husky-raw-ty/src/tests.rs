@@ -35,10 +35,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn entity_raw_tys(
-    db: &DB,
-    module_path: ModulePath,
-) -> Vec<(EntityPath, RawTypeResult<ReducedRawTerm>)> {
+fn entity_raw_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, RawTypeResult<RawTerm>)> {
     let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
         return vec![]
     };
