@@ -34,7 +34,7 @@ impl PreciseTermApplication {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermApplication,
-        raw_ty_expectation: TypeExpectation,
+        raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
         precise_term_application_from_raw(db, raw_term, raw_ty_expectation)
     }
@@ -55,11 +55,11 @@ impl PreciseTermApplication {
 pub(crate) fn precise_term_application_from_raw(
     db: &dyn PreciseTermDb,
     raw_term_application: RawTermApplication,
-    raw_ty_expectation: TypeExpectation,
+    raw_ty_expectation: TermTypeExpectation,
 ) -> PreciseTermResult<PreciseTermApplication> {
     let function =
         PreciseTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
-    let function_raw_ty = function.raw_ty(db);
+    let function_raw_ty = function.raw_ty(db)?;
     todo!()
 }
 

@@ -1,6 +1,6 @@
 use crate::*;
 use husky_raw_term::RawTermError;
-use husky_raw_ty::RawTypeError;
+use husky_raw_ty::{DerivedRawTypeError, OriginalRawTypeError, RawTypeError};
 use thiserror::Error;
 
 pub type PreciseTypeResult<T> = Result<T, PreciseTypeError>;
@@ -20,8 +20,11 @@ impl From<PreciseTermError> for PreciseTypeError {
 }
 
 impl From<RawTypeError> for PreciseTypeError {
-    fn from(value: RawTypeError) -> Self {
-        todo!()
+    fn from(e: RawTypeError) -> Self {
+        match e {
+            RawTypeError::Original(e) => PreciseTypeError::Original(e.into()),
+            RawTypeError::Derived(e) => PreciseTypeError::Derived(e.into()),
+        }
     }
 }
 
@@ -29,6 +32,8 @@ impl From<RawTypeError> for PreciseTypeError {
 pub enum OriginalPreciseTypeError {
     #[error("term error")]
     PreciseTerm(#[from] PreciseTermError),
+    #[error("Original Precise Type Error ← {0}")]
+    RawTypeError(#[from] OriginalRawTypeError),
     #[error("todo")]
     Todo,
 }
@@ -39,6 +44,8 @@ pub enum DerivedPreciseTypeError {
     SignatureError,
     #[error("declaration error")]
     DeclError,
+    #[error("Derived Precise Type Error ← {0}")]
+    RawTypeError(#[from] DerivedRawTypeError),
 }
 
 impl<Db: PreciseTypeDb + ?Sized> salsa::DebugWithDb<Db> for PreciseTypeError {

@@ -16,7 +16,7 @@ impl PreciseTermUniverse {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermUniverse,
-        raw_ty_expectation: TypeExpectation,
+        raw_ty_expectation: TermTypeExpectation,
     ) -> Self {
         PreciseTermUniverse(raw_term.raw())
     }

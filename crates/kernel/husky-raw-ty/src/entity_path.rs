@@ -25,8 +25,8 @@ pub fn entity_path_raw_ty(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
-                TypePathDisambiguation::TypeItselfOrTemplate => ty_ontology_raw_ty(db, path),
-                TypePathDisambiguation::InstanceOrConstructor => ty_constructor_raw_ty(db, path),
+                TypePathDisambiguation::Ontology => ty_ontology_path_raw_ty(db, path),
+                TypePathDisambiguation::Constructor => ty_constructor_path_raw_ty(db, path),
             },
             ModuleItemPath::Trait(path) => trai_path_raw_ty(db, path),
             ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
@@ -52,7 +52,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.bool_ty_path().into(),
         ),
         Ok(raw_term_menu.ty0().into())
@@ -61,7 +61,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -70,7 +70,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -79,7 +79,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -88,7 +88,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -97,7 +97,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -106,7 +106,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -115,7 +115,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -124,7 +124,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -133,7 +133,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -142,7 +142,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -151,7 +151,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -160,7 +160,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -169,7 +169,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -178,7 +178,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
@@ -191,7 +191,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_ontology_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
+pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -214,7 +214,7 @@ pub fn ty_ontology_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<R
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_constructor_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
+pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -254,7 +254,7 @@ pub(crate) fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeRe
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub(crate) fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
+pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::DeclError.into()),

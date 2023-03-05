@@ -116,7 +116,7 @@ impl<'a> ExprTypeEngine<'a> {
                                         Term::EntityPath(TermEntityPath::TypeOntology(f))
                                             if f == ty_path =>
                                         {
-                                            match ty_path_ty(self.db(), ty_path, todo!()) {
+                                            match ty_ontology_path_ty(self.db(), ty_path) {
                                                 Ok(_) => todo!(),
                                                 Err(error) => Some(LocalTermExpectationEffect {
                                                     result: Err(match error {

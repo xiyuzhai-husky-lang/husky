@@ -1,5 +1,5 @@
 use crate::*;
-use husky_valid_ty::ValidTypeError;
+use husky_valid_ty::{DerivedValidTypeError, OriginalValidTypeError, ValidTypeError};
 use thiserror::Error;
 
 pub type TypeResult<T> = Result<T, TypeError>;
@@ -13,8 +13,11 @@ pub enum TypeError {
 }
 
 impl From<ValidTypeError> for TypeError {
-    fn from(value: ValidTypeError) -> Self {
-        todo!()
+    fn from(e: ValidTypeError) -> Self {
+        match e {
+            ValidTypeError::Original(e) => TypeError::Original(e.into()),
+            ValidTypeError::Derived(e) => TypeError::Derived(e.into()),
+        }
     }
 }
 
@@ -24,6 +27,8 @@ pub enum OriginalTypeError {
     Term(#[from] TermError),
     #[error("todo")]
     Todo,
+    #[error("{0}")]
+    ValidTypeError(#[from] OriginalValidTypeError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -32,6 +37,8 @@ pub enum DerivedTypeError {
     SignatureError,
     #[error("declaration error")]
     DeclError,
+    #[error("{0}")]
+    ValidTypeError(#[from] DerivedValidTypeError),
 }
 
 impl<Db: TypeDb + ?Sized> salsa::DebugWithDb<Db> for TypeError {

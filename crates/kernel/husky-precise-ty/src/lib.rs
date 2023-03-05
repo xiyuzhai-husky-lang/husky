@@ -13,7 +13,11 @@ use husky_ty_expectation::*;
 use husky_vfs::*;
 
 #[salsa::jar(db = PreciseTypeDb)]
-pub struct PreciseTypeJar(ty_path_ontology_precise_ty, ty_path_constructor_precise_ty);
+pub struct PreciseTypeJar(
+    ty_ontology_path_precise_ty,
+    ty_constructor_path_precise_ty,
+    form_path_precise_ty,
+);
 
 pub trait HasPreciseType<Db: ?Sized + PreciseTypeDb>: Copy {
     fn precise_ty(self, db: &Db) -> PreciseTerm;

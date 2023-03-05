@@ -14,21 +14,24 @@ impl PreciseTermEntityPath {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermEntityPath,
-        raw_ty_expectation: TypeExpectation,
+        raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
         match raw_term {
             RawTermEntityPath::Form(path) => Ok(PreciseTermEntityPath::Form(path)),
             RawTermEntityPath::Trait(path) => Ok(PreciseTermEntityPath::Trait(path)),
             RawTermEntityPath::Type(path) => match raw_ty_expectation {
-                TypeExpectation::FinalDestinationEqsSort => {
+                TermTypeExpectation::FinalDestinationEqsSort => {
                     Ok(PreciseTermEntityPath::TypeOntology(path))
                 }
-                TypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
+                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
                     if path == path_expected =>
                 {
                     Ok(PreciseTermEntityPath::TypeConstructor(path))
                 }
-                TypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => Err(todo!()),
+                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
+                    Err(todo!())
+                }
+                TermTypeExpectation::Any => todo!(),
             },
         }
     }
@@ -46,8 +49,8 @@ impl PreciseTermEntityPath {
         match self {
             PreciseTermEntityPath::Form(_) => todo!(),
             PreciseTermEntityPath::Trait(_) => todo!(),
-            PreciseTermEntityPath::TypeOntology(path) => ty_ontology_raw_ty(db, path),
-            PreciseTermEntityPath::TypeConstructor(path) => ty_ontology_raw_ty(db, path),
+            PreciseTermEntityPath::TypeOntology(path) => ty_ontology_path_raw_ty(db, path),
+            PreciseTermEntityPath::TypeConstructor(path) => ty_ontology_path_raw_ty(db, path),
         }
     }
 }
