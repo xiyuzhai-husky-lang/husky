@@ -12,8 +12,12 @@ pub fn ty_path_precise_ty(
         db,
         ty_path_raw_ty(db, path, disambiguation)?,
         match disambiguation {
-            TypePathDisambiguation::TypeItselfOrTemplate => todo!(),
-            TypePathDisambiguation::InstanceOrConstructor => todo!(),
+            TypePathDisambiguation::TypeItselfOrTemplate => {
+                TypeExpectation::FinalDestinationEqsSort
+            }
+            TypePathDisambiguation::InstanceOrConstructor => {
+                TypeExpectation::FinalDestinationEqsNonSortTypePath(path)
+            }
         },
     )
     .map_err(Into::into)
