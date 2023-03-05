@@ -76,7 +76,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ExplicitApplicationOrComposition { function, argument } => {
+            Expr::ExplicitApplication { function, argument } => {
                 self.calc_explicit_application_expr_term(function, argument)
             }
             Expr::Bracketed {

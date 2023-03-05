@@ -69,7 +69,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrComposition {
+                                                    Expr::ExplicitApplication {
                                                         function: 2,
                                                         argument: 3,
                                                     },
@@ -5538,7 +5538,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrComposition {
+                                                    Expr::ExplicitApplication {
                                                         function: 0,
                                                         argument: 1,
                                                     },
@@ -5752,7 +5752,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::ExplicitApplicationOrComposition {
+                                                            Expr::ExplicitApplication {
                                                                 function: 0,
                                                                 argument: 1,
                                                             },
@@ -6617,7 +6617,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::ExplicitApplicationOrComposition {
+                                                    Expr::ExplicitApplication {
                                                         function: 2,
                                                         argument: 3,
                                                     },
@@ -6838,7 +6838,7 @@ Ok(
                                                                     ),
                                                                 ),
                                                             },
-                                                            Expr::ExplicitApplicationOrComposition {
+                                                            Expr::ExplicitApplication {
                                                                 function: 2,
                                                                 argument: 3,
                                                             },
@@ -7003,7 +7003,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ExplicitApplicationOrComposition {
+                                                Expr::ExplicitApplication {
                                                     function: 1,
                                                     argument: 2,
                                                 },
@@ -7671,7 +7671,7 @@ Ok(
                                                         },
                                                     ),
                                                 ),
-                                                Expr::ExplicitApplicationOrComposition {
+                                                Expr::ExplicitApplication {
                                                     function: 71,
                                                     argument: 72,
                                                 },

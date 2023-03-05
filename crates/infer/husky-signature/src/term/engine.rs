@@ -14,7 +14,7 @@ pub(super) struct SignatureRawTermEngine<'a> {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct RawTermSymbolRegion {
-    registry: RawTermSymbolRegistry,
+    registry: TermSymbolRegistry,
     inherited_symbol_terms: Vec<RawTermSymbol>,
     current_symbol_terms: Vec<RawTermSymbol>,
 }
@@ -282,7 +282,7 @@ impl<'a> SignatureRawTermEngine<'a> {
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
             Expr::ExplicitApplicationOrRitchieCall { function, .. } => todo!(),
-            Expr::ExplicitApplicationOrComposition { function, argument } => {
+            Expr::ExplicitApplication { function, argument } => {
                 let  Ok(argument) = self.infer_new(argument) else {
                         return  Err(DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into())
                     };
@@ -369,7 +369,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                                 template,
                                 ref implicit_arguments,
                             } => todo!(),
-                            Expr::ExplicitApplicationOrComposition { function, argument } => {
+                            Expr::ExplicitApplication { function, argument } => {
                                 todo!()
                             }
                             Expr::Bracketed {

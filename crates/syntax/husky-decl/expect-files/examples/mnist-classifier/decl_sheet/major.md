@@ -69,7 +69,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplicationOrComposition {
+                                                Expr::ExplicitApplication {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -417,7 +417,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplicationOrComposition {
+                                                Expr::ExplicitApplication {
                                                     function: 0,
                                                     argument: 1,
                                                 },
@@ -765,7 +765,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplicationOrComposition {
+                                                Expr::ExplicitApplication {
                                                     function: 0,
                                                     argument: 1,
                                                 },

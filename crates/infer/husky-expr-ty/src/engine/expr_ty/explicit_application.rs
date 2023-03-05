@@ -5,58 +5,40 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         function: ExprIdx,
         argument: ExprIdx,
+        final_destination: FinalDestination,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        todo!("change this");
-        let function_expr = &self[function];
-        match function_expr {
-            Expr::List {
-                lbox_token_idx,
-                items,
-                rbox_token_idx,
-            } => {
-                match items.len() {
-                    0 => {
-                        let argument_ty = self.infer_new_expr_ty(
-                            argument,
-                            /* ad hoc */ ExpectAnyOriginal,
-                            local_term_region,
-                        );
-                        // check this is type
-                        argument_ty
-                            .ok_or(DerivedExprTypeError::ApplicationArgumentTypeNotInferred.into())
-                    }
-                    1 => {
-                        let arg0_ty = self.infer_new_expr_ty(
-                            items.start(),
-                            /* ad hoc */ ExpectAnyOriginal,
-                            local_term_region,
-                        );
-                        match arg0_ty {
-                            Some(_) => todo!(),
-                            None => {
-                                Err(DerivedExprTypeError::BoxListApplicationFirstArgumentError
-                                    .into())
-                            }
-                        }
-                    }
-                    n => {
-                        todo!()
+        match self.infer_new_expr_ty_with_expectation_returned(
+            function,
+            ExpectEqsFunctionType::new(final_destination),
+            local_term_region,
+        ) {
+            Some(function_ty_outcome) => match function_ty_outcome.variant {
+                ExpectEqsFunctionTypeOutcomeVariant::Curry {
+                    input_symbol,
+                    input_ty,
+                    return_ty,
+                } => {
+                    self.infer_new_expr_ty_discarded(
+                        argument,
+                        ExpectImplicitlyConvertible {
+                            destination: input_ty,
+                        },
+                        local_term_region,
+                    );
+                    match input_symbol {
+                        Some(_) => todo!(),
+                        None => Ok(return_ty),
                     }
                 }
-            }
-            Expr::BoxColonList {
-                lbox_token_idx,
-                colon_token_idx,
-                ..
-            } => todo!(),
-            _ => {
-                let function_ty = self.infer_new_expr_ty(
-                    function,
-                    /* ad hoc */ ExpectAnyOriginal,
-                    local_term_region,
-                );
-                Err(OriginalExprTypeError::TodoBoxColon.into())
+                ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
+                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
+                    Err(todo!("expect curry"))
+                }
+            },
+            None => {
+                self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
+                Err(todo!())
             }
         }
     }
