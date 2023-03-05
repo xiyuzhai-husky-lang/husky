@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use husky_token::StringLiteral;
 use ordered_float::OrderedFloat;
 
@@ -23,6 +23,10 @@ pub enum ValidTermLiteral {
 }
 
 impl ValidTermLiteral {
+    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermLiteral) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

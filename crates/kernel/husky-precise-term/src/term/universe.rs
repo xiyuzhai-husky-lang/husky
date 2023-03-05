@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct PreciseTermUniverse(u8);
@@ -12,6 +12,15 @@ impl From<u8> for PreciseTermUniverse {
 const UNIVERSE_MAX: u8 = 100;
 
 impl PreciseTermUniverse {
+    #[inline(always)]
+    pub fn from_raw(
+        db: &dyn PreciseTermDb,
+        raw_term: RawTermUniverse,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
+        PreciseTermUniverse(raw_term.raw())
+    }
+
     pub fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
         PreciseTermUniverse(i)
@@ -50,6 +59,6 @@ impl PreciseTermUniverse {
 
 impl std::fmt::Display for PreciseTermUniverse {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.fmt(f)
+        std::fmt::Display::fmt(&self.0, f)
     }
 }

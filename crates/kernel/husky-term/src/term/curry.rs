@@ -1,6 +1,6 @@
 pub use context::*;
 
-use crate::*;
+use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
 #[salsa::interned(db = TermDb, jar = TermJar)]
@@ -16,6 +16,10 @@ pub struct TermCurry {
 }
 
 impl TermCurry {
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermCurry) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

@@ -1,6 +1,6 @@
 pub use context::*;
 
-use crate::*;
+use super::*;
 
 /// representing term `x -> y`
 #[salsa::interned(db = TermDb, jar = TermJar)]
@@ -13,6 +13,11 @@ pub struct TermRitchie {
 }
 
 impl TermRitchie {
+    #[inline(always)]
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermRitchie) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

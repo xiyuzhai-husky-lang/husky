@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TermUniverse(u8);
@@ -15,6 +15,11 @@ impl TermUniverse {
     pub fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
         TermUniverse(i)
+    }
+
+    #[inline(always)]
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermUniverse) -> Self {
+        todo!()
     }
 
     pub(crate) fn zero() -> Self {
@@ -50,6 +55,6 @@ impl TermUniverse {
 
 impl std::fmt::Display for TermUniverse {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.0.fmt(f)
+        std::fmt::Display::fmt(&self.0, f)
     }
 }

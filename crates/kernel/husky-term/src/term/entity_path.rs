@@ -12,6 +12,11 @@ pub enum TermEntityPath {
 }
 
 impl TermEntityPath {
+    #[inline(always)]
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermEntityPath) -> Self {
+        todo!()
+    }
+
     pub fn ty_ontology_path(self) -> Option<TypePath> {
         match self {
             TermEntityPath::TypeOntology(path) => Some(path),

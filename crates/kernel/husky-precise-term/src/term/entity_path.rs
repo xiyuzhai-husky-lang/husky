@@ -1,6 +1,5 @@
-use husky_entity_path::*;
-
 use super::*;
+use husky_entity_path::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = PreciseTermDb, jar = PreciseTermJar)]
@@ -12,6 +11,14 @@ pub enum PreciseTermEntityPath {
 }
 
 impl PreciseTermEntityPath {
+    pub fn from_raw(
+        db: &dyn PreciseTermDb,
+        raw_term: RawTermEntityPath,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
+        todo!()
+    }
+
     pub fn ty_ontology_path(self) -> Option<TypePath> {
         match self {
             PreciseTermEntityPath::TypeOntology(path) => Some(path),

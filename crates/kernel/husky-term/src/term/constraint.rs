@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermTraitConstraint {
@@ -7,6 +7,10 @@ pub struct TermTraitConstraint {
 }
 
 impl TermTraitConstraint {
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermTraitConstraint) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

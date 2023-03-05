@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::fmt::{Debug, Display};
 
 /// in husky, application is generalized to include composition as a special case;
@@ -28,6 +28,14 @@ impl PreciseTermApplication {
         argument: PreciseTerm,
         shift: u8,
     ) -> PreciseTermResult<Self> {
+        todo!()
+    }
+
+    pub fn from_raw(
+        db: &dyn PreciseTermDb,
+        raw_term: RawTermApplication,
+        raw_ty_expectation: RawTypeExpectation,
+    ) -> Self {
         todo!()
     }
 

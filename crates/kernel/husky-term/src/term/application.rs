@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 use std::fmt::{Debug, Display};
 
 /// in husky, application is generalized to include composition as a special case;
@@ -22,6 +22,10 @@ pub struct TermApplication {
 }
 
 impl TermApplication {
+    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermApplication) -> Self {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
