@@ -1,7 +1,7 @@
 use super::*;
 
 /// representing precise_term `x -> y`
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
+#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_inner)]
 pub struct PreciseTermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
@@ -19,7 +19,20 @@ impl PreciseTermRitchie {
         let t = |raw_ty| {
             PreciseTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)
         };
-        todo!()
+        Ok(PreciseTermRitchie::new_inner(
+            db,
+            raw_term.ritchie_kind(db),
+            raw_term
+                .parameter_tys(db)
+                .iter()
+                .map(|parameter_ty| {
+                    Ok(PreciseTermRitchieParameter {
+                        ty: t(parameter_ty.ty())?,
+                    })
+                })
+                .collect::<PreciseTermResult<Vec<_>>>()?,
+            t(raw_term.return_ty(db))?,
+        ))
     }
 
     pub(crate) fn show_with_db_fmt(

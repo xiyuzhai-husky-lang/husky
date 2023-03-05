@@ -34,6 +34,8 @@ pub enum OriginalExprTypeError {
     TodoBoxColon,
     #[error("final destination")]
     FinalDestination,
+    #[error("form path type error {0}")]
+    FormPathTypeError(OriginalTypeError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

@@ -15,7 +15,8 @@ pub enum PreciseTypeError {
 
 impl From<PreciseTermError> for PreciseTypeError {
     fn from(value: PreciseTermError) -> Self {
-        todo!()
+        // ad hoc
+        PreciseTypeError::Original(value.into())
     }
 }
 
