@@ -294,7 +294,7 @@ pub(crate) fn function_entity_raw_ty(
         CurryKind::Implicit,
         variances,
         signature.implicit_parameters(db),
-        RawTermRitchie::new(db, RawTermRitchieKind::Fp, param_raw_tys, return_raw_ty).into(),
+        RawTermRitchie::new(db, TermRitchieKind::Fp, param_raw_tys, return_raw_ty).into(),
     ))
 }
 

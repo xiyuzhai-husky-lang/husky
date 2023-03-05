@@ -1,9 +1,9 @@
 use super::*;
 use thiserror::Error;
 
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
+#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_inner)]
 pub struct PreciseTermSymbol {
-    pub ty: PreciseTermSymbolTypeResult<PreciseTerm>,
+    pub ty: PreciseTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
@@ -15,7 +15,9 @@ impl PreciseTermSymbol {
         raw_term: RawTermSymbol,
         raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
-        todo!()
+        let ty = raw_term.ty(db)?;
+        let ty = PreciseTerm::from_raw(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
+        Ok(Self::new_inner(db, ty, raw_term.idx(db)))
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -25,36 +27,6 @@ impl PreciseTermSymbol {
         ctx: &mut PreciseTermShowContext,
     ) -> std::fmt::Result {
         ctx.fmt_symbol(db, self, f)
-    }
-}
-
-#[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum PreciseTermSymbolTypeErrorKind {
-    #[error("signature precise_term error")]
-    SignaturePreciseTermError,
-    #[error("sketch precise_term error")]
-    SketchPreciseTermError,
-}
-pub type PreciseTermSymbolTypeResult<T> = Result<T, PreciseTermSymbolTypeErrorKind>;
-
-#[derive(Default, Debug, PartialEq, Eq, Clone)]
-pub struct PreciseTermSymbolRegistry {
-    tys: Vec<PreciseTermSymbolTypeResult<PreciseTerm>>,
-}
-
-impl PreciseTermSymbolRegistry {
-    pub fn new_symbol(
-        &mut self,
-        db: &dyn PreciseTermDb,
-        ty: PreciseTermSymbolTypeResult<PreciseTerm>,
-    ) -> PreciseTermSymbol {
-        let idx_usize = self.tys.iter().filter(|ty1| **ty1 == ty).count();
-        let idx = match idx_usize.try_into() {
-            Ok(idx) => idx,
-            Err(_) => todo!(),
-        };
-        self.tys.push(ty);
-        PreciseTermSymbol::new(db, ty, idx)
     }
 }
 
