@@ -10,8 +10,7 @@ pub fn raw_term_entity_path_raw_ty(
     match path {
         RawTermEntityPath::Form(_) => todo!(),
         RawTermEntityPath::Trait(_) => todo!(),
-        RawTermEntityPath::TypeOntology(_) => todo!(),
-        RawTermEntityPath::TypeConstructor(_) => todo!(),
+        RawTermEntityPath::Type(_) => todo!(),
     }
 }
 

@@ -13,7 +13,14 @@ pub enum ValidTermEntityPath {
 
 impl ValidTermEntityPath {
     pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermEntityPath) -> Self {
-        todo!()
+        match precise_term {
+            PreciseTermEntityPath::Form(path) => ValidTermEntityPath::Form(path),
+            PreciseTermEntityPath::Trait(path) => ValidTermEntityPath::Trait(path),
+            PreciseTermEntityPath::TypeOntology(path) => ValidTermEntityPath::TypeOntology(path),
+            PreciseTermEntityPath::TypeConstructor(path) => {
+                ValidTermEntityPath::TypeConstructor(path)
+            }
+        }
     }
 
     pub fn ty_ontology_path(self) -> Option<TypePath> {

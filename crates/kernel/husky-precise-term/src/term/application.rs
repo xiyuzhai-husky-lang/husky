@@ -35,7 +35,7 @@ impl PreciseTermApplication {
         db: &dyn PreciseTermDb,
         raw_term: RawTermApplication,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

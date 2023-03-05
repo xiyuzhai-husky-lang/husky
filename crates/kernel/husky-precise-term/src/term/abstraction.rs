@@ -11,7 +11,7 @@ impl PreciseTermAbstraction {
         db: &dyn PreciseTermDb,
         raw_term: RawTermAbstraction,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

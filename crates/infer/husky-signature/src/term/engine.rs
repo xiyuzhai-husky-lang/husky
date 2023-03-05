@@ -187,7 +187,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     EntityPath::ModuleItem(path) => match path {
                         ModuleItemPath::Type(path) => {
                             /* ad hoc */
-                            RawTermEntityPath::TypeOntology(path)
+                            RawTermEntityPath::Type(path)
                         }
                         ModuleItemPath::Trait(path) => path.into(),
                         ModuleItemPath::Form(path) => path.into(),

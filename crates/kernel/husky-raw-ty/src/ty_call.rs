@@ -12,8 +12,7 @@ pub(crate) fn raw_ty_call_raw_ty(
         RawTerm::EntityPath(path) => match path {
             RawTermEntityPath::Form(_) => todo!(),
             RawTermEntityPath::Trait(_) => todo!(),
-            RawTermEntityPath::TypeOntology(_) => todo!(),
-            RawTermEntityPath::TypeConstructor(_) => todo!(),
+            RawTermEntityPath::Type(_) => todo!(),
         },
         // EntityPath::Module(_) => todo!(),
         // EntityPath::ModuleItem(path) => match path {

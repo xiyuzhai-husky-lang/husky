@@ -177,9 +177,7 @@ impl RawTermShowContext {
 
 fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(RawTerm::EntityPath(RawTermEntityPath::TypeOntology(ty)))
-            if is_ty_path_lifetime_ty(db, ty) =>
-        {
+        Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if is_ty_path_lifetime_ty(db, ty) => {
             RawTermSymbolShowKind::Lifetime
         }
         Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,

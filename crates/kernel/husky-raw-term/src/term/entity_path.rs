@@ -7,17 +7,14 @@ use super::*;
 pub enum RawTermEntityPath {
     Form(FormPath),
     Trait(TraitPath),
-    TypeOntology(TypePath),
-    TypeConstructor(TypePath),
+    Type(TypePath),
 }
 
 impl RawTermEntityPath {
-    pub fn ty_ontology_path(self) -> Option<TypePath> {
+    pub fn ty_path(self) -> Option<TypePath> {
         match self {
-            RawTermEntityPath::TypeOntology(path) => Some(path),
-            RawTermEntityPath::Form(_)
-            | RawTermEntityPath::Trait(_)
-            | RawTermEntityPath::TypeConstructor(_) => None,
+            RawTermEntityPath::Type(path) => Some(path),
+            RawTermEntityPath::Form(_) | RawTermEntityPath::Trait(_) => None,
         }
     }
 }
