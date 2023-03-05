@@ -34,7 +34,8 @@ use husky_word::*;
 
 #[salsa::jar(db=TypeDb)]
 pub struct TypeJar(
-    ty_path_ty,
+    ty_ontology_path_ty,
+    ty_constructor_path_ty,
     trai_path_ty,
     form_path_ty,
     application_expansion_salsa,

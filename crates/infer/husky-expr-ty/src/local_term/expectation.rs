@@ -52,10 +52,10 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
         ty_path: TypePath,
     ) -> TypePathDisambiguationResult {
         match self.final_destination(db, unresolved_terms) {
-            FinalDestination::Sort => TypePathDisambiguation::TypeItselfOrTemplate.into(),
+            FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
             FinalDestination::TypePath(final_destination_ty_path) => {
                 match final_destination_ty_path == ty_path {
-                    true => TypePathDisambiguation::InstanceOrConstructor.into(),
+                    true => TypePathDisambiguation::Constructor.into(),
                     false => todo!(),
                 }
             }

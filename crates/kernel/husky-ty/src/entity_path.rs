@@ -1,4 +1,4 @@
-use husky_valid_ty::ty_path_valid_ty;
+use husky_valid_ty::{form_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty};
 use salsa::assert_eq_with_db;
 
 use crate::*;
@@ -23,7 +23,10 @@ pub fn entity_path_ty(
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => ty_path_ty(db, path, disambiguation),
+            ModuleItemPath::Type(path) => match disambiguation {
+                TypePathDisambiguation::Ontology => ty_ontology_path_ty(db, path),
+                TypePathDisambiguation::Constructor => ty_constructor_path_ty(db, path),
+            },
             ModuleItemPath::Trait(path) => trai_path_ty(db, path),
             ModuleItemPath::Form(path) => form_path_ty(db, path),
         },
@@ -48,7 +51,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.bool_ty_path().into(),
         ),
         Ok(term_menu.ty0().into())
@@ -57,7 +60,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -66,7 +69,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -75,7 +78,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -84,7 +87,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -93,7 +96,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -102,7 +105,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -111,7 +114,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -120,7 +123,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -129,7 +132,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -138,7 +141,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -147,7 +150,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -156,7 +159,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -165,7 +168,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -174,7 +177,7 @@ fn entity_path_path_term_ty_works() {
         db,
         entity_path_ty(
             &db,
-            TypePathDisambiguation::TypeItselfOrTemplate,
+            TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
@@ -186,15 +189,27 @@ fn entity_path_path_term_ty_works() {
     // );
 }
 
-#[salsa::tracked(jar = TypeJar)]
 pub fn ty_path_ty(
     db: &dyn TypeDb,
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> TypeResult<Term> {
+    match disambiguation {
+        TypePathDisambiguation::Ontology => ty_ontology_path_ty(db, path),
+        TypePathDisambiguation::Constructor => ty_constructor_path_ty(db, path),
+    }
+}
+
+#[salsa::tracked(jar = TypeJar)]
+pub fn ty_ontology_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
+    Ok(Term::from_valid(db, ty_ontology_path_valid_ty(db, path)?))
+}
+
+#[salsa::tracked(jar = TypeJar)]
+pub fn ty_constructor_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
     Ok(Term::from_valid(
         db,
-        ty_path_valid_ty(db, path, disambiguation)?,
+        ty_constructor_path_valid_ty(db, path)?,
     ))
 }
 
@@ -205,7 +220,7 @@ pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Term>
 
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn form_path_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<Term> {
-    todo!()
+    Ok(Term::from_valid(db, form_path_valid_ty(db, path)?))
 }
 
 pub(crate) fn function_entity_ty(

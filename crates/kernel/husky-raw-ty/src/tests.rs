@@ -44,11 +44,7 @@ fn entity_raw_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, RawTypeR
         .map(|path| {
             (
                 path.into(),
-                entity_path_raw_ty(
-                    db,
-                    TypePathDisambiguation::TypeItselfOrTemplate,
-                    path.into(),
-                ),
+                entity_path_raw_ty(db, TypePathDisambiguation::Ontology, path.into()),
             )
         })
         .collect()

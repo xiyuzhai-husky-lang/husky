@@ -56,11 +56,7 @@ fn entity_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, TypeResult<T
         .map(|path| {
             (
                 path.into(),
-                entity_path_ty(
-                    db,
-                    TypePathDisambiguation::TypeItselfOrTemplate,
-                    path.into(),
-                ),
+                entity_path_ty(db, TypePathDisambiguation::Ontology, path.into()),
             )
         })
         .collect()

@@ -1,9 +1,10 @@
 use husky_entity_path::TypePath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum TypeExpectation {
+pub enum TermTypeExpectation {
     FinalDestinationEqsSort,
     FinalDestinationEqsNonSortTypePath(TypePath),
+    Any,
 }
 
 /// a type path can be interpreted in two different ways:
@@ -24,9 +25,9 @@ pub enum TypeExpectation {
 /// disambiguate between type itself (or template) and its instance or constructor
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypePathDisambiguation {
-    TypeItselfOrTemplate,
+    Ontology,
     /// if type is a unit struct, this will become an instance,
     ///
     /// otherwise constructor
-    InstanceOrConstructor,
+    Constructor,
 }
