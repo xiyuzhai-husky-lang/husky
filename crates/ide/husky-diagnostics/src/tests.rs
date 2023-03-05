@@ -16,6 +16,7 @@ use husky_token::TokenJar;
 use husky_ty::TypeJar;
 use husky_valid_term::ValidTermJar;
 use husky_word::WordJar;
+use husky_valid_ty::ValidTypeJar;
 
 #[salsa::db(
     VfsJar,
@@ -33,6 +34,7 @@ use husky_word::WordJar;
     RawTypeJar,
     PreciseTermJar,
     ValidTermJar,
+    ValidTypeJar,
     TermJar,
     TypeJar,
     SignatureJar,

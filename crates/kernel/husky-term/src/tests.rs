@@ -11,6 +11,7 @@ use husky_raw_ty::RawTypeJar;
 use husky_signature::SignatureJar;
 use husky_token::TokenJar;
 use husky_valid_term::ValidTermJar;
+use husky_valid_ty::ValidTypeJar;
 use husky_vfs::VfsJar;
 use husky_word::WordJar;
 
@@ -29,6 +30,7 @@ use husky_word::WordJar;
     RawTypeJar,
     PreciseTermJar,
     ValidTermJar,
+    ValidTypeJar,
     TermJar
 )]
 #[derive(Default)]

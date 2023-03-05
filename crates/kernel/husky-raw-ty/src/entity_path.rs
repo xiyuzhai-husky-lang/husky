@@ -49,7 +49,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.bool_ty_path().into(),
         ),
         Ok(reduced_raw_term_menu.ty0())
@@ -58,7 +58,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_add().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -67,7 +67,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_add_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -76,7 +76,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_and().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -85,7 +85,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_and_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -94,7 +94,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_or().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -103,7 +103,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_or_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -112,7 +112,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_xor().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -121,7 +121,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_bit_xor_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -130,7 +130,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_div().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -139,7 +139,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_div_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -148,7 +148,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_mul().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -157,7 +157,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_mul_assign().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
@@ -166,7 +166,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_neg().into(),
         ),
         Ok(trai_ty)
@@ -175,7 +175,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
         db,
         entity_path_raw_ty(
             &db,
-            TypePathDisambiguation::RawTypeItselfOrTemplate,
+            TypePathDisambiguation::TypeItselfOrTemplate,
             entity_path_menu.core_ops_not().into(),
         ),
         Ok(trai_ty)
@@ -206,15 +206,13 @@ pub fn raw_ty_path_raw_ty(
         todo!()
     };
     match disambiguation {
-        TypePathDisambiguation::RawTypeItselfOrTemplate => {
-            Ok(curry_from_implicit_parameter_raw_tys(
-                db,
-                CurryKind::Explicit,
-                variances,
-                signature.implicit_parameters(db),
-                raw_term_menu.ty0().into(),
-            ))
-        }
+        TypePathDisambiguation::TypeItselfOrTemplate => Ok(curry_from_implicit_parameter_raw_tys(
+            db,
+            CurryKind::Explicit,
+            variances,
+            signature.implicit_parameters(db),
+            raw_term_menu.ty0().into(),
+        )),
         TypePathDisambiguation::InstanceOrConstructor => todo!(),
     }
 }

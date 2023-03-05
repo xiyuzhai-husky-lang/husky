@@ -30,7 +30,7 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_precise_term::PreciseTerm;
 use husky_raw_term::RawTerm;
-use husky_raw_ty::RawTypeExpectation;
+use husky_ty_expectation::TypeExpectation;
 use husky_valid_term::ValidTerm;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
@@ -79,14 +79,14 @@ impl Term {
     pub fn from_raw(
         db: &dyn TermDb,
         raw_term: RawTerm,
-        raw_ty_expectation: RawTypeExpectation,
+        ty_expectation: TypeExpectation,
     ) -> TermResult<Self> {
-        let precise_term = PreciseTerm::from_raw(db, raw_term, raw_ty_expectation)?;
+        let precise_term = PreciseTerm::from_raw(db, raw_term, ty_expectation)?;
         let valid_term = ValidTerm::from_precise(db, precise_term);
         Ok(Self::from_valid(db, valid_term))
     }
 
-    fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {
         match valid_term {
             ValidTerm::Literal(valid_term) => TermLiteral::from_valid(db, valid_term).into(),
             ValidTerm::Symbol(valid_term) => TermSymbol::from_valid(db, valid_term).into(),

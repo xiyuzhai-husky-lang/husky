@@ -20,6 +20,7 @@ pub(crate) use self::ins_sort::*;
 
 use super::*;
 use husky_print_utils::p;
+use husky_ty_expectation::TypePathDisambiguation;
 use idx_arena::Arena;
 use thiserror::Error;
 

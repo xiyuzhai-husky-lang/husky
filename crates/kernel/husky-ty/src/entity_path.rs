@@ -1,3 +1,4 @@
+use husky_valid_ty::ty_path_valid_ty;
 use salsa::assert_eq_with_db;
 
 use crate::*;
@@ -191,7 +192,10 @@ pub fn ty_path_ty(
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> TypeResult<Term> {
-    todo!()
+    Ok(Term::from_valid(
+        db,
+        ty_path_valid_ty(db, path, disambiguation)?,
+    ))
 }
 
 #[salsa::tracked(jar = TypeJar)]

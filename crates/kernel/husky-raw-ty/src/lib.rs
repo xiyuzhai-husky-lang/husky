@@ -2,10 +2,8 @@
 #![feature(const_trait_impl)]
 #![feature(const_default_impls)]
 mod db;
-mod disambiguation;
 mod entity_path;
 mod error;
-mod expectation;
 mod field;
 mod method;
 mod term;
@@ -15,10 +13,8 @@ mod ty_call;
 mod variance;
 
 pub use self::db::*;
-pub use self::disambiguation::*;
 pub use self::entity_path::*;
 pub use self::error::*;
-pub use self::expectation::*;
 pub use self::term::*;
 
 use self::field::*;
@@ -32,6 +28,7 @@ use husky_entity_taxonomy::*;
 use husky_raw_term::*;
 use husky_signature::*;
 use husky_term_attrs::*;
+use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
 use husky_word::*;
 

@@ -1,3 +1,4 @@
+use husky_valid_ty::ValidTypeJar;
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
@@ -33,6 +34,7 @@ use husky_word::WordJar;
     RawTypeJar,
     PreciseTermJar,
     ValidTermJar,
+    ValidTypeJar,
     TermJar,
     TypeJar
 )]

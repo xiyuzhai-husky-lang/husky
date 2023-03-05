@@ -1,4 +1,4 @@
-use husky_ty::TypePathDisambiguation;
+use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
