@@ -34,8 +34,8 @@ use husky_word::*;
 
 #[salsa::jar(db=RawTypeDb)]
 pub struct RawTypeJar(
-    ty_ontology_path_raw_ty,
-    ty_constructor_path_raw_ty,
+    ty_ontology_raw_ty,
+    ty_constructor_raw_ty,
     trai_path_raw_ty,
     form_path_raw_ty,
     raw_ty_entity_variances,

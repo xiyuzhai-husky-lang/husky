@@ -119,25 +119,21 @@ impl PreciseTerm {
         })
     }
 
-    fn raw_ty(self, db: &dyn PreciseTermDb) -> RawTerm {
-        precise_term_raw_ty(db, self)
-    }
-}
-
-fn precise_term_raw_ty(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> RawTerm {
-    match precise_term {
-        PreciseTerm::Literal(_) => todo!(),
-        PreciseTerm::Symbol(_) => todo!(),
-        PreciseTerm::EntityPath(path) => precise_term_entity_path_raw_ty(db, path),
-        PreciseTerm::Category(_) => todo!(),
-        PreciseTerm::Universe(_) => todo!(),
-        PreciseTerm::Curry(_) => todo!(),
-        PreciseTerm::Ritchie(_) => todo!(),
-        PreciseTerm::Abstraction(_) => todo!(),
-        PreciseTerm::Application(_) => todo!(),
-        PreciseTerm::Subentity(_) => todo!(),
-        PreciseTerm::AsTraitSubentity(_) => todo!(),
-        PreciseTerm::TraitConstraint(_) => todo!(),
+    fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<RawTerm> {
+        match self {
+            PreciseTerm::Literal(_) => todo!(),
+            PreciseTerm::Symbol(_) => todo!(),
+            PreciseTerm::EntityPath(path) => path.raw_ty(db).map_err(Into::into),
+            PreciseTerm::Category(_) => todo!(),
+            PreciseTerm::Universe(_) => todo!(),
+            PreciseTerm::Curry(_) => todo!(),
+            PreciseTerm::Ritchie(_) => todo!(),
+            PreciseTerm::Abstraction(_) => todo!(),
+            PreciseTerm::Application(_) => todo!(),
+            PreciseTerm::Subentity(_) => todo!(),
+            PreciseTerm::AsTraitSubentity(_) => todo!(),
+            PreciseTerm::TraitConstraint(_) => todo!(),
+        }
     }
 }
 

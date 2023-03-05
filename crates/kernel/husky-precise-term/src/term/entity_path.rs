@@ -41,17 +41,14 @@ impl PreciseTermEntityPath {
             | PreciseTermEntityPath::TypeConstructor(_) => None,
         }
     }
-}
 
-pub(super) fn precise_term_entity_path_raw_ty(
-    db: &dyn PreciseTermDb,
-    path: PreciseTermEntityPath,
-) -> RawTerm {
-    match path {
-        PreciseTermEntityPath::Form(_) => todo!(),
-        PreciseTermEntityPath::Trait(_) => todo!(),
-        PreciseTermEntityPath::TypeOntology(_) => todo!(),
-        PreciseTermEntityPath::TypeConstructor(_) => todo!(),
+    pub(super) fn raw_ty(self, db: &dyn PreciseTermDb) -> RawTypeResult<RawTerm> {
+        match self {
+            PreciseTermEntityPath::Form(_) => todo!(),
+            PreciseTermEntityPath::Trait(_) => todo!(),
+            PreciseTermEntityPath::TypeOntology(path) => ty_ontology_raw_ty(db, path),
+            PreciseTermEntityPath::TypeConstructor(path) => ty_ontology_raw_ty(db, path),
+        }
     }
 }
 
