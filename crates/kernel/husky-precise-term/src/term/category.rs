@@ -11,7 +11,7 @@ impl PreciseTermCategory {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermCategory,
-        raw_ty_expectation: RawTypeExpectation,
+        raw_ty_expectation: TypeExpectation,
     ) -> Self {
         PreciseTermCategory {
             universe: PreciseTermUniverse::from_raw(db, raw_term.universe(), raw_ty_expectation),

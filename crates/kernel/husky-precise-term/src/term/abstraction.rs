@@ -10,7 +10,7 @@ impl PreciseTermAbstraction {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermAbstraction,
-        raw_ty_expectation: RawTypeExpectation,
+        raw_ty_expectation: TypeExpectation,
     ) -> PreciseTermResult<Self> {
         todo!()
     }

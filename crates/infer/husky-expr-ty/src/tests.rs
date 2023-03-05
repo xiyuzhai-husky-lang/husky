@@ -2,6 +2,7 @@ use husky_decl::{DeclDb, DeclJar};
 use husky_print_utils::p;
 use husky_signature::SignatureJar;
 use husky_term::TermJar;
+use husky_valid_ty::ValidTypeJar;
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
@@ -12,11 +13,11 @@ use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_precise_term::PreciseTermJar;
 use husky_raw_term::RawTermJar;
+use husky_raw_ty::RawTypeJar;
 use husky_token::TokenJar;
 use husky_valid_term::ValidTermJar;
 use husky_vfs::*;
 use husky_word::WordJar;
-use husky_raw_ty::RawTypeJar;
 
 #[salsa::db(
     WordJar,
@@ -33,6 +34,7 @@ use husky_raw_ty::RawTypeJar;
     RawTypeJar,
     PreciseTermJar,
     ValidTermJar,
+    ValidTypeJar,
     TermJar,
     TypeJar,
     DefnJar,

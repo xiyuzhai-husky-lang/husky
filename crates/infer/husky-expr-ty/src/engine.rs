@@ -9,8 +9,8 @@ mod utils;
 use self::utils::*;
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
-use husky_raw_ty::RawTypeExpectation;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
+use husky_ty_expectation::TypeExpectation;
 use husky_vfs::Toolchain;
 use symbol::*;
 
@@ -54,7 +54,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::from_raw(db, term, RawTypeExpectation::FinalDestinationEqsSort).ok())
+            .map(|term| Term::from_raw(db, term, TypeExpectation::FinalDestinationEqsSort).ok())
             .flatten();
         // todo: improve this
         let self_ty = expr_region_data
@@ -65,7 +65,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::from_raw(db, term, RawTypeExpectation::FinalDestinationEqsSort).ok())
+            .map(|term| Term::from_raw(db, term, TypeExpectation::FinalDestinationEqsSort).ok())
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();

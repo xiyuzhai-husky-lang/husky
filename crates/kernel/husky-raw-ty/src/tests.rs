@@ -49,7 +49,7 @@ fn entity_raw_tys(
                 path.into(),
                 entity_path_raw_ty(
                     db,
-                    TypePathDisambiguation::RawTypeItselfOrTemplate,
+                    TypePathDisambiguation::TypeItselfOrTemplate,
                     path.into(),
                 ),
             )

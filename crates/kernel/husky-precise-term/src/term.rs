@@ -29,6 +29,7 @@ pub use self::universe::*;
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_raw_term::RawTerm;
+use husky_ty_expectation::TypeExpectation;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -76,7 +77,7 @@ impl PreciseTerm {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTerm,
-        raw_ty_expectation: RawTypeExpectation,
+        raw_ty_expectation: TypeExpectation,
     ) -> PreciseTermResult<Self> {
         Ok(match raw_term {
             RawTerm::Literal(raw_term) => {

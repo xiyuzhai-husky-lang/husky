@@ -48,6 +48,7 @@ husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-precise-term = { path = "../../kernel/husky-precise-term" }
 husky-valid-term = { path = "../../kernel/husky-valid-term" }
+husky-valid-ty = { path = "../../kernel/husky-valid-ty" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ty = { path = "../../kernel/husky-ty" }

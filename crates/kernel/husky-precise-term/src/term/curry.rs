@@ -24,7 +24,7 @@ impl PreciseTermCurry {
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermCurry,
-        raw_ty_expectation: RawTypeExpectation,
+        raw_ty_expectation: TypeExpectation,
     ) -> PreciseTermResult<Self> {
         todo!()
     }

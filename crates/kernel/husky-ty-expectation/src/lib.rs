@@ -1,3 +1,11 @@
+use husky_entity_path::TypePath;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TypeExpectation {
+    FinalDestinationEqsSort,
+    FinalDestinationEqsNonSortTypePath(TypePath),
+}
+
 /// a type path can be interpreted in two different ways:
 ///
 /// - \[explicit curries to\] a type
