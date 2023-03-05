@@ -39,7 +39,7 @@ impl PreciseTermMenu {
     }
 }
 
-#[salsa::tracked(jar = PreciseTermJar,return_ref)]
+#[salsa::tracked(jar = PreciseTermJar, return_ref)]
 pub(crate) fn precise_term_menu(
     db: &dyn PreciseTermDb,
     toolchain: Toolchain,

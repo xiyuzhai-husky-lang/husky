@@ -9,6 +9,7 @@ use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_precise_term::PreciseTermJar;
+use husky_precise_ty::PreciseTypeJar;
 use husky_print_utils::p;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::{RawTypeDb, RawTypeJar};
@@ -33,6 +34,7 @@ use husky_word::WordJar;
     SignatureJar,
     RawTypeJar,
     PreciseTermJar,
+    PreciseTypeJar,
     ValidTermJar,
     ValidTypeJar,
     TermJar,

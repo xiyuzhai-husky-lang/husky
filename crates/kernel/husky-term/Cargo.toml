@@ -35,6 +35,7 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
+husky-precise-ty = { path = "../../kernel/husky-precise-ty" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 husky-signature = { path = "../../infer/husky-signature" }

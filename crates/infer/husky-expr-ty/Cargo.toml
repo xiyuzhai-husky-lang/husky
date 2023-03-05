@@ -45,5 +45,6 @@ husky-decl = { path = "../../syntax/husky-decl" }
 # kernel
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-precise-term = { path = "../../kernel/husky-precise-term" }
+husky-precise-ty = { path = "../../kernel/husky-precise-ty" }
 husky-valid-term = { path = "../../kernel/husky-valid-term" }
 husky-valid-ty = { path = "../../kernel/husky-valid-ty" }
