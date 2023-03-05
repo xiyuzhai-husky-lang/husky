@@ -1,6 +1,6 @@
 use husky_entity_path::TypePath;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TypeExpectation {
     FinalDestinationEqsSort,
     FinalDestinationEqsNonSortTypePath(TypePath),

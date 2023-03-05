@@ -1,4 +1,4 @@
-use husky_raw_ty::ty_path_raw_ty;
+use husky_raw_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 
 use crate::*;
 
@@ -8,17 +8,17 @@ pub fn ty_path_precise_ty(
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> PreciseTypeResult<PreciseTerm> {
-    PreciseTerm::from_raw(
-        db,
-        ty_path_raw_ty(db, path, disambiguation)?,
-        match disambiguation {
-            TypePathDisambiguation::TypeItselfOrTemplate => {
-                TypeExpectation::FinalDestinationEqsSort
-            }
-            TypePathDisambiguation::InstanceOrConstructor => {
-                TypeExpectation::FinalDestinationEqsNonSortTypePath(path)
-            }
-        },
-    )
+    match disambiguation {
+        TypePathDisambiguation::TypeItselfOrTemplate => PreciseTerm::from_raw(
+            db,
+            ty_ontology_path_raw_ty(db, path)?,
+            TypeExpectation::FinalDestinationEqsSort,
+        ),
+        TypePathDisambiguation::InstanceOrConstructor => PreciseTerm::from_raw(
+            db,
+            ty_constructor_path_raw_ty(db, path)?,
+            TypeExpectation::FinalDestinationEqsNonSortTypePath(path),
+        ),
+    }
     .map_err(Into::into)
 }

@@ -24,11 +24,19 @@ impl RawTermSymbols {
         }
     }
 }
+impl<'a> dyn RawTypeDb + 'a {
+    pub(crate) fn raw_term_contains_symbol(
+        &self,
+        raw_term: RawTerm,
+        symbol: RawTermSymbol,
+    ) -> bool {
+        calc_raw_term_symbols(self, raw_term)
+            .map(|raw_term_symbols| raw_term_symbols.contains(self, symbol))
+            .unwrap_or_default()
+    }
+}
 
-pub(crate) fn calc_raw_term_symbols(
-    db: &dyn RawTypeDb,
-    raw_term: RawTerm,
-) -> Option<RawTermSymbols> {
+fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTermSymbols> {
     match raw_term {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(symbol) => Some(RawTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),

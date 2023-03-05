@@ -14,3 +14,26 @@ use husky_vfs::*;
 
 #[salsa::jar(db = PreciseTypeDb)]
 pub struct PreciseTypeJar(ty_path_precise_ty);
+
+pub trait HasPreciseType<Db: ?Sized + PreciseTypeDb>: Copy {
+    fn precise_ty(self, db: &Db) -> PreciseTerm;
+}
+
+impl<Db: ?Sized + PreciseTypeDb> HasPreciseType<Db> for PreciseTerm {
+    fn precise_ty(self, db: &Db) -> PreciseTerm {
+        match self {
+            PreciseTerm::Literal(_) => todo!(),
+            PreciseTerm::Symbol(_) => todo!(),
+            PreciseTerm::EntityPath(_) => todo!(),
+            PreciseTerm::Category(_) => todo!(),
+            PreciseTerm::Universe(_) => todo!(),
+            PreciseTerm::Curry(_) => todo!(),
+            PreciseTerm::Ritchie(_) => todo!(),
+            PreciseTerm::Abstraction(_) => todo!(),
+            PreciseTerm::Application(_) => todo!(),
+            PreciseTerm::Subentity(_) => todo!(),
+            PreciseTerm::AsTraitSubentity(_) => todo!(),
+            PreciseTerm::TraitConstraint(_) => todo!(),
+        }
+    }
+}

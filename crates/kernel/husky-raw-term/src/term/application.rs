@@ -18,7 +18,6 @@ use std::fmt::{Debug, Display};
 pub struct RawTermApplication {
     pub function: RawTerm,
     pub argument: RawTerm,
-    pub shift: u8,
 }
 
 impl RawTermApplication {
@@ -65,7 +64,7 @@ impl RawTermRewriteCopy for RawTermApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        RawTermApplication::new(db, m, n, self.shift(db))
+        RawTermApplication::new(db, m, n)
     }
 }
 

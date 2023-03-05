@@ -267,7 +267,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => self.raw_term_menu.option_ty_path(),
                 };
-                Ok(RawTermApplication::new(self.db, tmpl, opd, /* ad hoc */ 0).into())
+                Ok(RawTermApplication::new(self.db, tmpl, opd).into())
             }
             Expr::Suffix {
                 opd,
@@ -292,7 +292,6 @@ impl<'a> SignatureRawTermEngine<'a> {
                             self.db,
                             self.raw_term_menu.slice_ty_path(),
                             argument,
-                            /* ad hoc */ 0,
                         )
                         .into()),
                         _ => todo!(),
@@ -302,7 +301,6 @@ impl<'a> SignatureRawTermEngine<'a> {
                             self.db,
                             self.raw_term_menu.list(),
                             argument,
-                            /* ad hoc */ 0,
                         )
                         .into()),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
