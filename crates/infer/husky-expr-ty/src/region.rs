@@ -8,25 +8,24 @@ pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
-    inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
+    inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
     local_term_region: LocalTermRegion,
-    return_ty: Option<ReducedTerm>,
-    self_ty: Option<ReducedTerm>,
+    return_ty: Option<Term>,
+    self_ty: Option<Term>,
 }
 
 impl ExprTypeRegion {
     pub(crate) fn new(
         db: &dyn ExprTypeDb,
-        reduced_term_menu: ReducedTermMenu,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
-        inherited_symbol_tys: InheritedSymbolMap<ReducedTerm>,
+        inherited_symbol_tys: InheritedSymbolMap<Term>,
         current_symbol_tys: CurrentSymbolMap<LocalTerm>,
         local_term_region: LocalTermRegion,
-        return_ty: Option<ReducedTerm>,
-        self_ty: Option<ReducedTerm>,
+        return_ty: Option<Term>,
+        self_ty: Option<Term>,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
@@ -55,7 +54,7 @@ impl ExprTypeRegion {
         &self.expr_local_terms
     }
 
-    pub fn inherited_symbol_tys(&self) -> &InheritedSymbolMap<ReducedTerm> {
+    pub fn inherited_symbol_tys(&self) -> &InheritedSymbolMap<Term> {
         &self.inherited_symbol_tys
     }
 
@@ -67,11 +66,11 @@ impl ExprTypeRegion {
         &self.local_term_region
     }
 
-    pub fn return_ty(&self) -> Option<ReducedTerm> {
+    pub fn return_ty(&self) -> Option<Term> {
         self.return_ty
     }
 
-    pub fn self_ty(&self) -> Option<ReducedTerm> {
+    pub fn self_ty(&self) -> Option<Term> {
         self.self_ty
     }
 }

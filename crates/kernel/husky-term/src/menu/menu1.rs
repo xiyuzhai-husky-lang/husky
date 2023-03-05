@@ -81,7 +81,7 @@ impl TermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn invariant_ty0_to_trai_ty(&self) -> TermCurry {
+    pub fn ex_inv_ty0_to_trai_ty(&self) -> TermCurry {
         self.explicit_invariant_ty0_to_trai_ty
     }
 

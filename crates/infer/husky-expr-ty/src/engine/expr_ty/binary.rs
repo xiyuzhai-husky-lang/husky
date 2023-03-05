@@ -14,7 +14,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
-        let menu = self.reduced_term_menu;
+        let menu = self.term_menu;
         match opr {
             BinaryOpr::PureClosed(opr) => {
                 self.calc_pure_closed_expr_ty(lopd, ropd, opr, menu, local_term_region)
@@ -39,7 +39,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
         opr: BinaryPureClosedOpr,
-        menu: ReducedTermMenu,
+        menu: &TermMenu,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         // todo: don't use resolved
@@ -193,7 +193,7 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             None => self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region),
         };
-        Ok(self.reduced_term_menu.bool().into())
+        Ok(self.term_menu.bool().into())
     }
 
     fn calc_short_circuit_logic_expr_ty(
@@ -228,7 +228,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
         // todo
-        // match ropd_ty.term() {
+        // match ropd_ty {
         //     Term::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
         //         todo!()
         //     }
@@ -288,17 +288,17 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
-        let x = lopd_ty.term();
+        let x = lopd_ty;
         let x_u = match x {
             Term::Category(x_cat) => x_cat.universe(),
             _ => return Err(todo!()),
         };
-        let y = ropd_ty.term();
+        let y = ropd_ty;
         let y_u = match y {
             Term::Category(y_cat) => y_cat.universe(),
             _ => return Err(todo!()),
         };
-        Ok(ReducedTerm::new_category(x_u.max(y_u)).into())
+        Ok(Term::new_category(x_u.max(y_u)).into())
     }
 
     fn calc_assign_expr_ty(
@@ -359,7 +359,7 @@ impl<'a> ExprTypeEngine<'a> {
         let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal, local_term_region);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
-            LocalTerm::Resolved(lopd_ty) => match lopd_ty.term() {
+            LocalTerm::Resolved(lopd_ty) => match lopd_ty {
                 Term::Application(lopd_ty) => todo!(),
                 _ => todo!(),
             },

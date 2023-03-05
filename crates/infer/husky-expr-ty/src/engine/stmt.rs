@@ -363,7 +363,7 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
         };
     }
 
-    fn merge(self, exhaustive: bool, menu: &ReducedTermMenu) -> Option<LocalTerm> {
+    fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<LocalTerm> {
         if self.has_error {
             return None;
         }

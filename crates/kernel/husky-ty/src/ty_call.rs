@@ -2,11 +2,11 @@ use crate::*;
 
 pub(crate) fn ty_call_ty(
     db: &dyn TypeDb,
-    ty_term: ReducedTerm,
+    ty_term: Term,
     toolchain: Toolchain,
-    reduced_term_menu: ReducedTermMenu,
-) -> TypeResult<ReducedTerm> {
-    match ty_term.term() {
+    reduced_term_menu: TermMenu,
+) -> TypeResult<Term> {
+    match ty_term {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => match path {
@@ -40,6 +40,6 @@ pub(crate) fn ty_path_ty_call_ty(
     db: &dyn TypeDb,
     path: TypePath,
     toolchain: Toolchain,
-) -> TypeResult<ReducedTerm> {
+) -> TypeResult<Term> {
     todo!()
 }

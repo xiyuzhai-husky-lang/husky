@@ -61,8 +61,8 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
             FinalDestination::NoneOriginal => TypePathDisambiguationResult::ErrFromNoneOriginal,
             FinalDestination::NoneDerived => TypePathDisambiguationResult::ErrFromNoneDerived,
         }
-        // LocalTerm::Resolved(term) if let Term::Category(_) = term.term()  => todo!(),
-        // LocalTerm::Resolved(term) if term.term() == ty_path.into() => todo!(),
+        // LocalTerm::Resolved(term) if let Term::Category(_) = term  => todo!(),
+        // LocalTerm::Resolved(term) if term == ty_path.into() => todo!(),
         // _ => Err(todo!()),
     }
 }
@@ -121,7 +121,7 @@ pub(crate) enum LocalTermExpectationOutcome {
 }
 
 impl LocalTermExpectationOutcome {
-    fn resolved(&self) -> Option<ReducedTerm> {
+    fn resolved(&self) -> Option<Term> {
         match self {
             LocalTermExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
             LocalTermExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
@@ -211,7 +211,7 @@ impl LocalTermExpectationResolveProgress {
         }
     }
 
-    pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
+    pub(crate) fn reduced_term(&self) -> Option<Term> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved
             | LocalTermExpectationResolveProgress::Resolved(Err(_)) => None,

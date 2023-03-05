@@ -76,6 +76,10 @@ fn term_size_works() {
     assert_eq!(
         std::mem::size_of::<Term>(),
         2 * std::mem::size_of::<usize>()
+    );
+    assert_eq!(
+        std::mem::size_of::<Option<Term>>(),
+        std::mem::size_of::<Term>()
     )
 }
 

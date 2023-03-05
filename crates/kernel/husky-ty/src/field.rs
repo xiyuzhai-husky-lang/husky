@@ -2,10 +2,10 @@ use crate::*;
 
 pub(crate) fn field_ty(
     db: &dyn TypeDb,
-    owner_ty: ReducedTerm,
+    owner_ty: Term,
     ident: Identifier,
-) -> TypeResult<Option<ReducedTerm>> {
-    match owner_ty.term() {
+) -> TypeResult<Option<Term>> {
+    match owner_ty {
         Term::Literal(_) => unreachable!(),
         Term::Symbol(_) => Ok(None),
         Term::EntityPath(path) => {
@@ -28,7 +28,7 @@ pub(crate) fn entity_ty_field_ty(
     db: &dyn TypeDb,
     ty_path: TypePath,
     ident: Identifier,
-) -> TypeResult<Option<ReducedTerm>> {
+) -> TypeResult<Option<Term>> {
     todo!()
 }
 
@@ -37,7 +37,7 @@ pub(crate) fn application_ty_field_ty(
     db: &dyn TypeDb,
     ty: TermApplication,
     ident: Identifier,
-) -> TypeResult<Option<ReducedTerm>> {
+) -> TypeResult<Option<Term>> {
     use salsa::DebugWithDb;
     let application_expansion = application_expansion_salsa(db, ty);
     let f = application_expansion.f();
@@ -67,6 +67,6 @@ fn entity_application_ty_field_ty(
     path: TypePath,
     arguments: &[Term],
     ident: Identifier,
-) -> TypeResult<Option<ReducedTerm>> {
+) -> TypeResult<Option<Term>> {
     todo!()
 }

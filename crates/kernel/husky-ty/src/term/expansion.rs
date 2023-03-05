@@ -1,6 +1,6 @@
 use super::*;
-pub(crate) fn application_expansion(db: &dyn TypeDb, term: ReducedTerm) -> ApplicationExpansion {
-    application_expansion_aux(db, term.term())
+pub(crate) fn application_expansion(db: &dyn TypeDb, term: Term) -> ApplicationExpansion {
+    application_expansion_aux(db, term)
 }
 
 fn application_expansion_aux(db: &dyn TypeDb, term: Term) -> ApplicationExpansion {

@@ -42,7 +42,7 @@ pub(crate) struct ExpectInsSortOutcome {
 }
 
 impl ExpectInsSortOutcome {
-    pub(crate) fn resolved(&self) -> Option<ReducedTerm> {
+    pub(crate) fn resolved(&self) -> Option<Term> {
         todo!()
     }
 }
@@ -78,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
                     self.reduced_term_menu(),
                 );
                 Some(match expectee_ty {
-                    Ok(expectee_ty) => match expectee_ty.term() {
+                    Ok(expectee_ty) => match expectee_ty {
                         Term::Category(cat) => {
                             match cat.universe() >= expectation.smallest_universe {
                                 true => LocalTermExpectationEffect {
@@ -104,14 +104,14 @@ impl<'a> ExprTypeEngine<'a> {
                         result: Err(match error {
                             TypeError::Original(_) => {
                                 OriginalLocalTermExpectationError::TermTypeError {
-                                    term: resolved_expectee.term(),
+                                    term: resolved_expectee,
                                     error,
                                 }
                                 .into()
                             }
                             TypeError::Derived(_) => {
                                 DerivedLocalTermExpectationError::TermTypeError {
-                                    term: resolved_expectee.term(),
+                                    term: resolved_expectee,
                                     error,
                                 }
                                 .into()

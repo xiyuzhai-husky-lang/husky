@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         unresolved_term_idx: UnresolvedTermIdx,
         local_term_region: &mut LocalTermRegion,
-    ) -> Option<ReducedTerm> {
+    ) -> Option<Term> {
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
         local_term_region
             .unresolved_terms

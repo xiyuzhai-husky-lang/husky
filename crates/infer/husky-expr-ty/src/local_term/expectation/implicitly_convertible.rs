@@ -100,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
                         },
                         UnresolvedTerm::TypeApplication { ty_path, arguments } => {
                             let ty_path = *ty_path;
-                            match resolved_expectee.term() {
+                            match resolved_expectee {
                                 Term::Literal(_) => todo!(),
                                 Term::Symbol(_) => todo!(),
                                 Term::EntityPath(_) => todo!(),
@@ -153,8 +153,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn resolved_expectee_implicitly_convertible_to_resolved_destination(
         &self,
-        expectee: ReducedTerm,
-        destination: ReducedTerm,
+        expectee: Term,
+        destination: Term,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {

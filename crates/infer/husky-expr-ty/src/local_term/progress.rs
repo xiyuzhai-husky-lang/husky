@@ -5,7 +5,7 @@ use thiserror::Error;
 pub(crate) enum LocalTermResolveProgress {
     Unresolved,
     PartiallyResolved(UnresolvedTermIdx),
-    FullyResolved(ReducedTerm),
+    FullyResolved(Term),
     Err(LocalTermResolveError),
 }
 
@@ -48,7 +48,7 @@ impl LocalTermResolveProgress {
         }
     }
 
-    pub(crate) fn reduced_term(&self) -> Option<ReducedTerm> {
+    pub(crate) fn reduced_term(&self) -> Option<Term> {
         match self {
             LocalTermResolveProgress::FullyResolved(reduced_term) => Some(*reduced_term),
             LocalTermResolveProgress::Unresolved
