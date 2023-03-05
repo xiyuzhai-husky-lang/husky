@@ -5,6 +5,7 @@ mod db;
 mod disambiguation;
 mod entity_path;
 mod error;
+mod expectation;
 mod field;
 mod method;
 mod term;
@@ -17,6 +18,7 @@ pub use self::db::*;
 pub use self::disambiguation::*;
 pub use self::entity_path::*;
 pub use self::error::*;
+pub use self::expectation::*;
 pub use self::term::*;
 
 use self::field::*;
