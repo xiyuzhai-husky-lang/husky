@@ -13,7 +13,7 @@ impl PreciseTermAsTraitSubentity {
         db: &dyn PreciseTermDb,
         raw_term: RawTermAsTraitSubentity,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

@@ -14,7 +14,7 @@ impl PreciseTermSymbol {
         db: &dyn PreciseTermDb,
         raw_term: RawTermSymbol,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

@@ -10,11 +10,9 @@ pub(crate) fn raw_ty_method_raw_ty(
     match owner_raw_ty.raw_term() {
         RawTerm::Literal(_) => unreachable!(),
         RawTerm::Symbol(_) => Ok(None),
-        RawTerm::EntityPath(path) => entity_raw_ty_method_raw_ty(
-            db,
-            path.ty_ontology_path().expect("should be raw_type"),
-            ident,
-        ),
+        RawTerm::EntityPath(path) => {
+            entity_raw_ty_method_raw_ty(db, path.ty_path().expect("should be raw_type"), ident)
+        }
         RawTerm::Category(_) => Ok(None),
         RawTerm::Universe(_) => unreachable!(),
         RawTerm::Curry(_) => Ok(None),
@@ -58,7 +56,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
         RawTerm::Symbol(_) => todo!(),
         RawTerm::EntityPath(path) => entity_application_raw_ty_method_raw_ty(
             db,
-            path.ty_ontology_path().expect("should be raw_type"),
+            path.ty_path().expect("should be raw_type"),
             application_expansion.opt_arguments(db).unwrap(),
             ident,
         ),

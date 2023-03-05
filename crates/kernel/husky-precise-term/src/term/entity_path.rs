@@ -15,8 +15,24 @@ impl PreciseTermEntityPath {
         db: &dyn PreciseTermDb,
         raw_term: RawTermEntityPath,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
-        todo!()
+    ) -> PreciseTermResult<Self> {
+        match raw_term {
+            RawTermEntityPath::Form(path) => Ok(PreciseTermEntityPath::Form(path)),
+            RawTermEntityPath::Trait(path) => Ok(PreciseTermEntityPath::Trait(path)),
+            RawTermEntityPath::Type(path) => match raw_ty_expectation {
+                RawTypeExpectation::FinalDestinationEqsSort => {
+                    Ok(PreciseTermEntityPath::TypeOntology(path))
+                }
+                RawTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
+                    if path == path_expected =>
+                {
+                    Ok(PreciseTermEntityPath::TypeConstructor(path))
+                }
+                RawTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
+                    Err(todo!())
+                }
+            },
+        }
     }
 
     pub fn ty_ontology_path(self) -> Option<TypePath> {

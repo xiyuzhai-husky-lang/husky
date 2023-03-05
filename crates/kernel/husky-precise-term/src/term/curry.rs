@@ -25,7 +25,7 @@ impl PreciseTermCurry {
         db: &dyn PreciseTermDb,
         raw_term: RawTermCurry,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

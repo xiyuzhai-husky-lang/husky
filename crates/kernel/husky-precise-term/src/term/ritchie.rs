@@ -15,7 +15,7 @@ impl PreciseTermRitchie {
         db: &dyn PreciseTermDb,
         raw_term: RawTermRitchie,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

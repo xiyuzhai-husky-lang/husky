@@ -19,7 +19,7 @@ impl TermUniverse {
 
     #[inline(always)]
     pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermUniverse) -> Self {
-        todo!()
+        TermUniverse::new(valid_term.raw())
     }
 
     pub(crate) fn zero() -> Self {

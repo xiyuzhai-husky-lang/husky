@@ -12,7 +12,7 @@ impl TermCategory {
     }
 
     pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermCategory) -> Self {
-        todo!()
+        TermCategory::new(TermUniverse::from_valid(db, valid_term.universe()))
     }
 
     pub fn ty(self) -> TermResult<Term> {

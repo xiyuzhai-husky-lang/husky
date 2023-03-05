@@ -27,7 +27,7 @@ impl PreciseTermLiteral {
         db: &dyn PreciseTermDb,
         raw_term: RawTermLiteral,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
+    ) -> PreciseTermResult<Self> {
         todo!()
     }
 

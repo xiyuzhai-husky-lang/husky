@@ -80,10 +80,10 @@ impl Term {
         db: &dyn TermDb,
         raw_term: RawTerm,
         raw_ty_expectation: RawTypeExpectation,
-    ) -> Self {
-        let precise_term = PreciseTerm::from_raw(db, raw_term, raw_ty_expectation);
+    ) -> TermResult<Self> {
+        let precise_term = PreciseTerm::from_raw(db, raw_term, raw_ty_expectation)?;
         let valid_term = ValidTerm::from_precise(db, precise_term);
-        Self::from_valid(db, valid_term)
+        Ok(Self::from_valid(db, valid_term))
     }
 
     fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {

@@ -34,9 +34,7 @@ pub(crate) fn calc_raw_term_symbols(
         RawTerm::Symbol(symbol) => Some(RawTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
         RawTerm::EntityPath(path) => match path {
             RawTermEntityPath::Form(_) => todo!(),
-            RawTermEntityPath::Trait(_)
-            | RawTermEntityPath::TypeOntology(_)
-            | RawTermEntityPath::TypeConstructor(_) => None,
+            RawTermEntityPath::Trait(_) | RawTermEntityPath::Type(_) => None,
         },
         RawTerm::Category(_) => None,
         RawTerm::Universe(_) => None,
