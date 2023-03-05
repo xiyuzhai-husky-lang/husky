@@ -1,4 +1,5 @@
 use crate::*;
+use husky_precise_ty::PreciseTypeError;
 use thiserror::Error;
 
 pub type ValidTypeResult<T> = Result<T, ValidTypeError>;
@@ -6,20 +7,14 @@ pub type ValidTypeResult<T> = Result<T, ValidTypeError>;
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum ValidTypeError {
     #[error("original `{0}`")]
-    Original(OriginalValidTypeError),
+    Original(#[from] OriginalValidTypeError),
     #[error("derived `{0}`")]
-    Derived(DerivedValidTypeError),
+    Derived(#[from] DerivedValidTypeError),
 }
 
-impl From<OriginalValidTypeError> for ValidTypeError {
-    fn from(v: OriginalValidTypeError) -> Self {
-        Self::Original(v)
-    }
-}
-
-impl From<DerivedValidTypeError> for ValidTypeError {
-    fn from(v: DerivedValidTypeError) -> Self {
-        Self::Derived(v)
+impl From<PreciseTypeError> for ValidTypeError {
+    fn from(value: PreciseTypeError) -> Self {
+        todo!()
     }
 }
 
