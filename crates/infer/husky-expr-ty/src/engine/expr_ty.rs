@@ -337,7 +337,9 @@ impl<'a> ExprTypeEngine<'a> {
                             .form_path_ty(form_path)
                             .map(Into::into)
                             .map_err(|e| match e {
-                                TypeError::Original(_) => todo!(),
+                                TypeError::Original(e) => {
+                                    OriginalExprTypeError::FormPathTypeError(e).into()
+                                }
                                 TypeError::Derived(e) => {
                                     DerivedExprTypeError::FormPathTypeError(e).into()
                                 }

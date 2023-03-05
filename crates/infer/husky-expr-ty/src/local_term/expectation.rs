@@ -59,8 +59,8 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
                     false => todo!(),
                 }
             }
-            FinalDestination::NoneOriginal => TypePathDisambiguationResult::ErrFromNoneOriginal,
-            FinalDestination::NoneDerived => TypePathDisambiguationResult::ErrFromNoneDerived,
+            FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromNoneOriginal,
+            FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromNoneDerived,
         }
         // LocalTerm::Resolved(term) if let Term::Category(_) = term  => todo!(),
         // LocalTerm::Resolved(term) if term == ty_path.into() => todo!(),
@@ -79,8 +79,8 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 pub enum FinalDestination {
     Sort,
     TypePath(TypePath),
-    NoneOriginal,
-    NoneDerived,
+    AnyOriginal,
+    AnyDerived,
 }
 
 /// disambiguate between type itself (or template) and its instance or constructor

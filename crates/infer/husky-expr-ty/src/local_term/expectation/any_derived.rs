@@ -16,6 +16,6 @@ impl ExpectLocalTerm for ExpectAnyDerived {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        FinalDestination::NoneDerived
+        FinalDestination::AnyDerived
     }
 }

@@ -60,7 +60,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        todo!()
+        self.destination.final_destination(db, unresolved_terms)
     }
 }
 
