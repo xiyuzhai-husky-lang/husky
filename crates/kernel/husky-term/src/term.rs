@@ -28,6 +28,9 @@ pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
+use husky_precise_term::PreciseTerm;
+use husky_raw_term::RawTerm;
+use husky_raw_ty::RawTypeExpectation;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -69,6 +72,13 @@ pub enum Term {
     AsTraitSubentity(TermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(TermTraitConstraint),
+}
+
+impl Term {
+    pub fn new(db: &dyn TermDb, raw_term: RawTerm, raw_ty_expectation: RawTypeExpectation) -> Self {
+        let precise_term = PreciseTerm::new(db, raw_term, raw_ty_expectation);
+        todo!()
+    }
 }
 
 #[test]

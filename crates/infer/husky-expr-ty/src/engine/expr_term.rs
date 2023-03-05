@@ -37,7 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
                     EntityPath::AssociatedItem(_) => todo!(),
                     EntityPath::Variant(_) => todo!(),
                 },
-                //  Ok(self.db.reduced_term(entity_path.into()).into()),
+                //  Ok(Term::new(db,entity_path.into()).into()),
                 None => todo!(),
             },
             Expr::InheritedSymbol {
