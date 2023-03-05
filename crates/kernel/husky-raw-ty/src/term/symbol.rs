@@ -23,6 +23,14 @@ impl RawTermSymbols {
             (Some(fst), Some(snd)) => todo!(),
         }
     }
+
+    fn remove(
+        symbols: impl Into<Option<Self>>,
+        symbol: impl Into<Option<RawTermSymbol>>,
+    ) -> Option<Self> {
+        let symbols = symbols.into()?;
+        todo!()
+    }
 }
 impl<'a> dyn RawTypeDb + 'a {
     pub(crate) fn raw_term_contains_symbol(
@@ -61,7 +69,12 @@ pub(crate) fn raw_term_curry_symbols(
     db: &dyn RawTypeDb,
     raw_term: RawTermCurry,
 ) -> Option<RawTermSymbols> {
-    todo!()
+    let input_ty_symbols = calc_raw_term_symbols(db, raw_term.input_ty(db));
+    let return_ty_symbols = calc_raw_term_symbols(db, raw_term.return_ty(db));
+    RawTermSymbols::merge(
+        input_ty_symbols,
+        RawTermSymbols::remove(return_ty_symbols, raw_term.input_symbol(db)),
+    )
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
