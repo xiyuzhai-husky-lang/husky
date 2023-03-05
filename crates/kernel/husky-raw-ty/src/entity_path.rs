@@ -25,10 +25,8 @@ pub fn entity_path_raw_ty(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
-                TypePathDisambiguation::TypeItselfOrTemplate => ty_ontology_path_raw_ty(db, path),
-                TypePathDisambiguation::InstanceOrConstructor => {
-                    ty_constructor_path_raw_ty(db, path)
-                }
+                TypePathDisambiguation::TypeItselfOrTemplate => ty_ontology_raw_ty(db, path),
+                TypePathDisambiguation::InstanceOrConstructor => ty_constructor_raw_ty(db, path),
             },
             ModuleItemPath::Trait(path) => trai_path_raw_ty(db, path),
             ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
@@ -193,7 +191,7 @@ fn entity_path_path_raw_term_raw_ty_works() {
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
+pub fn ty_ontology_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
@@ -216,7 +214,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
+pub fn ty_constructor_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
