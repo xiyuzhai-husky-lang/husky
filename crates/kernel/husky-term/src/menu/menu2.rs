@@ -29,7 +29,7 @@ impl TermMenu2 {
                 Variance::Covariant,
                 None,
                 menu1.lifetime_ty().into(),
-                menu1.explicit_covariant_ty0_to_ty0().into(),
+                menu1.ex_co_ty0_to_ty0().into(),
             ),
             ex_co_lifetime_to_ex_ct_ty0_to_ty0: TermCurry::new(
                 db,

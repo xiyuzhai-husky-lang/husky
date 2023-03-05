@@ -10,6 +10,7 @@ mod suffix;
 
 use super::*;
 use husky_opn_syntax::*;
+use husky_ty_expectation::TypePathDisambiguation;
 
 pub(crate) enum ExprTypeResolveProgress<E: ExpectLocalTerm> {
     Unresolved,
@@ -262,7 +263,21 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region.unresolved_terms(),
                     self.entity_path_menu.list_ty_path(),
                 ) {
-                    TypePathDisambiguationResult::Ok(_) => todo!(),
+                    TypePathDisambiguationResult::Ok(disambiguation) => Ok(match disambiguation {
+                        TypePathDisambiguation::Ontology => {
+                            // ad hoc, assume universe is 1
+                            match items.len() {
+                                0 => (
+                                    ListExprDisambiguation::ListFunctor.into(),
+                                    Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
+                                ),
+                                _ => todo!(),
+                            }
+                        }
+                        TypePathDisambiguation::Constructor => {
+                            (ListExprDisambiguation::NewList.into(), todo!())
+                        }
+                    }),
                     TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
                     TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),
                     TypePathDisambiguationResult::ErrFromNoneDerived => {

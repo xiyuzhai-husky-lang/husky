@@ -76,6 +76,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: form path error",
+                severity: Error,
+                range: [7:17, 7:26),
+            },
+        ],
     },
 }

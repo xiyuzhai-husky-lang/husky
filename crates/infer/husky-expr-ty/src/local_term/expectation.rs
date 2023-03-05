@@ -53,7 +53,13 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     ) -> TypePathDisambiguationResult {
         match self.final_destination(db, unresolved_terms) {
             FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
-            FinalDestination::TypePath(final_destination_ty_path) => {
+            FinalDestination::TypeOntologyPath(final_destination_ty_path) => {
+                match final_destination_ty_path == ty_path {
+                    true => TypePathDisambiguation::Ontology.into(),
+                    false => todo!(),
+                }
+            }
+            FinalDestination::TypeConstructorPath(final_destination_ty_path) => {
                 match final_destination_ty_path == ty_path {
                     true => TypePathDisambiguation::Constructor.into(),
                     false => todo!(),
@@ -78,7 +84,8 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FinalDestination {
     Sort,
-    TypePath(TypePath),
+    TypeOntologyPath(TypePath),
+    TypeConstructorPath(TypePath),
     AnyOriginal,
     AnyDerived,
 }
