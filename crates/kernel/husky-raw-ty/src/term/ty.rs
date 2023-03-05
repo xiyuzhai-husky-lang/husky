@@ -20,8 +20,8 @@ pub fn raw_term_raw_ty(
         RawTerm::Universe(_) => todo!(),
         RawTerm::Curry(_) => todo!(),
         RawTerm::Ritchie(raw_term) => Ok(match raw_term.ritchie_kind(db) {
-            RawTermRitchieKind::Fp => raw_term_menu.ty0().into(),
-            RawTermRitchieKind::Fn | RawTermRitchieKind::FnMut => raw_term_menu.trai_ty(),
+            TermRitchieKind::Fp => raw_term_menu.ty0().into(),
+            TermRitchieKind::Fn | TermRitchieKind::FnMut => raw_term_menu.trai_ty(),
         }),
         RawTerm::Abstraction(_) => todo!(),
         RawTerm::Application(raw_term) => application_raw_term_raw_ty(db, raw_term),

@@ -1,4 +1,5 @@
 use husky_entity_path::{EntityPath, EntityPathError};
+use husky_raw_term::RawTermSymbolTypeErrorKind;
 use husky_raw_ty::RawTypeError;
 use std::sync::Arc;
 use thiserror::Error;
@@ -23,6 +24,12 @@ pub enum PreciseTermError {
 
 impl From<&EntityPathError> for PreciseTermError {
     fn from(_value: &EntityPathError) -> Self {
+        todo!()
+    }
+}
+
+impl From<RawTermSymbolTypeErrorKind> for PreciseTermError {
+    fn from(value: RawTermSymbolTypeErrorKind) -> Self {
         todo!()
     }
 }

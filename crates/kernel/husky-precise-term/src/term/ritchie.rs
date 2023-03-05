@@ -3,7 +3,7 @@ use super::*;
 /// representing precise_term `x -> y`
 #[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
 pub struct PreciseTermRitchie {
-    pub ritchie_kind: PreciseTermRitchieKind,
+    pub ritchie_kind: TermRitchieKind,
     #[return_ref]
     pub parameter_tys: Vec<PreciseTermRitchieParameter>,
     pub return_ty: PreciseTerm,
@@ -16,6 +16,9 @@ impl PreciseTermRitchie {
         raw_term: RawTermRitchie,
         raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
+        let t = |raw_ty| {
+            PreciseTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)
+        };
         todo!()
     }
 
@@ -26,9 +29,9 @@ impl PreciseTermRitchie {
         ctx: &mut PreciseTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            PreciseTermRitchieKind::Fp => f.write_str("Fp(")?,
-            PreciseTermRitchieKind::Fn => f.write_str("Fn(")?,
-            PreciseTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -53,9 +56,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<PreciseTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            PreciseTermRitchieKind::Fp => f.write_str("Fp(")?,
-            PreciseTermRitchieKind::Fn => f.write_str("Fn(")?,
-            PreciseTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -108,13 +111,6 @@ impl PreciseTermRitchieParameter {
     pub fn ty(&self) -> PreciseTerm {
         self.ty
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum PreciseTermRitchieKind {
-    Fp,
-    Fn,
-    FnMut,
 }
 
 impl PreciseTermRewriteCopy for PreciseTermRitchie {

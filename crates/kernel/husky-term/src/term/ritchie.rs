@@ -109,13 +109,6 @@ impl TermRitchieParameter {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TermRitchieKind {
-    Fp,
-    Fn,
-    FnMut,
-}
-
 impl TermRewriteCopy for TermRitchie {
     fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
         todo!()

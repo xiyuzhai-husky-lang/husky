@@ -5,7 +5,7 @@ use crate::*;
 /// representing raw_term `x -> y`
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermRitchie {
-    pub ritchie_kind: RawTermRitchieKind,
+    pub ritchie_kind: TermRitchieKind,
     #[return_ref]
     pub parameter_tys: Vec<RawTermRitchieParameter>,
     pub return_ty: RawTerm,
@@ -20,9 +20,9 @@ impl RawTermRitchie {
         ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            RawTermRitchieKind::Fp => f.write_str("Fp(")?,
-            RawTermRitchieKind::Fn => f.write_str("Fn(")?,
-            RawTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -47,9 +47,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            RawTermRitchieKind::Fp => f.write_str("Fp(")?,
-            RawTermRitchieKind::Fn => f.write_str("Fn(")?,
-            RawTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -102,13 +102,6 @@ impl RawTermRitchieParameter {
     pub fn ty(&self) -> RawTerm {
         self.ty
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum RawTermRitchieKind {
-    Fp,
-    Fn,
-    FnMut,
 }
 
 impl RawTermRewriteCopy for RawTermRitchie {

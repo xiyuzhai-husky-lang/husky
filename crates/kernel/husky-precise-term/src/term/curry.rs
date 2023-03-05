@@ -68,7 +68,11 @@ pub(crate) fn precise_term_curry_from_raw(
         raw_term_curry.curry_kind(db),
         raw_term_curry.variance(db),
         match raw_term_curry.input_symbol(db) {
-            Some(_) => todo!(),
+            Some(input_symbol) => Some(PreciseTermSymbol::from_raw(
+                db,
+                input_symbol,
+                TermTypeExpectation::Any,
+            )?),
             None => todo!(),
         },
         t(raw_term_curry.input_ty(db))?,

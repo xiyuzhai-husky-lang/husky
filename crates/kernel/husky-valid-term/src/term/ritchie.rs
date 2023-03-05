@@ -4,7 +4,7 @@ use context::*;
 /// representing valid_term `x -> y`
 #[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
 pub struct ValidTermRitchie {
-    pub ritchie_kind: ValidTermRitchieKind,
+    pub ritchie_kind: TermRitchieKind,
     #[return_ref]
     pub parameter_tys: Vec<ValidTermRitchieParameter>,
     pub return_ty: ValidTerm,
@@ -23,9 +23,9 @@ impl ValidTermRitchie {
         ctx: &mut ValidTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            ValidTermRitchieKind::Fp => f.write_str("Fp(")?,
-            ValidTermRitchieKind::Fn => f.write_str("Fn(")?,
-            ValidTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -50,9 +50,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            ValidTermRitchieKind::Fp => f.write_str("Fp(")?,
-            ValidTermRitchieKind::Fn => f.write_str("Fn(")?,
-            ValidTermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::Fp => f.write_str("Fp(")?,
+            TermRitchieKind::Fn => f.write_str("Fn(")?,
+            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
             if i > 0 {
@@ -105,13 +105,6 @@ impl ValidTermRitchieParameter {
     pub fn ty(&self) -> ValidTerm {
         self.ty
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ValidTermRitchieKind {
-    Fp,
-    Fn,
-    FnMut,
 }
 
 impl ValidTermRewriteCopy for ValidTermRitchie {
