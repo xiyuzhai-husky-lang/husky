@@ -85,7 +85,7 @@ impl TermMenu1 {
         self.explicit_invariant_ty0_to_trai_ty
     }
 
-    pub fn explicit_covariant_ty0_to_ty0(&self) -> TermCurry {
+    pub fn ex_co_ty0_to_ty0(&self) -> TermCurry {
         self.explicit_covariant_ty0_to_ty0
     }
 

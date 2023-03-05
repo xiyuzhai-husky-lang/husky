@@ -24,17 +24,11 @@ impl LocalTerm {
                 Term::EntityPath(path) => match path {
                     TermEntityPath::Form(_) => todo!(),
                     TermEntityPath::Trait(_) => todo!(),
-                    TermEntityPath::TypeOntology(_) => todo!(),
-                    TermEntityPath::TypeConstructor(_) => todo!(),
+                    TermEntityPath::TypeOntology(path) => FinalDestination::TypeOntologyPath(path),
+                    TermEntityPath::TypeConstructor(path) => {
+                        FinalDestination::TypeConstructorPath(path)
+                    }
                 },
-                // EntityPath::Module(_) => todo!(),
-                // EntityPath::ModuleItem(path) => match path {
-                //     ModuleItemPath::Type(ty_path) => FinalDestination::TypePath(ty_path),
-                //     ModuleItemPath::Trait(_) => todo!(),
-                //     ModuleItemPath::Form(_) => todo!(),
-                // },
-                // EntityPath::AssociatedItem(_) => todo!(),
-                // EntityPath::Variant(_) => todo!(),
                 Term::Category(_) => FinalDestination::Sort,
                 Term::Universe(_) => todo!(),
                 Term::Curry(_) => todo!(),
@@ -49,7 +43,7 @@ impl LocalTerm {
                             TermEntityPath::Form(_) => todo!(),
                             TermEntityPath::Trait(_) => todo!(),
                             TermEntityPath::TypeOntology(ty_path) => {
-                                FinalDestination::TypePath(ty_path)
+                                FinalDestination::TypeOntologyPath(ty_path)
                             }
                             TermEntityPath::TypeConstructor(_) => todo!(),
                         },
@@ -73,15 +67,15 @@ impl LocalTerm {
     }
 }
 
-fn curry_destination(db: &dyn ExprTypeDb, resolved_term: Term) -> Term {
-    match resolved_term {
+fn curry_destination(db: &dyn ExprTypeDb, term: Term) -> Term {
+    match term {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(_) => todo!(),
-            TermEntityPath::TypeConstructor(_) => todo!(),
+            TermEntityPath::Trait(_)
+            | TermEntityPath::TypeOntology(_)
+            | TermEntityPath::TypeConstructor(_) => term,
         },
         // EntityPath::Module(_) => todo!(),
         // EntityPath::ModuleItem(path) => match path {
@@ -91,12 +85,12 @@ fn curry_destination(db: &dyn ExprTypeDb, resolved_term: Term) -> Term {
         // },
         // EntityPath::AssociatedItem(_) => todo!(),
         // EntityPath::Variant(_) => todo!(),
-        Term::Category(_) => resolved_term,
+        Term::Category(_) => term,
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
-        Term::Application(_) => resolved_term,
+        Term::Application(_) => term,
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),

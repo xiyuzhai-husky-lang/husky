@@ -35,4 +35,5 @@ pub enum ApplicationOrRitchieCallExprDisambiguation {
 pub enum ListExprDisambiguation {
     NewList,
     ListFunctor,
+    ArrayFunctor,
 }
