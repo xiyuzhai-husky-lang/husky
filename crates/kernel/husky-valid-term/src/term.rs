@@ -20,7 +20,6 @@ pub use self::symbol::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_precise_term::*;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -115,7 +114,12 @@ impl ValidTerm {
             ValidTerm::Literal(literal) => Right(literal.ty()),
             ValidTerm::Symbol(_) => todo!(),
             ValidTerm::Category(_) => todo!(),
-            ValidTerm::EntityPath(_) => todo!(),
+            ValidTerm::EntityPath(path) => Left(match path {
+                TermEntityPath::Form(path) => form_path_precise_ty(db, path)?,
+                TermEntityPath::Trait(path) => trai_path_precise_ty(db, path)?,
+                TermEntityPath::TypeOntology(path) => ty_ontology_path_precise_ty(db, path)?,
+                TermEntityPath::TypeConstructor(path) => ty_constructor_path_precise_ty(db, path)?,
+            }),
             ValidTerm::Universe(_) => todo!(),
             ValidTerm::Curry(_) => todo!(),
             ValidTerm::Ritchie(_) => todo!(),

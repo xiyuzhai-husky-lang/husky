@@ -231,7 +231,7 @@ pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawType
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
-pub(crate) fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<RawTerm> {
+pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,

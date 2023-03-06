@@ -1,4 +1,6 @@
-use husky_valid_ty::{form_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty};
+use husky_valid_ty::{
+    form_path_valid_ty, trai_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty,
+};
 use salsa::assert_eq_with_db;
 
 use crate::*;
@@ -215,7 +217,7 @@ pub fn ty_constructor_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Ter
 
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Term> {
-    todo!()
+    Ok(Term::from_valid(db, trai_path_valid_ty(db, path)?))
 }
 
 #[salsa::tracked(jar = TypeJar)]
