@@ -339,14 +339,14 @@ impl<'a> ExprTypeEngine<'a> {
                     ModuleItemPath::Trait(trai_path) => Ok((
                         ExprDisambiguation::Trivial,
                         self.db
-                            .trai_path_ty(trai_path)
+                            .trai_path_ty_unchecked(trai_path)
                             .map(Into::into)
                             .map_err(|e| todo!()),
                     )),
                     ModuleItemPath::Form(form_path) => Ok((
                         ExprDisambiguation::Trivial,
                         self.db
-                            .form_path_ty(form_path)
+                            .form_path_ty_unchecked(form_path)
                             .map(Into::into)
                             .map_err(|e| todo!()),
                     )),
