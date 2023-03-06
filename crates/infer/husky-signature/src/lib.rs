@@ -16,7 +16,7 @@ pub use self::term::*;
 use husky_decl::*;
 use husky_entity_path::*;
 use husky_raw_term::*;
-use husky_term_attrs::*;
+use husky_term_prelude::*;
 use husky_word::*;
 
 #[cfg(test)]

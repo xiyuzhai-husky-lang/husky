@@ -5,7 +5,6 @@ mod category;
 mod constraint;
 mod curry;
 mod entity_path;
-mod literal;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -20,7 +19,6 @@ pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::entity_path::*;
-pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
@@ -81,7 +79,8 @@ impl PreciseTerm {
     ) -> PreciseTermResult<Self> {
         Ok(match raw_term {
             RawTerm::Literal(raw_term) => {
-                PreciseTermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                todo!()
+                // PreciseTermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Symbol(raw_term) => {
                 PreciseTermSymbol::from_raw(db, raw_term, raw_ty_expectation)?.into()
@@ -121,9 +120,10 @@ impl PreciseTerm {
 
     fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<RawTerm> {
         match self {
-            PreciseTerm::Literal(_) => todo!(),
+            PreciseTerm::Literal(term) => todo!(),
+            // term.raw_ty(db),
             PreciseTerm::Symbol(_) => todo!(),
-            PreciseTerm::EntityPath(path) => path.raw_ty(db).map_err(Into::into),
+            PreciseTerm::EntityPath(term) => term.raw_ty(db).map_err(Into::into),
             PreciseTerm::Category(_) => todo!(),
             PreciseTerm::Universe(_) => todo!(),
             PreciseTerm::Curry(_) => todo!(),
@@ -179,21 +179,22 @@ impl PreciseTerm {
         db: &dyn PreciseTermDb,
         ctx: &mut PreciseTermShowContext,
     ) -> std::fmt::Result {
-        match self {
-            PreciseTerm::Literal(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Symbol(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::EntityPath(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Category(precise_term) => f.write_str(&precise_term.to_string()),
-            PreciseTerm::Universe(precise_term) => f.write_str(&precise_term.to_string()),
-            PreciseTerm::Curry(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Ritchie(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Abstraction(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Application(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::Subentity(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-            PreciseTerm::AsTraitSubentity(precise_term) => {
-                precise_term.show_with_db_fmt(f, db, ctx)
-            }
-            PreciseTerm::TraitConstraint(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        }
+        todo!()
+        // match self {
+        //     PreciseTerm::Literal(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Symbol(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::EntityPath(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Category(precise_term) => f.write_str(&precise_term.to_string()),
+        //     PreciseTerm::Universe(precise_term) => f.write_str(&precise_term.to_string()),
+        //     PreciseTerm::Curry(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Ritchie(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Abstraction(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Application(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::Subentity(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        //     PreciseTerm::AsTraitSubentity(precise_term) => {
+        //         precise_term.show_with_db_fmt(f, db, ctx)
+        //     }
+        //     PreciseTerm::TraitConstraint(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        // }
     }
 }

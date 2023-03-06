@@ -14,7 +14,7 @@ pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
-use husky_term_attrs::*;
+use husky_term_prelude::*;
 use husky_vfs::Toolchain;
 use husky_word::*;
 
@@ -22,6 +22,7 @@ use husky_word::*;
 pub struct RawTermJar(
     RawTermSymbol,
     RawTermCurry,
+    total_number_of_curry_parameters,
     RawTermRitchie,
     RawTermAbstraction,
     RawTermApplication,

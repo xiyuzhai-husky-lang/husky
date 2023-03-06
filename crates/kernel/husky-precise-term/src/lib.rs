@@ -23,7 +23,7 @@ use husky_entity_path::EntityPath;
 use husky_print_utils::p;
 use husky_raw_term::*;
 use husky_raw_ty::*;
-use husky_term_attrs::*;
+use husky_term_prelude::*;
 use husky_vfs::*;
 use husky_word::Identifier;
 
@@ -38,9 +38,6 @@ pub struct PreciseTermJar(
     PreciseTermSubentity,
     PreciseTermAsTraitSubentity,
     PreciseTermTraitConstraint,
-    PreciseTermInteger128,
-    PreciseTermInteger256,
-    PreciseTermNaturalNumber,
     precise_term_menu,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
