@@ -71,34 +71,63 @@ impl Term {
     pub fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term: RawTerm,
-        ty_expectation: TermTypeExpectation,
+        term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
-        todo!()
-        // let precise_term = RawTerm::from_raw(db, raw_term, ty_expectation)?;
-        // let valid_term = RawTerm::from_precise(db, precise_term)?;
-        // Ok(Self::from_raw(db, valid_term))
+        Ok(match raw_term {
+            RawTerm::Literal(literal) => {
+                match literal {
+                    RawTermLiteral::Resolved(literal) => literal.into(),
+                    RawTermLiteral::Unresolved(_) => todo!(),
+                }
+                //  TermLiteral::from_raw(db, raw_term, ty_expectation)?.into()
+            }
+            RawTerm::Symbol(raw_term) => TermSymbol::from_raw(db, raw_term)?.into(),
+            RawTerm::EntityPath(raw_term) => match raw_term {
+                RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
+                RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
+                RawTermEntityPath::Type(path) => match term_ty_expectation {
+                    TermTypeExpectation::FinalDestinationEqsSort => {
+                        TermEntityPath::TypeOntology(path).into()
+                    }
+                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
+                        if path_expected == path =>
+                    {
+                        TermEntityPath::TypeConstructor(path).into()
+                    }
+                    TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
+                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
+                        return Err(todo!())
+                    }
+                },
+            },
+            RawTerm::Category(raw_term) => raw_term.into(),
+            RawTerm::Universe(raw_term) => raw_term.into(),
+            RawTerm::Curry(raw_term) => {
+                TermCurry::from_raw(db, raw_term, term_ty_expectation)?.into()
+            }
+            RawTerm::Ritchie(raw_term) => {
+                TermRitchie::from_raw(db, raw_term, term_ty_expectation)?.into()
+            }
+            RawTerm::Abstraction(raw_term) => {
+                TermAbstraction::from_raw(db, raw_term, term_ty_expectation)?.into()
+            }
+            RawTerm::Application(raw_term) => {
+                TermApplication::from_raw(db, raw_term, term_ty_expectation)?
+            }
+            RawTerm::Subentity(raw_term) => {
+                TermSubentity::from_raw(db, raw_term, term_ty_expectation)?
+            }
+            RawTerm::AsTraitSubentity(raw_term) => {
+                TermAsTraitSubentity::from_raw(db, raw_term, term_ty_expectation)?.into()
+            }
+            RawTerm::TraitConstraint(raw_term) => {
+                TermTraitConstraint::from_raw(db, raw_term, term_ty_expectation)?.into()
+            }
+        })
     }
 
     pub fn from_raw_inner(db: &dyn TermDb, valid_term: RawTerm) -> Self {
         todo!()
-        // match valid_term {
-        //     RawTerm::Literal(valid_term) => valid_term.into(),
-        //     RawTerm::Symbol(valid_term) => TermSymbol::from_raw(db, valid_term).into(),
-        //     RawTerm::EntityPath(valid_term) => valid_term.into(),
-        //     RawTerm::Category(valid_term) => valid_term.into(),
-        //     RawTerm::Universe(universe) => universe.into(),
-        //     RawTerm::Curry(valid_term) => TermCurry::from_raw(db, valid_term).into(),
-        //     RawTerm::Ritchie(valid_term) => TermRitchie::from_raw(db, valid_term).into(),
-        //     RawTerm::Abstraction(valid_term) => TermAbstraction::from_raw(db, valid_term).into(),
-        //     RawTerm::Application(valid_term) => TermApplication::from_raw(db, valid_term).into(),
-        //     RawTerm::Subentity(valid_term) => TermSubentity::from_raw(db, valid_term).into(),
-        //     RawTerm::AsTraitSubentity(valid_term) => {
-        //         TermAsTraitSubentity::from_raw(db, valid_term).into()
-        //     }
-        //     RawTerm::TraitConstraint(valid_term) => {
-        //         TermTraitConstraint::from_raw(db, valid_term).into()
-        //     }
-        // }
     }
 
     fn ty_unchecked(self, db: &dyn TermDb) -> TermResult<Either<Term, PreludeTypePath>> {

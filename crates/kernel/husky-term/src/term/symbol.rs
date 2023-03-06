@@ -17,7 +17,7 @@ pub struct TermSymbol {
 
 impl TermSymbol {
     #[inline(always)]
-    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermSymbol) -> Self {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermSymbol) -> TermResult<Self> {
         todo!()
     }
 
