@@ -10,7 +10,7 @@ pub struct ValidTermSymbol {
 }
 
 impl ValidTermSymbol {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermSymbol) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermSymbol) -> Self {
         todo!()
     }
 

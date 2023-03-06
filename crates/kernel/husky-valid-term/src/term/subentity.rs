@@ -8,7 +8,7 @@ pub struct ValidTermSubentity {
 }
 
 impl ValidTermSubentity {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermSubentity) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermSubentity) -> Self {
         todo!()
     }
 

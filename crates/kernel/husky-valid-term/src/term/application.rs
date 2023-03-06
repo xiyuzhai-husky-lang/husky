@@ -31,8 +31,8 @@ impl ValidTermApplication {
         todo!()
     }
 
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermApplication) -> Self {
-        todo!()
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermApplication) -> Self {
+        valid_term_application_from_precise(db, precise_term)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -45,6 +45,14 @@ impl ValidTermApplication {
         f.write_str(" ")?;
         self.argument(db).show_with_db_fmt(f, db, ctx)
     }
+}
+
+#[salsa::tracked(jar = ValidTermJar)]
+pub(crate) fn valid_term_application_from_precise(
+    db: &dyn ValidTermDb,
+    precise_term: PreciseTermApplication,
+) -> ValidTermApplication {
+    todo!()
 }
 
 impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermApplication {

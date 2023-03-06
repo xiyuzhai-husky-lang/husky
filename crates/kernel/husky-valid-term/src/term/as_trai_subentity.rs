@@ -9,7 +9,7 @@ pub struct ValidTermAsTraitSubentity {
 }
 
 impl ValidTermAsTraitSubentity {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermAsTraitSubentity) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermAsTraitSubentity) -> Self {
         todo!()
     }
 
