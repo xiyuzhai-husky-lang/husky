@@ -19,7 +19,7 @@ pub use self::subentity::*;
 pub use self::symbol::*;
 
 use crate::*;
-use husky_entity_path::EntityPath;
+use husky_entity_path::{EntityPath, PreludeTypePath};
 use husky_raw_term::RawTerm;
 use husky_ty_expectation::TermTypeExpectation;
 use husky_word::Identifier;
@@ -72,8 +72,11 @@ impl PreciseTerm {
         raw_ty_expectation: TermTypeExpectation,
     ) -> PreciseTermResult<Self> {
         Ok(match raw_term {
-            RawTerm::Literal(raw_term) => {
-                todo!()
+            RawTerm::Literal(literal) => {
+                match literal {
+                    RawTermLiteral::Resolved(literal) => literal.into(),
+                    RawTermLiteral::Unresolved(_) => todo!(),
+                }
                 //  TermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Symbol(raw_term) => {
@@ -123,22 +126,39 @@ impl PreciseTerm {
         })
     }
 
-    fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<RawTerm> {
-        match self {
-            PreciseTerm::Literal(term) => todo!(),
+    fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<Either<RawTerm, PreludeTypePath>> {
+        Ok(match self {
+            PreciseTerm::Literal(literal) => Right(literal.ty()),
             // term.raw_ty(db),
             PreciseTerm::Symbol(_) => todo!(),
-            PreciseTerm::EntityPath(term) => todo!(),
+            PreciseTerm::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(path) => Left(ty_ontology_path_raw_ty(db, path)?),
+                TermEntityPath::TypeConstructor(path) => {
+                    Left(ty_constructor_path_raw_ty(db, path)?)
+                }
+            },
             PreciseTerm::Category(_) => todo!(),
             PreciseTerm::Universe(_) => todo!(),
             PreciseTerm::Curry(_) => todo!(),
             PreciseTerm::Ritchie(_) => todo!(),
             PreciseTerm::Abstraction(_) => todo!(),
-            PreciseTerm::Application(_) => todo!(),
+            PreciseTerm::Application(term) => Left(term.raw_ty(db)?),
             PreciseTerm::Subentity(_) => todo!(),
             PreciseTerm::AsTraitSubentity(_) => todo!(),
             PreciseTerm::TraitConstraint(_) => todo!(),
-        }
+        })
+    }
+
+    pub(crate) fn ty_total_number_of_curry_parameters(
+        self,
+        db: &dyn PreciseTermDb,
+    ) -> PreciseTermResult<u8> {
+        Ok(match self.raw_ty(db)? {
+            Left(raw_ty) => raw_ty.total_number_of_curry_parameters(db),
+            Right(_) => 0,
+        })
     }
 }
 
