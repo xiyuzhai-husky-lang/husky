@@ -160,6 +160,10 @@ impl PreciseTerm {
             Right(_) => 0,
         })
     }
+
+    pub fn is_trivially_convertible_to(self, other: Self) -> PreciseTermResult<bool> {
+        todo!()
+    }
 }
 
 #[test]
@@ -204,22 +208,21 @@ impl PreciseTerm {
         db: &dyn PreciseTermDb,
         ctx: &mut PreciseTermShowContext,
     ) -> std::fmt::Result {
-        todo!()
-        // match self {
-        //     PreciseTerm::Literal(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Symbol(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::EntityPath(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Category(precise_term) => f.write_str(&precise_term.to_string()),
-        //     PreciseTerm::Universe(precise_term) => f.write_str(&precise_term.to_string()),
-        //     PreciseTerm::Curry(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Ritchie(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Abstraction(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Application(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::Subentity(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        //     PreciseTerm::AsTraitSubentity(precise_term) => {
-        //         precise_term.show_with_db_fmt(f, db, ctx)
-        //     }
-        //     PreciseTerm::TraitConstraint(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
-        // }
+        match self {
+            PreciseTerm::Literal(literal) => literal.show_with_db_fmt(f, db),
+            PreciseTerm::Symbol(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::EntityPath(path) => path.show_with_db_fmt(f, db),
+            PreciseTerm::Category(precise_term) => f.write_str(&precise_term.to_string()),
+            PreciseTerm::Universe(precise_term) => f.write_str(&precise_term.to_string()),
+            PreciseTerm::Curry(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::Ritchie(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::Abstraction(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::Application(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::Subentity(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+            PreciseTerm::AsTraitSubentity(precise_term) => {
+                precise_term.show_with_db_fmt(f, db, ctx)
+            }
+            PreciseTerm::TraitConstraint(precise_term) => precise_term.show_with_db_fmt(f, db, ctx),
+        }
     }
 }

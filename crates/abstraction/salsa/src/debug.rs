@@ -1,3 +1,4 @@
+use either::*;
 use std::{
     collections::{HashMap, HashSet},
     convert::Infallible,
@@ -5,7 +6,6 @@ use std::{
     rc::Rc,
     sync::Arc,
 };
-
 use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap, VecSet};
 
 pub trait DebugWithDb<Db: ?Sized> {
@@ -223,6 +223,25 @@ where
             Err(e) => f
                 .debug_tuple("Err")
                 .field(&e.debug_with(db, level.parallel()))
+                .finish(),
+        }
+    }
+}
+
+impl<Db: ?Sized, L, R> DebugWithDb<Db> for Either<L, R>
+where
+    L: DebugWithDb<Db>,
+    R: DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        match self {
+            Left(l) => f
+                .debug_tuple("Left")
+                .field(&l.debug_with(db, level.parallel()))
+                .finish(),
+            Right(r) => f
+                .debug_tuple("Right")
+                .field(&r.debug_with(db, level.parallel()))
                 .finish(),
         }
     }

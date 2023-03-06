@@ -73,7 +73,7 @@ pub(crate) fn precise_term_curry_from_raw(
                 input_symbol,
                 TermTypeExpectation::Any,
             )?),
-            None => todo!(),
+            None => None,
         },
         t(raw_term_curry.input_ty(db))?,
         t(raw_term_curry.return_ty(db))?,
