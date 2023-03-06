@@ -23,6 +23,7 @@ pub use self::symbol::*;
 use crate::*;
 use husky_entity_path::EntityPath;
 use husky_raw_term::RawTerm;
+use husky_raw_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 use husky_ty_expectation::TermTypeExpectation;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
@@ -129,23 +130,49 @@ impl Term {
     }
 
     fn ty_unchecked(self, db: &dyn TermDb) -> TermResult<Either<Term, PreludeTypePath>> {
+        todo!("use raw_ty")
+        // Ok(match self {
+        //     Term::Literal(literal) => Right(literal.ty()),
+        //     Term::Symbol(_) => todo!(),
+        //     Term::Category(_) => todo!(),
+        //     Term::EntityPath(path) => Left(match path {
+        //         TermEntityPath::Form(path) => form_path_ty_unchecked(db, path)?,
+        //         TermEntityPath::Trait(path) => trai_path_ty_unchecked(db, path)?,
+        //         TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_unchecked(db, path)?,
+        //         TermEntityPath::TypeConstructor(path) => {
+        //             ty_constructor_path_ty_unchecked(db, path)?
+        //         }
+        //     }),
+        //     Term::Universe(_) => todo!(),
+        //     Term::Curry(_) => todo!(),
+        //     Term::Ritchie(_) => todo!(),
+        //     Term::Abstraction(_) => todo!(),
+        //     Term::Application(_) => todo!(),
+        //     Term::Subentity(_) => todo!(),
+        //     Term::AsTraitSubentity(_) => todo!(),
+        //     Term::TraitConstraint(_) => todo!(),
+        // })
+    }
+
+    fn raw_ty(self, db: &dyn TermDb) -> TermResult<Either<RawTerm, PreludeTypePath>> {
         Ok(match self {
             Term::Literal(literal) => Right(literal.ty()),
+            // term.raw_ty(db),
             Term::Symbol(_) => todo!(),
-            Term::Category(_) => todo!(),
-            Term::EntityPath(path) => Left(match path {
-                TermEntityPath::Form(path) => form_path_ty_unchecked(db, path)?,
-                TermEntityPath::Trait(path) => trai_path_ty_unchecked(db, path)?,
-                TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_unchecked(db, path)?,
+            Term::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(path) => Left(ty_ontology_path_raw_ty(db, path)?),
                 TermEntityPath::TypeConstructor(path) => {
-                    ty_constructor_path_ty_unchecked(db, path)?
+                    Left(ty_constructor_path_raw_ty(db, path)?)
                 }
-            }),
+            },
+            Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
             Term::Ritchie(_) => todo!(),
             Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
+            Term::Application(term) => Left(term.raw_ty(db)?),
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
@@ -170,6 +197,10 @@ impl Term {
                 _ => todo!(),
             },
         }
+    }
+
+    fn reduce(self, db: &dyn TermDb) -> Self {
+        todo!()
     }
 
     pub fn substitute(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {

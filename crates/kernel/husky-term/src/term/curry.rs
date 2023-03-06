@@ -71,6 +71,20 @@ pub(crate) fn term_curry_from_raw_unchecked(
     ))
 }
 
+// impl Term {
+//     pub(crate) fn total_number_of_curry_parameters(self, db: &dyn TermDb) -> u8 {
+//         match self {
+//             Term::Curry(term) => total_number_of_curry_parameters(db, term),
+//             _ => 0,
+//         }
+//     }
+// }
+
+// #[salsa::tracked(jar = TermJar)]
+// pub(crate) fn total_number_of_curry_parameters(db: &dyn TermDb, term: TermCurry) -> u8 {
+//     term.return_ty(db).total_number_of_curry_parameters(db) + 1
+// }
+
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
     fn display_with_db_fmt(
         &self,
