@@ -33,7 +33,7 @@ pub(crate) fn entity_raw_ty_method_raw_ty(
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(raw_ty_path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::TypePathMethodDeclError.into()),
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
@@ -54,7 +54,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
     match f {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(_) => todo!(),
-        RawTerm::EntityPath(path) => entity_application_raw_ty_method_raw_ty(
+        RawTerm::EntityPath(path) => ty_path_application_raw_ty_method_raw_ty(
             db,
             path.ty_path().expect("should be raw_type"),
             application_expansion.opt_arguments(db).unwrap(),
@@ -72,7 +72,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
     }
 }
 
-fn entity_application_raw_ty_method_raw_ty(
+fn ty_path_application_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     path: TypePath,
     arguments: &[RawTerm],
@@ -80,7 +80,7 @@ fn entity_application_raw_ty_method_raw_ty(
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::TypePathApplicationMethodDeclError.into()),
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
