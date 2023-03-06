@@ -79,10 +79,24 @@ impl PreciseTerm {
             RawTerm::Symbol(raw_term) => {
                 PreciseTermSymbol::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
-            RawTerm::EntityPath(raw_term) => {
-                todo!()
-                // TermEntityPath::from_raw(db, raw_term, raw_ty_expectation)?.into()
-            }
+            RawTerm::EntityPath(raw_term) => match raw_term {
+                RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
+                RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
+                RawTermEntityPath::Type(path) => match raw_ty_expectation {
+                    TermTypeExpectation::FinalDestinationEqsSort => {
+                        TermEntityPath::TypeOntology(path).into()
+                    }
+                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
+                        if path_expected == path =>
+                    {
+                        TermEntityPath::TypeConstructor(path).into()
+                    }
+                    TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
+                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
+                        return Err(todo!())
+                    }
+                },
+            },
             RawTerm::Category(raw_term) => raw_term.into(),
             RawTerm::Universe(raw_term) => raw_term.into(),
             RawTerm::Curry(raw_term) => {
@@ -115,7 +129,6 @@ impl PreciseTerm {
             // term.raw_ty(db),
             PreciseTerm::Symbol(_) => todo!(),
             PreciseTerm::EntityPath(term) => todo!(),
-            // term.raw_ty(db).map_err(Into::into),
             PreciseTerm::Category(_) => todo!(),
             PreciseTerm::Universe(_) => todo!(),
             PreciseTerm::Curry(_) => todo!(),

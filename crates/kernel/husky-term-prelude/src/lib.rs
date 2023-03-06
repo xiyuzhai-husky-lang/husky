@@ -5,7 +5,6 @@ mod db;
 mod entity_path;
 mod error;
 mod literal;
-mod ty;
 mod universe;
 
 pub use self::category::*;
@@ -14,18 +13,12 @@ pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::literal::*;
-pub use self::ty::*;
 pub use self::universe::*;
 
 use husky_entity_path::*;
 
 #[salsa::jar(db = TermPreludeDb)]
-pub struct TermPreludeJar(
-    TermInteger128,
-    TermInteger256,
-    TermNaturalNumber,
-    // term_ty_path,
-);
+pub struct TermPreludeJar(TermInteger128, TermInteger256, TermNaturalNumber);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermRitchieKind {

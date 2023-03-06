@@ -178,7 +178,7 @@ impl TermShowContext {
 fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
     match symbol.ty(db) {
         Ok(Term::EntityPath(TermEntityPath::TypeOntology(path)))
-            if path.eqs_lifetime_ty_path(db) =>
+            if path.eqs_lifetime_ty_path(db).unwrap_or_default() =>
         {
             TermSymbolShowKind::Lifetime
         }

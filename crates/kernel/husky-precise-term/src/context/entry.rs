@@ -181,7 +181,7 @@ fn symbol_show_kind(
 ) -> PreciseTermSymbolShowKind {
     match symbol.ty(db) {
         PreciseTerm::EntityPath(TermEntityPath::TypeOntology(path))
-            if path.eqs_lifetime_ty_path(db) =>
+            if path.eqs_lifetime_ty_path(db).unwrap_or_default() =>
         {
             PreciseTermSymbolShowKind::Lifetime
         }
