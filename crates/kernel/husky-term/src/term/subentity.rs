@@ -9,7 +9,7 @@ pub struct TermSubentity {
 
 impl TermSubentity {
     #[inline(always)]
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermSubentity) -> Self {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermSubentity) -> Self {
         todo!()
     }
 

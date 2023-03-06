@@ -16,7 +16,7 @@ impl ExpectLocalTerm for ExpectEqsExactly {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         self.destination.final_destination(db, unresolved_terms)

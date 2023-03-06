@@ -1,5 +1,5 @@
 use crate::*;
-use husky_valid_ty::{DerivedValidTypeError, OriginalValidTypeError, ValidTypeError};
+use husky_ty::{DerivedValidTypeError, OriginalValidTypeError, ValidTypeError};
 use thiserror::Error;
 
 pub type TypeResult<T> = Result<T, TypeError>;
@@ -41,7 +41,7 @@ pub enum DerivedTypeError {
     ValidTypeError(#[from] DerivedValidTypeError),
 }
 
-impl<Db: TypeDb + ?Sized> salsa::DebugWithDb<Db> for TypeError {
+impl<Db: TermDb + ?Sized> salsa::DebugWithDb<Db> for TypeError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

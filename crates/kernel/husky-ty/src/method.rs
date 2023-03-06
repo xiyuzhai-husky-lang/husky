@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use crate::*;
 
 pub(crate) fn ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     owner_ty: Term,
     ident: Identifier,
 ) -> TypeResult<Option<Term>> {
@@ -25,18 +25,18 @@ pub(crate) fn ty_method_ty(
     }
 }
 
-#[salsa::tracked(jar = TypeJar,  )]
+#[salsa::tracked(jar = TermJar,  )]
 pub(crate) fn entity_ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     ty_path: TypePath,
     ident: Identifier,
 ) -> TypeResult<Option<Term>> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = TermJar)]
 pub(crate) fn application_ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     ty: TermApplication,
     ident: Identifier,
 ) -> TypeResult<Option<Term>> {
@@ -65,7 +65,7 @@ pub(crate) fn application_ty_method_ty(
 }
 
 fn entity_application_ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: TypePath,
     arguments: &[Term],
     ident: Identifier,

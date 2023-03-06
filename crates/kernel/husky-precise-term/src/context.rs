@@ -6,15 +6,15 @@ use husky_entity_path::EntityPath;
 use vec_like::{VecMap, VecPairMap, VecSet};
 
 #[derive(Default)]
-pub(crate) struct PreciseTermShowContext {
-    entries: VecMap<PreciseTermSymbolShowEntry>,
+pub(crate) struct RawTermShowContext {
+    entries: VecMap<RawTermSymbolShowEntry>,
 }
 
-impl PreciseTermShowContext {
+impl RawTermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
-        db: &dyn PreciseTermDb,
-        symbol: PreciseTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -29,8 +29,8 @@ impl PreciseTermShowContext {
 
     pub(crate) fn fmt_with_symbol(
         &mut self,
-        db: &dyn PreciseTermDb,
-        symbol: PreciseTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.enter_block(db, symbol);

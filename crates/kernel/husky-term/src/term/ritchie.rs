@@ -14,7 +14,7 @@ pub struct TermRitchie {
 
 impl TermRitchie {
     #[inline(always)]
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermRitchie) -> Self {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermRitchie) -> Self {
         todo!()
     }
 

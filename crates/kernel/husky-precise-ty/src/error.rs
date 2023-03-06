@@ -13,8 +13,8 @@ pub enum PreciseTypeError {
     Derived(#[from] DerivedPreciseTypeError),
 }
 
-impl From<PreciseTermError> for PreciseTypeError {
-    fn from(value: PreciseTermError) -> Self {
+impl From<RawTermError> for PreciseTypeError {
+    fn from(value: RawTermError) -> Self {
         // ad hoc
         PreciseTypeError::Original(value.into())
     }
@@ -32,7 +32,7 @@ impl From<RawTypeError> for PreciseTypeError {
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalPreciseTypeError {
     #[error("term error")]
-    PreciseTerm(#[from] PreciseTermError),
+    RawTerm(#[from] RawTermError),
     #[error("Original Precise Type Error ← {0}")]
     RawTypeError(#[from] OriginalRawTypeError),
     #[error("todo")]
@@ -49,7 +49,7 @@ pub enum DerivedPreciseTypeError {
     RawTypeError(#[from] DerivedRawTypeError),
 }
 
-impl<Db: PreciseTypeDb + ?Sized> salsa::DebugWithDb<Db> for PreciseTypeError {
+impl<Db: PreciseTermDb + ?Sized> salsa::DebugWithDb<Db> for PreciseTypeError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

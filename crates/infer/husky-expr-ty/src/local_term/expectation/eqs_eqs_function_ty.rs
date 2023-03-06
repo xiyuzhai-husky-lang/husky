@@ -21,7 +21,7 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         self.final_destination
@@ -29,7 +29,7 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub(crate) struct ExpectEqsFunctionTypeOutcome {
     pub(crate) destination: LocalTerm,
     pub(crate) implicit_parameter_substitutions: Vec<ImplicitParameterSubstitution>,
@@ -38,7 +38,7 @@ pub(crate) struct ExpectEqsFunctionTypeOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: TermRitchieKind,

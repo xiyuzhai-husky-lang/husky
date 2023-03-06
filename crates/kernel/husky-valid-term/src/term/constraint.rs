@@ -1,28 +1,28 @@
 use super::*;
 
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
-pub struct ValidTermTraitConstraint {
-    ty: ValidTerm,
-    trai: ValidTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermTraitConstraint {
+    ty: RawTerm,
+    trai: RawTerm,
 }
 
-impl ValidTermTraitConstraint {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermTraitConstraint) -> Self {
+impl RawTermTraitConstraint {
+    pub fn from_precise(db: &dyn RawTermDb, precise_term: RawTermTraitConstraint) -> Self {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl ValidTermRewriteCopy for ValidTermTraitConstraint {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermTraitConstraint {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

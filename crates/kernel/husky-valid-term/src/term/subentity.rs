@@ -1,35 +1,35 @@
 use super::*;
 use husky_word::Identifier;
 
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
-pub struct ValidTermSubentity {
-    parent: ValidTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermSubentity {
+    parent: RawTerm,
     ident: Identifier,
 }
 
-impl ValidTermSubentity {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermSubentity) -> Self {
+impl RawTermSubentity {
+    pub fn from_precise(db: &dyn RawTermDb, precise_term: RawTermSubentity) -> Self {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl ValidTermRewriteCopy for ValidTermSubentity {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermSubentity {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         let old_parent = self.parent(db);
         let parent = old_parent.substitute(db, substituation);
         if old_parent == parent {
             return self;
         }
         let ident = self.ident(db);
-        ValidTermSubentity::new(db, parent, ident)
+        RawTermSubentity::new(db, parent, ident)
     }
 }

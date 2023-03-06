@@ -1,7 +1,6 @@
 use crate::*;
 use husky_entity_path::{EntityPath, EntityPathError};
-use husky_precise_term::PreciseTermError;
-use husky_valid_ty::ValidTypeError;
+use husky_raw_ty::RawTypeError;
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -17,14 +16,10 @@ pub enum TermError {
     MonadIsNotInput,
     #[error("Term Error: no decl for entity path")]
     NoDeclForEntityPath { entity_path: EntityPath },
-    #[error("Term Error ← {0}")]
-    PreciseTermError(#[from] PreciseTermError),
-    #[error("Term Error ← {0}")]
-    ValidTermError(#[from] ValidTermError),
-    #[error("Term Error ← {0}")]
-    ValidTypeError(#[from] ValidTypeError),
     #[error("EntityPathError")]
     EntityPathError(#[from] EntityPathError),
+    #[error("RawTypeError")]
+    RawTypeError(#[from] RawTypeError),
 }
 
 impl From<&EntityPathError> for TermError {

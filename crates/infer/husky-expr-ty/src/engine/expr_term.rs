@@ -113,10 +113,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 .db
                                 .ty_path_ty(path, disambiguation)
                                 .map(Into::into)
-                                .map_err(|e| match e {
-                                    TypeError::Original(_) => todo!(),
-                                    TypeError::Derived(_) => todo!(),
-                                }),
+                                .map_err(|e| todo!()),
                             _ => unreachable!(),
                         },
                         Err(_) => todo!(),

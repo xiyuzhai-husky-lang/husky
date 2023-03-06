@@ -1,41 +1,41 @@
 use super::*;
 
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_inner)]
-pub struct PreciseTermAbstraction {
-    x: PreciseTermSymbol,
-    m: PreciseTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar, constructor = new_inner)]
+pub struct RawTermAbstraction {
+    x: RawTermSymbol,
+    m: RawTerm,
 }
 
-impl PreciseTermAbstraction {
+impl RawTermAbstraction {
     pub fn from_raw(
-        db: &dyn PreciseTermDb,
+        db: &dyn RawTermDb,
         raw_term: RawTermAbstraction,
         raw_ty_expectation: TermTypeExpectation,
-    ) -> PreciseTermResult<Self> {
+    ) -> RawTermResult<Self> {
         todo!()
     }
 
-    pub fn ty(&self) -> PreciseTerm {
+    pub fn ty(&self) -> RawTerm {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn PreciseTermDb,
-        ctx: &mut PreciseTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl PreciseTermRewriteCopy for PreciseTermAbstraction {
-    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermAbstraction {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }
 
-impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermAbstraction {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermAbstraction {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -45,7 +45,7 @@ impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermAbstrac
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        let db = <Db as salsa::DbWithJar<PreciseTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

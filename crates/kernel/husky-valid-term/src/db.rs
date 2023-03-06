@@ -2,10 +2,10 @@ use std::sync::Arc;
 
 use crate::*;
 use husky_entity_path::EntityPathDb;
-use husky_precise_term::PreciseTermDb;
-use husky_precise_ty::PreciseTypeDb;
+use husky_precise_term::RawTermDb;
+use husky_ty::PreciseTermDb;
 use salsa::DbWithJar;
 
-pub trait ValidTermDb: DbWithJar<ValidTermJar> + PreciseTypeDb {}
+pub trait RawTermDb: DbWithJar<RawTermJar> + PreciseTermDb {}
 
-impl<Db> ValidTermDb for Db where Db: DbWithJar<ValidTermJar> + PreciseTypeDb {}
+impl<Db> RawTermDb for Db where Db: DbWithJar<RawTermJar> + PreciseTermDb {}

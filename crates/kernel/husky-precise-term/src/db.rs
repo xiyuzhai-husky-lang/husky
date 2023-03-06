@@ -5,6 +5,6 @@ use husky_entity_path::EntityPathDb;
 use husky_raw_term::RawTermDb;
 use salsa::DbWithJar;
 
-pub trait PreciseTermDb: DbWithJar<PreciseTermJar> + RawTypeDb {}
+pub trait RawTermDb: DbWithJar<RawTermJar> + RawTermDb {}
 
-impl<Db> PreciseTermDb for Db where Db: DbWithJar<PreciseTermJar> + RawTypeDb {}
+impl<Db> RawTermDb for Db where Db: DbWithJar<RawTermJar> + RawTermDb {}

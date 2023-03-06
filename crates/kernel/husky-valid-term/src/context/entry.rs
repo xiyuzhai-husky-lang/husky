@@ -4,9 +4,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct ValidTermSymbolShowEntry {
-    symbol: ValidTermSymbol,
-    show_kind: ValidTermSymbolShowKind,
+pub(crate) struct RawTermSymbolShowEntry {
+    symbol: RawTermSymbol,
+    show_kind: RawTermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
     /// level 0 means this symbol is external
@@ -14,17 +14,17 @@ pub(crate) struct ValidTermSymbolShowEntry {
     external_symbol_ident: Option<Identifier>,
 }
 
-impl ValidTermSymbolShowEntry {
+impl RawTermSymbolShowEntry {
     pub(crate) fn show(
         &self,
-        db: &dyn ValidTermDb,
+        db: &dyn RawTermDb,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(external_symbol_ident) = self.external_symbol_ident && self.level == 0 {
             todo!()
         } else {
             match self.show_kind {
-                ValidTermSymbolShowKind::Lifetime => {
+                RawTermSymbolShowKind::Lifetime => {
                     match self.idx {
                         0 => f.write_str("'a"),
                         1 => f.write_str("'b"),
@@ -35,7 +35,7 @@ impl ValidTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("'a{}", idx))
                     }
                 },
-                ValidTermSymbolShowKind::Binding => {
+                RawTermSymbolShowKind::Binding => {
                     match self.idx {
                         0 => f.write_str("'α"),
                         1 => f.write_str("'β"),
@@ -47,21 +47,21 @@ impl ValidTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("'α{}", idx))
                     }
                 },
-                ValidTermSymbolShowKind::Prop => {
+                RawTermSymbolShowKind::Prop => {
                     match self.idx {
                         0 => f.write_str("p"),
                         1 => f.write_str("q"),
                         idx => f.write_fmt(format_args!("p{}", idx))
                     }
                 },
-                ValidTermSymbolShowKind::Type => {
+                RawTermSymbolShowKind::Type => {
                     match self.idx {
                         0 => f.write_str("t"),
                         1 => f.write_str("s"),
                         idx => f.write_fmt(format_args!("t{}", idx))
                     }
                 },
-                ValidTermSymbolShowKind::Kind => {
+                RawTermSymbolShowKind::Kind => {
                     match self.idx {
                         0 => f.write_str("α"),
                         1 => f.write_str("β"),
@@ -73,7 +73,7 @@ impl ValidTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("α{}", idx))
                     }
                 },
-                ValidTermSymbolShowKind::Other => {
+                RawTermSymbolShowKind::Other => {
                     match self.idx {
                         0 => f.write_str("a"),
                         1 => f.write_str("b"),
@@ -85,8 +85,8 @@ impl ValidTermSymbolShowEntry {
     }
 }
 
-impl AsVecMapEntry for ValidTermSymbolShowEntry {
-    type K = ValidTermSymbol;
+impl AsVecMapEntry for RawTermSymbolShowEntry {
+    type K = RawTermSymbol;
 
     fn key(&self) -> Self::K
     where
@@ -101,7 +101,7 @@ impl AsVecMapEntry for ValidTermSymbolShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum ValidTermSymbolShowKind {
+pub(crate) enum RawTermSymbolShowKind {
     Lifetime,
     Binding,
     Prop,
@@ -110,34 +110,34 @@ pub(crate) enum ValidTermSymbolShowKind {
     Other,
 }
 
-impl ValidTermShowContext {
+impl RawTermShowContext {
     pub(super) fn new_external_entry(
         &self,
-        db: &dyn ValidTermDb,
-        symbol: ValidTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         external_symbol_ident: Option<Identifier>,
-    ) -> ValidTermSymbolShowEntry {
+    ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
-        db: &dyn ValidTermDb,
-        symbol: ValidTermSymbol,
-    ) -> ValidTermSymbolShowEntry {
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
+    ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
 
     fn new_entry(
         &self,
-        db: &dyn ValidTermDb,
-        symbol: ValidTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         level: u8,
         external_symbol_ident: Option<Identifier>,
-    ) -> ValidTermSymbolShowEntry {
+    ) -> RawTermSymbolShowEntry {
         let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);
-        ValidTermSymbolShowEntry {
+        RawTermSymbolShowEntry {
             symbol,
             show_kind,
             idx,
@@ -146,7 +146,7 @@ impl ValidTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: ValidTermSymbolShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: RawTermSymbolShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -161,7 +161,7 @@ impl ValidTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn ValidTermDb, symbol: ValidTermSymbol) {
+    pub(super) fn enter_block(&mut self, db: &dyn RawTermDb, symbol: RawTermSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -170,29 +170,29 @@ impl ValidTermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: ValidTermSymbol) {
+    pub(super) fn exit_block(&mut self, symbol: RawTermSymbol) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(symbol: ValidTermSymbol, db: &dyn ValidTermDb) -> ValidTermSymbolShowKind {
+fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(ValidTerm::EntityPath(TermEntityPath::TypeOntology(path)))
+        Ok(RawTerm::EntityPath(TermEntityPath::TypeOntology(path)))
             if path.eqs_lifetime_ty_path(db).unwrap_or_default() =>
         {
-            ValidTermSymbolShowKind::Lifetime
+            RawTermSymbolShowKind::Lifetime
         }
-        Ok(ValidTerm::Category(cat)) if cat.universe().raw() == 0 => ValidTermSymbolShowKind::Prop,
-        Ok(ValidTerm::Category(cat)) if cat.universe().raw() == 1 => ValidTermSymbolShowKind::Type,
-        Ok(ValidTerm::Category(_)) => ValidTermSymbolShowKind::Kind,
-        _ => ValidTermSymbolShowKind::Other,
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => RawTermSymbolShowKind::Type,
+        Ok(RawTerm::Category(_)) => RawTermSymbolShowKind::Kind,
+        _ => RawTermSymbolShowKind::Other,
     }
 }
 
 // this might be the most efficient way to do it
 // only use this in this module
-#[salsa::tracked(jar = ValidTermJar)]
-pub(crate) fn is_ty_path_lifetime_ty(db: &dyn ValidTermDb, ty_path: TypePath) -> bool {
+#[salsa::tracked(jar = RawTermJar)]
+pub(crate) fn is_ty_path_lifetime_ty(db: &dyn RawTermDb, ty_path: TypePath) -> bool {
     let toolchain = ty_path.toolchain(db);
     let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
         return false

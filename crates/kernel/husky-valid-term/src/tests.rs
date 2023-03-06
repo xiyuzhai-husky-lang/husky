@@ -5,13 +5,13 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
-use husky_precise_term::PreciseTermJar;
-use husky_precise_ty::PreciseTypeJar;
+use husky_precise_term::RawTermJar;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::RawTypeJar;
 use husky_signature::SignatureJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
+use husky_ty::PreciseTypeJar;
 use husky_vfs::VfsJar;
 use husky_vfs::*;
 use husky_word::WordJar;
@@ -30,9 +30,9 @@ use husky_word::WordJar;
     RawTermJar,
     SignatureJar,
     RawTypeJar,
-    PreciseTermJar,
+    RawTermJar,
     PreciseTypeJar,
-    ValidTermJar
+    RawTermJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

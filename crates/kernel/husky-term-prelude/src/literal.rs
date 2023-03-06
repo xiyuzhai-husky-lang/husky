@@ -61,7 +61,7 @@ pub enum TermLiteral {
 
 impl TermLiteral {
     #[inline(always)]
-    pub fn from_valid(db: &dyn TermPreludeDb, valid_term: TermLiteral) -> Self {
+    pub fn from_raw(db: &dyn TermPreludeDb, valid_term: TermLiteral) -> Self {
         todo!()
     }
 

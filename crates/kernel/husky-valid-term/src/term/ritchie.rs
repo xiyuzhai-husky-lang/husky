@@ -2,28 +2,25 @@ use super::*;
 use context::*;
 
 /// representing valid_term `x -> y`
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
-pub struct ValidTermRitchie {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<ValidTermRitchieParameter>,
-    pub return_ty: ValidTerm,
-    // ty: ValidTerm,
+    pub parameter_tys: Vec<RawTermRitchieParameter>,
+    pub return_ty: RawTerm,
+    // ty: RawTerm,
 }
 
-impl ValidTermRitchie {
-    pub fn from_precise(
-        db: &dyn ValidTermDb,
-        precise_term: PreciseTermRitchie,
-    ) -> ValidTermResult<Self> {
+impl RawTermRitchie {
+    pub fn from_precise(db: &dyn RawTermDb, precise_term: RawTermRitchie) -> RawTermResult<Self> {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
             TermRitchieKind::Fp => f.write_str("Fp(")?,
@@ -41,9 +38,9 @@ impl ValidTermRitchie {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for ValidTermRitchie
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchie
 where
-    Db: ValidTermDb + ?Sized,
+    Db: RawTermDb + ?Sized,
 {
     fn display_with_db_fmt(
         &self,
@@ -51,7 +48,7 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
             TermRitchieKind::Fp => f.write_str("Fp(")?,
             TermRitchieKind::Fn => f.write_str("Fn(")?,
@@ -69,25 +66,25 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::derive_debug_with_db(db = ValidTermDb)]
-pub struct ValidTermRitchieParameter {
-    ty: ValidTerm,
+#[salsa::derive_debug_with_db(db = RawTermDb)]
+pub struct RawTermRitchieParameter {
+    ty: RawTerm,
 }
 
-impl ValidTermRitchieParameter {
+impl RawTermRitchieParameter {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         self.ty.show_with_db_fmt(f, db, ctx)
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for ValidTermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameter
 where
-    Db: ValidTermDb + ?Sized,
+    Db: RawTermDb + ?Sized,
 {
     fn display_with_db_fmt(
         &self,
@@ -95,23 +92,23 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl ValidTermRitchieParameter {
-    pub fn new(ty: ValidTerm) -> Self {
+impl RawTermRitchieParameter {
+    pub fn new(ty: RawTerm) -> Self {
         Self { ty }
     }
 
-    pub fn ty(&self) -> ValidTerm {
+    pub fn ty(&self) -> RawTerm {
         self.ty
     }
 }
 
-impl ValidTermRewriteCopy for ValidTermRitchie {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermRitchie {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

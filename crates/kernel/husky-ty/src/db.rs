@@ -1,7 +1,7 @@
 use crate::*;
 use husky_raw_term::RawTerm;
 
-pub trait TypeDb: salsa::DbWithJar<TypeJar> + TermDb {
+pub trait TermDb: salsa::DbWithJar<TermJar> + TermDb {
     fn ty_method_ty(&self, ty: Term, ident: Identifier) -> TypeResult<Option<Term>>;
     fn field_ty(&self, ty: Term, ident: Identifier) -> TypeResult<Option<Term>>;
     fn reduced_term(&self, term: RawTerm) -> Term;
@@ -17,9 +17,9 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + TermDb {
     fn form_path_ty(&self, form_path: FormPath) -> TypeResult<Term>;
 }
 
-impl<Db> TypeDb for Db
+impl<Db> TermDb for Db
 where
-    Db: salsa::DbWithJar<TypeJar> + TermDb,
+    Db: salsa::DbWithJar<TermJar> + TermDb,
 {
     fn ty_method_ty(&self, ty: Term, ident: Identifier) -> TypeResult<Option<Term>> {
         ty_method_ty(self, ty, ident)
@@ -46,20 +46,5 @@ where
         calc_term_symbols(self, term)
             .map(|term_symbols| term_symbols.contains(self, symbol))
             .unwrap_or_default()
-    }
-    fn ty_path_ty(
-        &self,
-        path: TypePath,
-        disambiguation: TypePathDisambiguation,
-    ) -> TypeResult<Term> {
-        ty_path_ty(self, path, disambiguation)
-    }
-
-    fn trai_path_ty(&self, trai_path: TraitPath) -> TypeResult<Term> {
-        trai_path_ty(self, trai_path)
-    }
-
-    fn form_path_ty(&self, form_path: FormPath) -> TypeResult<Term> {
-        form_path_ty(self, form_path)
     }
 }

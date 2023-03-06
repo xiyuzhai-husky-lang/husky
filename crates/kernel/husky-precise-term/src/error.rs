@@ -5,11 +5,11 @@ use std::sync::Arc;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone)]
-pub enum PreciseTermError {
+pub enum RawTermError {
     #[error("precise_term is not reduced")]
-    PreciseTermIsNotReduced,
+    RawTermIsNotReduced,
     #[error("precise_term is not type")]
-    PreciseTermIsNotTy,
+    RawTermIsNotTy,
     #[error("universe overflows")]
     UniverseOverflow,
     #[error("monad is not input")]
@@ -24,17 +24,17 @@ pub enum PreciseTermError {
     EntityPathError(#[from] EntityPathError),
 }
 
-impl From<&EntityPathError> for PreciseTermError {
+impl From<&EntityPathError> for RawTermError {
     fn from(_value: &EntityPathError) -> Self {
         todo!()
     }
 }
 
-impl From<RawTermSymbolTypeErrorKind> for PreciseTermError {
+impl From<RawTermSymbolTypeErrorKind> for RawTermError {
     fn from(value: RawTermSymbolTypeErrorKind) -> Self {
         todo!()
     }
 }
 
-pub type PreciseTermResult<T> = Result<T, PreciseTermError>;
-pub type PreciseTermResultArc<T> = Result<Arc<T>, PreciseTermError>;
+pub type RawTermResult<T> = Result<T, RawTermError>;
+pub type RawTermResultArc<T> = Result<Arc<T>, RawTermError>;

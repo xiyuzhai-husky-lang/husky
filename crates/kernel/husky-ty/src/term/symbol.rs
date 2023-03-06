@@ -2,14 +2,14 @@ use vec_like::VecSet;
 
 use super::*;
 
-#[salsa::tracked(db = TypeDb, jar = TypeJar)]
+#[salsa::tracked(db = TermDb, jar = TermJar)]
 pub struct TermSymbols {
     #[return_ref]
     data: VecSet<TermSymbol>,
 }
 
 impl TermSymbols {
-    pub(crate) fn contains(self, db: &dyn TypeDb, symbol: TermSymbol) -> bool {
+    pub(crate) fn contains(self, db: &dyn TermDb, symbol: TermSymbol) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -25,7 +25,7 @@ impl TermSymbols {
     }
 }
 
-pub(crate) fn calc_term_symbols(db: &dyn TypeDb, term: Term) -> Option<TermSymbols> {
+pub(crate) fn calc_term_symbols(db: &dyn TermDb, term: Term) -> Option<TermSymbols> {
     match term {
         Term::Literal(_) => todo!(),
         Term::Symbol(symbol) => Some(TermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
@@ -47,13 +47,13 @@ pub(crate) fn calc_term_symbols(db: &dyn TypeDb, term: Term) -> Option<TermSymbo
     }
 }
 
-#[salsa::tracked(jar = TypeJar)]
-pub(crate) fn term_curry_symbols(db: &dyn TypeDb, term: TermCurry) -> Option<TermSymbols> {
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_curry_symbols(db: &dyn TermDb, term: TermCurry) -> Option<TermSymbols> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
-pub(crate) fn term_ritchie_symbols(db: &dyn TypeDb, term: TermRitchie) -> Option<TermSymbols> {
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_ritchie_symbols(db: &dyn TermDb, term: TermRitchie) -> Option<TermSymbols> {
     let mut symbols: Option<TermSymbols> = None;
     for parameter_ty in term.parameter_tys(db) {
         symbols = TermSymbols::merge(symbols, calc_term_symbols(db, parameter_ty.ty()))
@@ -61,9 +61,9 @@ pub(crate) fn term_ritchie_symbols(db: &dyn TypeDb, term: TermRitchie) -> Option
     TermSymbols::merge(symbols, calc_term_symbols(db, term.return_ty(db)))
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = TermJar)]
 pub(crate) fn term_application_symbols(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     term: TermApplication,
 ) -> Option<TermSymbols> {
     TermSymbols::merge(

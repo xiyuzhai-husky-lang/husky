@@ -13,7 +13,7 @@ impl ExpectLocalTerm for ExpectAnyDerived {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         FinalDestination::AnyDerived

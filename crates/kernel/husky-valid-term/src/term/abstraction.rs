@@ -1,37 +1,37 @@
 use super::*;
 
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar, constructor = new_inner)]
-pub struct ValidTermAbstraction {
-    x: ValidTermSymbol,
-    m: ValidTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar, constructor = new_inner)]
+pub struct RawTermAbstraction {
+    x: RawTermSymbol,
+    m: RawTerm,
 }
 
-impl ValidTermAbstraction {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermAbstraction) -> Self {
+impl RawTermAbstraction {
+    pub fn from_precise(db: &dyn RawTermDb, precise_term: RawTermAbstraction) -> Self {
         todo!()
     }
 
-    pub fn ty(&self) -> ValidTerm {
+    pub fn ty(&self) -> RawTerm {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl ValidTermRewriteCopy for ValidTermAbstraction {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermAbstraction {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }
 
-impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermAbstraction {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermAbstraction {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -41,7 +41,7 @@ impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermAbstraction
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);
         // todo!()
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }

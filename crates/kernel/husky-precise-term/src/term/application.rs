@@ -14,31 +14,31 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = pub(crate) new)]
-pub struct PreciseTermApplication {
-    pub function: PreciseTerm,
-    pub argument: PreciseTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar, constructor = pub(crate) new)]
+pub struct RawTermApplication {
+    pub function: RawTerm,
+    pub argument: RawTerm,
     pub shift: u8,
 }
 
-impl PreciseTermApplication {
+impl RawTermApplication {
     pub fn from_raw(
-        db: &dyn PreciseTermDb,
+        db: &dyn RawTermDb,
         raw_term: RawTermApplication,
         raw_ty_expectation: TermTypeExpectation,
-    ) -> PreciseTermResult<Self> {
+    ) -> RawTermResult<Self> {
         precise_term_application_from_raw(db, raw_term, raw_ty_expectation)
     }
 
-    pub(crate) fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<RawTerm> {
+    pub(crate) fn raw_ty(self, db: &dyn RawTermDb) -> RawTermResult<RawTerm> {
         precise_term_application_raw_ty(db, self)
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn PreciseTermDb,
-        ctx: &mut PreciseTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx)?;
         f.write_str(" ")?;
@@ -46,16 +46,14 @@ impl PreciseTermApplication {
     }
 }
 
-#[salsa::tracked(jar = PreciseTermJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn precise_term_application_from_raw(
-    db: &dyn PreciseTermDb,
+    db: &dyn RawTermDb,
     raw_term_application: RawTermApplication,
     raw_ty_expectation: TermTypeExpectation,
-) -> PreciseTermResult<PreciseTermApplication> {
-    let function =
-        PreciseTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
-    let argument =
-        PreciseTerm::from_raw(db, raw_term_application.argument(db), raw_ty_expectation)?;
+) -> RawTermResult<RawTermApplication> {
+    let function = RawTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
+    let argument = RawTerm::from_raw(db, raw_term_application.argument(db), raw_ty_expectation)?;
     let function_raw_ty = match function.raw_ty(db)? {
         Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
@@ -72,14 +70,14 @@ pub(crate) fn precise_term_application_from_raw(
     }
     let shift = argument_ty_total_number_of_curry_parameters
         - function_parameter_ty_total_number_of_curry_parameters;
-    Ok(PreciseTermApplication::new(db, function, argument, shift))
+    Ok(RawTermApplication::new(db, function, argument, shift))
 }
 
-#[salsa::tracked(jar = PreciseTermJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn precise_term_application_raw_ty(
-    db: &dyn PreciseTermDb,
-    precise_term_application: PreciseTermApplication,
-) -> PreciseTermResult<RawTerm> {
+    db: &dyn RawTermDb,
+    precise_term_application: RawTermApplication,
+) -> RawTermResult<RawTerm> {
     let function = precise_term_application.function(db);
     let argument = precise_term_application.argument(db);
     let function_raw_ty = match function.raw_ty(db)? {
@@ -95,20 +93,20 @@ pub(crate) fn precise_term_application_raw_ty(
     })
 }
 
-impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplication {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermApplication {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<PreciseTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl PreciseTermRewriteCopy for PreciseTermApplication {
-    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self
+impl RawTermRewriteCopy for RawTermApplication {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
     {
@@ -119,11 +117,11 @@ impl PreciseTermRewriteCopy for PreciseTermApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        PreciseTermApplication::new(db, m, n, self.shift(db))
+        RawTermApplication::new(db, m, n, self.shift(db))
     }
 }
 
-impl std::fmt::Display for PreciseTermApplication {
+impl std::fmt::Display for RawTermApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

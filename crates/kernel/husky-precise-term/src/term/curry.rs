@@ -2,27 +2,27 @@ use super::*;
 use context::*;
 
 /// representing precise_term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
-pub struct PreciseTermCurry {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_symbol: Option<PreciseTermSymbol>,
+    pub parameter_symbol: Option<RawTermSymbol>,
     /// X
-    pub parameter_ty: PreciseTerm,
+    pub parameter_ty: RawTerm,
     /// Y
-    pub return_ty: PreciseTerm,
+    pub return_ty: RawTerm,
 }
 
-impl PreciseTermCurry {
+impl RawTermCurry {
     pub fn from_raw(
-        db: &dyn PreciseTermDb,
+        db: &dyn RawTermDb,
         raw_term_curry: RawTermCurry,
         raw_ty_expectation: TermTypeExpectation,
-    ) -> PreciseTermResult<Self> {
+    ) -> RawTermResult<Self> {
         match raw_ty_expectation {
             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
-                return Err(PreciseTermError::ExpectationNotMatchedForCurry)
+                return Err(RawTermError::ExpectationNotMatchedForCurry)
             }
             TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => (),
         }
@@ -32,8 +32,8 @@ impl PreciseTermCurry {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn PreciseTermDb,
-        ctx: &mut PreciseTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         let parameter_symbol = self.parameter_symbol(db);
         if parameter_symbol.is_some() {
@@ -56,19 +56,18 @@ impl PreciseTermCurry {
     }
 }
 
-#[salsa::tracked(jar = PreciseTermJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn precise_term_curry_from_raw(
-    db: &dyn PreciseTermDb,
+    db: &dyn RawTermDb,
     raw_term_curry: RawTermCurry,
-) -> PreciseTermResult<PreciseTermCurry> {
-    let t =
-        |raw_ty| PreciseTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
-    Ok(PreciseTermCurry::new(
+) -> RawTermResult<RawTermCurry> {
+    let t = |raw_ty| RawTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
+    Ok(RawTermCurry::new(
         db,
         raw_term_curry.curry_kind(db),
         raw_term_curry.variance(db),
         match raw_term_curry.parameter_symbol(db) {
-            Some(parameter_symbol) => Some(PreciseTermSymbol::from_raw(
+            Some(parameter_symbol) => Some(RawTermSymbol::from_raw(
                 db,
                 parameter_symbol,
                 TermTypeExpectation::Any,
@@ -80,20 +79,20 @@ pub(crate) fn precise_term_curry_from_raw(
     ))
 }
 
-impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermCurry {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<PreciseTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl PreciseTermRewriteCopy for PreciseTermCurry {
-    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermCurry {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

@@ -31,5 +31,5 @@ use salsa::DebugWithDb;
 #[cfg(test)]
 use tests::*;
 
-#[salsa::jar(db = ExprTypeDb)]
+#[salsa::jar(db = ExprTermDb)]
 pub struct ExprTypeJar(expr_ty_region);

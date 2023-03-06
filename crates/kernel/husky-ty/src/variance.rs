@@ -41,7 +41,7 @@ pub enum DerivedVarianceError {
 }
 
 pub(crate) fn entity_variances(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: EntityPath,
 ) -> VarianceResultRef<&[Variance]> {
     match path {
@@ -58,32 +58,32 @@ pub(crate) fn entity_variances(
     }
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TermJar, return_ref)]
 pub(crate) fn ty_entity_variances(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: TypePath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_entity_variances(db, path)
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TermJar, return_ref)]
 pub(crate) fn trai_entity_variances(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_entity_variances(db, path)
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = TermJar, return_ref)]
 pub(crate) fn form_entity_variances(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: FormPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_entity_variances(db, path)
 }
 
 fn calc_entity_variances(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: impl Into<EntityPath>,
 ) -> VarianceResult<Vec<Variance>> {
     let mut graph = VarianceGraph::new(db, path.into())?;

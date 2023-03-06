@@ -1,43 +1,25 @@
 use crate::*;
-use husky_precise_ty::{
-    form_path_precise_ty, trai_path_precise_ty, ty_constructor_path_precise_ty,
-    ty_ontology_path_precise_ty,
-};
+use husky_ty::{form_path_ty, trai_path_ty, ty_constructor_path_ty, ty_ontology_path_ty};
 
 #[salsa::tracked(jar = ValidTypeJar)]
-pub fn ty_ontology_path_valid_ty(
-    db: &dyn ValidTypeDb,
-    path: TypePath,
-) -> ValidTypeResult<ValidTerm> {
-    Ok(ValidTerm::from_precise(
+pub fn ty_ontology_path_ty(db: &dyn ValidTermDb, path: TypePath) -> ValidTypeResult<RawTerm> {
+    Ok(RawTerm::from_precise(db, ty_ontology_path_ty(db, path)?)?)
+}
+
+#[salsa::tracked(jar = ValidTypeJar)]
+pub fn ty_constructor_path_ty(db: &dyn ValidTermDb, path: TypePath) -> ValidTypeResult<RawTerm> {
+    Ok(RawTerm::from_precise(
         db,
-        ty_ontology_path_precise_ty(db, path)?,
+        ty_constructor_path_ty(db, path)?,
     )?)
 }
 
 #[salsa::tracked(jar = ValidTypeJar)]
-pub fn ty_constructor_path_valid_ty(
-    db: &dyn ValidTypeDb,
-    path: TypePath,
-) -> ValidTypeResult<ValidTerm> {
-    Ok(ValidTerm::from_precise(
-        db,
-        ty_constructor_path_precise_ty(db, path)?,
-    )?)
+pub fn form_path_ty(db: &dyn ValidTermDb, path: FormPath) -> ValidTypeResult<RawTerm> {
+    Ok(RawTerm::from_precise(db, form_path_ty(db, path)?)?)
 }
 
 #[salsa::tracked(jar = ValidTypeJar)]
-pub fn form_path_valid_ty(db: &dyn ValidTypeDb, path: FormPath) -> ValidTypeResult<ValidTerm> {
-    Ok(ValidTerm::from_precise(
-        db,
-        form_path_precise_ty(db, path)?,
-    )?)
-}
-
-#[salsa::tracked(jar = ValidTypeJar)]
-pub fn trai_path_valid_ty(db: &dyn ValidTypeDb, path: TraitPath) -> ValidTypeResult<ValidTerm> {
-    Ok(ValidTerm::from_precise(
-        db,
-        trai_path_precise_ty(db, path)?,
-    )?)
+pub fn trai_path_ty(db: &dyn ValidTermDb, path: TraitPath) -> ValidTypeResult<RawTerm> {
+    Ok(RawTerm::from_precise(db, trai_path_ty(db, path)?)?)
 }

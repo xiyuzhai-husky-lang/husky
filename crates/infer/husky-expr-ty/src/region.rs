@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
@@ -17,7 +17,7 @@ pub struct ExprTypeRegion {
 
 impl ExprTypeRegion {
     pub(crate) fn new(
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
@@ -76,7 +76,7 @@ impl ExprTypeRegion {
 }
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
-pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
+pub(crate) fn expr_ty_region(db: &dyn ExprTermDb, expr_region: ExprRegion) -> ExprTypeRegion {
     let mut engine = ExprTypeEngine::new(db, expr_region);
     let mut local_term_region = LocalTermRegion::default();
     engine.infer_all(&mut local_term_region);

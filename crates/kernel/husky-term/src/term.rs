@@ -3,6 +3,7 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
+mod entity_path;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -14,19 +15,15 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::entity_path::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
-use husky_precise_term::PreciseTerm;
 use husky_raw_term::RawTerm;
 use husky_ty_expectation::TermTypeExpectation;
-use husky_valid_term::ValidTerm;
-use husky_valid_ty::{
-    form_path_valid_ty, trai_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty,
-};
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -76,56 +73,75 @@ impl Term {
         raw_term: RawTerm,
         ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
-        let precise_term = PreciseTerm::from_raw(db, raw_term, ty_expectation)?;
-        let valid_term = ValidTerm::from_precise(db, precise_term)?;
-        Ok(Self::from_valid(db, valid_term))
+        todo!()
+        // let precise_term = RawTerm::from_raw(db, raw_term, ty_expectation)?;
+        // let valid_term = RawTerm::from_precise(db, precise_term)?;
+        // Ok(Self::from_raw(db, valid_term))
     }
 
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {
-        match valid_term {
-            ValidTerm::Literal(valid_term) => valid_term.into(),
-            ValidTerm::Symbol(valid_term) => TermSymbol::from_valid(db, valid_term).into(),
-            ValidTerm::EntityPath(valid_term) => valid_term.into(),
-            ValidTerm::Category(valid_term) => valid_term.into(),
-            ValidTerm::Universe(universe) => universe.into(),
-            ValidTerm::Curry(valid_term) => TermCurry::from_valid(db, valid_term).into(),
-            ValidTerm::Ritchie(valid_term) => TermRitchie::from_valid(db, valid_term).into(),
-            ValidTerm::Abstraction(valid_term) => {
-                TermAbstraction::from_valid(db, valid_term).into()
+    pub fn from_raw_inner(db: &dyn TermDb, valid_term: RawTerm) -> Self {
+        todo!()
+        // match valid_term {
+        //     RawTerm::Literal(valid_term) => valid_term.into(),
+        //     RawTerm::Symbol(valid_term) => TermSymbol::from_raw(db, valid_term).into(),
+        //     RawTerm::EntityPath(valid_term) => valid_term.into(),
+        //     RawTerm::Category(valid_term) => valid_term.into(),
+        //     RawTerm::Universe(universe) => universe.into(),
+        //     RawTerm::Curry(valid_term) => TermCurry::from_raw(db, valid_term).into(),
+        //     RawTerm::Ritchie(valid_term) => TermRitchie::from_raw(db, valid_term).into(),
+        //     RawTerm::Abstraction(valid_term) => TermAbstraction::from_raw(db, valid_term).into(),
+        //     RawTerm::Application(valid_term) => TermApplication::from_raw(db, valid_term).into(),
+        //     RawTerm::Subentity(valid_term) => TermSubentity::from_raw(db, valid_term).into(),
+        //     RawTerm::AsTraitSubentity(valid_term) => {
+        //         TermAsTraitSubentity::from_raw(db, valid_term).into()
+        //     }
+        //     RawTerm::TraitConstraint(valid_term) => {
+        //         TermTraitConstraint::from_raw(db, valid_term).into()
+        //     }
+        // }
+    }
+
+    pub fn ty(self, db: &dyn TermDb) -> TermResult<Either<Term, PreludeTypePath>> {
+        todo!()
+        // Ok(match self {
+        //     Term::Literal(literal) => Right(literal.ty()),
+        //     Term::Symbol(_) => todo!(),
+        //     Term::Category(_) => todo!(),
+        //     Term::EntityPath(path) => Left(match path {
+        //         TermEntityPath::Form(path) => form_path_ty(db, path)?,
+        //         TermEntityPath::Trait(path) => trai_path_ty(db, path)?,
+        //         TermEntityPath::TypeOntology(path) => ty_ontology_path_ty(db, path)?,
+        //         TermEntityPath::TypeConstructor(path) => ty_constructor_path_ty(db, path)?,
+        //     }),
+        //     Term::Universe(_) => todo!(),
+        //     Term::Curry(_) => todo!(),
+        //     Term::Ritchie(_) => todo!(),
+        //     Term::Abstraction(_) => todo!(),
+        //     Term::Application(_) => todo!(),
+        //     Term::Subentity(_) => todo!(),
+        //     Term::AsTraitSubentity(_) => todo!(),
+        //     Term::TraitConstraint(_) => todo!(),
+        // })
+    }
+
+    /// whether two types are trivially convertible
+    pub fn is_ty_trivially_convertible_from(
+        self,
+        db: &dyn TermDb,
+        other_ty: Either<Self, PreludeTypePath>,
+    ) -> TermResult<bool> {
+        match other_ty {
+            Left(other_ty) if other_ty == self => Ok(true),
+            Left(other_ty) => {
+                todo!()
             }
-            ValidTerm::Application(valid_term) => {
-                TermApplication::from_valid(db, valid_term).into()
-            }
-            ValidTerm::Subentity(valid_term) => TermSubentity::from_valid(db, valid_term).into(),
-            ValidTerm::AsTraitSubentity(valid_term) => {
-                TermAsTraitSubentity::from_valid(db, valid_term).into()
-            }
-            ValidTerm::TraitConstraint(valid_term) => {
-                TermTraitConstraint::from_valid(db, valid_term).into()
-            }
+            Right(other_ty) => match self {
+                Term::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                    Ok(ty_path.prelude_ty_path(db)? == Some(other_ty))
+                }
+                _ => todo!(),
+            },
         }
-    }
-
-    pub fn valid_ty(self, db: &dyn TermDb) -> TermResult<Either<ValidTerm, PreludeTypePath>> {
-        Ok(match self {
-            Term::Literal(literal) => Right(literal.ty()),
-            Term::Symbol(_) => todo!(),
-            Term::Category(_) => todo!(),
-            Term::EntityPath(path) => Left(match path {
-                TermEntityPath::Form(path) => form_path_valid_ty(db, path)?,
-                TermEntityPath::Trait(path) => trai_path_valid_ty(db, path)?,
-                TermEntityPath::TypeOntology(path) => ty_ontology_path_valid_ty(db, path)?,
-                TermEntityPath::TypeConstructor(path) => ty_constructor_path_valid_ty(db, path)?,
-            }),
-            Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::AsTraitSubentity(_) => todo!(),
-            Term::TraitConstraint(_) => todo!(),
-        })
     }
 
     pub fn substitute(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {
