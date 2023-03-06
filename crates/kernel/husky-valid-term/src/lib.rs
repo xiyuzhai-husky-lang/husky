@@ -34,6 +34,7 @@ pub struct ValidTermJar(
     ValidTermAbstraction,
     ValidTermApplication,
     valid_term_application_from_precise,
+    valid_term_application_precise_ty,
     ValidTermSubentity,
     ValidTermAsTraitSubentity,
     ValidTermTraitConstraint,

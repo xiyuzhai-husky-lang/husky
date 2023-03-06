@@ -161,8 +161,24 @@ impl PreciseTerm {
         })
     }
 
-    pub fn is_trivially_convertible_to(self, other: Self) -> PreciseTermResult<bool> {
-        todo!()
+    /// whether two types are trivially convertible
+    pub fn is_ty_trivially_convertible_from(
+        self,
+        db: &dyn PreciseTermDb,
+        other_ty: Either<Self, PreludeTypePath>,
+    ) -> PreciseTermResult<bool> {
+        match other_ty {
+            Left(other_ty) if other_ty == self => Ok(true),
+            Left(other_ty) => {
+                todo!()
+            }
+            Right(other_ty) => match self {
+                PreciseTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                    Ok(ty_path.prelude_ty_path(db)? == Some(other_ty))
+                }
+                _ => todo!(),
+            },
+        }
     }
 }
 
