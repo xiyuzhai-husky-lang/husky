@@ -1,6 +1,6 @@
 mod config;
 mod impl_arrival;
-mod impl;
+mod impl_block;
 mod impl_branch;
 mod impl_cached;
 mod impl_eval_context;
@@ -45,13 +45,14 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     ) -> Option<__VMResult<__Register<'eval>>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
             this,
-            field_uid: unsafe { EntityUid::from_raw(uid) },
+            field_uid: unsafe { EntityUid::from_raw_unchecked(uid) },
         })
     }
 
     fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>> {
-        self.sheet
-            .cached_value(EvalKey::Feature(unsafe { FeatureItd::from_raw(feature) }))
+        self.sheet.cached_value(EvalKey::Feature(unsafe {
+            FeatureItd::from_raw_unchecked(feature)
+        }))
     }
 
     fn cache_feature(
@@ -60,7 +61,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         value: __VMResult<__Register<'eval>>,
     ) -> __VMResult<__Register<'eval>> {
         self.sheet.cache(
-            EvalKey::Feature(unsafe { FeatureItd::from_raw(feature) }),
+            EvalKey::Feature(unsafe { FeatureItd::from_raw_unchecked(feature) }),
             value,
         )
     }
@@ -74,7 +75,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
                 this,
-                field_uid: unsafe { EntityUid::from_raw(uid) },
+                field_uid: unsafe { EntityUid::from_raw_unchecked(uid) },
             },
             value,
         )
@@ -95,7 +96,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
 
     fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
         todo!()
-        // let uid = unsafe { EntityUid::from_raw(uid_raw) };
+        // let uid = unsafe { EntityUid::from_raw_unchecked(uid_raw) };
         // let route = self.db.entity_route_by_uid(uid);
         // let feature = self
         //     .db

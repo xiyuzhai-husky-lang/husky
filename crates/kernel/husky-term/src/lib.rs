@@ -42,6 +42,8 @@ pub struct TermJar(
     form_path_ty_unchecked,
     // curry
     TermCurry,
+    term_curry_from_raw_unchecked,
+    // ritchie
     TermRitchie,
     TermAbstraction,
     // application

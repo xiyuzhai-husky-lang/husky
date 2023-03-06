@@ -14,7 +14,7 @@ pub struct TermRitchie {
 
 impl TermRitchie {
     #[inline(always)]
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn TermDb,
         valid_term: RawTermRitchie,
         term_ty_expectation: TermTypeExpectation,

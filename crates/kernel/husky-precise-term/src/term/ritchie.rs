@@ -11,13 +11,14 @@ pub struct RawTermRitchie {
 }
 
 impl RawTermRitchie {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTermRitchie,
         raw_ty_expectation: TermTypeExpectation,
     ) -> RawTermResult<Self> {
-        let t =
-            |raw_ty| RawTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
+        let t = |raw_ty| {
+            RawTerm::from_raw_unchecked(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)
+        };
         Ok(RawTermRitchie::new_inner(
             db,
             raw_term.ritchie_kind(db),

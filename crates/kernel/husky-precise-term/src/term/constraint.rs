@@ -7,7 +7,7 @@ pub struct RawTermTraitConstraint {
 }
 
 impl RawTermTraitConstraint {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTermTraitConstraint,
         raw_ty_expectation: TermTypeExpectation,

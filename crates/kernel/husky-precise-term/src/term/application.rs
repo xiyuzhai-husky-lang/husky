@@ -22,7 +22,7 @@ pub struct RawTermApplication {
 }
 
 impl RawTermApplication {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTermApplication,
         raw_ty_expectation: TermTypeExpectation,
@@ -52,8 +52,10 @@ pub(crate) fn precise_term_application_from_raw(
     raw_term_application: RawTermApplication,
     raw_ty_expectation: TermTypeExpectation,
 ) -> RawTermResult<RawTermApplication> {
-    let function = RawTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
-    let argument = RawTerm::from_raw(db, raw_term_application.argument(db), raw_ty_expectation)?;
+    let function =
+        RawTerm::from_raw_unchecked(db, raw_term_application.function(db), raw_ty_expectation)?;
+    let argument =
+        RawTerm::from_raw_unchecked(db, raw_term_application.argument(db), raw_ty_expectation)?;
     let function_raw_ty = match function.raw_ty(db)? {
         Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),

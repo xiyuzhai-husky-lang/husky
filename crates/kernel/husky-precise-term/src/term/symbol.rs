@@ -10,13 +10,13 @@ pub struct RawTermSymbol {
 }
 
 impl RawTermSymbol {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTermSymbol,
         raw_ty_expectation: TermTypeExpectation,
     ) -> RawTermResult<Self> {
         let ty = raw_term.ty(db)?;
-        let ty = RawTerm::from_raw(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
+        let ty = RawTerm::from_raw_unchecked(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
         Ok(Self::new_inner(db, ty, raw_term.idx(db)))
     }
 

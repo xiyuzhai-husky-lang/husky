@@ -79,9 +79,9 @@ impl Term {
                     RawTermLiteral::Resolved(literal) => literal.into(),
                     RawTermLiteral::Unresolved(_) => todo!(),
                 }
-                //  TermLiteral::from_raw(db, raw_term, ty_expectation)?.into()
+                //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
             }
-            RawTerm::Symbol(raw_term) => TermSymbol::from_raw(db, raw_term)?.into(),
+            RawTerm::Symbol(raw_term) => TermSymbol::from_raw_unchecked(db, raw_term)?.into(),
             RawTerm::EntityPath(raw_term) => match raw_term {
                 RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
@@ -102,26 +102,24 @@ impl Term {
             },
             RawTerm::Category(raw_term) => raw_term.into(),
             RawTerm::Universe(raw_term) => raw_term.into(),
-            RawTerm::Curry(raw_term) => {
-                TermCurry::from_raw(db, raw_term, term_ty_expectation)?.into()
-            }
+            RawTerm::Curry(raw_term) => TermCurry::from_raw_unchecked(db, raw_term)?.into(),
             RawTerm::Ritchie(raw_term) => {
-                TermRitchie::from_raw(db, raw_term, term_ty_expectation)?.into()
+                TermRitchie::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
             RawTerm::Abstraction(raw_term) => {
-                TermAbstraction::from_raw(db, raw_term, term_ty_expectation)?.into()
+                TermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
             RawTerm::Application(raw_term) => {
-                TermApplication::from_raw(db, raw_term, term_ty_expectation)?
+                TermApplication::from_raw_unchecked(db, raw_term, term_ty_expectation)?
             }
             RawTerm::Subentity(raw_term) => {
-                TermSubentity::from_raw(db, raw_term, term_ty_expectation)?
+                TermSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
             }
             RawTerm::AsTraitSubentity(raw_term) => {
-                TermAsTraitSubentity::from_raw(db, raw_term, term_ty_expectation)?.into()
+                TermAsTraitSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
             RawTerm::TraitConstraint(raw_term) => {
-                TermTraitConstraint::from_raw(db, raw_term, term_ty_expectation)?.into()
+                TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
         })
     }

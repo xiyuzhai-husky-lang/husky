@@ -7,7 +7,7 @@ pub struct RawTermAbstraction {
 }
 
 impl RawTermAbstraction {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTermAbstraction,
         raw_ty_expectation: TermTypeExpectation,

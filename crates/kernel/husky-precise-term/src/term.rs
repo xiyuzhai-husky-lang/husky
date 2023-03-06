@@ -66,7 +66,7 @@ pub enum RawTerm {
 }
 
 impl RawTerm {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term: RawTerm,
         raw_ty_expectation: TermTypeExpectation,
@@ -77,10 +77,10 @@ impl RawTerm {
                     RawTermLiteral::Resolved(literal) => literal.into(),
                     RawTermLiteral::Unresolved(_) => todo!(),
                 }
-                //  TermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                //  TermLiteral::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Symbol(raw_term) => {
-                RawTermSymbol::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermSymbol::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::EntityPath(raw_term) => match raw_term {
                 RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
@@ -103,25 +103,26 @@ impl RawTerm {
             RawTerm::Category(raw_term) => raw_term.into(),
             RawTerm::Universe(raw_term) => raw_term.into(),
             RawTerm::Curry(raw_term) => {
-                RawTermCurry::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermCurry::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Ritchie(raw_term) => {
-                RawTermRitchie::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermRitchie::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Abstraction(raw_term) => {
-                RawTermAbstraction::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermAbstraction::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Application(raw_term) => {
-                RawTermApplication::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermApplication::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Subentity(raw_term) => {
-                RawTermSubentity::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermSubentity::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::AsTraitSubentity(raw_term) => {
-                RawTermAsTraitSubentity::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermAsTraitSubentity::from_raw_unchecked(db, raw_term, raw_ty_expectation)?
+                    .into()
             }
             RawTerm::TraitConstraint(raw_term) => {
-                RawTermTraitConstraint::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                RawTermTraitConstraint::from_raw_unchecked(db, raw_term, raw_ty_expectation)?.into()
             }
         })
     }
