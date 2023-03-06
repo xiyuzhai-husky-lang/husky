@@ -21,7 +21,7 @@ pub enum ValidCurryKind {
 }
 
 impl ValidTermCurry {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermCurry) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermCurry) -> Self {
         todo!()
     }
 

@@ -9,8 +9,8 @@ mod symbol;
 
 use std::fmt::{Debug, Display};
 
-pub use self::abstraction::ValidTermAbstraction;
-pub use self::application::ValidTermApplication;
+pub use self::abstraction::*;
+pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
@@ -65,7 +65,7 @@ pub enum ValidTerm {
 }
 
 impl ValidTerm {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTerm) -> Self {
         match precise_term {
             PreciseTerm::Literal(literal) => literal.into(),
             // match raw_ty_expectation {

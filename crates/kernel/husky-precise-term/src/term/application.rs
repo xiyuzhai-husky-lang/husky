@@ -80,7 +80,19 @@ pub(crate) fn precise_term_application_raw_ty(
     db: &dyn PreciseTermDb,
     precise_term_application: PreciseTermApplication,
 ) -> PreciseTermResult<RawTerm> {
-    todo!()
+    let function = precise_term_application.function(db);
+    let argument = precise_term_application.argument(db);
+    let function_raw_ty = match function.raw_ty(db)? {
+        Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
+        _ => return Err(todo!()),
+    };
+    Ok(match argument.raw_ty(db)? {
+        Left(argument_raw_ty) => todo!(),
+        Right(_) => match function_raw_ty.input_symbol(db) {
+            Some(function_raw_ty_input_symbol) => todo!(),
+            None => function_raw_ty.return_ty(db),
+        },
+    })
 }
 
 impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplication {

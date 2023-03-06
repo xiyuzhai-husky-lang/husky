@@ -7,7 +7,7 @@ pub struct ValidTermTraitConstraint {
 }
 
 impl ValidTermTraitConstraint {
-    pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTermTraitConstraint) -> Self {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermTraitConstraint) -> Self {
         todo!()
     }
 
