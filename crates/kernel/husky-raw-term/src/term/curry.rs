@@ -43,6 +43,11 @@ impl RawTermCurry {
     }
 }
 
+#[salsa::tracked(jar = RawTermJar)]
+pub(crate) fn total_number_of_curry_parameters(db: &dyn RawTermDb, term: RawTermCurry) -> u8 {
+    term.return_ty(db).total_number_of_curry_parameters(db) + 1
+}
+
 impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
     fn display_with_db_fmt(
         &self,

@@ -15,7 +15,7 @@ husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # infer
 husky-signature = { path = "../../infer/husky-signature" }
 # kernel
-husky-term-attrs = { path = "../../kernel/husky-term-attrs" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

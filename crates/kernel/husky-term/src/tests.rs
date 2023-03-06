@@ -10,6 +10,7 @@ use husky_precise_ty::PreciseTypeJar;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::RawTypeJar;
 use husky_signature::SignatureJar;
+use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_valid_term::ValidTermJar;
 use husky_valid_ty::ValidTypeJar;
@@ -26,6 +27,7 @@ use husky_word::WordJar;
     ManifestJar,
     ExprJar,
     DeclJar,
+    TermPreludeJar,
     RawTermJar,
     SignatureJar,
     RawTypeJar,

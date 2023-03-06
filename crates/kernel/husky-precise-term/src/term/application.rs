@@ -14,7 +14,7 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = new_unchecked)]
+#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar, constructor = pub(crate) new)]
 pub struct PreciseTermApplication {
     pub function: PreciseTerm,
     pub argument: PreciseTerm,
@@ -22,15 +22,6 @@ pub struct PreciseTermApplication {
 }
 
 impl PreciseTermApplication {
-    pub fn new(
-        db: &dyn PreciseTermDb,
-        function: PreciseTerm,
-        argument: PreciseTerm,
-        shift: u8,
-    ) -> PreciseTermResult<Self> {
-        todo!()
-    }
-
     pub fn from_raw(
         db: &dyn PreciseTermDb,
         raw_term: RawTermApplication,
@@ -59,8 +50,25 @@ pub(crate) fn precise_term_application_from_raw(
 ) -> PreciseTermResult<PreciseTermApplication> {
     let function =
         PreciseTerm::from_raw(db, raw_term_application.function(db), raw_ty_expectation)?;
-    let function_raw_ty = function.raw_ty(db)?;
-    todo!()
+    let argument =
+        PreciseTerm::from_raw(db, raw_term_application.argument(db), raw_ty_expectation)?;
+    let function_raw_ty = match function.raw_ty(db)? {
+        RawTerm::Curry(function_raw_ty) => function_raw_ty,
+        _ => return Err(todo!()),
+    };
+    let argument_ty_total_number_of_curry_parameters =
+        argument.raw_ty(db)?.total_number_of_curry_parameters(db);
+    let function_input_ty_total_number_of_curry_parameters = function_raw_ty
+        .input_ty(db)
+        .total_number_of_curry_parameters(db);
+    if argument_ty_total_number_of_curry_parameters
+        < function_input_ty_total_number_of_curry_parameters
+    {
+        todo!()
+    }
+    let shift = argument_ty_total_number_of_curry_parameters
+        - function_input_ty_total_number_of_curry_parameters;
+    Ok(PreciseTermApplication::new(db, function, argument, shift))
 }
 
 impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplication {
@@ -99,7 +107,6 @@ impl PreciseTermRewriteCopy for PreciseTermApplication {
             return self;
         }
         PreciseTermApplication::new(db, m, n, self.shift(db))
-            .expect("substitution shouldn't return Err")
     }
 }
 

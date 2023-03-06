@@ -1,0 +1,11 @@
+[package]
+name = "husky-term-prelude"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+ordered-float = "3.0.0"
+salsa = { path = "../../abstraction/salsa" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-token = { path = "../../lex/husky-token" }

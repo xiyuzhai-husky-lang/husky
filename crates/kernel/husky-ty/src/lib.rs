@@ -27,7 +27,7 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;
 use husky_term::*;
-use husky_term_attrs::*;
+use husky_term_prelude::*;
 use husky_ty_expectation::*;
 use husky_vfs::Toolchain;
 use husky_word::*;

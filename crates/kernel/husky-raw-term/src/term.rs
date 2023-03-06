@@ -96,6 +96,13 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTerm {
 }
 
 impl RawTerm {
+    pub fn total_number_of_curry_parameters(self, db: &dyn RawTermDb) -> u8 {
+        match self {
+            RawTerm::Curry(term) => total_number_of_curry_parameters(db, term),
+            _ => 0,
+        }
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
