@@ -1,6 +1,8 @@
+use crate::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum DefnError {
     #[error("{0}")]
     Original(#[from] OriginalDefnError),
@@ -9,12 +11,14 @@ pub enum DefnError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum OriginalDefnError {
     #[error("expect body")]
     ExpectBody,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+// #[salsa::derive_debug_with_db(db = DefnDb)]
 pub enum DerivedDefnError {}
 
 pub type DefnResult<T> = Result<T, DefnError>;

@@ -10,3 +10,4 @@ mod clone
 mod marker
 mod list
 mod cmp
+mod str

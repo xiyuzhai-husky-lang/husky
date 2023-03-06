@@ -1613,8 +1613,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -1630,8 +1630,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -2267,8 +2267,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -2284,8 +2284,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -2921,8 +2921,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -2938,8 +2938,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -3575,8 +3575,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -3592,8 +3592,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -4229,8 +4229,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -4246,8 +4246,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -4883,8 +4883,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -4900,8 +4900,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -5537,8 +5537,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -5554,8 +5554,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -6191,8 +6191,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -6208,8 +6208,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -6845,8 +6845,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -6862,8 +6862,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -7499,8 +7499,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -7516,8 +7516,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -8153,8 +8153,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -8170,8 +8170,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -8807,8 +8807,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -8824,8 +8824,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -9461,8 +9461,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -9478,8 +9478,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),
@@ -10115,8 +10115,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        ImplErr,
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),
@@ -10132,8 +10132,8 @@ Ok(
                     },
                 ),
                 Err(
-                    Derived(
-                        UnableToParseImplDeclForTyAsTraitMethodDecl,
+                    DeclError::Derived(
+                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),

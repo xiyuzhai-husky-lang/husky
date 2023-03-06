@@ -338,10 +338,38 @@ Ok(
                         24,
                     ),
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core`,
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::str`,
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `str`,
+                        token_idx: TokenIdx(
+                            25,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        26,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..12,
+            0..13,
         ),
     },
 )
