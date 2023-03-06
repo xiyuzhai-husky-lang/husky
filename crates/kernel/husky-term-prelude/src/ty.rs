@@ -1,0 +1,26 @@
+use crate::*;
+
+pub enum TermPreludeType {
+    I8,
+    I16,
+    I32,
+    I64,
+    I128,
+    ISize,
+    U8,
+    U16,
+    U32,
+    U64,
+    U128,
+    USize,
+    R8,
+    R16,
+    R32,
+    R64,
+    R128,
+    RSize,
+    Unit,
+    Ref,
+    StringLiteral,
+    Sort(TermUniverse),
+}

@@ -13,10 +13,7 @@ pub fn term_ty(
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => term_entity_path_ty(db, path),
-        Term::Category(cat) => cat
-            .ty()
-            .map(Into::into)
-            .map_err(|e| OriginalTypeError::Term(e).into()),
+        Term::Category(cat) => cat.ty().map(Into::into).map_err(|e| todo!()),
         Term::Universe(_) => todo!(),
         Term::Curry(_) => todo!(),
         Term::Ritchie(term) => Ok(match term.ritchie_kind(db) {

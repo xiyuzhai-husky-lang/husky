@@ -1,30 +1,22 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
-mod category;
 mod constraint;
 mod curry;
-mod entity_path;
-mod literal;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod universe;
 
 use std::fmt::{Debug, Display};
 
 pub use self::abstraction::TermAbstraction;
 pub use self::application::TermApplication;
 pub use self::as_trai_subentity::*;
-pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::entity_path::*;
-pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
@@ -88,11 +80,11 @@ impl Term {
 
     pub fn from_valid(db: &dyn TermDb, valid_term: ValidTerm) -> Self {
         match valid_term {
-            ValidTerm::Literal(valid_term) => TermLiteral::from_valid(db, valid_term).into(),
+            ValidTerm::Literal(valid_term) => valid_term.into(),
             ValidTerm::Symbol(valid_term) => TermSymbol::from_valid(db, valid_term).into(),
-            ValidTerm::EntityPath(valid_term) => TermEntityPath::from_valid(db, valid_term).into(),
-            ValidTerm::Category(valid_term) => TermCategory::from_valid(db, valid_term).into(),
-            ValidTerm::Universe(valid_term) => TermUniverse::from_valid(db, valid_term).into(),
+            ValidTerm::EntityPath(valid_term) => valid_term.into(),
+            ValidTerm::Category(valid_term) => valid_term.into(),
+            ValidTerm::Universe(universe) => universe.into(),
             ValidTerm::Curry(valid_term) => TermCurry::from_valid(db, valid_term).into(),
             ValidTerm::Ritchie(valid_term) => TermRitchie::from_valid(db, valid_term).into(),
             ValidTerm::Abstraction(valid_term) => {
@@ -159,9 +151,11 @@ impl Term {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
-            Term::Literal(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Literal(term) => todo!(),
+            //  term.show_with_db_fmt(f, db),
             Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::EntityPath(term) => todo!(),
+            // term.show_with_db_fmt(f, db),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
             Term::Curry(term) => term.show_with_db_fmt(f, db, ctx),

@@ -11,15 +11,14 @@ impl TermCategory {
         Self { universe }
     }
 
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermCategory) -> Self {
-        TermCategory::new(TermUniverse::from_valid(db, valid_term.universe()))
+    pub fn from_(db: &dyn TermPreludeDb, _term: TermCategory) -> Self {
+        TermCategory::new(TermUniverse::from_(db, _term.universe()))
     }
 
-    pub fn ty(self) -> TermResult<Term> {
+    pub fn ty(self) -> TermPreludeResult<TermCategory> {
         Ok(Self {
             universe: self.universe.next()?,
-        }
-        .into())
+        })
     }
 
     pub fn universe(&self) -> TermUniverse {
@@ -29,8 +28,7 @@ impl TermCategory {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
         todo!()
     }
@@ -48,10 +46,3 @@ impl std::fmt::Display for TermCategory {
         }
     }
 }
-// pub fn as_str(self) -> &'static str {
-//     match self {
-//         TermCategory::Type => "Type",
-//         TermCategory::Sort => "Sort",
-//         TermCategory::Prop => "Prop",
-//     }
-// }

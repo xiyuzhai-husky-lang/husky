@@ -2,10 +2,10 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct RawTermMenu0 {
-    universe0: RawTermUniverse,
-    universe1: RawTermUniverse,
-    prop: RawTermCategory,
-    ty0: RawTermCategory,
+    universe0: TermUniverse,
+    universe1: TermUniverse,
+    prop: TermCategory,
+    ty0: TermCategory,
     eval_lifetime: RawTermLiteral,
     static_lifetime: RawTermLiteral,
     unit: RawTerm,
@@ -59,19 +59,19 @@ pub struct RawTermMenu0 {
 
 impl RawTermMenu0 {
     pub fn new(db: &dyn RawTermDb, toolchain: Toolchain) -> Self {
-        // let sort = db.it_term(RawTermAtom::new_category(RawTermCategory::Sort).into());
+        // let sort = db.it_term(RawTermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(RawTermAtom::new_universe(1).into());
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        let universe0 = RawTermUniverse::new(0);
-        let universe1 = RawTermUniverse::new(1);
+        let universe0 = TermUniverse::new(0);
+        let universe1 = TermUniverse::new(1);
         RawTermMenu0 {
             eval_lifetime: RawTermLiteral::EvalLifetime,
             static_lifetime: RawTermLiteral::StaticLifetime,
             universe0,
             universe1,
-            prop: RawTermCategory::new(universe0),
-            ty0: RawTermCategory::new(universe1),
+            prop: TermCategory::new(universe0),
+            ty0: TermCategory::new(universe1),
             core_ops_add: RawTerm::EntityPath(entity_path_menu.core_ops_add().into()),
             // start here
             // RawTerm::Entity(entity_path_menu.core_ops_())
@@ -116,21 +116,21 @@ impl RawTermMenu0 {
         }
     }
 
-    pub fn universe0(&self) -> RawTermUniverse {
+    pub fn universe0(&self) -> TermUniverse {
         self.universe0
     }
 
-    pub fn universe1(&self) -> RawTermUniverse {
+    pub fn universe1(&self) -> TermUniverse {
         self.universe1
     }
 
     /// `Prop`
-    pub fn prop(&self) -> RawTermCategory {
+    pub fn prop(&self) -> TermCategory {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> RawTermCategory {
+    pub fn ty0(&self) -> TermCategory {
         self.ty0
     }
 

@@ -1,28 +1,22 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
-mod category;
 mod constraint;
 mod curry;
-mod entity_path;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod universe;
 
 use std::fmt::{Debug, Display};
 
 pub use self::abstraction::*;
 pub use self::application::*;
 pub use self::as_trai_subentity::*;
-pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::entity_path::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
@@ -37,11 +31,11 @@ pub enum PreciseTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
-    Literal(PreciseTermLiteral),
+    Literal(TermLiteral),
     Symbol(PreciseTermSymbol),
-    EntityPath(PreciseTermEntityPath),
-    Category(PreciseTermCategory),
-    Universe(PreciseTermUniverse),
+    EntityPath(TermEntityPath),
+    Category(TermCategory),
+    Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(PreciseTermCurry),
     /// in memory of Dennis M.Ritchie
@@ -80,20 +74,17 @@ impl PreciseTerm {
         Ok(match raw_term {
             RawTerm::Literal(raw_term) => {
                 todo!()
-                // PreciseTermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                //  TermLiteral::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::Symbol(raw_term) => {
                 PreciseTermSymbol::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
             RawTerm::EntityPath(raw_term) => {
-                PreciseTermEntityPath::from_raw(db, raw_term, raw_ty_expectation)?.into()
+                todo!()
+                // TermEntityPath::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
-            RawTerm::Category(raw_term) => {
-                PreciseTermCategory::from_raw(db, raw_term, raw_ty_expectation).into()
-            }
-            RawTerm::Universe(raw_term) => {
-                PreciseTermUniverse::from_raw(db, raw_term, raw_ty_expectation).into()
-            }
+            RawTerm::Category(raw_term) => raw_term.into(),
+            RawTerm::Universe(raw_term) => raw_term.into(),
             RawTerm::Curry(raw_term) => {
                 PreciseTermCurry::from_raw(db, raw_term, raw_ty_expectation)?.into()
             }
@@ -123,7 +114,8 @@ impl PreciseTerm {
             PreciseTerm::Literal(term) => todo!(),
             // term.raw_ty(db),
             PreciseTerm::Symbol(_) => todo!(),
-            PreciseTerm::EntityPath(term) => term.raw_ty(db).map_err(Into::into),
+            PreciseTerm::EntityPath(term) => todo!(),
+            // term.raw_ty(db).map_err(Into::into),
             PreciseTerm::Category(_) => todo!(),
             PreciseTerm::Universe(_) => todo!(),
             PreciseTerm::Curry(_) => todo!(),
