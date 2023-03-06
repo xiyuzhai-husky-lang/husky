@@ -348,7 +348,7 @@ impl<'a> ExprTypeEngine<'a> {
                         self.db
                             .form_path_ty_unchecked(form_path)
                             .map(Into::into)
-                            .map_err(|e| todo!()),
+                            .map_err(Into::into),
                     )),
                 },
                 EntityPath::AssociatedItem(_) => todo!(),

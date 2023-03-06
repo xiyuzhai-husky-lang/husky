@@ -1,30 +1,24 @@
 use super::*;
 
 impl TermApplication {
-    pub(super) fn reduce(self, db: &dyn TermDb) -> Term {
+    pub(in crate::term) fn reduce(self, db: &dyn TermDb) -> Term {
         reduce_term_application(db, self)
     }
 }
 
 #[salsa::tracked(jar = TermJar)]
 pub(crate) fn reduce_term_application(db: &dyn TermDb, term_application: TermApplication) -> Term {
-    match term_application.function(db) {
-        Term::Literal(_)
-        | Term::Symbol(_)
-        | Term::EntityPath(
-            TermEntityPath::Trait(_)
-            | TermEntityPath::TypeOntology(_)
-            | TermEntityPath::TypeConstructor(_),
-        ) => term_application.into(),
+    let function = term_application.function(db).reduce(db);
+    let argument = term_application.argument(db).reduce(db);
+    let shift = term_application.shift(db);
+    match function {
         Term::EntityPath(TermEntityPath::Form(_)) => todo!(),
-        Term::Category(_) => todo!(),
-        Term::Universe(_) => todo!(),
-        Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
-        Term::Application(_) => todo!(),
-        Term::Subentity(_) => todo!(),
-        Term::AsTraitSubentity(_) => todo!(),
-        Term::TraitConstraint(_) => todo!(),
+        Term::Application(_) if shift > 0 => {
+            p!(function.debug(db), argument.debug(db), shift);
+            todo!()
+        }
+        _ => TermApplication::new_inner(db, function, argument, shift).into(),
     }
 }

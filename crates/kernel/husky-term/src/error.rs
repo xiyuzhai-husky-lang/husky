@@ -5,6 +5,7 @@ use std::sync::Arc;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = TermDb)]
 pub enum TermError {
     #[error("Term Error: term is not reduced")]
     TermIsNotReduced,
