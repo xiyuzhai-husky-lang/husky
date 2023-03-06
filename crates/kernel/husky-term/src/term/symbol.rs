@@ -11,7 +11,7 @@ pub struct TermSymbol {
 
 impl TermSymbol {
     #[inline(always)]
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermSymbol) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermSymbol) -> Self {
         todo!()
     }
 

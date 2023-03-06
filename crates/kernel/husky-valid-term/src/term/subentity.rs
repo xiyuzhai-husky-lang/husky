@@ -23,9 +23,9 @@ impl ValidTermSubentity {
 }
 
 impl ValidTermRewriteCopy for ValidTermSubentity {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substituation);
+        let parent = old_parent.substitute(db, substituation);
         if old_parent == parent {
             return self;
         }

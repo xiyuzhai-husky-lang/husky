@@ -7,7 +7,7 @@ pub struct TermTraitConstraint {
 }
 
 impl TermTraitConstraint {
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermTraitConstraint) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermTraitConstraint) -> Self {
         todo!()
     }
 
@@ -21,8 +21,8 @@ impl TermTraitConstraint {
     }
 }
 
-impl TermRewriteCopy for TermTraitConstraint {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl TermTraitConstraint {
+    fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
         todo!()
     }
 }

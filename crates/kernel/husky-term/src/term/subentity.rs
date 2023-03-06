@@ -9,7 +9,7 @@ pub struct TermSubentity {
 
 impl TermSubentity {
     #[inline(always)]
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermSubentity) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermSubentity) -> Self {
         todo!()
     }
 
@@ -21,16 +21,15 @@ impl TermSubentity {
     ) -> std::fmt::Result {
         todo!()
     }
-}
 
-impl TermRewriteCopy for TermSubentity {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
-        let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substituation);
-        if old_parent == parent {
-            return self;
-        }
-        let ident = self.ident(db);
-        TermSubentity::new(db, parent, ident)
+    pub fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
+        todo!()
+        // let old_parent = self.parent(db);
+        // let parent = old_parent.substitute(db, substituation);
+        // if old_parent == parent {
+        //     return self.into();
+        // }
+        // let ident = self.ident(db);
+        // TermSubentity::new(db, parent, ident)
     }
 }

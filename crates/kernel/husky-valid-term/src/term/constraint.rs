@@ -22,7 +22,7 @@ impl ValidTermTraitConstraint {
 }
 
 impl ValidTermRewriteCopy for ValidTermTraitConstraint {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
         todo!()
     }
 }

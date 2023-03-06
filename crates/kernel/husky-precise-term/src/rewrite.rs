@@ -9,11 +9,7 @@ pub trait PreciseTermRewrite: Sized {
 }
 
 pub trait PreciseTermRewriteCopy: Copy {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substituation: &PreciseTermSubstitution,
-    ) -> Self;
+    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self;
 }
 
 impl<T> PreciseTermRewrite for T
@@ -21,16 +17,12 @@ where
     T: PreciseTermRewriteCopy,
 {
     fn substitute(&self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
-        self.substitute_copy(db, substituation)
+        self.substitute(db, substituation)
     }
 }
 
 impl PreciseTermRewriteCopy for PreciseTerm {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substitution: &PreciseTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &dyn PreciseTermDb, substitution: &PreciseTermSubstitution) -> Self {
         match self {
             PreciseTerm::Symbol(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
@@ -40,23 +32,21 @@ impl PreciseTermRewriteCopy for PreciseTerm {
             | PreciseTerm::EntityPath(_)
             | PreciseTerm::Category(_)
             | PreciseTerm::Universe(_) => self,
-            PreciseTerm::Curry(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
-            }
+            PreciseTerm::Curry(precise_term) => precise_term.substitute(db, substitution).into(),
             PreciseTerm::Abstraction(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
+                precise_term.substitute(db, substitution).into()
             }
             PreciseTerm::Application(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
+                precise_term.substitute(db, substitution).into()
             }
             PreciseTerm::Subentity(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
+                precise_term.substitute(db, substitution).into()
             }
             PreciseTerm::AsTraitSubentity(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
+                precise_term.substitute(db, substitution).into()
             }
             PreciseTerm::TraitConstraint(precise_term) => {
-                precise_term.substitute_copy(db, substitution).into()
+                precise_term.substitute(db, substitution).into()
             }
             PreciseTerm::Ritchie(_) => todo!(),
         }

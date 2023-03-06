@@ -33,6 +33,7 @@ pub struct TermJar(
     TermRitchie,
     TermAbstraction,
     TermApplication,
+    term_from_valid_application,
     TermSubentity,
     TermAsTraitSubentity,
     TermTraitConstraint,

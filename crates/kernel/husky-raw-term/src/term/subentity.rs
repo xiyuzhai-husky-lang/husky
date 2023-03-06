@@ -19,9 +19,9 @@ impl RawTermSubentity {
 }
 
 impl RawTermRewriteCopy for RawTermSubentity {
-    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substituation);
+        let parent = old_parent.substitute(db, substituation);
         if old_parent == parent {
             return self;
         }

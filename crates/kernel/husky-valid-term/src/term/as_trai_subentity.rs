@@ -24,14 +24,14 @@ impl ValidTermAsTraitSubentity {
 }
 
 impl ValidTermRewriteCopy for ValidTermAsTraitSubentity {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substituation);
+        let parent = old_parent.substitute(db, substituation);
         let old_trai = self.trai(db);
-        let trai = old_trai.substitute_copy(db, substituation);
+        let trai = old_trai.substitute(db, substituation);
         if old_parent == parent && old_trai == trai {
             return self;
         }

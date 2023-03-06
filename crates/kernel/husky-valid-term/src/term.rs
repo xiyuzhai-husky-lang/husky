@@ -6,6 +6,7 @@ mod curry;
 mod ritchie;
 mod subentity;
 mod symbol;
+mod utils;
 
 use std::fmt::{Debug, Display};
 
@@ -22,6 +23,7 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
+use utils::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -77,7 +79,7 @@ impl ValidTerm {
             //     TermTypeExpectation::Any => (),
             // }
             PreciseTerm::Symbol(precise_term) => {
-                ValidTermSymbol::from_precise(db, precise_term).into()
+                ValidTermSymbol::from_precise(db, precise_term)?.into()
             }
             PreciseTerm::EntityPath(precise_term) => precise_term.into(),
             PreciseTerm::Category(precise_term) => precise_term.into(),
@@ -129,6 +131,26 @@ impl ValidTerm {
             ValidTerm::AsTraitSubentity(_) => todo!(),
             ValidTerm::TraitConstraint(_) => todo!(),
         })
+    }
+
+    /// whether two types are trivially convertible
+    pub fn is_ty_trivially_convertible_from(
+        self,
+        db: &dyn ValidTermDb,
+        other_ty: Either<Self, PreludeTypePath>,
+    ) -> ValidTermResult<bool> {
+        match other_ty {
+            Left(other_ty) if other_ty == self => Ok(true),
+            Left(other_ty) => {
+                todo!()
+            }
+            Right(other_ty) => match self {
+                ValidTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                    Ok(ty_path.prelude_ty_path(db)? == Some(other_ty))
+                }
+                _ => todo!(),
+            },
+        }
     }
 }
 

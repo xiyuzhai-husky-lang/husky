@@ -29,6 +29,7 @@ impl TermMenu1 {
                 menu0.eval_lifetime().into(),
                 0,
             )
+            .unwrap()
             .into(),
             static_ref_ty: TermApplication::new(
                 db,
@@ -36,6 +37,7 @@ impl TermMenu1 {
                 menu0.static_lifetime(),
                 0,
             )
+            .unwrap()
             .into(),
             explicit_invariant_ty0_to_trai_ty: TermCurry::new(
                 db,

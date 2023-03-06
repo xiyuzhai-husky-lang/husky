@@ -22,6 +22,7 @@ impl TermMenu2 {
         // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());
         Ok(TermMenu2 {
             static_str_ref: TermApplication::new(db, menu1.static_ref_ty(), menu1.str_ty_path(), 0)
+                .unwrap()
                 .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: TermCurry::new(
                 db,

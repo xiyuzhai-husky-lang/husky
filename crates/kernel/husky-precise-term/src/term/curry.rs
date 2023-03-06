@@ -93,11 +93,7 @@ impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermCurry {
 }
 
 impl PreciseTermRewriteCopy for PreciseTermCurry {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substituation: &PreciseTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
         todo!()
     }
 }

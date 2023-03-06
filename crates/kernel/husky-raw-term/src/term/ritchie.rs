@@ -105,7 +105,7 @@ impl RawTermRitchieParameter {
 }
 
 impl RawTermRewriteCopy for RawTermRitchie {
-    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }
