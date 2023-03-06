@@ -130,28 +130,14 @@ impl Term {
     }
 
     fn ty_unchecked(self, db: &dyn TermDb) -> TermResult<Either<Term, PreludeTypePath>> {
-        todo!("use raw_ty")
-        // Ok(match self {
-        //     Term::Literal(literal) => Right(literal.ty()),
-        //     Term::Symbol(_) => todo!(),
-        //     Term::Category(_) => todo!(),
-        //     Term::EntityPath(path) => Left(match path {
-        //         TermEntityPath::Form(path) => form_path_ty_unchecked(db, path)?,
-        //         TermEntityPath::Trait(path) => trai_path_ty_unchecked(db, path)?,
-        //         TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_unchecked(db, path)?,
-        //         TermEntityPath::TypeConstructor(path) => {
-        //             ty_constructor_path_ty_unchecked(db, path)?
-        //         }
-        //     }),
-        //     Term::Universe(_) => todo!(),
-        //     Term::Curry(_) => todo!(),
-        //     Term::Ritchie(_) => todo!(),
-        //     Term::Abstraction(_) => todo!(),
-        //     Term::Application(_) => todo!(),
-        //     Term::Subentity(_) => todo!(),
-        //     Term::AsTraitSubentity(_) => todo!(),
-        //     Term::TraitConstraint(_) => todo!(),
-        // })
+        Ok(match self.raw_ty(db)? {
+            Left(raw_ty) => Left(Term::from_raw_unchecked(
+                db,
+                raw_ty,
+                TermTypeExpectation::FinalDestinationEqsSort,
+            )?),
+            Right(prelude_ty_path) => Right(prelude_ty_path),
+        })
     }
 
     fn raw_ty(self, db: &dyn TermDb) -> TermResult<Either<RawTerm, PreludeTypePath>> {

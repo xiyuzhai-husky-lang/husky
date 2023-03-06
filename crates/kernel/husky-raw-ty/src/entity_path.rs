@@ -195,7 +195,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::TypeOntologyDeclError.into()),
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
@@ -218,7 +218,7 @@ pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawType
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::TypeConstructorDeclError.into()),
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
@@ -235,7 +235,7 @@ pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<Ra
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::TraitDeclError.into()),
     };
     let Ok(variances) = trai_entity_variances(db, path) else {
         todo!()
@@ -257,7 +257,7 @@ pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<Ra
 pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::DeclError.into()),
+        Err(_) => return Err(DerivedRawTypeError::FormDeclError.into()),
     };
     let signature = match db.form_signature(decl) {
         Ok(signature) => signature,

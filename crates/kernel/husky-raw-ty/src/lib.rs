@@ -9,7 +9,6 @@ mod method;
 mod term;
 #[cfg(test)]
 mod tests;
-mod ty_call;
 mod variance;
 
 pub use self::db::*;
@@ -21,7 +20,6 @@ use self::field::*;
 use self::method::*;
 #[cfg(test)]
 use self::tests::*;
-use self::ty_call::*;
 use self::variance::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
@@ -51,10 +49,9 @@ pub struct RawTypeJar(
     ApplicationArguments,
     entity_raw_ty_method_raw_ty,
     application_raw_ty_method_raw_ty,
-    entity_raw_ty_field_raw_ty,
+    ty_path_field_raw_ty,
     application_raw_ty_field_raw_ty,
     application_raw_term_raw_ty,
-    ty_path_raw_ty_call_raw_ty,
     RawTermSymbols,
     raw_term_curry_symbols,
     raw_term_ritchie_symbols,

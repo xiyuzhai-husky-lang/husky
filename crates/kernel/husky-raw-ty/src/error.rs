@@ -6,21 +6,9 @@ pub type RawTypeResult<T> = Result<T, RawTypeError>;
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum RawTypeError {
     #[error("original `{0}`")]
-    Original(OriginalRawTypeError),
+    Original(#[from] OriginalRawTypeError),
     #[error("derived `{0}`")]
-    Derived(DerivedRawTypeError),
-}
-
-impl From<OriginalRawTypeError> for RawTypeError {
-    fn from(v: OriginalRawTypeError) -> Self {
-        Self::Original(v)
-    }
-}
-
-impl From<DerivedRawTypeError> for RawTypeError {
-    fn from(v: DerivedRawTypeError) -> Self {
-        Self::Derived(v)
-    }
+    Derived(#[from] DerivedRawTypeError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -35,8 +23,22 @@ pub enum OriginalRawTypeError {
 pub enum DerivedRawTypeError {
     #[error("signature error")]
     SignatureError,
-    #[error("declaration error")]
-    DeclError,
+    #[error("type constructor decl error")]
+    TypeConstructorDeclError,
+    #[error("type ontology decl error")]
+    TypeOntologyDeclError,
+    #[error("trait decl error")]
+    TraitDeclError,
+    #[error("form decl error")]
+    FormDeclError,
+    #[error("type path field decl error")]
+    TypePathFieldDeclError,
+    #[error("type path application field decl error")]
+    TypePathApplicationFieldDeclError,
+    #[error("type path method decl error")]
+    TypePathMethodDeclError,
+    #[error("type path application method decl error")]
+    TypePathApplicationMethodDeclError,
 }
 
 impl<Db: RawTypeDb + ?Sized> salsa::DebugWithDb<Db> for RawTypeError {
