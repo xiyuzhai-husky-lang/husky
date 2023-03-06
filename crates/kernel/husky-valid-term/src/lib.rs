@@ -6,7 +6,6 @@
 mod context;
 mod db;
 mod error;
-mod menu;
 mod rewrite;
 mod term;
 #[cfg(test)]
@@ -15,7 +14,6 @@ mod tests;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
-pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
@@ -35,7 +33,6 @@ pub struct ValidTermJar(
     ValidTermSubentity,
     ValidTermAsTraitSubentity,
     ValidTermTraitConstraint,
-    valid_term_menu,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
 );

@@ -1,6 +1,10 @@
 use crate::*;
 
-pub enum TermPreludeType {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum PreludeTypePath {
+    Unit,
+    Never,
+    Bool,
     I8,
     I16,
     I32,
@@ -19,8 +23,16 @@ pub enum TermPreludeType {
     R64,
     R128,
     RSize,
-    Unit,
+    F32,
+    F64,
+    Nat,
+    Lifetime,
+    Module,
+    Trait,
     Ref,
+    RefMut,
+    List,
+    Slice,
     StringLiteral,
-    Sort(TermUniverse),
+    Str,
 }

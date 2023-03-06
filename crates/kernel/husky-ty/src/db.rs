@@ -7,12 +7,6 @@ pub trait TypeDb: salsa::DbWithJar<TypeJar> + TermDb {
     fn reduced_term(&self, term: RawTerm) -> Term;
     fn intrinsic_ty(&self, ty: Term) -> IntrinsicType;
     fn term_application_expansion(&self, reduced_term: Term) -> ApplicationExpansion;
-    fn ty_call_ty(
-        &self,
-        term: Term,
-        toolchain: Toolchain,
-        reduced_term_menu: TermMenu,
-    ) -> TypeResult<Term>;
     fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool;
     fn ty_path_ty(
         &self,
@@ -46,15 +40,6 @@ where
 
     fn term_application_expansion(&self, reduced_term: Term) -> ApplicationExpansion {
         application_expansion(self, reduced_term)
-    }
-
-    fn ty_call_ty(
-        &self,
-        ty_term: Term,
-        toolchain: Toolchain,
-        reduced_term_menu: TermMenu,
-    ) -> TypeResult<Term> {
-        ty_call_ty(self, ty_term, toolchain, reduced_term_menu)
     }
 
     fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool {

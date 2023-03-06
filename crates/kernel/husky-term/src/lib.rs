@@ -6,7 +6,6 @@
 mod context;
 mod db;
 mod error;
-mod menu;
 mod rewrite;
 mod term;
 #[cfg(test)]
@@ -15,7 +14,6 @@ mod tests;
 pub use context::*;
 pub use db::*;
 pub use error::*;
-pub use menu::*;
 pub use rewrite::*;
 pub use term::*;
 
@@ -36,7 +34,7 @@ pub struct TermJar(
     TermSubentity,
     TermAsTraitSubentity,
     TermTraitConstraint,
-    term_menu,
+    // term_menu,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
 );

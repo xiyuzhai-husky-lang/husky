@@ -8,5 +8,7 @@ edition = "2021"
 ordered-float = "3.0.0"
 thiserror = "1.0.37"
 salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstraction/enum-class" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-token = { path = "../../lex/husky-token" }
+husky-vfs = { path = "../../fs/husky-vfs" }

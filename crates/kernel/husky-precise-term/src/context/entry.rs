@@ -180,11 +180,9 @@ fn symbol_show_kind(
     db: &dyn PreciseTermDb,
 ) -> PreciseTermSymbolShowKind {
     match symbol.ty(db) {
-        PreciseTerm::EntityPath(TermEntityPath::TypeOntology(ty))
-            if is_ty_path_lifetime_ty(db, ty) =>
-        {
-            PreciseTermSymbolShowKind::Lifetime
-        }
+        PreciseTerm::EntityPath(TermEntityPath::TypeOntology(TermTypePath::Prelude(
+            PreludeTypePath::Lifetime,
+        ))) => PreciseTermSymbolShowKind::Lifetime,
         PreciseTerm::Category(cat) if cat.universe().raw() == 0 => PreciseTermSymbolShowKind::Prop,
         PreciseTerm::Category(cat) if cat.universe().raw() == 1 => PreciseTermSymbolShowKind::Type,
         PreciseTerm::Category(_) => PreciseTermSymbolShowKind::Kind,

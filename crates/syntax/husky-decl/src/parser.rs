@@ -30,7 +30,7 @@ fn ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.entity_path_menu(toolchain).unwrap();
-    assert!(db.ty_decl(menu.never()).is_ok());
+    assert!(db.ty_decl(menu.never_ty_path()).is_ok());
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]

@@ -91,12 +91,36 @@ impl WordMenu {
         self.i64
     }
 
+    pub fn i128(&self) -> Identifier {
+        self.i128
+    }
+
+    pub fn isize(&self) -> Identifier {
+        self.isize
+    }
+
+    pub fn r8(&self) -> Identifier {
+        self.r8
+    }
+
+    pub fn r16(&self) -> Identifier {
+        self.r16
+    }
+
     pub fn r32(&self) -> Identifier {
         self.r32
     }
 
     pub fn r64(&self) -> Identifier {
         self.r64
+    }
+
+    pub fn r128(&self) -> Identifier {
+        self.r128
+    }
+
+    pub fn rsize(&self) -> Identifier {
+        self.rsize
     }
 
     pub fn f32(&self) -> Identifier {
@@ -129,6 +153,14 @@ impl WordMenu {
 
     pub fn u64(&self) -> Identifier {
         self.u64
+    }
+
+    pub fn u128(&self) -> Identifier {
+        self.u128
+    }
+
+    pub fn usize(&self) -> Identifier {
+        self.usize
     }
 
     pub fn trai_ty(&self) -> Identifier {
