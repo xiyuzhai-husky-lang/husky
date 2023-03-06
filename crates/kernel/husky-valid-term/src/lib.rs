@@ -17,7 +17,8 @@ pub use self::error::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
-use husky_entity_path::EntityPath;
+use either::*;
+use husky_entity_path::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;

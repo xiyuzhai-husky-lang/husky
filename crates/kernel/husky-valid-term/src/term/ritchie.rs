@@ -12,7 +12,10 @@ pub struct ValidTermRitchie {
 }
 
 impl ValidTermRitchie {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTermRitchie) -> Self {
+    pub fn from_precise(
+        db: &dyn ValidTermDb,
+        precise_term: PreciseTermRitchie,
+    ) -> ValidTermResult<Self> {
         todo!()
     }
 

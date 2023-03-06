@@ -21,6 +21,12 @@ impl From<PreciseTypeError> for ValidTypeError {
     }
 }
 
+impl From<ValidTermError> for ValidTypeError {
+    fn from(e: ValidTermError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalValidTypeError {
     #[error("term error")]
