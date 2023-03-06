@@ -7,7 +7,11 @@ pub struct TermAbstraction {
 }
 
 impl TermAbstraction {
-    pub fn from_raw(db: &dyn TermDb, precise_term: RawTermAbstraction) -> Self {
+    pub fn from_raw(
+        db: &dyn TermDb,
+        precise_term: RawTermAbstraction,
+        term_ty_expectation: TermTypeExpectation,
+    ) -> TermResult<Self> {
         todo!()
     }
 

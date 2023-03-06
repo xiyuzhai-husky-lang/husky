@@ -16,7 +16,11 @@ pub struct TermCurry {
 }
 
 impl TermCurry {
-    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermCurry) -> Self {
+    pub fn from_raw(
+        db: &dyn TermDb,
+        valid_term: RawTermCurry,
+        term_ty_expectation: TermTypeExpectation,
+    ) -> TermResult<Self> {
         todo!()
     }
 
