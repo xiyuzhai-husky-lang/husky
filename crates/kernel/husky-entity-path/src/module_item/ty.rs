@@ -10,6 +10,10 @@ pub struct TypePath {
 }
 
 impl TypePath {
+    pub fn eqs_lifetime_ty_path(self, db: &dyn EntityPathDb) -> bool {
+        is_ty_path_lifetime_ty(db, self)
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -27,6 +31,15 @@ impl TypePath {
     pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
         self.crate_path(db).toolchain(db)
     }
+}
+
+#[salsa::tracked(jar = EntityPathJar)]
+pub(crate) fn is_ty_path_lifetime_ty(db: &dyn EntityPathDb, ty_path: TypePath) -> bool {
+    let toolchain = ty_path.toolchain(db);
+    let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
+        return false
+    };
+    ty_path == entity_path_menu.lifetime_ty_path()
 }
 
 impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {

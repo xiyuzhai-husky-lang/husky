@@ -36,8 +36,6 @@ pub struct PreciseTermJar(
     PreciseTermSubentity,
     PreciseTermAsTraitSubentity,
     PreciseTermTraitConstraint,
-    // only use this inside crate::context::entry
-    is_ty_path_lifetime_ty,
     // curry
     precise_term_curry_from_raw,
 );

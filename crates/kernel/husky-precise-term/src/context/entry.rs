@@ -180,23 +180,14 @@ fn symbol_show_kind(
     db: &dyn PreciseTermDb,
 ) -> PreciseTermSymbolShowKind {
     match symbol.ty(db) {
-        PreciseTerm::EntityPath(TermEntityPath::TypeOntology(TermTypePath::Prelude(
-            PreludeTypePath::Lifetime,
-        ))) => PreciseTermSymbolShowKind::Lifetime,
+        PreciseTerm::EntityPath(TermEntityPath::TypeOntology(path))
+            if path.eqs_lifetime_ty_path(db) =>
+        {
+            PreciseTermSymbolShowKind::Lifetime
+        }
         PreciseTerm::Category(cat) if cat.universe().raw() == 0 => PreciseTermSymbolShowKind::Prop,
         PreciseTerm::Category(cat) if cat.universe().raw() == 1 => PreciseTermSymbolShowKind::Type,
         PreciseTerm::Category(_) => PreciseTermSymbolShowKind::Kind,
         _ => PreciseTermSymbolShowKind::Other,
     }
-}
-
-// this might be the most efficient way to do it
-// only use this in this module
-#[salsa::tracked(jar = PreciseTermJar)]
-pub(crate) fn is_ty_path_lifetime_ty(db: &dyn PreciseTermDb, ty_path: TypePath) -> bool {
-    let toolchain = ty_path.toolchain(db);
-    let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
-        return false
-    };
-    ty_path == entity_path_menu.lifetime_ty_path()
 }

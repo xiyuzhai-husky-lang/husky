@@ -24,7 +24,7 @@ pub struct TermPreludeJar(
     TermInteger128,
     TermInteger256,
     TermNaturalNumber,
-    term_ty_path,
+    // term_ty_path,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
