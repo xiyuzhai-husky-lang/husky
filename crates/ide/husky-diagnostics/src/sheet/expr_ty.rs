@@ -108,9 +108,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
             }
-            OriginalExprTypeError::FieldTypeError(error) => format!("TypeError: {error}"),
-            OriginalExprTypeError::TypeMethodTypeError(error) => format!("TypeError: {error}"),
-            OriginalExprTypeError::TypeCallTypeError(error) => format!("TypeError: {error}"),
+            OriginalExprTypeError::FieldTypeError => format!("TypeError: "),
+            OriginalExprTypeError::TypeMethodTypeError => format!("TypeError: "),
+            OriginalExprTypeError::TypeCallTypeError => format!("TypeError: "),
             OriginalExprTypeError::TodoScopeResolution => {
                 format!("Type Error: TodoScopeResolution")
             }
@@ -123,7 +123,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::FinalDestination => {
                 format!("Type Error: final destination")
             }
-            OriginalExprTypeError::FormPathTypeError(error) => {
+            OriginalExprTypeError::FormPathTypeError => {
                 format!("Type Error: form path error")
             }
         }
@@ -161,8 +161,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalLocalTermExpectationError::TermTypeError { term, error } => {
-                format!("Type Error: {error} in term {}", term.display(ctx.db()))
+            OriginalLocalTermExpectationError::Todo => {
+                todo!()
+                // format!("Type Error: {error} in term {}", term.display(ctx.db()))
             } // OriginalLocalTermExpectationError::TypePathTypeError { ty_path, error } => {
               //     format!("Type Error: type path type error")
               // }

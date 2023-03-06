@@ -70,56 +70,46 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(resolved_expectee) => {
-                let expectee_ty = term_ty(
-                    self.db(),
-                    todo!(),
-                    resolved_expectee,
-                    self.toolchain(),
-                    self.term_menu(),
-                );
-                Some(match expectee_ty {
-                    Ok(expectee_ty) => match expectee_ty {
-                        Term::Category(cat) => {
-                            match cat.universe() >= expectation.smallest_universe {
-                                true => LocalTermExpectationEffect {
-                                    result: Ok(LocalTermExpectationOutcome::InsSort(
-                                        ExpectInsSortOutcome {
-                                            destination: expectee,
-                                        },
-                                    )),
-                                    actions: vec![],
-                                },
-                                false => LocalTermExpectationEffect {
-                                    result: Err(todo!()),
-                                    actions: vec![],
-                                },
-                            }
-                        }
-                        _ => LocalTermExpectationEffect {
-                            result: Err(todo!()),
-                            actions: vec![],
-                        },
-                    },
-                    Err(error) => LocalTermExpectationEffect {
-                        result: Err(match error {
-                            TypeError::Original(_) => {
-                                OriginalLocalTermExpectationError::TermTypeError {
-                                    term: resolved_expectee,
-                                    error,
-                                }
-                                .into()
-                            }
-                            TypeError::Derived(_) => {
-                                DerivedLocalTermExpectationError::TermTypeError {
-                                    term: resolved_expectee,
-                                    error,
-                                }
-                                .into()
-                            }
-                        }),
-                        actions: vec![],
-                    },
-                })
+                todo!()
+                // let expectee_ty = term_ty(
+                //     self.db(),
+                //     todo!(),
+                //     resolved_expectee,
+                //     self.toolchain(),
+                //     self.term_menu(),
+                // );
+                // Some(match expectee_ty {
+                //     Ok(expectee_ty) => match expectee_ty {
+                //         Term::Category(cat) => {
+                //             match cat.universe() >= expectation.smallest_universe {
+                //                 true => LocalTermExpectationEffect {
+                //                     result: Ok(LocalTermExpectationOutcome::InsSort(
+                //                         ExpectInsSortOutcome {
+                //                             destination: expectee,
+                //                         },
+                //                     )),
+                //                     actions: vec![],
+                //                 },
+                //                 false => LocalTermExpectationEffect {
+                //                     result: Err(todo!()),
+                //                     actions: vec![],
+                //                 },
+                //             }
+                //         }
+                //         _ => LocalTermExpectationEffect {
+                //             result: Err(todo!()),
+                //             actions: vec![],
+                //         },
+                //     },
+                //     Err(error) => LocalTermExpectationEffect {
+                //         result: Err(DerivedLocalTermExpectationError::TermTypeError {
+                //             term: resolved_expectee,
+                //             error,
+                //         }
+                //         .into()),
+                //         actions: vec![],
+                //     },
+                // })
             }
             LocalTerm::Unresolved(_) => None,
         }

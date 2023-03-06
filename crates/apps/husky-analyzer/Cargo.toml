@@ -49,7 +49,6 @@ husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
-husky-ty = { path = "../../kernel/husky-ty" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

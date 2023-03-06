@@ -9,7 +9,7 @@ pub enum TypeError {
     #[error("original `{0}`")]
     Original(#[from] OriginalTypeError),
     #[error("derived `{0}`")]
-    Derived(#[from] DerivedTypeError),
+    Derived(#[from] TermError),
 }
 
 impl From<ValidTypeError> for TypeError {
@@ -32,7 +32,7 @@ pub enum OriginalTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
-pub enum DerivedTypeError {
+pub enum TermError {
     #[error("signature error")]
     SignatureError,
     #[error("declaration error")]

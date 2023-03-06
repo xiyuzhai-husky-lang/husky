@@ -13,18 +13,19 @@ impl<'a> ExprTypeEngine<'a> {
         };
         match owner_ty {
             LocalTerm::Resolved(owner_ty) => {
-                let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
-                match field_ty {
-                    Ok(_) => todo!(),
-                    Err(e) => Err(match e {
-                        TypeError::Original(error) => {
-                            OriginalExprTypeError::FieldTypeError(error).into()
-                        }
-                        TypeError::Derived(error) => {
-                            DerivedExprTypeError::FieldTypeError(error).into()
-                        }
-                    }),
-                }
+                todo!()
+                // let field_ty = self.db.field_ty(owner_ty, ident_token.ident());
+                // match field_ty {
+                //     Ok(_) => todo!(),
+                //     Err(e) => Err(match e {
+                //         TypeError::Original(error) => {
+                //             OriginalExprTypeError::FieldTypeError(error).into()
+                //         }
+                //         TypeError::Derived(error) => {
+                //             DerivedExprTypeError::FieldTypeError(error).into()
+                //         }
+                //     }),
+                // }
             }
             LocalTerm::Unresolved(_) => todo!(),
         }

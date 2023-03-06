@@ -175,17 +175,17 @@ pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub enum OriginalLocalTermExpectationError {
-    #[error("{term:?} {error}")]
-    TermTypeError { term: Term, error: TypeError },
+    #[error("todo")]
+    Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub enum DerivedLocalTermExpectationError {
     #[error("{term:?} {error}")]
-    TermTypeError { term: Term, error: TypeError },
+    TermTypeError { term: Term, error: TermError },
     #[error("{0}")]
-    Type(#[from] DerivedTypeError),
+    Type(#[from] TermError),
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
@@ -193,10 +193,7 @@ pub enum DerivedLocalTermExpectationError {
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
     #[error("type path {ty_path:?} type error {error}")]
-    TypePathTypeError {
-        ty_path: TypePath,
-        error: DerivedTypeError,
-    },
+    TypePathTypeError { ty_path: TypePath, error: TermError },
 }
 
 impl LocalTermExpectationResolveProgress {

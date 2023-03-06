@@ -72,11 +72,11 @@ fn entity_application_ty_method_ty(
 ) -> TypeResult<Option<Term>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedTypeError::DeclError.into()),
+        Err(_) => return Err(TermError::DeclError.into()),
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
-        Err(_) => return Err(DerivedTypeError::SignatureError.into()),
+        Err(_) => return Err(TermError::SignatureError.into()),
     };
     todo!()
 }
