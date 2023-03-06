@@ -150,8 +150,8 @@ impl<'a, G: GenericNode, F: FnOnce(Scope<'a>) -> G + 'a> ElementBuilder<'a, G, F
     /// # use sycamore::builder::prelude::*;
     /// # use sycamore::prelude::*;
     /// # fn _test<G: GenericNode>(cx: Scope) -> View<G> {
-    /// let input_type = create_signal(cx, "text");
-    /// input().dyn_attr("type", || Some(*input_type.get()))
+    /// let parameter_type = create_signal(cx, "text");
+    /// input().dyn_attr("type", || Some(*parameter_type.get()))
     /// # .view(cx) }
     /// ```
     pub fn dyn_attr<S: AsRef<str> + 'a>(

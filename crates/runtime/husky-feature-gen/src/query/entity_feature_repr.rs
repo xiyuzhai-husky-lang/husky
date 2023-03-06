@@ -16,7 +16,7 @@ impl FeatureRepr {
     pub fn input(_db: &dyn FeatureGenQueryGroup) -> Self {
         todo!()
         // FeatureRepr::TargetInput {
-        //     ty: db.target_input_ty().unwrap(),
+        //     ty: db.target_parameter_ty().unwrap(),
         //     feature: db.feature_interner().intern(Feature::Input {}),
         //     main_file: db.target_entrance(),
         // }

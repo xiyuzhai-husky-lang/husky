@@ -177,13 +177,13 @@ impl UnresolvedTerms {
         )
     }
 
-    pub(crate) fn new_implicit_symbol_from_input_symbol(
+    pub(crate) fn new_implicit_symbol_from_parameter_symbol(
         &mut self,
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
-        input_symbol: TermSymbol,
+        parameter_symbol: TermSymbol,
     ) -> UnresolvedTermIdx {
-        let variant = match input_symbol.ty(db) {
+        let variant = match parameter_symbol.ty(db) {
             Ok(term) => match term {
                 Term::Literal(_) => todo!(),
                 Term::Symbol(_) => todo!(),

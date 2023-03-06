@@ -7,9 +7,9 @@ pub struct PreciseTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub input_symbol: Option<PreciseTermSymbol>,
+    pub parameter_symbol: Option<PreciseTermSymbol>,
     /// X
-    pub input_ty: PreciseTerm,
+    pub parameter_ty: PreciseTerm,
     /// Y
     pub return_ty: PreciseTerm,
 }
@@ -35,21 +35,21 @@ impl PreciseTermCurry {
         db: &dyn PreciseTermDb,
         ctx: &mut PreciseTermShowContext,
     ) -> std::fmt::Result {
-        let input_symbol = self.input_symbol(db);
-        if input_symbol.is_some() {
+        let parameter_symbol = self.parameter_symbol(db);
+        if parameter_symbol.is_some() {
             f.write_str("(")?
         }
         f.write_str(self.variance(db).as_str())?;
-        if let Some(input_symbol) = input_symbol {
-            ctx.fmt_with_symbol(db, input_symbol, |ctx| {
-                ctx.fmt_symbol(db, input_symbol, f);
+        if let Some(parameter_symbol) = parameter_symbol {
+            ctx.fmt_with_symbol(db, parameter_symbol, |ctx| {
+                ctx.fmt_symbol(db, parameter_symbol, f);
                 f.write_str(": ")?;
-                self.input_ty(db).show_with_db_fmt(f, db, ctx)?;
+                self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
                 f.write_str(") -> ")?;
                 self.return_ty(db).show_with_db_fmt(f, db, ctx)
             })
         } else {
-            self.input_ty(db).show_with_db_fmt(f, db, ctx)?;
+            self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
             f.write_str(" -> ")?;
             self.return_ty(db).show_with_db_fmt(f, db, ctx)
         }
@@ -67,15 +67,15 @@ pub(crate) fn precise_term_curry_from_raw(
         db,
         raw_term_curry.curry_kind(db),
         raw_term_curry.variance(db),
-        match raw_term_curry.input_symbol(db) {
-            Some(input_symbol) => Some(PreciseTermSymbol::from_raw(
+        match raw_term_curry.parameter_symbol(db) {
+            Some(parameter_symbol) => Some(PreciseTermSymbol::from_raw(
                 db,
-                input_symbol,
+                parameter_symbol,
                 TermTypeExpectation::Any,
             )?),
             None => None,
         },
-        t(raw_term_curry.input_ty(db))?,
+        t(raw_term_curry.parameter_ty(db))?,
         t(raw_term_curry.return_ty(db))?,
     ))
 }
