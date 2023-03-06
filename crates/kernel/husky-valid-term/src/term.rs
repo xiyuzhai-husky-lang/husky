@@ -65,8 +65,8 @@ pub enum ValidTerm {
 }
 
 impl ValidTerm {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTerm) -> Self {
-        match precise_term {
+    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTerm) -> ValidTermResult<Self> {
+        Ok(match precise_term {
             PreciseTerm::Literal(literal) => literal.into(),
             // match raw_ty_expectation {
             //     TermTypeExpectation::FinalDestinationEqsSort => todo!(),
@@ -84,16 +84,16 @@ impl ValidTerm {
             PreciseTerm::Category(precise_term) => precise_term.into(),
             PreciseTerm::Universe(precise_term) => precise_term.into(),
             PreciseTerm::Curry(precise_term) => {
-                ValidTermCurry::from_precise(db, precise_term).into()
+                ValidTermCurry::from_precise(db, precise_term)?.into()
             }
             PreciseTerm::Ritchie(precise_term) => {
-                ValidTermRitchie::from_precise(db, precise_term).into()
+                ValidTermRitchie::from_precise(db, precise_term)?.into()
             }
             PreciseTerm::Abstraction(precise_term) => {
                 ValidTermAbstraction::from_precise(db, precise_term).into()
             }
             PreciseTerm::Application(precise_term) => {
-                ValidTermApplication::from_precise(db, precise_term).into()
+                ValidTermApplication::from_precise(db, precise_term)?.into()
             }
             PreciseTerm::Subentity(precise_term) => {
                 ValidTermSubentity::from_precise(db, precise_term).into()
@@ -104,7 +104,27 @@ impl ValidTerm {
             PreciseTerm::TraitConstraint(precise_term) => {
                 ValidTermTraitConstraint::from_precise(db, precise_term).into()
             }
-        }
+        })
+    }
+
+    pub fn precise_ty(
+        self,
+        db: &dyn ValidTermDb,
+    ) -> ValidTermResult<Either<PreciseTerm, PreludeTypePath>> {
+        Ok(match self {
+            ValidTerm::Literal(literal) => Right(literal.ty()),
+            ValidTerm::Symbol(_) => todo!(),
+            ValidTerm::Category(_) => todo!(),
+            ValidTerm::EntityPath(_) => todo!(),
+            ValidTerm::Universe(_) => todo!(),
+            ValidTerm::Curry(_) => todo!(),
+            ValidTerm::Ritchie(_) => todo!(),
+            ValidTerm::Abstraction(_) => todo!(),
+            ValidTerm::Application(_) => todo!(),
+            ValidTerm::Subentity(_) => todo!(),
+            ValidTerm::AsTraitSubentity(_) => todo!(),
+            ValidTerm::TraitConstraint(_) => todo!(),
+        })
     }
 }
 

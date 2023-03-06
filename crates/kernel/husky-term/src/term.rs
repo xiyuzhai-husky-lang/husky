@@ -74,7 +74,7 @@ impl Term {
         ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
         let precise_term = PreciseTerm::from_raw(db, raw_term, ty_expectation)?;
-        let valid_term = ValidTerm::from_precise(db, precise_term);
+        let valid_term = ValidTerm::from_precise(db, precise_term)?;
         Ok(Self::from_valid(db, valid_term))
     }
 
@@ -101,6 +101,23 @@ impl Term {
                 TermTraitConstraint::from_valid(db, valid_term).into()
             }
         }
+    }
+
+    pub fn valid_ty(self) -> TermResult<Either<ValidTerm, PreludeTypePath>> {
+        Ok(match self {
+            Term::Literal(literal) => Right(literal.ty()),
+            Term::Symbol(_) => todo!(),
+            Term::Category(_) => todo!(),
+            Term::EntityPath(_) => todo!(),
+            Term::Universe(_) => todo!(),
+            Term::Curry(_) => todo!(),
+            Term::Ritchie(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::AsTraitSubentity(_) => todo!(),
+            Term::TraitConstraint(_) => todo!(),
+        })
     }
 }
 
