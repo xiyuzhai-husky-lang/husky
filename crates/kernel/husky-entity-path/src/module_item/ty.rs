@@ -34,6 +34,7 @@ impl TypePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 pub enum PreludeTypePath {
     Unit,
     Never,

@@ -75,6 +75,7 @@ fn check_application_validity(
         _ => unreachable!(),
     };
     let argument_precise_ty = argument.precise_ty(db)?;
+    p!(function_precise_ty.debug(db), argument_precise_ty.debug(db));
     todo!();
     Ok(())
 }

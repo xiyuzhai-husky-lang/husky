@@ -96,7 +96,7 @@ impl TermLiteral {
         }
     }
 
-    pub(crate) fn show_with_db_fmt(
+    pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn TermPreludeDb,
