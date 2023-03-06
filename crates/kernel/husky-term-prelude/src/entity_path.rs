@@ -3,7 +3,7 @@ use husky_entity_path::*;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
+#[salsa::derive_debug_with_db(db = TermPreludeDb, jar = TermJar)]
 pub enum TermEntityPath {
     Form(FormPath),
     Trait(TraitPath),
@@ -12,16 +12,6 @@ pub enum TermEntityPath {
 }
 
 impl TermEntityPath {
-    #[inline(always)]
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermEntityPath) -> Self {
-        match valid_term {
-            ValidTermEntityPath::Form(path) => TermEntityPath::Form(path),
-            ValidTermEntityPath::Trait(path) => TermEntityPath::Trait(path),
-            ValidTermEntityPath::TypeOntology(path) => TermEntityPath::TypeOntology(path),
-            ValidTermEntityPath::TypeConstructor(path) => TermEntityPath::TypeConstructor(path),
-        }
-    }
-
     pub fn ty_ontology_path(self) -> Option<TypePath> {
         match self {
             TermEntityPath::TypeOntology(path) => Some(path),
@@ -38,21 +28,9 @@ impl From<FormPath> for TermEntityPath {
     }
 }
 
-impl From<FormPath> for Term {
-    fn from(value: FormPath) -> Self {
-        Term::EntityPath(value.into())
-    }
-}
-
 impl From<TraitPath> for TermEntityPath {
     fn from(value: TraitPath) -> Self {
         TermEntityPath::Trait(value)
-    }
-}
-
-impl From<TraitPath> for Term {
-    fn from(value: TraitPath) -> Self {
-        Term::EntityPath(value.into())
     }
 }
 
@@ -60,8 +38,7 @@ impl TermEntityPath {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermDb,
-        ctx: &mut TermShowContext,
+        db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
         // .display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
         todo!()

@@ -13,10 +13,7 @@ pub fn raw_term_raw_ty(
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(_) => todo!(),
         RawTerm::EntityPath(path) => raw_term_entity_path_raw_ty(db, path),
-        RawTerm::Category(cat) => cat
-            .ty()
-            .map(Into::into)
-            .map_err(|e| OriginalRawTypeError::RawTerm(e).into()),
+        RawTerm::Category(cat) => cat.ty().map(Into::into).map_err(|e| todo!()),
         RawTerm::Universe(_) => todo!(),
         RawTerm::Curry(_) => todo!(),
         RawTerm::Ritchie(raw_term) => Ok(match raw_term.ritchie_kind(db) {

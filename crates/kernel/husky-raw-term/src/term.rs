@@ -1,7 +1,6 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
-mod category;
 mod constraint;
 mod curry;
 mod entity_path;
@@ -9,12 +8,10 @@ mod literal;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod universe;
 
 pub use self::abstraction::RawTermAbstraction;
 pub use self::application::RawTermApplication;
 pub use self::as_trai_subentity::*;
-pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::entity_path::*;
@@ -22,7 +19,6 @@ pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::universe::*;
 
 use crate::*;
 use std::fmt::{Debug, Display};
@@ -36,8 +32,8 @@ pub enum RawTerm {
     Literal(RawTermLiteral),
     Symbol(RawTermSymbol),
     EntityPath(RawTermEntityPath),
-    Category(RawTermCategory),
-    Universe(RawTermUniverse),
+    Category(TermCategory),
+    Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(RawTermCurry),
     /// in memory of Dennis M.Ritchie

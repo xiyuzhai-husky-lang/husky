@@ -177,7 +177,7 @@ impl ValidTermShowContext {
 
 fn symbol_show_kind(symbol: ValidTermSymbol, db: &dyn ValidTermDb) -> ValidTermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(ValidTerm::EntityPath(ValidTermEntityPath::TypeOntology(ty)))
+        Ok(ValidTerm::EntityPath(TermEntityPath::TypeOntology(ty)))
             if is_ty_path_lifetime_ty(db, ty) =>
         {
             ValidTermSymbolShowKind::Lifetime

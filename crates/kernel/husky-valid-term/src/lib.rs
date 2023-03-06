@@ -35,9 +35,6 @@ pub struct ValidTermJar(
     ValidTermSubentity,
     ValidTermAsTraitSubentity,
     ValidTermTraitConstraint,
-    ValidTermInteger128,
-    ValidTermInteger256,
-    ValidTermNaturalNumber,
     valid_term_menu,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,

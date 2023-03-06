@@ -2,12 +2,12 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValidTermMenu0 {
-    universe0: ValidTermUniverse,
-    universe1: ValidTermUniverse,
-    prop: ValidTermCategory,
-    ty0: ValidTermCategory,
-    eval_lifetime: ValidTermLiteral,
-    static_lifetime: ValidTermLiteral,
+    universe0: TermUniverse,
+    universe1: TermUniverse,
+    prop: TermCategory,
+    ty0: TermCategory,
+    eval_lifetime: TermLiteral,
+    static_lifetime: TermLiteral,
     unit: ValidTerm,
     never: ValidTerm,
     // core::ops::Add	The addition operator +.
@@ -59,19 +59,19 @@ pub struct ValidTermMenu0 {
 
 impl ValidTermMenu0 {
     pub fn new(db: &dyn ValidTermDb, toolchain: Toolchain) -> Self {
-        // let sort = db.it_valid_term(ValidTermAtom::new_category(ValidTermCategory::Sort).into());
+        // let sort = db.it_valid_term(ValidTermAtom::new_category( TermCategory::Sort).into());
         // let universe1 = db.it_valid_term(ValidTermAtom::new_universe(1).into());
         let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
-        let universe0 = ValidTermUniverse::new(0);
-        let universe1 = ValidTermUniverse::new(1);
+        let universe0 = TermUniverse::new(0);
+        let universe1 = TermUniverse::new(1);
         ValidTermMenu0 {
-            eval_lifetime: ValidTermLiteral::EvalLifetime,
-            static_lifetime: ValidTermLiteral::StaticLifetime,
+            eval_lifetime: TermLiteral::EvalLifetime,
+            static_lifetime: TermLiteral::StaticLifetime,
             universe0,
             universe1,
-            prop: ValidTermCategory::new(universe0),
-            ty0: ValidTermCategory::new(universe1),
+            prop: TermCategory::new(universe0),
+            ty0: TermCategory::new(universe1),
             core_ops_add: ValidTerm::EntityPath(entity_path_menu.core_ops_add().into()),
             // start here
             // ValidTerm::Entity(entity_path_menu.core_ops_())
@@ -100,46 +100,43 @@ impl ValidTermMenu0 {
             ),
             core_ops_neg: ValidTerm::EntityPath(entity_path_menu.core_ops_neg().into()),
             core_ops_not: ValidTerm::EntityPath(entity_path_menu.core_ops_not().into()),
-            option_ty_path: ValidTermEntityPath::TypeOntology(entity_path_menu.option_ty_path())
-                .into(),
-            slice_ty_path: ValidTermEntityPath::TypeOntology(entity_path_menu.slice_ty_path())
-                .into(),
-            str_ty_path: ValidTermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
-            ref_ty_path: ValidTermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
-            list_ty: ValidTermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
-            unit: ValidTermEntityPath::TypeOntology(entity_path_menu.unit()).into(),
-            never: ValidTermEntityPath::TypeOntology(entity_path_menu.never()).into(),
-            bool: ValidTermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
-            trai_ty: ValidTermEntityPath::TypeOntology(entity_path_menu.trai_ty_path()).into(),
-            lifetime_ty: ValidTermEntityPath::TypeOntology(entity_path_menu.lifetime_ty_path())
-                .into(),
-            module: ValidTermEntityPath::TypeOntology(entity_path_menu.module_ty_path()).into(),
-            i8: ValidTermEntityPath::TypeOntology(entity_path_menu.i8_ty_path()).into(),
-            i16: ValidTermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
-            i32: ValidTermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
-            i64: ValidTermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
-            f32: ValidTermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
-            f64: ValidTermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
-            r32: ValidTermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
-            r64: ValidTermEntityPath::TypeOntology(entity_path_menu.r64_ty_path()).into(),
+            option_ty_path: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path()).into(),
+            slice_ty_path: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path()).into(),
+            str_ty_path: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
+            ref_ty_path: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
+            list_ty: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
+            unit: TermEntityPath::TypeOntology(entity_path_menu.unit()).into(),
+            never: TermEntityPath::TypeOntology(entity_path_menu.never()).into(),
+            bool: TermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
+            trai_ty: TermEntityPath::TypeOntology(entity_path_menu.trai_ty_path()).into(),
+            lifetime_ty: TermEntityPath::TypeOntology(entity_path_menu.lifetime_ty_path()).into(),
+            module: TermEntityPath::TypeOntology(entity_path_menu.module_ty_path()).into(),
+            i8: TermEntityPath::TypeOntology(entity_path_menu.i8_ty_path()).into(),
+            i16: TermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
+            i32: TermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
+            i64: TermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
+            f32: TermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
+            f64: TermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
+            r32: TermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
+            r64: TermEntityPath::TypeOntology(entity_path_menu.r64_ty_path()).into(),
         }
     }
 
-    pub fn universe0(&self) -> ValidTermUniverse {
+    pub fn universe0(&self) -> TermUniverse {
         self.universe0
     }
 
-    pub fn universe1(&self) -> ValidTermUniverse {
+    pub fn universe1(&self) -> TermUniverse {
         self.universe1
     }
 
     /// `Prop`
-    pub fn prop(&self) -> ValidTermCategory {
+    pub fn prop(&self) -> TermCategory {
         self.prop
     }
 
     /// `Type`
-    pub fn ty0(&self) -> ValidTermCategory {
+    pub fn ty0(&self) -> TermCategory {
         self.ty0
     }
 

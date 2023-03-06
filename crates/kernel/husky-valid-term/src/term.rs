@@ -1,30 +1,22 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
-mod category;
 mod constraint;
 mod curry;
-mod entity_path;
-mod literal;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod universe;
 
 use std::fmt::{Debug, Display};
 
 pub use self::abstraction::ValidTermAbstraction;
 pub use self::application::ValidTermApplication;
 pub use self::as_trai_subentity::*;
-pub use self::category::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::entity_path::*;
-pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::universe::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
@@ -38,11 +30,11 @@ pub enum ValidTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
-    Literal(ValidTermLiteral),
+    Literal(TermLiteral),
     Symbol(ValidTermSymbol),
-    EntityPath(ValidTermEntityPath),
-    Category(ValidTermCategory),
-    Universe(ValidTermUniverse),
+    Category(TermCategory),
+    EntityPath(TermEntityPath),
+    Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
     Curry(ValidTermCurry),
     /// in memory of Dennis M.Ritchie
@@ -75,21 +67,13 @@ pub enum ValidTerm {
 impl ValidTerm {
     pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> Self {
         match precise_term {
-            PreciseTerm::Literal(precise_term) => {
-                ValidTermLiteral::from_precise(db, precise_term).into()
-            }
+            PreciseTerm::Literal(precise_term) => precise_term.into(),
             PreciseTerm::Symbol(precise_term) => {
                 ValidTermSymbol::from_precise(db, precise_term).into()
             }
-            PreciseTerm::EntityPath(precise_term) => {
-                ValidTermEntityPath::from_precise(db, precise_term).into()
-            }
-            PreciseTerm::Category(precise_term) => {
-                ValidTermCategory::from_precise(db, precise_term).into()
-            }
-            PreciseTerm::Universe(precise_term) => {
-                ValidTermUniverse::from_precise(db, precise_term).into()
-            }
+            PreciseTerm::EntityPath(precise_term) => precise_term.into(),
+            PreciseTerm::Category(precise_term) => precise_term.into(),
+            PreciseTerm::Universe(precise_term) => precise_term.into(),
             PreciseTerm::Curry(precise_term) => {
                 ValidTermCurry::from_precise(db, precise_term).into()
             }
@@ -158,9 +142,11 @@ impl ValidTerm {
         ctx: &mut ValidTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            ValidTerm::Literal(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            ValidTerm::Literal(literal) => todo!(),
+            // literal.show_with_db_fmt(f, db),
             ValidTerm::Symbol(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::EntityPath(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            ValidTerm::EntityPath(path) => todo!(),
+            // path.show_with_db_fmt(f, db),
             ValidTerm::Category(valid_term) => f.write_str(&valid_term.to_string()),
             ValidTerm::Universe(valid_term) => f.write_str(&valid_term.to_string()),
             ValidTerm::Curry(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
