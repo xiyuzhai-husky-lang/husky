@@ -13,8 +13,8 @@ pub trait TermDb: salsa::DbWithJar<TermJar> + TermDb {
         path: TypePath,
         disambiguation: TypePathDisambiguation,
     ) -> TypeResult<Term>;
-    fn trai_path_ty(&self, trai_path: TraitPath) -> TypeResult<Term>;
-    fn form_path_ty(&self, form_path: FormPath) -> TypeResult<Term>;
+    fn trai_path_ty_unchecked(&self, trai_path: TraitPath) -> TypeResult<Term>;
+    fn form_path_ty_unchecked(&self, form_path: FormPath) -> TypeResult<Term>;
 }
 
 impl<Db> TermDb for Db

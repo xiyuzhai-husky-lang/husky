@@ -110,10 +110,12 @@ impl RawTerm {
             RawTerm::Symbol(_) => todo!(),
             RawTerm::Category(_) => todo!(),
             RawTerm::EntityPath(path) => Left(match path {
-                TermEntityPath::Form(path) => form_path_ty(db, path)?,
-                TermEntityPath::Trait(path) => trai_path_ty(db, path)?,
-                TermEntityPath::TypeOntology(path) => ty_ontology_path_ty(db, path)?,
-                TermEntityPath::TypeConstructor(path) => ty_constructor_path_ty(db, path)?,
+                TermEntityPath::Form(path) => form_path_ty_unchecked(db, path)?,
+                TermEntityPath::Trait(path) => trai_path_ty_unchecked(db, path)?,
+                TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_unchecked(db, path)?,
+                TermEntityPath::TypeConstructor(path) => {
+                    ty_constructor_path_ty_unchecked(db, path)?
+                }
             }),
             RawTerm::Universe(_) => todo!(),
             RawTerm::Curry(_) => todo!(),

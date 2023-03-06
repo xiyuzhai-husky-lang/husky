@@ -14,10 +14,10 @@
 
 // #[salsa::jar(db = PreciseTermDb)]
 // pub struct PreciseTypeJar(
-//     ty_ontology_path_ty,
-//     ty_constructor_path_ty,
-//     form_path_ty,
-//     trai_path_ty,
+//     ty_ontology_path_ty_unchecked,
+//     ty_constructor_path_ty_unchecked,
+//     form_path_ty_unchecked,
+//     trai_path_ty_unchecked,
 // );
 
 // pub trait HasPreciseType<Db: ?Sized + PreciseTermDb>: Copy {

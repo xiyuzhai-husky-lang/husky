@@ -4,7 +4,10 @@ use husky_raw_ty::{
 
 use crate::*;
 #[salsa::tracked(jar = PreciseTypeJar)]
-pub fn ty_ontology_path_ty(db: &dyn PreciseTermDb, path: TypePath) -> PreciseTypeResult<RawTerm> {
+pub fn ty_ontology_path_ty_unchecked(
+    db: &dyn PreciseTermDb,
+    path: TypePath,
+) -> PreciseTypeResult<RawTerm> {
     RawTerm::from_raw(
         db,
         ty_ontology_path_raw_ty(db, path)?,
@@ -14,7 +17,7 @@ pub fn ty_ontology_path_ty(db: &dyn PreciseTermDb, path: TypePath) -> PreciseTyp
 }
 
 #[salsa::tracked(jar = PreciseTypeJar)]
-pub fn ty_constructor_path_ty(
+pub fn ty_constructor_path_ty_unchecked(
     db: &dyn PreciseTermDb,
     path: TypePath,
 ) -> PreciseTypeResult<RawTerm> {
@@ -27,11 +30,17 @@ pub fn ty_constructor_path_ty(
 }
 
 #[salsa::tracked(jar = PreciseTypeJar)]
-pub fn form_path_ty(db: &dyn PreciseTermDb, path: FormPath) -> PreciseTypeResult<RawTerm> {
+pub fn form_path_ty_unchecked(
+    db: &dyn PreciseTermDb,
+    path: FormPath,
+) -> PreciseTypeResult<RawTerm> {
     RawTerm::from_raw(db, form_path_raw_ty(db, path)?, TermTypeExpectation::Any).map_err(Into::into)
 }
 
 #[salsa::tracked(jar = PreciseTypeJar)]
-pub fn trai_path_ty(db: &dyn PreciseTermDb, path: TraitPath) -> PreciseTypeResult<RawTerm> {
+pub fn trai_path_ty_unchecked(
+    db: &dyn PreciseTermDb,
+    path: TraitPath,
+) -> PreciseTypeResult<RawTerm> {
     RawTerm::from_raw(db, trai_path_raw_ty(db, path)?, TermTypeExpectation::Any).map_err(Into::into)
 }

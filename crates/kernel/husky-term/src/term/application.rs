@@ -66,11 +66,11 @@ fn check_application_validity(
 ) -> TermResult<()> {
     match shift {
         0 => {
-            let function_ty = match function.ty(db)? {
+            let function_ty = match function.ty_unchecked(db)? {
                 Left(Term::Curry(function_ty)) => function_ty,
                 _ => unreachable!(),
             };
-            let argument_ty = argument.ty(db)?;
+            let argument_ty = argument.ty_unchecked(db)?;
             if !function_ty
                 .parameter_ty(db)
                 .is_ty_trivially_convertible_from(db, argument_ty)?

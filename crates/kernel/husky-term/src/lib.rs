@@ -36,10 +36,10 @@ pub struct TermJar(
     term_ritchie_symbols,
     term_application_symbols,
     // entity path
-    ty_ontology_path_ty,
-    ty_constructor_path_ty,
-    trai_path_ty,
-    form_path_ty,
+    ty_ontology_path_ty_unchecked,
+    ty_constructor_path_ty_unchecked,
+    trai_path_ty_unchecked,
+    form_path_ty_unchecked,
     // curry
     TermCurry,
     TermRitchie,

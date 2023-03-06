@@ -1,4 +1,7 @@
-use husky_ty::{form_path_ty, trai_path_ty, ty_constructor_path_ty, ty_ontology_path_ty};
+use husky_ty::{
+    form_path_ty_unchecked, trai_path_ty_unchecked, ty_constructor_path_ty_unchecked,
+    ty_ontology_path_ty_unchecked,
+};
 use salsa::assert_eq_with_db;
 
 use crate::*;
@@ -24,11 +27,11 @@ pub fn entity_path_ty(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
-                TypePathDisambiguation::Ontology => ty_ontology_path_ty(db, path),
-                TypePathDisambiguation::Constructor => ty_constructor_path_ty(db, path),
+                TypePathDisambiguation::Ontology => ty_ontology_path_ty_unchecked(db, path),
+                TypePathDisambiguation::Constructor => ty_constructor_path_ty_unchecked(db, path),
             },
-            ModuleItemPath::Trait(path) => trai_path_ty(db, path),
-            ModuleItemPath::Form(path) => form_path_ty(db, path),
+            ModuleItemPath::Trait(path) => trai_path_ty_unchecked(db, path),
+            ModuleItemPath::Form(path) => form_path_ty_unchecked(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::Variant(_) => todo!(),
@@ -195,8 +198,8 @@ pub fn ty_path_ty(
     disambiguation: TypePathDisambiguation,
 ) -> TypeResult<Term> {
     match disambiguation {
-        TypePathDisambiguation::Ontology => ty_ontology_path_ty(db, path),
-        TypePathDisambiguation::Constructor => ty_constructor_path_ty(db, path),
+        TypePathDisambiguation::Ontology => ty_ontology_path_ty_unchecked(db, path),
+        TypePathDisambiguation::Constructor => ty_constructor_path_ty_unchecked(db, path),
     }
 }
 
