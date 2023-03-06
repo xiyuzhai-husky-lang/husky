@@ -17,4 +17,5 @@ pub struct ValidTypeJar(
     ty_ontology_path_valid_ty,
     ty_constructor_path_valid_ty,
     form_path_valid_ty,
+    trai_path_valid_ty,
 );

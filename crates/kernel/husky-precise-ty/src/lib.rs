@@ -14,10 +14,10 @@ use husky_vfs::*;
 
 #[salsa::jar(db = PreciseTypeDb)]
 pub struct PreciseTypeJar(
-    // entity path
     ty_ontology_path_precise_ty,
     ty_constructor_path_precise_ty,
     form_path_precise_ty,
+    trai_path_precise_ty,
 );
 
 pub trait HasPreciseType<Db: ?Sized + PreciseTypeDb>: Copy {

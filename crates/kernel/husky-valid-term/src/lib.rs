@@ -19,6 +19,8 @@ pub use self::term::*;
 
 use either::*;
 use husky_entity_path::*;
+use husky_precise_term::*;
+use husky_precise_ty::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;
