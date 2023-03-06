@@ -38,6 +38,10 @@ impl ValidTermApplication {
         valid_term_application_from_precise(db, precise_term)
     }
 
+    pub(super) fn precise_ty(self, db: &dyn ValidTermDb) -> ValidTermResult<PreciseTerm> {
+        valid_term_application_precise_ty(db, self)
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -64,6 +68,26 @@ pub(crate) fn valid_term_application_from_precise(
     ))
 }
 
+#[salsa::tracked(jar = ValidTermJar)]
+pub(crate) fn valid_term_application_precise_ty(
+    db: &dyn ValidTermDb,
+    valid_term_application: ValidTermApplication,
+) -> ValidTermResult<PreciseTerm> {
+    let function = valid_term_application.function(db);
+    let argument = valid_term_application.argument(db);
+    let function_precise_ty = match function.precise_ty(db)? {
+        Left(PreciseTerm::Curry(function_precise_ty)) => function_precise_ty,
+        _ => return Err(todo!()),
+    };
+    Ok(match argument.precise_ty(db)? {
+        Left(argument_precise_ty) => todo!(),
+        Right(_) => match function_precise_ty.parameter_symbol(db) {
+            Some(function_raw_ty_parameter_symbol) => todo!(),
+            None => function_precise_ty.return_ty(db),
+        },
+    })
+}
+
 fn check_application_validity(
     db: &dyn ValidTermDb,
     function: ValidTerm,
@@ -75,8 +99,12 @@ fn check_application_validity(
         _ => unreachable!(),
     };
     let argument_precise_ty = argument.precise_ty(db)?;
-    p!(function_precise_ty.debug(db), argument_precise_ty.debug(db));
-    todo!();
+    if !function_precise_ty
+        .parameter_ty(db)
+        .is_ty_trivially_convertible_from(db, argument_precise_ty)?
+    {
+        return Err(todo!());
+    }
     Ok(())
 }
 
@@ -89,13 +117,6 @@ impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermApplication
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
-    }
-}
-
-impl ValidTermApplication {
-    pub fn ty_itd(&self) -> Option<ValidTerm> {
-        // TODO: delete this
-        None
     }
 }
 

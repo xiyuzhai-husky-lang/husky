@@ -124,7 +124,7 @@ impl ValidTerm {
             ValidTerm::Curry(_) => todo!(),
             ValidTerm::Ritchie(_) => todo!(),
             ValidTerm::Abstraction(_) => todo!(),
-            ValidTerm::Application(_) => todo!(),
+            ValidTerm::Application(term) => Left(term.precise_ty(db)?),
             ValidTerm::Subentity(_) => todo!(),
             ValidTerm::AsTraitSubentity(_) => todo!(),
             ValidTerm::TraitConstraint(_) => todo!(),

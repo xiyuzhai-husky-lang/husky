@@ -15,6 +15,8 @@ pub enum ValidTermError {
     MonadIsNotInput,
     #[error("no decl for entity path")]
     NoDeclForEntityPath { entity_path: EntityPath },
+    #[error("precise term error {0}")]
+    PreciseTermError(#[from] PreciseTermError),
     #[error("precise type error {0}")]
     PreciseTypeError(#[from] PreciseTypeError),
 }
