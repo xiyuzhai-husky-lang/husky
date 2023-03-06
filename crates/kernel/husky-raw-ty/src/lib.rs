@@ -32,7 +32,7 @@ use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
 use husky_word::*;
 
-#[salsa::jar(db=RawTypeDb)]
+#[salsa::jar(db = RawTypeDb)]
 pub struct RawTypeJar(
     ty_ontology_path_raw_ty,
     ty_constructor_path_raw_ty,

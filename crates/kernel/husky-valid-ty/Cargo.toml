@@ -18,8 +18,6 @@ husky-signature = { path = "../../infer/husky-signature" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
-husky-precise-ty = { path = "../../kernel/husky-precise-ty" }
-husky-valid-term = { path = "../../kernel/husky-valid-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-word = { path = "../../kernel/husky-word" }
@@ -31,7 +29,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # kernel
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
-husky-precise-term = { path = "../../kernel/husky-precise-term" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 # lex

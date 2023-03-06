@@ -4,9 +4,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct PreciseTermSymbolShowEntry {
-    symbol: PreciseTermSymbol,
-    show_kind: PreciseTermSymbolShowKind,
+pub(crate) struct RawTermSymbolShowEntry {
+    symbol: RawTermSymbol,
+    show_kind: RawTermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
     /// level 0 means this symbol is external
@@ -14,17 +14,17 @@ pub(crate) struct PreciseTermSymbolShowEntry {
     external_symbol_ident: Option<Identifier>,
 }
 
-impl PreciseTermSymbolShowEntry {
+impl RawTermSymbolShowEntry {
     pub(crate) fn show(
         &self,
-        db: &dyn PreciseTermDb,
+        db: &dyn RawTermDb,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(external_symbol_ident) = self.external_symbol_ident && self.level == 0 {
             todo!()
         } else {
             match self.show_kind {
-                PreciseTermSymbolShowKind::Lifetime => {
+                RawTermSymbolShowKind::Lifetime => {
                     match self.idx {
                         0 => f.write_str("'a"),
                         1 => f.write_str("'b"),
@@ -35,7 +35,7 @@ impl PreciseTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("'a{}", idx))
                     }
                 },
-                PreciseTermSymbolShowKind::Binding => {
+                RawTermSymbolShowKind::Binding => {
                     match self.idx {
                         0 => f.write_str("'α"),
                         1 => f.write_str("'β"),
@@ -47,21 +47,21 @@ impl PreciseTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("'α{}", idx))
                     }
                 },
-                PreciseTermSymbolShowKind::Prop => {
+                RawTermSymbolShowKind::Prop => {
                     match self.idx {
                         0 => f.write_str("p"),
                         1 => f.write_str("q"),
                         idx => f.write_fmt(format_args!("p{}", idx))
                     }
                 },
-                PreciseTermSymbolShowKind::Type => {
+                RawTermSymbolShowKind::Type => {
                     match self.idx {
                         0 => f.write_str("t"),
                         1 => f.write_str("s"),
                         idx => f.write_fmt(format_args!("t{}", idx))
                     }
                 },
-                PreciseTermSymbolShowKind::Kind => {
+                RawTermSymbolShowKind::Kind => {
                     match self.idx {
                         0 => f.write_str("α"),
                         1 => f.write_str("β"),
@@ -73,7 +73,7 @@ impl PreciseTermSymbolShowEntry {
                         idx => f.write_fmt(format_args!("α{}", idx))
                     }
                 },
-                PreciseTermSymbolShowKind::Other => {
+                RawTermSymbolShowKind::Other => {
                     match self.idx {
                         0 => f.write_str("a"),
                         1 => f.write_str("b"),
@@ -85,8 +85,8 @@ impl PreciseTermSymbolShowEntry {
     }
 }
 
-impl AsVecMapEntry for PreciseTermSymbolShowEntry {
-    type K = PreciseTermSymbol;
+impl AsVecMapEntry for RawTermSymbolShowEntry {
+    type K = RawTermSymbol;
 
     fn key(&self) -> Self::K
     where
@@ -101,7 +101,7 @@ impl AsVecMapEntry for PreciseTermSymbolShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum PreciseTermSymbolShowKind {
+pub(crate) enum RawTermSymbolShowKind {
     Lifetime,
     Binding,
     Prop,
@@ -110,34 +110,34 @@ pub(crate) enum PreciseTermSymbolShowKind {
     Other,
 }
 
-impl PreciseTermShowContext {
+impl RawTermShowContext {
     pub(super) fn new_external_entry(
         &self,
-        db: &dyn PreciseTermDb,
-        symbol: PreciseTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         external_symbol_ident: Option<Identifier>,
-    ) -> PreciseTermSymbolShowEntry {
+    ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
-        db: &dyn PreciseTermDb,
-        symbol: PreciseTermSymbol,
-    ) -> PreciseTermSymbolShowEntry {
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
+    ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
 
     fn new_entry(
         &self,
-        db: &dyn PreciseTermDb,
-        symbol: PreciseTermSymbol,
+        db: &dyn RawTermDb,
+        symbol: RawTermSymbol,
         level: u8,
         external_symbol_ident: Option<Identifier>,
-    ) -> PreciseTermSymbolShowEntry {
+    ) -> RawTermSymbolShowEntry {
         let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);
-        PreciseTermSymbolShowEntry {
+        RawTermSymbolShowEntry {
             symbol,
             show_kind,
             idx,
@@ -146,7 +146,7 @@ impl PreciseTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: PreciseTermSymbolShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: RawTermSymbolShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -161,7 +161,7 @@ impl PreciseTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn PreciseTermDb, symbol: PreciseTermSymbol) {
+    pub(super) fn enter_block(&mut self, db: &dyn RawTermDb, symbol: RawTermSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -170,24 +170,21 @@ impl PreciseTermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: PreciseTermSymbol) {
+    pub(super) fn exit_block(&mut self, symbol: RawTermSymbol) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(
-    symbol: PreciseTermSymbol,
-    db: &dyn PreciseTermDb,
-) -> PreciseTermSymbolShowKind {
+fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
     match symbol.ty(db) {
-        PreciseTerm::EntityPath(TermEntityPath::TypeOntology(path))
+        RawTerm::EntityPath(TermEntityPath::TypeOntology(path))
             if path.eqs_lifetime_ty_path(db).unwrap_or_default() =>
         {
-            PreciseTermSymbolShowKind::Lifetime
+            RawTermSymbolShowKind::Lifetime
         }
-        PreciseTerm::Category(cat) if cat.universe().raw() == 0 => PreciseTermSymbolShowKind::Prop,
-        PreciseTerm::Category(cat) if cat.universe().raw() == 1 => PreciseTermSymbolShowKind::Type,
-        PreciseTerm::Category(_) => PreciseTermSymbolShowKind::Kind,
-        _ => PreciseTermSymbolShowKind::Other,
+        RawTerm::Category(cat) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,
+        RawTerm::Category(cat) if cat.universe().raw() == 1 => RawTermSymbolShowKind::Type,
+        RawTerm::Category(_) => RawTermSymbolShowKind::Kind,
+        _ => RawTermSymbolShowKind::Other,
     }
 }

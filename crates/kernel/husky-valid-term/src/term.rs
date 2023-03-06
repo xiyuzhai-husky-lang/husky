@@ -27,21 +27,21 @@ use utils::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum ValidTerm {
+pub enum RawTerm {
     /// atoms
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Symbol(ValidTermSymbol),
+    Symbol(RawTermSymbol),
     Category(TermCategory),
     EntityPath(TermEntityPath),
     Universe(TermUniverse),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)
-    Curry(ValidTermCurry),
+    Curry(RawTermCurry),
     /// in memory of Dennis M.Ritchie
-    Ritchie(ValidTermRitchie),
+    Ritchie(RawTermRitchie),
     /// lambda x => expr
-    Abstraction(ValidTermAbstraction),
+    Abstraction(RawTermAbstraction),
 
     /// in husky, application is generalized to include composition as a special case;
     ///
@@ -56,19 +56,19 @@ pub enum ValidTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(ValidTermApplication),
+    Application(RawTermApplication),
     /// ::<ident>
-    Subentity(ValidTermSubentity),
+    Subentity(RawTermSubentity),
     /// (<type> as <trait>)::<ident>
-    AsTraitSubentity(ValidTermAsTraitSubentity),
+    AsTraitSubentity(RawTermAsTraitSubentity),
     /// <type> : <trait>
-    TraitConstraint(ValidTermTraitConstraint),
+    TraitConstraint(RawTermTraitConstraint),
 }
 
-impl ValidTerm {
-    pub fn from_precise(db: &dyn ValidTermDb, precise_term: PreciseTerm) -> ValidTermResult<Self> {
+impl RawTerm {
+    pub fn from_precise(db: &dyn RawTermDb, precise_term: RawTerm) -> RawTermResult<Self> {
         Ok(match precise_term {
-            PreciseTerm::Literal(literal) => literal.into(),
+            RawTerm::Literal(literal) => literal.into(),
             // match raw_ty_expectation {
             //     TermTypeExpectation::FinalDestinationEqsSort => todo!(),
             //     TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty) => {
@@ -78,74 +78,67 @@ impl ValidTerm {
             //     }
             //     TermTypeExpectation::Any => (),
             // }
-            PreciseTerm::Symbol(precise_term) => {
-                ValidTermSymbol::from_precise(db, precise_term)?.into()
+            RawTerm::Symbol(precise_term) => RawTermSymbol::from_precise(db, precise_term)?.into(),
+            RawTerm::EntityPath(precise_term) => precise_term.into(),
+            RawTerm::Category(precise_term) => precise_term.into(),
+            RawTerm::Universe(precise_term) => precise_term.into(),
+            RawTerm::Curry(precise_term) => RawTermCurry::from_precise(db, precise_term)?.into(),
+            RawTerm::Ritchie(precise_term) => {
+                RawTermRitchie::from_precise(db, precise_term)?.into()
             }
-            PreciseTerm::EntityPath(precise_term) => precise_term.into(),
-            PreciseTerm::Category(precise_term) => precise_term.into(),
-            PreciseTerm::Universe(precise_term) => precise_term.into(),
-            PreciseTerm::Curry(precise_term) => {
-                ValidTermCurry::from_precise(db, precise_term)?.into()
+            RawTerm::Abstraction(precise_term) => {
+                RawTermAbstraction::from_precise(db, precise_term).into()
             }
-            PreciseTerm::Ritchie(precise_term) => {
-                ValidTermRitchie::from_precise(db, precise_term)?.into()
+            RawTerm::Application(precise_term) => {
+                RawTermApplication::from_precise(db, precise_term)?.into()
             }
-            PreciseTerm::Abstraction(precise_term) => {
-                ValidTermAbstraction::from_precise(db, precise_term).into()
+            RawTerm::Subentity(precise_term) => {
+                RawTermSubentity::from_precise(db, precise_term).into()
             }
-            PreciseTerm::Application(precise_term) => {
-                ValidTermApplication::from_precise(db, precise_term)?.into()
+            RawTerm::AsTraitSubentity(precise_term) => {
+                RawTermAsTraitSubentity::from_precise(db, precise_term).into()
             }
-            PreciseTerm::Subentity(precise_term) => {
-                ValidTermSubentity::from_precise(db, precise_term).into()
-            }
-            PreciseTerm::AsTraitSubentity(precise_term) => {
-                ValidTermAsTraitSubentity::from_precise(db, precise_term).into()
-            }
-            PreciseTerm::TraitConstraint(precise_term) => {
-                ValidTermTraitConstraint::from_precise(db, precise_term).into()
+            RawTerm::TraitConstraint(precise_term) => {
+                RawTermTraitConstraint::from_precise(db, precise_term).into()
             }
         })
     }
 
-    pub fn precise_ty(
-        self,
-        db: &dyn ValidTermDb,
-    ) -> ValidTermResult<Either<PreciseTerm, PreludeTypePath>> {
+    pub fn ty(self, db: &dyn RawTermDb) -> RawTermResult<Either<RawTerm, PreludeTypePath>> {
         Ok(match self {
-            ValidTerm::Literal(literal) => Right(literal.ty()),
-            ValidTerm::Symbol(_) => todo!(),
-            ValidTerm::Category(_) => todo!(),
-            ValidTerm::EntityPath(path) => Left(match path {
-                TermEntityPath::Form(path) => form_path_precise_ty(db, path)?,
-                TermEntityPath::Trait(path) => trai_path_precise_ty(db, path)?,
-                TermEntityPath::TypeOntology(path) => ty_ontology_path_precise_ty(db, path)?,
-                TermEntityPath::TypeConstructor(path) => ty_constructor_path_precise_ty(db, path)?,
+            RawTerm::Literal(literal) => Right(literal.ty()),
+            RawTerm::Symbol(_) => todo!(),
+            RawTerm::Category(_) => todo!(),
+            RawTerm::EntityPath(path) => Left(match path {
+                TermEntityPath::Form(path) => form_path_ty(db, path)?,
+                TermEntityPath::Trait(path) => trai_path_ty(db, path)?,
+                TermEntityPath::TypeOntology(path) => ty_ontology_path_ty(db, path)?,
+                TermEntityPath::TypeConstructor(path) => ty_constructor_path_ty(db, path)?,
             }),
-            ValidTerm::Universe(_) => todo!(),
-            ValidTerm::Curry(_) => todo!(),
-            ValidTerm::Ritchie(_) => todo!(),
-            ValidTerm::Abstraction(_) => todo!(),
-            ValidTerm::Application(term) => Left(term.precise_ty(db)?),
-            ValidTerm::Subentity(_) => todo!(),
-            ValidTerm::AsTraitSubentity(_) => todo!(),
-            ValidTerm::TraitConstraint(_) => todo!(),
+            RawTerm::Universe(_) => todo!(),
+            RawTerm::Curry(_) => todo!(),
+            RawTerm::Ritchie(_) => todo!(),
+            RawTerm::Abstraction(_) => todo!(),
+            RawTerm::Application(term) => Left(term.ty(db)?),
+            RawTerm::Subentity(_) => todo!(),
+            RawTerm::AsTraitSubentity(_) => todo!(),
+            RawTerm::TraitConstraint(_) => todo!(),
         })
     }
 
     /// whether two types are trivially convertible
     pub fn is_ty_trivially_convertible_from(
         self,
-        db: &dyn ValidTermDb,
+        db: &dyn RawTermDb,
         other_ty: Either<Self, PreludeTypePath>,
-    ) -> ValidTermResult<bool> {
+    ) -> RawTermResult<bool> {
         match other_ty {
             Left(other_ty) if other_ty == self => Ok(true),
             Left(other_ty) => {
                 todo!()
             }
             Right(other_ty) => match self {
-                ValidTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
+                RawTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
                     Ok(ty_path.prelude_ty_path(db)? == Some(other_ty))
                 }
                 _ => todo!(),
@@ -157,60 +150,60 @@ impl ValidTerm {
 #[test]
 fn valid_term_size_works() {
     assert_eq!(
-        std::mem::size_of::<ValidTerm>(),
+        std::mem::size_of::<RawTerm>(),
         2 * std::mem::size_of::<usize>()
     )
 }
 
-impl<Db: ValidTermDb + ?Sized> salsa::DebugWithDb<Db> for ValidTerm {
+impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         f.write_fmt(format_args!(
-            "ValidTerm(`{}`)",
+            "RawTerm(`{}`)",
             self.display_with(db, salsa::DisplayFormatLevel::root())
         ))
     }
 }
 
-impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTerm {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTerm {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl ValidTerm {
+impl RawTerm {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            ValidTerm::Literal(literal) => todo!(),
+            RawTerm::Literal(literal) => todo!(),
             // literal.show_with_db_fmt(f, db),
-            ValidTerm::Symbol(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::EntityPath(path) => todo!(),
+            RawTerm::Symbol(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::EntityPath(path) => todo!(),
             // path.show_with_db_fmt(f, db),
-            ValidTerm::Category(valid_term) => f.write_str(&valid_term.to_string()),
-            ValidTerm::Universe(valid_term) => f.write_str(&valid_term.to_string()),
-            ValidTerm::Curry(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::Ritchie(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::Abstraction(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::Application(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::Subentity(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::AsTraitSubentity(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
-            ValidTerm::TraitConstraint(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Category(valid_term) => f.write_str(&valid_term.to_string()),
+            RawTerm::Universe(valid_term) => f.write_str(&valid_term.to_string()),
+            RawTerm::Curry(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Ritchie(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Abstraction(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Application(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Subentity(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::AsTraitSubentity(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
+            RawTerm::TraitConstraint(valid_term) => valid_term.show_with_db_fmt(f, db, ctx),
         }
     }
 }

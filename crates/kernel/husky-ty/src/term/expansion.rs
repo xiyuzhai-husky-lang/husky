@@ -1,9 +1,9 @@
 use super::*;
-pub(crate) fn application_expansion(db: &dyn TypeDb, term: Term) -> ApplicationExpansion {
+pub(crate) fn application_expansion(db: &dyn TermDb, term: Term) -> ApplicationExpansion {
     application_expansion_aux(db, term)
 }
 
-fn application_expansion_aux(db: &dyn TypeDb, term: Term) -> ApplicationExpansion {
+fn application_expansion_aux(db: &dyn TermDb, term: Term) -> ApplicationExpansion {
     match term {
         Term::Application(term) => application_expansion_salsa(db, term),
         _ => ApplicationExpansion {
@@ -13,9 +13,9 @@ fn application_expansion_aux(db: &dyn TypeDb, term: Term) -> ApplicationExpansio
     }
 }
 
-#[salsa::tracked(jar=TypeJar)]
+#[salsa::tracked(jar=TermJar)]
 pub(crate) fn application_expansion_salsa(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     term: TermApplication,
 ) -> ApplicationExpansion {
     let function = term.function(db);
@@ -24,13 +24,13 @@ pub(crate) fn application_expansion_salsa(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TypeDb, jar = TypeJar)]
+#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
 pub struct ApplicationExpansion {
     f: Term,
     arguments: Option<ApplicationArguments>,
 }
 
-#[salsa::tracked(db = TypeDb, jar = TypeJar)]
+#[salsa::tracked(db = TermDb, jar = TermJar)]
 pub(crate) struct ApplicationArguments {
     #[return_ref]
     data: Vec<Term>,
@@ -41,15 +41,15 @@ impl ApplicationExpansion {
         self.f
     }
 
-    pub fn opt_arguments<'a>(&self, db: &'a dyn TypeDb) -> Option<&'a [Term]> {
+    pub fn opt_arguments<'a>(&self, db: &'a dyn TermDb) -> Option<&'a [Term]> {
         self.arguments.map(|arguments| arguments.data(db) as &[_])
     }
 
-    pub fn arguments<'a>(&self, db: &'a dyn TypeDb) -> &'a [Term] {
+    pub fn arguments<'a>(&self, db: &'a dyn TermDb) -> &'a [Term] {
         self.opt_arguments(db).unwrap_or_default()
     }
 
-    fn apply(&self, db: &dyn TypeDb, argument: Term) -> Self {
+    fn apply(&self, db: &dyn TermDb, argument: Term) -> Self {
         let arguments = self.arguments(db);
         let mut arguments = arguments.to_vec();
         arguments.push(argument);

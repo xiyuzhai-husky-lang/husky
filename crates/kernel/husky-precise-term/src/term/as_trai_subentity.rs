@@ -1,34 +1,34 @@
 use super::*;
 use husky_word::Identifier;
 
-#[salsa::interned(db = PreciseTermDb, jar = PreciseTermJar)]
-pub struct PreciseTermAsTraitSubentity {
-    parent: PreciseTerm,
-    trai: PreciseTerm,
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+pub struct RawTermAsTraitSubentity {
+    parent: RawTerm,
+    trai: RawTerm,
     ident: Identifier,
 }
 
-impl PreciseTermAsTraitSubentity {
+impl RawTermAsTraitSubentity {
     pub fn from_raw(
-        db: &dyn PreciseTermDb,
+        db: &dyn RawTermDb,
         raw_term: RawTermAsTraitSubentity,
         raw_ty_expectation: TermTypeExpectation,
-    ) -> PreciseTermResult<Self> {
+    ) -> RawTermResult<Self> {
         todo!()
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn PreciseTermDb,
-        ctx: &mut PreciseTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
-impl PreciseTermRewriteCopy for PreciseTermAsTraitSubentity {
-    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self
+impl RawTermRewriteCopy for RawTermAsTraitSubentity {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
     {
@@ -40,6 +40,6 @@ impl PreciseTermRewriteCopy for PreciseTermAsTraitSubentity {
             return self;
         }
         let ident = self.ident(db);
-        PreciseTermAsTraitSubentity::new(db, parent, trai, ident)
+        RawTermAsTraitSubentity::new(db, parent, trai, ident)
     }
 }

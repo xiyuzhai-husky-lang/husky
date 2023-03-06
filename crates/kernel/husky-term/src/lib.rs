@@ -10,6 +10,7 @@ mod rewrite;
 mod term;
 #[cfg(test)]
 mod tests;
+mod ty;
 
 pub use self::context::*;
 pub use self::db::*;
@@ -17,23 +18,38 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
+pub use self::ty::*;
 
 use either::*;
 use husky_entity_path::*;
 use husky_print_utils::p;
+use husky_raw_term::*;
 use husky_term_prelude::*;
-use husky_valid_term::*;
 use husky_vfs::*;
 use husky_word::Identifier;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(
     TermSymbol,
+    TermSymbols,
+    term_curry_symbols,
+    term_ritchie_symbols,
+    term_application_symbols,
+    // entity path
+    ty_ontology_path_ty,
+    ty_constructor_path_ty,
+    trai_path_ty,
+    form_path_ty,
+    // curry
     TermCurry,
     TermRitchie,
     TermAbstraction,
+    // application
     TermApplication,
-    term_from_valid_application,
+    application_expansion_salsa,
+    term_from_raw_application,
+    ApplicationArguments,
+    // subentity
     TermSubentity,
     TermAsTraitSubentity,
     TermTraitConstraint,

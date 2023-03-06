@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub(crate) struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
@@ -16,7 +16,7 @@ impl ExpectLocalTerm for ExpectInsSort {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         todo!()
@@ -36,7 +36,7 @@ impl ExpectInsSort {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::derive_debug_with_db(db = ExprTermDb)]
 pub(crate) struct ExpectInsSortOutcome {
     destination: LocalTerm,
 }

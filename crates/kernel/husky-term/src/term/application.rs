@@ -1,3 +1,7 @@
+mod expansion;
+
+pub use self::expansion::*;
+
 use super::*;
 use std::fmt::{Debug, Display};
 
@@ -38,7 +42,7 @@ impl TermApplication {
     }
 
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermApplication) -> Term {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermApplication) -> Term {
         todo!()
     }
 
@@ -62,14 +66,14 @@ fn check_application_validity(
 ) -> TermResult<()> {
     match shift {
         0 => {
-            let function_valid_ty = match function.valid_ty(db)? {
-                Left(ValidTerm::Curry(function_valid_ty)) => function_valid_ty,
+            let function_ty = match function.ty(db)? {
+                Left(Term::Curry(function_ty)) => function_ty,
                 _ => unreachable!(),
             };
-            let argument_valid_ty = argument.valid_ty(db)?;
-            if !function_valid_ty
+            let argument_ty = argument.ty(db)?;
+            if !function_ty
                 .parameter_ty(db)
-                .is_ty_trivially_convertible_from(db, argument_valid_ty)?
+                .is_ty_trivially_convertible_from(db, argument_ty)?
             {
                 return Err(todo!());
             }
@@ -80,10 +84,7 @@ fn check_application_validity(
 }
 
 #[salsa::tracked(jar = TermJar)]
-pub(crate) fn term_from_valid_application(
-    db: &dyn TermDb,
-    valid_term: ValidTermApplication,
-) -> Term {
+pub(crate) fn term_from_raw_application(db: &dyn TermDb, valid_term: RawTermApplication) -> Term {
     todo!()
 }
 

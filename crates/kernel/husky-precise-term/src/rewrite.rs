@@ -4,51 +4,45 @@ pub use substitution::*;
 
 use crate::*;
 
-pub trait PreciseTermRewrite: Sized {
-    fn substitute(&self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self;
+pub trait RawTermRewrite: Sized {
+    fn substitute(&self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
 }
 
-pub trait PreciseTermRewriteCopy: Copy {
-    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self;
+pub trait RawTermRewriteCopy: Copy {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
 }
 
-impl<T> PreciseTermRewrite for T
+impl<T> RawTermRewrite for T
 where
-    T: PreciseTermRewriteCopy,
+    T: RawTermRewriteCopy,
 {
-    fn substitute(&self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
+    fn substitute(&self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         self.substitute(db, substituation)
     }
 }
 
-impl PreciseTermRewriteCopy for PreciseTerm {
-    fn substitute(self, db: &dyn PreciseTermDb, substitution: &PreciseTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTerm {
+    fn substitute(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
         match self {
-            PreciseTerm::Symbol(symbol) => match symbol == substitution.src() {
+            RawTerm::Symbol(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
-            PreciseTerm::Literal(_)
-            | PreciseTerm::EntityPath(_)
-            | PreciseTerm::Category(_)
-            | PreciseTerm::Universe(_) => self,
-            PreciseTerm::Curry(precise_term) => precise_term.substitute(db, substitution).into(),
-            PreciseTerm::Abstraction(precise_term) => {
+            RawTerm::Literal(_)
+            | RawTerm::EntityPath(_)
+            | RawTerm::Category(_)
+            | RawTerm::Universe(_) => self,
+            RawTerm::Curry(precise_term) => precise_term.substitute(db, substitution).into(),
+            RawTerm::Abstraction(precise_term) => precise_term.substitute(db, substitution).into(),
+            RawTerm::Application(precise_term) => precise_term.substitute(db, substitution).into(),
+            RawTerm::Subentity(precise_term) => precise_term.substitute(db, substitution).into(),
+            RawTerm::AsTraitSubentity(precise_term) => {
                 precise_term.substitute(db, substitution).into()
             }
-            PreciseTerm::Application(precise_term) => {
+            RawTerm::TraitConstraint(precise_term) => {
                 precise_term.substitute(db, substitution).into()
             }
-            PreciseTerm::Subentity(precise_term) => {
-                precise_term.substitute(db, substitution).into()
-            }
-            PreciseTerm::AsTraitSubentity(precise_term) => {
-                precise_term.substitute(db, substitution).into()
-            }
-            PreciseTerm::TraitConstraint(precise_term) => {
-                precise_term.substitute(db, substitution).into()
-            }
-            PreciseTerm::Ritchie(_) => todo!(),
+            RawTerm::Ritchie(_) => todo!(),
         }
     }
 }

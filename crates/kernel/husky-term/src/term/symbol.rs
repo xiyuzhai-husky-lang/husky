@@ -1,3 +1,9 @@
+mod registry;
+mod set;
+
+pub use self::registry::*;
+pub use self::set::*;
+
 use super::*;
 use thiserror::Error;
 
@@ -11,7 +17,7 @@ pub struct TermSymbol {
 
 impl TermSymbol {
     #[inline(always)]
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermSymbol) -> Self {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermSymbol) -> Self {
         todo!()
     }
 

@@ -341,24 +341,14 @@ impl<'a> ExprTypeEngine<'a> {
                         self.db
                             .trai_path_ty(trai_path)
                             .map(Into::into)
-                            .map_err(|e| match e {
-                                TypeError::Original(_) => todo!(),
-                                TypeError::Derived(_) => todo!(),
-                            }),
+                            .map_err(|e| todo!()),
                     )),
                     ModuleItemPath::Form(form_path) => Ok((
                         ExprDisambiguation::Trivial,
                         self.db
                             .form_path_ty(form_path)
                             .map(Into::into)
-                            .map_err(|e| match e {
-                                TypeError::Original(e) => {
-                                    OriginalExprTypeError::FormPathTypeError(e).into()
-                                }
-                                TypeError::Derived(e) => {
-                                    DerivedExprTypeError::FormPathTypeError(e).into()
-                                }
-                            }),
+                            .map_err(|e| todo!()),
                     )),
                 },
                 EntityPath::AssociatedItem(_) => todo!(),
@@ -383,10 +373,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.db
                     .ty_path_ty(ty_path, disambiguation)
                     .map(Into::into)
-                    .map_err(|e| match e {
-                        TypeError::Original(_) => todo!(),
-                        TypeError::Derived(_) => todo!(),
-                    }),
+                    .map_err(|e| todo!()),
             )),
             TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
             TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),

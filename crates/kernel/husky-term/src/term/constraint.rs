@@ -7,7 +7,7 @@ pub struct TermTraitConstraint {
 }
 
 impl TermTraitConstraint {
-    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermTraitConstraint) -> Self {
+    pub fn from_raw(db: &dyn TermDb, valid_term: RawTermTraitConstraint) -> Self {
         todo!()
     }
 

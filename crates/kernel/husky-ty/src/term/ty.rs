@@ -3,7 +3,7 @@ use husky_vfs::Toolchain;
 
 #[inline(always)]
 pub fn term_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     disambiguation: TypePathDisambiguation,
     reduced_term: Term,
     toolchain: Toolchain,
@@ -28,7 +28,7 @@ pub fn term_ty(
     }
 }
 
-#[salsa::tracked(jar = TypeJar)]
-pub(crate) fn application_term_ty(db: &dyn TypeDb, term: TermApplication) -> TypeResult<Term> {
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn application_term_ty(db: &dyn TermDb, term: TermApplication) -> TypeResult<Term> {
     Err(OriginalTypeError::Todo.into())
 }

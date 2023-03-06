@@ -1,17 +1,17 @@
 use super::*;
 use husky_word::Identifier;
 
-pub struct ValidTermSubstitution {
-    src: ValidTermSymbol,
-    dst: ValidTerm,
+pub struct RawTermSubstitution {
+    src: RawTermSymbol,
+    dst: RawTerm,
 }
 
-impl ValidTermSubstitution {
-    pub fn src(&self) -> ValidTermSymbol {
+impl RawTermSubstitution {
+    pub fn src(&self) -> RawTermSymbol {
         self.src
     }
 
-    pub fn dst(&self) -> ValidTerm {
+    pub fn dst(&self) -> RawTerm {
         self.dst
     }
 }

@@ -9,7 +9,7 @@ impl IntrinsicType {
     }
 }
 
-pub(crate) fn intrinsic_ty(db: &dyn TypeDb, ty: Term) -> IntrinsicType {
+pub(crate) fn intrinsic_ty(db: &dyn TermDb, ty: Term) -> IntrinsicType {
     match ty {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),

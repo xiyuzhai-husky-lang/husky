@@ -17,7 +17,7 @@ use symbol::*;
 use crate::*;
 
 pub(crate) struct ExprTypeEngine<'a> {
-    db: &'a dyn ExprTypeDb,
+    db: &'a dyn ExprTermDb,
     toolchain: Toolchain,
     entity_path_menu: &'a EntityPathMenu,
     term_menu: &'a TermMenu,
@@ -43,7 +43,7 @@ impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
+    pub(crate) fn new(db: &'a dyn ExprTermDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         // todo: improve this
         let return_ty = expr_region_data
@@ -141,7 +141,7 @@ impl<'a> ExprTypeEngine<'a> {
         )
     }
 
-    pub(crate) fn db(&self) -> &'a dyn ExprTypeDb {
+    pub(crate) fn db(&self) -> &'a dyn ExprTermDb {
         self.db
     }
 

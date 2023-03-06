@@ -3,7 +3,7 @@ use super::*;
 impl LocalTerm {
     pub(crate) fn curry_destination(
         self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTerm {
         match self {
@@ -14,7 +14,7 @@ impl LocalTerm {
 
     pub(crate) fn final_destination(
         self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         match self.curry_destination(db, unresolved_terms) {
@@ -67,7 +67,7 @@ impl LocalTerm {
     }
 }
 
-fn curry_destination(db: &dyn ExprTypeDb, term: Term) -> Term {
+fn curry_destination(db: &dyn ExprTermDb, term: Term) -> Term {
     match term {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),

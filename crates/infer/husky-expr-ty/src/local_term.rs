@@ -13,7 +13,7 @@ pub(crate) use unresolved::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb, jar = ExprTypeJar)]
+#[salsa::derive_debug_with_db(db = ExprTermDb, jar = ExprTypeJar)]
 pub enum LocalTerm {
     Resolved(Term),
     Unresolved(UnresolvedTermIdx),

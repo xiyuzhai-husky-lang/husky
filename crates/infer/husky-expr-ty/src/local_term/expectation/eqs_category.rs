@@ -23,7 +23,7 @@ impl ExpectLocalTerm for ExpectEqsCategory {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTypeDb,
+        db: &dyn ExprTermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         FinalDestination::Sort

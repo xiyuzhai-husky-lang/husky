@@ -1,6 +1,6 @@
 use crate::*;
-use husky_precise_term::PreciseTermDb;
+use husky_precise_term::RawTermDb;
 
-pub trait PreciseTypeDb: salsa::DbWithJar<PreciseTypeJar> + PreciseTermDb {}
+pub trait PreciseTermDb: salsa::DbWithJar<PreciseTypeJar> + RawTermDb {}
 
-impl<Db> PreciseTypeDb for Db where Db: salsa::DbWithJar<PreciseTypeJar> + PreciseTermDb {}
+impl<Db> PreciseTermDb for Db where Db: salsa::DbWithJar<PreciseTypeJar> + RawTermDb {}

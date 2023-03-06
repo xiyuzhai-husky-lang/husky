@@ -1,12 +1,10 @@
-use husky_valid_ty::{
-    form_path_valid_ty, trai_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty,
-};
+use husky_ty::{form_path_ty, trai_path_ty, ty_constructor_path_ty, ty_ontology_path_ty};
 use salsa::assert_eq_with_db;
 
 use crate::*;
 
 #[inline(always)]
-pub fn term_entity_path_ty(db: &dyn TypeDb, path: TermEntityPath) -> TypeResult<Term> {
+pub fn term_entity_path_ty(db: &dyn TermDb, path: TermEntityPath) -> TypeResult<Term> {
     match path {
         TermEntityPath::Form(_) => todo!(),
         TermEntityPath::Trait(_) => todo!(),
@@ -17,7 +15,7 @@ pub fn term_entity_path_ty(db: &dyn TypeDb, path: TermEntityPath) -> TypeResult<
 
 #[inline(always)]
 pub fn entity_path_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
 ) -> TypeResult<Term> {
@@ -192,7 +190,7 @@ fn entity_path_path_term_ty_works() {
 }
 
 pub fn ty_path_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> TypeResult<Term> {
@@ -202,31 +200,8 @@ pub fn ty_path_ty(
     }
 }
 
-#[salsa::tracked(jar = TypeJar)]
-pub fn ty_ontology_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
-    Ok(Term::from_valid(db, ty_ontology_path_valid_ty(db, path)?))
-}
-
-#[salsa::tracked(jar = TypeJar)]
-pub fn ty_constructor_path_ty(db: &dyn TypeDb, path: TypePath) -> TypeResult<Term> {
-    Ok(Term::from_valid(
-        db,
-        ty_constructor_path_valid_ty(db, path)?,
-    ))
-}
-
-#[salsa::tracked(jar = TypeJar)]
-pub(crate) fn trai_path_ty(db: &dyn TypeDb, path: TraitPath) -> TypeResult<Term> {
-    Ok(Term::from_valid(db, trai_path_valid_ty(db, path)?))
-}
-
-#[salsa::tracked(jar = TypeJar)]
-pub(crate) fn form_path_ty(db: &dyn TypeDb, path: FormPath) -> TypeResult<Term> {
-    Ok(Term::from_valid(db, form_path_valid_ty(db, path)?))
-}
-
 pub(crate) fn function_entity_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     variances: &[Variance],
     signature: FunctionSignature,
     term_menu: &TermMenu,
@@ -235,7 +210,7 @@ pub(crate) fn function_entity_ty(
 }
 
 pub(crate) fn feature_entity_ty(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     signature: FeatureSignature,
     term_menu: &TermMenu,
 ) -> TypeResult<Term> {
@@ -243,7 +218,7 @@ pub(crate) fn feature_entity_ty(
 }
 
 fn curry_from_implicit_parameter_tys(
-    db: &dyn TypeDb,
+    db: &dyn TermDb,
     term_curry_kind: CurryKind,
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterSignature],

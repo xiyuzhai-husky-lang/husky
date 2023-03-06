@@ -1,5 +1,5 @@
 use crate::*;
-use husky_precise_ty::{DerivedPreciseTypeError, OriginalPreciseTypeError, PreciseTypeError};
+use husky_ty::{DerivedPreciseTypeError, OriginalPreciseTypeError, PreciseTypeError};
 use thiserror::Error;
 
 pub type ValidTypeResult<T> = Result<T, ValidTypeError>;
@@ -21,8 +21,8 @@ impl From<PreciseTypeError> for ValidTypeError {
     }
 }
 
-impl From<ValidTermError> for ValidTypeError {
-    fn from(e: ValidTermError) -> Self {
+impl From<RawTermError> for ValidTypeError {
+    fn from(e: RawTermError) -> Self {
         todo!()
     }
 }
@@ -30,7 +30,7 @@ impl From<ValidTermError> for ValidTypeError {
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalValidTypeError {
     #[error("term error")]
-    ValidTerm(#[from] ValidTermError),
+    RawTerm(#[from] RawTermError),
     #[error("todo")]
     Todo,
     #[error("Original Valid Type Error {0}")]
@@ -47,7 +47,7 @@ pub enum DerivedValidTypeError {
     PreciseTypeError(#[from] DerivedPreciseTypeError),
 }
 
-impl<Db: ValidTypeDb + ?Sized> salsa::DebugWithDb<Db> for ValidTypeError {
+impl<Db: ValidTermDb + ?Sized> salsa::DebugWithDb<Db> for ValidTypeError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

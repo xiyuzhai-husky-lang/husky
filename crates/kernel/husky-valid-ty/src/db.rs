@@ -1,6 +1,6 @@
 use crate::*;
-use husky_valid_term::ValidTermDb;
+use husky_valid_term::RawTermDb;
 
-pub trait ValidTypeDb: salsa::DbWithJar<ValidTypeJar> + ValidTermDb {}
+pub trait ValidTermDb: salsa::DbWithJar<ValidTypeJar> + RawTermDb {}
 
-impl<Db> ValidTypeDb for Db where Db: salsa::DbWithJar<ValidTypeJar> + ValidTermDb {}
+impl<Db> ValidTermDb for Db where Db: salsa::DbWithJar<ValidTypeJar> + RawTermDb {}

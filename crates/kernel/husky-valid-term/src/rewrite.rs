@@ -4,45 +4,41 @@ pub use substitution::*;
 
 use crate::*;
 
-pub trait ValidTermRewrite: Sized {
-    fn substitute(&self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self;
+pub trait RawTermRewrite: Sized {
+    fn substitute(&self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
 }
 
-pub trait ValidTermRewriteCopy: Copy {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self;
+pub trait RawTermRewriteCopy: Copy {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
 }
 
-impl<T> ValidTermRewrite for T
+impl<T> RawTermRewrite for T
 where
-    T: ValidTermRewriteCopy,
+    T: RawTermRewriteCopy,
 {
-    fn substitute(&self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(&self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         self.substitute(db, substituation)
     }
 }
 
-impl ValidTermRewriteCopy for ValidTerm {
-    fn substitute(self, db: &dyn ValidTermDb, substitution: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTerm {
+    fn substitute(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
         match self {
-            ValidTerm::Symbol(symbol) => match symbol == substitution.src() {
+            RawTerm::Symbol(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
-            ValidTerm::Literal(_)
-            | ValidTerm::EntityPath(_)
-            | ValidTerm::Category(_)
-            | ValidTerm::Universe(_) => self,
-            ValidTerm::Curry(valid_term) => valid_term.substitute(db, substitution).into(),
-            ValidTerm::Abstraction(valid_term) => valid_term.substitute(db, substitution).into(),
-            ValidTerm::Application(valid_term) => valid_term.substitute(db, substitution).into(),
-            ValidTerm::Subentity(valid_term) => valid_term.substitute(db, substitution).into(),
-            ValidTerm::AsTraitSubentity(valid_term) => {
-                valid_term.substitute(db, substitution).into()
-            }
-            ValidTerm::TraitConstraint(valid_term) => {
-                valid_term.substitute(db, substitution).into()
-            }
-            ValidTerm::Ritchie(_) => todo!(),
+            RawTerm::Literal(_)
+            | RawTerm::EntityPath(_)
+            | RawTerm::Category(_)
+            | RawTerm::Universe(_) => self,
+            RawTerm::Curry(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::Abstraction(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::Application(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::Subentity(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::AsTraitSubentity(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::TraitConstraint(valid_term) => valid_term.substitute(db, substitution).into(),
+            RawTerm::Ritchie(_) => todo!(),
         }
     }
 }

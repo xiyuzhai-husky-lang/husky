@@ -2,31 +2,31 @@ use super::*;
 use context::*;
 
 /// representing valid_term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar, constructor = new_inner)]
-pub struct ValidTermCurry {
+#[salsa::interned(db = RawTermDb, jar = RawTermJar, constructor = new_inner)]
+pub struct RawTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_symbol: Option<ValidTermSymbol>,
+    pub parameter_symbol: Option<RawTermSymbol>,
     /// X
-    pub parameter_ty: ValidTerm,
+    pub parameter_ty: RawTerm,
     /// Y
-    pub return_ty: ValidTerm,
+    pub return_ty: RawTerm,
 }
 
-impl ValidTermCurry {
+impl RawTermCurry {
     pub fn from_precise(
-        db: &dyn ValidTermDb,
-        precise_term_curry: PreciseTermCurry,
-    ) -> ValidTermResult<Self> {
+        db: &dyn RawTermDb,
+        precise_term_curry: RawTermCurry,
+    ) -> RawTermResult<Self> {
         valid_term_curry_from_precise(db, precise_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn ValidTermDb,
-        ctx: &mut ValidTermShowContext,
+        db: &dyn RawTermDb,
+        ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         let parameter_symbol = self.parameter_symbol(db);
         if parameter_symbol.is_some() {
@@ -49,21 +49,21 @@ impl ValidTermCurry {
     }
 }
 
-#[salsa::tracked(jar = ValidTermJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn valid_term_curry_from_precise(
-    db: &dyn ValidTermDb,
-    precise_term_curry: PreciseTermCurry,
-) -> ValidTermResult<ValidTermCurry> {
+    db: &dyn RawTermDb,
+    precise_term_curry: RawTermCurry,
+) -> RawTermResult<RawTermCurry> {
     let curry_kind = precise_term_curry.curry_kind(db);
     let variance = precise_term_curry.variance(db);
     let parameter_symbol = match precise_term_curry.parameter_symbol(db) {
-        Some(parameter_symbol) => Some(ValidTermSymbol::from_precise(db, parameter_symbol)?),
+        Some(parameter_symbol) => Some(RawTermSymbol::from_precise(db, parameter_symbol)?),
         None => None,
     };
-    let t = |precise_term| ValidTerm::from_precise(db, precise_term);
+    let t = |precise_term| RawTerm::from_precise(db, precise_term);
     let parameter_ty = t(precise_term_curry.parameter_ty(db))?;
     let return_ty = t(precise_term_curry.return_ty(db))?;
-    Ok(ValidTermCurry::new_inner(
+    Ok(RawTermCurry::new_inner(
         db,
         curry_kind,
         variance,
@@ -74,10 +74,10 @@ pub(crate) fn valid_term_curry_from_precise(
 }
 
 fn check_curry_validity(
-    db: &dyn ValidTermDb,
-    parameter_ty: ValidTerm,
-    return_ty: ValidTerm,
-) -> ValidTermResult<()> {
+    db: &dyn RawTermDb,
+    parameter_ty: RawTerm,
+    return_ty: RawTerm,
+) -> RawTermResult<()> {
     if !parameter_ty.is_ins_sort(db)? {
         return Err(todo!());
     }
@@ -87,20 +87,20 @@ fn check_curry_validity(
     Ok(())
 }
 
-impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermCurry {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<ValidTermJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
     }
 }
 
-impl ValidTermRewriteCopy for ValidTermCurry {
-    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+impl RawTermRewriteCopy for RawTermCurry {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

@@ -53,8 +53,10 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
-        let lopd_ty = self.db.intrinsic_ty(lopd_ty).reduced_term();
-        let ropd_ty = self.db.intrinsic_ty(ropd_ty).reduced_term();
+        let lopd_ty: Term = todo!();
+        //  self.db.intrinsic_ty(lopd_ty).reduced_term();
+        let ropd_ty: Term = todo!();
+        //  self.db.intrinsic_ty(ropd_ty).reduced_term();
         match opr {
             BinaryPureClosedOpr::Add => match lopd_ty {
                 lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
@@ -380,7 +382,8 @@ impl<'a> ExprTypeEngine<'a> {
             },
         };
         let ropd_ty = match ropd_ty {
-            LocalTerm::Resolved(ropd_ty) => self.db.intrinsic_ty(ropd_ty).reduced_term(),
+            LocalTerm::Resolved(ropd_ty) => todo!(),
+            // self.db.intrinsic_ty(ropd_ty).reduced_term(),
             LocalTerm::Unresolved(_) => todo!(),
         };
     }
