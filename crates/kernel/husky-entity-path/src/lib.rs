@@ -36,6 +36,7 @@ pub struct EntityPathJar(
     TypeAsTraitItemPath,
     VariantPath,
     entity_path_menu,
+    is_ty_path_lifetime_ty,
 );
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

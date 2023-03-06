@@ -177,9 +177,11 @@ impl ValidTermShowContext {
 
 fn symbol_show_kind(symbol: ValidTermSymbol, db: &dyn ValidTermDb) -> ValidTermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(ValidTerm::EntityPath(TermEntityPath::TypeOntology(TermTypePath::Prelude(
-            PreludeTypePath::Lifetime,
-        )))) => ValidTermSymbolShowKind::Lifetime,
+        Ok(ValidTerm::EntityPath(TermEntityPath::TypeOntology(path)))
+            if path.eqs_lifetime_ty_path(db) =>
+        {
+            ValidTermSymbolShowKind::Lifetime
+        }
         Ok(ValidTerm::Category(cat)) if cat.universe().raw() == 0 => ValidTermSymbolShowKind::Prop,
         Ok(ValidTerm::Category(cat)) if cat.universe().raw() == 1 => ValidTermSymbolShowKind::Type,
         Ok(ValidTerm::Category(_)) => ValidTermSymbolShowKind::Kind,

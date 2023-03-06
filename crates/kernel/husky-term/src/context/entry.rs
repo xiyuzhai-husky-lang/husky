@@ -177,9 +177,11 @@ impl TermShowContext {
 
 fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(Term::EntityPath(TermEntityPath::TypeOntology(TermTypePath::Prelude(
-            PreludeTypePath::Lifetime,
-        )))) => TermSymbolShowKind::Lifetime,
+        Ok(Term::EntityPath(TermEntityPath::TypeOntology(path)))
+            if path.eqs_lifetime_ty_path(db) =>
+        {
+            TermSymbolShowKind::Lifetime
+        }
         Ok(Term::Category(cat)) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
         Ok(Term::Category(cat)) if cat.universe().raw() == 1 => TermSymbolShowKind::Type,
         Ok(Term::Category(_)) => TermSymbolShowKind::Kind,
