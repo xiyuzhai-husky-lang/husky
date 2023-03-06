@@ -4,6 +4,7 @@ use thiserror::Error;
 pub type RawTypeResult<T> = Result<T, RawTypeError>;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum RawTypeError {
     #[error("original `{0}`")]
     Original(#[from] OriginalRawTypeError),
@@ -12,6 +13,7 @@ pub enum RawTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum OriginalRawTypeError {
     #[error("raw_term error")]
     RawTerm(#[from] RawTermError),
@@ -20,34 +22,24 @@ pub enum OriginalRawTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum DerivedRawTypeError {
     #[error("signature error")]
     SignatureError,
-    #[error("type constructor decl error")]
+    #[error("type constructor declaration error")]
     TypeConstructorDeclError,
-    #[error("type ontology decl error")]
-    TypeOntologyDeclError,
-    #[error("trait decl error")]
+    #[error("type ontology declaration error")]
+    TypeOntologyDeclError { path: TypePath },
+    #[error("trait declaration error")]
     TraitDeclError,
-    #[error("form decl error")]
+    #[error("form declaration error")]
     FormDeclError,
-    #[error("type path field decl error")]
+    #[error("type path field declaration error")]
     TypePathFieldDeclError,
-    #[error("type path application field decl error")]
+    #[error("type path application field declaration error")]
     TypePathApplicationFieldDeclError,
-    #[error("type path method decl error")]
+    #[error("type path method declaration error")]
     TypePathMethodDeclError,
-    #[error("type path application method decl error")]
+    #[error("type path application method declaration error")]
     TypePathApplicationMethodDeclError,
-}
-
-impl<Db: RawTypeDb + ?Sized> salsa::DebugWithDb<Db> for RawTypeError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(&self, f)
-    }
 }

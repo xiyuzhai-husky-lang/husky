@@ -1,3 +1,4 @@
+use husky_print_utils::p;
 use salsa::assert_eq_with_db;
 
 use crate::*;
@@ -195,7 +196,11 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::TypeOntologyDeclError.into()),
+        Err(e) => {
+            use salsa::DebugWithDb;
+            p!(e.debug(db), path.debug(db));
+            return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
+        }
     };
     let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,

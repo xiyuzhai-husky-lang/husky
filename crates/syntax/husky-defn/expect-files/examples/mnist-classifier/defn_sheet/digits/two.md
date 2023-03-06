@@ -1,9 +1,5 @@
 Err(
-    InvalidModulePath(
-        ModulePath(
-            Id {
-                value: 35,
-            },
-        ),
+    EntityTreeError::InvalidModulePath(
+        `mnist_classifier::digits::two`,
     ),
 )

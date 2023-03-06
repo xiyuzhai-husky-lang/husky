@@ -7,6 +7,7 @@ use thiserror::Error;
 use crate::{EntityTreeBundleError, EntityTreeDb, PreludeError};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum EntityTreeError {
     // original
     #[error("todo")]
@@ -38,21 +39,4 @@ pub enum EntityTreeError {
     SymbolNotAccessible,
 }
 
-// impl From<&EntityTreeError> for EntityTreeError {
-//     fn from(value: &EntityTreeError) -> Self {
-//         EntityTreeError::DerivedSelf(Box::new(value.clone()))
-//     }
-// }
-
 pub type EntityTreeResult<T> = Result<T, EntityTreeError>;
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(self, f)
-    }
-}

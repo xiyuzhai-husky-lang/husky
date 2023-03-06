@@ -7,6 +7,7 @@ use parsec::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum DeclError {
     #[error("{0}")]
     Original(OriginalDeclError),
@@ -45,6 +46,7 @@ impl From<OriginalDeclError> for DeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum OriginalDeclError {
     #[error("expect `{{` or `(` or `;`")]
     ExpectLCurlOrLParOrSemicolon(TokenIdx),
@@ -55,6 +57,7 @@ impl OriginalError for OriginalDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum DerivedDeclError {
     #[error("token error")]
     Token(#[from] TokenError),
@@ -74,18 +77,6 @@ pub enum DerivedDeclError {
 
 pub type DeclResult<T> = Result<T, DeclError>;
 pub type DeclResultRef<'a, T> = Result<T, &'a DeclError>;
-
-impl<Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        // ad hoc
-        std::fmt::Debug::fmt(&self, f)
-    }
-}
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
