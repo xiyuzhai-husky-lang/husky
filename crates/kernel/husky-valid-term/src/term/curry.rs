@@ -2,9 +2,9 @@ use super::*;
 use context::*;
 
 /// representing valid_term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = ValidTermDb, jar = ValidTermJar)]
+#[salsa::interned(db = ValidTermDb, jar = ValidTermJar, constructor = new_inner)]
 pub struct ValidTermCurry {
-    pub curry_kind: ValidCurryKind,
+    pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
     pub parameter_symbol: Option<ValidTermSymbol>,
@@ -14,18 +14,12 @@ pub struct ValidTermCurry {
     pub return_ty: ValidTerm,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum ValidCurryKind {
-    Explicit,
-    Implicit,
-}
-
 impl ValidTermCurry {
     pub fn from_precise(
         db: &dyn ValidTermDb,
-        precise_term: PreciseTermCurry,
+        precise_term_curry: PreciseTermCurry,
     ) -> ValidTermResult<Self> {
-        todo!()
+        valid_term_curry_from_precise(db, precise_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -55,6 +49,44 @@ impl ValidTermCurry {
     }
 }
 
+#[salsa::tracked(jar = ValidTermJar)]
+pub(crate) fn valid_term_curry_from_precise(
+    db: &dyn ValidTermDb,
+    precise_term_curry: PreciseTermCurry,
+) -> ValidTermResult<ValidTermCurry> {
+    let curry_kind = precise_term_curry.curry_kind(db);
+    let variance = precise_term_curry.variance(db);
+    let parameter_symbol = match precise_term_curry.parameter_symbol(db) {
+        Some(parameter_symbol) => Some(ValidTermSymbol::from_precise(db, parameter_symbol)?),
+        None => None,
+    };
+    let t = |precise_term| ValidTerm::from_precise(db, precise_term);
+    let parameter_ty = t(precise_term_curry.parameter_ty(db))?;
+    let return_ty = t(precise_term_curry.return_ty(db))?;
+    Ok(ValidTermCurry::new_inner(
+        db,
+        curry_kind,
+        variance,
+        parameter_symbol,
+        parameter_ty,
+        return_ty,
+    ))
+}
+
+fn check_curry_validity(
+    db: &dyn ValidTermDb,
+    parameter_ty: ValidTerm,
+    return_ty: ValidTerm,
+) -> ValidTermResult<()> {
+    if !parameter_ty.is_ins_sort(db)? {
+        return Err(todo!());
+    }
+    if !return_ty.is_ins_sort(db)? {
+        return Err(todo!());
+    }
+    Ok(())
+}
+
 impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermCurry {
     fn display_with_db_fmt(
         &self,
@@ -68,7 +100,7 @@ impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermCurry {
 }
 
 impl ValidTermRewriteCopy for ValidTermCurry {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
         todo!()
     }
 }

@@ -14,7 +14,7 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = TermDb, jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TermApplication {
     pub function: Term,
     pub argument: Term,
@@ -22,7 +22,23 @@ pub struct TermApplication {
 }
 
 impl TermApplication {
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermApplication) -> Self {
+    /// returns Term instead of TermApplication because it might reduce to a non application term
+    pub fn new(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> TermResult<Term> {
+        check_application_validity(db, function, argument, shift)?;
+        Self::new_unchecked(db, function, argument, shift)
+    }
+
+    fn new_unchecked(
+        db: &dyn TermDb,
+        function: Term,
+        argument: Term,
+        shift: u8,
+    ) -> TermResult<Term> {
+        todo!()
+    }
+
+    /// returns Term instead of TermApplication because it might reduce to a non application term
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermApplication) -> Term {
         todo!()
     }
 
@@ -38,6 +54,39 @@ impl TermApplication {
     }
 }
 
+fn check_application_validity(
+    db: &dyn TermDb,
+    function: Term,
+    argument: Term,
+    shift: u8,
+) -> TermResult<()> {
+    match shift {
+        0 => {
+            let function_valid_ty = match function.valid_ty(db)? {
+                Left(ValidTerm::Curry(function_valid_ty)) => function_valid_ty,
+                _ => unreachable!(),
+            };
+            let argument_valid_ty = argument.valid_ty(db)?;
+            if !function_valid_ty
+                .parameter_ty(db)
+                .is_ty_trivially_convertible_from(db, argument_valid_ty)?
+            {
+                return Err(todo!());
+            }
+            Ok(())
+        }
+        _ => todo!(),
+    }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_from_valid_application(
+    db: &dyn TermDb,
+    valid_term: ValidTermApplication,
+) -> Term {
+    todo!()
+}
+
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
     fn display_with_db_fmt(
         &self,
@@ -51,25 +100,19 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermApplication {
 }
 
 impl TermApplication {
-    pub fn ty_itd(&self) -> Option<Term> {
-        // TODO: delete this
-        None
-    }
-}
-
-impl TermRewriteCopy for TermApplication {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self
+    fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term
     where
         Self: Copy,
     {
-        let old_m = self.function(db);
-        let m = old_m.substitute_copy(db, substituation);
-        let old_n = self.argument(db);
-        let n = old_n.substitute_copy(db, substituation);
-        if old_m == m && old_n == n {
-            return self;
-        }
-        TermApplication::new(db, m, n, self.shift(db))
+        todo!()
+        // let old_m = self.function(db);
+        // let m = old_m.substitute(db, substituation);
+        // let old_n = self.argument(db);
+        // let n = old_n.substitute(db, substituation);
+        // if old_m == m && old_n == n {
+        //     return self;
+        // }
+        // TermApplication::new(db, m, n, self.shift(db))
     }
 }
 

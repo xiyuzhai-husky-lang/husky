@@ -26,11 +26,7 @@ impl PreciseTermTraitConstraint {
 }
 
 impl PreciseTermRewriteCopy for PreciseTermTraitConstraint {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substituation: &PreciseTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
         todo!()
     }
 }

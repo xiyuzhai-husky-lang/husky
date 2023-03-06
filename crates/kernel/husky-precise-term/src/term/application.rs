@@ -107,26 +107,15 @@ impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplica
     }
 }
 
-impl PreciseTermApplication {
-    pub fn ty_itd(&self) -> Option<PreciseTerm> {
-        // TODO: delete this
-        None
-    }
-}
-
 impl PreciseTermRewriteCopy for PreciseTermApplication {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substituation: &PreciseTermSubstitution,
-    ) -> Self
+    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_m = self.function(db);
-        let m = old_m.substitute_copy(db, substituation);
+        let m = old_m.substitute(db, substituation);
         let old_n = self.argument(db);
-        let n = old_n.substitute_copy(db, substituation);
+        let n = old_n.substitute(db, substituation);
         if old_m == m && old_n == n {
             return self;
         }

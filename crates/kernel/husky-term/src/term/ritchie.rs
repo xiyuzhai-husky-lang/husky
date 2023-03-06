@@ -14,7 +14,7 @@ pub struct TermRitchie {
 
 impl TermRitchie {
     #[inline(always)]
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermRitchie) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermRitchie) -> Self {
         todo!()
     }
 
@@ -109,8 +109,8 @@ impl TermRitchieParameter {
     }
 }
 
-impl TermRewriteCopy for TermRitchie {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl TermRitchie {
+    fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
         todo!()
     }
 }

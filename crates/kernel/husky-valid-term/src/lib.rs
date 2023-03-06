@@ -30,6 +30,7 @@ use husky_word::Identifier;
 pub struct ValidTermJar(
     ValidTermSymbol,
     ValidTermCurry,
+    valid_term_curry_from_precise,
     ValidTermRitchie,
     ValidTermAbstraction,
     ValidTermApplication,

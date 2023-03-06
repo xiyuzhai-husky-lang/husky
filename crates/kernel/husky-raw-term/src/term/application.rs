@@ -45,22 +45,15 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermApplication {
     }
 }
 
-impl RawTermApplication {
-    pub fn ty_itd(&self) -> Option<RawTerm> {
-        // TODO: delete this
-        None
-    }
-}
-
 impl RawTermRewriteCopy for RawTermApplication {
-    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_m = self.function(db);
-        let m = old_m.substitute_copy(db, substituation);
+        let m = old_m.substitute(db, substituation);
         let old_n = self.argument(db);
-        let n = old_n.substitute_copy(db, substituation);
+        let n = old_n.substitute(db, substituation);
         if old_m == m && old_n == n {
             return self;
         }

@@ -94,18 +94,23 @@ fn check_application_validity(
     argument: ValidTerm,
     shift: u8,
 ) -> ValidTermResult<()> {
-    let function_precise_ty = match function.precise_ty(db)? {
-        Left(PreciseTerm::Curry(function_precise_ty)) => function_precise_ty,
-        _ => unreachable!(),
-    };
-    let argument_precise_ty = argument.precise_ty(db)?;
-    if !function_precise_ty
-        .parameter_ty(db)
-        .is_ty_trivially_convertible_from(db, argument_precise_ty)?
-    {
-        return Err(todo!());
+    match shift {
+        0 => {
+            let function_precise_ty = match function.precise_ty(db)? {
+                Left(PreciseTerm::Curry(function_precise_ty)) => function_precise_ty,
+                _ => unreachable!(),
+            };
+            let argument_precise_ty = argument.precise_ty(db)?;
+            if !function_precise_ty
+                .parameter_ty(db)
+                .is_ty_trivially_convertible_from(db, argument_precise_ty)?
+            {
+                return Err(todo!());
+            }
+            Ok(())
+        }
+        _ => todo!(),
     }
-    Ok(())
 }
 
 impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermApplication {
@@ -121,14 +126,14 @@ impl<Db: ValidTermDb + ?Sized> salsa::DisplayWithDb<Db> for ValidTermApplication
 }
 
 impl ValidTermRewriteCopy for ValidTermApplication {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self
     where
         Self: Copy,
     {
         let old_m = self.function(db);
-        let m = old_m.substitute_copy(db, substituation);
+        let m = old_m.substitute(db, substituation);
         let old_n = self.argument(db);
-        let n = old_n.substitute_copy(db, substituation);
+        let n = old_n.substitute(db, substituation);
         if old_m == m && old_n == n {
             return self;
         }

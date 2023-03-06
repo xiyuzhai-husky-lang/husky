@@ -7,7 +7,7 @@ pub struct TermAbstraction {
 }
 
 impl TermAbstraction {
-    pub fn from_valid(db: &dyn ValidTermDb, precise_term: ValidTermAbstraction) -> Self {
+    pub fn from_valid(db: &dyn TermDb, precise_term: ValidTermAbstraction) -> Self {
         todo!()
     }
 
@@ -25,8 +25,8 @@ impl TermAbstraction {
     }
 }
 
-impl TermRewriteCopy for TermAbstraction {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
+impl TermAbstraction {
+    fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
         todo!()
     }
 }

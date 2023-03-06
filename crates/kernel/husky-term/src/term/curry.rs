@@ -16,7 +16,7 @@ pub struct TermCurry {
 }
 
 impl TermCurry {
-    pub fn from_valid(db: &dyn ValidTermDb, valid_term: ValidTermCurry) -> Self {
+    pub fn from_valid(db: &dyn TermDb, valid_term: ValidTermCurry) -> Self {
         todo!()
     }
 
@@ -45,6 +45,10 @@ impl TermCurry {
             self.return_ty(db).show_with_db_fmt(f, db, ctx)
         }
     }
+
+    pub fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
+        todo!()
+    }
 }
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
@@ -56,11 +60,5 @@ impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
-    }
-}
-
-impl TermRewriteCopy for TermCurry {
-    fn substitute_copy(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Self {
-        todo!()
     }
 }

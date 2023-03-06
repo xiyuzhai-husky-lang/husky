@@ -26,7 +26,7 @@ impl ValidTermAbstraction {
 }
 
 impl ValidTermRewriteCopy for ValidTermAbstraction {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
         todo!()
     }
 }

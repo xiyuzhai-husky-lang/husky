@@ -27,13 +27,9 @@ impl PreciseTermSubentity {
 }
 
 impl PreciseTermRewriteCopy for PreciseTermSubentity {
-    fn substitute_copy(
-        self,
-        db: &dyn PreciseTermDb,
-        substituation: &PreciseTermSubstitution,
-    ) -> Self {
+    fn substitute(self, db: &dyn PreciseTermDb, substituation: &PreciseTermSubstitution) -> Self {
         let old_parent = self.parent(db);
-        let parent = old_parent.substitute_copy(db, substituation);
+        let parent = old_parent.substitute(db, substituation);
         if old_parent == parent {
             return self;
         }

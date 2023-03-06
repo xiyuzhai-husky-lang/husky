@@ -9,7 +9,7 @@ pub trait RawTermRewrite: Sized {
 }
 
 pub trait RawTermRewriteCopy: Copy {
-    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self;
 }
 
 impl<T> RawTermRewrite for T
@@ -17,12 +17,12 @@ where
     T: RawTermRewriteCopy,
 {
     fn substitute(&self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
-        self.substitute_copy(db, substituation)
+        self.substitute(db, substituation)
     }
 }
 
 impl RawTermRewriteCopy for RawTerm {
-    fn substitute_copy(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
         match self {
             RawTerm::Symbol(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
@@ -32,12 +32,12 @@ impl RawTermRewriteCopy for RawTerm {
             | RawTerm::EntityPath(_)
             | RawTerm::Category(_)
             | RawTerm::Universe(_) => self,
-            RawTerm::Curry(term) => term.substitute_copy(db, substitution).into(),
-            RawTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
-            RawTerm::Application(term) => term.substitute_copy(db, substitution).into(),
-            RawTerm::Subentity(term) => term.substitute_copy(db, substitution).into(),
-            RawTerm::AsTraitSubentity(term) => term.substitute_copy(db, substitution).into(),
-            RawTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
+            RawTerm::Curry(term) => term.substitute(db, substitution).into(),
+            RawTerm::Abstraction(term) => term.substitute(db, substitution).into(),
+            RawTerm::Application(term) => term.substitute(db, substitution).into(),
+            RawTerm::Subentity(term) => term.substitute(db, substitution).into(),
+            RawTerm::AsTraitSubentity(term) => term.substitute(db, substitution).into(),
+            RawTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
             RawTerm::Ritchie(_) => todo!(),
         }
     }

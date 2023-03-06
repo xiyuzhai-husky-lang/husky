@@ -19,6 +19,8 @@ pub enum ValidTermError {
     PreciseTermError(#[from] PreciseTermError),
     #[error("precise type error {0}")]
     PreciseTypeError(#[from] PreciseTypeError),
+    #[error("EntityPathError")]
+    EntityPathError(#[from] EntityPathError),
 }
 
 impl From<&EntityPathError> for ValidTermError {

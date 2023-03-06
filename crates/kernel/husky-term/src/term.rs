@@ -9,8 +9,8 @@ mod symbol;
 
 use std::fmt::{Debug, Display};
 
-pub use self::abstraction::TermAbstraction;
-pub use self::application::TermApplication;
+pub use self::abstraction::*;
+pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
@@ -24,6 +24,9 @@ use husky_precise_term::PreciseTerm;
 use husky_raw_term::RawTerm;
 use husky_ty_expectation::TermTypeExpectation;
 use husky_valid_term::ValidTerm;
+use husky_valid_ty::{
+    form_path_valid_ty, trai_path_valid_ty, ty_constructor_path_valid_ty, ty_ontology_path_valid_ty,
+};
 use husky_word::Identifier;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -103,12 +106,17 @@ impl Term {
         }
     }
 
-    pub fn valid_ty(self) -> TermResult<Either<ValidTerm, PreludeTypePath>> {
+    pub fn valid_ty(self, db: &dyn TermDb) -> TermResult<Either<ValidTerm, PreludeTypePath>> {
         Ok(match self {
             Term::Literal(literal) => Right(literal.ty()),
             Term::Symbol(_) => todo!(),
             Term::Category(_) => todo!(),
-            Term::EntityPath(_) => todo!(),
+            Term::EntityPath(path) => Left(match path {
+                TermEntityPath::Form(path) => form_path_valid_ty(db, path)?,
+                TermEntityPath::Trait(path) => trai_path_valid_ty(db, path)?,
+                TermEntityPath::TypeOntology(path) => ty_ontology_path_valid_ty(db, path)?,
+                TermEntityPath::TypeConstructor(path) => ty_constructor_path_valid_ty(db, path)?,
+            }),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
             Term::Ritchie(_) => todo!(),
@@ -118,6 +126,24 @@ impl Term {
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
         })
+    }
+
+    pub fn substitute(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {
+        todo!()
+        // match self {
+        //     Term::Symbol(symbol) => match symbol == substitution.src() {
+        //         true => substitution.dst(),
+        //         false => self,
+        //     },
+        //     Term::Literal(_) | Term::EntityPath(_) | Term::Category(_) | Term::Universe(_) => self,
+        //     Term::Curry(term) => term.substitute(db, substitution).into(),
+        //     Term::Abstraction(term) => term.substitute(db, substitution).into(),
+        //     Term::Application(term) => term.substitute(db, substitution).into(),
+        //     Term::Subentity(term) => term.substitute(db, substitution).into(),
+        //     Term::AsTraitSubentity(term) => term.substitute(db, substitution).into(),
+        //     Term::TraitConstraint(term) => term.substitute(db, substitution).into(),
+        //     Term::Ritchie(_) => todo!(),
+        // }
     }
 }
 

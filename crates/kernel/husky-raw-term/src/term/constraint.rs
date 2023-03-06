@@ -18,7 +18,7 @@ impl RawTermTraitConstraint {
 }
 
 impl RawTermRewriteCopy for RawTermTraitConstraint {
-    fn substitute_copy(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

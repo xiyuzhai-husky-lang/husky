@@ -111,7 +111,7 @@ impl ValidTermRitchieParameter {
 }
 
 impl ValidTermRewriteCopy for ValidTermRitchie {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
         todo!()
     }
 }

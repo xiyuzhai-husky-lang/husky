@@ -9,7 +9,7 @@ pub trait ValidTermRewrite: Sized {
 }
 
 pub trait ValidTermRewriteCopy: Copy {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self;
+    fn substitute(self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self;
 }
 
 impl<T> ValidTermRewrite for T
@@ -17,12 +17,12 @@ where
     T: ValidTermRewriteCopy,
 {
     fn substitute(&self, db: &dyn ValidTermDb, substituation: &ValidTermSubstitution) -> Self {
-        self.substitute_copy(db, substituation)
+        self.substitute(db, substituation)
     }
 }
 
 impl ValidTermRewriteCopy for ValidTerm {
-    fn substitute_copy(self, db: &dyn ValidTermDb, substitution: &ValidTermSubstitution) -> Self {
+    fn substitute(self, db: &dyn ValidTermDb, substitution: &ValidTermSubstitution) -> Self {
         match self {
             ValidTerm::Symbol(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
@@ -32,19 +32,15 @@ impl ValidTermRewriteCopy for ValidTerm {
             | ValidTerm::EntityPath(_)
             | ValidTerm::Category(_)
             | ValidTerm::Universe(_) => self,
-            ValidTerm::Curry(valid_term) => valid_term.substitute_copy(db, substitution).into(),
-            ValidTerm::Abstraction(valid_term) => {
-                valid_term.substitute_copy(db, substitution).into()
-            }
-            ValidTerm::Application(valid_term) => {
-                valid_term.substitute_copy(db, substitution).into()
-            }
-            ValidTerm::Subentity(valid_term) => valid_term.substitute_copy(db, substitution).into(),
+            ValidTerm::Curry(valid_term) => valid_term.substitute(db, substitution).into(),
+            ValidTerm::Abstraction(valid_term) => valid_term.substitute(db, substitution).into(),
+            ValidTerm::Application(valid_term) => valid_term.substitute(db, substitution).into(),
+            ValidTerm::Subentity(valid_term) => valid_term.substitute(db, substitution).into(),
             ValidTerm::AsTraitSubentity(valid_term) => {
-                valid_term.substitute_copy(db, substitution).into()
+                valid_term.substitute(db, substitution).into()
             }
             ValidTerm::TraitConstraint(valid_term) => {
-                valid_term.substitute_copy(db, substitution).into()
+                valid_term.substitute(db, substitution).into()
             }
             ValidTerm::Ritchie(_) => todo!(),
         }

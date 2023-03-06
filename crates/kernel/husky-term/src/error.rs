@@ -1,6 +1,7 @@
 use crate::*;
 use husky_entity_path::{EntityPath, EntityPathError};
 use husky_precise_term::PreciseTermError;
+use husky_valid_ty::ValidTypeError;
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -20,6 +21,10 @@ pub enum TermError {
     PreciseTermError(#[from] PreciseTermError),
     #[error("Term Error ← {0}")]
     ValidTermError(#[from] ValidTermError),
+    #[error("Term Error ← {0}")]
+    ValidTypeError(#[from] ValidTypeError),
+    #[error("EntityPathError")]
+    EntityPathError(#[from] EntityPathError),
 }
 
 impl From<&EntityPathError> for TermError {
