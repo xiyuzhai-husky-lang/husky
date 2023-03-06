@@ -5,7 +5,7 @@ pub use self::pattern::*;
 pub use self::term::*;
 
 use husky_expr::ExprIdx;
-use husky_ty::*;
+use husky_term::TermError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -20,12 +20,12 @@ pub enum ExprTypeError {
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]
     UnresolvedTerm,
-    #[error("field type error {0}")]
-    FieldTypeError(OriginalTypeError),
-    #[error("type method type error {0}")]
-    TypeMethodTypeError(OriginalTypeError),
-    #[error("type call type error {0}")]
-    TypeCallTypeError(OriginalTypeError),
+    #[error("field type error")]
+    FieldTypeError,
+    #[error("type method type error")]
+    TypeMethodTypeError,
+    #[error("type call type error")]
+    TypeCallTypeError,
     #[error("TodoScopeResolution")]
     TodoScopeResolution,
     #[error("TodoSuffix")]
@@ -34,18 +34,18 @@ pub enum OriginalExprTypeError {
     TodoBoxColon,
     #[error("final destination")]
     FinalDestination,
-    #[error("form path type error {0}")]
-    FormPathTypeError(OriginalTypeError),
+    #[error("form path type error")]
+    FormPathTypeError,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
     #[error("field type error {0}")]
-    FieldTypeError(DerivedTypeError),
+    FieldTypeError(TermError),
     #[error("type method type error {0}")]
-    TypeMethodTypeError(DerivedTypeError),
+    TypeMethodTypeError(TermError),
     #[error("type call type error {0}")]
-    TypeCallTypeError(DerivedTypeError),
+    TypeCallTypeError(TermError),
     #[error("type info error")]
     TypeInfoError,
     #[error("expr error")]
@@ -73,7 +73,7 @@ pub enum DerivedExprTypeError {
     #[error("term symbol type error")]
     TermSymbolTypeError,
     #[error("type error {0}")]
-    TypeError(#[from] DerivedTypeError),
+    TypeError(#[from] TermError),
     #[error("bracketed item type error")]
     BracketedItemTypeError,
     #[error("current symbol type error")]
@@ -100,7 +100,7 @@ pub enum DerivedExprTypeError {
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
     #[error("form path type error {0}")]
-    FormPathTypeError(DerivedTypeError),
+    FormPathTypeError(TermError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

@@ -116,18 +116,19 @@ impl<'a> ExprTypeEngine<'a> {
                                         Term::EntityPath(TermEntityPath::TypeOntology(f))
                                             if f == ty_path =>
                                         {
-                                            match ty_ontology_path_ty(self.db(), ty_path) {
-                                                Ok(_) => todo!(),
-                                                Err(error) => Some(LocalTermExpectationEffect {
-                                                    result: Err(match error {
-                                                        TypeError::Original(_) => todo!(),
-                                                        TypeError::Derived(error) => LocalTermExpectationError::Derived(
-                                                            DerivedLocalTermExpectationError::TypePathTypeError { ty_path, error }
-                                                        ),
-                                                    }),
-                                                    actions: vec![],
-                                                }),
-                                            }
+                                            todo!()
+                                            // match ty_ontology_path_ty(self.db(), ty_path) {
+                                            //     Ok(_) => todo!(),
+                                            //     Err(error) => Some(LocalTermExpectationEffect {
+                                            //         result: Err(match error {
+                                            //             TypeError::Original(_) => todo!(),
+                                            //             TypeError::Derived(error) => LocalTermExpectationError::Derived(
+                                            //                 DerivedLocalTermExpectationError::TypePathTypeError { ty_path, error }
+                                            //             ),
+                                            //         }),
+                                            //         actions: vec![],
+                                            //     }),
+                                            // }
                                         }
                                         _ => todo!(),
                                     }

@@ -2,7 +2,6 @@ use husky_decl::{DeclDb, DeclJar};
 use husky_print_utils::p;
 use husky_signature::SignatureJar;
 use husky_term::TermJar;
-use husky_ty::ValidTypeJar;
 pub(crate) use husky_vfs::VfsTestUtils;
 
 use crate::*;
@@ -32,7 +31,6 @@ use husky_word::WordJar;
     RawTermJar,
     SignatureJar,
     RawTypeJar,
-    TermJar,
     TermJar,
     DefnJar,
     ExprTypeJar

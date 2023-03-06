@@ -23,7 +23,6 @@ use husky_term::TermJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_token_info::TokenInfoJar;
-use husky_ty::TermJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -43,7 +42,6 @@ use husky_word::WordJar;
     TermPreludeJar,
     RawTermJar,
     RawTypeJar,
-    TermJar,
     TermJar,
     // syntax
     ExprJar,

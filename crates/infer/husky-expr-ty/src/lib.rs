@@ -24,8 +24,7 @@ use husky_entity_tree::*;
 use husky_expr::*;
 use husky_signature::*;
 use husky_term::*;
-use husky_term_prelude::*;
-use husky_ty::*;
+use husky_term_prelude::*; 
 use salsa::DebugWithDb;
 
 #[cfg(test)]
