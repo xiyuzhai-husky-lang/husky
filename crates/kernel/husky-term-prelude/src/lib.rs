@@ -1,3 +1,4 @@
+#![feature(trait_upcasting)]
 mod category;
 mod curry;
 mod db;
@@ -19,7 +20,12 @@ pub use self::universe::*;
 use husky_entity_path::*;
 
 #[salsa::jar(db = TermPreludeDb)]
-pub struct TermPreludeJar(TermInteger128, TermInteger256, TermNaturalNumber);
+pub struct TermPreludeJar(
+    TermInteger128,
+    TermInteger256,
+    TermNaturalNumber,
+    term_ty_path,
+);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermRitchieKind {

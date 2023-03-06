@@ -260,7 +260,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Term::Literal(_) => todo!(),
                     Term::Symbol(_) => todo!(),
                     Term::EntityPath(destination_ty_path) => {
-                        match destination_ty_path.ty_ontology_path() {
+                        match destination_ty_path.ty_ontology() {
                             Some(destination_ty_path) if destination_ty_path == ty_path =>(),
                             Some(destination_ty_path) /* if destination_ty_path!=ty_path */ => {
                                 p!(self.path(), destination_ty_path.debug(self.db()), ty_path.debug(self.db()));

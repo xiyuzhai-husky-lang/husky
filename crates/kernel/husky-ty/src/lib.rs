@@ -10,7 +10,6 @@ mod method;
 mod term;
 #[cfg(test)]
 mod tests;
-mod ty_call;
 
 pub use self::db::*;
 pub use self::entity_path::*;
@@ -22,7 +21,6 @@ use self::field::*;
 use self::method::*;
 #[cfg(test)]
 use self::tests::*;
-use self::ty_call::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_signature::*;

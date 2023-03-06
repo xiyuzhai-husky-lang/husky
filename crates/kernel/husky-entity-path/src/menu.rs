@@ -42,29 +42,38 @@ pub struct EntityPathMenu {
     core_ops_not: TraitPath,
     option_ty_path: TypePath,
     slice_ty_path: TypePath,
+    string_literal_ty_path: TypePath,
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
     list_ty_path: TypePath,
     // prelude
-    unit: TypePath,
-    never: TypePath,
+    unit_ty_path: TypePath,
+    never_ty_path: TypePath,
     bool_ty_path: TypePath,
     i8_ty_path: TypePath,
     i16_ty_path: TypePath,
     i32_ty_path: TypePath,
     i64_ty_path: TypePath,
+    i128_ty_path: TypePath,
+    isize_ty_path: TypePath,
     f32_ty_path: TypePath,
     f64_ty_path: TypePath,
+    r8_ty_path: TypePath,
+    r16_ty_path: TypePath,
     r32_ty_path: TypePath,
     r64_ty_path: TypePath,
+    r128_ty_path: TypePath,
+    rsize_ty_path: TypePath,
     u8_ty_path: TypePath,
     u16_ty_path: TypePath,
     u32_ty_path: TypePath,
     u64_ty_path: TypePath,
+    u128_ty_path: TypePath,
+    usize_ty_path: TypePath,
     trai_ty_path: TypePath,
     lifetime_ty_path: TypePath,
-    module: TypePath,
+    module_ty_path: TypePath,
 }
 
 impl EntityPathMenu {
@@ -80,6 +89,237 @@ impl EntityPathMenu {
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
         let core_vec = path_menu.core_vec();
+        let option_ty_path = TypePath::new(
+            db,
+            core_option,
+            db.it_ident_borrowed("Option").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Enum,
+        );
+        let unit_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.unit(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let never_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.never(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let bool_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.bool(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let i8_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i8(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let i16_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i16(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let i32_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let i64_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let i128_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.i128(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let isize_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.isize(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let u8_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u8(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let u16_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u16(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let u32_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let u64_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let u128_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.u128(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let usize_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.usize(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let r8_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.r8(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let r16_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.r16(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let r32_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.r32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let r64_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.r64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let r128_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.r128(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let rsize_ty_path = TypePath::new(
+            db,
+            core_raw_bits,
+            word_menu.rsize(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let f32_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.f32(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let f64_ty_path = TypePath::new(
+            db,
+            core_num,
+            word_menu.f64(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let lifetime_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.lifetime_ty(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let module_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.module(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let trai_ty_path = TypePath::new(
+            db,
+            core_basic,
+            word_menu.trai_ty(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let ref_ty_path = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("Ref").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let ref_mut_ty_path = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("RefMut").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let list_ty_path = TypePath::new(
+            db,
+            core_vec,
+            db.it_ident_borrowed("List").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let slice_ty_path = TypePath::new(
+            db,
+            core_slice,
+            db.it_ident_borrowed("Slice").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let string_literal_ty_path = TypePath::new(
+            db,
+            core_str,
+            db.it_ident_borrowed("StringLiteral").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
+        let str_ty_path = TypePath::new(
+            db,
+            core_str,
+            db.it_ident_borrowed("str").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
         let core_ops_add = TraitPath::new(
             db,
             core_ops,
@@ -164,175 +404,40 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        let option_ty_path = TypePath::new(
-            db,
-            core_option,
-            db.it_ident_borrowed("Option").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Enum,
-        );
-        let ref_ty_path = TypePath::new(
-            db,
-            core_mem,
-            db.it_ident_borrowed("Ref").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let ref_mut_ty_path = TypePath::new(
-            db,
-            core_mem,
-            db.it_ident_borrowed("RefMut").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let slice_ty_path = TypePath::new(
-            db,
-            core_slice,
-            db.it_ident_borrowed("Slice").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let str_ty_path = TypePath::new(
-            db,
-            core_str,
-            db.it_ident_borrowed("str").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let list_ty = TypePath::new(
-            db,
-            core_vec,
-            db.it_ident_borrowed("List").unwrap(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let i8_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.i8(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let i16_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.i16(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let i32_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.i32(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let i64_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.i64(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let unit = TypePath::new(
-            db,
-            core_basic,
-            word_menu.unit(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let never = TypePath::new(
-            db,
-            core_basic,
-            word_menu.never(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let bool = TypePath::new(
-            db,
-            core_basic,
-            word_menu.bool(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let f32_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.f32(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let f64_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.f64(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let r32_ty_path = TypePath::new(
-            db,
-            core_raw_bits,
-            word_menu.r32(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let r64_ty_path = TypePath::new(
-            db,
-            core_raw_bits,
-            word_menu.r64(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let u8_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.u8(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let u16_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.u16(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let u32_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.u32(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let u64_ty_path = TypePath::new(
-            db,
-            core_num,
-            word_menu.u64(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let trai_ty_path = TypePath::new(
-            db,
-            core_basic,
-            word_menu.trai_ty(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let lifetime = TypePath::new(
-            db,
-            core_basic,
-            word_menu.lifetime_ty(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
-        let module = TypePath::new(
-            db,
-            core_basic,
-            word_menu.module(),
-            ModuleItemConnection::Connected,
-            TypeKind::Extern,
-        );
         Ok(Self {
+            unit_ty_path,
+            never_ty_path,
+            bool_ty_path,
+            i8_ty_path,
+            i16_ty_path,
+            i32_ty_path,
+            i64_ty_path,
+            i128_ty_path,
+            isize_ty_path,
+            r8_ty_path,
+            r16_ty_path,
+            r32_ty_path,
+            r64_ty_path,
+            r128_ty_path,
+            rsize_ty_path,
+            u8_ty_path,
+            u16_ty_path,
+            u32_ty_path,
+            u64_ty_path,
+            u128_ty_path,
+            usize_ty_path,
+            f32_ty_path,
+            f64_ty_path,
+            trai_ty_path,
+            module_ty_path,
+            lifetime_ty_path,
+            option_ty_path,
+            slice_ty_path,
+            string_literal_ty_path,
+            str_ty_path,
+            ref_ty_path,
+            ref_mut_ty_path,
+            list_ty_path,
             core_ops_add,
             core_ops_add_assign,
             core_ops_bit_and,
@@ -347,31 +452,19 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
-            option_ty_path,
-            slice_ty_path,
-            str_ty_path,
-            ref_ty_path,
-            ref_mut_ty_path,
-            list_ty_path: list_ty,
-            unit,
-            never,
-            bool_ty_path: bool,
-            i8_ty_path,
-            i16_ty_path,
-            i32_ty_path,
-            i64_ty_path,
-            f32_ty_path,
-            f64_ty_path,
-            r32_ty_path,
-            r64_ty_path,
-            u8_ty_path,
-            u16_ty_path,
-            u32_ty_path,
-            u64_ty_path,
-            trai_ty_path,
-            module,
-            lifetime_ty_path: lifetime,
         })
+    }
+
+    pub fn unit_ty_path(&self) -> TypePath {
+        self.unit_ty_path
+    }
+
+    pub fn never_ty_path(&self) -> TypePath {
+        self.never_ty_path
+    }
+
+    pub fn bool_ty_path(&self) -> TypePath {
+        self.bool_ty_path
     }
 
     pub fn i8_ty_path(&self) -> TypePath {
@@ -390,20 +483,12 @@ impl EntityPathMenu {
         self.i64_ty_path
     }
 
-    pub fn f32_ty_path(&self) -> TypePath {
-        self.f32_ty_path
+    pub fn i128_ty_path(&self) -> TypePath {
+        self.i128_ty_path
     }
 
-    pub fn f64_ty_path(&self) -> TypePath {
-        self.f64_ty_path
-    }
-
-    pub fn r32_ty_path(&self) -> TypePath {
-        self.r32_ty_path
-    }
-
-    pub fn r64_ty_path(&self) -> TypePath {
-        self.r64_ty_path
+    pub fn isize_ty_path(&self) -> TypePath {
+        self.isize_ty_path
     }
 
     pub fn u8_ty_path(&self) -> TypePath {
@@ -420,6 +505,86 @@ impl EntityPathMenu {
 
     pub fn u64_ty_path(&self) -> TypePath {
         self.u64_ty_path
+    }
+
+    pub fn u128_ty_path(&self) -> TypePath {
+        self.u128_ty_path
+    }
+
+    pub fn usize_ty_path(&self) -> TypePath {
+        self.usize_ty_path
+    }
+
+    pub fn r8_ty_path(&self) -> TypePath {
+        self.r8_ty_path
+    }
+
+    pub fn r16_ty_path(&self) -> TypePath {
+        self.r16_ty_path
+    }
+
+    pub fn r32_ty_path(&self) -> TypePath {
+        self.r32_ty_path
+    }
+
+    pub fn r64_ty_path(&self) -> TypePath {
+        self.r64_ty_path
+    }
+
+    pub fn r128_ty_path(&self) -> TypePath {
+        self.r128_ty_path
+    }
+
+    pub fn rsize_ty_path(&self) -> TypePath {
+        self.rsize_ty_path
+    }
+
+    pub fn f32_ty_path(&self) -> TypePath {
+        self.f32_ty_path
+    }
+
+    pub fn f64_ty_path(&self) -> TypePath {
+        self.f64_ty_path
+    }
+
+    pub fn trai_ty_path(&self) -> TypePath {
+        self.trai_ty_path
+    }
+
+    pub fn module_ty_path(&self) -> TypePath {
+        self.module_ty_path
+    }
+
+    pub fn lifetime_ty_path(&self) -> TypePath {
+        self.lifetime_ty_path
+    }
+
+    pub fn option_ty_path(&self) -> TypePath {
+        self.option_ty_path
+    }
+
+    pub fn slice_ty_path(&self) -> TypePath {
+        self.slice_ty_path
+    }
+
+    pub fn string_literal_ty_path(&self) -> TypePath {
+        self.string_literal_ty_path
+    }
+
+    pub fn str_ty_path(&self) -> TypePath {
+        self.str_ty_path
+    }
+
+    pub fn ref_ty_path(&self) -> TypePath {
+        self.ref_ty_path
+    }
+
+    pub fn ref_mut_ty_path(&self) -> TypePath {
+        self.ref_mut_ty_path
+    }
+
+    pub fn list_ty_path(&self) -> TypePath {
+        self.list_ty_path
     }
 
     pub fn core_ops_add(&self) -> TraitPath {
@@ -476,54 +641,6 @@ impl EntityPathMenu {
 
     pub fn core_ops_not(&self) -> TraitPath {
         self.core_ops_not
-    }
-
-    pub fn option_ty_path(&self) -> TypePath {
-        self.option_ty_path
-    }
-
-    pub fn slice_ty_path(&self) -> TypePath {
-        self.slice_ty_path
-    }
-
-    pub fn str_ty_path(&self) -> TypePath {
-        self.str_ty_path
-    }
-
-    pub fn ref_ty_path(&self) -> TypePath {
-        self.ref_ty_path
-    }
-
-    pub fn ref_mut_ty_path(&self) -> TypePath {
-        self.ref_mut_ty_path
-    }
-
-    pub fn list_ty_path(&self) -> TypePath {
-        self.list_ty_path
-    }
-
-    pub fn trai_ty_path(&self) -> TypePath {
-        self.trai_ty_path
-    }
-
-    pub fn module_ty_path(&self) -> TypePath {
-        self.module
-    }
-
-    pub fn unit(&self) -> TypePath {
-        self.unit
-    }
-
-    pub fn bool_ty_path(&self) -> TypePath {
-        self.bool_ty_path
-    }
-
-    pub fn lifetime_ty_path(&self) -> TypePath {
-        self.lifetime_ty_path
-    }
-
-    pub fn never(&self) -> TypePath {
-        self.never
     }
 }
 

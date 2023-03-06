@@ -6,15 +6,6 @@ use husky_precise_term::PreciseTermDb;
 use husky_precise_ty::PreciseTypeDb;
 use salsa::DbWithJar;
 
-pub trait ValidTermDb: DbWithJar<ValidTermJar> + PreciseTypeDb {
-    fn valid_term_menu(&self, toolchain: Toolchain) -> &ValidTermResult<ValidTermMenu>;
-}
+pub trait ValidTermDb: DbWithJar<ValidTermJar> + PreciseTypeDb {}
 
-impl<Db> ValidTermDb for Db
-where
-    Db: DbWithJar<ValidTermJar> + PreciseTypeDb,
-{
-    fn valid_term_menu(&self, toolchain: Toolchain) -> &ValidTermResult<ValidTermMenu> {
-        valid_term_menu(self, toolchain)
-    }
-}
+impl<Db> ValidTermDb for Db where Db: DbWithJar<ValidTermJar> + PreciseTypeDb {}

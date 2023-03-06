@@ -9,7 +9,7 @@ pub(crate) fn field_ty(
         Term::Literal(_) => unreachable!(),
         Term::Symbol(_) => Ok(None),
         Term::EntityPath(path) => {
-            entity_ty_field_ty(db, path.ty_ontology_path().expect("should be type"), ident)
+            entity_ty_field_ty(db, path.ty_ontology().expect("should be type"), ident)
         }
         Term::Category(_) => Ok(None),
         Term::Universe(_) => unreachable!(),
@@ -46,7 +46,7 @@ pub(crate) fn application_ty_field_ty(
         Term::Symbol(_) => todo!(),
         Term::EntityPath(path) => entity_application_ty_field_ty(
             db,
-            path.ty_ontology_path().expect("should be type"),
+            path.ty_ontology().expect("should be type"),
             application_expansion.opt_arguments(db).unwrap(),
             ident,
         ),
