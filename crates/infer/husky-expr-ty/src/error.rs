@@ -16,6 +16,12 @@ pub enum ExprTypeError {
     Derived(#[from] DerivedExprTypeError),
 }
 
+impl From<TermError> for ExprTypeError {
+    fn from(e: TermError) -> Self {
+        ExprTypeError::Derived(e.into())
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]

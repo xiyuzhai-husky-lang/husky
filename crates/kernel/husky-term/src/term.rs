@@ -186,7 +186,25 @@ impl Term {
     }
 
     fn reduce(self, db: &dyn TermDb) -> Self {
-        todo!()
+        match self {
+            Term::Literal(_)
+            | Term::Symbol(_)
+            | Term::EntityPath(
+                TermEntityPath::Trait(_)
+                | TermEntityPath::TypeOntology(_)
+                | TermEntityPath::TypeConstructor(_),
+            )
+            | Term::Category(_)
+            | Term::Universe(_) => self,
+            Term::EntityPath(_) => todo!(),
+            Term::Curry(_) => todo!(),
+            Term::Ritchie(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(term) => term.reduce(db),
+            Term::Subentity(_) => todo!(),
+            Term::AsTraitSubentity(_) => todo!(),
+            Term::TraitConstraint(_) => todo!(),
+        }
     }
 
     pub fn substitute(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {
@@ -255,11 +273,9 @@ impl Term {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self {
-            Term::Literal(term) => todo!(),
-            //  term.show_with_db_fmt(f, db),
+            Term::Literal(term) => term.show_with_db_fmt(f, db),
             Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::EntityPath(term) => todo!(),
-            // term.show_with_db_fmt(f, db),
+            Term::EntityPath(term) => term.show_with_db_fmt(f, db),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),
             Term::Curry(term) => term.show_with_db_fmt(f, db, ctx),
