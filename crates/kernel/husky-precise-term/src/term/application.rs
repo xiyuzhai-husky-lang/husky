@@ -30,6 +30,10 @@ impl PreciseTermApplication {
         precise_term_application_from_raw(db, raw_term, raw_ty_expectation)
     }
 
+    pub(crate) fn raw_ty(self, db: &dyn PreciseTermDb) -> PreciseTermResult<RawTerm> {
+        precise_term_application_raw_ty(db, self)
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -53,11 +57,11 @@ pub(crate) fn precise_term_application_from_raw(
     let argument =
         PreciseTerm::from_raw(db, raw_term_application.argument(db), raw_ty_expectation)?;
     let function_raw_ty = match function.raw_ty(db)? {
-        RawTerm::Curry(function_raw_ty) => function_raw_ty,
+        Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
     let argument_ty_total_number_of_curry_parameters =
-        argument.raw_ty(db)?.total_number_of_curry_parameters(db);
+        argument.ty_total_number_of_curry_parameters(db)?;
     let function_input_ty_total_number_of_curry_parameters = function_raw_ty
         .input_ty(db)
         .total_number_of_curry_parameters(db);
@@ -69,6 +73,14 @@ pub(crate) fn precise_term_application_from_raw(
     let shift = argument_ty_total_number_of_curry_parameters
         - function_input_ty_total_number_of_curry_parameters;
     Ok(PreciseTermApplication::new(db, function, argument, shift))
+}
+
+#[salsa::tracked(jar = PreciseTermJar)]
+pub(crate) fn precise_term_application_raw_ty(
+    db: &dyn PreciseTermDb,
+    precise_term_application: PreciseTermApplication,
+) -> PreciseTermResult<RawTerm> {
+    todo!()
 }
 
 impl<Db: PreciseTermDb + ?Sized> salsa::DisplayWithDb<Db> for PreciseTermApplication {

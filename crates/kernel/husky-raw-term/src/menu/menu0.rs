@@ -66,8 +66,8 @@ impl RawTermMenu0 {
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         RawTermMenu0 {
-            eval_lifetime: RawTermLiteral::EvalLifetime,
-            static_lifetime: RawTermLiteral::StaticLifetime,
+            eval_lifetime: TermLiteral::EvalLifetime.into(),
+            static_lifetime: TermLiteral::StaticLifetime.into(),
             universe0,
             universe1,
             prop: TermCategory::new(universe0),

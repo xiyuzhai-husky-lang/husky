@@ -17,6 +17,7 @@ pub use self::error::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
+use either::*;
 use husky_entity_path::EntityPath;
 use husky_print_utils::p;
 use husky_raw_term::*;
@@ -33,6 +34,7 @@ pub struct PreciseTermJar(
     PreciseTermAbstraction,
     PreciseTermApplication,
     precise_term_application_from_raw,
+    precise_term_application_raw_ty,
     PreciseTermSubentity,
     PreciseTermAsTraitSubentity,
     PreciseTermTraitConstraint,

@@ -67,7 +67,16 @@ pub enum ValidTerm {
 impl ValidTerm {
     pub fn from_precise(db: &dyn PreciseTermDb, precise_term: PreciseTerm) -> Self {
         match precise_term {
-            PreciseTerm::Literal(precise_term) => precise_term.into(),
+            PreciseTerm::Literal(literal) => literal.into(),
+            // match raw_ty_expectation {
+            //     TermTypeExpectation::FinalDestinationEqsSort => todo!(),
+            //     TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty) => {
+            //         if ty.prelude_ty_path(db)? != Some(literal.ty()) {
+            //             todo!()
+            //         }
+            //     }
+            //     TermTypeExpectation::Any => (),
+            // }
             PreciseTerm::Symbol(precise_term) => {
                 ValidTermSymbol::from_precise(db, precise_term).into()
             }

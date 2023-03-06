@@ -20,6 +20,8 @@ pub enum PreciseTermError {
     RawTypeError(#[from] RawTypeError),
     #[error("ExpectationNotMatchedForCurry")]
     ExpectationNotMatchedForCurry,
+    #[error("EntityPathError")]
+    EntityPathError(#[from] EntityPathError),
 }
 
 impl From<&EntityPathError> for PreciseTermError {
