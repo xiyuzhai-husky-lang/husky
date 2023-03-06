@@ -9,7 +9,7 @@ pub struct TermSubentity {
 
 impl TermSubentity {
     #[inline(always)]
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn TermDb,
         valid_term: RawTermSubentity,
         term_ty_expectation: TermTypeExpectation,

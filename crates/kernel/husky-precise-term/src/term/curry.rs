@@ -15,7 +15,7 @@ pub struct RawTermCurry {
 }
 
 impl RawTermCurry {
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn RawTermDb,
         raw_term_curry: RawTermCurry,
         raw_ty_expectation: TermTypeExpectation,
@@ -61,13 +61,15 @@ pub(crate) fn precise_term_curry_from_raw(
     db: &dyn RawTermDb,
     raw_term_curry: RawTermCurry,
 ) -> RawTermResult<RawTermCurry> {
-    let t = |raw_ty| RawTerm::from_raw(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
+    let t = |raw_ty| {
+        RawTerm::from_raw_unchecked(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)
+    };
     Ok(RawTermCurry::new(
         db,
         raw_term_curry.curry_kind(db),
         raw_term_curry.variance(db),
         match raw_term_curry.parameter_symbol(db) {
-            Some(parameter_symbol) => Some(RawTermSymbol::from_raw(
+            Some(parameter_symbol) => Some(RawTermSymbol::from_raw_unchecked(
                 db,
                 parameter_symbol,
                 TermTypeExpectation::Any,

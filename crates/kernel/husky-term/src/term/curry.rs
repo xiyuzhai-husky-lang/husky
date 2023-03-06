@@ -3,7 +3,7 @@ pub use context::*;
 use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = TermDb, jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar, constructor = pub(crate) new)]
 pub struct TermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
@@ -16,12 +16,8 @@ pub struct TermCurry {
 }
 
 impl TermCurry {
-    pub fn from_raw(
-        db: &dyn TermDb,
-        valid_term: RawTermCurry,
-        term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
-        todo!()
+    pub fn from_raw_unchecked(db: &dyn TermDb, raw_term_curry: RawTermCurry) -> TermResult<Self> {
+        term_curry_from_raw_unchecked(db, raw_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -53,6 +49,26 @@ impl TermCurry {
     pub fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
         todo!()
     }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_curry_from_raw_unchecked(
+    db: &dyn TermDb,
+    raw_term_curry: RawTermCurry,
+) -> TermResult<TermCurry> {
+    let t =
+        |raw_ty| Term::from_raw_unchecked(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort);
+    Ok(TermCurry::new(
+        db,
+        raw_term_curry.curry_kind(db),
+        raw_term_curry.variance(db),
+        match raw_term_curry.parameter_symbol(db) {
+            Some(parameter_symbol) => Some(TermSymbol::from_raw_unchecked(db, parameter_symbol)?),
+            None => None,
+        },
+        t(raw_term_curry.parameter_ty(db))?,
+        t(raw_term_curry.return_ty(db))?,
+    ))
 }
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {

@@ -42,7 +42,7 @@ impl TermApplication {
     }
 
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    pub fn from_raw(
+    pub fn from_raw_unchecked(
         db: &dyn TermDb,
         valid_term: RawTermApplication,
         term_ty_expectation: TermTypeExpectation,
