@@ -15,18 +15,18 @@ impl<'a> ExprTypeEngine<'a> {
         ) {
             Some(function_ty_outcome) => match function_ty_outcome.variant {
                 ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                    input_symbol,
-                    input_ty,
+                    parameter_symbol,
+                    parameter_ty,
                     return_ty,
                 } => {
                     self.infer_new_expr_ty_discarded(
                         argument,
                         ExpectImplicitlyConvertible {
-                            destination: input_ty,
+                            destination: parameter_ty,
                         },
                         local_term_region,
                     );
-                    match input_symbol {
+                    match parameter_symbol {
                         Some(_) => todo!(),
                         None => Ok(return_ty),
                     }

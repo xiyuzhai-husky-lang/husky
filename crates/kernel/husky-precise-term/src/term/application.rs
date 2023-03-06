@@ -62,16 +62,16 @@ pub(crate) fn precise_term_application_from_raw(
     };
     let argument_ty_total_number_of_curry_parameters =
         argument.ty_total_number_of_curry_parameters(db)?;
-    let function_input_ty_total_number_of_curry_parameters = function_raw_ty
-        .input_ty(db)
+    let function_parameter_ty_total_number_of_curry_parameters = function_raw_ty
+        .parameter_ty(db)
         .total_number_of_curry_parameters(db);
     if argument_ty_total_number_of_curry_parameters
-        < function_input_ty_total_number_of_curry_parameters
+        < function_parameter_ty_total_number_of_curry_parameters
     {
         todo!()
     }
     let shift = argument_ty_total_number_of_curry_parameters
-        - function_input_ty_total_number_of_curry_parameters;
+        - function_parameter_ty_total_number_of_curry_parameters;
     Ok(PreciseTermApplication::new(db, function, argument, shift))
 }
 
@@ -88,8 +88,8 @@ pub(crate) fn precise_term_application_raw_ty(
     };
     Ok(match argument.raw_ty(db)? {
         Left(argument_raw_ty) => todo!(),
-        Right(_) => match function_raw_ty.input_symbol(db) {
-            Some(function_raw_ty_input_symbol) => todo!(),
+        Right(_) => match function_raw_ty.parameter_symbol(db) {
+            Some(function_raw_ty_parameter_symbol) => todo!(),
             None => function_raw_ty.return_ty(db),
         },
     })

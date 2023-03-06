@@ -45,8 +45,8 @@ pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
         parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
     },
     Curry {
-        input_symbol: Option<LocalTerm>,
-        input_ty: LocalTerm,
+        parameter_symbol: Option<LocalTerm>,
+        parameter_ty: LocalTerm,
         return_ty: LocalTerm,
     },
 }
@@ -151,24 +151,25 @@ impl<'a> ExprTypeEngine<'a> {
                     implicit_parameter_substitutions: vec![],
                     return_ty: expectee.return_ty(db).into(),
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Curry {
-                        input_symbol: expectee.input_symbol(db).map(Into::into),
-                        input_ty: expectee.input_ty(db).into(),
+                        parameter_symbol: expectee.parameter_symbol(db).map(Into::into),
+                        parameter_ty: expectee.parameter_ty(db).into(),
                         return_ty: expectee.return_ty(db).into(),
                     },
                 }
                 .into()),
                 actions: vec![],
             }),
-            CurryKind::Implicit => match expectee.input_symbol(db) {
-                Some(input_symbol) => {
-                    let implicit_symbol = unresolved_terms.new_implicit_symbol_from_input_symbol(
-                        self.db(),
-                        src_expr_idx,
-                        input_symbol,
-                    );
+            CurryKind::Implicit => match expectee.parameter_symbol(db) {
+                Some(parameter_symbol) => {
+                    let implicit_symbol = unresolved_terms
+                        .new_implicit_symbol_from_parameter_symbol(
+                            self.db(),
+                            src_expr_idx,
+                            parameter_symbol,
+                        );
                     let mut implicit_parameter_substitutions =
                         vec![ImplicitParameterSubstitution::new(
-                            input_symbol,
+                            parameter_symbol,
                             implicit_symbol,
                         )];
                     let expectee = expectee.return_ty(self.db());

@@ -69,11 +69,11 @@ pub(crate) fn raw_term_curry_symbols(
     db: &dyn RawTypeDb,
     raw_term: RawTermCurry,
 ) -> Option<RawTermSymbols> {
-    let input_ty_symbols = calc_raw_term_symbols(db, raw_term.input_ty(db));
+    let parameter_ty_symbols = calc_raw_term_symbols(db, raw_term.parameter_ty(db));
     let return_ty_symbols = calc_raw_term_symbols(db, raw_term.return_ty(db));
     RawTermSymbols::merge(
-        input_ty_symbols,
-        RawTermSymbols::remove(return_ty_symbols, raw_term.input_symbol(db)),
+        parameter_ty_symbols,
+        RawTermSymbols::remove(return_ty_symbols, raw_term.parameter_symbol(db)),
     )
 }
 
