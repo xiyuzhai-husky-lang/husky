@@ -43,13 +43,18 @@ pub struct TermJar(
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
+    // total_number_of_curry_parameters,
     // ritchie
     TermRitchie,
     TermAbstraction,
     // application
     TermApplication,
     application_expansion_salsa,
-    term_from_raw_application,
+    term_uncheck_from_raw_term_application,
+    term_application_raw_ty,
+    // application reduction
+    reduce_term_application,
+    // application expansion
     ApplicationArguments,
     // subentity
     TermSubentity,
