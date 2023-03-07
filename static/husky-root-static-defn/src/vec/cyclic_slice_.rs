@@ -6,7 +6,7 @@ pub static VEC_CYCLIC_SLICE: EntityStaticDefn = EntityStaticDefn {
     name: "cyclic_slice",
     items: &[],
     variant: EntityStaticDefnVariant::Method {
-        this_modifier: ParameterModifier::EvalRef,
+        this_modifier: ParameterModifier::Leash,
         parameters: &[
             StaticParameter {
                 name: "start",

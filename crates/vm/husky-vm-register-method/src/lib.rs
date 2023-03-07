@@ -17,10 +17,10 @@ impl<'eval> VMRegisterMethodX<'eval> for __Register<'eval> {
             )
         }
         match field_binding {
-            Binding::EvalRef => match self.data_kind() {
+            Binding::Leash => match self.data_kind() {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => {
+                __RegisterDataKind::Leash => {
                     let this_value: &'eval DeprecatedVirtualStruct =
                         self.downcast_eval_ref(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE);
                     this_value.bind_field_eval_ref(field_idx)

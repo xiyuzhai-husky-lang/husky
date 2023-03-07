@@ -38,7 +38,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::Owned => todo!(),
     //             ParameterModifier::OwnedMut => todo!(),
     //             ParameterModifier::MemberAccess => panic!(),
-    //             ParameterModifier::EvalRef => {
+    //             ParameterModifier::Leash => {
     //                 self.write(&format!(
     //                     r#"
     //                 let __this: "#
@@ -119,8 +119,8 @@ impl<'a> RustCodeGenerator<'a> {
     //             RegMemoryKind::BoxCopyable => todo!(),
     //             RegMemoryKind::BoxNonCopyable => todo!(),
     //         },
-    //         CanonicalTyKind::EvalRef => todo!(),
-    //         CanonicalTyKind::OptionalEvalRef => {
+    //         CanonicalTyKind::Leash => todo!(),
+    //         CanonicalTyKind::OptionalLeash => {
     //             self.write("__Register::new_opt_eval_ref::<");
     //             self.gen_entity_route(canonical_return_ty.intrinsic_ty(), EntityRouteRole::Decl);
     //             self.write(">(");
@@ -297,7 +297,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::Owned => todo!(),
     //             ParameterModifier::OwnedMut => todo!(),
     //             ParameterModifier::MemberAccess => todo!(),
-    //             ParameterModifier::EvalRef => self.write("&'static "),
+    //             ParameterModifier::Leash => self.write("&'static "),
     //             ParameterModifier::TempRef => todo!(),
     //             ParameterModifier::TempRefMut => self.write("&'static mut "),
     //         }
@@ -319,7 +319,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::Owned => (),
     //             ParameterModifier::OwnedMut => todo!(),
     //             ParameterModifier::MemberAccess => todo!(),
-    //             ParameterModifier::EvalRef => {
+    //             ParameterModifier::Leash => {
     //                 assert!(!parameter.ty().is_eval_ref());
     //                 self.write("&'static ")
     //             }
@@ -343,7 +343,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::Owned => (),
     //             ParameterModifier::OwnedMut => todo!(),
     //             ParameterModifier::MemberAccess => todo!(),
-    //             ParameterModifier::EvalRef => self.write("&'static "),
+    //             ParameterModifier::Leash => self.write("&'static "),
     //             ParameterModifier::TempRef => todo!(),
     //             ParameterModifier::TempRefMut => todo!(),
     //         }

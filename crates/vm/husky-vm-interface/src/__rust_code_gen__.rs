@@ -78,7 +78,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_void,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const void),
@@ -94,7 +94,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_void),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const void)),
@@ -179,7 +179,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_bool,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const bool),
@@ -195,7 +195,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_bool),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const bool)),
@@ -280,7 +280,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i32,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const i32),
@@ -296,7 +296,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i32),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i32)),
@@ -381,7 +381,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_i64,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const i64),
@@ -397,7 +397,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_i64),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const i64)),
@@ -482,7 +482,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_r32,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const r32),
@@ -498,7 +498,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_r32),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const r32)),
@@ -583,7 +583,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_b64,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const b64),
@@ -599,7 +599,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_b64),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const b64)),
@@ -684,7 +684,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_not_nan_f32.into_inner(),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const f32),
@@ -700,7 +700,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_not_nan_f32.into_inner()),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f32)),
@@ -785,7 +785,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.data.as_f64,
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const f64),
@@ -801,7 +801,7 @@ impl<'eval> __Register<'eval> {
             }
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_f64),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const f64)),

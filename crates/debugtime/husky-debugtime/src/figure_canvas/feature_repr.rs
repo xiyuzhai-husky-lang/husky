@@ -204,7 +204,7 @@ impl HuskyDevtime {
         Ok(match value.data_kind() {
             __RegisterDataKind::PrimitiveValue
             | __RegisterDataKind::Box
-            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Leash
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::TempMut
             | __RegisterDataKind::SomeNone => true,

@@ -186,7 +186,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                     &__DEPRECATED_VIRTUAL_STRUCT_VTABLE as *const _
                 );
                 match field_binding {
-                    Binding::EvalRef => todo!(),
+                    Binding::Leash => todo!(),
                     Binding::TempRef => todo!(),
                     Binding::TempMut => todo!(),
                     Binding::Move => todo!(),

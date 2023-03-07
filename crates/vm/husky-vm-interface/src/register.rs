@@ -152,7 +152,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::PrimitiveValue => unsafe {
                 &*(&self.data as *const _ as *const c_void)
             },
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => unsafe {
+            __RegisterDataKind::Box | __RegisterDataKind::Leash | __RegisterDataKind::TempRef => unsafe {
                 &*self.data.as_ptr
             },
             __RegisterDataKind::TempMut => todo!(),
@@ -217,7 +217,7 @@ impl<'eval> __Register<'eval> {
     ) -> __Register<'eval> {
         let ptr: *const T = value;
         __Register {
-            data_kind: __RegisterDataKind::EvalRef,
+            data_kind: __RegisterDataKind::Leash,
             data: __RegisterData {
                 as_ptr: ptr as *mut c_void,
             },
@@ -350,7 +350,7 @@ impl<'eval> __Register<'eval> {
         //     data: match self.data_kind {
         //         __RegisterDataKind::Data => todo!(),
         //         __RegisterDataKind::Box => todo!(),
-        //         __RegisterDataKind::EvalRef => todo!(),
+        //         __RegisterDataKind::Leash => todo!(),
         //         __RegisterDataKind::TempRef => todo!(),
         //         __RegisterDataKind::TempMut => todo!(),
         //         __RegisterDataKind::Moved => todo!(),
@@ -399,7 +399,7 @@ impl<'eval> __Register<'eval> {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => &*(self.data.as_ptr as *const T),
+                __RegisterDataKind::Leash => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::TempRef => panic!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
@@ -420,7 +420,7 @@ impl<'eval> __Register<'eval> {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box => todo!(),
-                __RegisterDataKind::EvalRef => Some(&*(self.data.as_ptr as *const T)),
+                __RegisterDataKind::Leash => Some(&*(self.data.as_ptr as *const T)),
                 __RegisterDataKind::TempRef => todo!(),
                 __RegisterDataKind::TempMut => todo!(),
                 __RegisterDataKind::Moved => todo!(),
@@ -444,7 +444,7 @@ impl<'eval> __Register<'eval> {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box
-                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::Moved => todo!(),
@@ -469,7 +469,7 @@ impl<'eval> __Register<'eval> {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => todo!(),
                 __RegisterDataKind::Box
-                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut => &*(self.data.as_ptr as *const T),
                 __RegisterDataKind::Moved => todo!(),
@@ -486,7 +486,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => &mut *(&mut self.data as *mut _ as *mut T),
             __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::Leash => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => &mut *(self.data.as_ptr as *mut T),
             __RegisterDataKind::Moved => todo!(),
@@ -504,7 +504,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind() {
             __RegisterDataKind::PrimitiveValue
             | __RegisterDataKind::Box
-            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Leash
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::TempMut => true,
             __RegisterDataKind::SomeNone => self.number_of_somes_before_none() > 0,
@@ -554,7 +554,7 @@ impl<'eval> __Register<'eval> {
 pub enum __RegisterDataKind {
     PrimitiveValue,
     Box,
-    EvalRef,
+    Leash,
     TempRef,
     TempMut,
     Moved,
@@ -585,10 +585,10 @@ macro_rules! register_new_copyable {
     (Optional, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         ($argument).to_register()
     }};
-    (EvalRef, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Leash, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
-    (OptionalEvalRef, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalLeash, Direct, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
     (Intrinsic, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
@@ -597,10 +597,10 @@ macro_rules! register_new_copyable {
     (Optional, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         __Register::new_opt_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
-    (EvalRef, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Leash, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
-    (OptionalEvalRef, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalLeash, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()
     }};
     (Intrinsic, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
@@ -609,10 +609,10 @@ macro_rules! register_new_copyable {
     (Optional, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
-    (EvalRef, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (Leash, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
-    (OptionalEvalRef, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
+    (OptionalLeash, BoxNonCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         panic!("register_new_copyable invalid")
     }};
 }

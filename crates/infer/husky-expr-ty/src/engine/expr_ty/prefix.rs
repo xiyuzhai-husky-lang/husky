@@ -48,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
                 // here we differs from Rust, but agrees with C
                 Ok(self.term_menu.bool().into())
             }
-            PrefixOpr::BitNotOrEvalRef => {
+            PrefixOpr::BitNotOrLeash => {
                 match self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region) {
                     Some(opd_ty) => todo!(),
                     None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),

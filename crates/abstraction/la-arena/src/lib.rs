@@ -84,7 +84,7 @@ impl<T> fmt::Debug for Idx<T> {
 
 impl<T> Idx<T> {
     /// Creates a new index from a [`RawIdx`].
-    pub fn from_raw_unchecked(raw: RawIdx) -> Self {
+    pub(crate) fn from_raw_unchecked(raw: RawIdx) -> Self {
         Idx {
             raw,
             _ty: PhantomData,

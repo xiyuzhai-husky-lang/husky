@@ -16,7 +16,10 @@ pub struct TermCurry {
 }
 
 impl TermCurry {
-    pub fn from_raw_unchecked(db: &dyn TermDb, raw_term_curry: RawTermCurry) -> TermResult<Self> {
+    pub(crate) fn from_raw_unchecked(
+        db: &dyn TermDb,
+        raw_term_curry: RawTermCurry,
+    ) -> TermResult<Self> {
         term_curry_from_raw_unchecked(db, raw_term_curry)
     }
 

@@ -76,7 +76,7 @@ macro_rules! field_eval_ref_fp {
         }
     }};
     (
-        EvalRef,
+        Leash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
@@ -97,7 +97,7 @@ macro_rules! field_eval_ref_fp {
         }
     }};
     (
-        OptionalEvalRef,
+        OptionalLeash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
@@ -144,7 +144,7 @@ macro_rules! field_temp_ref_fp {
         }
     }};
     (
-        EvalRef,
+        Leash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
@@ -189,7 +189,7 @@ macro_rules! field_temp_ref_fp {
         }
     }};
     (
-        OptionalEvalRef,
+        OptionalLeash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
@@ -263,7 +263,7 @@ macro_rules! field_temp_mut_fp {
     }};
     (
         mutable,
-        EvalRef,
+        Leash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
@@ -360,7 +360,7 @@ macro_rules! field_move_fp {
         }
     }};
     (
-        EvalRef,
+        Leash,
         $Type: ty, $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
         $FIELD_TY_VTABLE: expr,
@@ -379,7 +379,7 @@ macro_rules! field_move_fp {
         }
     }};
     (
-        OptionalEvalRef,
+        OptionalLeash,
         $Type: ty, $TYPE_VTABLE: expr,
         $INTRINSIC_FIELD_TY: ty,
         $FIELD_TY_VTABLE: expr,

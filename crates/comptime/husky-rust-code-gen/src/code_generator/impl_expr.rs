@@ -160,7 +160,7 @@ impl<'a> RustCodeGenerator<'a> {
                     //         self.write(")");
                     //     }
                     //     OutputModifier::MemberAccess { .. } => match output_binding {
-                    //         Binding::EvalRef | Binding::TempRef => {
+                    //         Binding::Leash | Binding::TempRef => {
                     //             self.gen_expr(indent, &opds[0]);
                     //             self.write(".");
                     //             self.write(&method_ident.ident);
@@ -424,7 +424,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 }
     //             ));
     //         }
-    //         EagerExprQualifier::EvalRef => {
+    //         EagerExprQualifier::Leash => {
     //             self.write(
     //                 r#"__ctx
     //     .cache_feature(
@@ -478,7 +478,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 }
     //             ));
     //         }
-    //         EagerExprQualifier::EvalRef => {
+    //         EagerExprQualifier::Leash => {
     //             self.write(format!(
     //                 r#"__ctx.cache_lazy_field(
     //     self as *const _ as *const std::ffi::c_void,
@@ -519,7 +519,7 @@ impl<'a> RustCodeGenerator<'a> {
 
     // pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
     //     match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
-    //         Binding::EvalRef | Binding::TempRef => {
+    //         Binding::Leash | Binding::TempRef => {
     //             if expr.qualified_ty.option_level() == 0 {
     //                 self.write("&")
     //             }

@@ -94,7 +94,7 @@ impl HuskyDataViewer {
                 let ilen = ilen
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
                     .downcast_i32();
-                let index = index.bind(Binding::EvalRef);
+                let index = index.bind(Binding::Leash);
                 (0, ilen, index)
             }
             HuskyDataViewer::CyclicSlice {
@@ -106,7 +106,7 @@ impl HuskyDataViewer {
                 let end = end
                     .call(None, &mut vec![value.temp_bind_eval_ref()])
                     .downcast_i32();
-                let index = index.bind(Binding::EvalRef);
+                let index = index.bind(Binding::Leash);
                 (start, end, index)
             }
         };

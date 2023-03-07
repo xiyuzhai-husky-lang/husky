@@ -42,6 +42,7 @@ pub struct RawTermMenu0 {
     slice_ty_path: RawTerm,
     str_ty_path: RawTerm,
     ref_ty_path: RawTerm,
+    leash_ty_path: RawTermEntityPath,
     list_ty: RawTerm,
     i8: RawTerm,
     i16: RawTerm,
@@ -103,6 +104,7 @@ impl RawTermMenu0 {
             never: RawTermEntityPath::Type(entity_path_menu.never_ty_path()).into(),
             bool: RawTermEntityPath::Type(entity_path_menu.bool_ty_path()).into(),
             trai_ty: RawTermEntityPath::Type(entity_path_menu.trai_ty_path()).into(),
+            leash_ty_path: entity_path_menu.leash_ty_path().into(),
             lifetime_ty: RawTermEntityPath::Type(entity_path_menu.lifetime_ty_path()).into(),
             module: RawTermEntityPath::Type(entity_path_menu.module_ty_path()).into(),
             i8: RawTermEntityPath::Type(entity_path_menu.i8_ty_path()).into(),
@@ -221,6 +223,10 @@ impl RawTermMenu0 {
 
     pub fn ref_ty_path(&self) -> RawTerm {
         self.ref_ty_path
+    }
+
+    pub fn leash_ty_path(&self) -> RawTermEntityPath {
+        self.leash_ty_path
     }
 
     pub fn list(&self) -> RawTerm {

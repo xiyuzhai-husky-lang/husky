@@ -69,7 +69,15 @@ pub enum Term {
 }
 
 impl Term {
-    pub fn from_raw_unchecked(
+    pub fn from_raw(
+        db: &dyn TermDb,
+        raw_term: RawTerm,
+        term_ty_expectation: TermTypeExpectation,
+    ) -> TermResult<Self> {
+        todo!()
+    }
+
+    pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term: RawTerm,
         term_ty_expectation: TermTypeExpectation,
@@ -120,7 +128,19 @@ impl Term {
             RawTerm::TraitConstraint(raw_term) => {
                 TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
-            RawTerm::BitNotOrEvalRef => todo!(),
+            RawTerm::AmbiguousTypePath(_) => match term_ty_expectation {
+                TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => {
+                    todo!()
+                }
+                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
+                    match path.prelude_ty_path(db)? {
+                        Some(PreludeTypePath::I8 | PreludeTypePath::I8 | PreludeTypePath::I8) => {
+                            todo!()
+                        }
+                        Some(_) | None => todo!(),
+                    }
+                }
+            },
         })
     }
 

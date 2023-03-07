@@ -111,9 +111,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Punctuation::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
                 Punctuation::Exclamation => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Not),
                 Punctuation::DoubleVertical => todo!(),
-                Punctuation::Tilde => {
-                    ResolvedToken::PrefixOpr(token_idx, PrefixOpr::BitNotOrEvalRef)
-                }
+                Punctuation::Tilde => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::BitNotOrLeash),
                 Punctuation::Dot => ResolvedToken::Dot(token_idx),
                 Punctuation::Colon => match self.last_unfinished_expr() {
                     Some(UnfinishedExpr::List {

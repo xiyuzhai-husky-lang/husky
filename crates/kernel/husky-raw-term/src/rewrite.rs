@@ -32,7 +32,7 @@ impl RawTermRewriteCopy for RawTerm {
             | RawTerm::EntityPath(_)
             | RawTerm::Category(_)
             | RawTerm::Universe(_)
-            | RawTerm::BitNotOrEvalRef => self,
+            | RawTerm::AmbiguousTypePath(_) => self,
             RawTerm::Curry(term) => term.substitute(db, substitution).into(),
             RawTerm::Abstraction(term) => term.substitute(db, substitution).into(),
             RawTerm::Application(term) => term.substitute(db, substitution).into(),

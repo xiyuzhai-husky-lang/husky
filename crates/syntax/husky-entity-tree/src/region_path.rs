@@ -16,6 +16,10 @@ impl RegionPath {
             RegionPath::Defn(path) => path.module_path(db),
         }
     }
+
+    pub fn toolchain(self, db: &dyn EntityTreeDb) -> Toolchain {
+        self.module_path(db).toolchain(db)
+    }
 }
 
 impl From<DefnRegionPath> for RegionPath {

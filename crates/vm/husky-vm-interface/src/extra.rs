@@ -19,7 +19,7 @@ impl<'eval> __Register<'eval> {
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue
-                | __RegisterDataKind::EvalRef
+                | __RegisterDataKind::Leash
                 | __RegisterDataKind::SomeNone => self.verbatim_copy(),
                 __RegisterDataKind::Box
                 | __RegisterDataKind::TempRef
@@ -57,7 +57,7 @@ impl<'eval> __Register<'eval> {
                 vtable: self.vtable,
             },
             __RegisterDataKind::Box => self.clone(),
-            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::Leash => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -70,7 +70,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => unsafe { self.verbatim_copy() },
             __RegisterDataKind::Box => std::mem::replace(self, __Register::new_moved(self.vtable)),
-            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::Leash => todo!(),
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -82,8 +82,8 @@ impl<'eval> __Register<'eval> {
     pub fn eval_bind_eval_ref(&'eval self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
-                data_kind: __RegisterDataKind::EvalRef,
+            __RegisterDataKind::Box | __RegisterDataKind::Leash => __Register {
+                data_kind: __RegisterDataKind::Leash,
                 data: self.data,
                 vtable: self.vtable,
             },
@@ -99,7 +99,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box => todo!(),
-            __RegisterDataKind::EvalRef => unsafe { self.verbatim_copy() },
+            __RegisterDataKind::Leash => unsafe { self.verbatim_copy() },
             __RegisterDataKind::TempRef => todo!(),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -117,7 +117,7 @@ impl<'eval> __Register<'eval> {
                 },
                 vtable: self.vtable,
             },
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef | __RegisterDataKind::TempRef => {
+            __RegisterDataKind::Box | __RegisterDataKind::Leash | __RegisterDataKind::TempRef => {
                 __Register {
                     data_kind: __RegisterDataKind::TempRef,
                     data: self.data,
@@ -155,7 +155,7 @@ impl<'eval> __Register<'eval> {
                 data: self.data,
                 vtable: self.vtable,
             },
-            __RegisterDataKind::EvalRef => todo!(),
+            __RegisterDataKind::Leash => todo!(),
             __RegisterDataKind::TempRef => panic!("can't bind to temp mut"),
             __RegisterDataKind::TempMut => todo!(),
             __RegisterDataKind::Moved => todo!(),
@@ -166,7 +166,7 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn bind(&mut self, binding: Binding) -> __Register<'eval> {
         match binding {
-            Binding::EvalRef => self.temp_bind_eval_ref(),
+            Binding::Leash => self.temp_bind_eval_ref(),
             Binding::TempRef => self.bind_temp_ref(),
             Binding::TempMut => self.bind_temp_mut(),
             Binding::Move => self.bind_move(),
@@ -178,7 +178,7 @@ impl<'eval> __Register<'eval> {
     pub unsafe fn extrinsic_clone(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue
-            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Leash
             | __RegisterDataKind::TempRef => self.verbatim_copy(),
             __RegisterDataKind::Box => self.clone_ptr_into_box(),
             __RegisterDataKind::TempMut => panic!("temp mut"),
@@ -192,7 +192,7 @@ impl<'eval> __Register<'eval> {
         unsafe {
             match self.data_kind {
                 __RegisterDataKind::PrimitiveValue => self.verbatim_copy(),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::Box
                 | __RegisterDataKind::TempMut => self.clone_ptr_into_box(),
@@ -212,7 +212,7 @@ impl<'eval> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => todo!(),
             __RegisterDataKind::Box
-            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Leash
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::TempMut => unsafe { self.data.as_ptr },
             __RegisterDataKind::Moved
@@ -227,7 +227,7 @@ impl<'eval> __Register<'eval> {
                 (self.vtable.primitive_value_to_bool).unwrap()(self.data)
             },
             __RegisterDataKind::Box
-            | __RegisterDataKind::EvalRef
+            | __RegisterDataKind::Leash
             | __RegisterDataKind::TempRef
             | __RegisterDataKind::TempMut => unsafe {
                 (self.vtable.primitive_ref_to_bool).unwrap()(self.data.as_ptr)
@@ -250,7 +250,7 @@ impl<'eval> __Register<'eval> {
                 self.data_kind = __RegisterDataKind::Box;
             },
             __RegisterDataKind::Box => (),
-            __RegisterDataKind::EvalRef => (),
+            __RegisterDataKind::Leash => (),
             __RegisterDataKind::TempRef => {
                 panic!(
                     "can't cache temp ref of type `{}`",
@@ -266,8 +266,8 @@ impl<'eval> __Register<'eval> {
     pub fn share_cached(&self) -> __Register<'eval> {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => panic!(),
-            __RegisterDataKind::Box | __RegisterDataKind::EvalRef => __Register {
-                data_kind: __RegisterDataKind::EvalRef,
+            __RegisterDataKind::Box | __RegisterDataKind::Leash => __Register {
+                data_kind: __RegisterDataKind::Leash,
                 data: self.data,
                 vtable: self.vtable,
             },

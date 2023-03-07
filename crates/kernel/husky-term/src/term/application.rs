@@ -37,12 +37,17 @@ impl TermApplication {
 
     //// this constructor guarantees that the result is reduced, not necessarily valid
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    fn new_unchecked(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> Term {
+    pub(super) fn new_unchecked(
+        db: &dyn TermDb,
+        function: Term,
+        argument: Term,
+        shift: u8,
+    ) -> Term {
         Self::new_inner(db, function, argument, shift).reduce(db)
     }
 
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    pub fn from_raw_unchecked(
+    pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term_application: RawTermApplication,
         term_ty_expectation: TermTypeExpectation,
