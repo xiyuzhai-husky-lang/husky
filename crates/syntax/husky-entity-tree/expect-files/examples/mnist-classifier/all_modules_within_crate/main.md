@@ -24,91 +24,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 20,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 117,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 20,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 118,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 20,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 119,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 20,
+                    value: 21,
                 },
             ),
             ident: Identifier(
@@ -136,119 +52,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 24,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 297,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 24,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 298,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 24,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 299,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 24,
-                },
-            ),
-            ident: Identifier(
-                Word(
-                    Id {
-                        value: 300,
-                    },
-                ),
-            ),
-        },
-        [crate]: CratePath {
-            package_path: PackagePath {
-                data: Local {
-                    path: DiffPath {
-                        data: DiffPathBuf(
-                            "../../../examples/mnist-classifier",
-                        ),
-                    },
-                },
-            },
-            crate_kind: Main,
-        },
-    },
-    ModulePath {
-        [display]: Child {
-            parent: ModulePath(
-                Id {
-                    value: 20,
+                    value: 21,
                 },
             ),
             ident: Identifier(
@@ -276,7 +80,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 20,
+                    value: 21,
                 },
             ),
             ident: Identifier(
@@ -304,13 +108,13 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 21,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 375,
+                        value: 123,
                     },
                 ),
             ),
@@ -332,13 +136,13 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 25,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 376,
+                        value: 300,
                     },
                 ),
             ),
@@ -360,7 +164,147 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 25,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 301,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 25,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 302,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 25,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 303,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 21,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 124,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 21,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 125,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -388,7 +332,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -416,7 +360,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -444,7 +388,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -472,7 +416,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -500,7 +444,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -528,7 +472,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 26,
+                    value: 27,
                 },
             ),
             ident: Identifier(
@@ -556,13 +500,69 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 20,
+                    value: 27,
                 },
             ),
             ident: Identifier(
                 Word(
                     Id {
-                        value: 123,
+                        value: 384,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 27,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 385,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../examples/mnist-classifier",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Main,
+        },
+    },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 21,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 126,
                     },
                 ),
             ),

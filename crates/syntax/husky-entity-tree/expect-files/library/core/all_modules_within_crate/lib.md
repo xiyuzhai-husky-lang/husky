@@ -356,4 +356,32 @@
             crate_kind: Library,
         },
     },
+    ModulePath {
+        [display]: Child {
+            parent: ModulePath(
+                Id {
+                    value: 1,
+                },
+            ),
+            ident: Identifier(
+                Word(
+                    Id {
+                        value: 13,
+                    },
+                ),
+            ),
+        },
+        [crate]: CratePath {
+            package_path: PackagePath {
+                data: Local {
+                    path: DiffPath {
+                        data: DiffPathBuf(
+                            "../../../library/core",
+                        ),
+                    },
+                },
+            },
+            crate_kind: Library,
+        },
+    },
 ]

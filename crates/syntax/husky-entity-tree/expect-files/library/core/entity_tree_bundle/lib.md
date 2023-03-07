@@ -221,6 +221,24 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "str",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    [salsa id]: 12,
+                                    path: `core::str`,
+                                    accessibility: Accessibility::PublicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 12,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impls: [],
@@ -426,6 +444,22 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "Leash",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 10,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::mem::Leash`, `Extern`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 2,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impls: [],
@@ -448,7 +482,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 10,
+                                    [salsa id]: 11,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
                                     ),
@@ -464,7 +498,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 11,
+                                    [salsa id]: 12,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
                                     ),
@@ -480,7 +514,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 12,
+                                    [salsa id]: 13,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
                                     ),
@@ -496,7 +530,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 13,
+                                    [salsa id]: 14,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i64`, `Extern`),
                                     ),
@@ -512,7 +546,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 14,
+                                    [salsa id]: 15,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i128`, `Extern`),
                                     ),
@@ -528,7 +562,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 15,
+                                    [salsa id]: 16,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::isize`, `Extern`),
                                     ),
@@ -544,7 +578,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 16,
+                                    [salsa id]: 17,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u8`, `Extern`),
                                     ),
@@ -560,7 +594,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 17,
+                                    [salsa id]: 18,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u16`, `Extern`),
                                     ),
@@ -576,7 +610,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 18,
+                                    [salsa id]: 19,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u32`, `Extern`),
                                     ),
@@ -592,7 +626,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 19,
+                                    [salsa id]: 20,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u64`, `Extern`),
                                     ),
@@ -608,7 +642,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 20,
+                                    [salsa id]: 21,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u128`, `Extern`),
                                     ),
@@ -624,7 +658,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 21,
+                                    [salsa id]: 22,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::usize`, `Extern`),
                                     ),
@@ -640,7 +674,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 22,
+                                    [salsa id]: 23,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
@@ -656,7 +690,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 23,
+                                    [salsa id]: 24,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
                                     ),
@@ -702,7 +736,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -749,7 +783,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -796,7 +830,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -843,7 +877,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -890,7 +924,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -937,7 +971,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -984,7 +1018,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1031,7 +1065,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1078,7 +1112,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1125,7 +1159,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1172,7 +1206,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1219,7 +1253,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1266,7 +1300,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1313,7 +1347,7 @@ Ok(
                                             ident: Identifier(
                                                 Word(
                                                     Id {
-                                                        value: 32,
+                                                        value: 34,
                                                     },
                                                 ),
                                             ),
@@ -1343,7 +1377,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 31,
+                                                    value: 33,
                                                 },
                                             ),
                                         ),
@@ -1365,15 +1399,9 @@ Ok(
                     [],
                 ),
                 errors: [
-                    UnresolvedIdentifier(
+                    EntityTreeError::UnresolvedIdentifier(
                         IdentifierToken {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
+                            ident: `core`,
                             token_idx: TokenIdx(
                                 1,
                             ),
@@ -1392,7 +1420,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 24,
+                                    [salsa id]: 25,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Add`),
                                     ),
@@ -1408,7 +1436,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 25,
+                                    [salsa id]: 26,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::AddAssign`),
                                     ),
@@ -1424,7 +1452,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 26,
+                                    [salsa id]: 27,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitAnd`),
                                     ),
@@ -1440,7 +1468,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 27,
+                                    [salsa id]: 28,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitAndAssign`),
                                     ),
@@ -1456,7 +1484,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 28,
+                                    [salsa id]: 29,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitOr`),
                                     ),
@@ -1472,7 +1500,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 29,
+                                    [salsa id]: 30,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitOrAssign`),
                                     ),
@@ -1488,7 +1516,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 30,
+                                    [salsa id]: 31,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitXor`),
                                     ),
@@ -1504,7 +1532,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 31,
+                                    [salsa id]: 32,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitXorAssign`),
                                     ),
@@ -1520,7 +1548,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 32,
+                                    [salsa id]: 33,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Div`),
                                     ),
@@ -1536,7 +1564,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 33,
+                                    [salsa id]: 34,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::DivAssign`),
                                     ),
@@ -1552,7 +1580,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 34,
+                                    [salsa id]: 35,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Mul`),
                                     ),
@@ -1568,7 +1596,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 35,
+                                    [salsa id]: 36,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::MulAssign`),
                                     ),
@@ -1584,7 +1612,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 36,
+                                    [salsa id]: 37,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Neg`),
                                     ),
@@ -1600,7 +1628,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 37,
+                                    [salsa id]: 38,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Not`),
                                     ),
@@ -1616,7 +1644,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 38,
+                                    [salsa id]: 39,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Sub`),
                                     ),
@@ -1795,7 +1823,7 @@ Ok(
                                     [salsa id]: 5,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 10,
+                                            [salsa id]: 11,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i8`, `Extern`),
                                             ),
@@ -1824,7 +1852,7 @@ Ok(
                                     [salsa id]: 6,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 11,
+                                            [salsa id]: 12,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i16`, `Extern`),
                                             ),
@@ -1853,7 +1881,7 @@ Ok(
                                     [salsa id]: 7,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 12,
+                                            [salsa id]: 13,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i32`, `Extern`),
                                             ),
@@ -1882,7 +1910,7 @@ Ok(
                                     [salsa id]: 8,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 13,
+                                            [salsa id]: 14,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i64`, `Extern`),
                                             ),
@@ -1911,7 +1939,7 @@ Ok(
                                     [salsa id]: 9,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 14,
+                                            [salsa id]: 15,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i128`, `Extern`),
                                             ),
@@ -1940,7 +1968,7 @@ Ok(
                                     [salsa id]: 10,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 15,
+                                            [salsa id]: 16,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::isize`, `Extern`),
                                             ),
@@ -1969,7 +1997,7 @@ Ok(
                                     [salsa id]: 11,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 16,
+                                            [salsa id]: 17,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u8`, `Extern`),
                                             ),
@@ -1998,7 +2026,7 @@ Ok(
                                     [salsa id]: 12,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 17,
+                                            [salsa id]: 18,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u16`, `Extern`),
                                             ),
@@ -2027,7 +2055,7 @@ Ok(
                                     [salsa id]: 13,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 18,
+                                            [salsa id]: 19,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u32`, `Extern`),
                                             ),
@@ -2056,7 +2084,7 @@ Ok(
                                     [salsa id]: 14,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 19,
+                                            [salsa id]: 20,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u64`, `Extern`),
                                             ),
@@ -2085,7 +2113,7 @@ Ok(
                                     [salsa id]: 15,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 20,
+                                            [salsa id]: 21,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u128`, `Extern`),
                                             ),
@@ -2114,7 +2142,7 @@ Ok(
                                     [salsa id]: 16,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 21,
+                                            [salsa id]: 22,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::usize`, `Extern`),
                                             ),
@@ -2143,7 +2171,7 @@ Ok(
                                     [salsa id]: 17,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 22,
+                                            [salsa id]: 23,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::f32`, `Extern`),
                                             ),
@@ -2172,7 +2200,7 @@ Ok(
                                     [salsa id]: 18,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 23,
+                                            [salsa id]: 24,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::f64`, `Extern`),
                                             ),
@@ -2201,7 +2229,7 @@ Ok(
                                     [salsa id]: 19,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 39,
+                                            [salsa id]: 40,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                             ),
@@ -2230,7 +2258,7 @@ Ok(
                                     [salsa id]: 20,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 40,
+                                            [salsa id]: 41,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::fmt::Debug`),
                                             ),
@@ -2259,7 +2287,7 @@ Ok(
                                     [salsa id]: 21,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 42,
+                                            [salsa id]: 43,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Copy`),
                                             ),
@@ -2288,7 +2316,7 @@ Ok(
                                     [salsa id]: 22,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 43,
+                                            [salsa id]: 44,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Sized`),
                                             ),
@@ -2317,7 +2345,7 @@ Ok(
                                     [salsa id]: 23,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 41,
+                                            [salsa id]: 42,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::clone::Clone`),
                                             ),
@@ -2346,7 +2374,7 @@ Ok(
                                     [salsa id]: 24,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 45,
+                                            [salsa id]: 46,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialEq`),
                                             ),
@@ -2375,7 +2403,7 @@ Ok(
                                     [salsa id]: 25,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 46,
+                                            [salsa id]: 47,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Eq`),
                                             ),
@@ -2404,7 +2432,7 @@ Ok(
                                     [salsa id]: 26,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 47,
+                                            [salsa id]: 48,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialOrd`),
                                             ),
@@ -2433,7 +2461,7 @@ Ok(
                                     [salsa id]: 27,
                                     original_symbol: ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 48,
+                                            [salsa id]: 49,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Ord`),
                                             ),
@@ -3169,7 +3197,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 39,
+                                    [salsa id]: 40,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
                                     ),
@@ -3200,7 +3228,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 40,
+                                    [salsa id]: 41,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::fmt::Debug`),
                                     ),
@@ -3231,7 +3259,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 41,
+                                    [salsa id]: 42,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::clone::Clone`),
                                     ),
@@ -3262,7 +3290,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 42,
+                                    [salsa id]: 43,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Copy`),
                                     ),
@@ -3278,7 +3306,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 43,
+                                    [salsa id]: 44,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Sized`),
                                     ),
@@ -3309,7 +3337,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 44,
+                                    [salsa id]: 45,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::list::List`, `Extern`),
                                     ),
@@ -3340,7 +3368,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 45,
+                                    [salsa id]: 46,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
@@ -3356,7 +3384,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 46,
+                                    [salsa id]: 47,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
@@ -3372,7 +3400,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 47,
+                                    [salsa id]: 48,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
@@ -3388,12 +3416,59 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 48,
+                                    [salsa id]: 49,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Ord`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 3,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impls: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::str`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "str",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 50,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::str::str`, `Extern`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Identifier(
+                                "StringLiteral",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 51,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::str::StringLiteral`, `Extern`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 1,
                                 },
                             ),
                         },
@@ -3416,35 +3491,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 34,
+                                    value: 36,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
                             31,
-                        ),
-                    },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
-                    ),
-                },
-                Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
-                            Word(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
-                        ),
-                        token_idx: TokenIdx(
-                            83,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3462,12 +3514,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 45,
+                                    value: 46,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            135,
+                            83,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3485,12 +3537,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 46,
+                                    value: 47,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            186,
+                            135,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3508,12 +3560,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 47,
+                                    value: 48,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            238,
+                            186,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3531,12 +3583,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            290,
+                            238,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3554,12 +3606,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 49,
+                                    value: 50,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            342,
+                            290,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3577,12 +3629,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 50,
+                                    value: 51,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            394,
+                            342,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3600,12 +3652,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 51,
+                                    value: 52,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            446,
+                            394,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3623,12 +3675,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            498,
+                            446,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3646,12 +3698,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            550,
+                            498,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3669,12 +3721,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 54,
+                                    value: 55,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            602,
+                            550,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3692,12 +3744,12 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 55,
+                                    value: 56,
                                 },
                             ),
                         ),
                         token_idx: TokenIdx(
-                            654,
+                            602,
                         ),
                     },
                     entity_path: ModuleItem(
@@ -3715,7 +3767,30 @@ Ok(
                         ident: Identifier(
                             Word(
                                 Id {
-                                    value: 56,
+                                    value: 57,
+                                },
+                            ),
+                        ),
+                        token_idx: TokenIdx(
+                            654,
+                        ),
+                    },
+                    entity_path: ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                },
+                Root {
+                    ident_token: IdentifierToken {
+                        ident: Identifier(
+                            Word(
+                                Id {
+                                    value: 58,
                                 },
                             ),
                         ),
@@ -3727,7 +3802,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 24,
+                                    value: 25,
                                 },
                             ),
                         ),

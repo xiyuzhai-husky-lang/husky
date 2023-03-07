@@ -7,6 +7,7 @@ use crate::*;
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
+    extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
@@ -20,6 +21,7 @@ impl ExprTypeRegion {
         db: &dyn ExprTypeDb,
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
+        extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
         inherited_symbol_tys: InheritedSymbolMap<Term>,
         current_symbol_tys: CurrentSymbolMap<LocalTerm>,
@@ -33,6 +35,7 @@ impl ExprTypeRegion {
         Self {
             path,
             expr_ty_infos,
+            extra_expr_errors,
             expr_local_terms: expr_terms,
             inherited_symbol_tys,
             current_symbol_tys,
@@ -48,6 +51,10 @@ impl ExprTypeRegion {
 
     pub fn expr_ty_infos(&self) -> &ExprMap<ExprTypeInfo> {
         &self.expr_ty_infos
+    }
+
+    pub fn extra_expr_ty_errors(&self) -> &[(ExprIdx, ExprTypeError)] {
+        &self.extra_expr_errors
     }
 
     pub fn expr_local_terms(&self) -> &ExprMap<ExprTermResult<LocalTerm>> {

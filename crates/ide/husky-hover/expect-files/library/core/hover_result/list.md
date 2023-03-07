@@ -16,11 +16,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 0,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 3,
                                 },
                             },
@@ -46,11 +46,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 4,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 8,
                                 },
                             },
@@ -70,17 +70,17 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 89,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 26,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 91,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 27,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 9,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 13,
                                 },
                             },
@@ -106,11 +106,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 13,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 14,
                                 },
                             },
@@ -136,11 +136,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 14,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 23,
                                 },
                             },
@@ -160,17 +160,17 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 29,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 29,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    5,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 12,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        6,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 29,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    5,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 5;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 30,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 30,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    5,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 12,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        6,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 30,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    5,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 24,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 25,
                                 },
                             },
@@ -196,11 +196,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 25,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 26,
                                 },
                             },
@@ -226,11 +226,11 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 26,
                                 },
                                 end: Position {
-                                    line: 0,
+                                    line: 2,
                                     character: 27,
                                 },
                             },

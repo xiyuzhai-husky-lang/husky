@@ -14,7 +14,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 12,
+                                    [salsa id]: 13,
                                     path: `std::prelude`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -32,7 +32,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 13,
+                                    [salsa id]: 14,
                                     path: `std::logic`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -50,7 +50,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 14,
+                                    [salsa id]: 15,
                                     path: `std::ops`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -104,7 +104,7 @@ Ok(
                                         ident: Identifier(
                                             Word(
                                                 Id {
-                                                    value: 31,
+                                                    value: 33,
                                                 },
                                             ),
                                         ),
@@ -126,15 +126,9 @@ Ok(
                     [],
                 ),
                 errors: [
-                    UnresolvedIdentifier(
+                    EntityTreeError::UnresolvedIdentifier(
                         IdentifierToken {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
+                            ident: `core`,
                             token_idx: TokenIdx(
                                 2,
                             ),
@@ -155,7 +149,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 49,
+                                    [salsa id]: 52,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`std::ops::Add`),
                                     ),

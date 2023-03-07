@@ -65,6 +65,14 @@ fn collect_expr_ty_diagnostics(
             _ => (),
         }
     }
+    for (expr_idx, error) in expr_ty_region.extra_expr_ty_errors() {
+        match error {
+            ExprTypeError::Original(error) => {
+                diagnostics.push((*expr_idx, error).to_diagnostic(&ctx))
+            }
+            _ => (),
+        }
+    }
     let local_term_region = expr_ty_region.local_term_region();
     for (expr_idx, error) in local_term_region
         .unresolved_terms()
@@ -128,6 +136,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             }
             OriginalExprTypeError::AmbiguousTypePath => {
                 format!("Type Error: AmbiguousTypePath")
+            }
+            OriginalExprTypeError::RitchieCallWrongNumberOfArguments {
+                number_of_nonself_parameters,
+                number_of_nonself_arguments,
+            } => {
+                format!("Type Error: RitchieCallWrongNumberOfArguments")
             }
         }
     }
