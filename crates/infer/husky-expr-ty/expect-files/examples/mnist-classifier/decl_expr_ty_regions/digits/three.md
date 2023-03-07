@@ -9,21 +9,18 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                ExprError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
                 ),
-            ],
-        },
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -31,11 +28,11 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -59,32 +56,32 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
-                            Derived(
-                                ExprError,
-                            ),
-                        ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
                 ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Err(
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
                             Derived(
                                 PrefixOperandTypeNotInferred,
                             ),
                         ),
-                        expectation_rule_idx: None,
-                        resolve_progress: Unresolved,
-                    },
+                    ),
                 ),
-            ],
-        },
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+        ],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -93,11 +90,11 @@
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -121,94 +118,91 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
                             Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        expectation_rule_idx: Some(
-                            0,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                    ),
                 ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            1,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                expectation_rule_idx: Some(
+                    0,
                 ),
-            ],
-        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsExactly(
+                                ExpectEqsExactlyOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+        ],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -218,16 +212,12 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`Ref 'eval ConcaveComponent`),
-            ),
-        ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        current_symbol_tys: [],
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -237,34 +227,38 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsExactly(
+                                ExpectEqsExactly {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsExactly(
+                                        ExpectEqsExactlyOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -275,34 +269,32 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 3,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsSort(
+                                        ExpectEqsSortOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -328,94 +320,91 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
                             Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        expectation_rule_idx: Some(
-                            0,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                    ),
                 ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            1,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                expectation_rule_idx: Some(
+                    0,
                 ),
-            ],
-        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsExactly(
+                                ExpectEqsExactlyOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+        ],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -425,16 +414,12 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`Ref 'eval ConcaveComponent`),
-            ),
-        ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        current_symbol_tys: [],
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -444,34 +429,38 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsExactly(
+                                ExpectEqsExactly {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsExactly(
+                                        ExpectEqsExactlyOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -482,34 +471,32 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 3,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsSort(
+                                        ExpectEqsSortOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -535,94 +522,91 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [
-                None,
-                None,
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
                             Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
-                        expectation_rule_idx: Some(
-                            0,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                    ),
                 ),
-                Some(
-                    ExprTypeInfo {
-                        ty_result: Ok(
-                            Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        expectation_rule_idx: Some(
-                            1,
-                        ),
-                        resolve_progress: Expected(
-                            Resolved(
-                                Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
-                                            destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
+                expectation_rule_idx: Some(
+                    0,
                 ),
-            ],
-        },
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsExactly(
+                                ExpectEqsExactlyOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                ExpectEqsSortOutcome {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+        ],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [
                 None,
@@ -632,16 +616,12 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`Ref 'eval ConcaveComponent`),
-            ),
-        ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        current_symbol_tys: [],
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -651,34 +631,38 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 2,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsExactly(
+                                ExpectEqsExactly {
+                                    destination: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsExactly(
+                                        ExpectEqsExactlyOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -689,34 +673,32 @@
                         LocalTermExpectationEntry {
                             src_expr_idx: 3,
                             expectee: Resolved(
-                                ReducedTerm(
-                                    Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
-                            expectation: InsSort {
-                                smallest_universe: TermUniverse(
-                                    0,
-                                ),
-                            },
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
                             resolve_progress: Resolved(
                                 Ok(
-                                    InsSort(
-                                        ExpectInsSortResolvedOk {
+                                    EqsSort(
+                                        ExpectEqsSortOutcome {
                                             destination: Resolved(
-                                                ReducedTerm(
-                                                    Category(
-                                                        TermCategory {
-                                                            universe: TermUniverse(
-                                                                1,
-                                                            ),
-                                                        },
-                                                    ),
+                                                Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },

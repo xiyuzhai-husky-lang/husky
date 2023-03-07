@@ -24,7 +24,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 14,
+                    value: 15,
                 },
             ),
             ident: Identifier(
@@ -52,7 +52,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 14,
+                    value: 15,
                 },
             ),
             ident: Identifier(
@@ -80,7 +80,7 @@
         [display]: Child {
             parent: ModulePath(
                 Id {
-                    value: 14,
+                    value: 15,
                 },
             ),
             ident: Identifier(

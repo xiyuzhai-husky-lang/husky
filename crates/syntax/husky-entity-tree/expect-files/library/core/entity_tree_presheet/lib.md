@@ -207,6 +207,23 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: Identifier(
+                        "str",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core`,
+                    ),
+                    symbol: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::str`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 12,
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(

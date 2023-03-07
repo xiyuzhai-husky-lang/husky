@@ -25,6 +25,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
+    extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_tys: InheritedSymbolMap<Term>,
     current_symbol_tys: CurrentSymbolMap<LocalTerm>,
@@ -81,6 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
             expr_region_data,
             signature_term_region: db.signature_term_region(expr_region),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+            extra_expr_errors: vec![],
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             inherited_symbol_tys: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
             current_symbol_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
@@ -126,12 +128,18 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
+    fn add_expr_ty_error(&mut self, expr_idx: ExprIdx, expr_ty_error: impl Into<ExprTypeError>) {
+        self.extra_expr_errors
+            .push((expr_idx, expr_ty_error.into()))
+    }
+
     pub(crate) fn finish(mut self, mut local_term_region: LocalTermRegion) -> ExprTypeRegion {
         self.finalize_unresolved_term_table(&mut local_term_region);
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
             self.expr_ty_infos,
+            self.extra_expr_errors,
             self.expr_terms,
             self.inherited_symbol_tys,
             self.current_symbol_tys,

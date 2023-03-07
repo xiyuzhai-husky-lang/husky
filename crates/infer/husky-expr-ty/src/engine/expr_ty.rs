@@ -201,6 +201,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref items,
                 ..
             } => self.calc_explicit_application_or_ritchie_call_expr_ty(
+                expr_idx,
                 function,
                 expr_ty_expectation,
                 local_term_region,
@@ -222,6 +223,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => Ok((
                 ExprDisambiguation::Trivial,
                 self.calc_method_expr_ty(
+                    expr_idx,
                     self_argument,
                     ident_token,
                     implicit_arguments.as_ref(),
@@ -270,7 +272,14 @@ impl<'a> ExprTypeEngine<'a> {
                                     ListExprDisambiguation::ListFunctor.into(),
                                     Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
                                 ),
-                                _ => todo!(),
+                                1 => (
+                                    ListExprDisambiguation::ArrayFunctor.into(),
+                                    Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
+                                ),
+                                _ => {
+                                    print_debug_expr!(self, expr_idx);
+                                    todo!()
+                                }
                             }
                         }
                         TypePathDisambiguation::Constructor => {
@@ -386,7 +395,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_explicit_application_or_ritchie_call_expr_ty(
         &mut self,
-        function: idx_arena::ArenaIdx<Expr>,
+        expr_idx: ExprIdx,
+        function: ExprIdx,
         expr_ty_expectation: &impl ExpectLocalTerm,
         local_term_region: &mut LocalTermRegion,
         implicit_arguments: &Option<ImplicitArgumentList>,
@@ -415,6 +425,7 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_liasoned_tys,
             } => {
                 self.calc_ritchie_call_arguments_expr_ty(
+                    expr_idx,
                     ritchie_kind,
                     parameter_liasoned_tys.to_vec(),
                     *items,

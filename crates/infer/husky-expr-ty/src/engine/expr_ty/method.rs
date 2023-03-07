@@ -4,6 +4,7 @@ use husky_token::IdentifierToken;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_method_expr_ty(
         &mut self,
+        expr_idx: ExprIdx,
         self_argument: ExprIdx,
         ident_token: IdentifierToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
@@ -36,6 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
         //     }
         // };
         self.calc_ritchie_call_arguments_expr_ty(
+            expr_idx,
             method_ty,
             todo!(),
             nonself_arguments,

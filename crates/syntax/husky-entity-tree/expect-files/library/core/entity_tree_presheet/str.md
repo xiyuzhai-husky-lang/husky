@@ -1,17 +1,17 @@
 Ok(
     EntityTreePresheet {
-        module_path: `core::mem`,
+        module_path: `core::str`,
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
                     ident: Identifier(
-                        "Ref",
+                        "str",
                     ),
                     accessibility: Accessibility::Public,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::mem::Ref`, `Extern`),
+                                TypePath(`core::str::str`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
@@ -20,31 +20,16 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Identifier(
-                        "RefMut",
+                        "StringLiteral",
                     ),
                     accessibility: Accessibility::Public,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
-                                TypePath(`core::mem::RefMut`, `Extern`),
+                                TypePath(`core::str::StringLiteral`, `Extern`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Identifier(
-                        "Leash",
-                    ),
-                    accessibility: Accessibility::Public,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Type(
-                                TypePath(`core::mem::Leash`, `Extern`),
-                            ),
-                            accessibility: Accessibility::Public,
-                            ast_idx: 2,
                         },
                     ),
                 },

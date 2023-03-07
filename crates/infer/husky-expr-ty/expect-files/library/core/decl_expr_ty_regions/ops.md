@@ -9,9 +9,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -21,11 +20,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -49,9 +48,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -61,11 +59,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -89,9 +87,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -101,11 +98,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -129,9 +126,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -141,11 +137,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -169,9 +165,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -181,11 +176,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -209,9 +204,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -221,11 +215,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -249,9 +243,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -261,11 +254,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -289,9 +282,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -301,11 +293,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -329,9 +321,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -341,11 +332,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -369,9 +360,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -381,11 +371,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -409,9 +399,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -421,11 +410,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -449,9 +438,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -461,11 +449,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -489,19 +477,18 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -525,19 +512,18 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
         inherited_symbol_tys: [],
         current_symbol_tys: [],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },
@@ -561,9 +547,8 @@
                 ),
             ),
         ),
-        expr_ty_infos: ArenaMap {
-            data: [],
-        },
+        expr_ty_infos: [],
+        extra_expr_errors: [],
         expr_local_terms: ArenaMap {
             data: [],
         },
@@ -573,11 +558,11 @@
                 Term(`Type`),
             ),
         ],
-        local_term_table: LocalTermTable {
-            implicit_symbol_registry: ImplicitSymbolRegistry {
-                next: 0,
-            },
+        local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
+                implicit_symbol_registry: ImplicitSymbolRegistry {
+                    next: 0,
+                },
                 arena: [],
                 first_unresolved_term: 0,
             },

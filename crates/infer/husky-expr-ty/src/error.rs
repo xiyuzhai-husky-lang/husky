@@ -44,6 +44,11 @@ pub enum OriginalExprTypeError {
     FormPathTypeError,
     #[error("AmbiguousTypePath")]
     AmbiguousTypePath,
+    #[error("RitchieCallWrongNumberOfArguments")]
+    RitchieCallWrongNumberOfArguments {
+        number_of_nonself_parameters: u8,
+        number_of_nonself_arguments: u8,
+    },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

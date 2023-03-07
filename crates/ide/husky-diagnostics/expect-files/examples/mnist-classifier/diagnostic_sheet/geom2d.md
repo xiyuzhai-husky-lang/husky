@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 33,
+    [salsa id]: 34,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -26,7 +26,33 @@ DiagnosticSheet {
         ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [49:23, 49:24),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [66:23, 66:24),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [68:24, 68:25),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [70:23, 70:24),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [77:27, 77:28),
+            },
+        ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
@@ -41,107 +67,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [8:9, 8:16),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [11:9, 11:17),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [14:18, 14:25),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [14:36, 14:43),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [14:9, 14:17),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [34:9, 34:16),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [37:18, 37:25),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [37:36, 37:43),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [37:9, 37:17),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [43:18, 43:25),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [43:37, 43:44),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [46:18, 46:25),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [46:37, 46:44),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [68:26, 68:38),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [108:40, 108:52),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [109:40, 109:52),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [107:9, 107:28),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [114:40, 114:47),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [115:40, 115:47),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [113:9, 113:24),
-            },
-        ],
+        diagnostics: [],
     },
 }

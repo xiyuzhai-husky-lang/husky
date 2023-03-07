@@ -12,7 +12,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 50,
+                                    [salsa id]: 53,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort`, `Function`),
                                     ),
@@ -30,7 +30,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 51,
+                                    [salsa id]: 54,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_aux`, `Function`),
                                     ),
@@ -50,7 +50,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 52,
+                                    [salsa id]: 55,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::partition`, `Function`),
                                     ),
@@ -70,7 +70,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 53,
+                                    [salsa id]: 56,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                                     ),
@@ -90,7 +90,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 54,
+                                    [salsa id]: 57,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                                     ),

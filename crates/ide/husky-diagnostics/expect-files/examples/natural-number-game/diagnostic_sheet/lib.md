@@ -1,15 +1,10 @@
 DiagnosticSheet {
-    [salsa id]: 41,
+    [salsa id]: 42,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized char",
-                severity: Error,
-                range: [10:16, 10:17),
-            },
             Diagnostic {
                 message: "Syntax Error: unrecognized char",
                 severity: Error,
@@ -23,17 +18,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized char",
                 severity: Error,
-                range: [15:13, 15:14),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized char",
-                severity: Error,
                 range: [15:17, 15:18),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized char",
-                severity: Error,
-                range: [20:13, 20:14),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized char",
@@ -92,6 +77,12 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: AmbiguousTypePath",
+                severity: Error,
+                range: [6:19, 6:22),
+            },
+        ],
     },
 }

@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 39,
+    [salsa id]: 40,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -16,6 +16,26 @@ DiagnosticSheet {
                 severity: Error,
                 range: [8:31, 8:36),
             },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [11:16, 11:17),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [12:30, 12:31),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [14:26, 14:27),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [21:17, 21:18),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
@@ -25,27 +45,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: original `todo` in term List ConnectedComponent",
-                severity: Error,
-                range: [13:13, 13:33),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term List ConnectedComponent",
-                severity: Error,
-                range: [22:13, 22:33),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [34:5, 34:42),
-            },
-            Diagnostic {
-                message: "TypeError: todo",
-                severity: Error,
-                range: [37:5, 37:49),
-            },
-        ],
+        diagnostics: [],
     },
 }
