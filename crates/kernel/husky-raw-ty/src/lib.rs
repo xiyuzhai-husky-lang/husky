@@ -28,12 +28,12 @@ use husky_signature::*;
 use husky_term_prelude::*;
 use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
+use map_collect::*;
 use husky_word::*;
 
 #[salsa::jar(db = RawTypeDb)]
 pub struct RawTypeJar(
     ty_ontology_path_raw_ty,
-    regular_struct_ty_constructor_path_raw_ty,
     ty_constructor_path_raw_ty,
     trai_path_raw_ty,
     form_path_raw_ty,

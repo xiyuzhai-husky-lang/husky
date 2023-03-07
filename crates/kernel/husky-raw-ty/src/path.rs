@@ -2,14 +2,17 @@ mod form;
 mod trai;
 mod ty_constructor;
 mod ty_ontology;
+mod utils;
 
+pub use self::form::*;
+pub use self::trai::*;
 pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
 
+use crate::*;
 use husky_print_utils::p;
 use salsa::assert_eq_with_db;
-
-use crate::*;
+use utils::*;
 
 #[inline(always)]
 pub fn raw_term_entity_path_raw_ty(
@@ -222,7 +225,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
-        raw_term_menu.ty0().into(),
+        raw_term_menu.ty0(),
     ))
 }
 
@@ -245,88 +248,6 @@ pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<Ra
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
-        raw_term_menu.trai_ty().into(),
+        raw_term_menu.trai_ty(),
     ))
-}
-
-#[salsa::tracked(jar = RawTypeJar)]
-pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
-    let decl = match db.form_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::FormDeclError.into()),
-    };
-    let signature = match db.form_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
-    };
-    let Ok(variances) = form_entity_variances(db, path) else {
-        todo!()
-    };
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    match signature {
-        FormSignature::Function(signature) => {
-            function_entity_raw_ty(db, variances, signature, raw_term_menu)
-        }
-        FormSignature::Feature(signature) => feature_entity_raw_ty(db, signature, raw_term_menu),
-        FormSignature::Morphism(_) => todo!(),
-        FormSignature::Value(_) => todo!(),
-    }
-}
-
-pub(crate) fn function_entity_raw_ty(
-    db: &dyn RawTypeDb,
-    variances: &[Variance],
-    signature: FunctionSignature,
-    raw_term_menu: &RawTermMenu,
-) -> RawTypeResult<RawTerm> {
-    let param_raw_tys = signature
-        .parameters(db)
-        .iter()
-        .map(|param| RawTermRitchieParameter::new(param.ty()))
-        .collect();
-    let return_raw_ty = signature.return_ty(db);
-    Ok(curry_from_implicit_parameters(
-        db,
-        CurryKind::Implicit,
-        variances,
-        signature.implicit_parameters(db),
-        RawTermRitchie::new(db, TermRitchieKind::Fp, param_raw_tys, return_raw_ty).into(),
-    ))
-}
-
-pub(crate) fn feature_entity_raw_ty(
-    db: &dyn RawTypeDb,
-    signature: FeatureSignature,
-    raw_term_menu: &RawTermMenu,
-) -> RawTypeResult<RawTerm> {
-    Ok(signature.return_ty(db))
-}
-
-fn curry_from_implicit_parameters(
-    db: &dyn RawTypeDb,
-    raw_term_curry_kind: CurryKind,
-    variances: &[Variance],
-    implicit_parameters: &[ImplicitParameterSignature],
-    mut raw_term: RawTerm,
-) -> RawTerm {
-    assert_eq!(variances.len(), implicit_parameters.len());
-    for (variance, implicit_parameter) in
-        std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
-    {
-        let symbol = implicit_parameter.symbol();
-        assert_eq!(symbol.ty(db), Ok(implicit_parameter.ty()));
-        let symbol = db
-            .raw_term_contains_symbol(raw_term, symbol)
-            .then_some(symbol);
-        raw_term = RawTermCurry::new(
-            db,
-            raw_term_curry_kind,
-            *variance,
-            symbol,
-            implicit_parameter.ty(),
-            raw_term,
-        )
-        .into()
-    }
-    raw_term
 }
