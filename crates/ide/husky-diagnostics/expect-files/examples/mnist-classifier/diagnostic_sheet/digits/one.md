@@ -37,11 +37,6 @@ DiagnosticSheet {
                 range: [14:21, 14:24),
             },
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [19:24, 19:25),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [21:9, 21:20),
@@ -67,21 +62,6 @@ DiagnosticSheet {
                 range: [28:21, 28:24),
             },
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [32:22, 32:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [33:20, 33:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [34:17, 34:18),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [37:13, 37:24),
@@ -105,11 +85,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [43:25, 43:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [44:40, 44:41),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -140,16 +115,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [55:25, 55:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [63:31, 63:32),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [64:34, 64:35),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -197,26 +162,6 @@ DiagnosticSheet {
                 range: [81:29, 81:32),
             },
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [89:26, 89:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [90:29, 90:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [91:27, 91:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [92:30, 92:31),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [93:9, 93:20),
@@ -232,26 +177,6 @@ DiagnosticSheet {
                 range: [94:25, 94:28),
             },
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [100:15, 100:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [101:15, 101:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [102:15, 102:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [103:15, 103:16),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [106:9, 106:19),
@@ -260,21 +185,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [106:21, 106:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [109:12, 109:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [114:12, 114:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [119:12, 119:13),
             },
         ],
     },

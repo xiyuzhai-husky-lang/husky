@@ -49,6 +49,8 @@ pub enum OriginalExprTypeError {
         number_of_nonself_parameters: u8,
         number_of_nonself_arguments: u8,
     },
+    #[error("AmbiguateListExpr")]
+    AmbiguateListExpr,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

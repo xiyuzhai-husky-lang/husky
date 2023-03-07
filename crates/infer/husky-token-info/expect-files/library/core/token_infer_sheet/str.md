@@ -3,23 +3,27 @@ Ok(
         token_infos: [
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
             None,
             None,
             None,
@@ -29,7 +33,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 26,
+                                    value: 29,
                                 },
                             ),
                         ),

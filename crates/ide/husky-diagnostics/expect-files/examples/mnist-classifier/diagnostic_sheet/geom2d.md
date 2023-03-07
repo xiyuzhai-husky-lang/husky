@@ -26,33 +26,7 @@ DiagnosticSheet {
         ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [49:23, 49:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [66:23, 66:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [68:24, 68:25),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [70:23, 70:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [77:27, 77:28),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [

@@ -287,7 +287,9 @@ impl<'a> ExprTypeEngine<'a> {
                         }
                     }),
                     TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
-                    TypePathDisambiguationResult::ErrFromAnyOriginal => todo!(),
+                    TypePathDisambiguationResult::ErrFromAnyOriginal => {
+                        Err(OriginalExprTypeError::AmbiguateListExpr.into())
+                    }
                     TypePathDisambiguationResult::ErrFromAnyDerived => {
                         Err(DerivedExprTypeError::AmbiguateListExpr.into())
                     }

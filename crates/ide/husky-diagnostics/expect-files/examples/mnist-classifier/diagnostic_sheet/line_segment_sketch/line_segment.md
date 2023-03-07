@@ -10,23 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [13:16, 13:17),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [14:16, 14:17),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [18:20, 18:21),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],

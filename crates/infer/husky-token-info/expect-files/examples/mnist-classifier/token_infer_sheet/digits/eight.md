@@ -45,7 +45,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 22,
+                                value: 23,
                             },
                         ),
                     ),
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 138,
+                                value: 141,
                             },
                         ),
                     ),
@@ -93,7 +93,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 22,
+                                value: 23,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 133,
+                                value: 136,
                             },
                         ),
                     ),
@@ -261,7 +261,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -277,7 +277,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -311,7 +311,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -345,7 +345,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -475,7 +475,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 137,
+                        value: 142,
                     },
                 ),
             },
@@ -600,7 +600,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 135,
+                        value: 140,
                     },
                 ),
             },
@@ -612,7 +612,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 41,
+                                    value: 55,
                                 },
                             ),
                         ),
@@ -629,7 +629,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -645,14 +645,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 223,
+                                value: 227,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 138,
+                        value: 143,
                     },
                 ),
             },
@@ -672,14 +672,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 223,
+                                value: 227,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 138,
+                        value: 143,
                     },
                 ),
             },
@@ -700,14 +700,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 223,
+                                value: 227,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 138,
+                        value: 143,
                     },
                 ),
             },
@@ -727,14 +727,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 223,
+                                value: 227,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 138,
+                        value: 143,
                     },
                 ),
             },

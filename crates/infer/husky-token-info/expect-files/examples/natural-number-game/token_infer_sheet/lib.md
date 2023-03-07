@@ -8,7 +8,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 45,
+                                    value: 59,
                                 },
                             ),
                         ),
@@ -37,7 +37,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 45,
+                                    value: 59,
                                 },
                             ),
                         ),
@@ -74,7 +74,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 45,
+                                    value: 59,
                                 },
                             ),
                         ),
@@ -89,7 +89,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 45,
+                                    value: 59,
                                 },
                             ),
                         ),
@@ -170,7 +170,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 46,
+                                    value: 60,
                                 },
                             ),
                         ),
@@ -219,7 +219,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 47,
+                                    value: 61,
                                 },
                             ),
                         ),

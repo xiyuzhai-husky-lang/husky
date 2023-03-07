@@ -103,164 +103,9 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [75:26, 75:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [76:26, 76:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [101:26, 101:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [115:26, 115:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [116:26, 116:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [161:11, 161:12),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [162:12, 162:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [163:12, 163:13),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [170:20, 170:21),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [171:35, 171:47),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [171:33, 171:34),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [173:18, 173:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [174:18, 174:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [175:18, 175:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [176:18, 176:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [180:29, 180:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [181:23, 181:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [182:23, 182:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [184:31, 184:32),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [185:31, 185:32),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [187:38, 187:39),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [189:20, 189:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [190:20, 190:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [191:22, 191:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [192:40, 192:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [193:40, 193:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [194:40, 194:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [197:34, 197:35),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [198:34, 198:35),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [199:36, 199:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [202:39, 202:40),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [208:34, 208:35),
             },
             Diagnostic {
                 message: "entity tree error EntityTreeError::NoSubentity",
@@ -272,76 +117,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [13:28, 13:31),
             },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [16:25, 16:26),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [17:22, 17:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [18:22, 18:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [19:22, 19:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [20:22, 20:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [22:23, 22:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [36:29, 36:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [38:19, 38:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [39:19, 39:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [41:15, 41:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [42:15, 42:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [47:15, 47:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [48:22, 48:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [49:20, 49:21),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
@@ -352,6 +127,16 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Type Error: AmbiguateListExpr",
+                severity: Error,
+                range: [170:22, 170:24),
+            },
+            Diagnostic {
+                message: "Type Error: AmbiguateListExpr",
+                severity: Error,
+                range: [180:31, 180:33),
+            },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
