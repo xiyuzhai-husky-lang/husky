@@ -51,3 +51,13 @@ pub struct RegularStructFieldSignature {
     ident: Identifier,
     ty: RawTerm,
 }
+
+impl RegularStructFieldSignature {
+    pub fn ident(&self) -> Identifier {
+        self.ident
+    }
+
+    pub fn ty(&self) -> RawTerm {
+        self.ty
+    }
+}
