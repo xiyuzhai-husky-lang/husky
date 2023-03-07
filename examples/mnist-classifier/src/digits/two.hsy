@@ -17,17 +17,17 @@ func two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
 
 
-func left_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+func left_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
-func right_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+func right_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
-func down_cc_pattern(cc: &ConcaveComponent) -> ?f32:
+func down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.x > 0.0
     // require cc.relative_bounding_box.ymin()<0.2

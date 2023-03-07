@@ -44,17 +44,17 @@ def is_three -> ?MnistLabel:
     MnistLabel::Three
 
 
-func uparc(cc: &ConcaveComponent) -> ?f32:
+func uparc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
     
-func downarc(cc: &ConcaveComponent) -> ?f32:
+func downarc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
 
-func back(cc: &ConcaveComponent) -> ?f32:
+func back(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y >= 0.0
     -cc.bounding_box.ymin()

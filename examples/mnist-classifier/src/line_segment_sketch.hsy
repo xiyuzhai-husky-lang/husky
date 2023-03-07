@@ -18,7 +18,7 @@ pub struct LineSegmentStroke {
 }
 
 impl LineSegmentStroke:
-    static func new(ct: &RawContour, from: i32, to: i32) -> LineSegmentStroke:
+    static func new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
         assert from <= to
         LineSegmentStroke(ct.points.cyclic_slice(from, to + 1))
 
@@ -29,7 +29,7 @@ impl LineSegmentStroke:
         <LineSegment start={this.start} end={this.end} />
 
 pub struct LineSegmentSketch {
-    contour: &RawContour,
+    contour: ~RawContour,
     strokes: []LineSegmentStroke,
 }
 
@@ -54,7 +54,7 @@ impl LineSegmentSketch:
             ClosedRange(ymin, ymax),
         )
 
-    static func new(ct: &RawContour, r: f32) -> LineSegmentSketch:
+    static func new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
 
     visual:
@@ -76,7 +76,7 @@ func go_left(u: Vector2d, r: f32) -> Vector2d:
     let dy = dr*u.x/L
     Vector2d(u.x+dx, u.y+dy)
 
-proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:
+proc extend_end(ct: ~RawContour, start: i32, r: f32) -> i32:
     let mut end = start
     let mut dp = ct.displacement(start, end + 1)
     let N = ct.points.ilen()
@@ -109,7 +109,7 @@ proc extend_end(ct: &RawContour, start: i32, r: f32) -> i32:
     assert end > start
     return end
 
-proc extend_start(ct: &RawContour, start0: i32, end: i32, r: f32) -> i32:
+proc extend_start(ct: ~RawContour, start0: i32, end: i32, r: f32) -> i32:
     let mut start = end
     let mut dp0 = ct.displacement(end, start - 1)
     let min_start = end - ct.points.ilen()
@@ -151,7 +151,7 @@ proc extend_start(ct: &RawContour, start0: i32, end: i32, r: f32) -> i32:
     else:
         return start0
 
-proc find_line_segments(ct: &RawContour, r: f32) -> []LineSegmentStroke:
+proc find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
     let mut line_segments = []LineSegmentStroke()
     let mut start = 0
     let mut end = 1

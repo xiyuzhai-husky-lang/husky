@@ -1,8 +1,8 @@
 use crate::*
 
 struct FermiMatchResult {
-    matches: []?&ConcaveComponent,
-    others: []&ConcaveComponent,
+    matches: []?~ConcaveComponent,
+    others: []~ConcaveComponent,
 }
 
 impl FermiMatchResult:
@@ -26,11 +26,11 @@ impl FermiMatchResult:
         return norm
 
 pub proc fermi_match(
-    concave_components: &[]ConcaveComponent,
-    templates: []((&ConcaveComponent) -> ?f32)
+    concave_components: ~[]ConcaveComponent,
+    templates: []((~ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:
     let mut others = concave_components.collect_refs()
-    let mut matches = []?&ConcaveComponen4t()
+    let mut matches: []?~ConcaveComponent = []
     // todo: change this to `for template in templates` after introducing `for ... in` loop
     for i < templates.ilen():
         let template = templates[i]

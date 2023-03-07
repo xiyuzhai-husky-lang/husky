@@ -10,7 +10,7 @@ use crate::one::is_one
 func open_one_match -> FermiMatchResult:
     fermi_match(major_concave_components, [almost_closed])
 
-func almost_closed(cc: &ConcaveComponent) -> ?f32:
+func almost_closed(cc: ~ConcaveComponent) -> ?f32:
     require cc.angle_change + 0.0 < -140.0
     -cc.angle_change + 0.0
 

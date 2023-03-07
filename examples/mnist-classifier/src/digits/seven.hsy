@@ -11,7 +11,7 @@ use crate::digits::*
 func simple_seven_match -> FermiMatchResult:
     fermi_match(major_concave_components,[simple_leftdown_pattern])
 
-func simple_leftdown_pattern(cc: &ConcaveComponent) -> ?f32:
+func simple_leftdown_pattern(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
     -dp.y
@@ -19,13 +19,13 @@ func simple_leftdown_pattern(cc: &ConcaveComponent) -> ?f32:
 func special_seven_match -> FermiMatchResult:
     fermi_match(major_concave_components,[leftupcc_pattern, leftdowncc_pattern])
 
-func leftupcc_pattern(cc: &ConcaveComponent) -> ?f32:
+func leftupcc_pattern(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
     require cc.relative_bounding_box.ymax() > 0.6
     cc.end().y
 
-func leftdowncc_pattern(cc: &ConcaveComponent) -> ?f32:
+func leftdowncc_pattern(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
 

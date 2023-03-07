@@ -65,7 +65,8 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
+                let opd_ty =
+                    self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty(), local_term_region);
                 opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
             }
         }

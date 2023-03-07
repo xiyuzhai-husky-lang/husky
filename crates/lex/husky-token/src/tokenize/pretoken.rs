@@ -504,6 +504,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '?' => Punctuation::Question,
                 '#' => Punctuation::PoundSign,
+                '~' => todo!(),
+                '∀' => todo!(),
+                '∃' => todo!(),
                 c => return Some(Pretoken::Error(TokenError::UnrecognizedChar(c))),
             }
             .into(),

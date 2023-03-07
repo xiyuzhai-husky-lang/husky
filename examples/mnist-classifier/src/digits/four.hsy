@@ -9,7 +9,7 @@ use crate::line_segment_sketch::concave_component::*
 func left_components -> FermiMatchResult:
     fermi_match(major_concave_components, [left_coordinate_max, left_coordinate_max])
 
-func left_coordinate_max(cc: &ConcaveComponent) -> ?f32:
+func left_coordinate_max(cc: ~ConcaveComponent) -> ?f32:
     cc.relative_bounding_box.xmax()
 
 
@@ -103,12 +103,12 @@ def is_four -> ?MnistLabel:
 
     MnistLabel::Four
 
-func displacement_downwards(cc: &ConcaveComponent) -> ?f32:
+func displacement_downwards(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
-func cc_box_heights(cc: &ConcaveComponent)-> ?f32:
+func cc_box_heights(cc: ~ConcaveComponent)-> ?f32:
     let dp = cc.displacement()
     require dp.y >0.0
     require cc.relative_bounding_box.ymin()>0.4

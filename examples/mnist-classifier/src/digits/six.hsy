@@ -68,12 +68,12 @@ def is_six -> ?MnistLabel:
     require lower_excess > 15.0
     MnistLabel::Six
 
-func upmost(cc: &ConcaveComponent) -> ?f32:
+func upmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
-func bottom1(cc: &ConcaveComponent) -> ?f32:
+func bottom1(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     if dp.y < -3.0:
         require (dp.x / dp.y).abs() > 1.4

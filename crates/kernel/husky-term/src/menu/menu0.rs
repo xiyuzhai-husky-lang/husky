@@ -42,7 +42,7 @@ pub struct TermMenu0 {
     slice_ty_path: Term,
     str_ty_path: Term,
     ref_ty_path: Term,
-    list_ty: Term,
+    list_ty_ontology: Term,
     i8: Term,
     i16: Term,
     i32: Term,
@@ -98,7 +98,7 @@ impl TermMenu0 {
             slice_ty_path: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path()).into(),
             str_ty_path: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
             ref_ty_path: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
-            list_ty: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
+            list_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
             unit: TermEntityPath::TypeOntology(entity_path_menu.unit_ty_path()).into(),
             never: TermEntityPath::TypeOntology(entity_path_menu.never_ty_path()).into(),
             bool: TermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
@@ -223,8 +223,8 @@ impl TermMenu0 {
         self.ref_ty_path
     }
 
-    pub fn list(&self) -> Term {
-        self.list_ty
+    pub fn list_ty_ontology(&self) -> Term {
+        self.list_ty_ontology
     }
 
     pub fn unit(&self) -> Term {
