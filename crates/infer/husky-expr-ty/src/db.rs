@@ -1,10 +1,10 @@
 use crate::*;
 
-pub trait ExprTermDb: salsa::DbWithJar<ExprTypeJar> + TermDb + DefnDb {
+pub trait ExprTypeDb: salsa::DbWithJar<ExprTypeJar> + TermDb + DefnDb {
     fn expr_ty_region(&self, expr_region: ExprRegion) -> &ExprTypeRegion;
 }
 
-impl<Db> ExprTermDb for Db
+impl<Db> ExprTypeDb for Db
 where
     Db: salsa::DbWithJar<ExprTypeJar> + TermDb + DefnDb,
 {

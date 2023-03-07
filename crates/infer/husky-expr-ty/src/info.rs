@@ -7,7 +7,7 @@ pub use self::progress::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)>,
     expectation_rule_idx: OptionLocalTermExpectationIdx,

@@ -24,11 +24,11 @@ use husky_entity_tree::*;
 use husky_expr::*;
 use husky_signature::*;
 use husky_term::*;
-use husky_term_prelude::*; 
+use husky_term_prelude::*;
 use salsa::DebugWithDb;
 
 #[cfg(test)]
 use tests::*;
 
-#[salsa::jar(db = ExprTermDb)]
+#[salsa::jar(db = ExprTypeDb)]
 pub struct ExprTypeJar(expr_ty_region);

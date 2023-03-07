@@ -1,15 +1,8 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn path(&self) -> salsa::DebugWith<'a, dyn ExprTermDb + 'a> {
+    pub(crate) fn path(&self) -> salsa::DebugWith<'a, dyn ExprTypeDb + 'a> {
         self.expr_region_data.path_ref().debug(self.db)
-    }
-
-    pub(crate) fn print_debug_expr(&self, expr_idx: ExprIdx) {
-        p!(
-            self.path(),
-            self.expr_region_data[expr_idx].debug(self.db())
-        );
     }
 
     pub(super) fn expr_disambiguation(
