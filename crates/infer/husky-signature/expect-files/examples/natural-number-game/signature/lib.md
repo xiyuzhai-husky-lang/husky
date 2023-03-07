@@ -39,12 +39,12 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`natural_number_game::Nat`),
+                    ty: RawTerm(`natural_number_game::Nat`),
                 },
             ),
         ),
     ),
     Err(
-        OutputTypeTermError,
+        OutputTypeRawTermError,
     ),
 ]

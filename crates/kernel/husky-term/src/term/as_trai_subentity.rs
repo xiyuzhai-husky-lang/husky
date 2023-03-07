@@ -8,6 +8,14 @@ pub struct TermAsTraitSubentity {
     ident: Identifier,
 }
 
+#[test]
+fn term_as_trai_subentity_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermAsTraitSubentity>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermAsTraitSubentity {
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,

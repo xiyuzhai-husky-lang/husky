@@ -1,0 +1,12 @@
+[
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::fmt::Debug`),
+            ),
+        ),
+        Ok(
+            RawTerm(`core::basic::Trait`),
+        ),
+    ),
+]

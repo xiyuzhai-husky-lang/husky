@@ -13,7 +13,7 @@
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
-                                term_symbol: TermSymbol(
+                                symbol: RawTermSymbol(
                                     Id {
                                         value: 1,
                                     },
@@ -33,8 +33,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 4,
                                         },
@@ -43,35 +43,31 @@
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 17,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 17,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::num::isize`),
+                    return_ty: RawTerm(`core::num::isize`),
                 },
             ),
         ),

@@ -15,6 +15,14 @@ pub struct TermSymbol {
     pub idx: u8,
 }
 
+#[test]
+fn term_symbol_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermSymbol>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermSymbol {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(

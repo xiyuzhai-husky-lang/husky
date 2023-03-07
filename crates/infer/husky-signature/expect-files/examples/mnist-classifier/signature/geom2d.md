@@ -8,44 +8,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `x`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 213,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `y`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                     ],
                 },
@@ -61,44 +29,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `x`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 213,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `y`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                     ],
                 },
@@ -114,44 +50,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `x`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 213,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `y`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                     ],
                 },
@@ -167,44 +71,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 237,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `min`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 197,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `max`,
+                            ty: RawTerm(`core::num::f32`),
                         },
                     ],
                 },
@@ -232,44 +104,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 323,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `xrange`,
+                            ty: RawTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 324,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `yrange`,
+                            ty: RawTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
                     ],
                 },
@@ -283,7 +123,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::geom2d::Point2d`),
+                    ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                 },
             ),
         ),
@@ -300,35 +140,31 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Point2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                     },
                 ),
             ),
@@ -345,7 +181,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -363,21 +199,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 47,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -394,7 +228,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -412,21 +246,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 47,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -439,7 +271,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                    ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                 },
             ),
         ),
@@ -455,7 +287,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Point2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                     },
                 ),
             ),
@@ -473,21 +305,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -504,7 +334,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -522,21 +352,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -554,21 +382,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -586,21 +412,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 1,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -618,21 +442,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::i32`),
+                        return_ty: RawTerm(`core::num::i32`),
                     },
                 ),
             ),
@@ -650,35 +472,31 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 43,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 49,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 1,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -691,7 +509,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::geom2d::BoundingBox`),
+                    ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
                 },
             ),
         ),
@@ -708,21 +526,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 45,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
             ),
@@ -740,21 +556,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 47,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::RelativePoint2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativePoint2d`),
                     },
                 ),
             ),
@@ -771,7 +585,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -788,7 +602,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -805,7 +619,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -822,7 +636,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -835,7 +649,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                    ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                 },
             ),
         ),
@@ -851,7 +665,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -868,7 +682,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -885,7 +699,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -902,7 +716,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),

@@ -134,6 +134,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     pub(crate) fn finish(mut self, mut local_term_region: LocalTermRegion) -> ExprTypeRegion {
+        // ad hoc, todo: enforce this
+        // for expr_idx in self.expr_region_data.expr_arena().index_iter() {
+        //     print_debug_expr!(self, expr_idx);
+        //     assert!(self.expr_ty_infos.has(expr_idx))
+        // }
         self.finalize_unresolved_term_table(&mut local_term_region);
         ExprTypeRegion::new(
             self.db,

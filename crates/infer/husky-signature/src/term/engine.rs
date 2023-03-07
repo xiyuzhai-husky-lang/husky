@@ -236,6 +236,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 function,
                 ref implicit_arguments,
                 items,
+                ref commas,
                 ..
             } => {
                 let Ok(function) = self.infer_new(function) else {
@@ -251,6 +252,9 @@ impl<'a> SignatureRawTermEngine<'a> {
                         .collect(),
                     None => vec![],
                 };
+                assert!(items.len() <= commas.len() + 1);
+                assert!(items.len() >= commas.len());
+                let extra_comma = items.len() == commas.len();
                 let items = items
                     .into_iter()
                     .map(|item| self.infer_new(item))
@@ -260,6 +264,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     function,
                     implicit_arguments,
                     items,
+                    extra_comma,
                 )
                 .into())
             }

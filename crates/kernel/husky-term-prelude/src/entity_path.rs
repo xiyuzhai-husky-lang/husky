@@ -13,6 +13,14 @@ pub enum TermEntityPath {
     TypeConstructor(TypePath),
 }
 
+#[test]
+fn term_entity_path_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermEntityPath>(),
+        std::mem::size_of::<usize>()
+    );
+}
+
 impl TermEntityPath {
     pub fn ty_ontology(self) -> Option<TypePath> {
         match self {

@@ -15,6 +15,11 @@ pub struct TermCurry {
     pub return_ty: Term,
 }
 
+#[test]
+fn term_curry_size_works() {
+    assert_eq!(std::mem::size_of::<TermCurry>(), std::mem::size_of::<u32>());
+}
+
 impl TermCurry {
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,

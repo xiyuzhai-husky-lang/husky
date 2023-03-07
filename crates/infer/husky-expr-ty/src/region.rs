@@ -80,6 +80,17 @@ impl ExprTypeRegion {
     pub fn self_ty(&self) -> Option<Term> {
         self.self_ty
     }
+
+    pub fn expr_disambiguation(
+        &self,
+        expr_idx: ExprIdx,
+    ) -> Option<ExprTypeResultRef<ExprDisambiguation>> {
+        // ad hoc
+        // todo: change this to always some
+        self.expr_ty_infos
+            .get(expr_idx)
+            .map(|ty_info| ty_info.disambiguation())
+    }
 }
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]

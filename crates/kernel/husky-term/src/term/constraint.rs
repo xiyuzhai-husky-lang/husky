@@ -6,6 +6,14 @@ pub struct TermTraitConstraint {
     trai: Term,
 }
 
+#[test]
+fn term_trait_constraint_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermTraitConstraint>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermTraitConstraint {
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,

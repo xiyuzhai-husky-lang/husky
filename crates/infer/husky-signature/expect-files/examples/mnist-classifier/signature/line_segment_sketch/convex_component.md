@@ -1,6 +1,6 @@
 [
     Err(
-        FieldTypeTermError(
+        FieldTypeRawTermError(
             1,
         ),
     ),
@@ -11,7 +11,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                    ty: RawTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                 },
             ),
         ),

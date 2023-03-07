@@ -8,44 +8,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 243,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `start`,
+                            ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 244,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 41,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `end`,
+                            ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                         },
                     ],
                 },
@@ -59,7 +27,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                    ty: RawTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                 },
             ),
         ),
@@ -75,7 +43,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -93,21 +61,19 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 41,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 47,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),

@@ -7,6 +7,14 @@ pub struct TermSubentity {
     ident: Identifier,
 }
 
+#[test]
+fn term_subentity_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermSubentity>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermSubentity {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(

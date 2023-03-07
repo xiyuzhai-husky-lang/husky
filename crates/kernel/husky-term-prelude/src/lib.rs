@@ -18,7 +18,26 @@ pub use self::universe::*;
 use husky_entity_path::*;
 
 #[salsa::jar(db = TermPreludeDb)]
-pub struct TermPreludeJar(TermInteger128, TermInteger256, TermNaturalNumber);
+pub struct TermPreludeJar(
+    TermI32Literal,
+    TermI64Literal,
+    TermI128Literal,
+    TermI256Literal,
+    TermISizeLiteral,
+    TermU32Literal,
+    TermU64Literal,
+    TermU128Literal,
+    TermU256Literal,
+    TermUSizeLiteral,
+    TermR32Literal,
+    TermR64Literal,
+    TermR128Literal,
+    TermR256Literal,
+    TermRSizeLiteral,
+    TermF32Literal,
+    TermF64Literal,
+    TermNatLiteral,
+);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermRitchieKind {

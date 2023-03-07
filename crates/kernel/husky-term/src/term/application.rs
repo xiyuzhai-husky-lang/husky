@@ -27,6 +27,14 @@ pub struct TermApplication {
     pub shift: u8,
 }
 
+#[test]
+fn term_application_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermApplication>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermApplication {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns Term instead of TermApplication because it might reduce to a non application term

@@ -3,7 +3,6 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
-mod entity_path;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -15,7 +14,6 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::entity_path::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
@@ -334,10 +332,9 @@ pub(crate) fn term_from_raw_term_list_unchecked(
 
 #[test]
 fn term_size_works() {
-    assert_eq!(
-        std::mem::size_of::<Term>(),
-        2 * std::mem::size_of::<usize>()
-    );
+    // todo: shall we make this smaller?
+    // to make this smaller, one can make TermLiteral smaller
+    assert_eq!(std::mem::size_of::<Term>(), 12);
     assert_eq!(
         std::mem::size_of::<Option<Term>>(),
         std::mem::size_of::<Term>()
