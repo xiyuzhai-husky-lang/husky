@@ -124,7 +124,8 @@ impl Term {
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
                     TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
-                        return Err(todo!())
+                        p!(raw_term.debug(db));
+                        return Err(todo!());
                     }
                 },
             },
@@ -147,9 +148,9 @@ impl Term {
             RawTerm::TraitConstraint(raw_term) => {
                 TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
-            RawTerm::LeashOrBitNot(_) => match term_ty_expectation {
+            RawTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => {
-                    todo!()
+                    db.term_menu(toolchain)?.leash_ty_ontology()
                 }
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
                     match path.prelude_ty_path(db)? {

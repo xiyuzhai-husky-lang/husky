@@ -2,7 +2,7 @@ use husky_entity_path::{EntityPath, EntityPathError};
 use std::sync::Arc;
 use thiserror::Error;
 
-#[derive(Error, Debug, PartialEq, Eq, Clone)]
+#[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
 pub enum RawTermError {
     #[error("term is not reduced")]
     RawTermIsNotReduced,
