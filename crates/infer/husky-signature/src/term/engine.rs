@@ -12,56 +12,6 @@ pub(super) struct SignatureRawTermEngine<'a> {
     term_symbol_region: RawTermSymbolRegion,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct RawTermSymbolRegion {
-    registry: TermSymbolRegistry,
-    inherited_symbol_terms: Vec<RawTermSymbol>,
-    current_symbol_terms: Vec<RawTermSymbol>,
-}
-
-impl RawTermSymbolRegion {
-    fn new(parent: Option<&RawTermSymbolRegion>, symbol_region: &SymbolRegion) -> Self {
-        let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
-        let inherited_symbol_terms = symbol_region
-            .inherited_symbol_iter()
-            .map(|symbol| {
-                parent
-                    .unwrap()
-                    .parent_symbol_term(symbol.parent_symbol_idx())
-            })
-            .collect();
-        Self {
-            registry,
-            inherited_symbol_terms,
-            current_symbol_terms: Default::default(),
-        }
-    }
-
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSymbolIdx) -> RawTermSymbol {
-        match parent_symbol_idx {
-            ParentSymbolIdx::Inherited(inherited_symbol_idx) => {
-                self.inherited_symbol_term(inherited_symbol_idx)
-            }
-            ParentSymbolIdx::Current(current_symbol_idx) => {
-                self.current_symbol_term(current_symbol_idx).unwrap()
-            }
-        }
-    }
-
-    pub fn inherited_symbol_term(&self, inherited_symbol_idx: InheritedSymbolIdx) -> RawTermSymbol {
-        self.inherited_symbol_terms[inherited_symbol_idx.raw()]
-    }
-
-    pub fn current_symbol_term(
-        &self,
-        current_symbol_idx: CurrentSymbolIdx,
-    ) -> Option<RawTermSymbol> {
-        self.current_symbol_terms
-            .get(current_symbol_idx.raw())
-            .copied()
-    }
-}
-
 impl<'a> SignatureRawTermEngine<'a> {
     pub(super) fn new(
         db: &'a dyn SignatureDb,
@@ -128,9 +78,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 CurrentSymbolVariant::LetVariable { .. }
                 | CurrentSymbolVariant::FrameVariable { .. } => return,
             };
-            self.term_symbol_region
-                .current_symbol_terms
-                .push(self.term_symbol_region.registry.new_symbol(self.db, ty))
+            self.term_symbol_region.new_symbol(self.db, ty)
         }
     }
 
@@ -261,9 +209,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
                     PrefixOpr::BitNotOrLeash => {
-                        RawTerm::AmbiguousTypePath(RawTermAmbiguousTypePath::new_bitnot_or_leash(
-                            self.expr_region_data.path().toolchain(self.db),
-                        ))
+                        RawTerm::LeashOrBitNot(self.expr_region_data.path().toolchain(self.db))
                     }
                     PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
@@ -431,8 +377,11 @@ impl<'a> SignatureRawTermEngine<'a> {
         }
     }
 
-    pub(crate) fn current_symbol_term_symbol(&self, symbol: CurrentSymbolIdx) -> RawTermSymbol {
-        self.term_symbol_region.current_symbol_terms[symbol.raw()]
+    pub(crate) fn current_symbol_term_symbol(
+        &self,
+        symbol: CurrentSymbolIdx,
+    ) -> Option<RawTermSymbol> {
+        self.term_symbol_region.current_symbol_term(symbol)
     }
 
     pub(crate) fn raw_term_menu(&self) -> &RawTermMenu {
