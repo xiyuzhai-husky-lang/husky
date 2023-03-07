@@ -17,6 +17,10 @@ pub enum DerivedExprTermError {
     ExprError,
     #[error("todo")]
     Todo,
+    #[error("AmbiguousTypePath")]
+    AmbiguousTypePath,
+    #[error("PrefixOprTermNotInferred")]
+    PrefixOprTermNotInferred,
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;

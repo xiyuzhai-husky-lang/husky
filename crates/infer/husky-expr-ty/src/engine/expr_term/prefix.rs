@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         opd: ExprIdx,
     ) -> ExprTermResult<LocalTerm> {
         let Some(opd_term) = self.infer_new_expr_term(opd) else {
-            todo!()
+           return Err(DerivedExprTermError::PrefixOprTermNotInferred.into())
         };
         match opr {
             PrefixOpr::Minus => todo!(),

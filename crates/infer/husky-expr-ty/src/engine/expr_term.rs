@@ -108,16 +108,16 @@ impl<'a> ExprTypeEngine<'a> {
             Some(path) => match path {
                 EntityPath::Module(_) => todo!(),
                 EntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(path) => match self.expr_disambiguation(expr_idx) {
-                        Ok(disambiguation) => match disambiguation {
-                            ExprDisambiguation::TypePath(disambiguation) => self
-                                .db
-                                .ty_path_ty(path, disambiguation)
-                                .map(Into::into)
-                                .map_err(|e| todo!()),
-                            _ => unreachable!(),
-                        },
-                        Err(_) => todo!(),
+                    ModuleItemPath::Type(path) => match self
+                        .expr_disambiguation(expr_idx)
+                        .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
+                    {
+                        ExprDisambiguation::TypePath(disambiguation) => self
+                            .db
+                            .ty_path_ty(path, disambiguation)
+                            .map(Into::into)
+                            .map_err(|e| todo!()),
+                        _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),
                     ModuleItemPath::Form(_) => todo!(),
