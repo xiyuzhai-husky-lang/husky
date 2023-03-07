@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 17,
+    [salsa id]: 18,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -76,12 +76,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: form path error",
-                severity: Error,
-                range: [7:17, 7:26),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -104,9 +104,7 @@ impl Term {
             RawTerm::Category(raw_term) => raw_term.into(),
             RawTerm::Universe(raw_term) => raw_term.into(),
             RawTerm::Curry(raw_term) => TermCurry::from_raw_unchecked(db, raw_term)?.into(),
-            RawTerm::Ritchie(raw_term) => {
-                TermRitchie::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
-            }
+            RawTerm::Ritchie(raw_term) => TermRitchie::from_raw_unchecked(db, raw_term)?.into(),
             RawTerm::Abstraction(raw_term) => {
                 TermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
