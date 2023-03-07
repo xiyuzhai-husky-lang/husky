@@ -1,3 +1,5 @@
 pub type Ref<covariant 'a, covariant E>;
 
 pub type RefMut<covariant 'a, invariant E>;
+
+pub type Leash<covariant E>;

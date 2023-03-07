@@ -3,7 +3,7 @@ use thiserror::Error;
 
 pub type RawTypeResult<T> = Result<T, RawTypeError>;
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum RawTypeError {
     #[error("original `{0}`")]
@@ -12,7 +12,7 @@ pub enum RawTypeError {
     Derived(#[from] DerivedRawTypeError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum OriginalRawTypeError {
     #[error("raw_term error")]
@@ -21,7 +21,7 @@ pub enum OriginalRawTypeError {
     Todo,
 }
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum DerivedRawTypeError {
     #[error("signature error")]

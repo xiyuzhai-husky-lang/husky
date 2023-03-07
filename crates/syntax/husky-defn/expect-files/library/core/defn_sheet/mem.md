@@ -407,6 +407,145 @@ Ok(
                     ),
                 ),
             ),
+            (
+                DefnRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::mem::Leash`, `Extern`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Defn::Type(
+                        TypeDefn::Extern(
+                            ExternTypeDefn {
+                                path: TypePath(`core::mem::Leash`, `Extern`),
+                                decl: ExternTypeDecl {
+                                    path: TypePath(`core::mem::Leash`, `Extern`),
+                                    ast_idx: 2,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: None,
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::Entity(
+                                                    EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::mem::Leash`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                28,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                                    ident_token: IdentifierToken {
+                                                                        ident: `E`,
+                                                                        token_idx: TokenIdx(
+                                                                            27,
+                                                                        ),
+                                                                    },
+                                                                },
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: False,
+                                                pattern_ty_constraints: [
+                                                    ImplicitTypeParameter,
+                                                ],
+                                            },
+                                            roots: [],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        Some(
+                                            ImplicitParameterDeclList {
+                                                langle: LeftAngleBracketOrLessThanToken(
+                                                    TokenIdx(
+                                                        25,
+                                                    ),
+                                                ),
+                                                implicit_parameters: [
+                                                    ImplicitParameterDecl {
+                                                        pattern: ImplicitParameterDeclPattern {
+                                                            annotated_variance_token: Some(
+                                                                Covariant(
+                                                                    CovariantToken {
+                                                                        token_idx: TokenIdx(
+                                                                            26,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            symbol: 0,
+                                                            variant: Type0 {
+                                                                ident_token: IdentifierToken {
+                                                                    ident: Identifier(
+                                                                        Word(
+                                                                            Id {
+                                                                                value: 30,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    token_idx: TokenIdx(
+                                                                        27,
+                                                                    ),
+                                                                },
+                                                            },
+                                                        },
+                                                        traits: None,
+                                                    },
+                                                ],
+                                                commas: [],
+                                                decl_list_result: Ok(
+                                                    (),
+                                                ),
+                                                rangle: Ok(
+                                                    RightAngleBracketToken(
+                                                        TokenIdx(
+                                                            28,
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
         ],
     },
 )

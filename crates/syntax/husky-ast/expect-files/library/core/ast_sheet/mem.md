@@ -68,10 +68,43 @@ Ok(
                         14,
                     ),
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::Public,
+                    entity_kind: ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::mem::Leash`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentifierToken {
+                        ident: `Leash`,
+                        token_idx: TokenIdx(
+                            24,
+                        ),
+                    },
+                    is_generic: true,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        25,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..2,
+            0..3,
         ),
     },
 )
