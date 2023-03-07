@@ -55,16 +55,24 @@ impl<Db: ?Sized + TermPreludeDb> DisplayWithDb<Db> for TermEntityPath {
     ) -> std::fmt::Result {
         match self {
             TermEntityPath::Form(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+                f.write_str("Form(")?;
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                f.write_str(")")
             }
             TermEntityPath::Trait(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+                f.write_str("Trait(")?;
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                f.write_str(")")
             }
             TermEntityPath::TypeOntology(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+                f.write_str("TypeOntology(")?;
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                f.write_str(")")
             }
             TermEntityPath::TypeConstructor(path) => {
-                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+                f.write_str("TypeConstructor(")?;
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                f.write_str(")")
             }
         }
     }

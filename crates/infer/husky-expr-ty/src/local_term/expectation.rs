@@ -43,6 +43,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination;
 
+    /// if ty_path's type is under this expectation, disambiguate whether it's an ontology or constructor
     // final
     #[inline(always)]
     fn disambiguate_ty_path(
@@ -55,15 +56,12 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
             FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
             FinalDestination::TypeOntologyPath(final_destination_ty_path) => {
                 match final_destination_ty_path == ty_path {
-                    true => TypePathDisambiguation::Ontology.into(),
+                    true => TypePathDisambiguation::Constructor.into(),
                     false => todo!(),
                 }
             }
             FinalDestination::TypeConstructorPath(final_destination_ty_path) => {
-                match final_destination_ty_path == ty_path {
-                    true => TypePathDisambiguation::Constructor.into(),
-                    false => todo!(),
-                }
+                todo!()
             }
             FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromAnyOriginal,
             FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromAnyDerived,
