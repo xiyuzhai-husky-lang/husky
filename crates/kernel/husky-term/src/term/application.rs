@@ -31,8 +31,9 @@ impl TermApplication {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns Term instead of TermApplication because it might reduce to a non application term
     pub fn new(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> TermResult<Term> {
-        check_application_validity(db, function, argument, shift)?;
-        Ok(Self::new_unchecked(db, function, argument, shift))
+        let term = Self::new_unchecked(db, function, argument, shift);
+        term.check(db)?;
+        Ok(term)
     }
 
     //// this constructor guarantees that the result is reduced, not necessarily valid
@@ -53,6 +54,10 @@ impl TermApplication {
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Term> {
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
+    }
+
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        check_term_application_validity(db, self)
     }
 
     pub(crate) fn raw_ty(self, db: &dyn TermDb) -> TermResult<RawTerm> {
@@ -160,12 +165,16 @@ impl Term {
     }
 }
 
-fn check_application_validity(
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_application_validity(
     db: &dyn TermDb,
-    function: Term,
-    argument: Term,
-    shift: u8,
+    term_application: TermApplication,
 ) -> TermResult<()> {
+    let function = term_application.function(db);
+    let argument = term_application.argument(db);
+    let shift = term_application.shift(db);
+    function.check(db)?;
+    argument.check(db)?;
     match shift {
         0 => {
             let function_ty = match function.ty_unchecked(db)? {

@@ -17,6 +17,10 @@ impl TermSubentity {
         todo!()
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -36,4 +40,12 @@ impl TermSubentity {
         // let ident = self.ident(db);
         // TermSubentity::new(db, parent, ident)
     }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_subentity_validity(
+    db: &dyn TermDb,
+    term_subentity: TermSubentity,
+) -> TermResult<()> {
+    todo!()
 }

@@ -15,6 +15,10 @@ impl TermTraitConstraint {
         todo!()
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -23,6 +27,14 @@ impl TermTraitConstraint {
     ) -> std::fmt::Result {
         todo!()
     }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_trai_constraint_validity(
+    db: &dyn TermDb,
+    term_trai_constraint: TermTraitConstraint,
+) -> TermResult<()> {
+    todo!()
 }
 
 impl TermTraitConstraint {

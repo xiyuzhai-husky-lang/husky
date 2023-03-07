@@ -30,7 +30,9 @@ use husky_word::Identifier;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(
+    // symbol
     TermSymbol,
+    // - symbols
     TermSymbols,
     term_curry_symbols,
     term_ritchie_symbols,
@@ -43,25 +45,36 @@ pub struct TermJar(
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
+    check_term_curry_validity,
     // total_number_of_curry_parameters,
     // ritchie
     TermRitchie,
+    term_ritchie_from_raw_unchecked,
+    check_term_ritchie_validity,
+    // abstraction
     TermAbstraction,
+    check_term_abstraction_validity,
     // application
     TermApplication,
+    check_term_application_validity,
     application_expansion_salsa,
     term_uncheck_from_raw_term_application,
     term_application_raw_ty,
     parameter_ty_raw_term_curry_to_argument_ty_expectation,
     parameter_ty_raw_term_application_to_argument_ty_expectation,
-    // application reduction
+    // - application reduction
     reduce_term_application,
-    // application expansion
+    // - application expansion
     ApplicationArguments,
     // subentity
     TermSubentity,
+    check_term_subentity_validity,
+    // as trait subentity
     TermAsTraitSubentity,
+    check_term_as_trai_subentity_validity,
+    // trait constraint
     TermTraitConstraint,
+    check_term_trai_constraint_validity,
     term_menu,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,

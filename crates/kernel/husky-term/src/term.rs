@@ -74,7 +74,26 @@ impl Term {
         raw_term: RawTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
-        todo!()
+        let term = Self::from_raw_unchecked(db, raw_term, term_ty_expectation)?;
+        term.check(db)?;
+        Ok(term)
+    }
+
+    fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        match self {
+            Term::Literal(_) => Ok(()),
+            Term::Symbol(term) => term.check(db),
+            Term::EntityPath(_) => Ok(()),
+            Term::Category(_) => Ok(()),
+            Term::Universe(_) => Ok(()),
+            Term::Curry(term) => term.check(db),
+            Term::Ritchie(term) => term.check(db),
+            Term::Abstraction(term) => term.check(db),
+            Term::Application(term) => term.check(db),
+            Term::Subentity(term) => term.check(db),
+            Term::AsTraitSubentity(term) => term.check(db),
+            Term::TraitConstraint(term) => term.check(db),
+        }
     }
 
     pub(crate) fn from_raw_unchecked(

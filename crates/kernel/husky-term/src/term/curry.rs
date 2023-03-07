@@ -23,6 +23,10 @@ impl TermCurry {
         term_curry_from_raw_unchecked(db, raw_term_curry)
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        todo!()
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -74,19 +78,10 @@ pub(crate) fn term_curry_from_raw_unchecked(
     ))
 }
 
-// impl Term {
-//     pub(crate) fn total_number_of_curry_parameters(self, db: &dyn TermDb) -> u8 {
-//         match self {
-//             Term::Curry(term) => total_number_of_curry_parameters(db, term),
-//             _ => 0,
-//         }
-//     }
-// }
-
-// #[salsa::tracked(jar = TermJar)]
-// pub(crate) fn total_number_of_curry_parameters(db: &dyn TermDb, term: TermCurry) -> u8 {
-//     term.return_ty(db).total_number_of_curry_parameters(db) + 1
-// }
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_curry_validity(db: &dyn TermDb, term_curry: TermCurry) -> TermResult<()> {
+    todo!()
+}
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
     fn display_with_db_fmt(
