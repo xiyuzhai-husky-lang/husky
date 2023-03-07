@@ -1,17 +1,17 @@
 inductive Qualifier where
-  | EvalRef
+  | Leash
   | Copyable
 
 inductive Contract where
-  | EvalRef
+  | Leash
   | Copyable
   | Any
 
 def does_contract_contains_qualifer (contract: Contract)(qualifier: Qualifier) :Bool :=
   match contract with
-  | Contract.EvalRef =>
+  | Contract.Leash =>
     match qualifier with
-    | Qualifier.EvalRef => true
+    | Qualifier.Leash => true
     | _ => false
   | Contract.Copyable =>
     match qualifier with

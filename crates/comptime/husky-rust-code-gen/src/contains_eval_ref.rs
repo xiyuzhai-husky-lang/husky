@@ -95,7 +95,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 //     parameter: &infer_decl::ParameterDecl,
 // ) -> bool {
 //     match parameter.modifier {
-//         ParameterModifier::EvalRef => return true,
+//         ParameterModifier::Leash => return true,
 //         _ => (),
 //     }
 //     db.entity_route_contains_eval_ref(parameter.ty())

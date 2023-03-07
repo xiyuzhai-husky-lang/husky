@@ -99,7 +99,7 @@ impl<'eval> __Register<'eval> {{
             }}
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => self.data.as_{ty},
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => *(self.data.as_ptr as *const {ty}),
@@ -115,7 +115,7 @@ impl<'eval> __Register<'eval> {{
             }}
             match self.data_kind {{
                 __RegisterDataKind::PrimitiveValue => Some(self.data.as_{ty}),
-                __RegisterDataKind::EvalRef
+                __RegisterDataKind::Leash
                 | __RegisterDataKind::TempRef
                 | __RegisterDataKind::TempMut
                 | __RegisterDataKind::Box => Some(*(self.data.as_ptr as *const {ty})),

@@ -61,7 +61,7 @@ pub enum TermLiteral {
 
 impl TermLiteral {
     #[inline(always)]
-    pub fn from_raw_unchecked(db: &dyn TermPreludeDb, valid_term: TermLiteral) -> Self {
+    pub(crate) fn from_raw_unchecked(db: &dyn TermPreludeDb, valid_term: TermLiteral) -> Self {
         todo!()
     }
 

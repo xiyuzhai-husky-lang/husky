@@ -68,7 +68,7 @@ macro_rules! index_eval_ref_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (EvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (Leash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -86,7 +86,7 @@ macro_rules! index_eval_ref_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (OptionalEvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (OptionalLeash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -157,7 +157,7 @@ macro_rules! index_temp_ref_fp {
         }
     }};
     (
-        EvalRef,
+        Leash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
@@ -181,7 +181,7 @@ macro_rules! index_temp_ref_fp {
         }
     }};
     (
-        OptionalEvalRef,
+        OptionalLeash,
         $Type: ty,
         $TYPE_VTABLE: expr,
         $INTRINSIC_ELEMENT_TY: ty,
@@ -255,7 +255,7 @@ macro_rules! index_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (mutable, EvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (mutable, Leash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,
@@ -268,7 +268,7 @@ macro_rules! index_temp_mut_fp {
             dev_src: static_dev_src!(),
         }
     }};
-    (mutable, OptionalEvalRef, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
+    (mutable, OptionalLeash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         unsafe fn wrapper<'eval>(
             values: &mut [__Register<'eval>],
             __opt_ctx: Option<&dyn __EvalContext<'eval>>,

@@ -17,7 +17,10 @@ pub struct TermSymbol {
 
 impl TermSymbol {
     #[inline(always)]
-    pub fn from_raw_unchecked(db: &dyn TermDb, raw_term_symbol: RawTermSymbol) -> TermResult<Self> {
+    pub(crate) fn from_raw_unchecked(
+        db: &dyn TermDb,
+        raw_term_symbol: RawTermSymbol,
+    ) -> TermResult<Self> {
         let ty = raw_term_symbol.ty(db)?;
         let ty = Term::from_raw_unchecked(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
         Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))

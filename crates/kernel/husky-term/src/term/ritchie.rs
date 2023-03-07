@@ -74,7 +74,7 @@ impl TermRitchie {
     }
 
     #[inline(always)]
-    pub fn from_raw_unchecked(
+    pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term_ritchie: RawTermRitchie,
     ) -> TermResult<Self> {

@@ -55,7 +55,7 @@ impl<'a> TraceLineGenerator<'a> {
         //         ParameterModifier::Owned => todo!(),
         //         ParameterModifier::OwnedMut => todo!(),
         //         ParameterModifier::MemberAccess => todo!(),
-        //         ParameterModifier::EvalRef => todo!(),
+        //         ParameterModifier::Leash => todo!(),
         //         ParameterModifier::TempRef => todo!(),
         //         ParameterModifier::TempRefMut => todo!(),
         //     }

@@ -40,7 +40,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrEvalRef,
+                                                    opr: BitNotOrLeash,
                                                     opr_token_idx: TokenIdx(
                                                         12,
                                                     ),
@@ -90,7 +90,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrEvalRef,
+                                                    opr: BitNotOrLeash,
                                                     opr_token_idx: TokenIdx(
                                                         19,
                                                     ),
@@ -297,7 +297,7 @@ Ok(
                                                     argument: 1,
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrEvalRef,
+                                                    opr: BitNotOrLeash,
                                                     opr_token_idx: TokenIdx(
                                                         150,
                                                     ),
@@ -325,7 +325,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrEvalRef,
+                                                    opr: BitNotOrLeash,
                                                     opr_token_idx: TokenIdx(
                                                         161,
                                                     ),

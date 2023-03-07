@@ -20,7 +20,7 @@ pub(crate) fn field_raw_ty(
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => unreachable!(),
-        RawTerm::BitNotOrEvalRef => todo!(),
+        RawTerm::AmbiguousTypePath(_) => todo!(),
     }
 }
 
@@ -68,7 +68,7 @@ pub(crate) fn application_raw_ty_field_raw_ty(
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
-        RawTerm::BitNotOrEvalRef => todo!(),
+        RawTerm::AmbiguousTypePath(_) => todo!(),
     }
 }
 

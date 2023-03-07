@@ -9,7 +9,7 @@ pub struct TermAsTraitSubentity {
 }
 
 impl TermAsTraitSubentity {
-    pub fn from_raw_unchecked(
+    pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         valid_term: RawTermAsTraitSubentity,
         term_ty_expectation: TermTypeExpectation,

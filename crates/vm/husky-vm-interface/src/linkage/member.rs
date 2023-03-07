@@ -17,7 +17,7 @@ use husky_vm_binding::Binding;
 impl __MemberLinkage {
     pub fn bind(&self, binding: Binding) -> __ResolvedLinkage {
         match binding {
-            Binding::EvalRef => self.eval_ref_resolved_linkage,
+            Binding::Leash => self.eval_ref_resolved_linkage,
             Binding::TempRef => self.temp_ref_resolved_linkage,
             Binding::TempMut => self.temp_mut_resolved_linkage,
             Binding::Move => self.move_resolved_linkage,

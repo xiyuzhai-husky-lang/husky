@@ -70,6 +70,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     ) -> Self {
         let toolchain = expr_region.toolchain(db);
         // ad hoc
+        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
         let expr_region_data = &expr_region.data(db);
         let mut this = Self {
@@ -259,7 +260,11 @@ impl<'a> SignatureRawTermEngine<'a> {
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
-                    PrefixOpr::BitNotOrEvalRef => RawTerm::BitNotOrEvalRef,
+                    PrefixOpr::BitNotOrLeash => {
+                        RawTerm::AmbiguousTypePath(RawTermAmbiguousTypePath::new_bitnot_or_leash(
+                            self.expr_region_data.path().toolchain(self.db),
+                        ))
+                    }
                     PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),

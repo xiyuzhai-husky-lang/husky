@@ -47,6 +47,7 @@ pub struct EntityPathMenu {
     ref_ty_path: TypePath,
     ref_mut_ty_path: TypePath,
     list_ty_path: TypePath,
+    leash_ty_path: TypePath,
     // prelude
     unit_ty_path: TypePath,
     never_ty_path: TypePath,
@@ -292,6 +293,13 @@ impl EntityPathMenu {
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
+        let leash_ty_path = TypePath::new(
+            db,
+            core_mem,
+            db.it_ident_borrowed("Leash").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Extern,
+        );
         let list_ty_path = TypePath::new(
             db,
             core_vec,
@@ -438,6 +446,7 @@ impl EntityPathMenu {
             ref_ty_path,
             ref_mut_ty_path,
             list_ty_path,
+            leash_ty_path,
             core_ops_add,
             core_ops_add_assign,
             core_ops_bit_and,
@@ -585,6 +594,10 @@ impl EntityPathMenu {
 
     pub fn list_ty_path(&self) -> TypePath {
         self.list_ty_path
+    }
+
+    pub fn leash_ty_path(&self) -> TypePath {
+        self.leash_ty_path
     }
 
     pub fn core_ops_add(&self) -> TraitPath {

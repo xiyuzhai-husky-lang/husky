@@ -25,7 +25,7 @@ pub fn raw_term_raw_ty(
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
-        RawTerm::BitNotOrEvalRef => todo!(),
+        RawTerm::AmbiguousTypePath(_) => todo!(),
     }
 }
 

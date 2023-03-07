@@ -1,4 +1,5 @@
 mod abstraction;
+mod ambiguous_entity_path;
 mod application;
 mod as_trai_subentity;
 mod constraint;
@@ -10,6 +11,7 @@ mod subentity;
 mod symbol;
 
 pub use self::abstraction::RawTermAbstraction;
+pub use self::ambiguous_entity_path::*;
 pub use self::application::RawTermApplication;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
@@ -62,7 +64,7 @@ pub enum RawTerm {
     /// <type> : <trait>
     TraitConstraint(RawTermTraitConstraint),
     /// `~`
-    BitNotOrEvalRef,
+    AmbiguousTypePath(RawTermAmbiguousTypePath),
 }
 
 impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
@@ -120,7 +122,7 @@ impl RawTerm {
             RawTerm::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
-            RawTerm::BitNotOrEvalRef => f.write_str("~"),
+            RawTerm::AmbiguousTypePath(_) => f.write_str("~"),
         }
     }
 }

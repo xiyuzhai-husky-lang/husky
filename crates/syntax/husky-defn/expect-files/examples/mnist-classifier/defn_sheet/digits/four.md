@@ -321,7 +321,7 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::Prefix {
-                                                        opr: BitNotOrEvalRef,
+                                                        opr: BitNotOrLeash,
                                                         opr_token_idx: TokenIdx(
                                                             82,
                                                         ),
@@ -534,7 +534,7 @@ Ok(
                                                                 ),
                                                             },
                                                             Expr::Prefix {
-                                                                opr: BitNotOrEvalRef,
+                                                                opr: BitNotOrLeash,
                                                                 opr_token_idx: TokenIdx(
                                                                     82,
                                                                 ),
@@ -3688,7 +3688,7 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::Prefix {
-                                                        opr: BitNotOrEvalRef,
+                                                        opr: BitNotOrLeash,
                                                         opr_token_idx: TokenIdx(
                                                             309,
                                                         ),
@@ -3901,7 +3901,7 @@ Ok(
                                                                 ),
                                                             },
                                                             Expr::Prefix {
-                                                                opr: BitNotOrEvalRef,
+                                                                opr: BitNotOrLeash,
                                                                 opr_token_idx: TokenIdx(
                                                                     309,
                                                                 ),
@@ -4342,7 +4342,7 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::Prefix {
-                                                        opr: BitNotOrEvalRef,
+                                                        opr: BitNotOrLeash,
                                                         opr_token_idx: TokenIdx(
                                                             338,
                                                         ),
@@ -4555,7 +4555,7 @@ Ok(
                                                                 ),
                                                             },
                                                             Expr::Prefix {
-                                                                opr: BitNotOrEvalRef,
+                                                                opr: BitNotOrLeash,
                                                                 opr_token_idx: TokenIdx(
                                                                     338,
                                                                 ),
