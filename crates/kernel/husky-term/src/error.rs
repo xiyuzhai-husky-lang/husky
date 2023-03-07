@@ -23,6 +23,8 @@ pub enum TermError {
     RawTypeError(#[from] RawTypeError),
     #[error("ExpectationNotMatchedForCurry")]
     ExpectationNotMatchedForCurry,
+    #[error("RawTermSymbolTypeErrorKind")]
+    RawTermSymbolTypeErrorKind(#[from] RawTermSymbolTypeErrorKind),
 }
 
 impl From<&EntityPathError> for TermError {
