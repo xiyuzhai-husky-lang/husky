@@ -26,6 +26,10 @@ impl TermSymbol {
         Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        self.ty(db).check(db)
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

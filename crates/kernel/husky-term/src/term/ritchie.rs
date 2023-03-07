@@ -73,26 +73,16 @@ impl TermRitchie {
         todo!()
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        todo!()
+    }
+
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term_ritchie: RawTermRitchie,
     ) -> TermResult<Self> {
-        let t = |raw_term| {
-            Term::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
-        };
-        Self::new_unchecked2(
-            db,
-            raw_term_ritchie.ritchie_kind(db),
-            raw_term_ritchie.parameter_tys(db).iter().map(
-                |parameter_liasoned_ty| -> TermResult<_> {
-                    Ok(TermRitchieParameterLiasonedType {
-                        ty: t(parameter_liasoned_ty.ty())?,
-                    })
-                },
-            ),
-            t(raw_term_ritchie.return_ty(db))?,
-        )
+        term_ritchie_from_raw_unchecked(db, raw_term_ritchie)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -115,6 +105,37 @@ impl TermRitchie {
         f.write_str(") -> ")?;
         self.return_ty(db).show_with_db_fmt(f, db, ctx)
     }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_ritchie_from_raw_unchecked(
+    db: &dyn TermDb,
+    raw_term_ritchie: RawTermRitchie,
+) -> TermResult<TermRitchie> {
+    let t = |raw_term| {
+        Term::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+    };
+    TermRitchie::new_unchecked2(
+        db,
+        raw_term_ritchie.ritchie_kind(db),
+        raw_term_ritchie
+            .parameter_tys(db)
+            .iter()
+            .map(|parameter_liasoned_ty| -> TermResult<_> {
+                Ok(TermRitchieParameterLiasonedType {
+                    ty: t(parameter_liasoned_ty.ty())?,
+                })
+            }),
+        t(raw_term_ritchie.return_ty(db))?,
+    )
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_ritchie_validity(
+    db: &dyn TermDb,
+    term_ritchie: TermRitchie,
+) -> TermResult<()> {
+    todo!()
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for TermRitchie

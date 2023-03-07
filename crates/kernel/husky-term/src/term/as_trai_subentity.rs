@@ -17,6 +17,10 @@ impl TermAsTraitSubentity {
         todo!()
     }
 
+    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        check_term_as_trai_subentity_validity(db, self)
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -25,6 +29,14 @@ impl TermAsTraitSubentity {
     ) -> std::fmt::Result {
         todo!()
     }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn check_term_as_trai_subentity_validity(
+    db: &dyn TermDb,
+    term_as_trai_subentity: TermAsTraitSubentity,
+) -> TermResult<()> {
+    todo!()
 }
 
 impl TermAsTraitSubentity {
