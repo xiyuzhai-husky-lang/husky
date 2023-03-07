@@ -25,6 +25,11 @@ pub enum TermError {
     ExpectationNotMatchedForCurry,
     #[error("RawTermSymbolTypeErrorKind")]
     RawTermSymbolTypeErrorKind(#[from] RawTermSymbolTypeErrorKind),
+    #[error("ExpectFinalDestinationEqsNonSortTypePath")]
+    ExpectFinalDestinationEqsNonSortTypePath {
+        path_expected: TypePath,
+        path: TypePath,
+    },
 }
 
 impl From<EntityPathError> for TermError {

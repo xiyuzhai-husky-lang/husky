@@ -117,16 +117,17 @@ impl Term {
                     TermTypeExpectation::FinalDestinationEqsSort => {
                         TermEntityPath::TypeOntology(path).into()
                     }
-                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected)
-                        if path_expected == path =>
-                    {
-                        TermEntityPath::TypeConstructor(path).into()
+                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path_expected) => {
+                        if path_expected == path {
+                            TermEntityPath::TypeConstructor(path).into()
+                        } else {
+                            return Err(TermError::ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected,
+                                path,
+                            });
+                        }
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
-                    TermTypeExpectation::FinalDestinationEqsNonSortTypePath(_) => {
-                        p!(raw_term.debug(db));
-                        return Err(todo!());
-                    }
                 },
             },
             RawTerm::Category(raw_term) => raw_term.into(),
