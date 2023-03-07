@@ -21,18 +21,20 @@ pub fn raw_term_raw_ty(
             TermRitchieKind::Fn | TermRitchieKind::FnMut => raw_term_menu.trai_ty(),
         }),
         RawTerm::Abstraction(_) => todo!(),
-        RawTerm::Application(raw_term) => application_raw_term_raw_ty(db, raw_term),
+        RawTerm::ExplicitApplication(raw_term) => application_raw_term_raw_ty(db, raw_term),
+        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
+        RawTerm::List(_) => todo!(),
     }
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
 pub(crate) fn application_raw_term_raw_ty(
     db: &dyn RawTypeDb,
-    raw_term: RawTermApplication,
+    raw_term: RawTermExplicitApplication,
 ) -> RawTypeResult<RawTerm> {
     Err(OriginalRawTypeError::Todo.into())
 }

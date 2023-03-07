@@ -208,8 +208,6 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(e) => {
-            use salsa::DebugWithDb;
-            p!(e.debug(db), path.debug(db));
             return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
         }
     };

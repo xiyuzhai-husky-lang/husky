@@ -1,20 +1,24 @@
 mod abstraction;
-mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
 mod entity_path;
+mod explicit_application;
+mod explicit_application_or_ritchie_call;
+mod list;
 mod literal;
 mod ritchie;
 mod subentity;
 mod symbol;
 
 pub use self::abstraction::RawTermAbstraction;
-pub use self::application::RawTermApplication;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::entity_path::*;
+pub use self::explicit_application::RawTermExplicitApplication;
+pub use self::explicit_application_or_ritchie_call::*;
+pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
@@ -40,7 +44,6 @@ pub enum RawTerm {
     Ritchie(RawTermRitchie),
     /// lambda x => expr
     Abstraction(RawTermAbstraction),
-
     /// in husky, application is generalized to include composition as a special case;
     ///
     /// when shift is `0`, this is the normal application;
@@ -54,7 +57,8 @@ pub enum RawTerm {
     /// then apply function to the result,
     ///
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-    Application(RawTermApplication),
+    ExplicitApplication(RawTermExplicitApplication),
+    ExplicitApplicationOrRitchieCall(RawTermExplicitApplicationOrRitchieCall),
     /// ::<ident>
     Subentity(RawTermSubentity),
     /// (<type> as <trait>)::<ident>
@@ -63,6 +67,11 @@ pub enum RawTerm {
     TraitConstraint(RawTermTraitConstraint),
     /// `~`
     LeashOrBitNot(Toolchain),
+    /// can be interpreted as
+    /// - a normal list of terms
+    /// - List functor
+    /// - Array functor
+    List(RawTermList),
 }
 
 impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
@@ -116,11 +125,13 @@ impl RawTerm {
             RawTerm::Curry(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
-            RawTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::ExplicitApplication(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::ExplicitApplicationOrRitchieCall(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::LeashOrBitNot(_) => f.write_str("~"),
+            RawTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
 }

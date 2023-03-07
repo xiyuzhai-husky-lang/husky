@@ -15,12 +15,12 @@ use std::fmt::{Debug, Display};
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermApplication {
+pub struct RawTermExplicitApplication {
     pub function: RawTerm,
     pub argument: RawTerm,
 }
 
-impl RawTermApplication {
+impl RawTermExplicitApplication {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -33,7 +33,7 @@ impl RawTermApplication {
     }
 }
 
-impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermApplication {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermExplicitApplication {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -45,7 +45,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermApplication {
     }
 }
 
-impl RawTermRewriteCopy for RawTermApplication {
+impl RawTermRewriteCopy for RawTermExplicitApplication {
     fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self
     where
         Self: Copy,
@@ -57,11 +57,11 @@ impl RawTermRewriteCopy for RawTermApplication {
         if old_m == m && old_n == n {
             return self;
         }
-        RawTermApplication::new(db, m, n)
+        RawTermExplicitApplication::new(db, m, n)
     }
 }
 
-impl std::fmt::Display for RawTermApplication {
+impl std::fmt::Display for RawTermExplicitApplication {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }

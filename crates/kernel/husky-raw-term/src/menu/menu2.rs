@@ -25,8 +25,12 @@ impl RawTermMenu2 {
     ) -> RawTermResult<Self> {
         // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());
         Ok(RawTermMenu2 {
-            static_str_ref: RawTermApplication::new(db, menu1.static_ref_ty(), menu1.str_ty_path())
-                .into(),
+            static_str_ref: RawTermExplicitApplication::new(
+                db,
+                menu1.static_ref_ty(),
+                menu1.str_ty_path(),
+            )
+            .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: RawTermCurry::new(
                 db,
                 CurryKind::Explicit,

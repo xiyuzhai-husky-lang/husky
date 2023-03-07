@@ -137,8 +137,15 @@ impl Term {
             RawTerm::Abstraction(raw_term) => {
                 TermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
-            RawTerm::Application(raw_term) => {
+            RawTerm::ExplicitApplication(raw_term) => {
                 TermApplication::from_raw_unchecked(db, raw_term, term_ty_expectation)?
+            }
+            RawTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
+                term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
+                    db,
+                    raw_term,
+                    term_ty_expectation,
+                )?
             }
             RawTerm::Subentity(raw_term) => {
                 TermSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
@@ -150,7 +157,7 @@ impl Term {
                 TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
             RawTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
-                TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => {
+                TermTypeExpectation::FinalDestinationEqsSort => {
                     db.term_menu(toolchain)?.leash_ty_ontology()
                 }
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
@@ -161,7 +168,11 @@ impl Term {
                         Some(_) | None => todo!(),
                     }
                 }
+                TermTypeExpectation::Any => todo!(),
             },
+            RawTerm::List(raw_term_list) => {
+                term_from_raw_term_list_unchecked(db, raw_term_list, term_ty_expectation)?
+            }
         })
     }
 
@@ -263,6 +274,61 @@ impl Term {
         //     Term::TraitConstraint(term) => term.substitute(db, substitution).into(),
         //     Term::Ritchie(_) => todo!(),
         // }
+    }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
+    db: &dyn TermDb,
+    raw_term: RawTermExplicitApplicationOrRitchieCall,
+    term_ty_expectation: TermTypeExpectation,
+) -> TermResult<Term> {
+    let function = Term::from_raw_unchecked(db, raw_term.function(db), term_ty_expectation)?;
+    match function.raw_ty(db)? {
+        Left(_) => todo!(),
+        Right(_) => todo!(),
+    }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_from_raw_term_list_unchecked(
+    db: &dyn TermDb,
+    raw_term_list: RawTermList,
+    term_ty_expectation: TermTypeExpectation,
+) -> TermResult<Term> {
+    match term_ty_expectation {
+        TermTypeExpectation::FinalDestinationEqsSort => {
+            let term_menu = db.term_menu(raw_term_list.toolchain(db))?;
+            let items = raw_term_list.items(db);
+            match items.len() {
+                0 => Ok(term_menu.list_ty_ontology()),
+                _ => todo!(),
+            }
+        }
+        TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
+            match path.prelude_ty_path(db)? {
+                Some(PreludeTypePath::List) => {
+                    todo!()
+                }
+                Some(PreludeTypePath::Array) => {
+                    todo!()
+                }
+                Some(PreludeTypePath::Array2d) => {
+                    todo!()
+                }
+                Some(PreludeTypePath::Array3d) => {
+                    todo!()
+                }
+                Some(PreludeTypePath::Array4d) => {
+                    todo!()
+                }
+                Some(PreludeTypePath::Array5d) => {
+                    todo!()
+                }
+                Some(_) | None => todo!(),
+            }
+        }
+        TermTypeExpectation::Any => todo!(),
     }
 }
 

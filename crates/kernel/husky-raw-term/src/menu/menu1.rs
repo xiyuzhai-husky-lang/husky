@@ -23,9 +23,13 @@ impl RawTermMenu1 {
     pub fn new(db: &dyn RawTermDb, _toolchain: Toolchain, menu0: RawTermMenu0) -> Self {
         // todo!()
         Self {
-            eval_ref_ty: RawTermApplication::new(db, menu0.ref_ty_path(), menu0.eval_lifetime())
-                .into(),
-            static_ref_ty: RawTermApplication::new(
+            eval_ref_ty: RawTermExplicitApplication::new(
+                db,
+                menu0.ref_ty_path(),
+                menu0.eval_lifetime(),
+            )
+            .into(),
+            static_ref_ty: RawTermExplicitApplication::new(
                 db,
                 menu0.ref_ty_path(),
                 menu0.static_lifetime(),

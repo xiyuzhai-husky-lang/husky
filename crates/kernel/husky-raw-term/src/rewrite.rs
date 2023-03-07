@@ -35,11 +35,13 @@ impl RawTermRewriteCopy for RawTerm {
             | RawTerm::LeashOrBitNot(_) => self,
             RawTerm::Curry(term) => term.substitute(db, substitution).into(),
             RawTerm::Abstraction(term) => term.substitute(db, substitution).into(),
-            RawTerm::Application(term) => term.substitute(db, substitution).into(),
+            RawTerm::ExplicitApplication(term) => term.substitute(db, substitution).into(),
+            RawTerm::ExplicitApplicationOrRitchieCall(term) => todo!(),
             RawTerm::Subentity(term) => term.substitute(db, substitution).into(),
             RawTerm::AsTraitSubentity(term) => term.substitute(db, substitution).into(),
             RawTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
             RawTerm::Ritchie(_) => todo!(),
+            RawTerm::List(_) => todo!(),
         }
     }
 }

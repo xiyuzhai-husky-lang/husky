@@ -5,7 +5,7 @@ pub(crate) fn application_expansion(db: &dyn RawTypeDb, raw_term: RawTerm) -> Ap
 
 fn application_expansion_aux(db: &dyn RawTypeDb, raw_term: RawTerm) -> ApplicationExpansion {
     match raw_term {
-        RawTerm::Application(raw_term) => application_expansion_salsa(db, raw_term),
+        RawTerm::ExplicitApplication(raw_term) => application_expansion_salsa(db, raw_term),
         _ => ApplicationExpansion {
             f: raw_term,
             arguments: None,
@@ -16,7 +16,7 @@ fn application_expansion_aux(db: &dyn RawTypeDb, raw_term: RawTerm) -> Applicati
 #[salsa::tracked(jar=RawTypeJar)]
 pub(crate) fn application_expansion_salsa(
     db: &dyn RawTypeDb,
-    raw_term: RawTermApplication,
+    raw_term: RawTermExplicitApplication,
 ) -> ApplicationExpansion {
     let function = raw_term.function(db);
     let argument = raw_term.argument(db);

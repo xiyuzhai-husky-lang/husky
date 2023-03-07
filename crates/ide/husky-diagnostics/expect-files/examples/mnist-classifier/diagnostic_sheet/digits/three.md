@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 28,
+    [salsa id]: 29,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -22,6 +22,41 @@ DiagnosticSheet {
                 range: [23:18, 23:28),
             },
             Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [26:17, 26:18),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [27:15, 27:16),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [28:14, 28:15),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [33:12, 33:13),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [35:25, 35:26),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [36:26, 36:27),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [37:18, 37:19),
+            },
+            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [44:5, 44:15),
@@ -30,6 +65,21 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [44:17, 44:22),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [48:12, 48:13),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [53:12, 53:13),
+            },
+            Diagnostic {
+                message: "Syntax Error: no left operand for binary operator",
+                severity: Error,
+                range: [58:12, 58:13),
             },
         ],
     },
@@ -42,59 +92,9 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [11:17, 11:41),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo: todo",
-                severity: Error,
-                range: [11:43, 11:65),
-            },
-            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [44:5, 44:22),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term List ConcaveComponent",
-                severity: Error,
-                range: [24:13, 24:37),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term List ConcaveComponent",
-                severity: Error,
-                range: [25:13, 25:37),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [48:14, 48:16),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [50:6, 50:8),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [53:14, 53:16),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [55:6, 55:8),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [58:14, 58:16),
-            },
-            Diagnostic {
-                message: "Type Error: original `todo` in term Ref 'eval ConcaveComponent",
-                severity: Error,
-                range: [60:6, 60:8),
             },
         ],
     },
