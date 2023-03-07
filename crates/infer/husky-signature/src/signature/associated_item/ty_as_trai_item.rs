@@ -13,23 +13,17 @@ use super::*;
 pub(crate) fn ty_as_trai_associated_item_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitItemDecl,
-) -> SignatureResultRef<TypeAsTraitItemSignature> {
+) -> SignatureResult<TypeAsTraitItemSignature> {
     match decl {
         TypeAsTraitItemDecl::AssociatedFunction(decl) => {
-            ty_as_trai_associated_function_signature(db, decl)
-                .as_ref()
-                .map(|s| (*s).into())
+            ty_as_trai_associated_function_signature(db, decl).map(Into::into)
         }
-        TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeAsTraitItemDecl::AssociatedType(decl) => ty_as_trai_associated_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
+        TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_signature(db, decl).map(Into::into),
+        TypeAsTraitItemDecl::AssociatedType(decl) => {
+            ty_as_trai_associated_ty_signature(db, decl).map(Into::into)
+        }
         TypeAsTraitItemDecl::AssociatedValue(decl) => {
-            ty_as_trai_associated_value_signature(db, decl)
-                .as_ref()
-                .map(|s| (*s).into())
+            ty_as_trai_associated_value_signature(db, decl).map(Into::into)
         }
     }
 }

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub fn structure_ty_signature(
     db: &dyn SignatureDb,
     decl: StructureTypeDecl,
@@ -16,7 +16,7 @@ pub fn structure_ty_signature(
     Ok(StructureTypeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct StructureTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,

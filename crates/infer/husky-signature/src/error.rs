@@ -4,7 +4,7 @@ use crate::*;
 
 use std::convert::Infallible;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SignatureError {
     RawTermError,
     ParameterTypeRawTermError(u8),
@@ -45,4 +45,3 @@ impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
 }
 
 pub type SignatureResult<T> = Result<T, SignatureError>;
-pub type SignatureResultRef<'a, T> = Result<T, &'a SignatureError>;

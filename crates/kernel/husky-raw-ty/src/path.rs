@@ -1,3 +1,11 @@
+mod form;
+mod trai;
+mod ty_constructor;
+mod ty_ontology;
+
+pub use self::ty_constructor::*;
+pub use self::ty_ontology::*;
+
 use husky_print_utils::p;
 use salsa::assert_eq_with_db;
 
@@ -209,30 +217,13 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
     let Ok(variances) = raw_ty_entity_variances(db, path) else {
         todo!()
     };
-    Ok(curry_from_implicit_parameter_raw_tys(
+    Ok(curry_from_implicit_parameters(
         db,
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         raw_term_menu.ty0().into(),
     ))
-}
-
-#[salsa::tracked(jar = RawTypeJar)]
-pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    let decl = match db.ty_decl(path) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::TypeConstructorDeclError.into()),
-    };
-    let signature = match db.ty_signature(decl) {
-        Ok(signature) => signature,
-        Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
-    };
-    let Ok(variances) = raw_ty_entity_variances(db, path) else {
-        todo!()
-    };
-    todo!()
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
@@ -249,7 +240,7 @@ pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<Ra
         Ok(signature) => signature,
         Err(_) => todo!(),
     };
-    Ok(curry_from_implicit_parameter_raw_tys(
+    Ok(curry_from_implicit_parameters(
         db,
         CurryKind::Explicit,
         variances,
@@ -294,7 +285,7 @@ pub(crate) fn function_entity_raw_ty(
         .map(|param| RawTermRitchieParameter::new(param.ty()))
         .collect();
     let return_raw_ty = signature.return_ty(db);
-    Ok(curry_from_implicit_parameter_raw_tys(
+    Ok(curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,
         variances,
@@ -311,7 +302,7 @@ pub(crate) fn feature_entity_raw_ty(
     Ok(signature.return_ty(db))
 }
 
-fn curry_from_implicit_parameter_raw_tys(
+fn curry_from_implicit_parameters(
     db: &dyn RawTypeDb,
     raw_term_curry_kind: CurryKind,
     variances: &[Variance],

@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_im_signature(
     db: &dyn SignatureDb,
     decl: TypeImplDecl,

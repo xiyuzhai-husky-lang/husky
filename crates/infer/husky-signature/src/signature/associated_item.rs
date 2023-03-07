@@ -11,7 +11,7 @@ use super::*;
 pub(crate) fn associated_item_signature(
     db: &dyn SignatureDb,
     decl: AssociatedItemDecl,
-) -> SignatureResultRef<AssociatedItemSignature> {
+) -> SignatureResult<AssociatedItemSignature> {
     match decl {
         AssociatedItemDecl::TypeItem(decl) => {
             ty_associated_item_signature(db, decl).map(|s| s.into())

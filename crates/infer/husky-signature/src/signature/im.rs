@@ -6,15 +6,10 @@ pub use ty_im::*;
 
 use super::*;
 
-pub(crate) fn im_signature(
-    db: &dyn SignatureDb,
-    decl: ImplDecl,
-) -> SignatureResultRef<ImplSignature> {
+pub(crate) fn im_signature(db: &dyn SignatureDb, decl: ImplDecl) -> SignatureResult<ImplSignature> {
     match decl {
-        ImplDecl::Type(decl) => ty_im_signature(db, decl).as_ref().map(|s| (*s).into()),
-        ImplDecl::TypeAsTrait(decl) => ty_as_trai_im_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()), // TypeDecl::Union(decl) => union_ty_signature(db, decl).into(),
+        ImplDecl::Type(decl) => ty_im_signature(db, decl).map(Into::into),
+        ImplDecl::TypeAsTrait(decl) => ty_as_trai_im_signature(db, decl).map(Into::into),
     }
 }
 

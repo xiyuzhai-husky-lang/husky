@@ -21,30 +21,17 @@ pub use unit_struct_ty::*;
 use super::*;
 use salsa::DbWithJar;
 
-pub(crate) fn ty_signature(
-    db: &dyn SignatureDb,
-    decl: TypeDecl,
-) -> SignatureResultRef<TypeSignature> {
+pub(crate) fn ty_signature(db: &dyn SignatureDb, decl: TypeDecl) -> SignatureResult<TypeSignature> {
     match decl {
-        TypeDecl::Enum(decl) => enum_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
-        TypeDecl::RegularStruct(decl) => regular_struct_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeDecl::UnitStruct(decl) => unit_struct_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeDecl::TupleStruct(decl) => tuple_struct_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeDecl::Record(decl) => record_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
-        TypeDecl::Inductive(decl) => inductive_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeDecl::Structure(decl) => structure_ty_signature(db, decl)
-            .as_ref()
-            .map(|s| (*s).into()),
-        TypeDecl::Extern(decl) => alien_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
-        TypeDecl::Union(decl) => union_ty_signature(db, decl).as_ref().map(|s| (*s).into()),
+        TypeDecl::Enum(decl) => enum_ty_signature(db, decl).map(Into::into),
+        TypeDecl::RegularStruct(decl) => regular_struct_ty_signature(db, decl).map(Into::into),
+        TypeDecl::UnitStruct(decl) => unit_struct_ty_signature(db, decl).map(Into::into),
+        TypeDecl::TupleStruct(decl) => tuple_struct_ty_signature(db, decl).map(Into::into),
+        TypeDecl::Record(decl) => record_ty_signature(db, decl).map(Into::into),
+        TypeDecl::Inductive(decl) => inductive_ty_signature(db, decl).map(Into::into),
+        TypeDecl::Structure(decl) => structure_ty_signature(db, decl).map(Into::into),
+        TypeDecl::Extern(decl) => alien_ty_signature(db, decl).map(Into::into),
+        TypeDecl::Union(decl) => union_ty_signature(db, decl).map(Into::into),
     }
 }
 
