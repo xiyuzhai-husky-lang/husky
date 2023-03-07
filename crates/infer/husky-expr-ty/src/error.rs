@@ -42,6 +42,8 @@ pub enum OriginalExprTypeError {
     FinalDestination,
     #[error("form path type error")]
     FormPathTypeError,
+    #[error("AmbiguousTypePath")]
+    AmbiguousTypePath,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

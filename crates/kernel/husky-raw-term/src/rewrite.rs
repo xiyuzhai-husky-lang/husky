@@ -31,7 +31,8 @@ impl RawTermRewriteCopy for RawTerm {
             RawTerm::Literal(_)
             | RawTerm::EntityPath(_)
             | RawTerm::Category(_)
-            | RawTerm::Universe(_) => self,
+            | RawTerm::Universe(_)
+            | RawTerm::BitNotOrEvalRef => self,
             RawTerm::Curry(term) => term.substitute(db, substitution).into(),
             RawTerm::Abstraction(term) => term.substitute(db, substitution).into(),
             RawTerm::Application(term) => term.substitute(db, substitution).into(),
