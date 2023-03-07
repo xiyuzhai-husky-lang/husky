@@ -438,7 +438,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     )))),
                     _ => Punctuation::Vertical,
                 },
-                '~' => Punctuation::BitNot,
+                '~' => Punctuation::Tilde,
                 '.' => match self.peek_char() {
                     Some('.') => self.pass_two(Punctuation::DotDot),
                     _ => Punctuation::Dot,
@@ -504,9 +504,8 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 },
                 '?' => Punctuation::Question,
                 '#' => Punctuation::PoundSign,
-                '~' => todo!(),
-                '∀' => todo!(),
-                '∃' => todo!(),
+                '∀' => Punctuation::ForAll,
+                '∃' => Punctuation::Exists,
                 c => return Some(Pretoken::Error(TokenError::UnrecognizedChar(c))),
             }
             .into(),

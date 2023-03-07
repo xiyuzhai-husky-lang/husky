@@ -253,14 +253,14 @@ impl<'a> SignatureRawTermEngine<'a> {
                 opr_token_idx,
                 opd,
             } => {
-                let  Ok(opd) = self.infer_new(opd) else {
+                let Ok(opd) = self.infer_new(opd) else {
                     return  Err(DerivedSignatureRawTermError::CannotInferOperandRawTermInPrefix.into());
                 };
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
-                    PrefixOpr::BitNot => todo!(),
-                    PrefixOpr::Ref => self.raw_term_menu.eval_ref_ty(),
+                    PrefixOpr::BitNotOrEvalRef => todo!(),
+                    PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),

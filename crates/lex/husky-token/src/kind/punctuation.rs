@@ -27,7 +27,6 @@ pub enum Punctuation {
     DeriveAssign,      // :=
     Minus,             // -
     DoubleVertical,    // ||
-    BitNot,            // ~
     Dot,               // .
     DotDot,            // `.`
     Colon,             // `:`
@@ -47,6 +46,12 @@ pub enum Punctuation {
     Question,
     /// written as `#`
     PoundSign,
+    /// `~`
+    Tilde,
+    /// `∀`
+    ForAll,
+    /// `∃`
+    Exists,
 }
 
 impl From<BinaryOpr> for Punctuation {
@@ -75,7 +80,7 @@ impl Punctuation {
             Punctuation::DeriveAssign => ":=",
             Punctuation::Minus => "-",
             Punctuation::DoubleVertical => "||",
-            Punctuation::BitNot => "~",
+            Punctuation::Tilde => "~",
             Punctuation::Dot => ".",
             Punctuation::DotDot => "..",
             Punctuation::Colon => ":",
@@ -94,6 +99,9 @@ impl Punctuation {
             Punctuation::Sheba => todo!(),
             Punctuation::Eq => todo!(),
             Punctuation::EqEq => todo!(),
+            Punctuation::Tilde => todo!(),
+            Punctuation::ForAll => todo!(),
+            Punctuation::Exists => todo!(),
         }
     }
 
@@ -118,7 +126,7 @@ impl Punctuation {
             Punctuation::DeriveAssign => todo!(),
             Punctuation::Minus => todo!(),
             Punctuation::DoubleVertical => todo!(),
-            Punctuation::BitNot => todo!(),
+            Punctuation::Tilde => todo!(),
             Punctuation::Dot => todo!(),
             Punctuation::DotDot => todo!(),
             Punctuation::Colon => todo!(),
@@ -137,6 +145,9 @@ impl Punctuation {
             Punctuation::Sheba => todo!(),
             Punctuation::Eq => todo!(),
             Punctuation::EqEq => todo!(),
+            Punctuation::Tilde => todo!(),
+            Punctuation::ForAll => todo!(),
+            Punctuation::Exists => todo!(),
         }
     }
 }
