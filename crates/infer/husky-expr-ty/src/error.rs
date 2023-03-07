@@ -42,15 +42,15 @@ pub enum OriginalExprTypeError {
     FinalDestination,
     #[error("form path type error")]
     FormPathTypeError,
-    #[error("AmbiguousTypePath")]
+    #[error("ambiguous type path")]
     AmbiguousTypePath,
-    #[error("RitchieCallWrongNumberOfArguments")]
+    #[error("ritchie call wrong number of arguments")]
     RitchieCallWrongNumberOfArguments {
         number_of_nonself_parameters: u8,
         number_of_nonself_arguments: u8,
     },
-    #[error("AmbiguateListExpr")]
-    AmbiguateListExpr,
+    #[error("ambiguous list expr")]
+    AmbiguousListExpr,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -99,16 +99,15 @@ pub enum DerivedExprTypeError {
     CallableTypeError,
     #[error("function type not inferred in application or function call")]
     FunctionTypeNotInferredInApplicationOrFunctionCall,
-    // MOM
-    #[error("AsOperationRightOperandTermNotInferred")]
+    #[error("as operation right operand term not inferred")]
     AsOperationRightOperandTermNotInferred,
-    #[error("ReturnTypeNotGivenInRitchieCall")]
+    #[error("return type not given in ritchie call")]
     ReturnTypeNotGivenInRitchieCall,
-    #[error("SelfTypeNotInferredForSelfValue")]
+    #[error("self type not inferred for self value")]
     SelfTypeNotInferredForSelfValue,
-    #[error("UnresolvedLocalTerm")]
+    #[error("unresolved local term")]
     UnresolvedLocalTerm,
-    #[error("EntityPathError")]
+    #[error("entity path error")]
     EntityPathError,
     #[error("final destination")]
     FinalDestination,
@@ -116,9 +115,9 @@ pub enum DerivedExprTypeError {
     AmbiguateListExpr,
     #[error("form path type error {0}")]
     FormPathTypeError(TermError),
-    #[error("AmbiguousTypePath")]
+    #[error("ambiguous type path")]
     AmbiguousTypePath,
-    #[error("ExplicitApplicationFunctionTypeNotInferred")]
+    #[error("explicit application function type not inferred")]
     ExplicitApplicationFunctionTypeNotInferred,
 }
 

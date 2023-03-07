@@ -143,7 +143,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             } => {
                 format!("Type Error: RitchieCallWrongNumberOfArguments")
             }
-            OriginalExprTypeError::AmbiguateListExpr => {
+            OriginalExprTypeError::AmbiguousListExpr => {
                 format!("Type Error: AmbiguateListExpr")
             }
         }
