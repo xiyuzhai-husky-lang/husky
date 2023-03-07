@@ -1,0 +1,12 @@
+[
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::clone::Clone`),
+            ),
+        ),
+        Ok(
+            RawTerm(`core::basic::Trait`),
+        ),
+    ),
+]

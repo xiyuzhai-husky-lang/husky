@@ -1,0 +1,152 @@
+[
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Add`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::AddAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitAnd`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitAndAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitOr`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitOrAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitXor`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::BitXorAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Div`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::DivAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Mul`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::MulAssign`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Neg`),
+            ),
+        ),
+        Ok(
+            RawTerm(`core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Not`),
+            ),
+        ),
+        Ok(
+            RawTerm(`core::basic::Trait`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::ops::Sub`),
+            ),
+        ),
+        Ok(
+            RawTerm(`invariant Type -> core::basic::Trait`),
+        ),
+    ),
+]

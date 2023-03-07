@@ -13,17 +13,13 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 92,
+                            value: 95,
                         },
                     ),
                 ),
             ),
             Punctuation(
-                Binary(
-                    Assign(
-                        None,
-                    ),
-                ),
+                Eq,
             ),
             Literal(
                 String(
@@ -46,7 +42,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 41,
+                            value: 43,
                         },
                     ),
                 ),
@@ -58,7 +54,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 93,
+                            value: 96,
                         },
                     ),
                 ),
@@ -78,7 +74,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 62,
+                            value: 64,
                         },
                     ),
                 ),
@@ -95,7 +91,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 46,
+                            value: 48,
                         },
                     ),
                 ),
@@ -109,7 +105,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 47,
+                            value: 49,
                         },
                     ),
                 ),
@@ -121,7 +117,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 93,
+                            value: 96,
                         },
                     ),
                 ),
@@ -148,7 +144,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 62,
+                            value: 64,
                         },
                     ),
                 ),

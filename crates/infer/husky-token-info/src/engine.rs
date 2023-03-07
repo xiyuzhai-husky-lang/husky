@@ -3,6 +3,7 @@ use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
 use husky_entity_path::EntityPath;
 use husky_expr::*;
+use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
 
 pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
@@ -116,12 +117,13 @@ impl<'a> InferEngine<'a> {
     }
 
     fn visit_expr_region(&mut self, expr_region: ExprRegion) {
-        AuxInferEngine {
+        InferContext {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
             expr_region_data: expr_region.data(self.db),
+            expr_ty_region: self.db.expr_ty_region(expr_region),
             expr_region,
         }
         .visit_all()
@@ -221,19 +223,20 @@ impl<'a> InferEngine<'a> {
     }
 }
 
-struct AuxInferEngine<'a> {
+struct InferContext<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     expr_region_data: &'a ExprRegionData,
+    expr_ty_region: &'a ExprTypeRegion,
     sheet: &'a mut TokenInfoSheet,
     expr_region: ExprRegion,
 }
 
-impl<'a> AuxInferEngine<'a> {
+impl<'a> InferContext<'a> {
     fn visit_all(mut self) {
-        for expr in self.expr_region_data.expr_arena().iter() {
-            self.visit_expr(expr)
+        for (expr_idx, expr) in self.expr_region_data.expr_arena().indexed_iter() {
+            self.visit_expr(expr_idx, expr)
         }
         for entity_path_expr in self.expr_region_data.entity_path_expr_arena().iter() {
             self.visit_entity_path_expr(entity_path_expr)
@@ -247,7 +250,7 @@ impl<'a> AuxInferEngine<'a> {
         }
     }
 
-    fn visit_expr(&mut self, expr: &Expr) {
+    fn visit_expr(&mut self, expr_idx: ExprIdx, expr: &Expr) {
         match expr {
             Expr::CurrentSymbol {
                 token_idx,
@@ -331,7 +334,17 @@ impl<'a> AuxInferEngine<'a> {
                 lbox_token_idx,
                 items: indices,
                 rbox_token_idx,
-            } => todo!(),
+            } => {
+                // ad hoc
+                // this should always be some
+                match self.expr_ty_region.expr_disambiguation(expr_idx) {
+                    Some(Ok(disambiguation)) => match disambiguation {
+                        ExprDisambiguation::IndexOrComposeWithList(disambiguation) => todo!(),
+                        _ => unreachable!(),
+                    },
+                    None | Some(Err(_)) => (),
+                }
+            }
         }
     }
 

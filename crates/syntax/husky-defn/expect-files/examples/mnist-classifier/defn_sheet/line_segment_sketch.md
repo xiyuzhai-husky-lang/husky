@@ -1076,15 +1076,6 @@ Ok(
                                                         378,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                361,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
                                                     self_argument: 11,
                                                     dot_token_idx: TokenIdx(
@@ -1107,16 +1098,6 @@ Ok(
                                                         382,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 12,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        361,
-                                                    ),
-                                                    ropd: 13,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
                                                     token_idx: TokenIdx(
@@ -1138,14 +1119,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 15,
+                                                    lopd: 13,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         385,
                                                     ),
-                                                    ropd: 16,
+                                                    ropd: 14,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `r`,
@@ -1208,56 +1189,56 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 20,
+                                                    lopd: 18,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         396,
                                                     ),
-                                                    ropd: 21,
+                                                    ropd: 19,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 22,
+                                                    lopd: 20,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         400,
                                                     ),
-                                                    ropd: 23,
+                                                    ropd: 21,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 24,
+                                                    lopd: 22,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         398,
                                                     ),
-                                                    ropd: 25,
+                                                    ropd: 23,
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
                                                         394,
                                                     ),
-                                                    item: 26,
+                                                    item: 24,
                                                     rpar_token_idx: TokenIdx(
                                                         402,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 18,
+                                                    lopd: 16,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         391,
                                                     ),
-                                                    ropd: 19,
+                                                    ropd: 17,
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 27,
+                                                    self_argument: 25,
                                                     dot_token_idx: TokenIdx(
                                                         403,
                                                     ),
@@ -1272,40 +1253,21 @@ Ok(
                                                         405,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        28..28,
+                                                        26..26,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         406,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                389,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 28,
+                                                    lopd: 26,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         393,
                                                     ),
-                                                    ropd: 29,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 30,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        389,
-                                                    ),
-                                                    ropd: 31,
+                                                    ropd: 27,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `u`,
@@ -1328,7 +1290,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 33,
+                                                    owner: 29,
                                                     dot_token_idx: TokenIdx(
                                                         413,
                                                     ),
@@ -1340,14 +1302,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 34,
+                                                    lopd: 30,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         411,
                                                     ),
-                                                    ropd: 35,
+                                                    ropd: 31,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
@@ -1359,34 +1321,15 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                409,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 36,
+                                                    lopd: 32,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         415,
                                                     ),
-                                                    ropd: 37,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 38,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        409,
-                                                    ),
-                                                    ropd: 39,
+                                                    ropd: 33,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dr`,
@@ -1413,10 +1356,10 @@ Ok(
                                                     opr_token_idx: TokenIdx(
                                                         420,
                                                     ),
-                                                    opd: 41,
+                                                    opd: 35,
                                                 },
                                                 Expr::Field {
-                                                    owner: 42,
+                                                    owner: 36,
                                                     dot_token_idx: TokenIdx(
                                                         424,
                                                     ),
@@ -1428,14 +1371,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 43,
+                                                    lopd: 37,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         422,
                                                     ),
-                                                    ropd: 44,
+                                                    ropd: 38,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
@@ -1447,34 +1390,15 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                419,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 45,
+                                                    lopd: 39,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         426,
                                                     ),
-                                                    ropd: 46,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 47,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        419,
-                                                    ),
-                                                    ropd: 48,
+                                                    ropd: 40,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
@@ -1497,7 +1421,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 51,
+                                                    owner: 43,
                                                     dot_token_idx: TokenIdx(
                                                         431,
                                                     ),
@@ -1529,7 +1453,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 54,
+                                                    owner: 46,
                                                     dot_token_idx: TokenIdx(
                                                         437,
                                                     ),
@@ -1551,33 +1475,33 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 52,
+                                                    lopd: 44,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         433,
                                                     ),
-                                                    ropd: 53,
+                                                    ropd: 45,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 55,
+                                                    lopd: 47,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         439,
                                                     ),
-                                                    ropd: 56,
+                                                    ropd: 48,
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 50,
+                                                    function: 42,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         429,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        57..59,
+                                                        49..51,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -1630,17 +1554,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    361,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                361,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        14,
+                                                        12,
                                                     ),
                                                 },
                                                 Stmt::Assert {
@@ -1650,7 +1572,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        17,
+                                                        15,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -1671,17 +1593,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    389,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                389,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        32,
+                                                        28,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -1702,17 +1622,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    409,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                409,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        40,
+                                                        34,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -1733,21 +1651,19 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    419,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                419,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        49,
+                                                        41,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 59,
+                                                    expr_idx: 51,
                                                 },
                                             ],
                                         },
@@ -1961,13 +1877,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 60,
+                                                expr: 52,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    60,
+                                    52,
                                 ),
                             },
                         ),
@@ -2605,15 +2521,6 @@ Ok(
                                                         475,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                458,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
                                                     self_argument: 11,
                                                     dot_token_idx: TokenIdx(
@@ -2636,16 +2543,6 @@ Ok(
                                                         479,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 12,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        458,
-                                                    ),
-                                                    ropd: 13,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
                                                     token_idx: TokenIdx(
@@ -2667,14 +2564,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 15,
+                                                    lopd: 13,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         482,
                                                     ),
-                                                    ropd: 16,
+                                                    ropd: 14,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `r`,
@@ -2737,56 +2634,56 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 20,
+                                                    lopd: 18,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         493,
                                                     ),
-                                                    ropd: 21,
+                                                    ropd: 19,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 22,
+                                                    lopd: 20,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         497,
                                                     ),
-                                                    ropd: 23,
+                                                    ropd: 21,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 24,
+                                                    lopd: 22,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         495,
                                                     ),
-                                                    ropd: 25,
+                                                    ropd: 23,
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
                                                         491,
                                                     ),
-                                                    item: 26,
+                                                    item: 24,
                                                     rpar_token_idx: TokenIdx(
                                                         499,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 18,
+                                                    lopd: 16,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         488,
                                                     ),
-                                                    ropd: 19,
+                                                    ropd: 17,
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 27,
+                                                    self_argument: 25,
                                                     dot_token_idx: TokenIdx(
                                                         500,
                                                     ),
@@ -2801,40 +2698,21 @@ Ok(
                                                         502,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        28..28,
+                                                        26..26,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         503,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                486,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 28,
+                                                    lopd: 26,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         490,
                                                     ),
-                                                    ropd: 29,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 30,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        486,
-                                                    ),
-                                                    ropd: 31,
+                                                    ropd: 27,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dr`,
@@ -2861,10 +2739,10 @@ Ok(
                                                     opr_token_idx: TokenIdx(
                                                         507,
                                                     ),
-                                                    opd: 33,
+                                                    opd: 29,
                                                 },
                                                 Expr::Field {
-                                                    owner: 34,
+                                                    owner: 30,
                                                     dot_token_idx: TokenIdx(
                                                         511,
                                                     ),
@@ -2876,14 +2754,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 35,
+                                                    lopd: 31,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         509,
                                                     ),
-                                                    ropd: 36,
+                                                    ropd: 32,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
@@ -2895,34 +2773,15 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                506,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 37,
+                                                    lopd: 33,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         513,
                                                     ),
-                                                    ropd: 38,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 39,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        506,
-                                                    ),
-                                                    ropd: 40,
+                                                    ropd: 34,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `u`,
@@ -2945,7 +2804,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 42,
+                                                    owner: 36,
                                                     dot_token_idx: TokenIdx(
                                                         521,
                                                     ),
@@ -2957,14 +2816,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 43,
+                                                    lopd: 37,
                                                     opr: PureClosed(
                                                         Mul,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         519,
                                                     ),
-                                                    ropd: 44,
+                                                    ropd: 38,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `L`,
@@ -2976,34 +2835,15 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                517,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 45,
+                                                    lopd: 39,
                                                     opr: PureClosed(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         523,
                                                     ),
-                                                    ropd: 46,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 47,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        517,
-                                                    ),
-                                                    ropd: 48,
+                                                    ropd: 40,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
@@ -3026,7 +2866,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 51,
+                                                    owner: 43,
                                                     dot_token_idx: TokenIdx(
                                                         528,
                                                     ),
@@ -3058,7 +2898,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 54,
+                                                    owner: 46,
                                                     dot_token_idx: TokenIdx(
                                                         534,
                                                     ),
@@ -3080,33 +2920,33 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 52,
+                                                    lopd: 44,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         530,
                                                     ),
-                                                    ropd: 53,
+                                                    ropd: 45,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 55,
+                                                    lopd: 47,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         536,
                                                     ),
-                                                    ropd: 56,
+                                                    ropd: 48,
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 50,
+                                                    function: 42,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         526,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        57..59,
+                                                        49..51,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -3159,17 +2999,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    458,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                458,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        14,
+                                                        12,
                                                     ),
                                                 },
                                                 Stmt::Assert {
@@ -3179,7 +3017,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        17,
+                                                        15,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -3200,17 +3038,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    486,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                486,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        32,
+                                                        28,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -3231,17 +3067,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    506,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                506,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        41,
+                                                        35,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -3262,21 +3096,19 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    517,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                517,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        49,
+                                                        41,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 59,
+                                                    expr_idx: 51,
                                                 },
                                             ],
                                         },
@@ -3490,13 +3322,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 60,
+                                                expr: 52,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    60,
+                                    52,
                                 ),
                             },
                         ),
@@ -4158,15 +3990,6 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                561,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::InheritedSymbol {
                                                     ident: `start`,
                                                     token_idx: TokenIdx(
@@ -4176,16 +3999,6 @@ Ok(
                                                     inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
                                                         ident: `start`,
                                                     },
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 0,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        561,
-                                                    ),
-                                                    ropd: 1,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -4223,26 +4036,17 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 4,
+                                                    lopd: 2,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         574,
                                                     ),
-                                                    ropd: 5,
+                                                    ropd: 3,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                566,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 3,
+                                                    self_argument: 1,
                                                     dot_token_idx: TokenIdx(
                                                         568,
                                                     ),
@@ -4257,21 +4061,11 @@ Ok(
                                                         570,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        6..8,
+                                                        4..6,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         576,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 8,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        566,
-                                                    ),
-                                                    ropd: 9,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -4284,7 +4078,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 11,
+                                                    owner: 7,
                                                     dot_token_idx: TokenIdx(
                                                         581,
                                                     ),
@@ -4295,17 +4089,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                579,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 12,
+                                                    self_argument: 8,
                                                     dot_token_idx: TokenIdx(
                                                         583,
                                                     ),
@@ -4320,21 +4105,11 @@ Ok(
                                                         585,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        13..13,
+                                                        9..9,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         586,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 13,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        579,
-                                                    ),
-                                                    ropd: 14,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `start`,
@@ -4356,34 +4131,15 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                589,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 16,
+                                                    lopd: 10,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         591,
                                                     ),
-                                                    ropd: 17,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 18,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        589,
-                                                    ),
-                                                    ropd: 19,
+                                                    ropd: 11,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -4416,7 +4172,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 23,
+                                                    self_argument: 15,
                                                     dot_token_idx: TokenIdx(
                                                         599,
                                                     ),
@@ -4431,7 +4187,7 @@ Ok(
                                                         601,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        24..24,
+                                                        16..16,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         602,
@@ -4448,34 +4204,34 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 21,
+                                                    lopd: 13,
                                                     opr: Comparison(
                                                         Leq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         595,
                                                     ),
-                                                    ropd: 22,
+                                                    ropd: 14,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 24,
+                                                    lopd: 16,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         603,
                                                     ),
-                                                    ropd: 25,
+                                                    ropd: 17,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 26,
+                                                    lopd: 18,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         597,
                                                     ),
-                                                    ropd: 27,
+                                                    ropd: 19,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -4488,7 +4244,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 29,
+                                                    opd: 21,
                                                     opr: Incr,
                                                     opr_token_idx: TokenIdx(
                                                         607,
@@ -4530,14 +4286,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 32,
+                                                    lopd: 24,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         617,
                                                     ),
-                                                    ropd: 33,
+                                                    ropd: 25,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -4550,7 +4306,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 31,
+                                                    self_argument: 23,
                                                     dot_token_idx: TokenIdx(
                                                         611,
                                                     ),
@@ -4565,21 +4321,21 @@ Ok(
                                                         613,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        34..36,
+                                                        26..28,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         619,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 36,
+                                                    lopd: 28,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         609,
                                                     ),
-                                                    ropd: 37,
+                                                    ropd: 29,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -4592,7 +4348,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 39,
+                                                    self_argument: 31,
                                                     dot_token_idx: TokenIdx(
                                                         622,
                                                     ),
@@ -4607,7 +4363,7 @@ Ok(
                                                         624,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        40..40,
+                                                        32..32,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         625,
@@ -4624,14 +4380,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 40,
+                                                    lopd: 32,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         626,
                                                     ),
-                                                    ropd: 41,
+                                                    ropd: 33,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -4673,23 +4429,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                634,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 44,
+                                                    function: 36,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         636,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        45..47,
+                                                        37..39,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -4699,16 +4446,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         640,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 47,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        634,
-                                                    ),
-                                                    ropd: 48,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
@@ -4740,23 +4477,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                644,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 50,
+                                                    function: 40,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         646,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        51..53,
+                                                        41..43,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -4767,40 +4495,11 @@ Ok(
                                                         650,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 53,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        644,
-                                                    ),
-                                                    ropd: 54,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                654,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         655,
                                                     ),
                                                 ),
-                                                Expr::Binary {
-                                                    lopd: 56,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        654,
-                                                    ),
-                                                    ropd: 57,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
                                                     token_idx: TokenIdx(
@@ -4842,7 +4541,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 61,
+                                                    self_argument: 47,
                                                     dot_token_idx: TokenIdx(
                                                         662,
                                                     ),
@@ -4857,7 +4556,7 @@ Ok(
                                                         664,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        62..63,
+                                                        48..49,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         666,
@@ -4869,24 +4568,24 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 59,
+                                                    lopd: 45,
                                                     opr: Comparison(
                                                         Leq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         658,
                                                     ),
-                                                    ropd: 60,
+                                                    ropd: 46,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 63,
+                                                    lopd: 49,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         667,
                                                     ),
-                                                    ropd: 64,
+                                                    ropd: 50,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -4909,7 +4608,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 67,
+                                                    self_argument: 53,
                                                     dot_token_idx: TokenIdx(
                                                         671,
                                                     ),
@@ -4924,7 +4623,7 @@ Ok(
                                                         673,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        68..69,
+                                                        54..55,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         675,
@@ -4936,34 +4635,34 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 65,
+                                                    lopd: 51,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         660,
                                                     ),
-                                                    ropd: 66,
+                                                    ropd: 52,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 69,
+                                                    lopd: 55,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         676,
                                                     ),
-                                                    ropd: 70,
+                                                    ropd: 56,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 71,
+                                                    lopd: 57,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         669,
                                                     ),
-                                                    ropd: 72,
+                                                    ropd: 58,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -4975,17 +4674,8 @@ Ok(
                                                         pattern_symbol_idx: 1,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                681,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 74,
+                                                    self_argument: 60,
                                                     dot_token_idx: TokenIdx(
                                                         683,
                                                     ),
@@ -5000,21 +4690,11 @@ Ok(
                                                         685,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        75..75,
+                                                        61..61,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         686,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 75,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        681,
-                                                    ),
-                                                    ropd: 76,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `r_max`,
@@ -5047,24 +4727,24 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 78,
+                                                    lopd: 62,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         691,
                                                     ),
-                                                    ropd: 79,
+                                                    ropd: 63,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 80,
+                                                    lopd: 64,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         689,
                                                     ),
-                                                    ropd: 81,
+                                                    ropd: 65,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp_norm`,
@@ -5087,14 +4767,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 83,
+                                                    lopd: 67,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         705,
                                                     ),
-                                                    ropd: 84,
+                                                    ropd: 68,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
@@ -5126,23 +4806,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                710,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 86,
+                                                    function: 70,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         712,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        87..89,
+                                                        71..73,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -5152,16 +4823,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         716,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 89,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        710,
-                                                    ),
-                                                    ropd: 90,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 3,
@@ -5193,23 +4854,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                719,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 92,
+                                                    function: 74,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         721,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        93..95,
+                                                        75..77,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -5219,16 +4871,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         725,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 95,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        719,
-                                                    ),
-                                                    ropd: 96,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `right_bound`,
@@ -5251,7 +4893,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 98,
+                                                    self_argument: 78,
                                                     dot_token_idx: TokenIdx(
                                                         728,
                                                     ),
@@ -5266,7 +4908,7 @@ Ok(
                                                         730,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        99..100,
+                                                        79..80,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         732,
@@ -5278,14 +4920,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 100,
+                                                    lopd: 80,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         733,
                                                     ),
-                                                    ropd: 101,
+                                                    ropd: 81,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `right_bound`,
@@ -5308,14 +4950,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 103,
+                                                    lopd: 83,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         737,
                                                     ),
-                                                    ropd: 104,
+                                                    ropd: 84,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp_left`,
@@ -5338,7 +4980,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 106,
+                                                    self_argument: 86,
                                                     dot_token_idx: TokenIdx(
                                                         741,
                                                     ),
@@ -5353,7 +4995,7 @@ Ok(
                                                         743,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        107..108,
+                                                        87..88,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         745,
@@ -5365,14 +5007,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 108,
+                                                    lopd: 88,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         746,
                                                     ),
-                                                    ropd: 109,
+                                                    ropd: 89,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `left_bound`,
@@ -5395,14 +5037,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 111,
+                                                    lopd: 91,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         750,
                                                     ),
-                                                    ropd: 112,
+                                                    ropd: 92,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -5415,7 +5057,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 114,
+                                                    opd: 94,
                                                     opr: Incr,
                                                     opr_token_idx: TokenIdx(
                                                         753,
@@ -5457,14 +5099,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 117,
+                                                    lopd: 97,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         763,
                                                     ),
-                                                    ropd: 118,
+                                                    ropd: 98,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -5477,7 +5119,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 116,
+                                                    self_argument: 96,
                                                     dot_token_idx: TokenIdx(
                                                         757,
                                                     ),
@@ -5492,21 +5134,21 @@ Ok(
                                                         759,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        119..121,
+                                                        99..101,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         765,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 121,
+                                                    lopd: 101,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         755,
                                                     ),
-                                                    ropd: 122,
+                                                    ropd: 102,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -5529,14 +5171,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 124,
+                                                    lopd: 104,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         768,
                                                     ),
-                                                    ropd: 125,
+                                                    ropd: 105,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -5606,10 +5248,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [
                                                 Stmt::Eval {
-                                                    expr_idx: 30,
+                                                    expr_idx: 22,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 38,
+                                                    expr_idx: 30,
                                                 },
                                                 Stmt::Return {
                                                     return_token: ReturnToken {
@@ -5618,7 +5260,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        43,
+                                                        35,
                                                     ),
                                                 },
                                                 Stmt::Break {
@@ -5629,10 +5271,10 @@ Ok(
                                                     },
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 105,
+                                                    expr_idx: 85,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 113,
+                                                    expr_idx: 93,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5652,17 +5294,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    710,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                710,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        91,
+                                                        73,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -5683,17 +5323,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    719,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                719,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        97,
+                                                        77,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -5704,7 +5342,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            102,
+                                                            82,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -5730,7 +5368,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            110,
+                                                            90,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -5766,17 +5404,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    681,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                681,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        77,
+                                                        61,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -5787,7 +5423,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            82,
+                                                            66,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -5813,7 +5449,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            85,
+                                                            69,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -5832,10 +5468,10 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 115,
+                                                    expr_idx: 95,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 123,
+                                                    expr_idx: 103,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -5855,17 +5491,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    561,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                561,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        2,
+                                                        0,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -5886,17 +5520,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    566,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                566,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        10,
+                                                        6,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -5917,17 +5549,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    579,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                579,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        15,
+                                                        9,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -5948,17 +5578,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    589,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                589,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        20,
+                                                        12,
                                                     ),
                                                 },
                                                 Stmt::While {
@@ -5968,7 +5596,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        28,
+                                                        20,
                                                     ),
                                                     eol_colon: Ok(
                                                         EolColonToken(
@@ -5991,7 +5619,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            42,
+                                                            34,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -6027,17 +5655,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    634,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                634,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        49,
+                                                        39,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -6058,17 +5684,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    644,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                644,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        55,
+                                                        43,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -6089,17 +5713,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    654,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                654,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        58,
+                                                        44,
                                                     ),
                                                 },
                                                 Stmt::While {
@@ -6109,7 +5731,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        73,
+                                                        59,
                                                     ),
                                                     eol_colon: Ok(
                                                         EolColonToken(
@@ -6131,7 +5753,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        126,
+                                                        106,
                                                     ),
                                                 },
                                                 Stmt::Return {
@@ -6141,7 +5763,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        127,
+                                                        107,
                                                     ),
                                                 },
                                             ],
@@ -6610,13 +6232,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 128,
+                                                expr: 108,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    128,
+                                    108,
                                 ),
                             },
                         ),
@@ -7415,15 +7037,6 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                798,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::InheritedSymbol {
                                                     ident: `end`,
                                                     token_idx: TokenIdx(
@@ -7433,16 +7046,6 @@ Ok(
                                                     inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
                                                         ident: `end`,
                                                     },
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 0,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        798,
-                                                    ),
-                                                    ropd: 1,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -7480,26 +7083,17 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 4,
+                                                    lopd: 2,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         811,
                                                     ),
-                                                    ropd: 5,
+                                                    ropd: 3,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                803,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 3,
+                                                    self_argument: 1,
                                                     dot_token_idx: TokenIdx(
                                                         805,
                                                     ),
@@ -7514,21 +7108,11 @@ Ok(
                                                         807,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        6..8,
+                                                        4..6,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         813,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 8,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        803,
-                                                    ),
-                                                    ropd: 9,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -7541,7 +7125,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 11,
+                                                    owner: 7,
                                                     dot_token_idx: TokenIdx(
                                                         820,
                                                     ),
@@ -7563,7 +7147,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 12,
+                                                    self_argument: 8,
                                                     dot_token_idx: TokenIdx(
                                                         822,
                                                     ),
@@ -7578,40 +7162,21 @@ Ok(
                                                         824,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        13..13,
+                                                        9..9,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         825,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                816,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Binary {
-                                                    lopd: 13,
+                                                    lopd: 9,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         818,
                                                     ),
-                                                    ropd: 14,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 15,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        816,
-                                                    ),
-                                                    ropd: 16,
+                                                    ropd: 10,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -7644,7 +7209,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 20,
+                                                    self_argument: 14,
                                                     dot_token_idx: TokenIdx(
                                                         832,
                                                     ),
@@ -7659,7 +7224,7 @@ Ok(
                                                         834,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        21..21,
+                                                        15..15,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         835,
@@ -7676,34 +7241,34 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 18,
+                                                    lopd: 12,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         828,
                                                     ),
-                                                    ropd: 19,
+                                                    ropd: 13,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 21,
+                                                    lopd: 15,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         836,
                                                     ),
-                                                    ropd: 22,
+                                                    ropd: 16,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 23,
+                                                    lopd: 17,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         830,
                                                     ),
-                                                    ropd: 24,
+                                                    ropd: 18,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -7716,7 +7281,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 26,
+                                                    opd: 20,
                                                     opr: Decr,
                                                     opr_token_idx: TokenIdx(
                                                         840,
@@ -7758,14 +7323,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 29,
+                                                    lopd: 23,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         850,
                                                     ),
-                                                    ropd: 30,
+                                                    ropd: 24,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp0`,
@@ -7778,7 +7343,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 28,
+                                                    self_argument: 22,
                                                     dot_token_idx: TokenIdx(
                                                         844,
                                                     ),
@@ -7793,21 +7358,21 @@ Ok(
                                                         846,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        31..33,
+                                                        25..27,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         852,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 33,
+                                                    lopd: 27,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         842,
                                                     ),
-                                                    ropd: 34,
+                                                    ropd: 28,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp0`,
@@ -7820,7 +7385,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 36,
+                                                    self_argument: 30,
                                                     dot_token_idx: TokenIdx(
                                                         855,
                                                     ),
@@ -7835,7 +7400,7 @@ Ok(
                                                         857,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        37..37,
+                                                        31..31,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         858,
@@ -7852,14 +7417,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 37,
+                                                    lopd: 31,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         859,
                                                     ),
-                                                    ropd: 38,
+                                                    ropd: 32,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -7882,7 +7447,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 40,
+                                                    self_argument: 34,
                                                     dot_token_idx: TokenIdx(
                                                         864,
                                                     ),
@@ -7897,7 +7462,7 @@ Ok(
                                                         866,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        41..42,
+                                                        35..36,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         868,
@@ -7933,23 +7498,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                872,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 43,
+                                                    function: 37,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         874,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        44..46,
+                                                        38..40,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -7959,16 +7515,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         878,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 46,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        872,
-                                                    ),
-                                                    ropd: 47,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
@@ -8000,23 +7546,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                882,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 49,
+                                                    function: 41,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         884,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        50..52,
+                                                        42..44,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -8027,40 +7564,11 @@ Ok(
                                                         888,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 52,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        882,
-                                                    ),
-                                                    ropd: 53,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                892,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         893,
                                                     ),
                                                 ),
-                                                Expr::Binary {
-                                                    lopd: 55,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        892,
-                                                    ),
-                                                    ropd: 56,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
                                                     token_idx: TokenIdx(
@@ -8082,14 +7590,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 58,
+                                                    lopd: 46,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         896,
                                                     ),
-                                                    ropd: 59,
+                                                    ropd: 47,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -8127,26 +7635,17 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 62,
+                                                    lopd: 50,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         909,
                                                     ),
-                                                    ropd: 63,
+                                                    ropd: 51,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                901,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 61,
+                                                    self_argument: 49,
                                                     dot_token_idx: TokenIdx(
                                                         903,
                                                     ),
@@ -8161,21 +7660,11 @@ Ok(
                                                         905,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        64..66,
+                                                        52..54,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         911,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 66,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        901,
-                                                    ),
-                                                    ropd: 67,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -8187,17 +7676,8 @@ Ok(
                                                         pattern_symbol_idx: 6,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                914,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 69,
+                                                    self_argument: 55,
                                                     dot_token_idx: TokenIdx(
                                                         916,
                                                     ),
@@ -8212,21 +7692,11 @@ Ok(
                                                         918,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        70..70,
+                                                        56..56,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         919,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 70,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        914,
-                                                    ),
-                                                    ropd: 71,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `r_max`,
@@ -8259,24 +7729,24 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 73,
+                                                    lopd: 57,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         924,
                                                     ),
-                                                    ropd: 74,
+                                                    ropd: 58,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 75,
+                                                    lopd: 59,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         922,
                                                     ),
-                                                    ropd: 76,
+                                                    ropd: 60,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp_norm`,
@@ -8299,14 +7769,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 78,
+                                                    lopd: 62,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         938,
                                                     ),
-                                                    ropd: 79,
+                                                    ropd: 63,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 2,
@@ -8338,23 +7808,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                943,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 81,
+                                                    function: 65,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         945,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        82..84,
+                                                        66..68,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -8364,16 +7825,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         949,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 84,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        943,
-                                                    ),
-                                                    ropd: 85,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 3,
@@ -8405,23 +7856,14 @@ Ok(
                                                         ident: `r`,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                952,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 87,
+                                                    function: 69,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         954,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        88..90,
+                                                        70..72,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -8431,16 +7873,6 @@ Ok(
                                                     rpar_token_idx: TokenIdx(
                                                         958,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 90,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        952,
-                                                    ),
-                                                    ropd: 91,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `right_bound`,
@@ -8463,7 +7895,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 93,
+                                                    self_argument: 73,
                                                     dot_token_idx: TokenIdx(
                                                         961,
                                                     ),
@@ -8478,7 +7910,7 @@ Ok(
                                                         963,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        94..95,
+                                                        74..75,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         965,
@@ -8490,14 +7922,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 95,
+                                                    lopd: 75,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         966,
                                                     ),
-                                                    ropd: 96,
+                                                    ropd: 76,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `right_bound`,
@@ -8520,14 +7952,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 98,
+                                                    lopd: 78,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         970,
                                                     ),
-                                                    ropd: 99,
+                                                    ropd: 79,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp_left`,
@@ -8550,7 +7982,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 101,
+                                                    self_argument: 81,
                                                     dot_token_idx: TokenIdx(
                                                         974,
                                                     ),
@@ -8565,7 +7997,7 @@ Ok(
                                                         976,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        102..103,
+                                                        82..83,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         978,
@@ -8577,14 +8009,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 103,
+                                                    lopd: 83,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         979,
                                                     ),
-                                                    ropd: 104,
+                                                    ropd: 84,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `left_bound`,
@@ -8607,14 +8039,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 106,
+                                                    lopd: 86,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         983,
                                                     ),
-                                                    ropd: 107,
+                                                    ropd: 87,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `right_bound`,
@@ -8637,7 +8069,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 109,
+                                                    self_argument: 89,
                                                     dot_token_idx: TokenIdx(
                                                         987,
                                                     ),
@@ -8652,7 +8084,7 @@ Ok(
                                                         989,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        110..111,
+                                                        90..91,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         991,
@@ -8664,14 +8096,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 111,
+                                                    lopd: 91,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         992,
                                                     ),
-                                                    ropd: 112,
+                                                    ropd: 92,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -8714,7 +8146,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 116,
+                                                    self_argument: 96,
                                                     dot_token_idx: TokenIdx(
                                                         1003,
                                                     ),
@@ -8729,7 +8161,7 @@ Ok(
                                                         1005,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        117..118,
+                                                        97..98,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1007,
@@ -8761,7 +8193,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 120,
+                                                    self_argument: 100,
                                                     dot_token_idx: TokenIdx(
                                                         1012,
                                                     ),
@@ -8776,7 +8208,7 @@ Ok(
                                                         1014,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        121..122,
+                                                        101..102,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1016,
@@ -8788,70 +8220,70 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 118,
+                                                    lopd: 98,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1008,
                                                     ),
-                                                    ropd: 119,
+                                                    ropd: 99,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 122,
+                                                    lopd: 102,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1017,
                                                     ),
-                                                    ropd: 123,
+                                                    ropd: 103,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 124,
+                                                    lopd: 104,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1010,
                                                     ),
-                                                    ropd: 125,
+                                                    ropd: 105,
                                                 },
                                                 Expr::Bracketed {
                                                     lpar_token_idx: TokenIdx(
                                                         1001,
                                                     ),
-                                                    item: 126,
+                                                    item: 106,
                                                     rpar_token_idx: TokenIdx(
                                                         1019,
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 114,
+                                                    lopd: 94,
                                                     opr: Comparison(
                                                         Leq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         997,
                                                     ),
-                                                    ropd: 115,
+                                                    ropd: 95,
                                                 },
                                                 Expr::Prefix {
                                                     opr: Not,
                                                     opr_token_idx: TokenIdx(
                                                         1000,
                                                     ),
-                                                    opd: 127,
+                                                    opd: 107,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 128,
+                                                    lopd: 108,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         999,
                                                     ),
-                                                    ropd: 129,
+                                                    ropd: 109,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -8864,7 +8296,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 131,
+                                                    opd: 111,
                                                     opr: Decr,
                                                     opr_token_idx: TokenIdx(
                                                         1023,
@@ -8891,14 +8323,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 133,
+                                                    lopd: 113,
                                                     opr: Comparison(
                                                         Leq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1029,
                                                     ),
-                                                    ropd: 134,
+                                                    ropd: 114,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -8978,10 +8410,10 @@ Ok(
                                         stmt_arena: Arena {
                                             data: [
                                                 Stmt::Eval {
-                                                    expr_idx: 27,
+                                                    expr_idx: 21,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 35,
+                                                    expr_idx: 29,
                                                 },
                                                 Stmt::Return {
                                                     return_token: ReturnToken {
@@ -8990,7 +8422,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        42,
+                                                        36,
                                                     ),
                                                 },
                                                 Stmt::Break {
@@ -9001,10 +8433,10 @@ Ok(
                                                     },
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 100,
+                                                    expr_idx: 80,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 108,
+                                                    expr_idx: 88,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -9024,17 +8456,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    943,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                943,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        86,
+                                                        68,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9055,17 +8485,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    952,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                952,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        92,
+                                                        72,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -9076,7 +8504,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            97,
+                                                            77,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9102,7 +8530,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            105,
+                                                            85,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9135,7 +8563,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            130,
+                                                            110,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9154,7 +8582,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 132,
+                                                    expr_idx: 112,
                                                 },
                                                 Stmt::Break {
                                                     break_token: BreakToken {
@@ -9181,17 +8609,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    901,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                901,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        68,
+                                                        54,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9212,17 +8638,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    914,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                914,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        72,
+                                                        56,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -9233,7 +8657,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            77,
+                                                            61,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9259,7 +8683,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            80,
+                                                            64,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9285,7 +8709,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            113,
+                                                            93,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9330,7 +8754,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        136,
+                                                        116,
                                                     ),
                                                 },
                                                 Stmt::Return {
@@ -9340,7 +8764,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        137,
+                                                        117,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9361,17 +8785,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    798,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                798,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        2,
+                                                        0,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9392,17 +8814,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    803,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                803,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        10,
+                                                        6,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9423,17 +8843,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    816,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                816,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        17,
+                                                        11,
                                                     ),
                                                 },
                                                 Stmt::While {
@@ -9443,7 +8861,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        25,
+                                                        19,
                                                     ),
                                                     eol_colon: Ok(
                                                         EolColonToken(
@@ -9466,7 +8884,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            39,
+                                                            33,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -9502,17 +8920,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    872,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                872,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        48,
+                                                        40,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9533,17 +8949,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    882,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                882,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        54,
+                                                        44,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -9564,17 +8978,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    892,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                892,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        57,
+                                                        45,
                                                     ),
                                                 },
                                                 Stmt::While {
@@ -9584,7 +8996,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        60,
+                                                        48,
                                                     ),
                                                     eol_colon: Ok(
                                                         EolColonToken(
@@ -9607,7 +9019,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            135,
+                                                            115,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -10119,13 +9531,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 138,
+                                                expr: 118,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    138,
+                                    118,
                                 ),
                             },
                         ),
@@ -10715,60 +10127,13 @@ Ok(
                                                         1063,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1058,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplication {
                                                     function: 1,
                                                     argument: 2,
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 3,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1058,
-                                                    ),
-                                                    ropd: 4,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1067,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1068,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 6,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1067,
-                                                    ),
-                                                    ropd: 7,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1072,
-                                                            ),
-                                                        },
                                                     ),
                                                 ),
                                                 Expr::Literal(
@@ -10776,16 +10141,6 @@ Ok(
                                                         1073,
                                                     ),
                                                 ),
-                                                Expr::Binary {
-                                                    lopd: 9,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1072,
-                                                    ),
-                                                    ropd: 10,
-                                                },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
                                                     token_idx: TokenIdx(
@@ -10797,7 +10152,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 12,
+                                                    owner: 6,
                                                     dot_token_idx: TokenIdx(
                                                         1079,
                                                     ),
@@ -10808,17 +10163,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1077,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 13,
+                                                    self_argument: 7,
                                                     dot_token_idx: TokenIdx(
                                                         1081,
                                                     ),
@@ -10833,21 +10179,11 @@ Ok(
                                                         1083,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        14..14,
+                                                        8..8,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1084,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 14,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1077,
-                                                    ),
-                                                    ropd: 15,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `end`,
@@ -10870,14 +10206,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 17,
+                                                    lopd: 9,
                                                     opr: Comparison(
                                                         Leq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1087,
                                                     ),
-                                                    ropd: 18,
+                                                    ropd: 10,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
@@ -10930,13 +10266,13 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 20,
+                                                    function: 12,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1093,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        21..24,
+                                                        13..16,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -10951,14 +10287,14 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 24,
+                                                    lopd: 16,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1091,
                                                     ),
-                                                    ropd: 25,
+                                                    ropd: 17,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 3,
@@ -10994,23 +10330,14 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1102,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 27,
+                                                    function: 19,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1106,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        28..31,
+                                                        20..23,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -11024,40 +10351,11 @@ Ok(
                                                         1112,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 31,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1102,
-                                                    ),
-                                                    ropd: 32,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1116,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Literal(
                                                     TokenIdx(
                                                         1117,
                                                     ),
                                                 ),
-                                                Expr::Binary {
-                                                    lopd: 34,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1116,
-                                                    ),
-                                                    ropd: 35,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
                                                     token_idx: TokenIdx(
@@ -11069,7 +10367,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 37,
+                                                    self_argument: 25,
                                                     dot_token_idx: TokenIdx(
                                                         1120,
                                                     ),
@@ -11084,7 +10382,7 @@ Ok(
                                                         1122,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        38..38,
+                                                        26..26,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1123,
@@ -11096,14 +10394,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 38,
+                                                    lopd: 26,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1124,
                                                     ),
-                                                    ropd: 39,
+                                                    ropd: 27,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `ls_extend_end`,
@@ -11115,17 +10413,8 @@ Ok(
                                                         pattern_symbol_idx: 4,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1129,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 41,
+                                                    self_argument: 29,
                                                     dot_token_idx: TokenIdx(
                                                         1131,
                                                     ),
@@ -11140,21 +10429,11 @@ Ok(
                                                         1133,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        42..42,
+                                                        30..30,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1134,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 42,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1129,
-                                                    ),
-                                                    ropd: 43,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -11167,7 +10446,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 45,
+                                                    self_argument: 31,
                                                     dot_token_idx: TokenIdx(
                                                         1139,
                                                     ),
@@ -11182,23 +10461,14 @@ Ok(
                                                         1141,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        46..46,
+                                                        32..32,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1142,
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1137,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 46,
+                                                    self_argument: 32,
                                                     dot_token_idx: TokenIdx(
                                                         1143,
                                                     ),
@@ -11213,21 +10483,11 @@ Ok(
                                                         1145,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        47..47,
+                                                        33..33,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1146,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 47,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1137,
-                                                    ),
-                                                    ropd: 48,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp_extend_end`,
@@ -11250,7 +10510,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 50,
+                                                    self_argument: 34,
                                                     dot_token_idx: TokenIdx(
                                                         1149,
                                                     ),
@@ -11265,14 +10525,14 @@ Ok(
                                                         1151,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        51..52,
+                                                        35..36,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1153,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 52,
+                                                    self_argument: 36,
                                                     dot_token_idx: TokenIdx(
                                                         1154,
                                                     ),
@@ -11287,7 +10547,7 @@ Ok(
                                                         1156,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        53..53,
+                                                        37..37,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1157,
@@ -11319,7 +10579,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 55,
+                                                    self_argument: 39,
                                                     dot_token_idx: TokenIdx(
                                                         1162,
                                                     ),
@@ -11334,7 +10594,7 @@ Ok(
                                                         1164,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        56..57,
+                                                        40..41,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1166,
@@ -11346,34 +10606,34 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 53,
+                                                    lopd: 37,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1158,
                                                     ),
-                                                    ropd: 54,
+                                                    ropd: 38,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 57,
+                                                    lopd: 41,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1167,
                                                     ),
-                                                    ropd: 58,
+                                                    ropd: 42,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 59,
+                                                    lopd: 43,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1160,
                                                     ),
-                                                    ropd: 60,
+                                                    ropd: 44,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -11386,7 +10646,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 62,
+                                                    owner: 46,
                                                     dot_token_idx: TokenIdx(
                                                         1174,
                                                     ),
@@ -11397,17 +10657,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1172,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 63,
+                                                    self_argument: 47,
                                                     dot_token_idx: TokenIdx(
                                                         1176,
                                                     ),
@@ -11422,21 +10673,11 @@ Ok(
                                                         1178,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        64..64,
+                                                        48..48,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1179,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 64,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1172,
-                                                    ),
-                                                    ropd: 65,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -11463,7 +10704,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 69,
+                                                    self_argument: 51,
                                                     dot_token_idx: TokenIdx(
                                                         1193,
                                                     ),
@@ -11478,14 +10719,14 @@ Ok(
                                                         1195,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        70..70,
+                                                        52..52,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1196,
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 70,
+                                                    owner: 52,
                                                     dot_token_idx: TokenIdx(
                                                         1197,
                                                     ),
@@ -11507,7 +10748,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 71,
+                                                    owner: 53,
                                                     dot_token_idx: TokenIdx(
                                                         1199,
                                                     ),
@@ -11529,7 +10770,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 67,
+                                                    self_argument: 49,
                                                     dot_token_idx: TokenIdx(
                                                         1181,
                                                     ),
@@ -11544,20 +10785,20 @@ Ok(
                                                         1183,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        68..68,
+                                                        50..50,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1184,
                                                     ),
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 68,
+                                                    function: 50,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1189,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        72..75,
+                                                        54..57,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -11572,14 +10813,14 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 75,
+                                                    lopd: 57,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1185,
                                                     ),
-                                                    ropd: 76,
+                                                    ropd: 58,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `extend_start_flag`,
@@ -11597,14 +10838,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 78,
+                                                    lopd: 60,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1205,
                                                     ),
-                                                    ropd: 79,
+                                                    ropd: 61,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `extend_start_flag`,
@@ -11677,13 +10918,13 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 82,
+                                                    function: 64,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1213,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        83..87,
+                                                        65..69,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -11701,14 +10942,14 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 87,
+                                                    lopd: 69,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1211,
                                                     ),
-                                                    ropd: 88,
+                                                    ropd: 70,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 8,
@@ -11744,23 +10985,14 @@ Ok(
                                                         pattern_symbol_idx: 2,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1225,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 90,
+                                                    function: 72,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1229,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        91..94,
+                                                        73..76,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -11774,16 +11006,6 @@ Ok(
                                                         1235,
                                                     ),
                                                 },
-                                                Expr::Binary {
-                                                    lopd: 94,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1225,
-                                                    ),
-                                                    ropd: 95,
-                                                },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
                                                     token_idx: TokenIdx(
@@ -11795,7 +11017,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 97,
+                                                    self_argument: 77,
                                                     dot_token_idx: TokenIdx(
                                                         1238,
                                                     ),
@@ -11810,7 +11032,7 @@ Ok(
                                                         1240,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        98..98,
+                                                        78..78,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1241,
@@ -11822,14 +11044,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 98,
+                                                    lopd: 78,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1242,
                                                     ),
-                                                    ropd: 99,
+                                                    ropd: 79,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -11841,17 +11063,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1247,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 101,
+                                                    self_argument: 81,
                                                     dot_token_idx: TokenIdx(
                                                         1249,
                                                     ),
@@ -11866,21 +11079,11 @@ Ok(
                                                         1251,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        102..102,
+                                                        82..82,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1252,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 102,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1247,
-                                                    ),
-                                                    ropd: 103,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `ls_last`,
@@ -11892,17 +11095,8 @@ Ok(
                                                         pattern_symbol_idx: 10,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1255,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 105,
+                                                    self_argument: 83,
                                                     dot_token_idx: TokenIdx(
                                                         1257,
                                                     ),
@@ -11917,21 +11111,11 @@ Ok(
                                                         1259,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        106..106,
+                                                        84..84,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1260,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 106,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1255,
-                                                    ),
-                                                    ropd: 107,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `ls`,
@@ -11943,17 +11127,8 @@ Ok(
                                                         pattern_symbol_idx: 9,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1263,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 109,
+                                                    self_argument: 85,
                                                     dot_token_idx: TokenIdx(
                                                         1265,
                                                     ),
@@ -11968,21 +11143,11 @@ Ok(
                                                         1267,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        110..110,
+                                                        86..86,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1268,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 110,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1263,
-                                                    ),
-                                                    ropd: 111,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `ls_last`,
@@ -11995,7 +11160,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 113,
+                                                    owner: 87,
                                                     dot_token_idx: TokenIdx(
                                                         1273,
                                                     ),
@@ -12017,7 +11182,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 115,
+                                                    owner: 89,
                                                     dot_token_idx: TokenIdx(
                                                         1279,
                                                     ),
@@ -12028,17 +11193,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1271,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 114,
+                                                    self_argument: 88,
                                                     dot_token_idx: TokenIdx(
                                                         1275,
                                                     ),
@@ -12053,21 +11209,11 @@ Ok(
                                                         1277,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        116..117,
+                                                        90..91,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1281,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 117,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1271,
-                                                    ),
-                                                    ropd: 118,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -12090,7 +11236,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 120,
+                                                    self_argument: 92,
                                                     dot_token_idx: TokenIdx(
                                                         1284,
                                                     ),
@@ -12105,14 +11251,14 @@ Ok(
                                                         1286,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        121..122,
+                                                        93..94,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1288,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 122,
+                                                    self_argument: 94,
                                                     dot_token_idx: TokenIdx(
                                                         1289,
                                                     ),
@@ -12127,7 +11273,7 @@ Ok(
                                                         1291,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        123..123,
+                                                        95..95,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1292,
@@ -12159,7 +11305,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 125,
+                                                    self_argument: 97,
                                                     dot_token_idx: TokenIdx(
                                                         1297,
                                                     ),
@@ -12174,7 +11320,7 @@ Ok(
                                                         1299,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        126..127,
+                                                        98..99,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1301,
@@ -12186,24 +11332,24 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 123,
+                                                    lopd: 95,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1293,
                                                     ),
-                                                    ropd: 124,
+                                                    ropd: 96,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 127,
+                                                    lopd: 99,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1302,
                                                     ),
-                                                    ropd: 128,
+                                                    ropd: 100,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -12226,7 +11372,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 131,
+                                                    self_argument: 103,
                                                     dot_token_idx: TokenIdx(
                                                         1306,
                                                     ),
@@ -12241,14 +11387,14 @@ Ok(
                                                         1308,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        132..133,
+                                                        104..105,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1310,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 133,
+                                                    self_argument: 105,
                                                     dot_token_idx: TokenIdx(
                                                         1311,
                                                     ),
@@ -12263,7 +11409,7 @@ Ok(
                                                         1313,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        134..134,
+                                                        106..106,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1314,
@@ -12275,24 +11421,24 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 129,
+                                                    lopd: 101,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1295,
                                                     ),
-                                                    ropd: 130,
+                                                    ropd: 102,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 134,
+                                                    lopd: 106,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1315,
                                                     ),
-                                                    ropd: 135,
+                                                    ropd: 107,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `dp`,
@@ -12315,7 +11461,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 138,
+                                                    self_argument: 110,
                                                     dot_token_idx: TokenIdx(
                                                         1319,
                                                     ),
@@ -12330,7 +11476,7 @@ Ok(
                                                         1321,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        139..140,
+                                                        111..112,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1323,
@@ -12342,34 +11488,34 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 136,
+                                                    lopd: 108,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1304,
                                                     ),
-                                                    ropd: 137,
+                                                    ropd: 109,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 140,
+                                                    lopd: 112,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1324,
                                                     ),
-                                                    ropd: 141,
+                                                    ropd: 113,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 142,
+                                                    lopd: 114,
                                                     opr: ShortCircuitLogic(
                                                         And,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1317,
                                                     ),
-                                                    ropd: 143,
+                                                    ropd: 115,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -12381,17 +11527,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1329,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 145,
+                                                    self_argument: 117,
                                                     dot_token_idx: TokenIdx(
                                                         1331,
                                                     ),
@@ -12406,21 +11543,11 @@ Ok(
                                                         1333,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        146..146,
+                                                        118..118,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1334,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 146,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1329,
-                                                    ),
-                                                    ropd: 147,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 10,
@@ -12437,7 +11564,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 150,
+                                                    owner: 120,
                                                     dot_token_idx: TokenIdx(
                                                         1344,
                                                     ),
@@ -12459,7 +11586,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 152,
+                                                    owner: 122,
                                                     dot_token_idx: TokenIdx(
                                                         1350,
                                                     ),
@@ -12481,7 +11608,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 151,
+                                                    owner: 121,
                                                     dot_token_idx: TokenIdx(
                                                         1346,
                                                     ),
@@ -12493,7 +11620,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 153,
+                                                    owner: 123,
                                                     dot_token_idx: TokenIdx(
                                                         1352,
                                                     ),
@@ -12515,13 +11642,13 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 149,
+                                                    function: 119,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1340,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        154..157,
+                                                        124..127,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -12536,14 +11663,14 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 157,
+                                                    lopd: 127,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1336,
                                                     ),
-                                                    ropd: 158,
+                                                    ropd: 128,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -12556,7 +11683,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 160,
+                                                    owner: 130,
                                                     dot_token_idx: TokenIdx(
                                                         1362,
                                                     ),
@@ -12578,7 +11705,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 161,
+                                                    self_argument: 131,
                                                     dot_token_idx: TokenIdx(
                                                         1364,
                                                     ),
@@ -12593,7 +11720,7 @@ Ok(
                                                         1366,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        162..162,
+                                                        132..132,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1367,
@@ -12610,24 +11737,24 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 162,
+                                                    lopd: 132,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1360,
                                                     ),
-                                                    ropd: 163,
+                                                    ropd: 133,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 164,
+                                                    lopd: 134,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1358,
                                                     ),
-                                                    ropd: 165,
+                                                    ropd: 135,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -12650,7 +11777,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 167,
+                                                    self_argument: 137,
                                                     dot_token_idx: TokenIdx(
                                                         1369,
                                                     ),
@@ -12665,7 +11792,7 @@ Ok(
                                                         1371,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        168..169,
+                                                        138..139,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1373,
@@ -12692,14 +11819,14 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 170,
+                                                    lopd: 140,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1375,
                                                     ),
-                                                    ropd: 171,
+                                                    ropd: 141,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `start`,
@@ -12727,24 +11854,24 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 173,
+                                                    lopd: 143,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1380,
                                                     ),
-                                                    ropd: 174,
+                                                    ropd: 144,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 175,
+                                                    lopd: 145,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1378,
                                                     ),
-                                                    ropd: 176,
+                                                    ropd: 146,
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -12757,7 +11884,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 178,
+                                                    owner: 148,
                                                     dot_token_idx: TokenIdx(
                                                         1386,
                                                     ),
@@ -12768,17 +11895,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1384,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 179,
+                                                    self_argument: 149,
                                                     dot_token_idx: TokenIdx(
                                                         1388,
                                                     ),
@@ -12793,21 +11911,11 @@ Ok(
                                                         1390,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        180..180,
+                                                        150..150,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1391,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 180,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1384,
-                                                    ),
-                                                    ropd: 181,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -12820,7 +11928,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 183,
+                                                    self_argument: 151,
                                                     dot_token_idx: TokenIdx(
                                                         1396,
                                                     ),
@@ -12835,14 +11943,14 @@ Ok(
                                                         1398,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        184..184,
+                                                        152..152,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1399,
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 184,
+                                                    owner: 152,
                                                     dot_token_idx: TokenIdx(
                                                         1400,
                                                     ),
@@ -12853,17 +11961,8 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1394,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::Field {
-                                                    owner: 185,
+                                                    owner: 153,
                                                     dot_token_idx: TokenIdx(
                                                         1402,
                                                     ),
@@ -12873,16 +11972,6 @@ Ok(
                                                             1403,
                                                         ),
                                                     },
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 186,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1394,
-                                                    ),
-                                                    ropd: 187,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -12894,17 +11983,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1406,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 189,
+                                                    self_argument: 155,
                                                     dot_token_idx: TokenIdx(
                                                         1408,
                                                     ),
@@ -12919,21 +11999,11 @@ Ok(
                                                         1410,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        190..190,
+                                                        156..156,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1411,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 190,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1406,
-                                                    ),
-                                                    ropd: 191,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `last_line_segment`,
@@ -12946,7 +12016,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 193,
+                                                    owner: 157,
                                                     dot_token_idx: TokenIdx(
                                                         1414,
                                                     ),
@@ -12978,7 +12048,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 194,
+                                                    owner: 158,
                                                     dot_token_idx: TokenIdx(
                                                         1416,
                                                     ),
@@ -12990,24 +12060,24 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 195,
+                                                    lopd: 159,
                                                     opr: PureClosed(
                                                         Add,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1420,
                                                     ),
-                                                    ropd: 196,
+                                                    ropd: 160,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 197,
+                                                    lopd: 161,
                                                     opr: Comparison(
                                                         Geq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1418,
                                                     ),
-                                                    ropd: 198,
+                                                    ropd: 162,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -13019,17 +12089,8 @@ Ok(
                                                         pattern_symbol_idx: 0,
                                                     },
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                1425,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::MethodCall {
-                                                    self_argument: 200,
+                                                    self_argument: 164,
                                                     dot_token_idx: TokenIdx(
                                                         1427,
                                                     ),
@@ -13044,21 +12105,11 @@ Ok(
                                                         1429,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        201..201,
+                                                        165..165,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1430,
                                                     ),
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 201,
-                                                    opr: Assign(
-                                                        None,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        1425,
-                                                    ),
-                                                    ropd: 202,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -13085,7 +12136,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 206,
+                                                    owner: 168,
                                                     dot_token_idx: TokenIdx(
                                                         1444,
                                                     ),
@@ -13097,7 +12148,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 207,
+                                                    owner: 169,
                                                     dot_token_idx: TokenIdx(
                                                         1446,
                                                     ),
@@ -13129,7 +12180,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 210,
+                                                    self_argument: 172,
                                                     dot_token_idx: TokenIdx(
                                                         1452,
                                                     ),
@@ -13144,14 +12195,14 @@ Ok(
                                                         1454,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        211..211,
+                                                        173..173,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1455,
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 211,
+                                                    owner: 173,
                                                     dot_token_idx: TokenIdx(
                                                         1456,
                                                     ),
@@ -13163,7 +12214,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 212,
+                                                    owner: 174,
                                                     dot_token_idx: TokenIdx(
                                                         1458,
                                                     ),
@@ -13190,27 +12241,27 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 208,
+                                                    lopd: 170,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1448,
                                                     ),
-                                                    ropd: 209,
+                                                    ropd: 171,
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 213,
+                                                    lopd: 175,
                                                     opr: PureClosed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1460,
                                                     ),
-                                                    ropd: 214,
+                                                    ropd: 176,
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 204,
+                                                    self_argument: 166,
                                                     dot_token_idx: TokenIdx(
                                                         1432,
                                                     ),
@@ -13225,20 +12276,20 @@ Ok(
                                                         1434,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        205..205,
+                                                        167..167,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         1435,
                                                     ),
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 205,
+                                                    function: 167,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         1440,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        215..218,
+                                                        177..180,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -13253,14 +12304,14 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 218,
+                                                    lopd: 180,
                                                     opr: Assign(
                                                         None,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         1436,
                                                     ),
-                                                    ropd: 219,
+                                                    ropd: 181,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -13551,24 +12602,22 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1172,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1172,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        66,
+                                                        48,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 77,
+                                                    expr_idx: 59,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 80,
+                                                    expr_idx: 62,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13588,17 +12637,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1129,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1129,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        44,
+                                                        30,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -13619,17 +12666,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1137,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1137,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        49,
+                                                        33,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -13640,7 +12685,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            61,
+                                                            45,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -13676,21 +12721,19 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1329,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1329,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        148,
+                                                        118,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 159,
+                                                    expr_idx: 129,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13710,17 +12753,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1247,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1247,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        104,
+                                                        82,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -13741,17 +12782,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1255,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1255,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        108,
+                                                        84,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -13772,17 +12811,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1263,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1263,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        112,
+                                                        86,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -13803,17 +12840,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1271,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1271,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        119,
+                                                        91,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -13824,7 +12859,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            144,
+                                                            116,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -13843,10 +12878,10 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 166,
+                                                    expr_idx: 136,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 89,
+                                                    expr_idx: 71,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13866,17 +12901,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1225,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1225,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        96,
+                                                        76,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -13887,7 +12920,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            100,
+                                                            80,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -13926,10 +12959,10 @@ Ok(
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 169,
+                                                    expr_idx: 139,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 26,
+                                                    expr_idx: 18,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -13949,17 +12982,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1102,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1102,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        33,
+                                                        23,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -13980,17 +13011,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1116,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1116,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        36,
+                                                        24,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -14001,7 +13030,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            40,
+                                                            28,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -14027,7 +13056,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            81,
+                                                            63,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -14046,10 +13075,10 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 172,
+                                                    expr_idx: 142,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 177,
+                                                    expr_idx: 147,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -14069,21 +13098,19 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1425,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1425,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        203,
+                                                        165,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 220,
+                                                    expr_idx: 182,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -14103,17 +13130,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1058,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1058,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        5,
+                                                        3,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -14134,17 +13159,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1067,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1067,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        8,
+                                                        4,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -14165,17 +13188,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1072,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1072,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        11,
+                                                        5,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -14196,17 +13217,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1077,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1077,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        16,
+                                                        8,
                                                     ),
                                                 },
                                                 Stmt::While {
@@ -14216,7 +13235,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        19,
+                                                        11,
                                                     ),
                                                     eol_colon: Ok(
                                                         EolColonToken(
@@ -14249,17 +13268,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1384,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1384,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        182,
+                                                        150,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -14280,17 +13297,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1394,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1394,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        188,
+                                                        154,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -14311,17 +13326,15 @@ Ok(
                                                             ty: None,
                                                         },
                                                     ),
-                                                    assign_token: Err(
-                                                        Original(
-                                                            ExpectAssign(
-                                                                TokenIdx(
-                                                                    1406,
-                                                                ),
+                                                    assign_token: Ok(
+                                                        AssignToken(
+                                                            TokenIdx(
+                                                                1406,
                                                             ),
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        192,
+                                                        156,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -14332,7 +13345,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            199,
+                                                            163,
                                                         ),
                                                         eol_colon: Ok(
                                                             EolColonToken(
@@ -14357,7 +13370,7 @@ Ok(
                                                         ),
                                                     },
                                                     result: Ok(
-                                                        221,
+                                                        183,
                                                     ),
                                                 },
                                             ],
@@ -15187,13 +14200,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 222,
+                                                expr: 184,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    222,
+                                    184,
                                 ),
                             },
                         ),
@@ -18156,15 +17169,6 @@ Ok(
                                                             202,
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    196,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
                                                         owner: 3,
                                                         dot_token_idx: TokenIdx(
@@ -18177,16 +17181,6 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::Binary {
-                                                        lopd: 4,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            196,
-                                                        ),
-                                                        ropd: 5,
-                                                    },
                                                     Expr::CurrentSymbol {
                                                         ident: `start_point`,
                                                         token_idx: TokenIdx(
@@ -18197,17 +17191,8 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    208,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
-                                                        owner: 7,
+                                                        owner: 5,
                                                         dot_token_idx: TokenIdx(
                                                             210,
                                                         ),
@@ -18217,16 +17202,6 @@ Ok(
                                                                 211,
                                                             ),
                                                         },
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 8,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            208,
-                                                        ),
-                                                        ropd: 9,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `start_point`,
@@ -18238,17 +17213,8 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    215,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
-                                                        owner: 11,
+                                                        owner: 7,
                                                         dot_token_idx: TokenIdx(
                                                             217,
                                                         ),
@@ -18258,16 +17224,6 @@ Ok(
                                                                 218,
                                                             ),
                                                         },
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 12,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            215,
-                                                        ),
-                                                        ropd: 13,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `start_point`,
@@ -18279,17 +17235,8 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    222,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
-                                                        owner: 15,
+                                                        owner: 9,
                                                         dot_token_idx: TokenIdx(
                                                             224,
                                                         ),
@@ -18299,16 +17246,6 @@ Ok(
                                                                 225,
                                                             ),
                                                         },
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 16,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            222,
-                                                        ),
-                                                        ropd: 17,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `start_point`,
@@ -18320,17 +17257,8 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    229,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
-                                                        owner: 19,
+                                                        owner: 11,
                                                         dot_token_idx: TokenIdx(
                                                             231,
                                                         ),
@@ -18341,23 +17269,13 @@ Ok(
                                                             ),
                                                         },
                                                     },
-                                                    Expr::Binary {
-                                                        lopd: 20,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            229,
-                                                        ),
-                                                        ropd: 21,
-                                                    },
                                                     Expr::SelfValue(
                                                         TokenIdx(
                                                             236,
                                                         ),
                                                     ),
                                                     Expr::Field {
-                                                        owner: 23,
+                                                        owner: 13,
                                                         dot_token_idx: TokenIdx(
                                                             237,
                                                         ),
@@ -18375,11 +17293,11 @@ Ok(
                                                         ident: `i`,
                                                         frame_var_symbol_idx: 5,
                                                         current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                            25,
+                                                            15,
                                                         ),
                                                     },
                                                     Expr::MethodCall {
-                                                        self_argument: 24,
+                                                        self_argument: 14,
                                                         dot_token_idx: TokenIdx(
                                                             239,
                                                         ),
@@ -18394,21 +17312,21 @@ Ok(
                                                             241,
                                                         ),
                                                         nonself_arguments: ArenaIdxRange(
-                                                            25..25,
+                                                            15..15,
                                                         ),
                                                         rpar_token_idx: TokenIdx(
                                                             242,
                                                         ),
                                                     },
                                                     Expr::Binary {
-                                                        lopd: 25,
+                                                        lopd: 15,
                                                         opr: Comparison(
                                                             Less,
                                                         ),
                                                         opr_token_idx: TokenIdx(
                                                             235,
                                                         ),
-                                                        ropd: 26,
+                                                        ropd: 16,
                                                     },
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -18416,7 +17334,7 @@ Ok(
                                                         ),
                                                     ),
                                                     Expr::Field {
-                                                        owner: 28,
+                                                        owner: 18,
                                                         dot_token_idx: TokenIdx(
                                                             248,
                                                         ),
@@ -18434,32 +17352,23 @@ Ok(
                                                         ),
                                                         current_symbol_idx: 5,
                                                         current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                            25,
+                                                            15,
                                                         ),
                                                     },
                                                     Expr::IndexOrCompositionWithList {
-                                                        owner: 29,
+                                                        owner: 19,
                                                         lbox_token_idx: TokenIdx(
                                                             250,
                                                         ),
                                                         items: ArenaIdxRange(
-                                                            30..31,
+                                                            20..21,
                                                         ),
                                                         rbox_token_idx: TokenIdx(
                                                             252,
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                                binary_token_idx: TokenIdx(
-                                                                    246,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                     Expr::Field {
-                                                        owner: 31,
+                                                        owner: 21,
                                                         dot_token_idx: TokenIdx(
                                                             253,
                                                         ),
@@ -18469,16 +17378,6 @@ Ok(
                                                                 254,
                                                             ),
                                                         },
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 32,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            246,
-                                                        ),
-                                                        ropd: 33,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `xmin`,
@@ -18501,7 +17400,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::Field {
-                                                        owner: 36,
+                                                        owner: 24,
                                                         dot_token_idx: TokenIdx(
                                                             262,
                                                         ),
@@ -18523,7 +17422,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::MethodCall {
-                                                        self_argument: 35,
+                                                        self_argument: 23,
                                                         dot_token_idx: TokenIdx(
                                                             258,
                                                         ),
@@ -18538,21 +17437,21 @@ Ok(
                                                             260,
                                                         ),
                                                         nonself_arguments: ArenaIdxRange(
-                                                            37..38,
+                                                            25..26,
                                                         ),
                                                         rpar_token_idx: TokenIdx(
                                                             264,
                                                         ),
                                                     },
                                                     Expr::Binary {
-                                                        lopd: 38,
+                                                        lopd: 26,
                                                         opr: Assign(
                                                             None,
                                                         ),
                                                         opr_token_idx: TokenIdx(
                                                             256,
                                                         ),
-                                                        ropd: 39,
+                                                        ropd: 27,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `xmax`,
@@ -18575,7 +17474,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::Field {
-                                                        owner: 42,
+                                                        owner: 30,
                                                         dot_token_idx: TokenIdx(
                                                             272,
                                                         ),
@@ -18597,7 +17496,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::MethodCall {
-                                                        self_argument: 41,
+                                                        self_argument: 29,
                                                         dot_token_idx: TokenIdx(
                                                             268,
                                                         ),
@@ -18612,21 +17511,21 @@ Ok(
                                                             270,
                                                         ),
                                                         nonself_arguments: ArenaIdxRange(
-                                                            43..44,
+                                                            31..32,
                                                         ),
                                                         rpar_token_idx: TokenIdx(
                                                             274,
                                                         ),
                                                     },
                                                     Expr::Binary {
-                                                        lopd: 44,
+                                                        lopd: 32,
                                                         opr: Assign(
                                                             None,
                                                         ),
                                                         opr_token_idx: TokenIdx(
                                                             266,
                                                         ),
-                                                        ropd: 45,
+                                                        ropd: 33,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `ymin`,
@@ -18649,7 +17548,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::Field {
-                                                        owner: 48,
+                                                        owner: 36,
                                                         dot_token_idx: TokenIdx(
                                                             282,
                                                         ),
@@ -18671,7 +17570,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::MethodCall {
-                                                        self_argument: 47,
+                                                        self_argument: 35,
                                                         dot_token_idx: TokenIdx(
                                                             278,
                                                         ),
@@ -18686,21 +17585,21 @@ Ok(
                                                             280,
                                                         ),
                                                         nonself_arguments: ArenaIdxRange(
-                                                            49..50,
+                                                            37..38,
                                                         ),
                                                         rpar_token_idx: TokenIdx(
                                                             284,
                                                         ),
                                                     },
                                                     Expr::Binary {
-                                                        lopd: 50,
+                                                        lopd: 38,
                                                         opr: Assign(
                                                             None,
                                                         ),
                                                         opr_token_idx: TokenIdx(
                                                             276,
                                                         ),
-                                                        ropd: 51,
+                                                        ropd: 39,
                                                     },
                                                     Expr::CurrentSymbol {
                                                         ident: `ymax`,
@@ -18723,7 +17622,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::Field {
-                                                        owner: 54,
+                                                        owner: 42,
                                                         dot_token_idx: TokenIdx(
                                                             292,
                                                         ),
@@ -18745,7 +17644,7 @@ Ok(
                                                         },
                                                     },
                                                     Expr::MethodCall {
-                                                        self_argument: 53,
+                                                        self_argument: 41,
                                                         dot_token_idx: TokenIdx(
                                                             288,
                                                         ),
@@ -18760,21 +17659,21 @@ Ok(
                                                             290,
                                                         ),
                                                         nonself_arguments: ArenaIdxRange(
-                                                            55..56,
+                                                            43..44,
                                                         ),
                                                         rpar_token_idx: TokenIdx(
                                                             294,
                                                         ),
                                                     },
                                                     Expr::Binary {
-                                                        lopd: 56,
+                                                        lopd: 44,
                                                         opr: Assign(
                                                             None,
                                                         ),
                                                         opr_token_idx: TokenIdx(
                                                             286,
                                                         ),
-                                                        ropd: 57,
+                                                        ropd: 45,
                                                     },
                                                     Expr::EntityPath {
                                                         entity_path_expr: 0,
@@ -18847,13 +17746,13 @@ Ok(
                                                         },
                                                     },
                                                     Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 60,
+                                                        function: 48,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
                                                             299,
                                                         ),
                                                         items: ArenaIdxRange(
-                                                            61..63,
+                                                            49..51,
                                                         ),
                                                         commas: [
                                                             TokenIdx(
@@ -18865,13 +17764,13 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 63,
+                                                        function: 51,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
                                                             306,
                                                         ),
                                                         items: ArenaIdxRange(
-                                                            64..66,
+                                                            52..54,
                                                         ),
                                                         commas: [
                                                             TokenIdx(
@@ -18883,13 +17782,13 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 59,
+                                                        function: 47,
                                                         implicit_arguments: None,
                                                         lpar_token_idx: TokenIdx(
                                                             297,
                                                         ),
                                                         items: ArenaIdxRange(
-                                                            66..68,
+                                                            54..56,
                                                         ),
                                                         commas: [
                                                             TokenIdx(
@@ -18967,30 +17866,28 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        246,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    246,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            34,
+                                                            22,
                                                         ),
+                                                    },
+                                                    Stmt::Eval {
+                                                        expr_idx: 28,
+                                                    },
+                                                    Stmt::Eval {
+                                                        expr_idx: 34,
                                                     },
                                                     Stmt::Eval {
                                                         expr_idx: 40,
                                                     },
                                                     Stmt::Eval {
                                                         expr_idx: 46,
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 52,
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 58,
                                                     },
                                                     Stmt::Let {
                                                         let_token: LetToken {
@@ -19010,17 +17907,15 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        196,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    196,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            6,
+                                                            4,
                                                         ),
                                                     },
                                                     Stmt::Let {
@@ -19041,17 +17936,15 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        208,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    208,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            10,
+                                                            6,
                                                         ),
                                                     },
                                                     Stmt::Let {
@@ -19072,17 +17965,15 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        215,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    215,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            14,
+                                                            8,
                                                         ),
                                                     },
                                                     Stmt::Let {
@@ -19103,17 +17994,15 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        222,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    222,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            18,
+                                                            10,
                                                         ),
                                                     },
                                                     Stmt::Let {
@@ -19134,17 +18023,15 @@ Ok(
                                                                 ty: None,
                                                             },
                                                         ),
-                                                        assign_token: Err(
-                                                            Original(
-                                                                ExpectAssign(
-                                                                    TokenIdx(
-                                                                        229,
-                                                                    ),
+                                                        assign_token: Ok(
+                                                            AssignToken(
+                                                                TokenIdx(
+                                                                    229,
                                                                 ),
                                                             ),
                                                         ),
                                                         initial_value: Ok(
-                                                            22,
+                                                            12,
                                                         ),
                                                     },
                                                     Stmt::ForBetween {
@@ -19157,7 +18044,7 @@ Ok(
                                                             frame_var_token_idx: TokenIdx(
                                                                 234,
                                                             ),
-                                                            frame_var_expr_idx: 25,
+                                                            frame_var_expr_idx: 15,
                                                             frame_var_ident: Identifier(
                                                                 Word(
                                                                     Id {
@@ -19172,7 +18059,7 @@ Ok(
                                                                 },
                                                                 final_boundary: LoopBoundary {
                                                                     bound_expr: Some(
-                                                                        26,
+                                                                        16,
                                                                     ),
                                                                     kind: UpperOpen,
                                                                 },
@@ -19202,7 +18089,7 @@ Ok(
                                                             ),
                                                         },
                                                         result: Ok(
-                                                            68,
+                                                            56,
                                                         ),
                                                     },
                                                 ],
@@ -19470,7 +18357,7 @@ Ok(
                                                             ),
                                                             variant: CurrentSymbolVariant::FrameVariable {
                                                                 ident: `i`,
-                                                                expr_idx: 25,
+                                                                expr_idx: 15,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -19500,13 +18387,13 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: BlockExpr,
-                                                    expr: 69,
+                                                    expr: 57,
                                                 },
                                             ],
                                         },
                                     },
                                     body: Ok(
-                                        69,
+                                        57,
                                     ),
                                 },
                             ),

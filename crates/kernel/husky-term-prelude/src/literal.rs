@@ -14,49 +14,57 @@ pub enum TermLiteral {
     /// 16-bit integer literal
     I16(i16),
     /// 32-bit integer literal
-    I32(i32),
+    I32(TermI32Literal),
     /// 64-bit integer literal
-    I64(i64),
+    I64(TermI64Literal),
     /// 128-bit integer literal
-    I128(i128),
+    I128(TermI128Literal),
     /// for cross compilation
-    ISize(i64),
+    ISize(TermISizeLiteral),
     /// 8-bit unsigned integer literal
     U8(u8),
     /// 16-bit unsigned integer liteUal
     U16(u16),
     /// 32-bit unsigned integer liteUal
-    U32(u32),
+    U32(TermU32Literal),
     /// 64-bit unsigned integer liteUal
-    U64(u64),
+    U64(TermU64Literal),
     /// 128-bit unsigned integer liteUal
-    U128(u128),
+    U128(TermU128Literal),
     /// for cross compilation
-    USize(u64),
+    USize(TermUSizeLiteral),
     /// 8-bit raw bit literal
     R8(u8),
     /// 16-bit raw bit literal
     R16(u16),
     /// 32-bit raw bit literal
-    R32(u32),
+    R32(TermR32Literal),
     /// 64-bit raw bit literal
-    R64(u64),
+    R64(TermI64Literal),
     /// 128-bit raw bit literal
-    R128(u128),
+    R128(TermR128Literal),
     /// for cross compilation
-    RSize(u64),
+    RSize(TermRSizeLiteral),
     /// natural number literal
-    Nat(TermNaturalNumber),
+    Nat(TermNatLiteral),
     /// 32-bit float literal
-    F32(OrderedFloat<f32>),
+    F32(TermF32Literal),
     /// 64-bit float literal
-    F64(OrderedFloat<f64>),
+    F64(TermF64Literal),
     /// string literal
     String(StringLiteral),
     /// eval lifetime
     EvalLifetime,
     /// static lifetime
     StaticLifetime,
+}
+
+#[test]
+fn term_literal_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermLiteral>(),
+        std::mem::size_of::<u64>()
+    )
 }
 
 impl TermLiteral {
@@ -134,19 +142,109 @@ impl TermLiteral {
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermInteger128 {
+pub struct TermI32Literal {
+    pub value: i32,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermI64Literal {
+    pub value: i64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermI128Literal {
     pub value: i128,
 }
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermInteger256 {
+pub struct TermI256Literal {
     pub value: [i128; 2],
 }
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermNaturalNumber {
+pub struct TermISizeLiteral {
+    pub value: i64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermU32Literal {
+    pub value: u32,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermU64Literal {
+    pub value: u64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermU128Literal {
+    pub value: u128,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermU256Literal {
+    pub value: [u128; 2],
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermUSizeLiteral {
+    pub value: u64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermR32Literal {
+    pub value: u32,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermR64Literal {
+    pub value: u64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermR128Literal {
+    pub value: u128,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermR256Literal {
+    pub value: [u128; 2],
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermRSizeLiteral {
+    pub value: u64,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermF32Literal {
+    pub value: OrderedFloat<f32>,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermF64Literal {
+    pub value: OrderedFloat<f64>,
+}
+
+/// allowing representing very large number
+#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct TermNatLiteral {
     pub bits: Vec<usize>,
 }
 

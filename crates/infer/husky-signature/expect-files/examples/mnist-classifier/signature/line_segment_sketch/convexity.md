@@ -10,35 +10,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 48,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 54,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::basic::bool`),
+                    return_ty: RawTerm(`core::basic::bool`),
                 },
             ),
         ),

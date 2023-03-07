@@ -1,6 +1,6 @@
 [
     Err(
-        FieldTypeTermError(
+        FieldTypeRawTermError(
             0,
         ),
     ),
@@ -13,36 +13,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 286,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
+                            ident: `contour`,
+                            ty: RawTerm(`~ mnist_classifier::raw_contour::RawContour`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 331,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
+                            ident: `strokes`,
+                            ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         },
                     ],
                 },
@@ -60,35 +36,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 49,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                    return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                 },
             ),
         ),
@@ -104,35 +76,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 49,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                    return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                 },
             ),
         ),
@@ -148,8 +116,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 5,
                                         },
@@ -158,35 +126,31 @@
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::num::i32`),
+                    return_ty: RawTerm(`core::num::i32`),
                 },
             ),
         ),
@@ -202,8 +166,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 5,
                                         },
@@ -212,49 +176,43 @@
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::num::i32`),
+                    return_ty: RawTerm(`core::num::i32`),
                 },
             ),
         ),
@@ -270,8 +228,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 5,
                                         },
@@ -280,21 +238,19 @@
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`List LineSegmentStroke`),
+                    return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                 },
             ),
         ),
@@ -306,7 +262,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                    ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                 },
             ),
         ),
@@ -323,8 +279,8 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Application(
-                                        TermApplication(
+                                    ty: ExplicitApplication(
+                                        RawTermExplicitApplication(
                                             Id {
                                                 value: 5,
                                             },
@@ -333,35 +289,31 @@
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                        return_ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                     },
                 ),
             ),
@@ -378,7 +330,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -391,7 +343,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                    ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                 },
             ),
         ),
@@ -401,7 +353,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`List ConcaveComponent`),
+                        return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
             ),
@@ -412,7 +364,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::geom2d::BoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
             ),
@@ -430,8 +382,8 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Application(
-                                        TermApplication(
+                                    ty: ExplicitApplication(
+                                        RawTermExplicitApplication(
                                             Id {
                                                 value: 5,
                                             },
@@ -440,21 +392,19 @@
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 23,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 24,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                        return_ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                     },
                 ),
             ),

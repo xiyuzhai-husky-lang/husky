@@ -8,36 +8,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 178,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
+                            ident: `matches`,
+                            ty: RawTerm(`core::vec::List core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 393,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
+                            ident: `others`,
+                            ty: RawTerm(`core::vec::List ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ],
                 },
@@ -55,8 +31,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 16,
                                         },
@@ -65,17 +41,17 @@
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplicationOrRitchieCall(
+                                    RawTermExplicitApplicationOrRitchieCall(
                                         Id {
-                                            value: 17,
+                                            value: 1,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::fermi::FermiMatchResult`),
+                    return_ty: RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
         ),
@@ -87,7 +63,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::fermi::FermiMatchResult`),
+                    ty: RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
         ),
@@ -97,7 +73,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -108,7 +84,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -119,7 +95,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),

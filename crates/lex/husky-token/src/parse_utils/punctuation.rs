@@ -139,7 +139,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, BinaryOpr::Assign(None).into(), AssignToken)
+        parse_specific_punctuation_from(ctx, Punctuation::Eq, AssignToken)
     }
 }
 

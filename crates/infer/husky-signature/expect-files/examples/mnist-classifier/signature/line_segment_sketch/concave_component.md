@@ -1,6 +1,6 @@
 [
     Err(
-        FieldTypeTermError(
+        FieldTypeRawTermError(
             1,
         ),
     ),
@@ -15,17 +15,17 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
-                                            value: 18,
+                                            value: 17,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`List ConcaveComponent`),
+                    return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),
@@ -37,7 +37,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                    ty: RawTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),
@@ -47,7 +47,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -58,7 +58,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -69,7 +69,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -80,7 +80,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -91,7 +91,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::geom2d::BoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
             ),
@@ -102,7 +102,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
             ),
@@ -119,7 +119,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
+                        return_ty: RawTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                     },
                 ),
             ),
@@ -136,7 +136,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Point2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                     },
                 ),
             ),
@@ -153,7 +153,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Point2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                     },
                 ),
             ),
@@ -170,7 +170,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -187,7 +187,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),
@@ -204,7 +204,7 @@
                         parameters: RegularParameterSignatures {
                             parameters: [],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),

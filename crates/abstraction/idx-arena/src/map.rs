@@ -58,6 +58,10 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
+    pub fn has(&self, idx: ArenaIdx<T>) -> bool {
+        self.data[idx.raw].is_some()
+    }
+
     pub fn get(&self, idx: ArenaIdx<T>) -> Option<&V> {
         match self.data[idx.raw] {
             Some(ref v) => Some(v),

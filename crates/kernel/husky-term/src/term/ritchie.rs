@@ -11,6 +11,14 @@ pub struct TermRitchie {
     pub return_ty: Term,
 }
 
+#[test]
+fn term_ritchie_size_works() {
+    assert_eq!(
+        std::mem::size_of::<TermRitchie>(),
+        std::mem::size_of::<u32>()
+    );
+}
+
 impl TermRitchie {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns Term instead of TermApplication because it might reduce to a non application term

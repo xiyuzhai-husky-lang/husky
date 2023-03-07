@@ -1,6 +1,6 @@
 [
     Err(
-        OutputTypeTermError,
+        OutputTypeRawTermError,
     ),
     Ok(
         Signature::Form(
@@ -13,8 +13,8 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
                                             value: 11,
                                         },
@@ -23,12 +23,12 @@
                             },
                         ],
                     },
-                    return_ty: Term(`Option f32`),
+                    return_ty: RawTerm(`core::option::Option core::num::f32`),
                 },
             ),
         ),
     ),
     Err(
-        OutputTypeTermError,
+        OutputTypeRawTermError,
     ),
 ]

@@ -8,36 +8,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 225,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 20,
-                                    },
-                                ),
-                            ),
+                            ident: `cc`,
+                            ty: RawTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 194,
-                                    },
-                                ),
-                            ),
-                            ty: Application(
-                                TermApplication(
-                                    Id {
-                                        value: 21,
-                                    },
-                                ),
-                            ),
+                            ident: `points`,
+                            ty: RawTerm(`core::vec::List mnist_classifier::geom2d::Point2d`),
                         },
                     ],
                 },
@@ -66,35 +42,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::raw_bits::r32`),
+                    return_ty: RawTerm(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -110,35 +82,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::raw_bits::r32`),
+                    return_ty: RawTerm(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -154,35 +122,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::raw_bits::r32`),
+                    return_ty: RawTerm(`core::raw_bits::r32`),
                 },
             ),
         ),
@@ -198,49 +162,43 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::raw_contour::Direction`),
+                    return_ty: RawTerm(`mnist_classifier::raw_contour::Direction`),
                 },
             ),
         ),
@@ -256,35 +214,31 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 45,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 45,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`core::num::i32`),
+                    return_ty: RawTerm(`core::num::i32`),
                 },
             ),
         ),
@@ -300,63 +254,55 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 13,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Entity(
-                                    ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
-                                            ),
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 45,
+                                            },
                                         ),
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::raw_contour::Direction`),
+                    return_ty: RawTerm(`mnist_classifier::raw_contour::Direction`),
                 },
             ),
         ),
@@ -370,44 +316,12 @@
                     },
                     fields: [
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 276,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `prev1`,
+                            ty: RawTerm(`core::num::i32`),
                         },
                         RegularStructFieldSignature {
-                            ident: Identifier(
-                                Word(
-                                    Id {
-                                        value: 277,
-                                    },
-                                ),
-                            ),
-                            ty: Entity(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 13,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                            ident: `prev2`,
+                            ty: RawTerm(`core::num::i32`),
                         },
                     ],
                 },
@@ -425,17 +339,17 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
-                                            value: 21,
+                                            value: 20,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`mnist_classifier::geom2d::Point2d`),
+                    return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
                 },
             ),
         ),
@@ -451,17 +365,17 @@
                         parameters: [
                             ParameterSignature {
                                 pattern: ParameterSignaturePattern,
-                                ty: Application(
-                                    TermApplication(
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
                                         Id {
-                                            value: 20,
+                                            value: 19,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: Term(`List RawContour`),
+                    return_ty: RawTerm(`core::vec::List mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -473,7 +387,7 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    ty: Term(`mnist_classifier::raw_contour::RawContour`),
+                    ty: RawTerm(`mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -483,7 +397,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                        return_ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                     },
                 ),
             ),
@@ -494,7 +408,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::geom2d::BoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
             ),
@@ -505,7 +419,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
             ),
@@ -516,7 +430,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: Term(`core::num::f32`),
+                        return_ty: RawTerm(`core::num::f32`),
                     },
                 ),
             ),
@@ -534,35 +448,31 @@
                             parameters: [
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                                 ParameterSignature {
                                     pattern: ParameterSignaturePattern,
-                                    ty: Entity(
-                                        ModuleItem(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 13,
-                                                    },
-                                                ),
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
                                             ),
                                         ),
                                     ),
                                 },
                             ],
                         },
-                        return_ty: Term(`mnist_classifier::geom2d::Vector2d`),
+                        return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
                 ),
             ),

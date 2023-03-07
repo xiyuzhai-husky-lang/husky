@@ -13,7 +13,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 37,
+                            value: 38,
                         },
                     ),
                 ),
@@ -31,7 +31,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     ),
@@ -50,7 +50,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 25,
+                            value: 26,
                         },
                     ),
                 ),
@@ -73,7 +73,7 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 39,
+                            value: 40,
                         },
                     ),
                 ),
@@ -91,7 +91,7 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     ),
@@ -110,7 +110,47 @@ Ok(
                 Identifier(
                     Word(
                         Id {
-                            value: 25,
+                            value: 26,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                RaOrGt,
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Type,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                LaOrLt,
+            ),
+            Keyword(
+                Pattern(
+                    Covariant,
+                ),
+            ),
+            Identifier(
+                Identifier(
+                    Word(
+                        Id {
+                            value: 26,
                         },
                     ),
                 ),
@@ -125,8 +165,10 @@ Ok(
         group_starts: [
             0,
             11,
+            22,
         ],
         indents: [
+            0,
             0,
             0,
         ],
