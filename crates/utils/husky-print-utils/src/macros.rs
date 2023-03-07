@@ -14,29 +14,16 @@ macro_rules! test_print {
 #[macro_export]
 macro_rules! p {
     ($($v:expr),*) => {{
-        #[cfg(feature = "allow-print")]
-        {
-            println!(
+        eprintln!(
                 r#"{}
             --- {}{}:{}{}{}"#,
-                ::husky_print_utils::show!($($v),*),
-                ::husky_print_utils::GREEN,
-                file!(),
-                ::husky_print_utils::YELLOW,
-                line!(),
-                ::husky_print_utils::RESET,
-            )
-        }
-        #[cfg(not(feature = "allow-print"))]
-        {
-            eprintln!(
-                r#"{}
-            --- {}:{}"#,
-                ::husky_print_utils::show!($($v),*),
-                file!(),
-                line!(),
-            )
-        }
+            ::husky_print_utils::show!($($v),*),
+            ::husky_print_utils::GREEN,
+            file!(),
+            ::husky_print_utils::YELLOW,
+            line!(),
+            ::husky_print_utils::RESET,
+        )
     }};
 }
 
