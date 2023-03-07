@@ -25,17 +25,17 @@ impl Convexity {
 }
 
 impl Token {
-    pub fn left_convexity(&self) -> Option<Convexity> {
-        match self {
-            Token::Attr(_) => todo!(),
-            Token::Keyword(_) => todo!(),
-            Token::Identifier(_) | Token::Label(_) => Some(Convexity::Convex),
-            Token::Punctuation(punc) => punc.left_convexity(),
-            Token::WordOpr(_) => todo!(),
-            Token::Literal(_) => Some(Convexity::Convex),
-            Token::Error(_) => unreachable!(),
-        }
-    }
+    // pub fn left_convexity(&self) -> Option<Convexity> {
+    //     match self {
+    //         Token::Attr(_) => todo!(),
+    //         Token::Keyword(_) => todo!(),
+    //         Token::Identifier(_) | Token::Label(_) => Some(Convexity::Convex),
+    //         Token::Punctuation(punc) => punc.left_convexity(),
+    //         Token::WordOpr(_) => todo!(),
+    //         Token::Literal(_) => Some(Convexity::Convex),
+    //         Token::Error(_) => unreachable!(),
+    //     }
+    // }
 
     pub fn right_convexity(&self) -> Convexity {
         match self {
@@ -54,7 +54,7 @@ impl Token {
                 Punctuation::DeriveAssign => todo!(),
                 Punctuation::Minus => todo!(),
                 Punctuation::DoubleVertical => todo!(),
-                Punctuation::BitNot => todo!(),
+                Punctuation::Tilde => todo!(),
                 Punctuation::Dot => Convexity::Concave,
                 Punctuation::Colon => Convexity::Any,
                 Punctuation::ColonColon => todo!(),
@@ -73,6 +73,9 @@ impl Token {
                 Punctuation::Sheba => todo!(),
                 Punctuation::Eq => Convexity::Concave,
                 Punctuation::EqEq => todo!(),
+                Punctuation::Tilde => todo!(),
+                Punctuation::ForAll => todo!(),
+                Punctuation::Exists => todo!(),
             },
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Convexity::Convex,

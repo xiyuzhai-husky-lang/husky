@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         match opr {
             PrefixOpr::Minus => todo!(),
             PrefixOpr::Not => todo!(),
-            PrefixOpr::BitNot => todo!(),
+            PrefixOpr::BitNotOrEvalRef => todo!(),
             PrefixOpr::Ref => {
                 // let opd_ty = self.infer
                 // match

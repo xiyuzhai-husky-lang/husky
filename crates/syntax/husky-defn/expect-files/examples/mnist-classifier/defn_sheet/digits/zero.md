@@ -300,7 +300,7 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::Prefix {
-                                                        opr: Ref,
+                                                        opr: BitNotOrEvalRef,
                                                         opr_token_idx: TokenIdx(
                                                             82,
                                                         ),
@@ -513,7 +513,7 @@ Ok(
                                                                 ),
                                                             },
                                                             Expr::Prefix {
-                                                                opr: Ref,
+                                                                opr: BitNotOrEvalRef,
                                                                 opr_token_idx: TokenIdx(
                                                                     82,
                                                                 ),
@@ -2524,7 +2524,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 407,
+                                                                    value: 406,
                                                                 },
                                                             ),
                                                         ),
@@ -2536,7 +2536,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 410,
+                                                                    value: 409,
                                                                 },
                                                             ),
                                                         ),
@@ -2548,7 +2548,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 407,
+                                                                    value: 406,
                                                                 },
                                                             ),
                                                         ),
@@ -2560,7 +2560,7 @@ Ok(
                                                         Identifier(
                                                             Word(
                                                                 Id {
-                                                                    value: 410,
+                                                                    value: 409,
                                                                 },
                                                             ),
                                                         ),
