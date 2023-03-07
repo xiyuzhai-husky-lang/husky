@@ -50,7 +50,7 @@ impl TermApplication {
     /// returns Term instead of TermApplication because it might reduce to a non application term
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
-        raw_term_application: RawTermApplication,
+        raw_term_application: RawTermExplicitApplication,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Term> {
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
@@ -79,7 +79,7 @@ impl TermApplication {
 #[salsa::tracked(jar = TermJar)]
 pub(crate) fn term_uncheck_from_raw_term_application(
     db: &dyn TermDb,
-    raw_term_application: RawTermApplication,
+    raw_term_application: RawTermExplicitApplication,
     raw_ty_expectation: TermTypeExpectation,
 ) -> TermResult<Term> {
     let function =
@@ -117,7 +117,7 @@ fn parameter_ty_raw_term_to_argument_ty_expectation(
             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
         }
         RawTerm::Curry(_) => todo!(),
-        RawTerm::Application(_) => todo!(),
+        RawTerm::ExplicitApplication(_) => todo!(),
         _ => TermTypeExpectation::Any,
     }
 }

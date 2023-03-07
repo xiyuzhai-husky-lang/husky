@@ -218,7 +218,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     PrefixOpr::Array(_) => todo!(),
                     PrefixOpr::Option => self.raw_term_menu.option_ty_path(),
                 };
-                Ok(RawTermApplication::new(self.db, tmpl, opd).into())
+                Ok(RawTermExplicitApplication::new(self.db, tmpl, opd).into())
             }
             Expr::Suffix {
                 opd,
@@ -232,14 +232,46 @@ impl<'a> SignatureRawTermEngine<'a> {
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ExplicitApplicationOrRitchieCall { function, .. } => todo!(),
+            Expr::ExplicitApplicationOrRitchieCall {
+                function,
+                ref implicit_arguments,
+                items,
+                ..
+            } => {
+                let Ok(function) = self.infer_new(function) else {
+                    return  Err(
+                        DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into()
+                    )
+                };
+                let implicit_arguments = match implicit_arguments {
+                    Some(implicit_arguments) => implicit_arguments
+                        .arguments()
+                        .into_iter()
+                        .map(|_| todo!())
+                        .collect(),
+                    None => vec![],
+                };
+                let items = items
+                    .into_iter()
+                    .map(|item| self.infer_new(item))
+                    .collect::<SignatureRawTermResult<_>>()?;
+                Ok(RawTermExplicitApplicationOrRitchieCall::new(
+                    self.db,
+                    function,
+                    implicit_arguments,
+                    items,
+                )
+                .into())
+            }
             Expr::ExplicitApplication { function, argument } => {
-                let  Ok(argument) = self.infer_new(argument) else {
-                        return  Err(DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into())
-                    };
+                let Ok(argument) = self.infer_new(argument) else {
+                    return  Err(
+                        DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into()
+                    )
+                };
                 match self.expr_region_data.expr_arena()[function] {
                     Expr::BoxColonList { items, .. } => match items.len() {
-                        0 => Ok(RawTermApplication::new(
+                        0 => Ok(RawTermExplicitApplication::new(
                             self.db,
                             self.raw_term_menu.slice_ty_path(),
                             argument,
@@ -248,7 +280,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                         _ => todo!(),
                     },
                     Expr::List { items, .. } => match items.len() {
-                        0 => Ok(RawTermApplication::new(
+                        0 => Ok(RawTermExplicitApplication::new(
                             self.db,
                             self.raw_term_menu.list(),
                             argument,
@@ -363,7 +395,18 @@ impl<'a> SignatureRawTermEngine<'a> {
                 p!(items.len());
                 todo!()
             }
-            Expr::List { .. } => todo!(),
+            Expr::List { items, .. } => {
+                let items = items
+                    .into_iter()
+                    .map(|item| self.infer_new(item))
+                    .collect::<SignatureRawTermResult<Vec<_>>>()?;
+                Ok(RawTermList::new(
+                    self.db,
+                    self.expr_region_data.path().toolchain(self.db),
+                    items,
+                )
+                .into())
+            }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts } => todo!(),

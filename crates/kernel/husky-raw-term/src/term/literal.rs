@@ -39,50 +39,8 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermLiteral {
     }
 }
 
-/// allowing representing very large number
-#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermInteger128 {
-    pub value: i128,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermInteger256 {
-    pub value: [i128; 2],
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermNaturalNumber {
-    pub bits: Vec<usize>,
-}
-
-// impl From<i32> for RawTerm {
-//     fn from(value: i32) -> Self {
-//         RawTerm::Literal(value.into())
-//     }
-// }
-
-// impl From<i64> for RawTerm {
-//     fn from(value: i64) -> Self {
-//         RawTerm::Literal(value.into())
-//     }
-// }
-
 impl std::fmt::Display for RawTermLiteral {
     fn fmt(&self, _f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         todo!()
     }
 }
-
-// impl From<i32> for RawTermLiteral {
-//     fn from(value: i32) -> Self {
-//         RawTermLiteral::I32(value)
-//     }
-// }
-
-// impl From<i64> for RawTermLiteral {
-//     fn from(value: i64) -> Self {
-//         RawTermLiteral::I64(value)
-//     }
-// }

@@ -236,8 +236,8 @@ impl ImplicitArgumentList {
         self.langle
     }
 
-    pub fn arguments(&self) -> &ExprIdxRange {
-        &self.arguments
+    pub fn arguments(&self) -> ExprIdxRange {
+        self.arguments
     }
 
     pub fn rangle(&self) -> TokenIdx {

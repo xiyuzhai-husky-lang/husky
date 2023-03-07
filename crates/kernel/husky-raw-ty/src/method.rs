@@ -18,11 +18,13 @@ pub(crate) fn raw_ty_method_raw_ty(
         RawTerm::Curry(_) => Ok(None),
         RawTerm::Ritchie(_) => Ok(None),
         RawTerm::Abstraction(_) => unreachable!(),
-        RawTerm::Application(raw_ty) => application_raw_ty_method_raw_ty(db, raw_ty, ident),
+        RawTerm::ExplicitApplication(raw_ty) => application_raw_ty_method_raw_ty(db, raw_ty, ident),
+        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => unreachable!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
+        RawTerm::List(_) => todo!(),
     }
 }
 
@@ -46,7 +48,7 @@ pub(crate) fn entity_raw_ty_method_raw_ty(
 #[salsa::tracked(jar = RawTypeJar)]
 pub(crate) fn application_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
-    raw_ty: RawTermApplication,
+    raw_ty: RawTermExplicitApplication,
     ident: Identifier,
 ) -> RawTypeResult<Option<RawTerm>> {
     use salsa::DebugWithDb;
@@ -66,11 +68,13 @@ pub(crate) fn application_raw_ty_method_raw_ty(
         RawTerm::Curry(_) => todo!(),
         RawTerm::Ritchie(_) => todo!(),
         RawTerm::Abstraction(_) => todo!(),
-        RawTerm::Application(_) => todo!(),
+        RawTerm::ExplicitApplication(_) => todo!(),
+        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
+        RawTerm::List(_) => todo!(),
     }
 }
 

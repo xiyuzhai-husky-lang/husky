@@ -57,11 +57,13 @@ fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTer
         RawTerm::Curry(raw_term) => raw_term_curry_symbols(db, raw_term),
         RawTerm::Ritchie(raw_term) => raw_term_ritchie_symbols(db, raw_term),
         RawTerm::Abstraction(_) => todo!(),
-        RawTerm::Application(raw_term) => raw_term_application_symbols(db, raw_term),
+        RawTerm::ExplicitApplication(raw_term) => raw_term_application_symbols(db, raw_term),
+        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
+        RawTerm::List(_) => todo!(),
     }
 }
 
@@ -93,7 +95,7 @@ pub(crate) fn raw_term_ritchie_symbols(
 #[salsa::tracked(jar = RawTypeJar)]
 pub(crate) fn raw_term_application_symbols(
     db: &dyn RawTypeDb,
-    raw_term: RawTermApplication,
+    raw_term: RawTermExplicitApplication,
 ) -> Option<RawTermSymbols> {
     RawTermSymbols::merge(
         calc_raw_term_symbols(db, raw_term.function(db)),

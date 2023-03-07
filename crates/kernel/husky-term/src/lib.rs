@@ -76,6 +76,9 @@ pub struct TermJar(
     TermTraitConstraint,
     check_term_trai_constraint_validity,
     term_menu,
+    // other
+    term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
+    term_from_raw_term_list_unchecked,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
 );

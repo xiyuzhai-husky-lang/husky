@@ -57,7 +57,8 @@ fn construct_self_ty(
 ) -> RawTerm {
     let mut self_ty: RawTerm = path.into();
     for implicit_parameter in implicit_parameters {
-        self_ty = RawTermApplication::new(db, self_ty, implicit_parameter.symbol().into()).into()
+        self_ty =
+            RawTermExplicitApplication::new(db, self_ty, implicit_parameter.symbol().into()).into()
     }
     self_ty
 }
