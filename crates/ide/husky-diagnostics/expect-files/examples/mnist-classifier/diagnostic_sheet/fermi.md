@@ -10,38 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [32:20, 32:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [33:43, 33:44),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [36:22, 36:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [11:22, 11:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [17:22, 17:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [23:22, 23:23),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -65,6 +34,11 @@ DiagnosticSheet {
                 message: "Type Error: AmbiguousTypePath",
                 severity: Error,
                 range: [33:26, 33:42),
+            },
+            Diagnostic {
+                message: "Type Error: AmbiguateListExpr",
+                severity: Error,
+                range: [33:45, 33:47),
             },
         ],
     },

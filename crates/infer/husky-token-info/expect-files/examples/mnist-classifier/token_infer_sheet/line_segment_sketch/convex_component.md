@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 19,
+                                value: 20,
                             },
                         ),
                     ),
@@ -42,7 +42,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 42,
+                                    value: 56,
                                 },
                             ),
                         ),
@@ -67,7 +67,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 40,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -87,7 +87,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 39,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -104,7 +104,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 42,
+                                    value: 56,
                                 },
                             ),
                         ),

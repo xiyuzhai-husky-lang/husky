@@ -42,11 +42,6 @@ DiagnosticSheet {
                 range: [20:13, 20:21),
             },
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [24:22, 24:23),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [35:5, 35:15),

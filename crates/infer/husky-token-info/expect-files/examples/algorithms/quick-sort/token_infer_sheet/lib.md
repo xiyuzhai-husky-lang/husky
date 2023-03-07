@@ -33,7 +33,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -45,7 +45,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 96,
                     },
                 ),
             },
@@ -74,7 +74,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 96,
                     },
                 ),
             },
@@ -90,7 +90,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -102,7 +102,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 93,
+                        value: 96,
                     },
                 ),
             },
@@ -116,7 +116,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 101,
                     },
                 ),
             },
@@ -127,14 +127,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 101,
                     },
                 ),
             },
@@ -163,14 +163,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 101,
                     },
                 ),
             },
@@ -185,7 +185,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 98,
+                        value: 101,
                     },
                 ),
             },
@@ -199,7 +199,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -239,7 +239,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -251,7 +251,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 94,
+                        value: 97,
                     },
                 ),
             },
@@ -280,7 +280,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 94,
+                        value: 97,
                     },
                 ),
             },
@@ -296,7 +296,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -308,7 +308,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 94,
+                        value: 97,
                     },
                 ),
             },
@@ -320,7 +320,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 94,
+                        value: 97,
                     },
                 ),
             },
@@ -331,7 +331,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -347,7 +347,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 94,
+                        value: 97,
                     },
                 ),
             },
@@ -358,7 +358,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -375,14 +375,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 111,
+                                value: 115,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -393,14 +393,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 112,
+                                value: 116,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -413,7 +413,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -439,14 +439,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -457,14 +457,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 111,
+                                value: 115,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -475,14 +475,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 112,
+                                value: 116,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -508,14 +508,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -526,14 +526,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 111,
+                                value: 115,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -545,7 +545,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -573,14 +573,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -592,7 +592,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -605,14 +605,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 112,
+                                value: 116,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 99,
+                        value: 102,
                     },
                 ),
             },
@@ -648,7 +648,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -660,7 +660,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 98,
                     },
                 ),
             },
@@ -689,7 +689,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 98,
                     },
                 ),
             },
@@ -705,7 +705,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 107,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -717,7 +717,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 98,
                     },
                 ),
             },
@@ -729,7 +729,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 98,
                     },
                 ),
             },
@@ -740,7 +740,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -756,7 +756,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 95,
+                        value: 98,
                     },
                 ),
             },
@@ -767,7 +767,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -783,7 +783,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -800,7 +800,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -811,14 +811,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 112,
+                                value: 116,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -829,7 +829,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -846,7 +846,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -857,14 +857,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 111,
+                                value: 115,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -879,13 +879,47 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
             None,
             InheritedSymbol {
                 inherited_symbol_idx: 3,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Identifier(
+                        Word(
+                            Id {
+                                value: 116,
+                            },
+                        ),
+                    ),
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 103,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 103,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
                     ident: Identifier(
                         Word(
@@ -897,41 +931,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
-                        Word(
-                            Id {
-                                value: 108,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -943,7 +943,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -954,7 +954,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -970,14 +970,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -989,7 +989,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1002,7 +1002,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1015,7 +1015,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1029,7 +1029,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1042,14 +1042,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1061,7 +1061,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1072,7 +1072,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1088,14 +1088,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1107,7 +1107,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1120,7 +1120,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1134,7 +1134,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1146,7 +1146,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1160,14 +1160,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1181,7 +1181,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1192,7 +1192,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1208,7 +1208,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1219,7 +1219,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1234,14 +1234,14 @@ Ok(
                     ident: Identifier(
                         Word(
                             Id {
-                                value: 108,
+                                value: 112,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1255,7 +1255,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1266,7 +1266,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1282,7 +1282,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1293,7 +1293,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -1309,7 +1309,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 100,
+                        value: 103,
                     },
                 ),
             },
@@ -1347,7 +1347,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 101,
+                        value: 104,
                     },
                 ),
             },
@@ -1396,7 +1396,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 101,
+                        value: 104,
                     },
                 ),
             },
@@ -1409,7 +1409,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 101,
+                        value: 104,
                     },
                 ),
             },
@@ -1470,7 +1470,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 102,
+                        value: 105,
                     },
                 ),
             },
@@ -1510,7 +1510,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 102,
+                        value: 105,
                     },
                 ),
             },
@@ -1523,7 +1523,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 102,
+                        value: 105,
                     },
                 ),
             },

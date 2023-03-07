@@ -35,7 +35,7 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 28,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -49,7 +49,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 18,
+                        value: 6,
                     },
                 ),
             },
@@ -63,7 +63,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 29,
+                                        value: 30,
                                     },
                                 ),
                             ),
@@ -75,7 +75,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 18,
+                        value: 6,
                     },
                 ),
             },
@@ -115,7 +115,7 @@ Ok(
                                 ident: Identifier(
                                     Word(
                                         Id {
-                                            value: 28,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -129,7 +129,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 19,
+                        value: 20,
                     },
                 ),
             },
@@ -143,7 +143,7 @@ Ok(
                             ident: Identifier(
                                 Word(
                                     Id {
-                                        value: 29,
+                                        value: 30,
                                     },
                                 ),
                             ),
@@ -155,7 +155,58 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 19,
+                        value: 20,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Extern,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: ImplicitParameter {
+                    implicit_parameter_kind: Type {
+                        ident_token: IdentifierToken {
+                            ident: Identifier(
+                                Word(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
+                            ),
+                            token_idx: TokenIdx(
+                                27,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 21,
                     },
                 ),
             },
