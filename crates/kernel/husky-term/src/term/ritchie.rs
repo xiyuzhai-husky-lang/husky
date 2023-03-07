@@ -3,22 +3,96 @@ pub use context::*;
 use super::*;
 
 /// representing term `x -> y`
-#[salsa::interned(db = TermDb, jar = TermJar)]
+#[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<TermRitchieParameter>,
+    pub parameter_tys: Vec<TermRitchieParameterLiasonedType>,
     pub return_ty: Term,
 }
 
 impl TermRitchie {
+    //// this constructor guarantees that the result is reduced and first-order valid
+    /// returns Term instead of TermApplication because it might reduce to a non application term
+    pub fn new(
+        db: &dyn TermDb,
+        ritchie_kind: TermRitchieKind,
+        parameter_tys: impl IntoIterator<Item = TermRitchieParameterLiasonedType>,
+        return_ty: Term,
+    ) -> TermResult<TermRitchie> {
+        todo!("check_application_validity(db, function, argument, shift)?");
+        Ok(Self::new_unchecked(
+            db,
+            ritchie_kind,
+            parameter_tys,
+            return_ty,
+        ))
+    }
+
+    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// returns Term instead of TermApplication because it might reduce to a non application term
+    fn new_unchecked(
+        db: &dyn TermDb,
+        ritchie_kind: TermRitchieKind,
+        parameter_tys: impl IntoIterator<Item = TermRitchieParameterLiasonedType>,
+        return_ty: Term,
+    ) -> TermRitchie {
+        Self::new_inner(
+            db,
+            ritchie_kind,
+            parameter_tys
+                .into_iter()
+                .map(|parameter_liasoned_ty| parameter_liasoned_ty.reduce(db))
+                .collect(),
+            return_ty.reduce(db),
+        )
+    }
+    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// returns Term instead of TermApplication because it might reduce to a non application term
+    fn new_unchecked2<E>(
+        db: &dyn TermDb,
+        ritchie_kind: TermRitchieKind,
+        parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterLiasonedType, E>>,
+        return_ty: Term,
+    ) -> TermResult<TermRitchie>
+    where
+        TermError: From<E>,
+    {
+        Ok(Self::new_inner(
+            db,
+            ritchie_kind,
+            parameter_tys
+                .into_iter()
+                .map(|parameter_liasoned_ty| Ok(parameter_liasoned_ty?.reduce(db)))
+                .collect::<TermResult<Vec<_>>>()?,
+            return_ty.reduce(db),
+        ))
+    }
+
+    pub(super) fn reduce(self, db: &dyn TermDb) -> TermRitchie {
+        todo!()
+    }
+
     #[inline(always)]
     pub fn from_raw_unchecked(
         db: &dyn TermDb,
-        valid_term: RawTermRitchie,
-        term_ty_expectation: TermTypeExpectation,
+        raw_term_ritchie: RawTermRitchie,
     ) -> TermResult<Self> {
-        todo!()
+        let t = |raw_term| {
+            Term::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+        };
+        Self::new_unchecked2(
+            db,
+            raw_term_ritchie.ritchie_kind(db),
+            raw_term_ritchie.parameter_tys(db).iter().map(
+                |parameter_liasoned_ty| -> TermResult<_> {
+                    Ok(TermRitchieParameterLiasonedType {
+                        ty: t(parameter_liasoned_ty.ty())?,
+                    })
+                },
+            ),
+            t(raw_term_ritchie.return_ty(db))?,
+        )
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -70,13 +144,19 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub struct TermRitchieParameter {
+pub struct TermRitchieParameterLiasonedType {
     ty: Term,
 }
 
-impl TermRitchieParameter {
+impl TermRitchieParameterLiasonedType {
+    fn reduce(self, db: &dyn TermDb) -> Self {
+        Self {
+            ty: self.ty.reduce(db),
+        }
+    }
+
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -87,7 +167,7 @@ impl TermRitchieParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameterLiasonedType
 where
     Db: TermDb + ?Sized,
 {
@@ -102,7 +182,7 @@ where
     }
 }
 
-impl TermRitchieParameter {
+impl TermRitchieParameterLiasonedType {
     pub fn new(ty: Term) -> Self {
         Self { ty }
     }

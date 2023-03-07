@@ -1,4 +1,5 @@
 use husky_entity_path::*;
+use salsa::DisplayWithDb;
 
 use super::*;
 
@@ -50,7 +51,16 @@ impl RawTermEntityPath {
         db: &dyn RawTermDb,
         ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
-        // .display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
-        todo!()
+        match self {
+            RawTermEntityPath::Form(path) => {
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+            }
+            RawTermEntityPath::Trait(path) => {
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+            }
+            RawTermEntityPath::Type(path) => {
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+            }
+        }
     }
 }

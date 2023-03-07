@@ -20,7 +20,7 @@ use std::fmt::{Debug, Display};
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = TermDb, jar = TermJar, constructor = pub(crate) new_inner)]
+#[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TermApplication {
     pub function: Term,
     pub argument: Term,
@@ -28,13 +28,15 @@ pub struct TermApplication {
 }
 
 impl TermApplication {
-    //// this constructor guarantees that the result is valid
+    //// this constructor guarantees that the result is reduced and first-order valid
     /// returns Term instead of TermApplication because it might reduce to a non application term
     pub fn new(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> TermResult<Term> {
         check_application_validity(db, function, argument, shift)?;
         Ok(Self::new_unchecked(db, function, argument, shift))
     }
 
+    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// returns Term instead of TermApplication because it might reduce to a non application term
     fn new_unchecked(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> Term {
         Self::new_inner(db, function, argument, shift).reduce(db)
     }
@@ -76,12 +78,14 @@ pub(crate) fn term_uncheck_from_raw_term_application(
         Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
-    let argument = Term::from_raw_unchecked(db, raw_term_application.argument(db), todo!())?;
+    let parameter_ty = function_raw_ty.parameter_ty(db);
+    let argument_expectation = parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
+    let argument =
+        Term::from_raw_unchecked(db, raw_term_application.argument(db), argument_expectation)?;
     let argument_ty_total_number_of_curry_parameters =
         argument.ty_total_number_of_curry_parameters(db)?;
-    let function_parameter_ty_total_number_of_curry_parameters = function_raw_ty
-        .parameter_ty(db)
-        .total_number_of_curry_parameters(db);
+    let function_parameter_ty_total_number_of_curry_parameters =
+        parameter_ty.total_number_of_curry_parameters(db);
     if argument_ty_total_number_of_curry_parameters
         < function_parameter_ty_total_number_of_curry_parameters
     {
@@ -92,6 +96,34 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     Ok(TermApplication::new_unchecked(
         db, function, argument, shift,
     ))
+}
+
+fn parameter_ty_raw_term_to_argument_ty_expectation(
+    db: &dyn TermDb,
+    raw_term: RawTerm,
+) -> TermTypeExpectation {
+    match raw_term {
+        RawTerm::EntityPath(RawTermEntityPath::Type(path)) => {
+            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
+        }
+        RawTerm::Curry(_) => todo!(),
+        RawTerm::Application(_) => todo!(),
+        _ => TermTypeExpectation::Any,
+    }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn parameter_ty_raw_term_curry_to_argument_ty_expectation(
+    db: &dyn TermDb,
+    raw_term_curry: RawTermCurry,
+) -> TermTypeExpectation {
+    todo!()
+}
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
+    db: &dyn TermDb,
+) -> TermTypeExpectation {
+    todo!()
 }
 
 #[salsa::tracked(jar = TermJar)]
