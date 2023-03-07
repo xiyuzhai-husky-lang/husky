@@ -10,10 +10,10 @@ pub struct ConnectedComponentDistribution {
 }
 
 pub struct EffHoles {
-    matches: []?&RawContour,
+    matches: []?~RawContour,
 }
 
-func hole_tmpl(ct: &RawContour) -> ?f32:
+func hole_tmpl(ct: ~RawContour) -> ?f32:
     let len = ct.contour_len
     require len > 4.0
     // ad hoc
@@ -29,7 +29,7 @@ impl ConnectedComponent:
     
     proc eff_holes -> EffHoles:
         let mut raw_contours = self.raw_contours.collect_refs()
-        let mut matches: []?&RawContour = []
+        let mut matches: []?~RawContour = []
         // ad hoc, should replace self with pop_first
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))

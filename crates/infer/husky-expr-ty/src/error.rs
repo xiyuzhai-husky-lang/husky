@@ -107,6 +107,10 @@ pub enum DerivedExprTypeError {
     AmbiguateListExpr,
     #[error("form path type error {0}")]
     FormPathTypeError(TermError),
+    #[error("AmbiguousTypePath")]
+    AmbiguousTypePath,
+    #[error("ExplicitApplicationFunctionTypeNotInferred")]
+    ExplicitApplicationFunctionTypeNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

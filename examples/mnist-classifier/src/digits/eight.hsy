@@ -34,7 +34,7 @@ def is_eight -> ?MnistLabel:
         require false
     MnistLabel::Eight
 
-func big_mouth(cc: &ConcaveComponent)->?f32:
+func big_mouth(cc: ~ConcaveComponent)->?f32:
     if cc.relative_bounding_box.ymax()>0.5:
         require cc.strokes.firstx().start.x > cc.strokes.firstx().end.x
     cc.relative_bounding_box.ymax()

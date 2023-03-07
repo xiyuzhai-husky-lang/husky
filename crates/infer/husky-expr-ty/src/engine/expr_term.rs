@@ -1,14 +1,15 @@
 mod explicit_application;
+mod list;
+mod prefix;
 
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<LocalTerm> {
-        // expect to infer type before infer term
         #[cfg(test)]
         if self.expr_ty_infos.get(expr_idx).is_none() {
             print_debug_expr!(self, expr_idx);
-            panic!()
+            panic!("expect to infer type before infer term")
         }
         let term_result = self.calc_expr_term(expr_idx);
         let term = term_result.as_ref().ok().copied();
@@ -62,7 +63,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => todo!(),
+            } => self.calc_prefix_expr_term(opr, opd),
             Expr::Suffix {
                 opd,
                 opr: punctuation,
@@ -85,7 +86,7 @@ impl<'a> ExprTypeEngine<'a> {
                 rpar_token_idx,
             } => todo!(),
             Expr::NewTuple { .. } => todo!(),
-            Expr::List { .. } => todo!(),
+            Expr::List { items, .. } => self.calc_list_expr_term(expr_idx, items),
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => todo!(),
             Expr::IndexOrCompositionWithList {
@@ -102,7 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         path: Option<EntityPath>,
-    ) -> Result<LocalTerm, ExprTermError> {
+    ) -> ExprTermResult<LocalTerm> {
         match path {
             Some(path) => match path {
                 EntityPath::Module(_) => todo!(),

@@ -112,6 +112,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectLocalTerm,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+        self.print_debug_expr(expr_idx);
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => Ok((
                 ExprDisambiguation::Trivial,
@@ -279,8 +280,8 @@ impl<'a> ExprTypeEngine<'a> {
                         }
                     }),
                     TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
-                    TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),
-                    TypePathDisambiguationResult::ErrFromNoneDerived => {
+                    TypePathDisambiguationResult::ErrFromAnyOriginal => todo!(),
+                    TypePathDisambiguationResult::ErrFromAnyDerived => {
                         Err(DerivedExprTypeError::AmbiguateListExpr.into())
                     }
                 }
@@ -373,11 +374,15 @@ impl<'a> ExprTypeEngine<'a> {
                 self.db
                     .ty_path_ty(ty_path, disambiguation)
                     .map(Into::into)
-                    .map_err(|e| todo!()),
+                    .map_err(|e| e.into()),
             )),
             TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
-            TypePathDisambiguationResult::ErrFromNoneOriginal => todo!(),
-            TypePathDisambiguationResult::ErrFromNoneDerived => todo!(),
+            TypePathDisambiguationResult::ErrFromAnyOriginal => {
+                todo!()
+            }
+            TypePathDisambiguationResult::ErrFromAnyDerived => {
+                Err(DerivedExprTypeError::AmbiguousTypePath.into())
+            }
         }
     }
 
