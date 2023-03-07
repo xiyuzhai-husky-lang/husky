@@ -147,7 +147,7 @@ impl Term {
             RawTerm::TraitConstraint(raw_term) => {
                 TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
-            RawTerm::AmbiguousTypePath(_) => match term_ty_expectation {
+            RawTerm::LeashOrBitNot(_) => match term_ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort | TermTypeExpectation::Any => {
                     todo!()
                 }

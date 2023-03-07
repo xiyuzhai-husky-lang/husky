@@ -61,7 +61,7 @@ fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTer
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
-        RawTerm::AmbiguousTypePath(_) => todo!(),
+        RawTerm::LeashOrBitNot(_) => todo!(),
     }
 }
 
