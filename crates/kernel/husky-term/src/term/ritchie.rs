@@ -9,7 +9,6 @@ pub struct TermRitchie {
     #[return_ref]
     pub parameter_tys: Vec<TermRitchieParameter>,
     pub return_ty: Term,
-    // ty: Term,
 }
 
 impl TermRitchie {
