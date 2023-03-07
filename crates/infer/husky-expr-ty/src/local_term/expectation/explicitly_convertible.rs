@@ -2,7 +2,7 @@ use super::*;
 
 /// expect a type that is explicitly convertible to dst
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
@@ -20,7 +20,7 @@ impl ExpectExplicitlyConvertible {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectExplicitlyConvertibleOutcome {
     destination: LocalTerm,
 }
@@ -48,7 +48,7 @@ impl ExpectLocalTerm for ExpectExplicitlyConvertible {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         todo!()

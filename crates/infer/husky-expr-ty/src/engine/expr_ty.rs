@@ -102,7 +102,6 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn save_new_expr_ty(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
-        self.print_debug_expr(expr_idx);
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
@@ -112,7 +111,6 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectLocalTerm,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        self.print_debug_expr(expr_idx);
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => Ok((
                 ExprDisambiguation::Trivial,
@@ -126,7 +124,10 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::EntityPath {
                 entity_path_expr,
                 path,
-            } => self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region),
+            } => {
+                print_debug_expr!(self, expr_idx);
+                self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region)
+            }
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,
@@ -369,13 +370,22 @@ impl<'a> ExprTypeEngine<'a> {
             local_term_region.unresolved_terms(),
             ty_path,
         ) {
-            TypePathDisambiguationResult::Ok(disambiguation) => Ok((
-                disambiguation.into(),
-                self.db
-                    .ty_path_ty(ty_path, disambiguation)
-                    .map(Into::into)
-                    .map_err(|e| e.into()),
-            )),
+            TypePathDisambiguationResult::Ok(disambiguation) => {
+                p!(
+                    expr_ty_expectation
+                        .final_destination(self.db(), local_term_region.unresolved_terms())
+                        .debug(self.db()),
+                    disambiguation,
+                    ty_path.debug(self.db())
+                );
+                Ok((
+                    disambiguation.into(),
+                    self.db
+                        .ty_path_ty(ty_path, disambiguation)
+                        .map(Into::into)
+                        .map_err(|e| e.into()),
+                ))
+            }
             TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
             TypePathDisambiguationResult::ErrFromAnyOriginal => {
                 Err(OriginalExprTypeError::AmbiguousTypePath.into())

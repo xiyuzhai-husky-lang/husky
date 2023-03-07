@@ -9,7 +9,7 @@ pub enum ImplicitConversion {
 
 /// expect a type that is implicitly convertible to dst
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectImplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
@@ -27,7 +27,7 @@ impl ExpectImplicitlyConvertible {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectImplicitlyConvertibleOutcome {
     implicit_conversion: ImplicitConversion,
     expectee: LocalTerm,
@@ -57,9 +57,15 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
+        p!(
+            self.debug(db),
+            self.destination
+                .final_destination(db, unresolved_terms)
+                .debug(db)
+        );
         self.destination.final_destination(db, unresolved_terms)
     }
 }

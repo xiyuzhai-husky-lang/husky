@@ -39,7 +39,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination;
 
@@ -47,7 +47,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     #[inline(always)]
     fn disambiguate_ty_path(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
         ty_path: TypePath,
     ) -> TypePathDisambiguationResult {
@@ -82,6 +82,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 ///
 /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum FinalDestination {
     Sort,
     TypeOntologyPath(TypePath),
@@ -107,7 +108,7 @@ pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct LocalTermExpectationEntry {
     src_expr_idx: ExprIdx,
     expectee: LocalTerm,
@@ -116,7 +117,7 @@ pub struct LocalTermExpectationEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 #[enum_class::from_variants]
 pub(crate) enum LocalTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
@@ -143,7 +144,7 @@ impl LocalTermExpectationOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum LocalTermExpectationResolveProgress {
     Unresolved,
     Resolved(LocalTermExpectationResult<LocalTermExpectationOutcome>),
@@ -162,7 +163,7 @@ impl LocalTermExpectationResolveProgress {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum LocalTermExpectationError {
     #[error("original {0}")]
     Original(#[from] OriginalLocalTermExpectationError),
@@ -173,14 +174,14 @@ pub enum LocalTermExpectationError {
 pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalLocalTermExpectationError {
     #[error("todo")]
     Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum DerivedLocalTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError { term: Term, error: TermError },
@@ -389,7 +390,7 @@ impl<'a> ExprTypeEngine<'a> {
 
 #[derive(Debug, PartialEq, Eq)]
 #[non_exhaustive]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 #[enum_class::from_variants]
 pub(crate) enum LocalTermExpectation {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),

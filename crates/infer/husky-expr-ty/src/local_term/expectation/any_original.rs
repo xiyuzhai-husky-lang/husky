@@ -13,7 +13,7 @@ impl ExpectLocalTerm for ExpectAnyOriginal {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         FinalDestination::AnyOriginal

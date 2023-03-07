@@ -19,7 +19,7 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         todo!()

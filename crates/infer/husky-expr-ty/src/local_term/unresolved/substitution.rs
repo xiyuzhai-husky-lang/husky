@@ -18,7 +18,7 @@ impl ImplicitParameterSubstitution {
 impl UnresolvedTerms {
     pub(crate) fn substitute_into_term(
         &mut self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: Term,
         substitution_rules: &[ImplicitParameterSubstitution],
@@ -35,7 +35,7 @@ impl UnresolvedTerms {
 
     fn substitute_into_term_aux(
         &mut self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: Term,
         substitution_rules: &[ImplicitParameterSubstitution],
@@ -70,7 +70,7 @@ impl UnresolvedTerms {
 
     pub(crate) fn substitute_into_term_ritchie(
         &mut self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: TermRitchie,
         substitution_rules: &[ImplicitParameterSubstitution],
@@ -93,7 +93,7 @@ impl UnresolvedTerms {
 
     pub(crate) fn substitute_into_term_application(
         &mut self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         term: TermApplication,
         substitution_rules: &[ImplicitParameterSubstitution],

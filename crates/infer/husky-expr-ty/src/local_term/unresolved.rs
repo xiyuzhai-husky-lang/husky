@@ -8,7 +8,7 @@ use vec_like::VecSet;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
     TypeApplication {
@@ -23,7 +23,7 @@ pub(crate) enum UnresolvedTerm {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct LocalTermRitchieParameter {
     pub(crate) ty: LocalTerm,
 }
@@ -179,7 +179,7 @@ impl UnresolvedTerms {
 
     pub(crate) fn new_implicit_symbol_from_parameter_symbol(
         &mut self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         parameter_symbol: TermSymbol,
     ) -> UnresolvedTermIdx {

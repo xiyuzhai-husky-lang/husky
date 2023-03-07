@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsFunctionType {
     final_destination: FinalDestination,
 }
@@ -21,7 +22,7 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
     #[inline(always)]
     fn final_destination(
         &self,
-        db: &dyn ExprTermDb,
+        db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
         self.final_destination
@@ -29,7 +30,7 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectEqsFunctionTypeOutcome {
     pub(crate) destination: LocalTerm,
     pub(crate) implicit_parameter_substitutions: Vec<ImplicitParameterSubstitution>,
@@ -38,7 +39,7 @@ pub(crate) struct ExpectEqsFunctionTypeOutcome {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = ExprTermDb)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: TermRitchieKind,
@@ -93,11 +94,13 @@ impl<'a> ExprTypeEngine<'a> {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
             Term::EntityPath(_) => todo!(),
-            Term::Category(_) => Some(LocalTermExpectationEffect {
-                // ad hoc
-                result: Err(todo!()),
-                actions: vec![],
-            }),
+            Term::Category(_) => {
+                Some(LocalTermExpectationEffect {
+                    // ad hoc
+                    result: Err(todo!()),
+                    actions: vec![],
+                })
+            }
             Term::Universe(_) => todo!(),
             Term::Curry(expectee) => {
                 self.resolved_curry_term_to(src_expr_idx, expectee, unresolved_terms)
