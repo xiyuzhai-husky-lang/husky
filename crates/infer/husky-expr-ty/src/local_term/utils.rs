@@ -25,9 +25,9 @@ impl LocalTerm {
                 Term::EntityPath(path) => match path {
                     TermEntityPath::Form(_) => todo!(),
                     TermEntityPath::Trait(_) => todo!(),
-                    TermEntityPath::TypeOntology(path) => FinalDestination::TypeOntologyPath(path),
+                    TermEntityPath::TypeOntology(path) => FinalDestination::TypePath(path),
                     TermEntityPath::TypeConstructor(path) => {
-                        FinalDestination::TypeConstructorPath(path)
+                        unreachable!("type constructor is not a type!")
                     }
                 },
                 Term::Category(_) => FinalDestination::Sort,
@@ -44,7 +44,7 @@ impl LocalTerm {
                             TermEntityPath::Form(_) => todo!(),
                             TermEntityPath::Trait(_) => todo!(),
                             TermEntityPath::TypeOntology(ty_path) => {
-                                FinalDestination::TypeOntologyPath(ty_path)
+                                FinalDestination::TypePath(ty_path)
                             }
                             TermEntityPath::TypeConstructor(_) => todo!(),
                         },
