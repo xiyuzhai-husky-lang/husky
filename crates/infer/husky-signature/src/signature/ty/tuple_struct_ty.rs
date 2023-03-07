@@ -1,7 +1,7 @@
 use super::*;
 use husky_word::Identifier;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub fn tuple_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: TupleStructTypeDecl,

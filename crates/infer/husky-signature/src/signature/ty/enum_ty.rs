@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub fn enum_ty_signature(
     db: &dyn SignatureDb,
     decl: EnumTypeDecl,

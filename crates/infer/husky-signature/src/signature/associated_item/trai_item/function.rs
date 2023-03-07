@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn trai_associated_function_signature(
     db: &dyn SignatureDb,
     decl: TraitAssociatedFunctionDecl,

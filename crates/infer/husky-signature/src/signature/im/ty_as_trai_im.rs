@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_as_trai_im_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitImplDecl,

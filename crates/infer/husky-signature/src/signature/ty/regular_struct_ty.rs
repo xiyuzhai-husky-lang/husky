@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub fn regular_struct_ty_signature(
     db: &dyn SignatureDb,
     decl: RegularStructTypeDecl,
@@ -35,7 +35,7 @@ pub fn regular_struct_ty_signature(
     ))
 }
 
-#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct RegularStructTypeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
@@ -45,7 +45,7 @@ pub struct RegularStructTypeSignature {
 
 impl RegularStructTypeSignature {}
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb, jar= SignatureJar)]
 pub struct RegularStructFieldSignature {
     ident: Identifier,

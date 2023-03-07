@@ -11,7 +11,7 @@ use super::*;
 pub(crate) fn variant_signature(
     db: &dyn SignatureDb,
     decl: VariantDecl,
-) -> SignatureResultRef<VariantSignature> {
+) -> SignatureResult<VariantSignature> {
     match decl {
         VariantDecl::Props(_) => todo!(),
         VariantDecl::Unit(_) => todo!(),
@@ -27,12 +27,4 @@ pub enum VariantSignature {
     Unit(UnitVariantSignature),
     Tuple(TupleVariantSignature),
 }
-impl VariantSignature {
-    pub fn term_sheet<'a>(self, db: &'a dyn SignatureDb) -> &'a SignatureTermRegion {
-        match self {
-            VariantSignature::Props(signature) => signature.term_sheet(db),
-            VariantSignature::Unit(signature) => signature.term_sheet(db),
-            VariantSignature::Tuple(signature) => signature.term_sheet(db),
-        }
-    }
-}
+impl VariantSignature {}

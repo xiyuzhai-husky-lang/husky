@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub fn trai_signature(db: &dyn SignatureDb, decl: TraitDecl) -> SignatureResult<TraitSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar,return_ref)]
+#[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_memo_signature(
     db: &dyn SignatureDb,
     decl: TypeMemoDecl,

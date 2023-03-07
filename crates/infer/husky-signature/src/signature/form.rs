@@ -16,12 +16,12 @@ use salsa::DbWithJar;
 pub(crate) fn form_signature(
     db: &dyn SignatureDb,
     decl: FormDecl,
-) -> SignatureResultRef<FormSignature> {
+) -> SignatureResult<FormSignature> {
     match decl {
-        FormDecl::Function(decl) => function_signature(db, decl).as_ref().map(|s| (*s).into()),
-        FormDecl::Feature(decl) => feature_signature(db, decl).as_ref().map(|s| (*s).into()),
-        FormDecl::Morphism(decl) => morphism_signature(db, decl).as_ref().map(|s| (*s).into()),
-        FormDecl::Value(decl) => value_signature(db, decl).as_ref().map(|s| (*s).into()),
+        FormDecl::Function(decl) => function_signature(db, decl).map(Into::into),
+        FormDecl::Feature(decl) => feature_signature(db, decl).map(Into::into),
+        FormDecl::Morphism(decl) => morphism_signature(db, decl).map(Into::into),
+        FormDecl::Value(decl) => value_signature(db, decl).map(Into::into),
     }
 }
 

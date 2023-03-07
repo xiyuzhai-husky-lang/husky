@@ -5,6 +5,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = RawTermDb, jar = RawTermJar)]
+#[enum_class::from_variants]
 pub enum RawTermEntityPath {
     Form(FormPath),
     Trait(TraitPath),
@@ -19,27 +20,20 @@ impl RawTermEntityPath {
         }
     }
 }
-
-impl From<FormPath> for RawTermEntityPath {
-    fn from(value: FormPath) -> Self {
-        RawTermEntityPath::Form(value)
-    }
-}
-
 impl From<FormPath> for RawTerm {
     fn from(value: FormPath) -> Self {
         RawTerm::EntityPath(value.into())
     }
 }
 
-impl From<TraitPath> for RawTermEntityPath {
+impl From<TraitPath> for RawTerm {
     fn from(value: TraitPath) -> Self {
-        RawTermEntityPath::Trait(value)
+        RawTerm::EntityPath(value.into())
     }
 }
 
-impl From<TraitPath> for RawTerm {
-    fn from(value: TraitPath) -> Self {
+impl From<TypePath> for RawTerm {
+    fn from(value: TypePath) -> Self {
         RawTerm::EntityPath(value.into())
     }
 }
