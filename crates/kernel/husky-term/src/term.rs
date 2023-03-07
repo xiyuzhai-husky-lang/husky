@@ -120,6 +120,7 @@ impl Term {
             RawTerm::TraitConstraint(raw_term) => {
                 TermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
+            RawTerm::BitNotOrEvalRef => todo!(),
         })
     }
 

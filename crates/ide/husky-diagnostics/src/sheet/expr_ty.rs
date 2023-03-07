@@ -126,6 +126,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::FormPathTypeError => {
                 format!("Type Error: form path error")
             }
+            OriginalExprTypeError::AmbiguousTypePath => {
+                format!("Type Error: AmbiguousTypePath")
+            }
         }
     }
 

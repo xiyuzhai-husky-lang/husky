@@ -61,6 +61,8 @@ pub enum RawTerm {
     AsTraitSubentity(RawTermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(RawTermTraitConstraint),
+    /// `~`
+    BitNotOrEvalRef,
 }
 
 impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
@@ -118,6 +120,7 @@ impl RawTerm {
             RawTerm::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::BitNotOrEvalRef => f.write_str("~"),
         }
     }
 }

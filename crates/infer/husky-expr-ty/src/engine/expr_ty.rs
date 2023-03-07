@@ -378,7 +378,7 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
             TypePathDisambiguationResult::ErrFromAnyOriginal => {
-                todo!()
+                Err(OriginalExprTypeError::AmbiguousTypePath.into())
             }
             TypePathDisambiguationResult::ErrFromAnyDerived => {
                 Err(DerivedExprTypeError::AmbiguousTypePath.into())

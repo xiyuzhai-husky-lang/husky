@@ -22,6 +22,7 @@ pub(crate) fn raw_ty_method_raw_ty(
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => unreachable!(),
+        RawTerm::BitNotOrEvalRef => todo!(),
     }
 }
 
@@ -69,6 +70,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
+        RawTerm::BitNotOrEvalRef => todo!(),
     }
 }
 

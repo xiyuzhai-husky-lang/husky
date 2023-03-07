@@ -259,7 +259,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
-                    PrefixOpr::BitNotOrEvalRef => todo!(),
+                    PrefixOpr::BitNotOrEvalRef => RawTerm::BitNotOrEvalRef,
                     PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
