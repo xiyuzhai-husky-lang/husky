@@ -7,7 +7,7 @@ edition = "2021"
 rust-version = "1.56"
 
 [dependencies]
-smallvec = "1.8.0"
+smallvec = "1.10.0"
 colored = "2.0.0"
 libloading = "0.7.3"
 convert_case = "0.6.0"

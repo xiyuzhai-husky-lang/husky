@@ -17,8 +17,8 @@ pub use self::local_term::*;
 pub use self::region::*;
 
 use self::engine::*;
-use husky_defn::*;
 use either::*;
+use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
@@ -27,6 +27,7 @@ use husky_signature::*;
 use husky_term::*;
 use husky_term_prelude::*;
 use salsa::DebugWithDb;
+use smallvec::*;
 
 #[cfg(test)]
 use tests::*;
