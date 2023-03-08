@@ -18,7 +18,7 @@ husky-documentation = { path = "../../ide/husky-documentation" }
 husky-token-info = { path = "../../infer/husky-token-info" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-husky-doc = { path = "../../lex/husky-doc" }
+husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 # syntax
@@ -39,7 +39,7 @@ husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-term = { path = "../../kernel/husky-term" }
 # lex
-husky-doc = { path = "../../lex/husky-doc", features = ["lsp_support"] }
+husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 # syntax
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }

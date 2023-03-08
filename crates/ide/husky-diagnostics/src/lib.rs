@@ -16,7 +16,7 @@ pub use tests::*;
 use collector::{RegionDiagnosticsCollector, SheetDiagnosticsCollector};
 use context::*;
 
-use husky_doc::TextRange;
+use husky_text::TextRange;
 use husky_vfs::*;
 use sheet::*;
 

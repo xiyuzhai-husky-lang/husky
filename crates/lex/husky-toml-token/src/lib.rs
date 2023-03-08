@@ -12,7 +12,7 @@ mod tokenize;
 
 pub use db::*;
 pub use error::*;
-use husky_doc::TextRange;
+use husky_text::TextRange;
 pub use line_group::*;
 pub use sheet::*;
 pub use special::*;
@@ -23,7 +23,7 @@ use tokenize::*;
 #[salsa::jar(db = TomlTokenDb)]
 pub struct TomlTokenJar(package_manifest_toml_token_sheet);
 
-use husky_doc_span::DocumentSpan;
+use husky_text_span::DocumentSpan;
 use husky_word::Word;
 use std::char;
 use std::str;

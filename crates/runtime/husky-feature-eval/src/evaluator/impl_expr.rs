@@ -1,11 +1,11 @@
 use crate::*;
-use husky_doc::HasSourceRange;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_opn_semantics::ImplicitConversion;
 use husky_opn_syntax::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
+use husky_text::HasSourceRange;
 use husky_trace_protocol::VisualData;
 use husky_vm::__Linkage;
 use husky_vm::*;
@@ -166,7 +166,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         this: &FeatureRepr,
         field_idx: u8,
         field_binding: Binding,
-        field_ident: husky_doc::RangedIdentifier,
+        field_ident: husky_text::RangedIdentifier,
         expr: &FeatureLazyExpr,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {

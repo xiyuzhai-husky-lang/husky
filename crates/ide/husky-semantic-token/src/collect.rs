@@ -25,7 +25,7 @@ fn token_to_semantic_token(
     db: &dyn SemanticTokenDb,
     info: &TokenInfo,
     token: &Token,
-    range: &husky_doc::TextRange,
+    range: &husky_text::TextRange,
 ) -> Option<RangedSemanticToken> {
     let semantic_token = match info {
         TokenInfo::None => match token {

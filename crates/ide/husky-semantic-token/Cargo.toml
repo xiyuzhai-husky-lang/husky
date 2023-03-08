@@ -12,7 +12,7 @@ salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-doc = { path = "../../lex/husky-doc" }
+husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # infer
 husky-token-info = { path = "../../infer/husky-token-info" }

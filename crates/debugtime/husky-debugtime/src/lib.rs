@@ -28,7 +28,7 @@
 // use husky_opn_syntax::*;
 // use husky_print_utils::p;
 // use EntityPath;
-// use husky_doc::{HuskyText, TextQueryGroup};
+// use husky_text::{HuskyText, TextQueryGroup};
 // use husky_trace::*;
 // use husky_trace_protocol::*;
 // use husky_vm::*;

@@ -19,7 +19,7 @@ parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-doc = { path = "../../lex/husky-doc" }
+husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }

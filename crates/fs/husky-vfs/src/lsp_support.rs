@@ -16,7 +16,7 @@ pub fn apply_live_file_changes<Db: VfsDb>(
 ) -> VfsResult<()> {
     update_live_packages(db, path);
     update_content(db, path, |text| {
-        husky_doc::apply_document_changes(text, changes)
+        husky_text::apply_document_changes(text, changes)
     });
     Ok(())
 }

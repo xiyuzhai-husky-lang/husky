@@ -1,9 +1,9 @@
 use super::*;
 use crate::*;
-use husky_doc::RangedIdentifier;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_term::Term;
+use husky_text::RangedIdentifier;
 
 impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn gen_feature_expr(

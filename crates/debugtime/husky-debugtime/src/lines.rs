@@ -9,7 +9,7 @@ mod proc_stmt;
 mod token;
 
 pub use expr_config::*;
-use husky_doc::Row;
+use husky_text::Row;
 
 use super::*;
 
