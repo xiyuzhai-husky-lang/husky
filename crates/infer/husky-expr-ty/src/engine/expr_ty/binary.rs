@@ -280,7 +280,7 @@ impl<'a> ExprTypeEngine<'a> {
             },
             local_term_region,
         );
-        todo!()
+        Ok(ropd_term)
     }
 
     fn calc_curry_expr_ty(
