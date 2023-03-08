@@ -4031,7 +4031,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        AmbiguateListExpr,
+                        AmbiguousListExpr,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -4334,7 +4334,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        AmbiguateListExpr,
+                        AmbiguousListExpr,
                     ),
                 ),
                 expectation_rule_idx: None,

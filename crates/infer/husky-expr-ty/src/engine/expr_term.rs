@@ -63,7 +63,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => self.calc_prefix_expr_term(opr, opd),
+            } => self.calc_prefix_expr_term(expr_idx, opr, opd),
             Expr::Suffix {
                 opd,
                 opr: punctuation,
@@ -112,11 +112,11 @@ impl<'a> ExprTypeEngine<'a> {
                         .expr_disambiguation(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
-                        ExprDisambiguation::TypePath(disambiguation) => self
+                        ExprDisambiguation::TypePath(disambiguation) => Ok(self
                             .db
                             .ty_path_ty(path, disambiguation)
-                            .map(Into::into)
-                            .map_err(|e| todo!()),
+                            .map_err(|e| DerivedExprTermError::TypePathTypeError)?
+                            .into()),
                         _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),

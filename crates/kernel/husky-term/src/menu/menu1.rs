@@ -27,18 +27,12 @@ impl TermMenu1 {
                 db,
                 menu0.ref_ty_path().into(),
                 menu0.eval_lifetime().into(),
-                0,
             )
             .unwrap()
             .into(),
-            static_ref_ty: TermApplication::new(
-                db,
-                menu0.ref_ty_path(),
-                menu0.static_lifetime(),
-                0,
-            )
-            .unwrap()
-            .into(),
+            static_ref_ty: TermApplication::new(db, menu0.ref_ty_path(), menu0.static_lifetime())
+                .unwrap()
+                .into(),
             explicit_invariant_ty0_to_trai_ty: TermCurry::new(
                 db,
                 CurryKind::Explicit,

@@ -48,19 +48,9 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: AmbiguousTypePath",
-                severity: Error,
-                range: [13:18, 13:28),
-            },
-            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [127:22, 127:24),
-            },
-            Diagnostic {
-                message: "Type Error: AmbiguousTypePath",
-                severity: Error,
-                range: [32:30, 32:40),
             },
             Diagnostic {
                 message: "Type Error: AmbiguateListExpr",

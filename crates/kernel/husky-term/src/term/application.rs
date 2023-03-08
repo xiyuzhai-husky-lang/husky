@@ -38,7 +38,25 @@ fn term_application_size_works() {
 impl TermApplication {
     //// this constructor guarantees that the result is reduced and first-order valid
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    pub fn new(db: &dyn TermDb, function: Term, argument: Term, shift: u8) -> TermResult<Term> {
+    pub fn new(db: &dyn TermDb, function: Term, argument: Term) -> TermResult<Term> {
+        let function_raw_ty = match function.raw_ty(db)? {
+            Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
+            _ => return Err(todo!()),
+        };
+        let parameter_ty = function_raw_ty.parameter_ty(db);
+        let argument_expectation =
+            parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
+        let argument_ty_total_number_of_curry_parameters =
+            argument.ty_total_number_of_curry_parameters(db)?;
+        let function_parameter_ty_total_number_of_curry_parameters =
+            parameter_ty.total_number_of_curry_parameters(db);
+        if argument_ty_total_number_of_curry_parameters
+            < function_parameter_ty_total_number_of_curry_parameters
+        {
+            todo!()
+        }
+        let shift = argument_ty_total_number_of_curry_parameters
+            - function_parameter_ty_total_number_of_curry_parameters;
         let term = Self::new_unchecked(db, function, argument, shift);
         term.check(db)?;
         Ok(term)
@@ -190,11 +208,12 @@ pub(crate) fn check_term_application_validity(
                 _ => unreachable!(),
             };
             let argument_ty = argument.ty_unchecked(db)?;
-            if !function_ty
-                .parameter_ty(db)
-                .is_ty_trivially_convertible_from(db, argument_ty)?
-            {
-                return Err(todo!());
+            let parameter_ty = function_ty.parameter_ty(db);
+            if !parameter_ty.is_ty_trivially_convertible_from(db, argument_ty)? {
+                return Err(TermError::TermApplicationWrongArgumentType {
+                    parameter_ty,
+                    argument_ty,
+                });
             }
             Ok(())
         }
