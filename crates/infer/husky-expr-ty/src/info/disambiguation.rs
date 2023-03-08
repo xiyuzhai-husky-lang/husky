@@ -9,6 +9,7 @@ pub enum ExprDisambiguation {
     TypePath(TypePathDisambiguation),
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
+    Tilde(TildeDisambiguation),
     Trivial,
 }
 
@@ -61,4 +62,10 @@ pub enum ListExprDisambiguation {
     NewList,
     ListFunctor,
     ArrayFunctor,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TildeDisambiguation {
+    BitNot,
+    Leash,
 }

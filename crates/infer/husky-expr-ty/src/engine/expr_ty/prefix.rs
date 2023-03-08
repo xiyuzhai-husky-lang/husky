@@ -5,8 +5,9 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opr: PrefixOpr,
         opd: ExprIdx,
+        final_destination: FinalDestination,
         local_term_region: &mut LocalTermRegion,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
@@ -19,7 +20,9 @@ impl<'a> ExprTypeEngine<'a> {
                                     match implicit_symbol.variant() {
                                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
                                         ImplicitSymbolVariant::UnspecifiedIntegerType
-                                        | ImplicitSymbolVariant::UnspecifiedFloatType => Ok(opd_ty),
+                                        | ImplicitSymbolVariant::UnspecifiedFloatType => {
+                                            Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
+                                        }
                                         ImplicitSymbolVariant::ImplicitType => todo!(),
                                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
                                     }
@@ -46,19 +49,35 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region,
                 );
                 // here we differs from Rust, but agrees with C
-                Ok(self.term_menu.bool().into())
+                Ok((
+                    ExprDisambiguation::Trivial,
+                    Ok(self.term_menu.bool().into()),
+                ))
             }
-            PrefixOpr::BitNotOrLeash => {
-                match self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region) {
-                    Some(opd_ty) => todo!(),
-                    None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
+            PrefixOpr::Tilde => match final_destination {
+                FinalDestination::Sort => {
+                    self.infer_new_expr_ty_discarded(
+                        opd,
+                        self.expect_eqs_exactly_ty(),
+                        local_term_region,
+                    );
+                    Ok((
+                        ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
+                        Ok(self.term_menu.ty0().into()),
+                    ))
                 }
-            }
+                FinalDestination::TypePath(_) => todo!(),
+                FinalDestination::AnyOriginal => Err(OriginalExprTypeError::AmbiguousTildeExpr)?,
+                FinalDestination::AnyDerived => Err(DerivedExprTypeError::AmbiguousTildeExpr)?,
+            },
             PrefixOpr::Ref => {
                 let opd_ty =
                     self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty(), local_term_region);
                 // Should consider more cases, could also be taking references
-                opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+                Ok((
+                    ExprDisambiguation::Trivial,
+                    opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
+                ))
             }
             PrefixOpr::Vector => todo!(),
             PrefixOpr::Slice => todo!(),
@@ -67,7 +86,10 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Option => {
                 let opd_ty =
                     self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty(), local_term_region);
-                opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into())
+                Ok((
+                    ExprDisambiguation::Trivial,
+                    opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
+                ))
             }
         }
     }

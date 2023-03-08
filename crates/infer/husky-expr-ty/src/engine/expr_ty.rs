@@ -187,10 +187,13 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(self.term_menu.bool().into()),
                 ))
             }
-            Expr::Prefix { opr, opd, .. } => Ok((
-                ExprDisambiguation::Trivial,
-                self.calc_prefix_expr_ty(opr, opd, local_term_region),
-            )),
+            Expr::Prefix { opr, opd, .. } => self.calc_prefix_expr_ty(
+                opr,
+                opd,
+                expr_ty_expectation
+                    .final_destination(self.db, local_term_region.unresolved_terms()),
+                local_term_region,
+            ),
             Expr::Suffix { opd, opr, .. } => Ok((
                 ExprDisambiguation::Trivial,
                 self.calc_suffix_expr_ty(opd, opr, local_term_region),

@@ -146,6 +146,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::AmbiguousListExpr => {
                 format!("Type Error: AmbiguateListExpr")
             }
+            OriginalExprTypeError::AmbiguousTildeExpr => {
+                format!("Type Error: AmbiguateTildeExpr")
+            }
         }
     }
 

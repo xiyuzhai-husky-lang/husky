@@ -208,7 +208,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
-                    PrefixOpr::BitNotOrLeash => {
+                    PrefixOpr::Tilde => {
                         RawTerm::LeashOrBitNot(self.expr_region_data.path().toolchain(self.db))
                     }
                     PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),

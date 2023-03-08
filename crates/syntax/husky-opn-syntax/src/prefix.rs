@@ -6,7 +6,7 @@ use super::*;
 pub enum PrefixOpr {
     Minus,                       // -
     Not,                         // !$0
-    BitNotOrLeash,               // ~
+    Tilde,                       // ~
     Ref,                         // &
     Vector,                      // []
     Slice,                       // [:]
@@ -51,7 +51,7 @@ impl PrefixOpr {
         match self {
             PrefixOpr::Minus => "-".into(),
             PrefixOpr::Not => "!".into(),
-            PrefixOpr::BitNotOrLeash => "!".into(),
+            PrefixOpr::Tilde => "!".into(),
             PrefixOpr::Ref => "&".into(),
             PrefixOpr::Vector => "[]".into(),
             PrefixOpr::Slice => "[:]".into(),
