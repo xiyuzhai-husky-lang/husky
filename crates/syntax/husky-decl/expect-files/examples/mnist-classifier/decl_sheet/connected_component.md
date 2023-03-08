@@ -331,7 +331,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrLeash,
+                                                    opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         48,
                                                     ),
@@ -501,7 +501,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Prefix {
-                                                    opr: BitNotOrLeash,
+                                                    opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         57,
                                                     ),

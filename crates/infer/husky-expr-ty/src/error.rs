@@ -51,6 +51,8 @@ pub enum OriginalExprTypeError {
     },
     #[error("ambiguous list expr")]
     AmbiguousListExpr,
+    #[error("AmbiguousTildeExpr")]
+    AmbiguousTildeExpr,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -119,6 +121,8 @@ pub enum DerivedExprTypeError {
     AmbiguousTypePath,
     #[error("explicit application function type not inferred")]
     ExplicitApplicationFunctionTypeNotInferred,
+    #[error("AmbiguousTildeExpr")]
+    AmbiguousTildeExpr,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
