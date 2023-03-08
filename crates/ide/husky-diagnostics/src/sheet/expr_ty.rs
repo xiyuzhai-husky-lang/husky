@@ -161,7 +161,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
+            OriginalLocalTermResolveError::UnresolvedTerm => "unresolved term".to_string(),
         }
     }
 
