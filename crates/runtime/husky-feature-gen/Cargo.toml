@@ -31,7 +31,7 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # syntax
-husky-doc = { path = "../../lex/husky-doc" }
+husky-text = { path = "../../lex/husky-text" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

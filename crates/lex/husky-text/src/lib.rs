@@ -27,18 +27,18 @@ use line_map::LineMap;
 use std::{iter::Enumerate, ops::Deref, str::Chars};
 
 #[derive(Clone, PartialEq, Eq)]
-pub struct Document {
+pub struct Text {
     content: String,
     line_map: LineMap,
 }
 
-impl std::fmt::Debug for Document {
+impl std::fmt::Debug for Text {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_str("Text...")
     }
 }
 
-impl std::ops::Index<TextRange> for Document {
+impl std::ops::Index<TextRange> for Text {
     type Output = str;
 
     fn index(&self, _index: TextRange) -> &Self::Output {
@@ -46,7 +46,7 @@ impl std::ops::Index<TextRange> for Document {
     }
 }
 
-impl std::ops::Index<std::ops::Range<(u32, u32)>> for Document {
+impl std::ops::Index<std::ops::Range<(u32, u32)>> for Text {
     type Output = str;
 
     fn index(&self, index: std::ops::Range<(u32, u32)>) -> &Self::Output {
@@ -54,7 +54,7 @@ impl std::ops::Index<std::ops::Range<(u32, u32)>> for Document {
     }
 }
 
-impl Document {
+impl Text {
     pub(crate) fn new(content: impl Into<String>) -> Self {
         let content: String = content.into();
         Self {

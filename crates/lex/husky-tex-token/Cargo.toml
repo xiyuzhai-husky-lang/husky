@@ -11,8 +11,8 @@ salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
-husky-doc = { path = "../../lex/husky-doc" }
-husky-doc-span = { path = "../../lex/husky-doc-span" }
+husky-text = { path = "../../lex/husky-text" }
+husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-word = { path = "../../kernel/husky-word" }

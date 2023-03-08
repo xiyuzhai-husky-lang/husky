@@ -20,7 +20,7 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-doc = { path = "../../lex/husky-doc", features = ["lsp_support"] }
+husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }

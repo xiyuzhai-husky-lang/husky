@@ -8,7 +8,7 @@ edition = "2021"
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # lex
-husky-doc = { path = "../../lex/husky-doc" }
+husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 # utils

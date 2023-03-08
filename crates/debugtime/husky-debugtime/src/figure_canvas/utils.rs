@@ -1,5 +1,5 @@
-use husky_doc::TextRange;
 use husky_term::Term;
+use husky_text::TextRange;
 
 use crate::*;
 

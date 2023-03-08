@@ -1,5 +1,5 @@
-use husky_doc::ModuleRange;
 use husky_term::Term;
+use husky_text::ModuleRange;
 use husky_word::Identifier;
 
 use crate::*;

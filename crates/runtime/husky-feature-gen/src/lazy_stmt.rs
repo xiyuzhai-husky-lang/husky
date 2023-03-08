@@ -3,8 +3,8 @@ mod variant;
 use husky_term::Term;
 pub use variant::*;
 
-use husky_doc::TextRange;
 use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
+use husky_text::TextRange;
 use EntityPath;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -46,8 +46,8 @@ impl PartialEq for FeatureLazyStmt {
 
 impl Eq for FeatureLazyStmt {}
 
-impl husky_doc::HasTextRange for FeatureLazyStmt {
-    fn text_range(&self) -> husky_doc::TextRange {
+impl husky_text::HasTextRange for FeatureLazyStmt {
+    fn text_range(&self) -> husky_text::TextRange {
         self.range
     }
 }

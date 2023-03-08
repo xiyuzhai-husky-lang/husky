@@ -1,6 +1,6 @@
 use crate::*;
-use husky_doc::TextRange;
 use husky_entity_taxonomy::*;
+use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RangedSemanticToken {
