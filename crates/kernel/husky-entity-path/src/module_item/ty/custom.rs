@@ -1,5 +1,7 @@
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 pub struct CustomTypePath(TypePath);
 
 impl From<CustomTypePath> for TypePath {
