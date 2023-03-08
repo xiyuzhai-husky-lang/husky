@@ -1,11 +1,8 @@
 use super::*;
 
-
-
 use husky_vfs::*;
-use husky_word::{WordJar};
+use husky_word::WordJar;
 use salsa::Database;
-
 
 #[salsa::db(WordJar, VfsJar, EnglishTokenJar)]
 #[derive(Default)]

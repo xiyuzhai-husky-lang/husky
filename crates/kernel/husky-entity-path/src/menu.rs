@@ -1,5 +1,3 @@
-
-
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]

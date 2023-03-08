@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[salsa::tracked(jar = SignatureJar)]
 pub fn tuple_struct_ty_signature(
     db: &dyn SignatureDb,

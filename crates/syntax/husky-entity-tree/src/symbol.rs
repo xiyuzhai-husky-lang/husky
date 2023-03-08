@@ -5,8 +5,7 @@ pub use native::*;
 pub use table::*;
 
 use crate::*;
-use husky_token::{TokenIdx};
-
+use husky_token::TokenIdx;
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ModuleItemSymbol {

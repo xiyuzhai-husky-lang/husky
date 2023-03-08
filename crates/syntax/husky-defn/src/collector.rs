@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
 use husky_entity_tree::{EntityTreeResult, ModuleSymbolContext};
-use husky_token::{TokenSheetData};
+use husky_token::TokenSheetData;
 use vec_like::VecPairMap;
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,

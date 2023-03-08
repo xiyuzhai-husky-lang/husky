@@ -90,7 +90,7 @@ impl AccessibilityProgress {
                 AccessibilityExpr::Public { .. } => AccessibilityProgress::Done {
                     accessibility: Accessibility::Public,
                 },
-                AccessibilityExpr::PublicUnder {  .. } => todo!(),
+                AccessibilityExpr::PublicUnder { .. } => todo!(),
             },
             None => AccessibilityProgress::Done {
                 accessibility: Accessibility::PublicUnder(module_path),

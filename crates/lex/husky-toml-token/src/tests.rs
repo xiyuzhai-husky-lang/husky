@@ -1,7 +1,6 @@
 use super::*;
 use expect_test::expect_file;
 
-
 use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
 use salsa::Database;

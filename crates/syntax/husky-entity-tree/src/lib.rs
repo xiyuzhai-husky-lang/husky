@@ -46,7 +46,7 @@ use husky_vfs::*;
 use husky_word::{Identifier, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
-use vec_like::{AsVecMapEntry};
+use vec_like::AsVecMapEntry;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(

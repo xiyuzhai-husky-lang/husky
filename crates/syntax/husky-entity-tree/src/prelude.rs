@@ -1,10 +1,7 @@
 use crate::*;
 use husky_manifest::ManifestError;
 
-
-
 use thiserror::Error;
-
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum PreludeError {

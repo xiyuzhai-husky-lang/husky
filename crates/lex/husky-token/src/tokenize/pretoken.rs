@@ -331,7 +331,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                _invalid_integer_suffix => return Pretoken::Error(TokenError::InvalidIntegerSuffix),
+                _invalid_integer_suffix => {
+                    return Pretoken::Error(TokenError::InvalidIntegerSuffix)
+                }
             };
             self.buffer.clear();
             token

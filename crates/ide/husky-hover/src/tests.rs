@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_decl::DeclJar;
 use husky_defn::DefnJar;
-use husky_entity_path::{EntityPathJar};
+use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeJar, EntityTreeResult};
 use husky_expr::ExprJar;
 use husky_expr_ty::ExprTypeJar;

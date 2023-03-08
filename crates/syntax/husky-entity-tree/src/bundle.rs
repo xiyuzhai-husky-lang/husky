@@ -1,6 +1,6 @@
 use crate::*;
 use thiserror::Error;
-use vec_like::{VecMap};
+use vec_like::VecMap;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum EntityTreeBundleError {

@@ -19,7 +19,7 @@ use husky_entity_path::*;
 use husky_entity_tree::EntityTreeResult;
 use husky_expr::*;
 use husky_token::*;
-use husky_vfs::{ModulePath};
+use husky_vfs::ModulePath;
 use parser::*;
 #[cfg(test)]
 use tests::*;

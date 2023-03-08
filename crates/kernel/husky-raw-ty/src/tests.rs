@@ -3,7 +3,7 @@ pub(crate) use husky_vfs::VfsTestUtils;
 use crate::*;
 use husky_ast::AstJar;
 use husky_decl::DeclJar;
-use husky_entity_path::{EntityPathJar};
+use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;

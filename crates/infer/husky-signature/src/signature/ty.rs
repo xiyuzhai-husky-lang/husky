@@ -20,7 +20,6 @@ pub use unit_struct_ty::*;
 
 use super::*;
 
-
 pub(crate) fn ty_signature(db: &dyn SignatureDb, decl: TypeDecl) -> SignatureResult<TypeSignature> {
     match decl {
         TypeDecl::Enum(decl) => enum_ty_signature(db, decl).map(Into::into),

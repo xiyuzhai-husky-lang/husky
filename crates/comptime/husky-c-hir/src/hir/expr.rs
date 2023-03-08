@@ -68,9 +68,16 @@ impl CHirTranspile for CExprHir {
             CExprHir::Literal(_) => todo!(),
             CExprHir::InheritedSymbol => todo!(),
             CExprHir::CurrentSymbol => todo!(),
-            CExprHir::BinaryOpn { lopd: _, opr: _, ropd: _ } => todo!(),
+            CExprHir::BinaryOpn {
+                lopd: _,
+                opr: _,
+                ropd: _,
+            } => todo!(),
             CExprHir::PrefixOpn { opr: _, opd: _ } => todo!(),
-            CExprHir::SuffixOpn { opd: _, punctuation: _ } => todo!(),
+            CExprHir::SuffixOpn {
+                opd: _,
+                punctuation: _,
+            } => todo!(),
             CExprHir::FunctionCall {
                 function,
                 arguments,
@@ -85,8 +92,14 @@ impl CHirTranspile for CExprHir {
                         .map(|argument| &c_expr_hir_arena[argument]),
                 );
             }
-            CExprHir::Field { self_expr: _, ident: _ } => todo!(),
-            CExprHir::NewBoxList { caller: _, items: _ } => todo!(),
+            CExprHir::Field {
+                self_expr: _,
+                ident: _,
+            } => todo!(),
+            CExprHir::NewBoxList {
+                caller: _,
+                items: _,
+            } => todo!(),
             CExprHir::Block { stmts: _ } => todo!(),
         }
     }

@@ -28,8 +28,8 @@ use husky_signature::*;
 use husky_term_prelude::*;
 use husky_ty_expectation::TypePathDisambiguation;
 
-use map_collect::*;
 use husky_word::*;
+use map_collect::*;
 
 #[salsa::jar(db = RawTypeDb)]
 pub struct RawTypeJar(

@@ -25,7 +25,7 @@ pub use self::subentity::*;
 pub use self::symbol::*;
 
 use crate::*;
-use std::fmt::{Debug};
+use std::fmt::Debug;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]

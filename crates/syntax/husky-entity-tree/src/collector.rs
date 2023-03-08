@@ -2,7 +2,7 @@ mod action;
 
 use crate::*;
 use husky_print_utils::p;
-use vec_like::{VecMap};
+use vec_like::VecMap;
 
 pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,

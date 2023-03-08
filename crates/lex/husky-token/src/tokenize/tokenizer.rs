@@ -3,7 +3,6 @@ use super::*;
 use husky_doc::TextLine;
 use husky_opn_syntax::*;
 
-
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn TokenDb,
     tokens: Vec<Token>,

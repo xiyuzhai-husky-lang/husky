@@ -1,7 +1,5 @@
 use crate::*;
 
-
-
 use salsa::DbWithJar;
 
 pub trait DefnDb: DbWithJar<DefnJar> + DeclDb {

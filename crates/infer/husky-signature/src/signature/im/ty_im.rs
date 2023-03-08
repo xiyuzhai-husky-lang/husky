@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_im_signature(
     db: &dyn SignatureDb,

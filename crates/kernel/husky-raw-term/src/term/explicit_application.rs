@@ -1,5 +1,5 @@
 use crate::*;
-use std::fmt::{Debug};
+use std::fmt::Debug;
 
 /// in husky, application is generalized to include composition as a special case;
 ///

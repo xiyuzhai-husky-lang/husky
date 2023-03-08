@@ -2,8 +2,6 @@ use husky_expr::ExprError;
 
 use crate::*;
 
-
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SignatureError {
     RawTermError,
