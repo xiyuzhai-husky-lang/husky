@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-use std::fmt::Write;
 
 /// Character offset on a line in a document (zero-based). The meaning of this
 /// offset is determined by the negotiated `PositionEncodingKind`.
