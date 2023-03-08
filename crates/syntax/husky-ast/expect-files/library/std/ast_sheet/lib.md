@@ -18,7 +18,7 @@ Ok(
                             `std::prelude`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `prelude`,
                         token_idx: TokenIdx(
                             1,
@@ -46,7 +46,7 @@ Ok(
                             `std::logic`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `logic`,
                         token_idx: TokenIdx(
                             3,
@@ -74,7 +74,7 @@ Ok(
                             `std::ops`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
                             5,

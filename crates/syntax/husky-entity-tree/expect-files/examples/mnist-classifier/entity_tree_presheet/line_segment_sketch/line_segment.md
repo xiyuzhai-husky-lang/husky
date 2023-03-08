@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "LineSegment",
                     ),
                     accessibility: Accessibility::Public,
@@ -60,9 +60,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 132,

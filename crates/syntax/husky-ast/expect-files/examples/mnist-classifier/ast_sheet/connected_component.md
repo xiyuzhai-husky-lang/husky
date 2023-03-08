@@ -549,7 +549,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `raw_contours`,
                         token_idx: TokenIdx(
                             89,
@@ -577,7 +577,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `eff_holes`,
                         token_idx: TokenIdx(
                             100,
@@ -605,7 +605,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `max_hole_ilen`,
                         token_idx: TokenIdx(
                             162,
@@ -633,7 +633,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `max_row_span`,
                         token_idx: TokenIdx(
                             214,
@@ -661,7 +661,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `row_span_sum`,
                         token_idx: TokenIdx(
                             252,
@@ -689,7 +689,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `distribution`,
                         token_idx: TokenIdx(
                             285,
@@ -717,7 +717,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `upper_mass`,
                         token_idx: TokenIdx(
                             407,
@@ -745,7 +745,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `lower_mass`,
                         token_idx: TokenIdx(
                             419,
@@ -773,7 +773,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `top_k_row_span_sum`,
                         token_idx: TokenIdx(
                             431,
@@ -801,7 +801,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `top_k_row_right_mass_sum`,
                         token_idx: TokenIdx(
                             494,
@@ -818,7 +818,7 @@ Ok(
                         80,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 557,
                             ),
@@ -1178,7 +1178,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ConnectedComponentDistribution`,
                         token_idx: TokenIdx(
                             20,
@@ -1211,7 +1211,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `EffHoles`,
                         token_idx: TokenIdx(
                             41,
@@ -1246,7 +1246,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `hole_tmpl`,
                         token_idx: TokenIdx(
                             53,
@@ -1279,7 +1279,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ConnectedComponent`,
                         token_idx: TokenIdx(
                             79,
@@ -1322,7 +1322,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `horizontal_extend`,
                         token_idx: TokenIdx(
                             560,
@@ -1355,7 +1355,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `find_connected_components`,
                         token_idx: TokenIdx(
                             646,

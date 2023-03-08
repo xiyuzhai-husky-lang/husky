@@ -132,7 +132,7 @@ impl<'a> TokenStream<'a> {
     pub fn is_next_ident(&mut self) -> bool {
         match self.peek() {
             Some(token) => match token {
-                Token::Identifier(_) => true,
+                Token::Ident(_) => true,
                 _ => false,
             },
             None => false,

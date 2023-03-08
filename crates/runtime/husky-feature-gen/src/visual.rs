@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_semantics::{Visualizer, VisualizerVariant};
 use husky_term::Term;
 use husky_vm::__VMResult;
-use husky_word::RootBuiltinIdentifier;
+use husky_word::RootBuiltinIdent;
 
 pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,
@@ -21,7 +21,7 @@ pub(crate) fn visual_feature_lazy_block(
     //     None,
     //     db.feature_interner(),
     //     Term {
-    //         route: RootBuiltinIdentifier::VisualType.into(),
+    //         route: RootBuiltinIdent::VisualType.into(),
     //         range: Default::default(),
     //     },
     // ))

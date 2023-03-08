@@ -23,7 +23,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `str`,
                         token_idx: TokenIdx(
                             2,
@@ -56,7 +56,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `StringLiteral`,
                         token_idx: TokenIdx(
                             6,

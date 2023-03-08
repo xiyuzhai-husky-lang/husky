@@ -6,7 +6,7 @@ use std::sync::Arc;
 pub(crate) fn record_field_repr<'eval>(
     db: &dyn FeatureGenQueryGroup,
     this: FeatureRepr,
-    field_ident: Identifier,
+    field_ident: Ident,
 ) -> FeatureRepr {
     match this {
         FeatureRepr::Value { .. } => todo!(),
@@ -21,7 +21,7 @@ pub(crate) fn record_field_repr<'eval>(
 pub(crate) fn expr_record_field<'eval>(
     db: &dyn FeatureGenQueryGroup,
     this: &Arc<FeatureLazyExpr>,
-    field_ident: Identifier,
+    field_ident: Ident,
 ) -> FeatureRepr {
     match this.variant {
         FeatureLazyExprVariant::Variable { ref value, .. } => {
@@ -84,7 +84,7 @@ pub(crate) fn expr_record_field<'eval>(
 pub(crate) fn block_record_field(
     db: &dyn FeatureGenQueryGroup,
     this: &Arc<FeatureLazyBody>,
-    field_ident: Identifier,
+    field_ident: Ident,
 ) -> FeatureRepr {
     let stmt_features = this.stmt_features();
     if stmt_features.len() == 1 {

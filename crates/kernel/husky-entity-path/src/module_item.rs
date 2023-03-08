@@ -26,7 +26,7 @@ impl ModuleItemPath {
             ModuleItemPath::Form(path) => path.module_path(db),
         }
     }
-    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
             ModuleItemPath::Type(path) => path.ident(db),
             ModuleItemPath::Trait(path) => path.ident(db),

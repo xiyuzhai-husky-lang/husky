@@ -21,7 +21,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Debug`,
                         token_idx: TokenIdx(
                             2,

@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "r32",
                     ),
                     accessibility: Accessibility::Public,

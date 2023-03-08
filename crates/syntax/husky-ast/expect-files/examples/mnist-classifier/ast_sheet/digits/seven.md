@@ -374,7 +374,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `simple_seven_match`,
                         token_idx: TokenIdx(
                             61,
@@ -409,7 +409,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `simple_leftdown_pattern`,
                         token_idx: TokenIdx(
                             74,
@@ -444,7 +444,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
                             104,
@@ -479,7 +479,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
                             119,
@@ -514,7 +514,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
                             162,
@@ -549,7 +549,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
                             216,

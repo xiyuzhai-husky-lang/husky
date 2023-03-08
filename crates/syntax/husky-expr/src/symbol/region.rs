@@ -123,7 +123,7 @@ impl SymbolRegion {
         self.current_symbol_arena.alloc_batch(variables)
     }
 
-    pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<Symbol> {
+    pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Ident) -> Option<Symbol> {
         self.current_symbol_arena
             .find_rev_indexed(|symbol| {
                 let accessible = match symbol.access_end {

@@ -1,5 +1,5 @@
 use husky_trace_protocol::VisualData;
-use husky_word::{IdentPairMap, Identifier};
+use husky_word::{Ident, IdentPairMap};
 use serde::Serialize;
 use serde_json::Value;
 
@@ -36,7 +36,7 @@ impl XmlTagKind {
         }
     }
 
-    pub fn from_ident(_ident: Identifier) -> Self {
+    pub fn from_ident(_ident: Ident) -> Self {
         todo!()
         // match ident.as_str() {
         //     "Point2d" => XmlTagKind::Point2d,

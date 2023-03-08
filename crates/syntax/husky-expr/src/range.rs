@@ -185,7 +185,7 @@ impl<'a> ExprRangeCalculator<'a> {
     fn calc_pattern_expr_range(&self, expr: &PatternExpr) -> TokenIdxRange {
         match expr {
             PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Identifier {
+            PatternExpr::Ident {
                 ident_token,
                 liason,
             } => match liason {
@@ -312,14 +312,14 @@ impl<'a> ExprRangeCalculator<'a> {
                         langle_token_idx: token_idx,
                     }
                     | OriginalExprError::ExpectRightCurlyBrace(token_idx)
-                    | OriginalExprError::ExpectIdentifier(token_idx)
+                    | OriginalExprError::ExpectIdent(token_idx)
                     | OriginalExprError::ExpectColon(token_idx)
                     | OriginalExprError::ExpectRightParenthesis(token_idx)
                     | OriginalExprError::NoMatchingBra {
                         ket_token_idx: token_idx,
                         ..
                     }
-                    | OriginalExprError::ExpectIdentifierAfterDot(token_idx)
+                    | OriginalExprError::ExpectIdentAfterDot(token_idx)
                     | OriginalExprError::NoLeftOperandForBinaryOperator {
                         binary_token_idx: token_idx,
                     }
@@ -350,9 +350,9 @@ impl<'a> ExprRangeCalculator<'a> {
                         bra_token_idx: token_idx,
                     }
                     | OriginalExprError::ExpectEolColon(token_idx)
-                    | OriginalExprError::ExpectIdentifierAfterMut(token_idx)
+                    | OriginalExprError::ExpectIdentAfterMut(token_idx)
                     | OriginalExprError::UnexpectedSheba(token_idx)
-                    | OriginalExprError::UnrecognizedIdentifier { token_idx, .. }
+                    | OriginalExprError::UnrecognizedIdent { token_idx, .. }
                     | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
                         TokenIdxRange::new_single(*token_idx)
                     }

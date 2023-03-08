@@ -126,8 +126,8 @@ Ok(
                                     field_comma_list: (
                                         [
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 212,
@@ -146,8 +146,8 @@ Ok(
                                                 ty: 0,
                                             },
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 213,
@@ -320,8 +320,8 @@ Ok(
                                     field_comma_list: (
                                         [
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 212,
@@ -340,8 +340,8 @@ Ok(
                                                 ty: 0,
                                             },
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 213,
@@ -514,8 +514,8 @@ Ok(
                                     field_comma_list: (
                                         [
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 212,
@@ -534,8 +534,8 @@ Ok(
                                                 ty: 0,
                                             },
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 213,
@@ -708,8 +708,8 @@ Ok(
                                     field_comma_list: (
                                         [
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 237,
@@ -728,8 +728,8 @@ Ok(
                                                 ty: 0,
                                             },
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 197,
@@ -993,8 +993,8 @@ Ok(
                                     field_comma_list: (
                                         [
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 323,
@@ -1013,8 +1013,8 @@ Ok(
                                                 ty: 0,
                                             },
                                             RegularStructFieldPattern {
-                                                ident_token: IdentifierToken {
-                                                    ident: Identifier(
+                                                ident_token: IdentToken {
+                                                    ident: Ident(
                                                         Word(
                                                             Id {
                                                                 value: 324,
@@ -1439,8 +1439,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `i`,
                                                                     token_idx: TokenIdx(
                                                                         20,
@@ -1448,8 +1448,8 @@ Ok(
                                                                 },
                                                                 liason: None,
                                                             },
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `shift`,
                                                                     token_idx: TokenIdx(
                                                                         24,
@@ -1466,7 +1466,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 191,
@@ -1478,7 +1478,7 @@ Ok(
                                                         ],
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 219,
@@ -1797,8 +1797,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `i`,
                                                                             token_idx: TokenIdx(
                                                                                 20,
@@ -1806,8 +1806,8 @@ Ok(
                                                                         },
                                                                         liason: None,
                                                                     },
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `shift`,
                                                                             token_idx: TokenIdx(
                                                                                 24,
@@ -1824,7 +1824,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 191,
@@ -1836,7 +1836,7 @@ Ok(
                                                                 ],
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 219,
@@ -2639,7 +2639,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             59,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 60,
@@ -2651,7 +2651,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             63,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 64,
@@ -2972,8 +2972,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         69,
@@ -2989,7 +2989,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -3252,8 +3252,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 69,
@@ -3269,7 +3269,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -3370,7 +3370,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             79,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 80,
@@ -3382,7 +3382,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             83,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 84,
@@ -3409,7 +3409,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             87,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 88,
@@ -3421,7 +3421,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             91,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 92,
@@ -4009,7 +4009,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             103,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 104,
@@ -4021,7 +4021,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             107,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 108,
@@ -4043,7 +4043,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             111,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 112,
@@ -4055,7 +4055,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             115,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 116,
@@ -4106,7 +4106,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             118,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `sqrt`,
                                                             token_idx: TokenIdx(
                                                                 119,
@@ -4407,8 +4407,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         125,
@@ -4424,7 +4424,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -4687,8 +4687,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 125,
@@ -4704,7 +4704,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -4795,7 +4795,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             133,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `to`,
                                                             token_idx: TokenIdx(
                                                                 134,
@@ -4817,7 +4817,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             138,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `norm`,
                                                             token_idx: TokenIdx(
                                                                 139,
@@ -5502,7 +5502,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             182,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 183,
@@ -5514,7 +5514,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             186,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 187,
@@ -5833,8 +5833,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         193,
@@ -5850,7 +5850,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -6113,8 +6113,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 193,
@@ -6130,7 +6130,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -6231,7 +6231,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             203,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 204,
@@ -6243,7 +6243,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             207,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 208,
@@ -6270,7 +6270,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             211,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 212,
@@ -6282,7 +6282,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             215,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 216,
@@ -6870,7 +6870,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             227,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 228,
@@ -6882,7 +6882,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             231,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 232,
@@ -6904,7 +6904,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             235,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 236,
@@ -6916,7 +6916,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             239,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 240,
@@ -6967,7 +6967,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             242,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `sqrt`,
                                                             token_idx: TokenIdx(
                                                                 243,
@@ -7268,8 +7268,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         249,
@@ -7285,7 +7285,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -7548,8 +7548,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 249,
@@ -7565,7 +7565,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -7656,7 +7656,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             257,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 258,
@@ -7668,7 +7668,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             261,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 262,
@@ -7695,7 +7695,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             265,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 266,
@@ -7707,7 +7707,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             269,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 270,
@@ -8037,8 +8037,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         274,
@@ -8054,7 +8054,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -8317,8 +8317,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 274,
@@ -8334,7 +8334,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -8425,7 +8425,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             282,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 283,
@@ -8437,7 +8437,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             286,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 287,
@@ -8464,7 +8464,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             290,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 291,
@@ -8476,7 +8476,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             294,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 295,
@@ -8806,8 +8806,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `is_branch_cut_positive`,
                                                                     token_idx: TokenIdx(
                                                                         299,
@@ -8823,7 +8823,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 309,
@@ -9086,8 +9086,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `is_branch_cut_positive`,
                                                                             token_idx: TokenIdx(
                                                                                 299,
@@ -9103,7 +9103,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 309,
@@ -9189,7 +9189,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             311,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 312,
@@ -9201,7 +9201,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             315,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `norm`,
                                                             token_idx: TokenIdx(
                                                                 316,
@@ -9247,7 +9247,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             320,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 321,
@@ -9341,7 +9341,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             344,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `y`,
                                                             token_idx: TokenIdx(
                                                                 345,
@@ -9353,7 +9353,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             346,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `sgnx`,
                                                             token_idx: TokenIdx(
                                                                 347,
@@ -9398,7 +9398,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             355,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `cos_value`,
                                                             token_idx: TokenIdx(
                                                                 356,
@@ -9419,7 +9419,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             357,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `acos`,
                                                             token_idx: TokenIdx(
                                                                 358,
@@ -9635,8 +9635,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `cos_value`,
                                                                 token_idx: TokenIdx(
                                                                     307,
@@ -9652,7 +9652,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 310,
@@ -9954,8 +9954,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         368,
@@ -9971,7 +9971,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -10234,8 +10234,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 368,
@@ -10251,7 +10251,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -10342,7 +10342,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             376,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `cross`,
                                                             token_idx: TokenIdx(
                                                                 377,
@@ -10364,7 +10364,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             381,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `sgnx`,
                                                             token_idx: TokenIdx(
                                                                 382,
@@ -10695,8 +10695,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         388,
@@ -10704,8 +10704,8 @@ Ok(
                                                                 },
                                                                 liason: None,
                                                             },
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `is_branch_cut_positive`,
                                                                     token_idx: TokenIdx(
                                                                         392,
@@ -10722,7 +10722,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -10734,7 +10734,7 @@ Ok(
                                                         ],
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 309,
@@ -11053,8 +11053,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 388,
@@ -11062,8 +11062,8 @@ Ok(
                                                                         },
                                                                         liason: None,
                                                                     },
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `is_branch_cut_positive`,
                                                                             token_idx: TokenIdx(
                                                                                 392,
@@ -11080,7 +11080,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -11092,7 +11092,7 @@ Ok(
                                                                 ],
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 309,
@@ -11190,7 +11190,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             403,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `norm`,
                                                             token_idx: TokenIdx(
                                                                 404,
@@ -11247,7 +11247,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             415,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `norm`,
                                                             token_idx: TokenIdx(
                                                                 416,
@@ -11339,7 +11339,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             428,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `dot`,
                                                             token_idx: TokenIdx(
                                                                 429,
@@ -11394,7 +11394,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             440,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 441,
@@ -11498,7 +11498,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             467,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `rotation_direction_to`,
                                                             token_idx: TokenIdx(
                                                                 468,
@@ -11557,7 +11557,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             477,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `acos`,
                                                             token_idx: TokenIdx(
                                                                 478,
@@ -11890,8 +11890,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `self_norm`,
                                                                 token_idx: TokenIdx(
                                                                     400,
@@ -11899,8 +11899,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other_norm`,
                                                                 token_idx: TokenIdx(
                                                                     412,
@@ -11908,8 +11908,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `cos_value`,
                                                                 token_idx: TokenIdx(
                                                                     424,
@@ -11917,8 +11917,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `arc_angle`,
                                                                 token_idx: TokenIdx(
                                                                     463,
@@ -11937,7 +11937,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 315,
@@ -11949,7 +11949,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 316,
@@ -11961,7 +11961,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 310,
@@ -11973,7 +11973,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 317,
@@ -12517,8 +12517,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `other`,
                                                                     token_idx: TokenIdx(
                                                                         615,
@@ -12534,7 +12534,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 45,
@@ -12797,8 +12797,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `other`,
                                                                             token_idx: TokenIdx(
                                                                                 615,
@@ -12814,7 +12814,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 45,
@@ -12905,7 +12905,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             625,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 626,
@@ -12927,7 +12927,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             631,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 632,
@@ -12944,7 +12944,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             636,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 637,
@@ -12966,7 +12966,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             642,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 643,
@@ -12978,7 +12978,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             627,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `relative_range`,
                                                             token_idx: TokenIdx(
                                                                 628,
@@ -13000,7 +13000,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             638,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `relative_range`,
                                                             token_idx: TokenIdx(
                                                                 639,
@@ -13343,8 +13343,8 @@ Ok(
                                                 pattern_expr_region: PatternExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [
-                                                            PatternExpr::Identifier {
-                                                                ident_token: IdentifierToken {
+                                                            PatternExpr::Ident {
+                                                                ident_token: IdentToken {
                                                                     ident: `point`,
                                                                     token_idx: TokenIdx(
                                                                         650,
@@ -13360,7 +13360,7 @@ Ok(
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
-                                                                Identifier(
+                                                                Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 236,
@@ -13623,8 +13623,8 @@ Ok(
                                                         pattern_expr_region: PatternExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [
-                                                                    PatternExpr::Identifier {
-                                                                        ident_token: IdentifierToken {
+                                                                    PatternExpr::Ident {
+                                                                        ident_token: IdentToken {
                                                                             ident: `point`,
                                                                             token_idx: TokenIdx(
                                                                                 650,
@@ -13640,7 +13640,7 @@ Ok(
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
-                                                                        Identifier(
+                                                                        Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 236,
@@ -13731,7 +13731,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             660,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 661,
@@ -13753,7 +13753,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             666,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 667,
@@ -13770,7 +13770,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             671,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 672,
@@ -13792,7 +13792,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             677,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `x`,
                                                             token_idx: TokenIdx(
                                                                 678,
@@ -13804,7 +13804,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             662,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `relative_point`,
                                                             token_idx: TokenIdx(
                                                                 663,
@@ -13826,7 +13826,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             673,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `relative_point`,
                                                             token_idx: TokenIdx(
                                                                 674,
@@ -14402,7 +14402,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             690,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 691,
@@ -14414,7 +14414,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             692,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 693,
@@ -14938,7 +14938,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             702,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 703,
@@ -14950,7 +14950,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             704,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `max`,
                                                             token_idx: TokenIdx(
                                                                 705,
@@ -15474,7 +15474,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             714,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 715,
@@ -15486,7 +15486,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             716,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 717,
@@ -16010,7 +16010,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             726,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 727,
@@ -16022,7 +16022,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             728,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `max`,
                                                             token_idx: TokenIdx(
                                                                 729,
@@ -16675,7 +16675,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             754,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 755,
@@ -16687,7 +16687,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             756,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 757,
@@ -17211,7 +17211,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             766,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `xrange`,
                                                             token_idx: TokenIdx(
                                                                 767,
@@ -17223,7 +17223,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             768,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `max`,
                                                             token_idx: TokenIdx(
                                                                 769,
@@ -17747,7 +17747,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             778,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 779,
@@ -17759,7 +17759,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             780,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `min`,
                                                             token_idx: TokenIdx(
                                                                 781,
@@ -18283,7 +18283,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             790,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `yrange`,
                                                             token_idx: TokenIdx(
                                                                 791,
@@ -18295,7 +18295,7 @@ Ok(
                                                         dot_token_idx: TokenIdx(
                                                             792,
                                                         ),
-                                                        ident_token: IdentifierToken {
+                                                        ident_token: IdentToken {
                                                             ident: `max`,
                                                             token_idx: TokenIdx(
                                                                 793,

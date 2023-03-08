@@ -34,7 +34,7 @@ pub struct UseSymbol {
 }
 
 impl ModuleItemSymbol {
-    pub fn ident(&self, db: &dyn EntityTreeDb) -> Identifier {
+    pub fn ident(&self, db: &dyn EntityTreeDb) -> Ident {
         self.path(db).ident(db)
     }
 }
@@ -139,7 +139,7 @@ impl<'a> ModuleSymbolContext<'a> {
         })
     }
 
-    pub fn resolve_ident(&self, _token_idx: TokenIdx, ident: Identifier) -> Option<EntitySymbol> {
+    pub fn resolve_ident(&self, _token_idx: TokenIdx, ident: Ident) -> Option<EntitySymbol> {
         self.module_symbols
             .resolve_ident(ident)
             .or_else(|| self.crate_prelude.resolve_ident(ident))

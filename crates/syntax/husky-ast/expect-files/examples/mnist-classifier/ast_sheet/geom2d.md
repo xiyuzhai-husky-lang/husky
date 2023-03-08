@@ -56,7 +56,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `from_i_shift28`,
                         token_idx: TokenIdx(
                             18,
@@ -84,7 +84,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `vector`,
                         token_idx: TokenIdx(
                             50,
@@ -112,7 +112,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `to`,
                         token_idx: TokenIdx(
                             67,
@@ -140,7 +140,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
                             95,
@@ -168,7 +168,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `dist`,
                         token_idx: TokenIdx(
                             123,
@@ -446,7 +446,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `point`,
                         token_idx: TokenIdx(
                             173,
@@ -472,7 +472,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `to`,
                         token_idx: TokenIdx(
                             191,
@@ -500,7 +500,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
                             219,
@@ -528,7 +528,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `dot`,
                         token_idx: TokenIdx(
                             247,
@@ -556,7 +556,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `cross`,
                         token_idx: TokenIdx(
                             272,
@@ -584,7 +584,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `angle`,
                         token_idx: TokenIdx(
                             297,
@@ -612,7 +612,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `rotation_direction_to`,
                         token_idx: TokenIdx(
                             366,
@@ -640,7 +640,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `angle_to`,
                         token_idx: TokenIdx(
                             386,
@@ -724,7 +724,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_range`,
                         token_idx: TokenIdx(
                             503,
@@ -752,7 +752,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
                             566,
@@ -844,7 +844,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             613,
@@ -872,7 +872,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_point`,
                         token_idx: TokenIdx(
                             648,
@@ -900,7 +900,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
                             683,
@@ -928,7 +928,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
                             695,
@@ -956,7 +956,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
                             707,
@@ -984,7 +984,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
                             719,
@@ -1044,7 +1044,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `xmin`,
                         token_idx: TokenIdx(
                             747,
@@ -1072,7 +1072,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `xmax`,
                         token_idx: TokenIdx(
                             759,
@@ -1100,7 +1100,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ymin`,
                         token_idx: TokenIdx(
                             771,
@@ -1128,7 +1128,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ymax`,
                         token_idx: TokenIdx(
                             783,
@@ -1161,7 +1161,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Point2d`,
                         token_idx: TokenIdx(
                             2,
@@ -1202,7 +1202,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `RelativePoint2d`,
                         token_idx: TokenIdx(
                             144,
@@ -1235,7 +1235,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Vector2d`,
                         token_idx: TokenIdx(
                             157,
@@ -1276,7 +1276,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ClosedRange`,
                         token_idx: TokenIdx(
                             488,
@@ -1317,7 +1317,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BoundingBox`,
                         token_idx: TokenIdx(
                             596,
@@ -1366,7 +1366,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
                             732,

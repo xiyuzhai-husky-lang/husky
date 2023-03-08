@@ -13,7 +13,7 @@ use husky_entity_semantics::*;
 use husky_lazy_semantics::*;
 use husky_term::Term;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
-use husky_word::RootBuiltinIdentifier;
+use husky_word::RootBuiltinIdent;
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};
@@ -88,7 +88,7 @@ pub enum FeatureLazyExprVariant {
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
-        varname: Identifier,
+        varname: Ident,
         value: Arc<FeatureLazyExpr>,
     },
     ThisValue {
@@ -96,25 +96,25 @@ pub enum FeatureLazyExprVariant {
     },
     StructOriginalField {
         this: FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         field_idx: u8,
         field_binding: Binding,
         opt_linkage: Option<__ResolvedLinkage>,
     },
     RecordOriginalField {
         this: FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         repr: FeatureRepr,
     },
     StructDerivedLazyField {
         this: FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         field_uid: EntityUid,
         repr: FeatureRepr,
     },
     RecordDerivedField {
         this: FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         field_uid: EntityUid,
         repr: FeatureRepr,
     },

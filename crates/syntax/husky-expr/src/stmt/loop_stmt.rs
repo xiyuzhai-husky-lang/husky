@@ -4,7 +4,7 @@ use super::*;
 pub struct ForBetweenParticulars {
     pub frame_var_token_idx: TokenIdx,
     pub frame_var_expr_idx: ExprIdx,
-    pub frame_var_ident: Identifier,
+    pub frame_var_ident: Ident,
     pub range: ForBetweenRange,
 }
 

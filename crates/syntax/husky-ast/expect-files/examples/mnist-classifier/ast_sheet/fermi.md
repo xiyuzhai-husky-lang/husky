@@ -114,7 +114,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
                             27,
@@ -142,7 +142,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
                             65,
@@ -170,7 +170,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
                             103,
@@ -258,7 +258,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
                             5,
@@ -299,7 +299,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
                             146,

@@ -18,7 +18,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             13,
@@ -46,7 +46,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
                             16,
@@ -84,7 +84,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
                             7,

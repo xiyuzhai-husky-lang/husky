@@ -1,6 +1,6 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use husky_word::Identifier;
+use husky_word::Ident;
 
 pub const STACK_SIZE: usize = 255;
 
@@ -104,7 +104,7 @@ impl<'eval> VMStack<'eval> {
 
 #[derive(PartialEq, Eq, Clone)]
 pub struct VariableStack {
-    non_this_variables: Vec<Identifier>,
+    non_this_variables: Vec<Ident>,
     has_this: bool,
 }
 
@@ -122,7 +122,7 @@ impl std::fmt::Debug for VariableStack {
 }
 
 impl VariableStack {
-    pub fn new(inputs: impl Iterator<Item = Identifier>, has_this: bool) -> Self {
+    pub fn new(inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             non_this_variables: inputs.map(|ident| ident).collect(),
             has_this,
@@ -137,7 +137,7 @@ impl VariableStack {
         VMStackIdx::new(self.non_this_variables.len())
     }
 
-    pub fn stack_idx(&self, ident0: Identifier) -> VMStackIdx {
+    pub fn stack_idx(&self, ident0: Ident) -> VMStackIdx {
         let idx = self.non_this_variables.len()
             - (1 + self
                 .non_this_variables
@@ -148,11 +148,11 @@ impl VariableStack {
         VMStackIdx::new(if self.has_this { idx + 1 } else { idx })
     }
 
-    pub fn push(&mut self, ident: Identifier) {
+    pub fn push(&mut self, ident: Ident) {
         self.non_this_variables.push(ident)
     }
 
-    pub fn varname(&self, stack_idx: VMStackIdx) -> Identifier {
+    pub fn varname(&self, stack_idx: VMStackIdx) -> Ident {
         self.non_this_variables[stack_idx.raw() as usize]
     }
 

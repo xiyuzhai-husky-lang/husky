@@ -19,7 +19,7 @@ pub enum TokenError {
     #[error("invalid integer suffix")]
     InvalidIntegerSuffix,
     #[error("invalid identifier")]
-    InvalidIdentifier,
+    InvalidIdent,
     #[error("nothing after `'`")]
     NothingAfterSingleQuote,
 }

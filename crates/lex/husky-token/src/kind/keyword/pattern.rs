@@ -20,7 +20,7 @@ impl const From<PatternKeyword> for Keyword {
 // pub enum TokenKind {
 //     Decorator(Decorator),
 //     Keyword(Keyword),
-//     Identifier(Identifier),
+//     Ident(Ident),
 //     Special(SpecialToken),
 //     WordOpr(WordOpr),
 //     Literal(LiteralToken),

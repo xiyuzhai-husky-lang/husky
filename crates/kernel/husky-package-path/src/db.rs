@@ -7,7 +7,7 @@ pub trait VfsDb: DbWithJar<VfsJar> + ToolchainDb + WordDb {
     fn builtin_package_path(
         &self,
         toolchain: Toolchain,
-        ident: Identifier,
+        ident: Ident,
     ) -> PackagePathResult<PackagePath>;
     fn package_path_menu(&self, toolchain: Toolchain) -> &AbsolutePathResult<PackagePathMenu>;
     fn package_path_data(&self, package: PackagePath) -> &PackagePathData;
@@ -21,7 +21,7 @@ where
     fn builtin_package_path(
         &self,
         toolchain: Toolchain,
-        ident: Identifier,
+        ident: Ident,
     ) -> PackagePathResult<PackagePath> {
         let word_menu = self.word_menu();
         let package_path_menu = self.package_path_menu(toolchain).as_ref()?;
@@ -49,7 +49,7 @@ where
 // pub(crate) fn builtin_package_path(
 //     db: &dyn VfsDb,
 //     toolchain: Toolchain,
-//     ident: Identifier,
+//     ident: Ident,
 // ) -> Option<PackagePath> {
 //     let word_menu = db.word_menu();
 //     let word = ident.word();

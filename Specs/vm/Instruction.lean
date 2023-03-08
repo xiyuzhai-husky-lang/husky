@@ -4,7 +4,7 @@ inductive InstructionVariant
     (binding : Binding)
     (range : TextRange)
     (ty : EntityRoutePtr)
-    (varname : Identifier)
+    (varname : Ident)
     (explicit : Bool)  
   | PushLiteralValue 
     (value : __Register)
@@ -26,7 +26,7 @@ inductive InstructionVariant
     (field_ty : EntityRoutePtr)    
   | NewVirtualStruct 
     (ty : EntityRoutePtr)
-    (fields : List Identifier)    
+    (fields : List Ident)    
   | Loop
     (body : InstructionSheet)
     (loop_kind : VMLoopKind)

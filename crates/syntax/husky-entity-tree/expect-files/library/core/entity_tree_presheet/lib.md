@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "basic",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -21,7 +21,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "logic",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -38,7 +38,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "mem",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -55,7 +55,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "num",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -72,7 +72,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "ops",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -89,7 +89,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "prelude",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -106,7 +106,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "raw_bits",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -123,7 +123,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "fmt",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -140,7 +140,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "clone",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -157,7 +157,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "marker",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -174,7 +174,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "list",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -191,7 +191,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "cmp",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -208,7 +208,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "str",
                     ),
                     accessibility: Accessibility::PublicUnder(

@@ -18,7 +18,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             15,
@@ -46,7 +46,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
                             18,
@@ -74,7 +74,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             44,
@@ -102,7 +102,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
                             47,
@@ -130,7 +130,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             73,
@@ -158,7 +158,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitand`,
                         token_idx: TokenIdx(
                             76,
@@ -186,7 +186,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitand_assign`,
                         token_idx: TokenIdx(
                             102,
@@ -214,7 +214,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             127,
@@ -242,7 +242,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitor`,
                         token_idx: TokenIdx(
                             130,
@@ -270,7 +270,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitor_assign`,
                         token_idx: TokenIdx(
                             156,
@@ -298,7 +298,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             181,
@@ -326,7 +326,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitxor`,
                         token_idx: TokenIdx(
                             184,
@@ -354,7 +354,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bitxor_assign`,
                         token_idx: TokenIdx(
                             210,
@@ -382,7 +382,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             235,
@@ -410,7 +410,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `div`,
                         token_idx: TokenIdx(
                             238,
@@ -438,7 +438,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `div_assign`,
                         token_idx: TokenIdx(
                             264,
@@ -466,7 +466,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             289,
@@ -494,7 +494,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `mul`,
                         token_idx: TokenIdx(
                             292,
@@ -522,7 +522,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `mul_assign`,
                         token_idx: TokenIdx(
                             318,
@@ -550,7 +550,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             340,
@@ -578,7 +578,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `neg`,
                         token_idx: TokenIdx(
                             343,
@@ -606,7 +606,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             364,
@@ -634,7 +634,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `not`,
                         token_idx: TokenIdx(
                             367,
@@ -662,7 +662,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Output`,
                         token_idx: TokenIdx(
                             391,
@@ -690,7 +690,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `sub`,
                         token_idx: TokenIdx(
                             394,
@@ -726,7 +726,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
                             9,
@@ -762,7 +762,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `AddAssign`,
                         token_idx: TokenIdx(
                             38,
@@ -798,7 +798,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitAnd`,
                         token_idx: TokenIdx(
                             67,
@@ -834,7 +834,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitAndAssign`,
                         token_idx: TokenIdx(
                             96,
@@ -870,7 +870,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitOr`,
                         token_idx: TokenIdx(
                             121,
@@ -906,7 +906,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitOrAssign`,
                         token_idx: TokenIdx(
                             150,
@@ -942,7 +942,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitXor`,
                         token_idx: TokenIdx(
                             175,
@@ -978,7 +978,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `BitXorAssign`,
                         token_idx: TokenIdx(
                             204,
@@ -1014,7 +1014,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Div`,
                         token_idx: TokenIdx(
                             229,
@@ -1050,7 +1050,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `DivAssign`,
                         token_idx: TokenIdx(
                             258,
@@ -1086,7 +1086,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Mul`,
                         token_idx: TokenIdx(
                             283,
@@ -1122,7 +1122,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `MulAssign`,
                         token_idx: TokenIdx(
                             312,
@@ -1158,7 +1158,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Neg`,
                         token_idx: TokenIdx(
                             337,
@@ -1194,7 +1194,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Not`,
                         token_idx: TokenIdx(
                             361,
@@ -1230,7 +1230,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Sub`,
                         token_idx: TokenIdx(
                             385,

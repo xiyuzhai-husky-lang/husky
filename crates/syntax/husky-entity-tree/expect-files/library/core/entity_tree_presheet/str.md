@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "str",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "StringLiteral",
                     ),
                     accessibility: Accessibility::Public,

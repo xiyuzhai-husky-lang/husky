@@ -7,7 +7,7 @@ use fold::Indent;
 use husky_eager_semantics::{Boundary, EagerExpr, FuncStmt, LoopVariant, ProcStmt};
 use husky_term::Term;
 
-use husky_word::RootBuiltinIdentifier;
+use husky_word::RootBuiltinIdent;
 
 use super::*;
 
@@ -260,43 +260,43 @@ impl<'a> RustCodeGenerator<'a> {
     fn gen_condition(&mut self, indent: Indent, condition: &EagerExpr) {
         match condition.intrinsic_ty() {
             Term::Root(builtin_ident) => match builtin_ident {
-                RootBuiltinIdentifier::Void => todo!(),
-                RootBuiltinIdentifier::I32
-                | RootBuiltinIdentifier::I64
-                | RootBuiltinIdentifier::F32
-                | RootBuiltinIdentifier::F64
-                | RootBuiltinIdentifier::B32
-                | RootBuiltinIdentifier::B64 => {
+                RootBuiltinIdent::Void => todo!(),
+                RootBuiltinIdent::I32
+                | RootBuiltinIdent::I64
+                | RootBuiltinIdent::F32
+                | RootBuiltinIdent::F64
+                | RootBuiltinIdent::B32
+                | RootBuiltinIdent::B64 => {
                     self.gen_expr(indent, condition);
                     self.write(" != 0");
                 }
-                RootBuiltinIdentifier::Bool => self.gen_expr(indent, condition),
-                RootBuiltinIdentifier::True
-                | RootBuiltinIdentifier::False
-                | RootBuiltinIdentifier::Vec
-                | RootBuiltinIdentifier::Tuple
-                | RootBuiltinIdentifier::Debug
-                | RootBuiltinIdentifier::Std
-                | RootBuiltinIdentifier::Core
-                | RootBuiltinIdentifier::Mor
-                | RootBuiltinIdentifier::ThickFp
-                | RootBuiltinIdentifier::Fn
-                | RootBuiltinIdentifier::FnMut
-                | RootBuiltinIdentifier::FnOnce
-                | RootBuiltinIdentifier::Array
-                | RootBuiltinIdentifier::DatasetType
-                | RootBuiltinIdentifier::TypeType
-                | RootBuiltinIdentifier::Trait => panic!(),
-                RootBuiltinIdentifier::Domains => todo!(),
-                RootBuiltinIdentifier::CloneTrait => todo!(),
-                RootBuiltinIdentifier::CopyTrait => todo!(),
-                RootBuiltinIdentifier::PartialEqTrait => todo!(),
-                RootBuiltinIdentifier::EqTrait => todo!(),
-                RootBuiltinIdentifier::Module => todo!(),
-                RootBuiltinIdentifier::Ref => todo!(),
-                RootBuiltinIdentifier::RefMut => todo!(),
-                RootBuiltinIdentifier::Option => todo!(),
-                RootBuiltinIdentifier::VisualType => todo!(),
+                RootBuiltinIdent::Bool => self.gen_expr(indent, condition),
+                RootBuiltinIdent::True
+                | RootBuiltinIdent::False
+                | RootBuiltinIdent::Vec
+                | RootBuiltinIdent::Tuple
+                | RootBuiltinIdent::Debug
+                | RootBuiltinIdent::Std
+                | RootBuiltinIdent::Core
+                | RootBuiltinIdent::Mor
+                | RootBuiltinIdent::ThickFp
+                | RootBuiltinIdent::Fn
+                | RootBuiltinIdent::FnMut
+                | RootBuiltinIdent::FnOnce
+                | RootBuiltinIdent::Array
+                | RootBuiltinIdent::DatasetType
+                | RootBuiltinIdent::TypeType
+                | RootBuiltinIdent::Trait => panic!(),
+                RootBuiltinIdent::Domains => todo!(),
+                RootBuiltinIdent::CloneTrait => todo!(),
+                RootBuiltinIdent::CopyTrait => todo!(),
+                RootBuiltinIdent::PartialEqTrait => todo!(),
+                RootBuiltinIdent::EqTrait => todo!(),
+                RootBuiltinIdent::Module => todo!(),
+                RootBuiltinIdent::Ref => todo!(),
+                RootBuiltinIdent::RefMut => todo!(),
+                RootBuiltinIdent::Option => todo!(),
+                RootBuiltinIdent::VisualType => todo!(),
             },
             Term::Custom(_) => panic!(),
         }

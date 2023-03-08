@@ -63,7 +63,7 @@ Ok(
                                                         current_symbol_idx: 0,
                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
                                                                         4,
@@ -99,8 +99,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
                                                                     10,
@@ -116,7 +116,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 110,
@@ -148,7 +148,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                    ident_token: IdentifierToken {
+                                                                    ident_token: IdentToken {
                                                                         ident: `T`,
                                                                         token_idx: TokenIdx(
                                                                             4,
@@ -196,8 +196,8 @@ Ok(
                                                             annotated_variance_token: None,
                                                             symbol: 0,
                                                             variant: Type0 {
-                                                                ident_token: IdentifierToken {
-                                                                    ident: Identifier(
+                                                                ident_token: IdentToken {
+                                                                    ident: Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 109,
@@ -347,7 +347,7 @@ Ok(
                                                                 current_symbol_idx: 0,
                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                        ident_token: IdentifierToken {
+                                                                        ident_token: IdentToken {
                                                                             ident: `T`,
                                                                             token_idx: TokenIdx(
                                                                                 4,
@@ -383,8 +383,8 @@ Ok(
                                                     pattern_expr_region: PatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
                                                                             10,
@@ -400,7 +400,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 110,
@@ -432,7 +432,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                            ident_token: IdentifierToken {
+                                                                            ident_token: IdentToken {
                                                                                 ident: `T`,
                                                                                 token_idx: TokenIdx(
                                                                                     4,
@@ -493,7 +493,7 @@ Ok(
                                                     dot_token_idx: TokenIdx(
                                                         22,
                                                     ),
-                                                    ident_token: IdentifierToken {
+                                                    ident_token: IdentToken {
                                                         ident: `len`,
                                                         token_idx: TokenIdx(
                                                             23,
@@ -680,8 +680,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `len`,
                                                             token_idx: TokenIdx(
                                                                 19,
@@ -697,7 +697,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 111,
@@ -725,7 +725,7 @@ Ok(
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                             Type {
-                                                                ident: Identifier(
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 109,
@@ -847,7 +847,7 @@ Ok(
                                                         current_symbol_idx: 0,
                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
                                                                         43,
@@ -925,8 +925,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
                                                                     49,
@@ -934,8 +934,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `low`,
                                                                 token_idx: TokenIdx(
                                                                     56,
@@ -943,8 +943,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `high`,
                                                                 token_idx: TokenIdx(
                                                                     60,
@@ -962,7 +962,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 110,
@@ -974,7 +974,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 113,
@@ -986,7 +986,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 114,
@@ -1024,7 +1024,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                    ident_token: IdentifierToken {
+                                                                    ident_token: IdentToken {
                                                                         ident: `T`,
                                                                         token_idx: TokenIdx(
                                                                             43,
@@ -1100,8 +1100,8 @@ Ok(
                                                             annotated_variance_token: None,
                                                             symbol: 0,
                                                             variant: Type0 {
-                                                                ident_token: IdentifierToken {
-                                                                    ident: Identifier(
+                                                                ident_token: IdentToken {
+                                                                    ident: Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 109,
@@ -1286,7 +1286,7 @@ Ok(
                                                                 current_symbol_idx: 0,
                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                        ident_token: IdentifierToken {
+                                                                        ident_token: IdentToken {
                                                                             ident: `T`,
                                                                             token_idx: TokenIdx(
                                                                                 43,
@@ -1364,8 +1364,8 @@ Ok(
                                                     pattern_expr_region: PatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
                                                                             49,
@@ -1373,8 +1373,8 @@ Ok(
                                                                     },
                                                                     liason: None,
                                                                 },
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `low`,
                                                                         token_idx: TokenIdx(
                                                                             56,
@@ -1382,8 +1382,8 @@ Ok(
                                                                     },
                                                                     liason: None,
                                                                 },
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `high`,
                                                                         token_idx: TokenIdx(
                                                                             60,
@@ -1401,7 +1401,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 110,
@@ -1413,7 +1413,7 @@ Ok(
                                                             ],
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 113,
@@ -1425,7 +1425,7 @@ Ok(
                                                             ],
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 114,
@@ -1463,7 +1463,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                            ident_token: IdentifierToken {
+                                                                            ident_token: IdentToken {
                                                                                 ident: `T`,
                                                                                 token_idx: TokenIdx(
                                                                                     43,
@@ -1892,8 +1892,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `p`,
                                                             token_idx: TokenIdx(
                                                                 71,
@@ -1909,7 +1909,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 115,
@@ -1937,7 +1937,7 @@ Ok(
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                             Type {
-                                                                ident: Identifier(
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 109,
@@ -2075,7 +2075,7 @@ Ok(
                                                         current_symbol_idx: 0,
                                                         current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                             implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `T`,
                                                                     token_idx: TokenIdx(
                                                                         104,
@@ -2174,8 +2174,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
                                                                     110,
@@ -2183,8 +2183,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `low`,
                                                                 token_idx: TokenIdx(
                                                                     117,
@@ -2192,8 +2192,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `high`,
                                                                 token_idx: TokenIdx(
                                                                     121,
@@ -2211,7 +2211,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 110,
@@ -2223,7 +2223,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 113,
@@ -2235,7 +2235,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 114,
@@ -2273,7 +2273,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                    ident_token: IdentifierToken {
+                                                                    ident_token: IdentToken {
                                                                         ident: `T`,
                                                                         token_idx: TokenIdx(
                                                                             104,
@@ -2354,8 +2354,8 @@ Ok(
                                                             annotated_variance_token: None,
                                                             symbol: 0,
                                                             variant: Type0 {
-                                                                ident_token: IdentifierToken {
-                                                                    ident: Identifier(
+                                                                ident_token: IdentToken {
+                                                                    ident: Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 109,
@@ -2534,7 +2534,7 @@ Ok(
                                                                 current_symbol_idx: 0,
                                                                 current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
                                                                     implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
-                                                                        ident_token: IdentifierToken {
+                                                                        ident_token: IdentToken {
                                                                             ident: `T`,
                                                                             token_idx: TokenIdx(
                                                                                 104,
@@ -2633,8 +2633,8 @@ Ok(
                                                     pattern_expr_region: PatternExprRegion {
                                                         pattern_expr_arena: Arena {
                                                             data: [
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
                                                                             110,
@@ -2642,8 +2642,8 @@ Ok(
                                                                     },
                                                                     liason: None,
                                                                 },
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `low`,
                                                                         token_idx: TokenIdx(
                                                                             117,
@@ -2651,8 +2651,8 @@ Ok(
                                                                     },
                                                                     liason: None,
                                                                 },
-                                                                PatternExpr::Identifier {
-                                                                    ident_token: IdentifierToken {
+                                                                PatternExpr::Ident {
+                                                                    ident_token: IdentToken {
                                                                         ident: `high`,
                                                                         token_idx: TokenIdx(
                                                                             121,
@@ -2670,7 +2670,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 110,
@@ -2682,7 +2682,7 @@ Ok(
                                                             ],
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 113,
@@ -2694,7 +2694,7 @@ Ok(
                                                             ],
                                                             [
                                                                 (
-                                                                    Identifier(
+                                                                    Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 114,
@@ -2732,7 +2732,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                            ident_token: IdentifierToken {
+                                                                            ident_token: IdentToken {
                                                                                 ident: `T`,
                                                                                 token_idx: TokenIdx(
                                                                                     104,
@@ -3307,7 +3307,7 @@ Ok(
                                                     dot_token_idx: TokenIdx(
                                                         200,
                                                     ),
-                                                    ident_token: IdentifierToken {
+                                                    ident_token: IdentToken {
                                                         ident: `swap`,
                                                         token_idx: TokenIdx(
                                                             201,
@@ -3395,7 +3395,7 @@ Ok(
                                                     dot_token_idx: TokenIdx(
                                                         212,
                                                     ),
-                                                    ident_token: IdentifierToken {
+                                                    ident_token: IdentToken {
                                                         ident: `swap`,
                                                         token_idx: TokenIdx(
                                                             213,
@@ -3744,8 +3744,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `pivot`,
                                                             token_idx: TokenIdx(
                                                                 129,
@@ -3753,8 +3753,8 @@ Ok(
                                                         },
                                                         liason: None,
                                                     },
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `store_index`,
                                                             token_idx: TokenIdx(
                                                                 136,
@@ -3762,8 +3762,8 @@ Ok(
                                                         },
                                                         liason: None,
                                                     },
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `last_index`,
                                                             token_idx: TokenIdx(
                                                                 143,
@@ -3781,7 +3781,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 117,
@@ -3793,7 +3793,7 @@ Ok(
                                                 ],
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 118,
@@ -3805,7 +3805,7 @@ Ok(
                                                 ],
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 119,
@@ -3839,7 +3839,7 @@ Ok(
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
                                                             Type {
-                                                                ident: Identifier(
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 109,
@@ -4309,8 +4309,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `v`,
                                                             token_idx: TokenIdx(
                                                                 231,
@@ -4326,7 +4326,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 123,
@@ -4697,8 +4697,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `strs`,
                                                             token_idx: TokenIdx(
                                                                 291,
@@ -4714,7 +4714,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 125,

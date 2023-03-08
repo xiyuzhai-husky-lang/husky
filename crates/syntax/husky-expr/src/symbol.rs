@@ -31,7 +31,7 @@ impl InheritedSymbol {
         self.parent_symbol_idx
     }
 
-    pub fn ident(&self) -> Option<Identifier> {
+    pub fn ident(&self) -> Option<Ident> {
         match self.kind {
             InheritedSymbolKind::ImplicitParameter(kind) => match kind {
                 InheritedImplicitParameterSymbol::Lifetime { label } => None,
@@ -46,13 +46,13 @@ impl InheritedSymbol {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedSymbolKind {
     ImplicitParameter(InheritedImplicitParameterSymbol),
-    RegularParameter { ident: Identifier },
+    RegularParameter { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum InheritedImplicitParameterSymbol {
     Lifetime { label: Label },
-    Type { ident: Identifier },
+    Type { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -85,7 +85,7 @@ impl CurrentSymbol {
         &self.variant
     }
 
-    pub fn ident(&self) -> Option<Identifier> {
+    pub fn ident(&self) -> Option<Ident> {
         match self.variant {
             CurrentSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type { ident_token },
@@ -122,7 +122,7 @@ pub enum CurrentSymbolKind {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentImplicitParameterSymbolKind {
-    Type { ident_token: IdentifierToken },
+    Type { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
 }
 
@@ -133,15 +133,15 @@ pub enum CurrentSymbolVariant {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
     },
     RegularParameter {
-        ident: Identifier,
+        ident: Ident,
         pattern_symbol_idx: PatternSymbolIdx,
     },
     LetVariable {
-        ident: Identifier,
+        ident: Ident,
         pattern_symbol_idx: PatternSymbolIdx,
     },
     FrameVariable {
-        ident: Identifier,
+        ident: Ident,
         expr_idx: ExprIdx,
     },
 }
@@ -151,7 +151,7 @@ pub enum CurrentSymbolVariant {
 #[non_exhaustive]
 pub enum CurrentImplicitParameterSymbol {
     Lifetime { label_token: LifetimeLabelToken },
-    Type { ident_token: IdentifierToken },
+    Type { ident_token: IdentToken },
 }
 
 impl CurrentImplicitParameterSymbol {

@@ -50,7 +50,7 @@ Ok(
                                             data: [
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
+                                                        OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 77,
                                                             ),
@@ -149,7 +149,7 @@ Ok(
                                             data: [
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
+                                                        OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 90,
                                                             ),
@@ -248,7 +248,7 @@ Ok(
                                             data: [
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdentifier {
+                                                        OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
                                                                 104,
                                                             ),
@@ -401,8 +401,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
                                                                 275,
@@ -418,7 +418,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 225,
@@ -629,8 +629,8 @@ Ok(
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
                                                 data: [
-                                                    PatternExpr::Identifier {
-                                                        ident_token: IdentifierToken {
+                                                    PatternExpr::Ident {
+                                                        ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
                                                                 304,
@@ -646,7 +646,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Identifier(
+                                                        Ident(
                                                             Word(
                                                                 Id {
                                                                     value: 225,

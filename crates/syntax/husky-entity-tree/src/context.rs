@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_word::Identifier;
+use husky_word::Ident;
 use vec_like::VecMap;
 
 pub(crate) struct EntityTreeSymbolContext<'a> {
@@ -31,7 +31,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
         }
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
+    pub(crate) fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
         self.current_sheet
             .module_specific_symbols()
             .resolve_ident(ident)
@@ -45,7 +45,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
     pub(crate) fn resolve_subentity(
         &self,
         parent: EntityPath,
-        ident: Identifier,
+        ident: Ident,
     ) -> Option<EntitySymbol> {
         let query_crate_path = parent.crate_path(self.db);
         if query_crate_path == self.crate_path {

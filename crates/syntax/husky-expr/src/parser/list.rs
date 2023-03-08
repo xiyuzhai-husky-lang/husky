@@ -21,12 +21,12 @@ pub(super) enum UnfinishedListOpr {
     MethodInstantiation {
         self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
     },
     MethodCall {
         self_expr: ExprIdx,
         dot_token_idx: TokenIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         implicit_arguments: Option<ImplicitArgumentList>,
     },
 }
@@ -35,7 +35,7 @@ pub(super) enum UnfinishedListOpr {
 pub(super) enum ListStartAttr {
     None,
     Attach,
-    MethodAttach { ranged_ident: RangedIdentifier },
+    MethodAttach { ranged_ident: RangedIdent },
 }
 
 impl ListStartAttr {

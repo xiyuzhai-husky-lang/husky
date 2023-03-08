@@ -9,8 +9,8 @@ Ok(
                     Type,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 38,
@@ -28,7 +28,7 @@ Ok(
             ),
             Label(
                 Label {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 39,
@@ -46,8 +46,8 @@ Ok(
                     Covariant,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 26,
@@ -69,8 +69,8 @@ Ok(
                     Type,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 40,
@@ -88,7 +88,7 @@ Ok(
             ),
             Label(
                 Label {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 39,
@@ -106,8 +106,8 @@ Ok(
                     Invariant,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 26,
@@ -129,8 +129,8 @@ Ok(
                     Type,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 41,
@@ -146,8 +146,8 @@ Ok(
                     Covariant,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 26,

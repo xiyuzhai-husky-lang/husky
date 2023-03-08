@@ -213,7 +213,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `upper_mouth_match`,
                         token_idx: TokenIdx(
                             79,
@@ -248,7 +248,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_eight`,
                         token_idx: TokenIdx(
                             92,
@@ -283,7 +283,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
                             155,

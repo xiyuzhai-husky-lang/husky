@@ -3,7 +3,7 @@ mod impl_ty_linkage_entries;
 
 use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
 
-use husky_word::RootBuiltinIdentifier;
+use husky_word::RootBuiltinIdent;
 
 use super::*;
 
@@ -240,11 +240,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         // ad hoc
         let mutability = match ty.variant {
             EntityRouteVariant::Root { ident } => match ident {
-                RootBuiltinIdentifier::B32 => todo!(),
-                RootBuiltinIdentifier::B64 => todo!(),
-                RootBuiltinIdentifier::Vec => "mutable",
-                RootBuiltinIdentifier::Tuple => todo!(),
-                RootBuiltinIdentifier::Array => "mutable",
+                RootBuiltinIdent::B32 => todo!(),
+                RootBuiltinIdent::B64 => todo!(),
+                RootBuiltinIdent::Vec => "mutable",
+                RootBuiltinIdent::Tuple => todo!(),
+                RootBuiltinIdent::Array => "mutable",
                 _ => panic!(),
             },
             _ => {
@@ -346,14 +346,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //     };
     //     match parameter_ty.intrinsic() {
     //         EntityRoutePtr::Root(root_identifier) => match root_identifier {
-    //             RootBuiltinIdentifier::Void
-    //             | RootBuiltinIdentifier::I32
-    //             | RootBuiltinIdentifier::I64
-    //             | RootBuiltinIdentifier::F32
-    //             | RootBuiltinIdentifier::F64
-    //             | RootBuiltinIdentifier::B32
-    //             | RootBuiltinIdentifier::B64
-    //             | RootBuiltinIdentifier::Bool => self.write(&format!(
+    //             RootBuiltinIdent::Void
+    //             | RootBuiltinIdent::I32
+    //             | RootBuiltinIdent::I64
+    //             | RootBuiltinIdent::F32
+    //             | RootBuiltinIdent::F64
+    //             | RootBuiltinIdent::B32
+    //             | RootBuiltinIdent::B64
+    //             | RootBuiltinIdent::Bool => self.write(&format!(
     //                 " = __arguments[{i}].downcast_{maybe_opt}{root_identifier}();"
     //             )),
     //             _ => unreachable!(),

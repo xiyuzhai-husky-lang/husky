@@ -4,7 +4,7 @@ mod query;
 use husky_print_utils::ps;
 use husky_term::Term;
 use husky_text::ModuleRange;
-use husky_word::Identifier;
+use husky_word::Ident;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
 
@@ -17,7 +17,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Identifier, ModuleRange, Term)>,
+    variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, Term)>,
     vm_config: &'a VMConfig,
 }
 
@@ -91,7 +91,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         }
     }
 
-    fn push_new_virtual_struct(&mut self, ty: Term, fields: &[Identifier]) {
+    fn push_new_virtual_struct(&mut self, ty: Term, fields: &[Ident]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value =
             unsafe { DeprecatedVirtualStruct::new_struct(ty, parameters, fields).__to_register() };
@@ -110,7 +110,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     fn record_mutation(
         &mut self,
         stack_idx: VMStackIdx,
-        varname: Identifier,
+        varname: Ident,
         range: ModuleRange,
         ty: Term,
     ) {

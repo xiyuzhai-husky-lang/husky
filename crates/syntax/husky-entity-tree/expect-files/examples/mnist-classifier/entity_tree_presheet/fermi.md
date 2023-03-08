@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "FermiMatchResult",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -23,7 +23,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "fermi_match",
                     ),
                     accessibility: Accessibility::Public,

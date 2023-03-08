@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "i8",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "i16",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "i32",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "i64",
                     ),
                     accessibility: Accessibility::Public,
@@ -64,7 +64,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "i128",
                     ),
                     accessibility: Accessibility::Public,
@@ -79,7 +79,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "isize",
                     ),
                     accessibility: Accessibility::Public,
@@ -94,7 +94,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "u8",
                     ),
                     accessibility: Accessibility::Public,
@@ -109,7 +109,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "u16",
                     ),
                     accessibility: Accessibility::Public,
@@ -124,7 +124,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "u32",
                     ),
                     accessibility: Accessibility::Public,
@@ -139,7 +139,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "u64",
                     ),
                     accessibility: Accessibility::Public,
@@ -154,7 +154,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "u128",
                     ),
                     accessibility: Accessibility::Public,
@@ -169,7 +169,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "usize",
                     ),
                     accessibility: Accessibility::Public,
@@ -184,7 +184,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "f32",
                     ),
                     accessibility: Accessibility::Public,
@@ -199,7 +199,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "f64",
                     ),
                     accessibility: Accessibility::Public,
@@ -226,9 +226,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 14,
@@ -255,8 +255,8 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 43,
@@ -269,9 +269,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 10,
@@ -297,9 +297,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 14,

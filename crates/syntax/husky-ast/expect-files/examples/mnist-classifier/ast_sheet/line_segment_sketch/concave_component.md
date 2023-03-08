@@ -329,7 +329,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
                             53,
@@ -357,7 +357,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
                             61,
@@ -385,7 +385,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `hausdorff_norm`,
                         token_idx: TokenIdx(
                             79,
@@ -413,7 +413,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `angle_change`,
                         token_idx: TokenIdx(
                             166,
@@ -441,7 +441,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
                             237,
@@ -469,7 +469,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             366,
@@ -497,7 +497,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `line_segment`,
                         token_idx: TokenIdx(
                             383,
@@ -525,7 +525,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `start`,
                         token_idx: TokenIdx(
                             420,
@@ -553,7 +553,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `end`,
                         token_idx: TokenIdx(
                             440,
@@ -581,7 +581,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
                             460,
@@ -609,7 +609,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `start_tangent`,
                         token_idx: TokenIdx(
                             476,
@@ -637,7 +637,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `end_tangent`,
                         token_idx: TokenIdx(
                             494,
@@ -654,7 +654,7 @@ Ok(
                         57,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 512,
                             ),
@@ -842,7 +842,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
                             34,
@@ -883,7 +883,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `find_concave_components`,
                         token_idx: TokenIdx(
                             516,

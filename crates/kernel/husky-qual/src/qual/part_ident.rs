@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum PartIdent {
-    Field(Identifier),
+    Field(Ident),
     TupleIndex(u8),
     ListIndex(u8),
 }

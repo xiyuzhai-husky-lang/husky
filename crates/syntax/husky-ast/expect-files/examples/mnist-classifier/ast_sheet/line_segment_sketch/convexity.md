@@ -191,7 +191,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_convex`,
                         token_idx: TokenIdx(
                             20,

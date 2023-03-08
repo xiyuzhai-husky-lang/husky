@@ -124,8 +124,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 212,
@@ -144,8 +144,8 @@ Ok(
                                             ty: 0,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 213,
@@ -315,8 +315,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 212,
@@ -335,8 +335,8 @@ Ok(
                                             ty: 0,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 213,
@@ -506,8 +506,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 212,
@@ -526,8 +526,8 @@ Ok(
                                             ty: 0,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 213,
@@ -697,8 +697,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 237,
@@ -717,8 +717,8 @@ Ok(
                                             ty: 0,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 197,
@@ -976,8 +976,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 323,
@@ -996,8 +996,8 @@ Ok(
                                             ty: 0,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 324,
@@ -1413,8 +1413,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `i`,
                                                                 token_idx: TokenIdx(
                                                                     20,
@@ -1422,8 +1422,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `shift`,
                                                                 token_idx: TokenIdx(
                                                                     24,
@@ -1440,7 +1440,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 191,
@@ -1452,7 +1452,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 219,
@@ -2099,8 +2099,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     69,
@@ -2116,7 +2116,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -2728,8 +2728,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     125,
@@ -2745,7 +2745,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -3482,8 +3482,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     193,
@@ -3499,7 +3499,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -4111,8 +4111,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     249,
@@ -4128,7 +4128,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -4465,8 +4465,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     274,
@@ -4482,7 +4482,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -4819,8 +4819,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `is_branch_cut_positive`,
                                                                 token_idx: TokenIdx(
                                                                     299,
@@ -4836,7 +4836,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 309,
@@ -5173,8 +5173,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     368,
@@ -5190,7 +5190,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -5548,8 +5548,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     388,
@@ -5557,8 +5557,8 @@ Ok(
                                                             },
                                                             liason: None,
                                                         },
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `is_branch_cut_positive`,
                                                                 token_idx: TokenIdx(
                                                                     392,
@@ -5575,7 +5575,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -5587,7 +5587,7 @@ Ok(
                                                     ],
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 309,
@@ -6136,8 +6136,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `other`,
                                                                 token_idx: TokenIdx(
                                                                     615,
@@ -6153,7 +6153,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 45,
@@ -6490,8 +6490,8 @@ Ok(
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Identifier {
-                                                            ident_token: IdentifierToken {
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
                                                                 ident: `point`,
                                                                 token_idx: TokenIdx(
                                                                     650,
@@ -6507,7 +6507,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Identifier(
+                                                            Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 236,

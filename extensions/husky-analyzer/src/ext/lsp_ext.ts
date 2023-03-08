@@ -5,229 +5,196 @@
 import * as lc from "vscode-languageclient";
 
 export interface AnalyzerStatusParams {
-    textDocument?: lc.TextDocumentIdentifier;
+  textDocument?: lc.TextDocumentIdentifier;
 }
-export const analyzerStatus = new lc.RequestType<
-    AnalyzerStatusParams,
-    string,
-    void
->("husky-analyzer-server/analyzerStatus");
-export const memoryUsage = new lc.RequestType0<string, void>(
-    "husky-analyzer-server/memoryUsage"
+export const analyzerStatus = new lc.RequestType<AnalyzerStatusParams, string, void>(
+  "husky-analyzer-server/analyzerStatus"
 );
+export const memoryUsage = new lc.RequestType0<string, void>("husky-analyzer-server/memoryUsage");
 
 export interface ServerStatusParams {
-    health: "ok" | "warning" | "error";
-    quiescent: boolean;
-    message?: string;
+  health: "ok" | "warning" | "error";
+  quiescent: boolean;
+  message?: string;
 }
 export const serverStatus = new lc.NotificationType<ServerStatusParams>(
-    "experimental/serverStatus"
+  "experimental/serverStatus"
 );
 
 export const reloadWorkspace = new lc.RequestType0<null, void>(
-    "husky-analyzer-server/reloadWorkspace"
+  "husky-analyzer-server/reloadWorkspace"
 );
 
-export const hover = new lc.RequestType<HoverParams, lc.Hover | null, void>(
-    "textDocument/hover"
-);
+export const hover = new lc.RequestType<HoverParams, lc.Hover | null, void>("textDocument/hover");
 
 export interface HoverParams extends lc.WorkDoneProgressParams {
-    textDocument: lc.TextDocumentIdentifier;
-    position: lc.Range | lc.Position;
+  textDocument: lc.TextDocumentIdentifier;
+  position: lc.Range | lc.Position;
 }
 
 export interface SyntaxTreeParams {
-    textDocument: lc.TextDocumentIdentifier;
-    range: lc.Range | null;
+  textDocument: lc.TextDocumentIdentifier;
+  range: lc.Range | null;
 }
 export const syntaxTree = new lc.RequestType<SyntaxTreeParams, string, void>(
-    "husky-analyzer-server/syntaxTree"
+  "husky-analyzer-server/syntaxTree"
 );
 
-export const viewHir = new lc.RequestType<
-    lc.TextDocumentPositionParams,
-    string,
-    void
->("husky-analyzer-server/viewHir");
+export const viewHir = new lc.RequestType<lc.TextDocumentPositionParams, string, void>(
+  "husky-analyzer-server/viewHir"
+);
 
 export interface ViewItemTreeParams {
-    textDocument: lc.TextDocumentIdentifier;
+  textDocument: lc.TextDocumentIdentifier;
 }
 
-export const viewItemTree = new lc.RequestType<
-    ViewItemTreeParams,
-    string,
-    void
->("husky-analyzer-server/viewItemTree");
+export const viewItemTree = new lc.RequestType<ViewItemTreeParams, string, void>(
+  "husky-analyzer-server/viewItemTree"
+);
 
 export interface ViewCrateGraphParams {
-    full: boolean;
+  full: boolean;
 }
 
-export const viewCrateGraph = new lc.RequestType<
-    ViewCrateGraphParams,
-    string,
-    void
->("husky-analyzer-server/viewCrateGraph");
+export const viewCrateGraph = new lc.RequestType<ViewCrateGraphParams, string, void>(
+  "husky-analyzer-server/viewCrateGraph"
+);
 
 export interface ExpandMacroParams {
-    textDocument: lc.TextDocumentIdentifier;
-    position: lc.Position;
+  textDocument: lc.TextDocumentIdentifier;
+  position: lc.Position;
 }
 export interface ExpandedMacro {
-    name: string;
-    expansion: string;
+  name: string;
+  expansion: string;
 }
-export const expandMacro = new lc.RequestType<
-    ExpandMacroParams,
-    ExpandedMacro | null,
-    void
->("husky-analyzer-server/expandMacro");
+export const expandMacro = new lc.RequestType<ExpandMacroParams, ExpandedMacro | null, void>(
+  "husky-analyzer-server/expandMacro"
+);
 
 export interface MatchingBraceParams {
-    textDocument: lc.TextDocumentIdentifier;
-    positions: lc.Position[];
+  textDocument: lc.TextDocumentIdentifier;
+  positions: lc.Position[];
 }
-export const matchingBrace = new lc.RequestType<
-    MatchingBraceParams,
-    lc.Position[],
-    void
->("experimental/matchingBrace");
+export const matchingBrace = new lc.RequestType<MatchingBraceParams, lc.Position[], void>(
+  "experimental/matchingBrace"
+);
 
 export const parentModule = new lc.RequestType<
-    lc.TextDocumentPositionParams,
-    lc.LocationLink[] | null,
-    void
+  lc.TextDocumentPositionParams,
+  lc.LocationLink[] | null,
+  void
 >("experimental/parentModule");
 
 export interface JoinLinesParams {
-    textDocument: lc.TextDocumentIdentifier;
-    ranges: lc.Range[];
+  textDocument: lc.TextDocumentIdentifier;
+  ranges: lc.Range[];
 }
-export const joinLines = new lc.RequestType<
-    JoinLinesParams,
-    lc.TextEdit[],
-    void
->("experimental/joinLines");
+export const joinLines = new lc.RequestType<JoinLinesParams, lc.TextEdit[], void>(
+  "experimental/joinLines"
+);
 
-export const onEnter = new lc.RequestType<
-    lc.TextDocumentPositionParams,
-    lc.TextEdit[],
-    void
->("experimental/onEnter");
+export const onEnter = new lc.RequestType<lc.TextDocumentPositionParams, lc.TextEdit[], void>(
+  "experimental/onEnter"
+);
 
 export interface RunnablesParams {
-    textDocument: lc.TextDocumentIdentifier;
-    position: lc.Position | null;
+  textDocument: lc.TextDocumentIdentifier;
+  position: lc.Position | null;
 }
 
 export interface Runnable {
-    label: string;
-    location?: lc.LocationLink;
-    kind: "cargo";
-    args: {
-        workspaceRoot?: string;
-        cargoArgs: string[];
-        cargoExtraArgs: string[];
-        executableArgs: string[];
-        expectTest?: boolean;
-        overrideCargo?: string;
-    };
+  label: string;
+  location?: lc.LocationLink;
+  kind: "cargo";
+  args: {
+    workspaceRoot?: string;
+    cargoArgs: string[];
+    cargoExtraArgs: string[];
+    executableArgs: string[];
+    expectTest?: boolean;
+    overrideCargo?: string;
+  };
 }
 export const runnables = new lc.RequestType<RunnablesParams, Runnable[], void>(
-    "experimental/runnables"
+  "experimental/runnables"
 );
 
 export interface TestInfo {
-    runnable: Runnable;
+  runnable: Runnable;
 }
 
-export const relatedTests = new lc.RequestType<
-    lc.TextDocumentPositionParams,
-    TestInfo[],
-    void
->("husky-analyzer-server/relatedTests");
-
-export type InlayHint =
-    | InlayHint.TypeHint
-    | InlayHint.ParamHint
-    | InlayHint.ChainingHint;
-
-export namespace InlayHint {
-    export const enum Kind {
-        TypeHint = "TypeHint",
-        ParamHint = "ParameterHint",
-        ChainingHint = "ChainingHint",
-    }
-    interface Common {
-        range: lc.Range;
-        label: string;
-    }
-    export type TypeHint = Common & { kind: Kind.TypeHint };
-    export type ParamHint = Common & { kind: Kind.ParamHint };
-    export type ChainingHint = Common & { kind: Kind.ChainingHint };
-}
-export interface InlayHintsParams {
-    textDocument: lc.TextDocumentIdentifier;
-}
-export const inlayHints = new lc.RequestType<
-    InlayHintsParams,
-    InlayHint[],
-    void
->("husky-analyzer-server/inlayHints");
-
-export interface SsrParams {
-    query: string;
-    parseOnly: boolean;
-    textDocument: lc.TextDocumentIdentifier;
-    position: lc.Position;
-    selections: lc.Range[];
-}
-export const ssr = new lc.RequestType<SsrParams, lc.WorkspaceEdit, void>(
-    "experimental/ssr"
+export const relatedTests = new lc.RequestType<lc.TextDocumentPositionParams, TestInfo[], void>(
+  "husky-analyzer-server/relatedTests"
 );
 
+export type InlayHint = InlayHint.TypeHint | InlayHint.ParamHint | InlayHint.ChainingHint;
+
+export namespace InlayHint {
+  export const enum Kind {
+    TypeHint = "TypeHint",
+    ParamHint = "ParameterHint",
+    ChainingHint = "ChainingHint",
+  }
+  interface Common {
+    range: lc.Range;
+    label: string;
+  }
+  export type TypeHint = Common & { kind: Kind.TypeHint };
+  export type ParamHint = Common & { kind: Kind.ParamHint };
+  export type ChainingHint = Common & { kind: Kind.ChainingHint };
+}
+export interface InlayHintsParams {
+  textDocument: lc.TextDocumentIdentifier;
+}
+export const inlayHints = new lc.RequestType<InlayHintsParams, InlayHint[], void>(
+  "husky-analyzer-server/inlayHints"
+);
+
+export interface SsrParams {
+  query: string;
+  parseOnly: boolean;
+  textDocument: lc.TextDocumentIdentifier;
+  position: lc.Position;
+  selections: lc.Range[];
+}
+export const ssr = new lc.RequestType<SsrParams, lc.WorkspaceEdit, void>("experimental/ssr");
+
 export interface CommandLink extends lc.Command {
-    /**
-     * A tooltip for the command, when represented in the UI.
-     */
-    tooltip?: string;
+  /**
+   * A tooltip for the command, when represented in the UI.
+   */
+  tooltip?: string;
 }
 
 export interface CommandLinkGroup {
-    title?: string;
-    commands: CommandLink[];
+  title?: string;
+  commands: CommandLink[];
 }
 
-export const openDocs = new lc.RequestType<
-    lc.TextDocumentPositionParams,
-    string | void,
-    void
->("experimental/externalDocs");
+export const openDocs = new lc.RequestType<lc.TextDocumentPositionParams, string | void, void>(
+  "experimental/externalDocs"
+);
 
-export const openCargoToml = new lc.RequestType<
-    OpenCargoTomlParams,
-    lc.Location,
-    void
->("experimental/openCargoToml");
+export const openCargoToml = new lc.RequestType<OpenCargoTomlParams, lc.Location, void>(
+  "experimental/openCargoToml"
+);
 
 export interface OpenCargoTomlParams {
-    textDocument: lc.TextDocumentIdentifier;
+  textDocument: lc.TextDocumentIdentifier;
 }
 
 export const moveItem = new lc.RequestType<MoveItemParams, lc.TextEdit[], void>(
-    "experimental/moveItem"
+  "experimental/moveItem"
 );
 
 export interface MoveItemParams {
-    textDocument: lc.TextDocumentIdentifier;
-    range: lc.Range;
-    direction: Direction;
+  textDocument: lc.TextDocumentIdentifier;
+  range: lc.Range;
+  direction: Direction;
 }
 
 export const enum Direction {
-    Up = "Up",
-    Down = "Down",
+  Up = "Up",
+  Down = "Down",
 }

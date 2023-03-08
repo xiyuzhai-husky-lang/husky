@@ -20,7 +20,7 @@ From Vellvm Require Import
 
 Module VIR_Notations.
 
-  (** * Identifiers *)
+  (** * Idents *)
   Notation "'%' x" := (ID_Local x)  (only printing, at level 5, format "'%' x").
   Notation "'@' x" := (ID_Global x) (only printing, at level 5, format "'@' x").
   Coercion Name : string >-> raw_id.

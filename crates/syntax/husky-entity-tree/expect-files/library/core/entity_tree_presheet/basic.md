@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "bool",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "never",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "unit",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Trait",
                     ),
                     accessibility: Accessibility::Public,
@@ -64,7 +64,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Module",
                     ),
                     accessibility: Accessibility::Public,

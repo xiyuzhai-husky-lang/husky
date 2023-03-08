@@ -13,7 +13,7 @@ pub enum EntityTreeError {
     #[error("todo")]
     TODO,
     #[error("expect identifier after keyword")]
-    ExpectIdentifierAfterKeyword,
+    ExpectIdentAfterKeyword,
     // derived
     #[error("derived {0}")]
     Vfs(#[from] VfsError),
@@ -34,7 +34,7 @@ pub enum EntityTreeError {
     #[error("from bundle {0}")]
     CrateBundle(#[from] EntityTreeBundleError),
     #[error("unresolved identifier")]
-    UnresolvedIdentifier(husky_token::IdentifierToken),
+    UnresolvedIdent(husky_token::IdentToken),
     #[error("SymbolNotAccessible")]
     SymbolNotAccessible,
 }

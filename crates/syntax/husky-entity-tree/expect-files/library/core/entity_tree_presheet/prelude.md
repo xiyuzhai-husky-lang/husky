@@ -168,9 +168,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 1,
@@ -224,9 +224,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 9,
@@ -280,9 +280,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 12,
@@ -336,9 +336,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 4,
@@ -392,9 +392,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 7,
@@ -448,9 +448,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 2,
@@ -504,9 +504,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 3,

@@ -11,7 +11,7 @@ pub struct AssociatedItem {
     pub path: Option<AssociatedItemPath>,
     pub im: Impl,
     pub ast_idx: AstIdx,
-    pub ident: Identifier,
+    pub ident: Ident,
     pub associated_item_kind: AssociatedItemKind,
     pub accessibility: Accessibility,
     pub is_generic: bool,
@@ -21,7 +21,7 @@ pub struct AssociatedItem {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct AssociatedItemId {
     impl_id: ImplId,
-    ident: Identifier,
+    ident: Ident,
 }
 
 impl AssociatedItemId {
@@ -35,7 +35,7 @@ impl AssociatedItem {
         db: &dyn EntityTreeDb,
         im: Impl,
         ast_idx: AstIdx,
-        ident: Identifier,
+        ident: Ident,
         associated_item_kind: AssociatedItemKind,
         accessibility: Accessibility,
         is_generic: bool,

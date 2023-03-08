@@ -191,7 +191,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         InstructionVariant::PushLiteralValue {
         //             value: 0i32.to_register(),
         //             explicit: false,
-        //             ty: RootBuiltinIdentifier::I32.into(),
+        //             ty: RootBuiltinIdent::I32.into(),
         //         },
         //         loop_stmt.clone(),
         //     ))

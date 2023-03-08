@@ -72,7 +72,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Some(parent) => match rule.variant() {
                         UseExprRuleVariant::Leaf { ident_token }
                         | UseExprRuleVariant::Parent {
-                            parent_name_token: ParentNameToken::Identifier(ident_token),
+                            parent_name_token: ParentNameToken::Ident(ident_token),
                             ..
                         } => ctx
                             .resolve_subentity(parent, ident_token.ident())
@@ -100,7 +100,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     None => match rule.variant() {
                         UseExprRuleVariant::Leaf { ident_token }
                         | UseExprRuleVariant::Parent {
-                            parent_name_token: ParentNameToken::Identifier(ident_token),
+                            parent_name_token: ParentNameToken::Ident(ident_token),
                             ..
                         } => ctx.resolve_ident(ident_token.ident()).ok_or(*ident_token),
                         UseExprRuleVariant::Parent {
@@ -128,7 +128,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                     Err(ident_token) => PresheetAction::Err {
                         module_path: self.module_path,
                         rule_idx,
-                        error: EntityTreeError::UnresolvedIdentifier(ident_token),
+                        error: EntityTreeError::UnresolvedIdent(ident_token),
                     },
                 })
                 // let ident_token = rule.parent_name_token();

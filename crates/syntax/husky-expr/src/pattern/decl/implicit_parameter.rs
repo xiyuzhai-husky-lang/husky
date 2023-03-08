@@ -24,8 +24,8 @@ impl ImplicitParameterDeclPattern {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitParameterDeclPatternVariant {
-    Type0 { ident_token: IdentifierToken },
-    Constant { ident_token: IdentifierToken },
+    Type0 { ident_token: IdentToken },
+    Constant { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
     Binding { label_token: BindingLabelToken },
 }
@@ -37,7 +37,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPatter
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let annotated_variance_token = ctx.try_parse();
-        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+        if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             let access_start = ctx.state();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(

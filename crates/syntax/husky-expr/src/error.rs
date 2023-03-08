@@ -35,7 +35,7 @@ pub enum OriginalExprError {
     #[error("expect `}}`")]
     ExpectRightCurlyBrace(TokenIdx),
     #[error("expect identifier")]
-    ExpectIdentifier(TokenIdx),
+    ExpectIdent(TokenIdx),
     #[error("expect `:`")]
     ExpectColon(TokenIdx),
     #[error("expect `)`")]
@@ -46,7 +46,7 @@ pub enum OriginalExprError {
         ket_token_idx: TokenIdx,
     },
     #[error("expect identifier after dot")]
-    ExpectIdentifierAfterDot(TokenIdx),
+    ExpectIdentAfterDot(TokenIdx),
     #[error("no left operand for binary operator")]
     NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
     #[error("no right operand for binary operator")]
@@ -89,21 +89,15 @@ pub enum OriginalExprError {
     #[error("expect `:` at end of line")]
     ExpectEolColon(TokenIdx),
     #[error("expect identifier after `mut`")]
-    ExpectIdentifierAfterMut(TokenIdx),
+    ExpectIdentAfterMut(TokenIdx),
     #[error("expect block")]
     ExpectBlock(TokenGroupIdx),
     #[error("unexpected `$`")]
     UnexpectedSheba(TokenIdx),
     #[error("unrecognized identifier")]
-    UnrecognizedIdentifier {
-        token_idx: TokenIdx,
-        ident: Identifier,
-    },
+    UnrecognizedIdent { token_idx: TokenIdx, ident: Ident },
     #[error("unrecognized identifier")]
-    UnresolvedSubentity {
-        token_idx: TokenIdx,
-        ident: Identifier,
-    },
+    UnresolvedSubentity { token_idx: TokenIdx, ident: Ident },
     #[error("expect let variables type")]
     ExpectLetVariablesType(TokenIdx),
     #[error("expect field type")]
@@ -130,13 +124,13 @@ pub type ExprResultRef<'a, T> = Result<T, &'a ExprError>;
 //     }
 // }
 
-// // impl<'a, Context> FromAbsent<IdentifierToken, Context> for ExprError
+// // impl<'a, Context> FromAbsent<IdentToken, Context> for ExprError
 // // where
 // //     Context: TokenParseContext<'a>,
 // //
 // // {
 // //     fn new_absent_error(state: <Context as parsec::HasParseState>::State) -> Self {
-// //         ExprError::ExpectIdentifier(state)
+// //         ExprError::ExpectIdent(state)
 // //     }
 // // }
 

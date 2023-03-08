@@ -23,7 +23,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `List`,
                         token_idx: TokenIdx(
                             2,

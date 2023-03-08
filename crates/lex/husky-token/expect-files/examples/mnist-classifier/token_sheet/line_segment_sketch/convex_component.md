@@ -12,8 +12,8 @@ Ok(
             Punctuation(
                 ColonColon,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 132,
@@ -32,8 +32,8 @@ Ok(
                     Struct,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 390,
@@ -46,8 +46,8 @@ Ok(
                     Curl,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 132,
@@ -61,8 +61,8 @@ Ok(
             Punctuation(
                 Ambersand,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 373,
@@ -73,8 +73,8 @@ Ok(
             Punctuation(
                 Comma,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 391,
@@ -102,8 +102,8 @@ Ok(
                     Box,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 374,
@@ -122,8 +122,8 @@ Ok(
             Keyword(
                 Impl,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 390,
@@ -140,8 +140,8 @@ Ok(
             Punctuation(
                 Colon,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 391,

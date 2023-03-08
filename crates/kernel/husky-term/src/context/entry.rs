@@ -11,7 +11,7 @@ pub(crate) struct TermSymbolShowEntry {
     /// number of lambdas using this symbol
     /// level 0 means this symbol is external
     level: u8,
-    external_symbol_ident: Option<Identifier>,
+    external_symbol_ident: Option<Ident>,
 }
 
 impl TermSymbolShowEntry {
@@ -115,7 +115,7 @@ impl TermShowContext {
         &self,
         db: &dyn TermDb,
         symbol: TermSymbol,
-        external_symbol_ident: Option<Identifier>,
+        external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
@@ -133,7 +133,7 @@ impl TermShowContext {
         db: &dyn TermDb,
         symbol: TermSymbol,
         level: u8,
-        external_symbol_ident: Option<Identifier>,
+        external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
         let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);

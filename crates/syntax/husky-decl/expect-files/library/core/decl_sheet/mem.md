@@ -61,7 +61,7 @@ Ok(
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                                 label_token: LifetimeLabelToken {
                                                                     label: Label {
-                                                                        ident: Identifier(
+                                                                        ident: Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 29,
@@ -84,7 +84,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
                                                                         8,
@@ -129,7 +129,7 @@ Ok(
                                                         variant: Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: Label {
-                                                                    ident: Identifier(
+                                                                    ident: Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 29,
@@ -159,8 +159,8 @@ Ok(
                                                         ),
                                                         symbol: 1,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 30,
@@ -261,7 +261,7 @@ Ok(
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                                 label_token: LifetimeLabelToken {
                                                                     label: Label {
-                                                                        ident: Identifier(
+                                                                        ident: Ident(
                                                                             Word(
                                                                                 Id {
                                                                                     value: 29,
@@ -284,7 +284,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
                                                                         19,
@@ -329,7 +329,7 @@ Ok(
                                                         variant: Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: Label {
-                                                                    ident: Identifier(
+                                                                    ident: Ident(
                                                                         Word(
                                                                             Id {
                                                                                 value: 29,
@@ -359,8 +359,8 @@ Ok(
                                                         ),
                                                         symbol: 1,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 30,
@@ -459,7 +459,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `E`,
                                                                     token_idx: TokenIdx(
                                                                         27,
@@ -501,8 +501,8 @@ Ok(
                                                         ),
                                                         symbol: 0,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 30,

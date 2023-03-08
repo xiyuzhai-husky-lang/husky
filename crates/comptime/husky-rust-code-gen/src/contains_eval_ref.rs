@@ -11,14 +11,14 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     // });
     // if entity_path.variant
     //     == (EntityRouteVariant::Root {
-    //         ident: RootBuiltinIdentifier::Ref,
+    //         ident: RootBuiltinIdent::Ref,
     //     })
     // {
     //     return true;
     // }
     // if entity_path.variant
     //     == (EntityRouteVariant::Root {
-    //         ident: RootBuiltinIdentifier::Option,
+    //         ident: RootBuiltinIdent::Option,
     //     })
     // {
     //     return false;

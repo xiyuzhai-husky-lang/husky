@@ -1,11 +1,11 @@
 use crate::*;
-use husky_word::Identifier;
+use husky_word::Ident;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermAsTraitSubentity {
     parent: RawTerm,
     trai: RawTerm,
-    ident: Identifier,
+    ident: Ident,
 }
 
 impl RawTermAsTraitSubentity {

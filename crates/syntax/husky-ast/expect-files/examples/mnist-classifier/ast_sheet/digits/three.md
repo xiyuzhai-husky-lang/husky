@@ -276,7 +276,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `three_fermi_match`,
                         token_idx: TokenIdx(
                             63,
@@ -311,7 +311,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
                             80,
@@ -346,7 +346,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
                             210,
@@ -381,7 +381,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
                             244,
@@ -416,7 +416,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
                             278,

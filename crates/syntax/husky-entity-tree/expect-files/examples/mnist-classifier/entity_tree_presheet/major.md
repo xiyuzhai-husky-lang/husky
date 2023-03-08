@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "connected_components",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "major_connected_component",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "ignored_connected_components_row_span_sum_sum",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "major_raw_contours",
                     ),
                     accessibility: Accessibility::Public,
@@ -64,7 +64,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "major_raw_contour",
                     ),
                     accessibility: Accessibility::Public,
@@ -79,7 +79,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "major_line_segment_sketch",
                     ),
                     accessibility: Accessibility::Public,
@@ -94,7 +94,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "major_concave_components",
                     ),
                     accessibility: Accessibility::Public,
@@ -242,9 +242,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 119,
@@ -298,9 +298,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 139,
@@ -354,9 +354,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 133,
@@ -410,9 +410,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 134,
@@ -438,9 +438,9 @@ Ok(
                     ),
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 133,

@@ -16,7 +16,7 @@ use self::parser::*;
 use husky_accessibility::Accessibility;
 use husky_entity_path::{EntityPath, VariantPath};
 use husky_entity_taxonomy::EntityKind;
-use husky_token::{IdentifierToken, TokenGroupIdx, TokenIdx};
+use husky_token::{IdentToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -66,7 +66,7 @@ pub enum Ast {
         entity_kind: EntityKind,
         /// None only when this is under impl block
         entity_path: Option<EntityPath>,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         is_generic: bool,
         body_kind: DefnBodyKind,
         saved_stream_state: TokenIdx,
@@ -74,7 +74,7 @@ pub enum Ast {
     ModuleItemVariant {
         token_group_idx: TokenGroupIdx,
         module_item_variant_path: VariantPath,
-        ident: Identifier,
+        ident: Ident,
     },
     Impl {
         token_group_idx: TokenGroupIdx,

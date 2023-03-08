@@ -5,9 +5,9 @@ use std::sync::Arc;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub struct Identifier(Word);
+pub struct Ident(Word);
 
-impl Identifier {
+impl Ident {
     pub fn word(self) -> Word {
         self.0
     }
@@ -32,23 +32,23 @@ impl Identifier {
         db.dt_word(self.0)
     }
 
-    pub fn case(self, db: &dyn WordDb) -> IdentifierCase {
+    pub fn case(self, db: &dyn WordDb) -> IdentCase {
         let data = self.data(db);
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
         // ad hoc
         match chars.next() {
             Some(second_char) => match (is_first_char_uppercase, second_char.is_uppercase()) {
-                (true, true) => IdentifierCase::AllCapital,
-                (true, false) => IdentifierCase::PascalCase,
-                (false, true) => IdentifierCase::CamelCase,
-                (false, false) => IdentifierCase::SnakeCase,
+                (true, true) => IdentCase::AllCapital,
+                (true, false) => IdentCase::PascalCase,
+                (false, true) => IdentCase::CamelCase,
+                (false, false) => IdentCase::SnakeCase,
             },
             None => {
                 if is_first_char_uppercase {
-                    IdentifierCase::SingleCapital
+                    IdentCase::SingleCapital
                 } else {
-                    IdentifierCase::SnakeCase
+                    IdentCase::SnakeCase
                 }
             }
         }
@@ -56,7 +56,7 @@ impl Identifier {
 }
 
 #[non_exhaustive]
-pub enum IdentifierCase {
+pub enum IdentCase {
     SingleCapital,
     AllCapital,
     SnakeCase,
@@ -66,7 +66,7 @@ pub enum IdentifierCase {
 
 pub type IdentMap<T> = VecMap<T>;
 pub type IdentArcDict<T> = VecMap<Arc<T>>;
-pub type IdentPairMap<T> = VecPairMap<Identifier, T>;
+pub type IdentPairMap<T> = VecPairMap<Ident, T>;
 #[test]
 fn test_is_valid_ident() {
     assert_eq!(is_valid_ident("a"), true);
@@ -109,7 +109,7 @@ pub(crate) fn is_valid_ident(word: &str) -> bool {
     true
 }
 
-impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
+impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Ident {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -118,7 +118,7 @@ impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Identifier {
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
         if level.is_root() {
-            f.debug_tuple("Identifier").field(&self.data(db)).finish()
+            f.debug_tuple("Ident").field(&self.data(db)).finish()
         } else {
             f.write_fmt(format_args!("`{}`", &self.data(db)))
         }

@@ -3,7 +3,7 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use husky_word::Identifier;
+use husky_word::Ident;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
@@ -215,12 +215,12 @@ impl<T: HasTextRange> HasTextRange for [T] {
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
-pub struct RangedIdentifier {
-    pub ident: Identifier,
+pub struct RangedIdent {
+    pub ident: Ident,
     pub range: TextRange,
 }
 
-impl HasTextRange for RangedIdentifier {
+impl HasTextRange for RangedIdent {
     fn text_range(&self) -> TextRange {
         self.range
     }

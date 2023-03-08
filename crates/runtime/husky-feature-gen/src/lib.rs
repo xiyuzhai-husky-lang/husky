@@ -26,7 +26,7 @@
 // pub use repr::*;
 
 // use husky_entity_semantics::EntityDefnQueryGroup;
-// use husky_word::{IdentPairMap, Identifier};
+// use husky_word::{IdentPairMap, Ident};
 // use husky_opn_syntax::*;
 // use husky_print_utils::*;
 // use husky_term::Term;
@@ -37,7 +37,7 @@
 
 // #[derive(Debug, PartialEq, Eq, Clone)]
 // pub struct FeatureSymbol {
-//     varname: Identifier,
+//     varname: Ident,
 //     value: Arc<FeatureLazyExpr>,
 //     feature: FeatureItd,
 // }
@@ -78,7 +78,7 @@
 //     },
 //     FieldAccess {
 //         this: FeatureItd,
-//         field_ident: Identifier,
+//         field_ident: Ident,
 //     },
 //     Index {
 //         opds: Vec<FeatureItd>,
@@ -92,7 +92,7 @@
 //         index: i32,
 //     },
 //     MethodCall {
-//         method_ident: Identifier,
+//         method_ident: Ident,
 //         opds: Vec<FeatureItd>,
 //     },
 //     EntityFeature {

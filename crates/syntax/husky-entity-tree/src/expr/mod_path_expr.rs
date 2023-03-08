@@ -6,10 +6,10 @@ use husky_token::*;
 #[derive(Debug, PartialEq, Eq)]
 pub enum ModPathExpr {
     Leaf {
-        ident: IdentifierToken,
+        ident: IdentToken,
     },
     Parent {
-        ident: IdentifierToken,
+        ident: IdentToken,
         scope_resolution_token: ScopeResolutionToken,
         child: ModPathExprIdx,
     },

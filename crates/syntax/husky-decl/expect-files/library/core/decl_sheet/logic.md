@@ -170,7 +170,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `P`,
                                                                     token_idx: TokenIdx(
                                                                         8,
@@ -186,7 +186,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `Q`,
                                                                     token_idx: TokenIdx(
                                                                         12,
@@ -221,8 +221,8 @@ Ok(
                                                         annotated_variance_token: None,
                                                         symbol: 0,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 21,
@@ -253,8 +253,8 @@ Ok(
                                                         annotated_variance_token: None,
                                                         symbol: 1,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 22,
@@ -408,7 +408,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `P`,
                                                                     token_idx: TokenIdx(
                                                                         30,
@@ -424,7 +424,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                                ident_token: IdentifierToken {
+                                                                ident_token: IdentToken {
                                                                     ident: `Q`,
                                                                     token_idx: TokenIdx(
                                                                         34,
@@ -459,8 +459,8 @@ Ok(
                                                         annotated_variance_token: None,
                                                         symbol: 0,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 21,
@@ -491,8 +491,8 @@ Ok(
                                                         annotated_variance_token: None,
                                                         symbol: 1,
                                                         variant: Type0 {
-                                                            ident_token: IdentifierToken {
-                                                                ident: Identifier(
+                                                            ident_token: IdentToken {
+                                                                ident: Ident(
                                                                     Word(
                                                                         Id {
                                                                             value: 22,

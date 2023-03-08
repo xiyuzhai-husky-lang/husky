@@ -118,7 +118,7 @@ impl<'a> CrateSymbolContext<'a> {
         // Self {}
     }
 
-    pub(crate) fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
+    pub(crate) fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
         self.crate_specific_symbol_context
             .resolve_ident(ident)
             .or_else(|| self.universal_prelude.resolve_ident(ident))

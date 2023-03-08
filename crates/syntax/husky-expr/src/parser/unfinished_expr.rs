@@ -22,7 +22,7 @@ pub(super) enum UnfinishedExpr {
         commas: Vec<TokenIdx>,
     },
     LambdaHead {
-        inputs: Vec<(RangedIdentifier, Option<ExprIdx>)>,
+        inputs: Vec<(RangedIdent, Option<ExprIdx>)>,
         start: TextPosition,
     },
     Application {

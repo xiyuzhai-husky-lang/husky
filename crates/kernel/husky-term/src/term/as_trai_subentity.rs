@@ -1,11 +1,11 @@
 use super::*;
-use husky_word::Identifier;
+use husky_word::Ident;
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermAsTraitSubentity {
     parent: Term,
     trai: Term,
-    ident: Identifier,
+    ident: Ident,
 }
 
 #[test]

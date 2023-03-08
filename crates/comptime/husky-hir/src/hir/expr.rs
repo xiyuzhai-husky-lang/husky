@@ -48,11 +48,11 @@ pub enum ExprHir {
     },
     Field {
         self_expr: ExprHirIdx,
-        ident_token: Identifier,
+        ident_token: Ident,
     },
     MethodCall {
         self_expr: ExprHirIdx,
-        ident_token: Identifier,
+        ident_token: Ident,
         implicit_arguments: Option<ImplicitArgumentListHir>,
         nonself_arguments: ExprHirIdxRange,
     },

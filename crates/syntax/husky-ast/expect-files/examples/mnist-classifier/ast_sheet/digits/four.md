@@ -355,7 +355,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `left_components`,
                         token_idx: TokenIdx(
                             63,
@@ -390,7 +390,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `left_coordinate_max`,
                         token_idx: TokenIdx(
                             78,
@@ -425,7 +425,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `components_max_downwards`,
                         token_idx: TokenIdx(
                             97,
@@ -460,7 +460,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `components_max_heights`,
                         token_idx: TokenIdx(
                             110,
@@ -495,7 +495,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_four`,
                         token_idx: TokenIdx(
                             123,
@@ -530,7 +530,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
                             305,
@@ -565,7 +565,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
                             334,

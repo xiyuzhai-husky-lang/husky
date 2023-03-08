@@ -21,7 +21,7 @@ pub use variant::*;
 
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
-use husky_word::Identifier;
+use husky_word::Ident;
 use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]
 use tests::*;
@@ -61,7 +61,7 @@ impl From<ModuleItemPath> for EntityPath {
 }
 
 impl EntityPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> VfsResult<Identifier> {
+    pub fn ident(self, db: &dyn EntityPathDb) -> VfsResult<Ident> {
         match self {
             EntityPath::Module(path) => path.ident(db),
             EntityPath::ModuleItem(path) => Ok(path.ident(db)),

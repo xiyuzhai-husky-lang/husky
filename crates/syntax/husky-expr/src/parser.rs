@@ -258,18 +258,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
-            let ident_token: IdentifierToken =
-                self.parse_expected(OriginalExprError::ExpectIdentifierAfterMut)?;
+            let ident_token: IdentToken =
+                self.parse_expected(OriginalExprError::ExpectIdentAfterMut)?;
             Ok(Some(self.alloc_pattern_expr(
-                PatternExpr::Identifier {
+                PatternExpr::Ident {
                     ident_token,
                     liason: PatternLiason::None,
                 },
                 env,
             )))
-        } else if let Some(ident_token) = self.parse::<IdentifierToken>()? {
+        } else if let Some(ident_token) = self.parse::<IdentToken>()? {
             Ok(Some(self.alloc_pattern_expr(
-                PatternExpr::Identifier {
+                PatternExpr::Ident {
                     ident_token,
                     liason: PatternLiason::None,
                 },
@@ -283,7 +283,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     fn parse_entity_path_expr(
         &mut self,
         token_idx: TokenIdx,
-        ident: Identifier,
+        ident: Ident,
         entity_path: EntityPath,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
         let root = self.alloc_entity_path_expr(EntityPathExpr::Root {
@@ -305,8 +305,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         parent_path: Option<EntityPath>,
         scope_resolution_token: ScopeResolutionToken,
     ) -> (EntityPathExprIdx, Option<EntityPath>) {
-        let ident_token: EntityPathExprResult<IdentifierToken> =
-            self.parse_expected(OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution);
+        let ident_token: EntityPathExprResult<IdentToken> =
+            self.parse_expected(OriginalEntityPathExprError::ExpectIdentAfterScopeResolution);
         let path: EntityPathExprResult<EntityPath> = match parent_path {
             Some(parent_path) => match ident_token {
                 Ok(ident_token) => {

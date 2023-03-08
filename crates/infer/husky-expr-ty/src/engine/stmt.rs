@@ -212,7 +212,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
             PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Identifier { .. } => (), // there is no subpattern to infer
+            PatternExpr::Ident { .. } => (), // there is no subpattern to infer
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),

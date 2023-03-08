@@ -170,7 +170,7 @@ fn parse_expr_works() {
     //             expr_arena: Arena {
     //                 data: [
     //                     Unrecognized(
-    //                         Identifier(
+    //                         Ident(
     //                             Word(
     //                                 Id {
     //                                     value: 39,
@@ -194,7 +194,7 @@ fn parse_expr_works() {
     //                         ),
     //                     },
     //                     Unrecognized(
-    //                         Identifier(
+    //                         Ident(
     //                             Word(
     //                                 Id {
     //                                     value: 39,

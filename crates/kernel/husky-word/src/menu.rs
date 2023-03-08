@@ -1,35 +1,35 @@
 use crate::*;
 
 pub struct WordMenu {
-    std: Identifier,
-    core: Identifier,
-    unit: Identifier,
-    never: Identifier,
-    bool: Identifier,
-    i8: Identifier,
-    i16: Identifier,
-    i32: Identifier,
-    i64: Identifier,
-    i128: Identifier,
-    isize: Identifier,
-    u8: Identifier,
-    u16: Identifier,
-    u32: Identifier,
-    u64: Identifier,
-    u128: Identifier,
-    usize: Identifier,
-    r8: Identifier,
-    r16: Identifier,
-    r32: Identifier,
-    r64: Identifier,
-    r128: Identifier,
-    rsize: Identifier,
-    f32: Identifier,
-    f64: Identifier,
-    trai_ty: Identifier,
-    lifetime_ty: Identifier,
-    module: Identifier,
-    crate_word: Identifier,
+    std: Ident,
+    core: Ident,
+    unit: Ident,
+    never: Ident,
+    bool: Ident,
+    i8: Ident,
+    i16: Ident,
+    i32: Ident,
+    i64: Ident,
+    i128: Ident,
+    isize: Ident,
+    u8: Ident,
+    u16: Ident,
+    u32: Ident,
+    u64: Ident,
+    u128: Ident,
+    usize: Ident,
+    r8: Ident,
+    r16: Ident,
+    r32: Ident,
+    r64: Ident,
+    r128: Ident,
+    rsize: Ident,
+    f32: Ident,
+    f64: Ident,
+    trai_ty: Ident,
+    lifetime_ty: Ident,
+    module: Ident,
+    crate_word: Ident,
 }
 
 impl WordMenu {
@@ -67,119 +67,119 @@ impl WordMenu {
         }
     }
 
-    pub fn core(&self) -> Identifier {
+    pub fn core(&self) -> Ident {
         self.core
     }
 
-    pub fn std(&self) -> Identifier {
+    pub fn std(&self) -> Ident {
         self.std
     }
 
-    pub fn i8(&self) -> Identifier {
+    pub fn i8(&self) -> Ident {
         self.i8
     }
 
-    pub fn i16(&self) -> Identifier {
+    pub fn i16(&self) -> Ident {
         self.i16
     }
 
-    pub fn i32(&self) -> Identifier {
+    pub fn i32(&self) -> Ident {
         self.i32
     }
 
-    pub fn i64(&self) -> Identifier {
+    pub fn i64(&self) -> Ident {
         self.i64
     }
 
-    pub fn i128(&self) -> Identifier {
+    pub fn i128(&self) -> Ident {
         self.i128
     }
 
-    pub fn isize(&self) -> Identifier {
+    pub fn isize(&self) -> Ident {
         self.isize
     }
 
-    pub fn r8(&self) -> Identifier {
+    pub fn r8(&self) -> Ident {
         self.r8
     }
 
-    pub fn r16(&self) -> Identifier {
+    pub fn r16(&self) -> Ident {
         self.r16
     }
 
-    pub fn r32(&self) -> Identifier {
+    pub fn r32(&self) -> Ident {
         self.r32
     }
 
-    pub fn r64(&self) -> Identifier {
+    pub fn r64(&self) -> Ident {
         self.r64
     }
 
-    pub fn r128(&self) -> Identifier {
+    pub fn r128(&self) -> Ident {
         self.r128
     }
 
-    pub fn rsize(&self) -> Identifier {
+    pub fn rsize(&self) -> Ident {
         self.rsize
     }
 
-    pub fn f32(&self) -> Identifier {
+    pub fn f32(&self) -> Ident {
         self.f32
     }
 
-    pub fn f64(&self) -> Identifier {
+    pub fn f64(&self) -> Ident {
         self.f64
     }
 
-    pub fn unit(&self) -> Identifier {
+    pub fn unit(&self) -> Ident {
         self.unit
     }
 
-    pub fn bool(&self) -> Identifier {
+    pub fn bool(&self) -> Ident {
         self.bool
     }
 
-    pub fn u8(&self) -> Identifier {
+    pub fn u8(&self) -> Ident {
         self.u8
     }
 
-    pub fn u16(&self) -> Identifier {
+    pub fn u16(&self) -> Ident {
         self.u16
     }
 
-    pub fn u32(&self) -> Identifier {
+    pub fn u32(&self) -> Ident {
         self.u32
     }
 
-    pub fn u64(&self) -> Identifier {
+    pub fn u64(&self) -> Ident {
         self.u64
     }
 
-    pub fn u128(&self) -> Identifier {
+    pub fn u128(&self) -> Ident {
         self.u128
     }
 
-    pub fn usize(&self) -> Identifier {
+    pub fn usize(&self) -> Ident {
         self.usize
     }
 
-    pub fn trai_ty(&self) -> Identifier {
+    pub fn trai_ty(&self) -> Ident {
         self.trai_ty
     }
 
-    pub fn module(&self) -> Identifier {
+    pub fn module(&self) -> Ident {
         self.module
     }
 
-    pub fn crate_word(&self) -> Identifier {
+    pub fn crate_word(&self) -> Ident {
         self.crate_word
     }
 
-    pub fn lifetime_ty(&self) -> Identifier {
+    pub fn lifetime_ty(&self) -> Ident {
         self.lifetime_ty
     }
 
-    pub fn never(&self) -> Identifier {
+    pub fn never(&self) -> Ident {
         self.never
     }
 }

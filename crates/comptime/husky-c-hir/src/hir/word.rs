@@ -1,4 +1,4 @@
-pub struct CIdentifier {}
+pub struct CIdent {}
 
 pub struct CWord {}
 

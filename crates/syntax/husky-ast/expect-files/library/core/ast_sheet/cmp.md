@@ -21,7 +21,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `PartialEq`,
                         token_idx: TokenIdx(
                             2,
@@ -52,7 +52,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Eq`,
                         token_idx: TokenIdx(
                             6,
@@ -83,7 +83,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `PartialOrd`,
                         token_idx: TokenIdx(
                             10,
@@ -114,7 +114,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Ord`,
                         token_idx: TokenIdx(
                             14,

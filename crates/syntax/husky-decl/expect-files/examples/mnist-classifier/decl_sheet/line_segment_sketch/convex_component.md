@@ -168,8 +168,8 @@ Ok(
                                 field_comma_list: (
                                     [
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 143,
@@ -188,8 +188,8 @@ Ok(
                                             ty: 1,
                                         },
                                         RegularStructFieldPattern {
-                                            ident_token: IdentifierToken {
-                                                ident: Identifier(
+                                            ident_token: IdentToken {
+                                                ident: Ident(
                                                     Word(
                                                         Id {
                                                             value: 357,

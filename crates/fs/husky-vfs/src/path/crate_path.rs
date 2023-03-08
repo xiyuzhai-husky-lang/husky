@@ -20,7 +20,7 @@ impl CratePath {
         self.package_path(db).toolchain(db)
     }
 
-    pub fn package_ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
+    pub fn package_ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
         self.package_path(db).ident(db)
     }
 }
@@ -29,6 +29,6 @@ impl CratePath {
 pub enum CrateKind {
     Library,
     Main,
-    Binary(Identifier),
-    StandaloneTest(Identifier),
+    Binary(Ident),
+    StandaloneTest(Ident),
 }

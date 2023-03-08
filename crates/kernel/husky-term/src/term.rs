@@ -23,7 +23,7 @@ use husky_entity_path::EntityPath;
 use husky_raw_term::RawTerm;
 use husky_raw_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 use husky_ty_expectation::TermTypeExpectation;
-use husky_word::Identifier;
+use husky_word::Ident;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

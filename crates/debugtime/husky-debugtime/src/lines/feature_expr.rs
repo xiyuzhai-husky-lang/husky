@@ -3,7 +3,7 @@ use crate::*;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_term::Term;
-use husky_text::RangedIdentifier;
+use husky_text::RangedIdent;
 
 impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn gen_feature_expr(
@@ -180,7 +180,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         config: ExprTokenConfig,
         this: &FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         opt_associated_trace_id: Option<TraceId>,
     ) {
         match this {
@@ -200,7 +200,7 @@ impl<'a> TraceLineGenerator<'a> {
     fn gen_feature_lazy_field_tokens(
         &mut self,
         this: &FeatureRepr,
-        field_ident: RangedIdentifier,
+        field_ident: RangedIdent,
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {

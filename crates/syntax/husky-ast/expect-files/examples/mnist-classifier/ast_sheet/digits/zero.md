@@ -264,7 +264,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `open_one_match`,
                         token_idx: TokenIdx(
                             65,
@@ -299,7 +299,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `almost_closed`,
                         token_idx: TokenIdx(
                             78,
@@ -334,7 +334,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
                             105,

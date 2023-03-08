@@ -27,7 +27,7 @@ pub trait FeatureGenQueryGroup:
 {
     fn main_feature_repr(&'eval self, target_entrance: EntityPath) -> FeatureRepr;
     fn entity_feature_repr(&self, entity_path: Term) -> FeatureRepr;
-    fn record_field_repr(&self, this: FeatureRepr, field_ident: Identifier) -> FeatureRepr;
+    fn record_field_repr(&self, this: FeatureRepr, field_ident: Ident) -> FeatureRepr;
     fn visual_feature_lazy_block(&self, this: FeatureRepr) -> __VMResult<Arc<FeatureLazyBody>>;
 }
 

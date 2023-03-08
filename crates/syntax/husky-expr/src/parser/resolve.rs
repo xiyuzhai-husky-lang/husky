@@ -38,7 +38,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Token::Keyword(keyword) => ResolvedToken::AtomicExpr(Expr::Err(
                 OriginalExprError::UnexpectedKeyword(token_idx).into(),
             )),
-            Token::Identifier(ident) => self.resolve_ident(token_idx, ident),
+            Token::Ident(ident) => self.resolve_ident(token_idx, ident),
             Token::Label(_) => todo!(),
             Token::Punctuation(punc) => match punc {
                 Punctuation::Binary(binary) => ResolvedToken::BinaryOpr(token_idx, binary),
@@ -221,7 +221,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Identifier) -> ResolvedToken {
+    fn resolve_ident(&mut self, token_idx: TokenIdx, ident: Ident) -> ResolvedToken {
         if let Some(opn) = self.last_unfinished_expr() {
             match opn {
                 UnfinishedExpr::Binary {
@@ -283,9 +283,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     },
                     //  Expr::EntityPath(entity_path),
                 },
-                None => {
-                    Expr::Err(OriginalExprError::UnrecognizedIdentifier { token_idx, ident }.into())
-                }
+                None => Expr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into()),
             },
         )
     }

@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "zero",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -21,7 +21,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "one",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -38,7 +38,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "six",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -55,7 +55,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "three",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -72,7 +72,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "four",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -89,7 +89,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "five",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -106,7 +106,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "six",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -123,7 +123,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "seven",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -140,7 +140,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "eight",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -157,7 +157,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "nine",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -184,9 +184,9 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 125,
@@ -214,9 +214,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 127,
@@ -244,9 +244,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 130,
@@ -274,9 +274,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 129,
@@ -304,9 +304,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 128,
@@ -334,9 +334,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 122,
@@ -364,9 +364,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 127,
@@ -394,9 +394,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 126,
@@ -424,9 +424,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 121,
@@ -454,9 +454,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Identifier(
-                            IdentifierToken {
-                                ident: Identifier(
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 124,
@@ -483,8 +483,8 @@ Ok(
         use_expr_arena: Arena {
             data: [
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 150,
@@ -497,9 +497,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 125,
@@ -525,8 +525,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 151,
@@ -539,9 +539,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 127,
@@ -567,8 +567,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 152,
@@ -581,9 +581,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 130,
@@ -609,8 +609,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 158,
@@ -623,9 +623,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 129,
@@ -651,8 +651,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 155,
@@ -665,9 +665,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 128,
@@ -693,8 +693,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 157,
@@ -707,9 +707,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 122,
@@ -735,8 +735,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 151,
@@ -749,9 +749,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 127,
@@ -777,8 +777,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 153,
@@ -791,9 +791,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 126,
@@ -819,8 +819,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 154,
@@ -833,9 +833,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 121,
@@ -861,8 +861,8 @@ Ok(
                     ),
                 },
                 Leaf {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 156,
@@ -875,9 +875,9 @@ Ok(
                     },
                 },
                 Parent {
-                    parent_name_token: Identifier(
-                        IdentifierToken {
-                            ident: Identifier(
+                    parent_name_token: Ident(
+                        IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 124,

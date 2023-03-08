@@ -28,7 +28,7 @@ impl<'a> SymbolContextMut<'a> {
         &self,
         db: &dyn ExprDb,
         token_idx: TokenIdx,
-        ident: Identifier,
+        ident: Ident,
     ) -> Option<Symbol> {
         self.symbol_region.resolve_ident(token_idx, ident).or(self
             .module_symbol_context

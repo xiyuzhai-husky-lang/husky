@@ -13,7 +13,7 @@ pub use sheet::InstructionSheet;
 use crate::*;
 use avec::Avec;
 use husky_text::{HasSourceRange, TextRange};
-use husky_word::Identifier;
+use husky_word::Ident;
 use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]
@@ -57,7 +57,7 @@ pub enum InstructionVariant {
         binding: Binding,
         range: TextRange,
         ty: Term,
-        varname: Identifier,
+        varname: Ident,
         explicit: bool,
     },
     PushLiteralValue {
@@ -87,7 +87,7 @@ pub enum InstructionVariant {
     },
     NewVirtualStruct {
         ty: Term,
-        fields: Vec<Identifier>,
+        fields: Vec<Ident>,
     },
     Loop {
         body: Arc<InstructionSheet>,

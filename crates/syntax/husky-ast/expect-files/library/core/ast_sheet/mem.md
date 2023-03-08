@@ -23,7 +23,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Ref`,
                         token_idx: TokenIdx(
                             2,
@@ -56,7 +56,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `RefMut`,
                         token_idx: TokenIdx(
                             13,
@@ -89,7 +89,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Leash`,
                         token_idx: TokenIdx(
                             24,

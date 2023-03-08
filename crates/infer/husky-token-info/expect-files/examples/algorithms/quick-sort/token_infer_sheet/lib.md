@@ -29,8 +29,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -86,8 +86,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -124,7 +124,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -160,7 +160,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -235,8 +235,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -292,8 +292,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -372,7 +372,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 2,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 115,
@@ -390,7 +390,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 3,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 116,
@@ -436,7 +436,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -454,7 +454,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 2,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 115,
@@ -472,7 +472,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 3,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 116,
@@ -505,7 +505,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -523,7 +523,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 2,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 115,
@@ -570,7 +570,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -602,7 +602,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 3,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 116,
@@ -644,8 +644,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -701,8 +701,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 111,
@@ -808,7 +808,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 3,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 116,
@@ -854,7 +854,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 2,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 115,
@@ -887,7 +887,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 3,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 116,
@@ -921,7 +921,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -967,7 +967,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -1039,7 +1039,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -1085,7 +1085,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -1157,7 +1157,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,
@@ -1231,7 +1231,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 112,

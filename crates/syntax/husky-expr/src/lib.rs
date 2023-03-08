@@ -57,13 +57,13 @@ pub enum BaseEntityPathInclination {
 }
 
 impl BaseEntityPathInclination {
-    pub fn from_case(case: IdentifierCase) -> Self {
+    pub fn from_case(case: IdentCase) -> Self {
         match case {
-            IdentifierCase::SingleCapital | IdentifierCase::PascalCase => {
+            IdentCase::SingleCapital | IdentCase::PascalCase => {
                 BaseEntityPathInclination::TypeOrVariant
             }
-            IdentifierCase::AllCapital => BaseEntityPathInclination::GlobalValue,
-            IdentifierCase::SnakeCase => BaseEntityPathInclination::FunctionOrLocalValue,
+            IdentCase::AllCapital => BaseEntityPathInclination::GlobalValue,
+            IdentCase::SnakeCase => BaseEntityPathInclination::FunctionOrLocalValue,
             _ => todo!(),
         }
     }
@@ -78,20 +78,20 @@ pub enum Expr {
         path: Option<EntityPath>,
     },
     InheritedSymbol {
-        ident: Identifier,
+        ident: Ident,
         token_idx: TokenIdx,
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,
     },
     CurrentSymbol {
-        ident: Identifier,
+        ident: Ident,
         token_idx: TokenIdx,
         current_symbol_idx: CurrentSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
     },
     FrameVarDecl {
         token_idx: TokenIdx,
-        ident: Identifier,
+        ident: Ident,
         frame_var_symbol_idx: CurrentSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
     },
@@ -149,12 +149,12 @@ pub enum Expr {
     Field {
         owner: ExprIdx,
         dot_token_idx: TokenIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
     },
     MethodCall {
         self_argument: ExprIdx,
         dot_token_idx: TokenIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         implicit_arguments: Option<ImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
         nonself_arguments: ExprIdxRange,

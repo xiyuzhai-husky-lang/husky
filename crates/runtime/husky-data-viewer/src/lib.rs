@@ -3,14 +3,14 @@ mod db;
 pub use db::*;
 use husky_term::Term;
 use husky_vm_binding::Binding;
-use husky_word::{IdentPairMap, Identifier};
+use husky_word::{Ident, IdentPairMap};
 
 use husky_vm_interface::{__Linkage, __Register, __RegistrableSafe, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
     Primitive {
-        ty: Identifier,
+        ty: Ident,
     },
     Struct {
         fields: IdentPairMap<(__Linkage, Term)>,
@@ -41,14 +41,14 @@ impl HuskyDataViewer {
         todo!()
         // match self {
         //     HuskyDataViewer::Primitive { ty } => match ty {
-        //         RootBuiltinIdentifier::Void => todo!(),
-        //         RootBuiltinIdentifier::I32 => todo!(),
-        //         RootBuiltinIdentifier::I64 => todo!(),
-        //         RootBuiltinIdentifier::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
-        //         RootBuiltinIdentifier::F64 => todo!(),
-        //         RootBuiltinIdentifier::B32 => todo!(),
-        //         RootBuiltinIdentifier::B64 => todo!(),
-        //         RootBuiltinIdentifier::Bool => todo!(),
+        //         RootBuiltinIdent::Void => todo!(),
+        //         RootBuiltinIdent::I32 => todo!(),
+        //         RootBuiltinIdent::I64 => todo!(),
+        //         RootBuiltinIdent::F32 => serde_json::to_value(value.downcast_f32()).unwrap(),
+        //         RootBuiltinIdent::F64 => todo!(),
+        //         RootBuiltinIdent::B32 => todo!(),
+        //         RootBuiltinIdent::B64 => todo!(),
+        //         RootBuiltinIdent::Bool => todo!(),
         //         _ => panic!(),
         //     },
         //     HuskyDataViewer::Struct { fields } => serde_json::Value::Object(

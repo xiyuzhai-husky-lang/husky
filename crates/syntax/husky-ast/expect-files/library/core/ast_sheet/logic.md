@@ -23,7 +23,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Prop`,
                         token_idx: TokenIdx(
                             2,
@@ -56,7 +56,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `LogicAnd`,
                         token_idx: TokenIdx(
                             6,
@@ -89,7 +89,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `LogicOr`,
                         token_idx: TokenIdx(
                             28,

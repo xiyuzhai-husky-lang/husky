@@ -6,7 +6,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "prelude",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -24,7 +24,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "logic",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -42,7 +42,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ops",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -99,9 +99,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 33,
@@ -126,8 +126,8 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
                                 2,
@@ -141,7 +141,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Add",
                             ),
                             accessibility: Accessibility::PublicUnder(

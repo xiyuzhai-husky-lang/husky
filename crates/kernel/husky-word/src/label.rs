@@ -4,7 +4,7 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub struct Label {
-    ident: Identifier,
+    ident: Ident,
     kind: LabelKind,
 }
 
@@ -43,14 +43,14 @@ impl Label {
     pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
-            ident: Identifier::from_owned(db, data)?,
+            ident: Ident::from_owned(db, data)?,
         })
     }
 
     pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
-            ident: Identifier::from_borrowed(db, data)?,
+            ident: Ident::from_borrowed(db, data)?,
         })
     }
 

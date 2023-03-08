@@ -28,7 +28,7 @@ pub use token_accessibility::*;
 
 use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};
-use husky_word::Identifier;
+use husky_word::Ident;
 #[cfg(test)]
 use tests::*;
 use tokenize::*;

@@ -48,7 +48,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExpectDecoratorOrEntityKeyword => {
                 format!("Syntax Error: expected decorator or entity keyword")
             }
-            OriginalAstError::ExpectIdentifier(_) => format!("Syntax Error: expected identifier"),
+            OriginalAstError::ExpectIdent(_) => format!("Syntax Error: expected identifier"),
             OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(_) => {
                 format!("Syntax Error: unexpected end after `pub`")
             }
@@ -100,7 +100,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
-            OriginalAstError::ExpectIdentifier(token_idx)
+            OriginalAstError::ExpectIdent(token_idx)
             | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
             | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
             | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)

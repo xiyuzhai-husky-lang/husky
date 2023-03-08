@@ -1,12 +1,12 @@
 use super::*;
-use husky_token::IdentifierToken;
+use husky_token::IdentToken;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_method_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
         self_argument: ExprIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,

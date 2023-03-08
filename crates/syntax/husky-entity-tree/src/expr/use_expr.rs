@@ -11,7 +11,7 @@ pub enum UseExpr {
         star_token: StarToken,
     },
     Leaf {
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
     },
     SelfOne {
         self_token: SelfValueToken,
@@ -26,7 +26,7 @@ pub enum UseExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ParentNameToken {
-    Identifier(IdentifierToken),
+    Ident(IdentToken),
     Crate(CrateToken),
     SelfValue(SelfValueToken),
     Super(SuperToken),
@@ -34,15 +34,15 @@ pub enum ParentNameToken {
 impl ParentNameToken {
     pub fn token_idx(&self) -> TokenIdx {
         match self {
-            ParentNameToken::Identifier(token) => token.token_idx(),
+            ParentNameToken::Ident(token) => token.token_idx(),
             ParentNameToken::Crate(token) => token.token_idx(),
             ParentNameToken::SelfValue(token) => token.token_idx(),
             ParentNameToken::Super(_) => todo!(),
         }
     }
-    pub fn ident(&self) -> Option<Identifier> {
+    pub fn ident(&self) -> Option<Ident> {
         match self {
-            ParentNameToken::Identifier(ident_token) => Some(ident_token.ident()),
+            ParentNameToken::Ident(ident_token) => Some(ident_token.ident()),
             ParentNameToken::Crate(_)
             | ParentNameToken::SelfValue(_)
             | ParentNameToken::Super(_) => None,
@@ -127,7 +127,7 @@ pub enum UseExprError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalUseExprError {
     #[error("expect identifier")]
-    ExpectIdentifier(TokenIdx),
+    ExpectIdent(TokenIdx),
     #[error("expect use expr")]
     ExpectUseExpr(TokenIdx),
     #[error("expect `::`")]
@@ -211,15 +211,12 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
         })
     }
 
-    fn parse_use_expr_after_ident(
-        &mut self,
-        ident_token: IdentifierToken,
-    ) -> UseExprResult<UseExpr> {
+    fn parse_use_expr_after_ident(&mut self, ident_token: IdentToken) -> UseExprResult<UseExpr> {
         let Some(scope_resolution_token) = self.parse::<ScopeResolutionToken>()? else {
             return Ok( UseExpr::Leaf { ident_token })
         };
         Ok(UseExpr::Parent {
-            parent_name_token: ParentNameToken::Identifier(ident_token),
+            parent_name_token: ParentNameToken::Ident(ident_token),
             scope_resolution_token: Ok(scope_resolution_token),
             children: self.parse_children(),
         })
@@ -265,7 +262,7 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
             // differentiate betwee self one and self children
             todo!()
         }
-        let Some(ident_token) = ctx.parse::<IdentifierToken>()? else {
+        let Some(ident_token) = ctx.parse::<IdentToken>()? else {
             return Ok(None);
         };
         Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))

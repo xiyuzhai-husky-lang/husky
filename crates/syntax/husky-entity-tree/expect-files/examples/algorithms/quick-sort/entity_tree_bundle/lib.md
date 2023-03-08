@@ -6,7 +6,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "quick_sort",
                             ),
                             accessibility: Accessibility::Public,
@@ -22,7 +22,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "quick_sort_aux",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -42,7 +42,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "partition",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -62,7 +62,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "quick_sort_works_for_integers",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -82,7 +82,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "quick_sort_works_for_strs",
                             ),
                             accessibility: Accessibility::PublicUnder(

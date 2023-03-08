@@ -631,7 +631,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 334,
@@ -700,7 +700,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 398,
@@ -735,7 +735,7 @@ Ok(
             InheritedSymbol {
                 inherited_symbol_idx: 1,
                 inherited_symbol_kind: RegularParameter {
-                    ident: Identifier(
+                    ident: Ident(
                         Word(
                             Id {
                                 value: 398,

@@ -166,7 +166,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         this: &FeatureRepr,
         field_idx: u8,
         field_binding: Binding,
-        field_ident: husky_text::RangedIdentifier,
+        field_ident: husky_text::RangedIdent,
         expr: &FeatureLazyExpr,
     ) -> __VMResult<__Register<'eval>> {
         if let Some(linkage) = opt_linkage {

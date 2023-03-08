@@ -53,8 +53,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 21,
@@ -93,8 +93,8 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 22,
@@ -167,8 +167,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 21,
@@ -207,8 +207,8 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 22,

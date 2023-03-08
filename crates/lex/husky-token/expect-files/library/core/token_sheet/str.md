@@ -9,8 +9,8 @@ Ok(
                     Type,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 13,
@@ -29,8 +29,8 @@ Ok(
                     Type,
                 ),
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 94,

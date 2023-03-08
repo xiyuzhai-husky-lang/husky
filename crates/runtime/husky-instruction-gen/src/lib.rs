@@ -23,7 +23,7 @@ use std::sync::Arc;
 
 // pub fn new_func_instruction_sheet(
 //     db: &dyn InstructionDb,
-//     inputs: impl Iterator<Item = Identifier>,
+//     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[Arc<FuncStmt>],
 //     has_this: bool,
 // ) -> Arc<InstructionSheet> {
@@ -34,7 +34,7 @@ use std::sync::Arc;
 
 // pub fn new_proc_instruction_sheet(
 //     db: &dyn InstructionDb,
-//     inputs: impl Iterator<Item = Identifier>,
+//     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[Arc<ProcStmt>],
 //     has_this: bool,
 // ) -> Arc<InstructionSheet> {
@@ -50,11 +50,7 @@ struct InstructionSheetBuilder<'a> {
 }
 
 impl<'a> InstructionSheetBuilder<'a> {
-    fn new(
-        db: &'a dyn InstructionDb,
-        inputs: impl Iterator<Item = Identifier>,
-        has_this: bool,
-    ) -> Self {
+    fn new(db: &'a dyn InstructionDb, inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             db,
             sheet: InstructionSheet::new(inputs, has_this),

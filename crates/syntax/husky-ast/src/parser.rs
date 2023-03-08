@@ -121,7 +121,7 @@ impl<'a> AstParser<'a> {
             Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },
             Token::Punctuation(Punctuation::At) => Ast::Decr { token_group_idx },
             Token::Punctuation(_)
-            | Token::Identifier(_)
+            | Token::Ident(_)
             | Token::Label(_)
             | Token::WordOpr(_)
             | Token::Literal(_) => self.parse_stmt(token_group_idx, &context),
@@ -251,7 +251,7 @@ impl<'a> AstParser<'a> {
                     return self.parse_use_ast(token_group_idx, context)
                 }
                 Token::Keyword(_) => return self.parse_defn(context, token_group_idx),
-                Token::Identifier(_)
+                Token::Ident(_)
                 | Token::Label(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
