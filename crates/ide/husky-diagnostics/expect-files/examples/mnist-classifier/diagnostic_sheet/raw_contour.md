@@ -133,9 +133,19 @@ DiagnosticSheet {
                 range: [170:22, 170:24),
             },
             Diagnostic {
+                message: "Type Error: AmbiguateTildeExpr",
+                severity: Error,
+                range: [177:59, 177:81),
+            },
+            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [180:31, 180:33),
+            },
+            Diagnostic {
+                message: "Type Error: AmbiguateTildeExpr",
+                severity: Error,
+                range: [210:68, 210:80),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

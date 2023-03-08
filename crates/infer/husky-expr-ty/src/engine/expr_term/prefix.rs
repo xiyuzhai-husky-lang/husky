@@ -3,6 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_prefix_expr_term(
         &mut self,
+        expr_idx: ExprIdx,
         opr: PrefixOpr,
         opd: ExprIdx,
     ) -> ExprTermResult<LocalTerm> {
@@ -12,7 +13,25 @@ impl<'a> ExprTypeEngine<'a> {
         match opr {
             PrefixOpr::Minus => todo!(),
             PrefixOpr::Not => todo!(),
-            PrefixOpr::Tilde => todo!(),
+            PrefixOpr::Tilde => match self
+                .expr_disambiguation(expr_idx)
+                .map_err(|_| DerivedExprTermError::AmbiguousTilde)?
+            {
+                ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
+                    TildeDisambiguation::BitNot => todo!(),
+                    TildeDisambiguation::Leash => match opd_term {
+                        LocalTerm::Resolved(opd_term) => Ok(TermApplication::new(
+                            self.db,
+                            self.term_menu.leash_ty_ontology(),
+                            opd_term,
+                        )
+                        .map_err(|e| DerivedExprTermError::TildeTerm(e))?
+                        .into()),
+                        LocalTerm::Unresolved(_) => todo!(),
+                    },
+                },
+                _ => unreachable!(),
+            },
             PrefixOpr::Ref => {
                 // let opd_ty = self.infer
                 // match

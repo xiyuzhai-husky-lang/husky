@@ -202,7 +202,7 @@ impl Term {
                     Left(ty_constructor_path_raw_ty(db, path)?)
                 }
             },
-            Term::Category(_) => todo!(),
+            Term::Category(cat) => Left(cat.ty()?.into()),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
             Term::Ritchie(_) => todo!(),
@@ -223,7 +223,8 @@ impl Term {
         match other_ty {
             Left(other_ty) if other_ty == self => Ok(true),
             Left(other_ty) => {
-                todo!()
+                // ad hoc
+                Ok(false)
             }
             Right(other_ty) => match self {
                 Term::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {

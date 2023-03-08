@@ -104,11 +104,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: AmbiguousTypePath",
-                severity: Error,
-                range: [32:15, 32:25),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [85:9, 85:14),

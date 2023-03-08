@@ -30,6 +30,13 @@ pub enum TermError {
         path_expected: TypePath,
         path: TypePath,
     },
+    #[error("TermPreludeError")]
+    TermPreludeError(#[from] TermPreludeError),
+    #[error("TermApplicationWrongArgumentType")]
+    TermApplicationWrongArgumentType {
+        parameter_ty: Term,
+        argument_ty: Either<Term, PreludeTypePath>,
+    },
 }
 
 impl From<EntityPathError> for TermError {

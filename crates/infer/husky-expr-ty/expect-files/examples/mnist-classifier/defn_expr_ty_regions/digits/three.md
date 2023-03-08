@@ -917,14 +917,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                PrefixOperandTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1445,14 +1440,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                PrefixOperandTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2805,14 +2795,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                PrefixOperandTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3145,14 +3130,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                PrefixOperandTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3485,14 +3465,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                PrefixOperandTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        PrefixOperandTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
