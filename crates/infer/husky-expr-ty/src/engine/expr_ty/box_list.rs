@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
             .into();
         for item in items {
-            self.infer_new_expr_ty(
+            self.infer_new_expr_ty_discarded(
                 item,
                 ExpectImplicitlyConvertible {
                     destination: element_ty,

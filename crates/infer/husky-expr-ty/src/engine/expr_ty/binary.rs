@@ -43,8 +43,16 @@ impl<'a> ExprTypeEngine<'a> {
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         // todo: don't use resolved
-        let lopd_ty = self.infer_new_expr_ty_resolved(lopd, ExpectAnyOriginal, local_term_region);
-        let ropd_ty = self.infer_new_expr_ty_resolved(ropd, ExpectAnyOriginal, local_term_region);
+        let lopd_ty = self.infer_new_expr_ty_with_resolved_ty_returned(
+            lopd,
+            ExpectAnyOriginal,
+            local_term_region,
+        );
+        let ropd_ty = self.infer_new_expr_ty_with_resolved_ty_returned(
+            ropd,
+            ExpectAnyOriginal,
+            local_term_region,
+        );
         let Some(lopd_ty) = lopd_ty
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
@@ -186,14 +194,15 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let lopd_ty = self.infer_new_expr_ty(lopd, ExpectAnyOriginal, local_term_region);
-        let _ropd_ty = match lopd_ty {
-            Some(destination) => self.infer_new_expr_ty(
+        let lopd_ty =
+            self.infer_new_expr_ty_with_ty_returned(lopd, ExpectAnyOriginal, local_term_region);
+        match lopd_ty {
+            Some(destination) => self.infer_new_expr_ty_discarded(
                 ropd,
                 ExpectImplicitlyConvertible { destination },
                 local_term_region,
             ),
-            None => self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region),
+            None => self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region),
         };
         Ok(self.term_menu.bool().into())
     }
@@ -204,12 +213,12 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty(
+        self.infer_new_expr_ty_discarded(
             lopd,
             self.expect_implicitly_convertible_to_bool(),
             local_term_region,
         );
-        self.infer_new_expr_ty(
+        self.infer_new_expr_ty_discarded(
             ropd,
             self.expect_implicitly_convertible_to_bool(),
             local_term_region,
@@ -222,7 +231,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(
+        let Some(ropd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(
             ropd,
             ExpectAnyOriginal,
             local_term_region,
@@ -253,7 +262,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty(
+        self.infer_new_expr_ty_discarded(
             ropd,
             ExpectEqsCategory {
                 smallest_universe: 0.into(),
@@ -264,12 +273,13 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        let Some(lopd_ty) = self.infer_new_expr_ty(lopd, ExpectExplicitlyConvertible {
-            destination: ropd_term
-        }, local_term_region)
-            else {
-                return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
-            };
+        self.infer_new_expr_ty_discarded(
+            lopd,
+            ExpectExplicitlyConvertible {
+                destination: ropd_term,
+            },
+            local_term_region,
+        );
         todo!()
     }
 
@@ -282,11 +292,11 @@ impl<'a> ExprTypeEngine<'a> {
         let expect_any_sort = ExpectEqsCategory {
             smallest_universe: 0.into(),
         };
-        let Some(lopd_ty) = self.infer_new_expr_ty_resolved(lopd, expect_any_sort, local_term_region)
+        let Some(lopd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(lopd, expect_any_sort, local_term_region)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
             };
-        let Some(ropd_ty) = self.infer_new_expr_ty_resolved(ropd, expect_any_sort, local_term_region)
+        let Some(ropd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(ropd, expect_any_sort, local_term_region)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
@@ -323,33 +333,9 @@ impl<'a> ExprTypeEngine<'a> {
         ) {
             Some(_) => todo!(),
             None => {
-                self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
+                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region);
             }
         };
-        // if let Some(lopd_expectation_rule_idx) = lopd_expectation_rule_idx.into_option() {
-        //     match local_term_region[lopd_expectation_rule_idx].resolve_progress() {
-        //         LocalTermExpectationResolveProgress::Unresolved => unreachable!("think hard"),
-        //         LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
-        //             todo!()
-        //         }
-        //         LocalTermExpectationResolveProgress::Resolved(Err(_)) => {
-        //             self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
-        //         }
-        //     }
-        // } else {
-        //     self.infer_new_expr_ty(ropd, ExpectAnyDerived, local_term_region);
-        // }
-        // match lopd_ty {
-        //     Some(lopd_ty) => match opr {
-        //         Some(opr) => {
-        //             self.infer_composite_assign_ropd_ty(lopd_expectation_rule_idx, opr, ropd)
-        //         }
-        //         None => self.infer_basic_assign_ropd_ty(lopd_expectation_rule_idx, ropd),
-        //     },
-        //     None => {
-        //         self.infer_new_expr_ty(ropd, LocalTermExpectation::None);
-        //     }
-        // };
         Ok(self.term_menu.unit().into())
     }
 
@@ -359,7 +345,8 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) {
-        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal, local_term_region);
+        let ropd_ty =
+            self.infer_new_expr_ty_with_ty_returned(ropd, ExpectAnyOriginal, local_term_region);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
             LocalTerm::Resolved(lopd_ty) => match lopd_ty {

@@ -12,13 +12,13 @@ impl<'a> ExprTypeEngine<'a> {
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(self_expr_ty) =
-            self.infer_new_expr_ty_resolved( self_argument, ExpectAnyOriginal,local_term_region)
+            self.infer_new_expr_ty_with_resolved_ty_returned( self_argument, ExpectAnyOriginal,local_term_region)
             else {
                 if let Some(implicit_arguments) = implicit_arguments {
                     todo!()
                 }
                 for argument in nonself_arguments {
-                    self.infer_new_expr_ty(argument, ExpectAnyDerived,local_term_region);
+                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };

@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
         for (i, nonself_argument) in nonself_arguments.into_iter().enumerate() {
             if i < nonself_parameter_liasoned_tys.len() {
                 let nonself_parameter_liasoned_ty = nonself_parameter_liasoned_tys[i];
-                self.infer_new_expr_ty(
+                self.infer_new_expr_ty_discarded(
                     nonself_argument,
                     ExpectImplicitlyConvertible {
                         destination: nonself_parameter_liasoned_ty.ty,
@@ -29,7 +29,11 @@ impl<'a> ExprTypeEngine<'a> {
                     local_term_region,
                 );
             } else {
-                self.infer_new_expr_ty(nonself_argument, ExpectAnyDerived, local_term_region);
+                self.infer_new_expr_ty_discarded(
+                    nonself_argument,
+                    ExpectAnyDerived,
+                    local_term_region,
+                );
             }
         }
     }

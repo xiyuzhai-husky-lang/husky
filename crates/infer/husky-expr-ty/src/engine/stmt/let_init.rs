@@ -10,7 +10,7 @@ impl<'a> ExprTypeEngine<'a> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {
-                    self.infer_new_expr_ty(
+                    self.infer_new_expr_ty_discarded(
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                         local_term_region,
@@ -24,7 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
         match pattern_ty {
             Some(ty) => {
                 initial_value.as_ref().ok().copied().map(|initial_value| {
-                    self.infer_new_expr_ty(
+                    self.infer_new_expr_ty_discarded(
                         initial_value,
                         // ad hoc
                         ExpectImplicitlyConvertible { destination: ty },
@@ -33,18 +33,14 @@ impl<'a> ExprTypeEngine<'a> {
                 });
             }
             None => {
-                initial_value
-                    .as_ref()
-                    .ok()
-                    .map(|initial_value| {
-                        self.infer_new_expr_ty(
-                            *initial_value,
-                            // ad hoc
-                            ExpectAnyOriginal,
-                            local_term_region,
-                        )
-                    })
-                    .flatten();
+                initial_value.as_ref().copied().map(|initial_value| {
+                    self.infer_new_expr_ty_discarded(
+                        initial_value,
+                        // ad hoc
+                        ExpectAnyOriginal,
+                        local_term_region,
+                    )
+                });
             }
         }
         match pattern_ty {
