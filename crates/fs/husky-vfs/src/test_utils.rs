@@ -1,6 +1,6 @@
 use crate::*;
 use husky_path_utils::*;
-use relative_path::RelativePathBuf;
+
 use salsa::DebugWithDb;
 use std::path::PathBuf;
 
@@ -15,14 +15,14 @@ pub trait VfsTestUnit: Sized {
 }
 
 impl VfsTestUnit for PackagePath {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
+    fn collect_from_package_path(_db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
         vec![package_path]
     }
 
     fn decide_expect_file_path(
         &self,
-        db: &dyn VfsDb,
-        task_name: &str,
+        _db: &dyn VfsDb,
+        _task_name: &str,
         package_expects_dir: &Path,
     ) -> PathBuf {
         package_expects_dir.with_extension(EXPECT_FILE_EXTENSION)
@@ -114,7 +114,7 @@ pub trait VfsTestUtils: VfsDb {
     where
         U: VfsTestUnit,
     {
-        for dir in test_dirs() {
+        for _dir in test_dirs() {
             let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
             let toolchain = self.dev_toolchain().unwrap();
             for (base, out) in expect_test_base_outs() {

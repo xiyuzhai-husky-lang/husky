@@ -1,15 +1,15 @@
 use crate::*;
 use husky_ast::*;
-use husky_entity_path::EntityPath;
+
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
-use husky_opn_syntax::BinaryOpr;
-use husky_print_utils::p;
+
+
 use husky_token::*;
-use husky_vfs::CratePath;
+
 use parsec::*;
-use salsa::DebugWithDb;
-use vec_like::{VecMapGetEntry, VecPairMap};
+
+
 
 pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
     match path {
@@ -102,10 +102,10 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                accessibility,
+                
                 entity_kind,
-                is_generic,
-                body_kind,
+                
+                
                 saved_stream_state,
                 ..
             } => self.parse_ty_decl_aux(
@@ -125,7 +125,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         type_kind: TypeKind,
         path: TypePath,
-        entity_kind: EntityKind,
+        _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         body: &AstIdxRange,
         saved_stream_state: TokenIdx,
@@ -163,7 +163,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
@@ -200,10 +200,10 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                accessibility,
-                entity_kind,
-                is_generic,
-                body_kind,
+                
+                
+                
+                
                 saved_stream_state,
                 ..
             } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),
@@ -216,7 +216,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TraitPath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(
@@ -245,7 +245,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
@@ -271,7 +271,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         let mut parser = self.expr_parser(
@@ -300,7 +300,7 @@ impl<'a> DeclParser<'a> {
                 rcurl,
             )
             .into())
-        } else if let Some(lbox) = ctx.parse::<LeftBoxBracketToken>()? {
+        } else if let Some(_lbox) = ctx.parse::<LeftBoxBracketToken>()? {
             todo!()
         } else {
             Err(OriginalDeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()).into())
@@ -330,10 +330,10 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut token_iter = self
+        let _token_iter = self
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
@@ -361,10 +361,10 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         path: TypePath,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
-        let mut token_iter = self
+        let _token_iter = self
             .token_sheet_data
             .token_group_token_stream(token_group_idx, Some(saved_stream_state));
 
@@ -400,10 +400,10 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                accessibility,
+                
                 entity_kind,
-                is_generic,
-                body_kind,
+                
+                
                 saved_stream_state,
                 ..
             } => self.parse_form_decl_aux(
@@ -422,9 +422,9 @@ impl<'a> DeclParser<'a> {
         &self,
         ast_idx: AstIdx,
         path: FormPath,
-        entity_kind: EntityKind,
+        _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> Result<FormDecl, DeclError> {
         match path.form_kind(self.db) {
@@ -515,12 +515,12 @@ impl<'a> DeclParser<'a> {
         match self.ast_sheet[ast_idx] {
             Ast::Impl {
                 token_group_idx,
-                body,
+                body: _,
             } => match im.kind(self.db) {
-                ImplKind::Type { ty } => Ok(self
+                ImplKind::Type { ty: _ } => Ok(self
                     .parse_ty_impl_decl(ast_idx, token_group_idx, im)?
                     .into()),
-                ImplKind::TypeAsTrait { ty, trai } => todo!(),
+                ImplKind::TypeAsTrait { ty: _, trai: _ } => todo!(),
                 ImplKind::Err => Err(DerivedDeclError::ImplErr.into()),
             },
             _ => unreachable!(),
@@ -568,16 +568,16 @@ impl<'a> DeclParser<'a> {
         Ok(match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                body,
-                accessibility,
+                body: _,
+                accessibility: _,
                 entity_kind:
                     EntityKind::AssociatedItem {
                         associated_item_kind,
                     },
-                entity_path,
-                ident_token,
-                is_generic,
-                body_kind,
+                entity_path: _,
+                ident_token: _,
+                is_generic: _,
+                body_kind: _,
                 saved_stream_state,
             } => match associated_item_kind {
                 AssociatedItemKind::TraitItem(_) => todo!(),

@@ -62,7 +62,7 @@ impl From<TypeAsTraitAssociatedFunctionSignature> for TypeAsTraitItemSignature {
 }
 
 impl TypeAsTraitItemSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeAsTraitItemSignature::Function(_) => todo!(),
             TypeAsTraitItemSignature::Method(_) => todo!(),

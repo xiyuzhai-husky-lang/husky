@@ -6,8 +6,7 @@ mod tests;
 pub use engine::*;
 pub use error::*;
 
-#[cfg(test)]
-use tests::*;
+
 
 pub trait Graph {
     type Value: Eq;

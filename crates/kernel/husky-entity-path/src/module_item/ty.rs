@@ -137,7 +137,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for TypePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
         f.write_str("TypePath(`")?;
@@ -156,7 +156,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         self.show_aux(f, db)

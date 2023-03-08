@@ -20,7 +20,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     ) -> Self {
         let toolchain = expr_region.toolchain(db);
         // ad hoc
-        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        let _entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
         let expr_region_data = &expr_region.data(db);
         let mut this = Self {
@@ -39,7 +39,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
-        for (idx, symbol) in self
+        for (_idx, symbol) in self
             .expr_region_data
             .symbol_region()
             .indexed_current_symbol_iter()
@@ -128,7 +128,7 @@ impl<'a> SignatureRawTermEngine<'a> {
         match self.expr_region_data.expr_arena()[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
-                entity_path_expr,
+                entity_path_expr: _,
                 path: entity_path,
             } => match entity_path {
                 Some(entity_path) => Ok(RawTerm::EntityPath(match entity_path {
@@ -147,10 +147,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 None => Err(DerivedSignatureRawTermError::InvalidEntityPath.into()),
             },
             Expr::InheritedSymbol {
-                ident,
-                token_idx,
-                inherited_symbol_idx,
-                inherited_symbol_kind,
+                ident: _,
+                token_idx: _,
+                inherited_symbol_idx: _,
+                inherited_symbol_kind: _,
             } => todo!(),
             Expr::CurrentSymbol {
                 current_symbol_idx, ..
@@ -160,10 +160,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 .expect("not none")
                 .into()),
             Expr::FrameVarDecl {
-                token_idx,
-                ident,
-                frame_var_symbol_idx: current_symbol_idx,
-                current_symbol_kind,
+                token_idx: _,
+                ident: _,
+                frame_var_symbol_idx: _current_symbol_idx,
+                current_symbol_kind: _,
             } => todo!(),
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
@@ -199,7 +199,7 @@ impl<'a> SignatureRawTermEngine<'a> {
             Expr::Be { .. } => todo!(),
             Expr::Prefix {
                 opr,
-                opr_token_idx,
+                opr_token_idx: _,
                 opd,
             } => {
                 let Ok(opd) = self.infer_new(opd) else {
@@ -221,14 +221,14 @@ impl<'a> SignatureRawTermEngine<'a> {
                 Ok(RawTermExplicitApplication::new(self.db, tmpl, opd).into())
             }
             Expr::Suffix {
-                opd,
-                opr: punctuation,
-                opr_token_idx: punctuation_token_idx,
+                opd: _,
+                opr: _punctuation,
+                opr_token_idx: _punctuation_token_idx,
             } => todo!(),
             Expr::Field {
-                owner: self_expr,
-                dot_token_idx,
-                ident_token,
+                owner: _self_expr,
+                dot_token_idx: _,
+                ident_token: _,
             } => todo!(),
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
@@ -294,86 +294,86 @@ impl<'a> SignatureRawTermEngine<'a> {
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),
                             Expr::EntityPath {
-                                entity_path_expr,
-                                path: entity_path,
+                                entity_path_expr: _,
+                                path: _entity_path,
                             } => todo!(),
                             Expr::InheritedSymbol {
-                                ident,
-                                token_idx,
-                                inherited_symbol_idx,
-                                inherited_symbol_kind,
+                                ident: _,
+                                token_idx: _,
+                                inherited_symbol_idx: _,
+                                inherited_symbol_kind: _,
                             } => todo!(),
                             Expr::CurrentSymbol {
-                                ident,
-                                token_idx,
-                                current_symbol_idx,
-                                current_symbol_kind,
+                                ident: _,
+                                token_idx: _,
+                                current_symbol_idx: _,
+                                current_symbol_kind: _,
                             } => todo!(),
                             Expr::FrameVarDecl {
-                                token_idx,
-                                ident,
-                                frame_var_symbol_idx: current_symbol_idx,
-                                current_symbol_kind,
+                                token_idx: _,
+                                ident: _,
+                                frame_var_symbol_idx: _current_symbol_idx,
+                                current_symbol_kind: _,
                             } => todo!(),
                             Expr::SelfType(_) => todo!(),
                             Expr::SelfValue(_) => todo!(),
                             Expr::Binary {
-                                lopd,
-                                opr,
-                                opr_token_idx,
-                                ropd,
+                                lopd: _,
+                                opr: _,
+                                opr_token_idx: _,
+                                ropd: _,
                             } => todo!(),
                             Expr::Be {
-                                src,
-                                be_token_idx,
-                                ref target,
+                                src: _,
+                                be_token_idx: _,
+                                target: _,
                             } => todo!(),
                             Expr::Prefix {
-                                opr,
-                                opr_token_idx,
-                                opd,
+                                opr: _,
+                                opr_token_idx: _,
+                                opd: _,
                             } => todo!(),
                             Expr::Suffix {
-                                opd,
-                                opr: punctuation,
-                                opr_token_idx: punctuation_token_idx,
+                                opd: _,
+                                opr: _punctuation,
+                                opr_token_idx: _punctuation_token_idx,
                             } => todo!(),
                             Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
                             Expr::Field {
-                                owner: self_expr,
-                                dot_token_idx,
-                                ident_token,
+                                owner: _self_expr,
+                                dot_token_idx: _,
+                                ident_token: _,
                             } => todo!(),
                             Expr::MethodCall {
-                                self_argument: self_expr,
-                                dot_token_idx,
-                                ident_token,
-                                ref implicit_arguments,
-                                lpar_token_idx,
-                                nonself_arguments: arguments,
-                                rpar_token_idx,
+                                self_argument: _self_expr,
+                                dot_token_idx: _,
+                                ident_token: _,
+                                implicit_arguments: _,
+                                lpar_token_idx: _,
+                                nonself_arguments: _arguments,
+                                rpar_token_idx: _,
                             } => todo!(),
                             Expr::TemplateInstantiation {
-                                template,
-                                ref implicit_arguments,
+                                template: _,
+                                implicit_arguments: _,
                             } => todo!(),
-                            Expr::ExplicitApplication { function, argument } => {
+                            Expr::ExplicitApplication { function: _, argument: _ } => {
                                 todo!()
                             }
                             Expr::Bracketed {
-                                lpar_token_idx,
-                                item,
-                                rpar_token_idx,
+                                lpar_token_idx: _,
+                                item: _,
+                                rpar_token_idx: _,
                             } => todo!(),
                             Expr::NewTuple {
-                                lpar_token_idx,
-                                items,
-                                ref commas,
-                                rpar_token_idx,
+                                lpar_token_idx: _,
+                                items: _,
+                                commas: _,
+                                rpar_token_idx: _,
                             } => todo!(),
                             Expr::List { .. } => todo!(),
                             Expr::BoxColonList { .. } => todo!(),
-                            Expr::Block { stmts } => todo!(),
+                            Expr::Block { stmts: _ } => todo!(),
                             Expr::Err(_) => Err(
                                 DerivedSignatureRawTermError::CannotInferArgumentRawTermInBoxList
                                     .into(),
@@ -383,7 +383,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                         _ => todo!(),
                     },
                     _ => {
-                        let  Ok(function) = self.infer_new(function) else {
+                        let  Ok(_function) = self.infer_new(function) else {
                             return  Err(DerivedSignatureRawTermError::CannotInferFunctionRawTermInApplication.into())
                         };
                         todo!()
@@ -391,9 +391,9 @@ impl<'a> SignatureRawTermEngine<'a> {
                 }
             }
             Expr::NewTuple {
-                lpar_token_idx,
+                
                 items,
-                rpar_token_idx,
+                
                 ..
             } => {
                 p!(self.expr_region_data.path().debug(self.db));
@@ -414,12 +414,12 @@ impl<'a> SignatureRawTermEngine<'a> {
             }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Bracketed { item, .. } => self.infer_new(item),
-            Expr::Block { stmts } => todo!(),
+            Expr::Block { stmts: _ } => todo!(),
             Expr::IndexOrCompositionWithList {
-                owner,
-                lbox_token_idx,
-                items: indices,
-                rbox_token_idx,
+                owner: _,
+                lbox_token_idx: _,
+                items: _indices,
+                rbox_token_idx: _,
             } => todo!(),
             Expr::Err(_) => Err(DerivedSignatureRawTermError::ExprError.into()),
         }

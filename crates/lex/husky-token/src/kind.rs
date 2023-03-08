@@ -28,9 +28,9 @@ impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for Token {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<TokenJar>>::as_jar_db(db);
+        let _db = <Db as salsa::DbWithJar<TokenJar>>::as_jar_db(db);
         match self {
             _ => <Self as std::fmt::Debug>::fmt(&self, f),
         }

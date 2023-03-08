@@ -48,7 +48,7 @@ impl Decl {
             Decl::Trait(decl) => decl.implicit_parameters(db),
             Decl::Impl(decl) => decl.implicit_parameters(db),
             Decl::AssociatedItem(decl) => decl.implicit_parameters(db),
-            Decl::Variant(decl) => Ok(&[]),
+            Decl::Variant(_decl) => Ok(&[]),
         }
     }
 
@@ -59,7 +59,7 @@ impl Decl {
             Decl::Trait(decl) => decl.expr_region(db).into(),
             Decl::Impl(decl) => decl.expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.expr_region(db).into(),
-            Decl::Variant(decl) => todo!(),
+            Decl::Variant(_decl) => todo!(),
         }
     }
 
@@ -68,9 +68,9 @@ impl Decl {
             Decl::Type(decl) => Some(decl.path(db).into()),
             Decl::Form(decl) => Some(decl.path(db).into()),
             Decl::Trait(decl) => Some(decl.path(db).into()),
-            Decl::Impl(decl) => None,
+            Decl::Impl(_decl) => None,
             Decl::AssociatedItem(decl) => decl.path(db).map(|path| path.into()),
-            Decl::Variant(decl) => todo!(),
+            Decl::Variant(_decl) => todo!(),
         }
     }
 }

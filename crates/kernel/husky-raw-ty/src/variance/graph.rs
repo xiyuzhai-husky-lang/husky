@@ -18,11 +18,11 @@ impl<'a> Graph for VarianceGraph<'a> {
         &self.nodes[idx].dependencies
     }
 
-    fn value_mut(&mut self, idx: usize) -> &mut Self::Value {
+    fn value_mut(&mut self, _idx: usize) -> &mut Self::Value {
         todo!()
     }
 
-    fn eval(&self, idx: usize) -> Self::Value {
+    fn eval(&self, _idx: usize) -> Self::Value {
         todo!()
     }
 }
@@ -68,7 +68,7 @@ pub(super) struct VarianceGraphNode<'a> {
 }
 
 impl<'a> VarianceGraphNode<'a> {
-    pub(super) fn new(ids: &mut VecSet<VarianceId>, repr: &'a VarianceRepr) -> Self {
+    pub(super) fn new(_ids: &mut VecSet<VarianceId>, repr: &'a VarianceRepr) -> Self {
         Self {
             repr,
             value: repr.base(),

@@ -1,10 +1,10 @@
 use crate::*;
 use husky_manifest::ManifestError;
-use husky_print_utils::p;
-use husky_token::TokenIdx;
-use husky_word::{IdentMap, IdentPairMap};
+
+
+
 use thiserror::Error;
-use vec_like::VecMapGetEntry;
+
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum PreludeError {
@@ -20,9 +20,9 @@ pub type PreludeResult<T> = Result<T, PreludeError>;
 impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }
@@ -40,7 +40,7 @@ pub(crate) fn crate_specific_prelude(
     entries.extend(
         package_dependencies
             .iter()
-            .map(|package_dependency| todo!()),
+            .map(|_package_dependency| todo!()),
     );
     Ok(entries)
 }
@@ -87,7 +87,7 @@ fn crate_symbol_context_works() {
             }
         };
         let toolchain = crate_path.toolchain(db);
-        let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
+        let _vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         t(entity_path_menu.bool_ty_path().into());
         t(entity_path_menu.i32_ty_path().into());
@@ -114,7 +114,7 @@ impl<'a> CrateSymbolContext<'a> {
         }
     }
 
-    fn new_default(db: &dyn EntityTreeDb) -> Self {
+    fn new_default(_db: &dyn EntityTreeDb) -> Self {
         todo!()
         // ad hoc
         // let menu = db.entity_path_menu(toolchain);

@@ -1,4 +1,4 @@
-use husky_entity_path::{ModuleItemPath, TypePath};
+use husky_entity_path::{TypePath};
 use vec_like::AsVecMapEntry;
 
 use super::*;
@@ -17,10 +17,10 @@ pub(crate) struct RawTermSymbolShowEntry {
 impl RawTermSymbolShowEntry {
     pub(crate) fn show(
         &self,
-        db: &dyn RawTermDb,
+        _db: &dyn RawTermDb,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        if let Some(external_symbol_ident) = self.external_symbol_ident && self.level == 0 {
+        if let Some(_external_symbol_ident) = self.external_symbol_ident && self.level == 0 {
             todo!()
         } else {
             match self.show_kind {

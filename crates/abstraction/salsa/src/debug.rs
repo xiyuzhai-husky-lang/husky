@@ -248,7 +248,7 @@ where
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for Infallible {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, _f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         unreachable!()
     }
 }
@@ -351,7 +351,7 @@ where
 /// That's the "has impl" trick (https://github.com/nvzqz/impls#how-it-works)
 #[doc(hidden)]
 pub mod helper {
-    use super::{DebugFormatLevel, DebugFormatLevelExt, DebugWith, DebugWithDb};
+    use super::{DebugFormatLevelExt, DebugWith, DebugWithDb};
     use std::{fmt, marker::PhantomData};
 
     pub trait Fallback<T: fmt::Debug, Db: ?Sized> {

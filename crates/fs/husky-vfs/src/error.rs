@@ -70,8 +70,8 @@ impl salsa::DebugWithDb<dyn VfsDb + '_> for VfsError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn VfsDb,
-        level: salsa::DebugFormatLevel,
+        _db: &dyn VfsDb,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }

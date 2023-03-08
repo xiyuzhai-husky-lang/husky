@@ -9,7 +9,7 @@ pub(crate) fn collect_semantic_tokens(
     module_path: ModulePath,
 ) -> EntityTreeResult<Vec<RangedSemanticToken>> {
     let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
-    let token_sheet_data = db.token_sheet_data(module_path)?;
+    let _token_sheet_data = db.token_sheet_data(module_path)?;
     let token_infer_sheet = db.token_info_sheet(module_path)?;
     let iter0 = token_infer_sheet
         .informative_ranged_token_iter(ranged_token_sheet, db)

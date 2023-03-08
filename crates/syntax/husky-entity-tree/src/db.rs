@@ -45,13 +45,13 @@ where
 {
     fn module_item_entity_kind(
         &self,
-        module_item_path: ModuleItemPath,
+        _module_item_path: ModuleItemPath,
     ) -> &EntityTreeResult<EntityKind> {
         todo!()
     }
     fn associated_item_entity_kind(
         &self,
-        associated_item_path: AssociatedItemPath,
+        _associated_item_path: AssociatedItemPath,
     ) -> &EntityTreeResult<EntityKind> {
         todo!()
     }

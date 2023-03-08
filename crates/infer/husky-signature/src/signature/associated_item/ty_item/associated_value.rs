@@ -6,8 +6,8 @@ pub(crate) fn ty_associated_value_signature(
     decl: TypeAssociatedValueDecl,
 ) -> SignatureResult<TypeAssociatedValueSignature> {
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let _signature_term_region = signature_term_region(db, expr_region);
+    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(TypeAssociatedValueSignature::new(db))
 }
 

@@ -1,6 +1,6 @@
 use husky_doc::TextRange;
 use husky_entity_tree::EntityTreeResult;
-use husky_expr::SymbolRegion;
+
 use husky_token::Token;
 use husky_token_info::TokenInfo;
 
@@ -71,8 +71,8 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn gen_keyword_content(&self, kw: husky_token::Keyword) -> &'static str {
         match kw {
-            husky_token::Keyword::Config(keyword) => "This is a config keyword.",
-            husky_token::Keyword::Paradigm(keyword) => "This is a paradigm",
+            husky_token::Keyword::Config(_keyword) => "This is a config keyword.",
+            husky_token::Keyword::Paradigm(_keyword) => "This is a paradigm",
             _ => "Other",
         }
     }

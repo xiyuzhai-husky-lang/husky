@@ -1,5 +1,5 @@
 use husky_entity_path::*;
-use husky_vfs::VfsPathMenu;
+
 use salsa::DisplayWithDb;
 
 use super::*;
@@ -59,7 +59,7 @@ impl<Db: ?Sized + TermPreludeDb> DisplayWithDb<Db> for TermEntityPath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         match self {
             TermEntityPath::Form(path) => {

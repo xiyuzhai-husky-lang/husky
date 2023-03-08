@@ -17,7 +17,7 @@ pub enum VariantDecl {
     Tuple(TupleVariantDecl),
 }
 impl VariantDecl {
-    pub(crate) fn ast_idx(&self, db: &dyn DeclDb) -> AstIdx {
+    pub(crate) fn ast_idx(&self, _db: &dyn DeclDb) -> AstIdx {
         todo!()
     }
 }

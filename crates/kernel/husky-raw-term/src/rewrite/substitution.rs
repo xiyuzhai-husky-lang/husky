@@ -1,5 +1,5 @@
 use super::*;
-use husky_word::Identifier;
+
 
 pub struct RawTermSubstitution {
     src: RawTermSymbol,

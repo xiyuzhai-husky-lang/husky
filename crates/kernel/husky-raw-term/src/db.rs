@@ -1,7 +1,7 @@
-use std::sync::Arc;
+
 
 use crate::*;
-use husky_entity_path::EntityPathDb;
+
 use husky_term_prelude::TermPreludeDb;
 use husky_vfs::Toolchain;
 use salsa::DbWithJar;

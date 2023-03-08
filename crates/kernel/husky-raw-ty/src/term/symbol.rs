@@ -20,15 +20,15 @@ impl RawTermSymbols {
             (None, None) => None,
             (None, Some(snd)) => Some(snd),
             (Some(fst), None) => Some(fst),
-            (Some(fst), Some(snd)) => todo!(),
+            (Some(_fst), Some(_snd)) => todo!(),
         }
     }
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        symbol: impl Into<Option<RawTermSymbol>>,
+        _symbol: impl Into<Option<RawTermSymbol>>,
     ) -> Option<Self> {
-        let symbols = symbols.into()?;
+        let _symbols = symbols.into()?;
         todo!()
     }
 }
@@ -58,7 +58,7 @@ fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTer
         RawTerm::Ritchie(raw_term) => raw_term_ritchie_symbols(db, raw_term),
         RawTerm::Abstraction(_) => todo!(),
         RawTerm::ExplicitApplication(raw_term) => raw_term_application_symbols(db, raw_term),
-        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
+        RawTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),

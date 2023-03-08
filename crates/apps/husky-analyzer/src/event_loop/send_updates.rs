@@ -2,7 +2,7 @@ use crate::server::client_comm::ClientCommunicator;
 use crate::*;
 use husky_vfs::VfsDb;
 use salsa::DebugWithDb;
-use vec_like::VecSet;
+
 
 pub(crate) fn send_updates(db: &AnalyzerDB, comm: &ClientCommunicator) {
     let live_packages = db.live_packages().unwrap();

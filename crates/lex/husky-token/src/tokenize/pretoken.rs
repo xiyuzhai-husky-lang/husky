@@ -1,7 +1,7 @@
 use super::*;
 use husky_doc::{TextCharIter, TextRange};
 use husky_opn_syntax::*;
-use husky_print_utils::p;
+
 use husky_word::WordDb;
 use std::str::FromStr;
 
@@ -331,7 +331,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                invalid_integer_suffix => return Pretoken::Error(TokenError::InvalidIntegerSuffix),
+                _invalid_integer_suffix => return Pretoken::Error(TokenError::InvalidIntegerSuffix),
             };
             self.buffer.clear();
             token

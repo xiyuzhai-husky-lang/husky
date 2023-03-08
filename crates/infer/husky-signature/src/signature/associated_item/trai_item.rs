@@ -36,7 +36,7 @@ pub enum TraitItemSignature {
 }
 
 impl TraitItemSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TraitItemSignature::Function(_) => todo!(),
             TraitItemSignature::Method(_) => todo!(),

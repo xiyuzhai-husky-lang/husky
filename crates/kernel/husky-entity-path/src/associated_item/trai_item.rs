@@ -14,7 +14,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
         self.show_aux(f, db)
@@ -22,7 +22,7 @@ where
 }
 
 impl TraitItemPath {
-    fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &dyn EntityPathDb) -> std::fmt::Result {
+    fn show_aux(self, _f: &mut std::fmt::Formatter<'_>, _db: &dyn EntityPathDb) -> std::fmt::Result {
         todo!()
     }
 }

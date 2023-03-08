@@ -69,7 +69,7 @@ fn term_literal_size_works() {
 
 impl TermLiteral {
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(db: &dyn TermPreludeDb, valid_term: TermLiteral) -> Self {
+    pub(crate) fn from_raw_unchecked(_db: &dyn TermPreludeDb, _valid_term: TermLiteral) -> Self {
         todo!()
     }
 
@@ -107,7 +107,7 @@ impl TermLiteral {
     pub fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermPreludeDb,
+        _db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
         match self {
             TermLiteral::Unit => f.write_str("unit"),
@@ -253,7 +253,7 @@ impl<Db: TermPreludeDb + ?Sized> salsa::DisplayWithDb<Db> for TermLiteral {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermPreludeJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db)

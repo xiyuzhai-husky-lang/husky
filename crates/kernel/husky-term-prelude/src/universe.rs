@@ -18,7 +18,7 @@ impl TermUniverse {
     }
 
     #[inline(always)]
-    pub fn from_(db: &dyn TermPreludeDb, _term: TermUniverse) -> Self {
+    pub fn from_(_db: &dyn TermPreludeDb, _term: TermUniverse) -> Self {
         TermUniverse::new(_term.raw())
     }
 

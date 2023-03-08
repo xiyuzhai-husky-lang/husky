@@ -5,9 +5,9 @@ use crate::*;
 
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) fn module_subentity_path(
-    db: &dyn EntityTreeDb,
-    parent: ModulePath,
-    identifier: Identifier,
+    _db: &dyn EntityTreeDb,
+    _parent: ModulePath,
+    _identifier: Identifier,
 ) -> EntityTreeResult<EntityPath> {
     todo!()
 }
@@ -30,7 +30,7 @@ pub(crate) fn subentity_path(
         }
         EntityPath::ModuleItem(module_item_path) => {
             let crate_path = module_item_path.crate_path(db);
-            let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+            let _entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(ty) => {
                     let ty_associated_items = match ty_associated_items(db, ty) {

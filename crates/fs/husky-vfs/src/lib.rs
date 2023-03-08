@@ -35,7 +35,7 @@ use file::*;
 use husky_print_utils::p;
 use husky_word::*;
 use notify_debouncer_mini::notify::RecursiveMode;
-use path::*;
+
 use salsa::storage::HasJar;
 use std::path::{Path, PathBuf};
 #[cfg(test)]

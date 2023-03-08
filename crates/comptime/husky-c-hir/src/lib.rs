@@ -8,8 +8,7 @@ mod transpile;
 pub use db::*;
 pub use hir::*;
 
-#[cfg(test)]
-use tests::*;
+
 use transpile::*;
 
 #[salsa::jar(db = CHirDb)]

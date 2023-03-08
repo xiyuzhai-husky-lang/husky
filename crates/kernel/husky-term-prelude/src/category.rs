@@ -27,8 +27,8 @@ impl TermCategory {
 
     pub(crate) fn show_with_db_fmt(
         self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn TermPreludeDb,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
         todo!()
     }

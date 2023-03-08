@@ -1,13 +1,12 @@
 use husky_expr::{
-    EntityPathExpr, EntityPathExprError, Expr, ExprIdx, ExprRegion, OriginalEntityPathExprError,
-    OriginalExprError, Stmt, StmtError,
+    ExprIdx, ExprRegion,
 };
 use husky_expr_ty::{
     ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
     OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
-use husky_token::RangedTokenSheet;
-use salsa::{DebugWithDb, DisplayWithDb};
+
+
 
 use super::*;
 
@@ -27,7 +26,7 @@ pub(crate) fn expr_ty_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.collect_defns(module_path),
     ) {
-        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for (_, defn) in defn_sheet.defns() {
             if let Ok(defn) = defn {
                 let decl = defn.decl(db);
@@ -93,7 +92,7 @@ fn collect_expr_ty_diagnostics(
 impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, db: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _db: &RegionDiagnosticsContext) -> String {
         match self {
             _ => todo!(),
         }
@@ -103,7 +102,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
         todo!()
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
     }
 }
@@ -111,7 +110,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
 impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
@@ -138,8 +137,8 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 format!("Type Error: AmbiguousTypePath")
             }
             OriginalExprTypeError::RitchieCallWrongNumberOfArguments {
-                number_of_nonself_parameters,
-                number_of_nonself_arguments,
+                number_of_nonself_parameters: _,
+                number_of_nonself_arguments: _,
             } => {
                 format!("Type Error: RitchieCallWrongNumberOfArguments")
             }
@@ -164,7 +163,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, db: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _db: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalLocalTermResolveError::UnresolvedTerm => todo!(),
         }
@@ -182,7 +181,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalLocalTermExpectationError::Todo => {
                 todo!()

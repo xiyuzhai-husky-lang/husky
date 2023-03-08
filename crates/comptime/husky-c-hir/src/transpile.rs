@@ -17,9 +17,9 @@ impl<'a> CTranspiler<'a> {
 
     pub(crate) fn transpile_comma_separated_subhirs<T: CHirTranspile>(
         &mut self,
-        ctx: &CTranspilerContext,
-        bracket: CBracket,
-        items: impl IntoIterator<Item = T>,
+        _ctx: &CTranspilerContext,
+        _bracket: CBracket,
+        _items: impl IntoIterator<Item = T>,
     ) {
         todo!()
     }

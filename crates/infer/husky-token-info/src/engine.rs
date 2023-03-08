@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
-use husky_entity_path::EntityPath;
+
 use husky_expr::*;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
 
@@ -78,7 +78,7 @@ impl<'a> InferEngine<'a> {
                 },
             ),
             UseExpr::Err(_) => (),
-            UseExpr::SelfOne { self_token } => todo!(),
+            UseExpr::SelfOne { self_token: _ } => todo!(),
         }
     }
 
@@ -90,15 +90,15 @@ impl<'a> InferEngine<'a> {
         let ast_idx = defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
-                token_group_idx,
-                ref body,
-                accessibility,
+                token_group_idx: _,
+                body: _,
+                accessibility: _,
                 entity_kind,
-                entity_path,
+                entity_path: _,
                 ident_token,
-                is_generic,
-                body_kind,
-                saved_stream_state,
+                is_generic: _,
+                body_kind: _,
+                saved_stream_state: _,
             } => self.sheet.add(
                 ident_token.token_idx(),
                 TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
@@ -143,39 +143,39 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_enum_ty(&mut self, defn: EnumTypeDefn) {
+    fn visit_enum_ty(&mut self, _defn: EnumTypeDefn) {
         // todo!()
     }
 
-    fn visit_inductive_ty(&mut self, defn: InductiveTypeDefn) {
+    fn visit_inductive_ty(&mut self, _defn: InductiveTypeDefn) {
         // todo!()
     }
 
-    fn visit_record_ty(&mut self, defn: RecordTypeDefn) {
+    fn visit_record_ty(&mut self, _defn: RecordTypeDefn) {
         // todo!()
     }
 
-    fn visit_unit_struct_ty(&mut self, defn: UnitStructTypeDefn) {
+    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeDefn) {
         // todo!()
     }
 
-    fn visit_tuple_struct_ty(&mut self, defn: TupleStructTypeDefn) {
+    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeDefn) {
         // todo!()
     }
 
-    fn visit_props_struct_ty(&mut self, defn: RegularStructTypeDefn) {
+    fn visit_props_struct_ty(&mut self, _defn: RegularStructTypeDefn) {
         // todo!()
     }
 
-    fn visit_structure_ty(&mut self, defn: StructureTypeDefn) {
+    fn visit_structure_ty(&mut self, _defn: StructureTypeDefn) {
         // todo!()
     }
 
-    fn visit_alias_ty(&mut self, defn: ExternTypeDefn) {
+    fn visit_alias_ty(&mut self, _defn: ExternTypeDefn) {
         // todo!()
     }
 
-    fn visit_trai(&mut self, defn: TraitDefn) {
+    fn visit_trai(&mut self, _defn: TraitDefn) {
         //todo!()
     }
 
@@ -188,17 +188,17 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_function(&mut self, defn: FunctionDefn) {}
+    fn visit_function(&mut self, _defn: FunctionDefn) {}
 
-    fn visit_feature(&mut self, defn: FeatureDefn) {}
+    fn visit_feature(&mut self, _defn: FeatureDefn) {}
 
     fn visit_morphism(&mut self, defn: MorphismDefn) {
-        let decl = defn.decl(self.db);
+        let _decl = defn.decl(self.db);
         // todo!()
     }
 
     fn visit_value(&mut self, defn: ValueDefn) {
-        let decl = defn.decl(self.db);
+        let _decl = defn.decl(self.db);
         // todo!()
     }
 
@@ -210,15 +210,15 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_ty_item(&self, defn: TypeItemDefn) {
+    fn visit_ty_item(&self, _defn: TypeItemDefn) {
         // todo!()
     }
 
-    fn visit_trai_item(&self, defn: TraitItemDefn) {
+    fn visit_trai_item(&self, _defn: TraitItemDefn) {
         // todo!()
     }
 
-    fn visit_ty_as_trai_item(&self, defn: TypeAsTraitItemDefn) {
+    fn visit_ty_as_trai_item(&self, _defn: TypeAsTraitItemDefn) {
         // todo!()
     }
 }
@@ -310,7 +310,7 @@ impl<'a> InferContext<'a> {
                 match self.expr_region_data[*function] {
                     Expr::List {
                         lbox_token_idx,
-                        items,
+                        items: _,
                         rbox_token_idx,
                     } => {
                         self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
@@ -330,16 +330,16 @@ impl<'a> InferContext<'a> {
                 }
             }
             Expr::IndexOrCompositionWithList {
-                owner,
-                lbox_token_idx,
-                items: indices,
-                rbox_token_idx,
+                owner: _,
+                lbox_token_idx: _,
+                items: _indices,
+                rbox_token_idx: _,
             } => {
                 // ad hoc
                 // this should always be some
                 match self.expr_ty_region.expr_disambiguation(expr_idx) {
                     Some(Ok(disambiguation)) => match disambiguation {
-                        ExprDisambiguation::IndexOrComposeWithList(disambiguation) => todo!(),
+                        ExprDisambiguation::IndexOrComposeWithList(_disambiguation) => todo!(),
                         _ => unreachable!(),
                     },
                     None | Some(Err(_)) => (),
@@ -386,7 +386,7 @@ impl<'a> InferContext<'a> {
                     match self.expr_region_data[pattern_expr_idx] {
                         PatternExpr::Identifier {
                             ident_token,
-                            liason,
+                            liason: _,
                         } => self.sheet.add(
                             ident_token.token_idx(),
                             TokenInfo::CurrentSymbol {

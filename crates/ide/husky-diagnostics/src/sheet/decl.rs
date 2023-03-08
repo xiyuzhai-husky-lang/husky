@@ -1,7 +1,7 @@
 use super::*;
 use husky_decl::*;
 use husky_expr::ExprError;
-use husky_print_utils::p;
+
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DeclDiagnosticSheet {
@@ -19,8 +19,8 @@ pub(crate) fn decl_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.decl_sheet(module_path),
     ) {
-        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (path, decl) in decl_sheet.decls().iter().copied() {
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        for (_path, decl) in decl_sheet.decls().iter().copied() {
             match decl {
                 Ok(decl) => {
                     let mut collector = RegionDiagnosticsCollector::new(
@@ -42,7 +42,7 @@ pub(crate) fn decl_diagnostic_sheet(
 impl Diagnose for OriginalDeclError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &Self::Context<'_>) -> String {
+    fn message(&self, _db: &Self::Context<'_>) -> String {
         // chatgpt wrote this
         match self {
             OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
@@ -53,7 +53,7 @@ impl Diagnose for OriginalDeclError {
         todo!()
     }
 
-    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+    fn range(&self, _ctx: &Self::Context<'_>) -> TextRange {
         todo!()
     }
 }
@@ -70,7 +70,7 @@ impl Diagnose for OriginalDeclExprError {
             OriginalDeclExprError::ExpectCurry(_) => {
                 format!("Syntax Error: expect `->`",)
             }
-            OriginalDeclExprError::ExpectEolColon(e) => {
+            OriginalDeclExprError::ExpectEolColon(_e) => {
                 format!("Syntax Error: expect end-of-line colon",)
             }
             OriginalDeclExprError::ExpectRightCurlyBrace(_) => {
@@ -267,15 +267,15 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         }
     }
 
-    fn visit_ty_as_trai_impl_decl(&mut self, decl: TypeAsTraitImplDecl) {
+    fn visit_ty_as_trai_impl_decl(&mut self, _decl: TypeAsTraitImplDecl) {
         // todo!()
     }
 
-    fn visit_associated_item_decl(&mut self, decl: AssociatedItemDecl) {
+    fn visit_associated_item_decl(&mut self, _decl: AssociatedItemDecl) {
         // todo!()
     }
 
-    fn visit_variant_decl(&mut self, decl: VariantDecl) {
+    fn visit_variant_decl(&mut self, _decl: VariantDecl) {
         // todo!()
     }
 }

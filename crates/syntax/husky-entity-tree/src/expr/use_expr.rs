@@ -76,10 +76,10 @@ impl UseExprChildren {
         match self {
             UseExprChildren::Single { child } => UseExprIdxRange::new_single(*child),
             UseExprChildren::Multiple {
-                lcurl_token,
+                lcurl_token: _,
                 children,
-                comma_tokens,
-                rcurl_token,
+                comma_tokens: _,
+                rcurl_token: _,
             } => *children,
         }
     }
@@ -232,7 +232,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             return Ok(UseExprChildren::Single { child })
         };
         let (children, comma_tokens, result) = parsec::parse_separated_list(self);
-        if let Err(e) = result {
+        if let Err(_e) = result {
             todo!()
         }
         let children = self.use_expr_arena.alloc_batch(children);
@@ -261,7 +261,7 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
                 children: ctx.parse_children(),
             }));
         }
-        if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+        if let Some(_self_value_token) = ctx.parse::<SelfValueToken>()? {
             // differentiate betwee self one and self children
             todo!()
         }

@@ -35,7 +35,7 @@ impl TypeItemDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
+    pub fn path(self, _db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {

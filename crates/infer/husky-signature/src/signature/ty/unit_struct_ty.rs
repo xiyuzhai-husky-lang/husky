@@ -1,5 +1,5 @@
 use super::*;
-use husky_word::Identifier;
+
 
 #[salsa::tracked(jar = SignatureJar)]
 pub fn unit_struct_ty_signature(

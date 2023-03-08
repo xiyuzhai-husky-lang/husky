@@ -14,7 +14,7 @@ pub enum EntityPathError {
 pub type EntityPathResult<T> = Result<T, EntityPathError>;
 
 impl From<&EntityPathError> for EntityPathError {
-    fn from(value: &EntityPathError) -> Self {
+    fn from(_value: &EntityPathError) -> Self {
         todo!()
     }
 }

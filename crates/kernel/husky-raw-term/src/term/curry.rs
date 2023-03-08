@@ -53,7 +53,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())
@@ -61,7 +61,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermCurry {
 }
 
 impl RawTermRewriteCopy for RawTermCurry {
-    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
+    fn substitute(self, _db: &dyn RawTermDb, _substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }

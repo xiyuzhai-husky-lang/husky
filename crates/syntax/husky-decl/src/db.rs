@@ -1,6 +1,6 @@
 use crate::*;
-use husky_entity_tree::{AssociatedItem, EntityTreeDb, EntityTreeResult, Impl};
-use husky_vfs::{CratePath, ModulePath, VfsResult};
+use husky_entity_tree::{AssociatedItem, EntityTreeResult, Impl};
+use husky_vfs::{ModulePath};
 use salsa::DbWithJar;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {

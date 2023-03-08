@@ -1,9 +1,9 @@
-use crate::*;
+
 use proc_macro2::Ident;
 use syn::{Field, Item, ItemEnum};
 
 pub(crate) fn from_variants(
-    args: proc_macro::TokenStream,
+    _args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let item = syn::parse_macro_input!(input as Item);

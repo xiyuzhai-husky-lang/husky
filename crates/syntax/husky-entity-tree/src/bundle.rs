@@ -1,6 +1,6 @@
 use crate::*;
 use thiserror::Error;
-use vec_like::{VecMap, VecPairMap};
+use vec_like::{VecMap};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum EntityTreeBundleError {
@@ -13,9 +13,9 @@ pub enum EntityTreeBundleError {
 impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
     fn fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }

@@ -1,6 +1,6 @@
 use const_format::formatcp;
 use husky_control_flow_utils::require;
-use husky_path_utils::{find_paths, find_regular_files, Path, PathBuf};
+use husky_path_utils::{find_regular_files, Path, PathBuf};
 
 const TEST_INPUTS: &'static str = "test-inputs";
 const TEST_RESULTS: &'static str = "test-results";

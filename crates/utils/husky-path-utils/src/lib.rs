@@ -34,7 +34,7 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
 
 pub fn find_paths(dir: &Path) -> Vec<PathBuf> {
     let mut paths: Vec<PathBuf> = vec![];
-    find_paths_aux(dir, &mut paths, &|path| true);
+    find_paths_aux(dir, &mut paths, &|_path| true);
     paths
 }
 

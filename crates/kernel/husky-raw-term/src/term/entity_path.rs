@@ -43,7 +43,7 @@ impl RawTermEntityPath {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn RawTermDb,
-        ctx: &mut RawTermShowContext,
+        _ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         match self {
             RawTermEntityPath::Form(path) => {

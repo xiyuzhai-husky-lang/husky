@@ -4,7 +4,7 @@ use super::*;
 
 pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
-    let ident_string = ident.to_string();
+    let _ident_string = ident.to_string();
 
     let variants = item
         .variants
@@ -97,7 +97,7 @@ fn enum_tuple_variant_debug_with_db(
             .fields
             .iter()
             .enumerate()
-            .map(|(field_idx, field)| -> proc_macro2::TokenStream {
+            .map(|(field_idx, _field)| -> proc_macro2::TokenStream {
                 let field_ident = name_field(field_idx);
                 quote! {
                     ref #field_ident

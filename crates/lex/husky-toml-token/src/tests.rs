@@ -1,6 +1,6 @@
 use super::*;
 use expect_test::expect_file;
-use husky_entity_path::EntityPathJar;
+
 
 use husky_vfs::*;
 use husky_word::{WordDb, WordJar};
@@ -204,7 +204,7 @@ fn bad_comment() {
 #[test]
 fn builtin_library_toml_token_sheets() {
     let db = MimicDB::default();
-    let toolchain = db.dev_toolchain().unwrap();
+    let _toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.dev_path_menu().unwrap();
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(
         "{:#?}",

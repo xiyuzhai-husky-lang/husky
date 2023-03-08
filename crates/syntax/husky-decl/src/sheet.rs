@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::EntityPath;
+
 use husky_entity_tree::DeclRegionPath;
 use vec_like::VecPairMap;
 
@@ -66,7 +66,7 @@ impl<'a, Db: DeclDb + ?Sized> salsa::DebugWithDb<Db> for DeclSheet<'a> {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<DeclJar>>::as_jar_db(db);
         f.debug_struct("DeclSheet")

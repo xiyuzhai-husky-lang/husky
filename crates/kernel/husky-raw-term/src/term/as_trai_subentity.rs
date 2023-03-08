@@ -11,9 +11,9 @@ pub struct RawTermAsTraitSubentity {
 impl RawTermAsTraitSubentity {
     pub(crate) fn show_with_db_fmt(
         self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn RawTermDb,
-        ctx: &mut RawTermShowContext,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &dyn RawTermDb,
+        _ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }

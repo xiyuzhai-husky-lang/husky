@@ -37,7 +37,7 @@ impl TypeItemDecl {
 
     pub fn implicit_parameters<'a>(
         self,
-        db: &'a dyn DeclDb,
+        _db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
             TypeItemDecl::Function(_) => todo!(),

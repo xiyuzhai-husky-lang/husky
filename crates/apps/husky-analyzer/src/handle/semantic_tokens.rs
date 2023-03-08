@@ -47,7 +47,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
             }
             entry.insert(current.clone());
         }
-        Entry::Vacant(mut entry) => {
+        Entry::Vacant(entry) => {
             entry.insert(current.clone());
         }
     }
@@ -65,7 +65,7 @@ pub(crate) fn handle_semantic_tokens_range(
     // ad hoc
     let path = from_lsp_types::path_from_url(&params.text_document.uri)?;
     let module_path = snapshot.resolve_module_path(snapshot.current_toolchain()?, &path)?;
-    let semantic_tokens_ext =
+    let _semantic_tokens_ext =
         snapshot.semantic_tokens_ext(module_path, Some(params.range.into()))?;
     Ok(Some(SemanticTokensRangeResult::Tokens(semantic_tokens(
         &snapshot,

@@ -25,7 +25,7 @@ pub use self::subentity::*;
 pub use self::symbol::*;
 
 use crate::*;
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -79,7 +79,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         use salsa::DisplayWithDb;
@@ -95,7 +95,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTerm {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())

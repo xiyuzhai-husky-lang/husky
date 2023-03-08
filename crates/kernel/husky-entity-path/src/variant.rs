@@ -12,9 +12,9 @@ where
 {
     fn display_with_db_fmt(
         &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &Db,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         todo!()
     }

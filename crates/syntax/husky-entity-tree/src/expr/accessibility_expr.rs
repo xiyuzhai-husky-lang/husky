@@ -47,7 +47,7 @@ impl<'a, 'b> parsec::ParseFrom<AccessibilityExprParser<'a, 'b>> for Accessibilit
         let Some(pub_token) = ctx.parse::<PubToken>()? else {
             return Ok(None)
         };
-        let Some(lpar) = ctx.parse::<LeftParenthesisToken>()? else {
+        let Some(_lpar) = ctx.parse::<LeftParenthesisToken>()? else {
             return Ok(Some(AccessibilityExpr::Public { pub_token }))
         };
         todo!()

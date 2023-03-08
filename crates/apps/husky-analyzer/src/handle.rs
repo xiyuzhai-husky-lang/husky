@@ -110,8 +110,8 @@ pub(crate) fn handle_parent_module(
 }
 
 pub(crate) fn handle_completion(
-    snapshot: AnalyzerDBSnapshot,
-    params: lsp_types::CompletionParams,
+    _snapshot: AnalyzerDBSnapshot,
+    _params: lsp_types::CompletionParams,
 ) -> Result<Option<lsp_types::CompletionResponse>> {
     msg_once!("todo handle completion!");
     Ok(None)

@@ -19,8 +19,7 @@ use husky_raw_term::*;
 use husky_term_prelude::*;
 use husky_word::*;
 
-#[cfg(test)]
-use tests::*;
+
 
 #[salsa::jar(db = SignatureDb)]
 pub struct SignatureJar(

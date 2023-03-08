@@ -1,4 +1,4 @@
-use husky_print_utils::p;
+
 
 use crate::*;
 
@@ -19,7 +19,7 @@ pub(crate) fn raw_ty_method_raw_ty(
         RawTerm::Ritchie(_) => Ok(None),
         RawTerm::Abstraction(_) => unreachable!(),
         RawTerm::ExplicitApplication(raw_ty) => application_raw_ty_method_raw_ty(db, raw_ty, ident),
-        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
+        RawTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => unreachable!(),
@@ -32,13 +32,13 @@ pub(crate) fn raw_ty_method_raw_ty(
 pub(crate) fn entity_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
-    ident: Identifier,
+    _ident: Identifier,
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(raw_ty_path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypePathMethodDeclError.into()),
     };
-    let signature = match db.ty_signature(decl) {
+    let _signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
@@ -51,7 +51,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
     raw_ty: RawTermExplicitApplication,
     ident: Identifier,
 ) -> RawTypeResult<Option<RawTerm>> {
-    use salsa::DebugWithDb;
+    
     let application_expansion = application_expansion_salsa(db, raw_ty);
     let f = application_expansion.f();
     match f {
@@ -69,7 +69,7 @@ pub(crate) fn application_raw_ty_method_raw_ty(
         RawTerm::Ritchie(_) => todo!(),
         RawTerm::Abstraction(_) => todo!(),
         RawTerm::ExplicitApplication(_) => todo!(),
-        RawTerm::ExplicitApplicationOrRitchieCall(raw_ty) => todo!(),
+        RawTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
         RawTerm::Subentity(_) => todo!(),
         RawTerm::AsTraitSubentity(_) => todo!(),
         RawTerm::TraitConstraint(_) => todo!(),
@@ -81,14 +81,14 @@ pub(crate) fn application_raw_ty_method_raw_ty(
 fn ty_path_application_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     path: TypePath,
-    arguments: &[RawTerm],
-    ident: Identifier,
+    _arguments: &[RawTerm],
+    _ident: Identifier,
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypePathApplicationMethodDeclError.into()),
     };
-    let signature = match db.ty_signature(decl) {
+    let _signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };

@@ -9,9 +9,9 @@ pub struct EntityTreeDiagnosticSheet {
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn entity_tree_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
-    module_path: ModulePath,
+    _module_path: ModulePath,
 ) -> EntityTreeDiagnosticSheet {
-    let mut diagnostics = vec![];
+    let diagnostics = vec![];
     // todo
     EntityTreeDiagnosticSheet::new(db, diagnostics)
 }

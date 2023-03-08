@@ -19,7 +19,7 @@ pub use union_ty::*;
 pub use unit_struct_ty::*;
 
 use super::*;
-use salsa::DbWithJar;
+
 
 pub(crate) fn ty_signature(db: &dyn SignatureDb, decl: TypeDecl) -> SignatureResult<TypeSignature> {
     match decl {

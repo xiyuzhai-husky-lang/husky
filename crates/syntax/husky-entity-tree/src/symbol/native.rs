@@ -17,7 +17,7 @@ impl From<NativeEntitySymbol> for EntitySymbol {
 }
 
 impl NativeEntitySymbol {
-    pub(crate) fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
+    pub(crate) fn ast_idx(self, _db: &dyn EntityTreeDb) -> AstIdx {
         match self {
             NativeEntitySymbol::Submodule(_) => todo!(),
             NativeEntitySymbol::ModuleItem(_) => todo!(),
