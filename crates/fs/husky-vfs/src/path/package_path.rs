@@ -1,16 +1,16 @@
 use super::*;
 
 use husky_minimal_toml_utils::find_package_name_in_toml;
-use husky_word::Identifier;
+use husky_word::Ident;
 use salsa::DebugWithDb;
 use std::path::Path;
 use url::Url;
 
 #[salsa::tracked(jar = VfsJar)]
-pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<Identifier> {
+pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsResult<Ident> {
     let toml_content = db.package_manifest_content(package_path)?;
     let name = find_package_name_in_toml(toml_content)?;
-    Identifier::from_owned(db, husky_word::dash_to_snake(name)).ok_or(VfsError::PackageIdent)
+    Ident::from_owned(db, husky_word::dash_to_snake(name)).ok_or(VfsError::PackageIdent)
 }
 
 #[test]
@@ -26,11 +26,11 @@ fn package_ident_works() {
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum PackagePathData {
     Toolchain {
-        ident: Identifier,
+        ident: Ident,
         toolchain: Toolchain,
     },
     Global {
-        ident: Identifier,
+        ident: Ident,
         version: semver::Version,
     },
     Local {
@@ -62,7 +62,7 @@ impl PackagePath {
     pub fn new_toolchain_package(
         db: &dyn VfsDb,
         toolchain: Toolchain,
-        ident: Identifier,
+        ident: Ident,
     ) -> ToolchainResult<Self> {
         match toolchain.data(db) {
             ToolchainData::Published(_) => todo!(),
@@ -73,7 +73,7 @@ impl PackagePath {
         }
     }
 
-    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
+    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
         package_ident(db, self)
     }
 }

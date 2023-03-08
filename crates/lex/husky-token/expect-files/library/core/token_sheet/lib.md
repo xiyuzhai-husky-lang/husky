@@ -4,8 +4,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 1,
@@ -16,8 +16,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 6,
@@ -28,8 +28,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 8,
@@ -40,8 +40,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 9,
@@ -52,8 +52,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 10,
@@ -64,8 +64,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 11,
@@ -76,8 +76,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 12,
@@ -88,8 +88,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 4,
@@ -100,8 +100,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 2,
@@ -112,8 +112,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 7,
@@ -124,8 +124,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 5,
@@ -136,8 +136,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 3,
@@ -148,8 +148,8 @@ Ok(
             Keyword(
                 Mod,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 13,

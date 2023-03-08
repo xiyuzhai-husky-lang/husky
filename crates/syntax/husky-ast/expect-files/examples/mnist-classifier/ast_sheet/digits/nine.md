@@ -349,7 +349,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `nine_match`,
                         token_idx: TokenIdx(
                             75,
@@ -384,7 +384,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `nine_match_refine`,
                         token_idx: TokenIdx(
                             88,
@@ -419,7 +419,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_nine`,
                         token_idx: TokenIdx(
                             101,
@@ -454,7 +454,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
                             273,
@@ -489,7 +489,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
                             302,

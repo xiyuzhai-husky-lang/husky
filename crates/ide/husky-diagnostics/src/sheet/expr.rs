@@ -91,11 +91,11 @@ impl Diagnose for OriginalExprError {
                 format!("Syntax Error: expect `>`")
             }
             OriginalExprError::ExpectRightCurlyBrace(_) => format!("Syntax Error: expect `}}`"),
-            OriginalExprError::ExpectIdentifier(_) => format!("Syntax Error: expect identifier"),
+            OriginalExprError::ExpectIdent(_) => format!("Syntax Error: expect identifier"),
             OriginalExprError::ExpectColon(_) => format!("Syntax Error: expect `:`"),
             OriginalExprError::ExpectRightParenthesis(_) => format!("Syntax Error: expect `)`"),
             OriginalExprError::NoMatchingBra { .. } => format!("Syntax Error: no matching bracket"),
-            OriginalExprError::ExpectIdentifierAfterDot { .. } => {
+            OriginalExprError::ExpectIdentAfterDot { .. } => {
                 format!("Syntax Error: expect identifier after dot")
             }
             OriginalExprError::NoLeftOperandForBinaryOperator { .. } => {
@@ -134,12 +134,12 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectEolColon(_) => {
                 format!("Syntax Error: expect `:` at end of line")
             }
-            OriginalExprError::ExpectIdentifierAfterMut(_) => {
+            OriginalExprError::ExpectIdentAfterMut(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
             OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
-            OriginalExprError::UnrecognizedIdentifier {
+            OriginalExprError::UnrecognizedIdent {
                 token_idx: _,
                 ident: _,
             } => {
@@ -171,14 +171,14 @@ impl Diagnose for OriginalExprError {
                 langle_token_idx: token_idx,
             }
             | OriginalExprError::ExpectRightCurlyBrace(token_idx)
-            | OriginalExprError::ExpectIdentifier(token_idx)
+            | OriginalExprError::ExpectIdent(token_idx)
             | OriginalExprError::ExpectColon(token_idx)
             | OriginalExprError::ExpectRightParenthesis(token_idx)
             | OriginalExprError::NoMatchingBra {
                 ket_token_idx: token_idx,
                 ..
             }
-            | OriginalExprError::ExpectIdentifierAfterDot(token_idx)
+            | OriginalExprError::ExpectIdentAfterDot(token_idx)
             | OriginalExprError::NoLeftOperandForBinaryOperator {
                 binary_token_idx: token_idx,
             }
@@ -209,9 +209,9 @@ impl Diagnose for OriginalExprError {
                 bra_token_idx: token_idx,
             }
             | OriginalExprError::ExpectEolColon(token_idx)
-            | OriginalExprError::ExpectIdentifierAfterMut(token_idx)
+            | OriginalExprError::ExpectIdentAfterMut(token_idx)
             | OriginalExprError::UnexpectedSheba(token_idx)
-            | OriginalExprError::UnrecognizedIdentifier { token_idx, .. }
+            | OriginalExprError::UnrecognizedIdent { token_idx, .. }
             | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
@@ -234,7 +234,7 @@ impl Diagnose for OriginalEntityPathExprError {
             } => {
                 format!("entity tree error {:?}", error.debug(ctx.db()))
             }
-            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }
 
@@ -244,7 +244,7 @@ impl Diagnose for OriginalEntityPathExprError {
                 token_idx: _,
                 error: _,
             } => DiagnosticSeverity::Error,
-            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
+            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => {
                 DiagnosticSeverity::Error
             }
         }
@@ -256,7 +256,7 @@ impl Diagnose for OriginalEntityPathExprError {
                 token_idx,
                 error: _,
             } => ctx.ranged_token_sheet().token_text_range(*token_idx),
-            OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
+            OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }
 }

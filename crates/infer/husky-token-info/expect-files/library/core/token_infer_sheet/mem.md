@@ -32,7 +32,7 @@ Ok(
                     implicit_parameter_kind: Lifetime {
                         label_token: LifetimeLabelToken {
                             label: Label {
-                                ident: Identifier(
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 29,
@@ -59,8 +59,8 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 30,
@@ -112,7 +112,7 @@ Ok(
                     implicit_parameter_kind: Lifetime {
                         label_token: LifetimeLabelToken {
                             label: Label {
-                                ident: Identifier(
+                                ident: Ident(
                                     Word(
                                         Id {
                                             value: 29,
@@ -139,8 +139,8 @@ Ok(
                 current_symbol_idx: 1,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 30,
@@ -190,8 +190,8 @@ Ok(
                 current_symbol_idx: 0,
                 current_symbol_kind: ImplicitParameter {
                     implicit_parameter_kind: Type {
-                        ident_token: IdentifierToken {
-                            ident: Identifier(
+                        ident_token: IdentToken {
+                            ident: Ident(
                                 Word(
                                     Id {
                                         value: 30,

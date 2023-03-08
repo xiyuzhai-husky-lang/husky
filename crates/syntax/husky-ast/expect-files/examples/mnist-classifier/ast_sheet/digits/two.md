@@ -480,7 +480,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `two_match`,
                         token_idx: TokenIdx(
                             99,
@@ -515,7 +515,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `left_cc_pattern`,
                         token_idx: TokenIdx(
                             116,
@@ -550,7 +550,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `right_cc_pattern`,
                         token_idx: TokenIdx(
                             144,
@@ -585,7 +585,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `down_cc_pattern`,
                         token_idx: TokenIdx(
                             172,
@@ -620,7 +620,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_two`,
                         token_idx: TokenIdx(
                             200,

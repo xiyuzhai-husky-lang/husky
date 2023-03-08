@@ -23,7 +23,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bool`,
                         token_idx: TokenIdx(
                             2,
@@ -56,7 +56,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `never`,
                         token_idx: TokenIdx(
                             6,
@@ -89,7 +89,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `unit`,
                         token_idx: TokenIdx(
                             10,
@@ -122,7 +122,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Trait`,
                         token_idx: TokenIdx(
                             14,
@@ -155,7 +155,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Module`,
                         token_idx: TokenIdx(
                             18,

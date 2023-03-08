@@ -58,7 +58,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `B`,
                                                                 token_idx: TokenIdx(
                                                                     9,
@@ -92,8 +92,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 107,

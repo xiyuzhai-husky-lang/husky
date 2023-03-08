@@ -7,8 +7,8 @@ Ok(
             Keyword(
                 Trait,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 36,
@@ -25,8 +25,8 @@ Ok(
             Keyword(
                 Trait,
             ),
-            Identifier(
-                Identifier(
+            Ident(
+                Ident(
                     Word(
                         Id {
                             value: 37,

@@ -40,7 +40,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `new`,
                         token_idx: TokenIdx(
                             86,
@@ -68,7 +68,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
                             124,
@@ -85,7 +85,7 @@ Ok(
                         17,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 141,
                             ),
@@ -228,7 +228,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `concave_components`,
                         token_idx: TokenIdx(
                             179,
@@ -256,7 +256,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
                             190,
@@ -282,7 +282,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `new`,
                         token_idx: TokenIdx(
                             315,
@@ -299,7 +299,7 @@ Ok(
                         38,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 341,
                             ),
@@ -1381,7 +1381,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `concave_component`,
                         token_idx: TokenIdx(
                             1,
@@ -1409,7 +1409,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `convex_component`,
                         token_idx: TokenIdx(
                             3,
@@ -1437,7 +1437,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::convexity`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `convexity`,
                         token_idx: TokenIdx(
                             5,
@@ -1465,7 +1465,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch::line_segment`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `line_segment`,
                         token_idx: TokenIdx(
                             7,
@@ -1528,7 +1528,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `LineSegmentStroke`,
                         token_idx: TokenIdx(
                             41,
@@ -1569,7 +1569,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `LineSegmentSketch`,
                         token_idx: TokenIdx(
                             161,
@@ -1612,7 +1612,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `go_right`,
                         token_idx: TokenIdx(
                             346,
@@ -1647,7 +1647,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `go_left`,
                         token_idx: TokenIdx(
                             443,
@@ -1682,7 +1682,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `extend_end`,
                         token_idx: TokenIdx(
                             540,
@@ -1717,7 +1717,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `extend_start`,
                         token_idx: TokenIdx(
                             773,
@@ -1752,7 +1752,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `find_line_segments`,
                         token_idx: TokenIdx(
                             1039,

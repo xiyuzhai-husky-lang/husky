@@ -7,7 +7,7 @@ pub enum MinimalTomlError {
     #[error("expect operator `=`")]
     ExpectAssign,
     #[error("expect identifier `=`")]
-    ExpectIdentifier,
+    ExpectIdent,
 }
 
 pub type MinimalTomlResult<T> = Result<T, MinimalTomlError>;
@@ -34,7 +34,7 @@ pub fn find_package_name_in_toml(input: &str) -> MinimalTomlResult<&str> {
             if splits.next() != Some("=") {
                 return Err(MinimalTomlError::ExpectAssign);
             }
-            let split = splits.next().ok_or(MinimalTomlError::ExpectIdentifier)?;
+            let split = splits.next().ok_or(MinimalTomlError::ExpectIdent)?;
             if !split.starts_with('"') {
                 todo!()
             }

@@ -61,7 +61,7 @@ fn collect_symbols(
 ) -> IdentPairMap<PatternSymbolIdx> {
     match pattern_expr {
         PatternExpr::Literal(_) => Default::default(),
-        PatternExpr::Identifier {
+        PatternExpr::Ident {
             ident_token,
             liason,
         } => [(

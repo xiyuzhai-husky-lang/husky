@@ -1,6 +1,6 @@
 use husky_term::Term;
 use husky_text::ModuleRange;
-use husky_word::Identifier;
+use husky_word::Ident;
 
 use crate::*;
 
@@ -18,7 +18,7 @@ pub enum MutationDataVariant {
     Exec,
     Block {
         stack_idx: VMStackIdx,
-        varname: Identifier,
+        varname: Ident,
     },
 }
 

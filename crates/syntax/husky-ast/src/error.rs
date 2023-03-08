@@ -1,5 +1,5 @@
 use husky_token::{
-    IdentifierToken, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
+    IdentToken, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
 };
 use parsec::OriginalError;
 use thiserror::Error;
@@ -29,7 +29,7 @@ pub enum OriginalAstError {
     #[error("expected decorator or entity keyword")]
     ExpectDecoratorOrEntityKeyword,
     #[error("expected identifier")]
-    ExpectIdentifier(TokenIdx),
+    ExpectIdent(TokenIdx),
     #[error("unexpected end after `pub`")]
     UnexpectedEndOfTokenGroupAfterPubKeyword(TokenIdx),
     #[error("expected nothing")]

@@ -33,7 +33,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `r32`,
                         token_idx: TokenIdx(
                             22,

@@ -1,5 +1,5 @@
-use husky_token::IdentifierToken;
-use husky_word::Identifier;
+use husky_token::IdentToken;
+use husky_word::Ident;
 
 use crate::*;
 
@@ -71,7 +71,7 @@ pub enum UseExprRuleVariant {
         children: UseExprIdxRange,
     },
     Leaf {
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
     },
 }
 
@@ -197,10 +197,10 @@ impl UseExprRule {
         self.use_expr_idx
     }
 
-    pub(crate) fn ident(&self) -> Option<Identifier> {
+    pub(crate) fn ident(&self) -> Option<Ident> {
         match self.variant {
             UseExprRuleVariant::Parent {
-                parent_name_token: ParentNameToken::Identifier(ident_token),
+                parent_name_token: ParentNameToken::Ident(ident_token),
                 ..
             }
             | UseExprRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),

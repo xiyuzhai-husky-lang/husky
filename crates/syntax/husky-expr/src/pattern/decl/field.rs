@@ -3,13 +3,13 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct RegularStructFieldPattern {
-    ident_token: IdentifierToken,
+    ident_token: IdentToken,
     colon: ColonToken,
     ty: ExprIdx,
 }
 
 impl RegularStructFieldPattern {
-    pub fn ident(&self) -> Identifier {
+    pub fn ident(&self) -> Ident {
         self.ident_token.ident()
     }
 
@@ -28,7 +28,7 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldP
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
-        let Some(ident_token) = ctx.parse::<IdentifierToken>()? else {
+        let Some(ident_token) = ctx.parse::<IdentToken>()? else {
                 return Ok(None)
             };
         let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectColon)?;

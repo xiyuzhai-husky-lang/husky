@@ -31,7 +31,7 @@ impl ModulePath {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
-    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Identifier) -> Self {
+    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> Self {
         Self::new(db, ModulePathData::Child { parent, ident })
     }
 
@@ -39,7 +39,7 @@ impl ModulePath {
         self.crate_path(db).toolchain(db)
     }
 
-    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
+    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
             ModulePathData::Child { parent: _, ident } => Ok(ident),
@@ -96,10 +96,7 @@ fn module_path_partial_ord_works() {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ModulePathData {
     Root(CratePath),
-    Child {
-        parent: ModulePath,
-        ident: Identifier,
-    },
+    Child { parent: ModulePath, ident: Ident },
 }
 
 impl ModulePathData {
@@ -223,7 +220,7 @@ fn module_path_debug_with_db_works() {
                         value: 1,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 32,

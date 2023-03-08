@@ -121,7 +121,7 @@ impl<'a> AstParser<'a> {
             Some(token) => match token {
                 Token::Attr(_) => todo!(),
                 Token::Keyword(_) => todo!(),
-                Token::Identifier(_) => todo!(),
+                Token::Ident(_) => todo!(),
                 Token::Label(_) => todo!(),
                 Token::Punctuation(_) => todo!(),
                 Token::WordOpr(_) => todo!(),
@@ -142,10 +142,10 @@ impl<'a> AstParser<'a> {
 impl<'a> BasicAuxAstParser<'a> {
     fn parse_head(
         mut self,
-    ) -> Result<(Accessibility, EntityKind, IdentifierToken, bool, TokenIdx), AstError> {
+    ) -> Result<(Accessibility, EntityKind, IdentToken, bool, TokenIdx), AstError> {
         let accessibility = self.parse_accessibility()?;
         let kw = self.take_entity_kind_keyword()?;
-        let ident: IdentifierToken = self.parse_expected(OriginalAstError::ExpectIdentifier)?;
+        let ident: IdentToken = self.parse_expected(OriginalAstError::ExpectIdent)?;
         let is_generic = self.parse_is_generic();
         let entity_kind = match self.ast_context_kind() {
             AstContextKind::InsideTrait { module_item_path } => match kw {

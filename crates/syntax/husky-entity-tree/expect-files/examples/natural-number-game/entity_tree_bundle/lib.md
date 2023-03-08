@@ -6,7 +6,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Nat",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -26,7 +26,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "OddNat",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -46,7 +46,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "EvenNat",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -97,8 +97,8 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 489,

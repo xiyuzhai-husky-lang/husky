@@ -38,7 +38,7 @@ pub use stack_idx::*;
 use husky_loop_syntax::*;
 use husky_term::Term;
 
-use husky_word::Identifier;
+use husky_word::Ident;
 use std::sync::Arc;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(
@@ -47,7 +47,7 @@ pub fn eval_fast<'temp, 'eval: 'temp>(
     opt_instrn_sheet: Option<&InstructionSheet>,
     opt_linkage: Option<__Linkage>,
     args: impl Iterator<Item = __VMResult<__Register<'eval>>>, // including this value
-    _kwargs: impl Iterator<Item = (Identifier, __VMResult<__Register<'eval>>)>,
+    _kwargs: impl Iterator<Item = (Ident, __VMResult<__Register<'eval>>)>,
     nargs: u8,
     vm_config: &'temp VMConfig,
 ) -> __VMResult<__Register<'eval>> {

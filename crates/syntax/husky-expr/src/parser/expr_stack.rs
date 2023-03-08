@@ -83,10 +83,9 @@ impl Expr {
             Expr::Bracketed { item, .. } => arena[item].base_entity_path(db, arena),
             Expr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
-                    ExprError::Original(OriginalExprError::UnrecognizedIdentifier {
-                        ident,
-                        ..
-                    }) => BaseEntityPathInclination::from_case(ident.case(db)),
+                    ExprError::Original(OriginalExprError::UnrecognizedIdent { ident, .. }) => {
+                        BaseEntityPathInclination::from_case(ident.case(db))
+                    }
                     // ad hoc
                     _ => BaseEntityPathInclination::FunctionOrLocalValue,
                 },

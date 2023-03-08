@@ -31,11 +31,8 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
         &'a self,
         module_path: ModulePath,
     ) -> EntityTreeResult<ModuleSymbolContext<'a>>;
-    fn subentity_path(
-        &self,
-        parent: EntityPath,
-        identifier: Identifier,
-    ) -> EntityTreeResult<EntityPath>;
+    fn subentity_path(&self, parent: EntityPath, identifier: Ident)
+        -> EntityTreeResult<EntityPath>;
     fn impl_associated_items(&self, im: Impl) -> &IdentPairMap<AssociatedItem>;
 }
 
@@ -91,7 +88,7 @@ where
     fn subentity_path(
         &self,
         parent: EntityPath,
-        identifier: Identifier,
+        identifier: Ident,
     ) -> EntityTreeResult<EntityPath> {
         subentity_path(self, parent, identifier)
     }

@@ -114,7 +114,7 @@ Ok(
                             `mnist_classifier::connected_component`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `connected_component`,
                         token_idx: TokenIdx(
                             8,
@@ -142,7 +142,7 @@ Ok(
                             `mnist_classifier::raw_contour`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `raw_contour`,
                         token_idx: TokenIdx(
                             10,
@@ -170,7 +170,7 @@ Ok(
                             `mnist_classifier::geom2d`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `geom2d`,
                         token_idx: TokenIdx(
                             12,
@@ -198,7 +198,7 @@ Ok(
                             `mnist_classifier::line_segment_sketch`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
                             14,
@@ -226,7 +226,7 @@ Ok(
                             `mnist_classifier::fermi`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `fermi`,
                         token_idx: TokenIdx(
                             16,
@@ -254,7 +254,7 @@ Ok(
                             `mnist_classifier::digits`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `digits`,
                         token_idx: TokenIdx(
                             18,
@@ -282,7 +282,7 @@ Ok(
                             `mnist_classifier::major`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `major`,
                         token_idx: TokenIdx(
                             20,

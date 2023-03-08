@@ -13,10 +13,10 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for BeVariableDeclPattern {
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         // ad hoc
-        if let Some(ident_token) = ctx.parse::<IdentifierToken>()? {
+        if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             Ok(Some(BeVariableDeclPattern {
                 pattern_expr_idx: ctx.alloc_pattern_expr(
-                    PatternExpr::Identifier {
+                    PatternExpr::Ident {
                         ident_token,
                         liason: PatternLiason::None,
                     },

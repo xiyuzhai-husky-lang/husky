@@ -15,7 +15,6 @@ impl<'a> FeatureExprBuilder<'a> {
         opn_kind: LazyOpnKind,
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
-<<<<<<< HEAD
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // match opn_kind {
@@ -134,128 +133,6 @@ impl<'a> FeatureExprBuilder<'a> {
         //         (kind, feature)
         //     }
         // }
-=======
-    ) -> (FeatureLazyExprVariant, FeaturePtr) {
-        match opn_kind {
-            LazyOpnKind::Binary { opr, this } => {
-                let lopd = self.new_expr(opds[0].clone());
-                let ropd = self.new_expr(opds[1].clone());
-                self.compile_binary_opn(this, lopd, opr, ropd)
-            }
-            LazyOpnKind::Prefix(opr) => {
-                let opd = self.new_expr(opds[0].clone());
-                self.compile_prefix_opn(opd, opr)
-            }
-            LazyOpnKind::FunctionModelCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::FunctionCall {
-                    func: routine.route,
-                    uid,
-                    inputs: opds.iter().map(|expr| expr.feature).collect(),
-                });
-                let model_defn = self.db.entity_defn(routine.route).unwrap();
-                let internal = match model_defn.variant {
-                    EntityDefnVariant::Function {
-                        source: CallFormSource::Static(__Linkage::Model(model)),
-                        ..
-                    } => self.db.train(model, self.opt_arrival_indicator, &opds),
-                    _ => todo!(),
-                };
-                let kind = FeatureLazyExprVariant::ModelCall {
-                    opds,
-                    has_this: false,
-                    model_defn,
-                    internal,
-                    opt_arrival_indicator: self
-                        .opt_arrival_indicator
-                        .map(|branch_indicator| branch_indicator.clone()),
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::FunctionRoutineCall(routine) => {
-                let uid = self.db.entity_uid(routine.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::FunctionCall {
-                    func: routine.route,
-                    uid,
-                    inputs: opds.iter().map(|expr| expr.feature).collect(),
-                });
-                let routine_defn = self.db.entity_defn(routine.route).unwrap();
-                let opt_linkage = self.db.routine_linkage(routine.route);
-                let kind = FeatureLazyExprVariant::RoutineCall {
-                    opt_linkage,
-                    opds,
-                    has_this: false,
-                    opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
-                    routine_defn,
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::Field {
-                field_ident,
-                field_binding,
-            } => self.compile_field_access(
-                field_ident,
-                FeatureLazyExpr::new(
-                    self.db,
-                    self.opt_this.clone(),
-                    opds[0].clone(),
-                    self.symbols,
-                    self.opt_arrival_indicator,
-                    self.feature_interner,
-                )
-                .into(),
-                field_binding,
-            ),
-            LazyOpnKind::MethodCall {
-                method_ident,
-                method_route,
-                ..
-            } => self.compile_method_call(method_ident, method_route, opds),
-            LazyOpnKind::Index { element_binding } => self.compile_index(opds, element_binding),
-            LazyOpnKind::StructCall(_) => todo!(),
-            LazyOpnKind::RecordCall(ty) => {
-                let uid = self.db.entity_uid(ty.route);
-                let opds = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::RecordTypeCall {
-                    ty: ty.route,
-                    uid,
-                    opds: opds.iter().map(|opd| opd.feature).collect(),
-                });
-                let kind = FeatureLazyExprVariant::NewRecord {
-                    ty,
-                    entity: self.db.entity_defn(ty.route).unwrap(),
-                    opds,
-                };
-                (kind, feature)
-            }
-            LazyOpnKind::NewVecFromList => {
-                let ty = expr.intrinsic_ty();
-                let elements = opds
-                    .iter()
-                    .map(|opd| self.new_expr(opd.clone()))
-                    .collect::<Vec<_>>();
-                let feature = self.feature_interner.intern(Feature::NewVecFromList {
-                    elements: elements.iter().map(|elem| elem.feature).collect(),
-                });
-                let kind = FeatureLazyExprVariant::NewVecFromList {
-                    elements,
-                    linkage: self.db.type_call_linkage(ty).unwrap(),
-                };
-                (kind, feature)
-            }
-        }
->>>>>>> cd50934257db08a3571c5f4b8b68528b5962e1a4
     }
 
     fn compile_binary_opn(

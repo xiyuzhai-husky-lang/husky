@@ -58,7 +58,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     11,
@@ -92,8 +92,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -184,7 +184,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     40,
@@ -218,8 +218,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -310,7 +310,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     69,
@@ -344,8 +344,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -436,7 +436,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     98,
@@ -470,8 +470,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -562,7 +562,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     123,
@@ -596,8 +596,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -688,7 +688,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     152,
@@ -722,8 +722,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -814,7 +814,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     177,
@@ -848,8 +848,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -940,7 +940,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     206,
@@ -974,8 +974,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -1066,7 +1066,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     231,
@@ -1100,8 +1100,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -1192,7 +1192,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     260,
@@ -1226,8 +1226,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -1318,7 +1318,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     285,
@@ -1352,8 +1352,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -1444,7 +1444,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     314,
@@ -1478,8 +1478,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,
@@ -1700,7 +1700,7 @@ Ok(
                                                     access_end: None,
                                                     variant: CurrentSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                                                            ident_token: IdentifierToken {
+                                                            ident_token: IdentToken {
                                                                 ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     387,
@@ -1734,8 +1734,8 @@ Ok(
                                                     annotated_variance_token: None,
                                                     symbol: 0,
                                                     variant: Type0 {
-                                                        ident_token: IdentifierToken {
-                                                            ident: Identifier(
+                                                        ident_token: IdentToken {
+                                                            ident: Ident(
                                                                 Word(
                                                                     Id {
                                                                         value: 59,

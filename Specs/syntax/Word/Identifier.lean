@@ -1,10 +1,10 @@
 import Specs.syntax.Text
 
-structure Identifier where
+structure Ident where
   data : String
   deriving DecidableEq
 
-namespace Identifier
-def huskyCode : Identifier -> String
+namespace Ident
+def huskyCode : Ident -> String
   | _ => sorry
-end Identifier
+end Ident

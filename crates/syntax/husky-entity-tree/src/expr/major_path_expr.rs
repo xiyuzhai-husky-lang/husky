@@ -7,13 +7,13 @@ use thiserror::Error;
 #[derive(Debug, PartialEq, Eq)]
 pub enum MajorPathExpr {
     Root {
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         entity_path: EntityPath,
     },
     Subentity {
         parent: MajorPathExprIdx,
         scope_resolution_token: ScopeResolutionToken,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
     },
 }
 pub type MajorPathExprArena = Arena<MajorPathExpr>;
@@ -31,9 +31,9 @@ pub enum MajorPathExprError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
-    UnrecognizedIdentifier(IdentifierToken),
+    UnrecognizedIdent(IdentToken),
     #[error("expect identifier")]
-    ExpectIdentifier(TokenIdx),
+    ExpectIdent(TokenIdx),
 }
 
 impl OriginalError for OriginalMajorPathExprError {
@@ -81,12 +81,12 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
     pub(crate) fn parse_principal_path_expr(
         &mut self,
     ) -> MajorPathExprResult<(MajorPathExprIdx, ModuleItemPath)> {
-        let ident_token: IdentifierToken =
-            self.parse_expected(OriginalMajorPathExprError::ExpectIdentifier)?;
+        let ident_token: IdentToken =
+            self.parse_expected(OriginalMajorPathExprError::ExpectIdent)?;
         let Some(entity_symbol) = self
             .module_symbol_context
             .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
-                return Err(OriginalMajorPathExprError::UnrecognizedIdentifier(ident_token).into())
+                return Err(OriginalMajorPathExprError::UnrecognizedIdent(ident_token).into())
             };
         let module_item_symbol = match entity_symbol {
             EntitySymbol::CrateRoot(_) => todo!(),

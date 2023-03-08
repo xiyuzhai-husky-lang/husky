@@ -234,7 +234,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
                             46,
@@ -262,7 +262,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
                             59,
@@ -290,7 +290,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
                             179,
@@ -318,7 +318,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `contour_len`,
                         token_idx: TokenIdx(
                             201,
@@ -346,7 +346,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
                             330,
@@ -363,7 +363,7 @@ Ok(
                         38,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 382,
                             ),
@@ -1716,7 +1716,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `RawContour`,
                         token_idx: TokenIdx(
                             28,
@@ -1759,7 +1759,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Direction`,
                         token_idx: TokenIdx(
                             394,
@@ -1826,7 +1826,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_pixel_pair`,
                         token_idx: TokenIdx(
                             404,
@@ -1861,7 +1861,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_pixel_to_the_left`,
                         token_idx: TokenIdx(
                             429,
@@ -1896,7 +1896,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_pixel_to_the_right`,
                         token_idx: TokenIdx(
                             450,
@@ -1931,7 +1931,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_inward_direction`,
                         token_idx: TokenIdx(
                             475,
@@ -1966,7 +1966,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_angle_change`,
                         token_idx: TokenIdx(
                             621,
@@ -2001,7 +2001,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_outward_direction`,
                         token_idx: TokenIdx(
                             685,
@@ -2036,7 +2036,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `StreakCache`,
                         token_idx: TokenIdx(
                             912,
@@ -2071,7 +2071,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `get_concave_middle_point`,
                         token_idx: TokenIdx(
                             924,
@@ -2106,7 +2106,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `find_raw_contours`,
                         token_idx: TokenIdx(
                             989,

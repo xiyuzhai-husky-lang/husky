@@ -12,7 +12,7 @@ pub use table::*;
 use husky_term::Term;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
-use husky_word::Identifier;
+use husky_word::Ident;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
@@ -53,7 +53,7 @@ pub trait ResolveLinkage {
         // }
     }
 
-    fn field_linkage(&self, _this_ty: Term, _field_ident: Identifier) -> Option<__Linkage> {
+    fn field_linkage(&self, _this_ty: Term, _field_ident: Ident) -> Option<__Linkage> {
         todo!()
         // if !this_ty.is_intrinsic() {
         //     panic!("expect intrinsic ty, but get `{}` instead", this_ty)
@@ -75,7 +75,7 @@ pub trait ResolveLinkage {
     fn field_linkage_resolved(
         &self,
         this_ty: Term,
-        field_ident: Identifier,
+        field_ident: Ident,
         field_binding: Binding,
     ) -> Option<__ResolvedLinkage> {
         self.field_linkage(this_ty, field_ident)

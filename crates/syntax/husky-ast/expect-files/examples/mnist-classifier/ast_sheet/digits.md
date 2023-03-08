@@ -18,7 +18,7 @@ Ok(
                             `mnist_classifier::digits::zero`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `zero`,
                         token_idx: TokenIdx(
                             1,
@@ -46,7 +46,7 @@ Ok(
                             `mnist_classifier::digits::one`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `one`,
                         token_idx: TokenIdx(
                             3,
@@ -74,7 +74,7 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `six`,
                         token_idx: TokenIdx(
                             5,
@@ -102,7 +102,7 @@ Ok(
                             `mnist_classifier::digits::three`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `three`,
                         token_idx: TokenIdx(
                             7,
@@ -130,7 +130,7 @@ Ok(
                             `mnist_classifier::digits::four`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `four`,
                         token_idx: TokenIdx(
                             9,
@@ -158,7 +158,7 @@ Ok(
                             `mnist_classifier::digits::five`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `five`,
                         token_idx: TokenIdx(
                             11,
@@ -186,7 +186,7 @@ Ok(
                             `mnist_classifier::digits::six`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `six`,
                         token_idx: TokenIdx(
                             13,
@@ -214,7 +214,7 @@ Ok(
                             `mnist_classifier::digits::seven`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `seven`,
                         token_idx: TokenIdx(
                             15,
@@ -242,7 +242,7 @@ Ok(
                             `mnist_classifier::digits::eight`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `eight`,
                         token_idx: TokenIdx(
                             17,
@@ -270,7 +270,7 @@ Ok(
                             `mnist_classifier::digits::nine`,
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `nine`,
                         token_idx: TokenIdx(
                             19,

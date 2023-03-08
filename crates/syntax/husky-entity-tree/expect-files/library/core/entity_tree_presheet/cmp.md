@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "PartialEq",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Eq",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "PartialOrd",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Ord",
                     ),
                     accessibility: Accessibility::Public,

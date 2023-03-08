@@ -27,7 +27,7 @@
                     value: 15,
                 },
             ),
-            ident: Identifier(
+            ident: Ident(
                 Word(
                     Id {
                         value: 6,
@@ -55,7 +55,7 @@
                     value: 15,
                 },
             ),
-            ident: Identifier(
+            ident: Ident(
                 Word(
                     Id {
                         value: 2,
@@ -83,7 +83,7 @@
                     value: 15,
                 },
             ),
-            ident: Identifier(
+            ident: Ident(
                 Word(
                     Id {
                         value: 5,

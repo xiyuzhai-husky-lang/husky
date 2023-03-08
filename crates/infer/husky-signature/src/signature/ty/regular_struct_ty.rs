@@ -48,12 +48,12 @@ impl RegularStructTypeSignature {}
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb, jar= SignatureJar)]
 pub struct RegularStructFieldSignature {
-    ident: Identifier,
+    ident: Ident,
     ty: RawTerm,
 }
 
 impl RegularStructFieldSignature {
-    pub fn ident(&self) -> Identifier {
+    pub fn ident(&self) -> Ident {
         self.ident
     }
 

@@ -182,7 +182,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -234,7 +234,7 @@ where
                 Token::Label(_)
                 | Token::Keyword(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_) => Ok(None),
@@ -301,7 +301,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -337,7 +337,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -375,7 +375,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -413,7 +413,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -451,7 +451,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -489,7 +489,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -527,7 +527,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -582,7 +582,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -637,7 +637,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -691,7 +691,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -745,7 +745,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -819,7 +819,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)

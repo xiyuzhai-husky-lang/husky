@@ -18,7 +18,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
                             5,
@@ -49,7 +49,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Clone`,
                         token_idx: TokenIdx(
                             2,

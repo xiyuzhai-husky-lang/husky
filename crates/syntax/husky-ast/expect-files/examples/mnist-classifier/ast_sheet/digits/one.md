@@ -545,7 +545,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `one_fermi_match`,
                         token_idx: TokenIdx(
                             59,
@@ -578,7 +578,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_one`,
                         token_idx: TokenIdx(
                             77,
@@ -613,7 +613,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
                             554,
@@ -648,7 +648,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
                             583,
@@ -683,7 +683,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
                             617,

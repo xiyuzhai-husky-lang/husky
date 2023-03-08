@@ -23,13 +23,13 @@ inductive RawOpnVariant
 
 mutual
 inductive RawExprVariant
-  | Variable (varname : Identifier) (init_range : TextRange)
-  | FrameVariable (varname : Identifier) (init_range : TextRange)
+  | Variable (varname : Ident) (init_range : TextRange)
+  | FrameVariable (varname : Ident) (init_range : TextRange)
   | ThisValue
   | ThisField
     (opt_this_ty : Option EntityRoute)
     (opt_this_liason : Option ParameterModifier)
-    (field_ident: RangedIdentifier)
+    (field_ident: RangedIdent)
   | Unrecognized
   | Entity
   | PrimitiveLiteral

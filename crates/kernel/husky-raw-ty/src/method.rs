@@ -3,7 +3,7 @@ use crate::*;
 pub(crate) fn raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     owner_raw_ty: RawTerm,
-    ident: Identifier,
+    ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
     match owner_raw_ty {
         RawTerm::Literal(_) => unreachable!(),
@@ -30,7 +30,7 @@ pub(crate) fn raw_ty_method_raw_ty(
 pub(crate) fn entity_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
-    _ident: Identifier,
+    _ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(raw_ty_path) {
         Ok(decl) => decl,
@@ -47,7 +47,7 @@ pub(crate) fn entity_raw_ty_method_raw_ty(
 pub(crate) fn application_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty: RawTermExplicitApplication,
-    ident: Identifier,
+    ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
     let application_expansion = application_expansion_salsa(db, raw_ty);
     let f = application_expansion.f();
@@ -79,7 +79,7 @@ fn ty_path_application_raw_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     path: TypePath,
     _arguments: &[RawTerm],
-    _ident: Identifier,
+    _ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,

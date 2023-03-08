@@ -21,7 +21,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Copy`,
                         token_idx: TokenIdx(
                             2,
@@ -52,7 +52,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Sized`,
                         token_idx: TokenIdx(
                             6,

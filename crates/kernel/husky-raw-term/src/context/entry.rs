@@ -11,7 +11,7 @@ pub(crate) struct RawTermSymbolShowEntry {
     /// number of lambdas using this symbol
     /// level 0 means this symbol is external
     level: u8,
-    external_symbol_ident: Option<Identifier>,
+    external_symbol_ident: Option<Ident>,
 }
 
 impl RawTermSymbolShowEntry {
@@ -115,7 +115,7 @@ impl RawTermShowContext {
         &self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
-        external_symbol_ident: Option<Identifier>,
+        external_symbol_ident: Option<Ident>,
     ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
     }
@@ -133,7 +133,7 @@ impl RawTermShowContext {
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
         level: u8,
-        external_symbol_ident: Option<Identifier>,
+        external_symbol_ident: Option<Ident>,
     ) -> RawTermSymbolShowEntry {
         let show_kind = symbol_show_kind(symbol, db);
         let idx = self.issue_idx(show_kind);

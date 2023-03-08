@@ -15,7 +15,7 @@ use crate::*;
 pub enum Token {
     Attr(AttributeKeyword),
     Keyword(Keyword),
-    Identifier(Identifier),
+    Ident(Ident),
     Label(Label),
     Punctuation(Punctuation),
     WordOpr(WordOpr),

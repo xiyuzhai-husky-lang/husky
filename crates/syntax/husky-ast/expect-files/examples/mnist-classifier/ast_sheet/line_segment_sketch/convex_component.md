@@ -7,7 +7,7 @@ Ok(
                         3,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 26,
                             ),
@@ -50,7 +50,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `ConvexComponent`,
                         token_idx: TokenIdx(
                             7,

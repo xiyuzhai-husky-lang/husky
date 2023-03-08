@@ -54,7 +54,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     EagerExprVariant::Lambda(_, _) => todo!(),
         //     EagerExprVariant::ThisValue { binding } => self.push_instruction(Instruction::new(
         //         InstructionVariant::PushVariable {
-        //             varname: ContextualIdentifier::ThisValue.into(),
+        //             varname: ContextualIdent::ThisValue.into(),
         //             stack_idx: VMStackIdx::this(),
         //             binding,
         //             range: expr.range,
@@ -73,7 +73,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         InstructionGenContext::Normal => {
         //             self.push_instruction(Instruction::new(
         //                 InstructionVariant::PushVariable {
-        //                     varname: ContextualIdentifier::ThisValue.into(),
+        //                     varname: ContextualIdent::ThisValue.into(),
         //                     stack_idx: VMStackIdx::this(),
         //                     binding: this_binding,
         //                     range: expr.range,
@@ -419,8 +419,8 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                             EagerSuffixOpr::AsTy(as_ty) => match as_ty.route {
         //                                 EntityRoutePtr::Root(root_identifier) => {
         //                                     match root_identifier {
-        //                                         RootBuiltinIdentifier::Void => todo!(),
-        //                                         RootBuiltinIdentifier::I32 => transfer_linkage!(
+        //                                         RootBuiltinIdent::Void => todo!(),
+        //                                         RootBuiltinIdent::I32 => transfer_linkage!(
         //                                             |args, _| {
         //                                                 let enum_value: &__VirtualEnum = args[0]
         //                                                     .downcast_temp_ref(
@@ -431,38 +431,38 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                                             none
         //                                         )
         //                                         .transfer(),
-        //                                         RootBuiltinIdentifier::I64 => todo!(),
-        //                                         RootBuiltinIdentifier::F32 => todo!(),
-        //                                         RootBuiltinIdentifier::F64 => todo!(),
-        //                                         RootBuiltinIdentifier::B32 => todo!(),
-        //                                         RootBuiltinIdentifier::B64 => todo!(),
-        //                                         RootBuiltinIdentifier::Bool => todo!(),
-        //                                         RootBuiltinIdentifier::True => todo!(),
-        //                                         RootBuiltinIdentifier::False => todo!(),
-        //                                         RootBuiltinIdentifier::Vec => todo!(),
-        //                                         RootBuiltinIdentifier::Tuple => todo!(),
-        //                                         RootBuiltinIdentifier::Debug => todo!(),
-        //                                         RootBuiltinIdentifier::Std => todo!(),
-        //                                         RootBuiltinIdentifier::Core => todo!(),
-        //                                         RootBuiltinIdentifier::Mor => todo!(),
-        //                                         RootBuiltinIdentifier::ThickFp => todo!(),
-        //                                         RootBuiltinIdentifier::Fn => todo!(),
-        //                                         RootBuiltinIdentifier::FnMut => todo!(),
-        //                                         RootBuiltinIdentifier::FnOnce => todo!(),
-        //                                         RootBuiltinIdentifier::Array => todo!(),
-        //                                         RootBuiltinIdentifier::Domains => todo!(),
-        //                                         RootBuiltinIdentifier::DatasetType => todo!(),
-        //                                         RootBuiltinIdentifier::VisualType => todo!(),
-        //                                         RootBuiltinIdentifier::TypeType => todo!(),
-        //                                         RootBuiltinIdentifier::Trait => todo!(),
-        //                                         RootBuiltinIdentifier::Module => todo!(),
-        //                                         RootBuiltinIdentifier::CloneTrait => todo!(),
-        //                                         RootBuiltinIdentifier::CopyTrait => todo!(),
-        //                                         RootBuiltinIdentifier::PartialEqTrait => todo!(),
-        //                                         RootBuiltinIdentifier::EqTrait => todo!(),
-        //                                         RootBuiltinIdentifier::Ref => todo!(),
-        //                                         RootBuiltinIdentifier::RefMut => todo!(),
-        //                                         RootBuiltinIdentifier::Option => todo!(),
+        //                                         RootBuiltinIdent::I64 => todo!(),
+        //                                         RootBuiltinIdent::F32 => todo!(),
+        //                                         RootBuiltinIdent::F64 => todo!(),
+        //                                         RootBuiltinIdent::B32 => todo!(),
+        //                                         RootBuiltinIdent::B64 => todo!(),
+        //                                         RootBuiltinIdent::Bool => todo!(),
+        //                                         RootBuiltinIdent::True => todo!(),
+        //                                         RootBuiltinIdent::False => todo!(),
+        //                                         RootBuiltinIdent::Vec => todo!(),
+        //                                         RootBuiltinIdent::Tuple => todo!(),
+        //                                         RootBuiltinIdent::Debug => todo!(),
+        //                                         RootBuiltinIdent::Std => todo!(),
+        //                                         RootBuiltinIdent::Core => todo!(),
+        //                                         RootBuiltinIdent::Mor => todo!(),
+        //                                         RootBuiltinIdent::ThickFp => todo!(),
+        //                                         RootBuiltinIdent::Fn => todo!(),
+        //                                         RootBuiltinIdent::FnMut => todo!(),
+        //                                         RootBuiltinIdent::FnOnce => todo!(),
+        //                                         RootBuiltinIdent::Array => todo!(),
+        //                                         RootBuiltinIdent::Domains => todo!(),
+        //                                         RootBuiltinIdent::DatasetType => todo!(),
+        //                                         RootBuiltinIdent::VisualType => todo!(),
+        //                                         RootBuiltinIdent::TypeType => todo!(),
+        //                                         RootBuiltinIdent::Trait => todo!(),
+        //                                         RootBuiltinIdent::Module => todo!(),
+        //                                         RootBuiltinIdent::CloneTrait => todo!(),
+        //                                         RootBuiltinIdent::CopyTrait => todo!(),
+        //                                         RootBuiltinIdent::PartialEqTrait => todo!(),
+        //                                         RootBuiltinIdent::EqTrait => todo!(),
+        //                                         RootBuiltinIdent::Ref => todo!(),
+        //                                         RootBuiltinIdent::RefMut => todo!(),
+        //                                         RootBuiltinIdent::Option => todo!(),
         //                                     }
         //                                 }
         //                                 EntityRoutePtr::Custom(_) => todo!(),
@@ -586,7 +586,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                     InstructionVariant::CallRoutine {
         //                         resolved_linkage: __ASSIGN_LINKAGE.transfer(),
         //                         nargs: 2,
-        //                         return_ty: RootBuiltinIdentifier::Void.into(),
+        //                         return_ty: RootBuiltinIdent::Void.into(),
         //                         discard,
         //                     }
         //                 }

@@ -51,7 +51,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable {
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
-    pub fn resolve_ident(&self, ident: Identifier) -> Option<EntitySymbol> {
+    pub fn resolve_ident(&self, ident: Ident) -> Option<EntitySymbol> {
         // ad hoc
         // todo: override
         self.0
@@ -83,7 +83,7 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntitySymbolEntry {
-    ident: Identifier,
+    ident: Ident,
     accessibility: Accessibility,
     symbol: EntitySymbol,
 }
@@ -147,7 +147,7 @@ impl EntitySymbolEntry {
         self.symbol
     }
 
-    pub fn ident(&self) -> Identifier {
+    pub fn ident(&self) -> Ident {
         self.ident
     }
 
@@ -202,7 +202,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbolTab
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct NativeEntitySymbolEntry {
-    ident: Identifier,
+    ident: Ident,
     accessibility: Accessibility,
     symbol: NativeEntitySymbol,
 }
@@ -218,11 +218,7 @@ impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
 }
 
 impl NativeEntitySymbolEntry {
-    pub fn new(
-        ident: Identifier,
-        accessibility: Accessibility,
-        symbol: NativeEntitySymbol,
-    ) -> Self {
+    pub fn new(ident: Ident, accessibility: Accessibility, symbol: NativeEntitySymbol) -> Self {
         Self {
             ident,
             accessibility,

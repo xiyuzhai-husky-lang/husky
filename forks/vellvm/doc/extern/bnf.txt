@@ -47,7 +47,7 @@ _hex_digit
 
 !whitespace : '\x00' | ' ' | '\t' | '\r' | '\n' ;
 
-// === [ Identifiers ] =========================================================
+// === [ Idents ] =========================================================
 
 _name
 	: _letter { _letter | _decimal_digit }
@@ -624,39 +624,39 @@ UseListOrderBB
 	: "uselistorder_bb" GlobalIdent "," LocalIdent "," "{" IndexList "}"
 ;
 
-// === [ Identifiers ] =========================================================
+// === [ Idents ] =========================================================
 
-// --- [ Global Identifiers ] --------------------------------------------------
+// --- [ Global Idents ] --------------------------------------------------
 
 GlobalIdent
 	: global_ident
 ;
 
-// --- [ Local Identifiers ] ---------------------------------------------------
+// --- [ Local Idents ] ---------------------------------------------------
 
 LocalIdent
 	: local_ident
 ;
 
-// --- [ Label Identifiers ] ---------------------------------------------------
+// --- [ Label Idents ] ---------------------------------------------------
 
 LabelIdent
 	: label_ident
 ;
 
-// --- [ Attribute Group Identifiers ] -----------------------------------------
+// --- [ Attribute Group Idents ] -----------------------------------------
 
 AttrGroupID
 	: attr_group_id
 ;
 
-// --- [ Comdat Identifiers ] --------------------------------------------------
+// --- [ Comdat Idents ] --------------------------------------------------
 
 ComdatName
 	: comdat_name
 ;
 
-// --- [ Metadata Identifiers ] ------------------------------------------------
+// --- [ Metadata Idents ] ------------------------------------------------
 
 MetadataName
 	: metadata_name

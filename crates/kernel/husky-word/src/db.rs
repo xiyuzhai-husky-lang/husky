@@ -9,13 +9,13 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn dt_word(&self, data: Word) -> &str;
 
-    fn it_ident_owned(&self, data: String) -> Option<Identifier>;
+    fn it_ident_owned(&self, data: String) -> Option<Ident>;
 
-    fn it_ident_borrowed(&self, data: &str) -> Option<Identifier>;
+    fn it_ident_borrowed(&self, data: &str) -> Option<Ident>;
 
     fn it_auxiliary_ident_borrowed(&self, data: &str) -> Option<Label>;
 
-    fn dt_ident(&self, data: Identifier) -> &str;
+    fn dt_ident(&self, data: Ident) -> &str;
 
     fn word_db(&self) -> &dyn WordDb;
 
@@ -23,7 +23,7 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn word_menu(&self) -> &WordMenu;
 
-    fn ident_to_dashed(&self, ident: Identifier) -> String;
+    fn ident_to_dashed(&self, ident: Ident) -> String;
 }
 
 impl<T> WordDb for T
@@ -56,23 +56,23 @@ where
             .get_or_init(|| WordMenu::new(self))
     }
 
-    fn it_ident_owned(&self, data: String) -> Option<Identifier> {
-        Identifier::from_owned(self, data)
+    fn it_ident_owned(&self, data: String) -> Option<Ident> {
+        Ident::from_owned(self, data)
     }
 
-    fn it_ident_borrowed(&self, data: &str) -> Option<Identifier> {
-        Identifier::from_borrowed(self, data)
+    fn it_ident_borrowed(&self, data: &str) -> Option<Ident> {
+        Ident::from_borrowed(self, data)
     }
 
     fn it_auxiliary_ident_borrowed(&self, data: &str) -> Option<Label> {
         Label::from_borrowed(self, data)
     }
 
-    fn dt_ident(&self, ident: Identifier) -> &str {
+    fn dt_ident(&self, ident: Ident) -> &str {
         ident.data(self)
     }
 
-    fn ident_to_dashed(&self, ident: Identifier) -> String {
+    fn ident_to_dashed(&self, ident: Ident) -> String {
         snake_to_dash(self.dt_ident(ident))
     }
 }

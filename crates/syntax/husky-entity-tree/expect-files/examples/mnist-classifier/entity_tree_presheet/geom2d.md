@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Point2d",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "RelativePoint2d",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Vector2d",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "ClosedRange",
                     ),
                     accessibility: Accessibility::Public,
@@ -64,7 +64,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BoundingBox",
                     ),
                     accessibility: Accessibility::Public,
@@ -79,7 +79,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "RelativeBoundingBox",
                     ),
                     accessibility: Accessibility::Public,

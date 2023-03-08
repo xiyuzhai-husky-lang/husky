@@ -451,7 +451,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `six_match`,
                         token_idx: TokenIdx(
                             65,
@@ -486,7 +486,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `six_match_refined1`,
                         token_idx: TokenIdx(
                             78,
@@ -521,7 +521,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `is_six`,
                         token_idx: TokenIdx(
                             93,
@@ -556,7 +556,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
                             356,
@@ -591,7 +591,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
                             385,

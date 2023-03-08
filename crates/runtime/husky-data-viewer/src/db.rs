@@ -42,7 +42,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: Term) -> Arc<HuskyDataViewer> {
     //             ))
     //             .unwrap()
     //             .transfer(),
-    //         index: comptime.index_linkage(vec![ty, RootBuiltinIdentifier::I32.into()]),
+    //         index: comptime.index_linkage(vec![ty, RootBuiltinIdent::I32.into()]),
     //         elem_ty: ty.entity_route_argument(0),
     //     },
     //     TyKind::Slice => todo!(),
@@ -53,7 +53,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: Term) -> Arc<HuskyDataViewer> {
     //         end: comptime
     //             .field_linkage_resolved(ty, comptime.it_word("end").custom(), Binding::Copy)
     //             .unwrap(),
-    //         index: comptime.index_linkage(vec![ty, RootBuiltinIdentifier::I32.into()]),
+    //         index: comptime.index_linkage(vec![ty, RootBuiltinIdent::I32.into()]),
     //         elem_ty: ty.entity_route_argument(0),
     //     },
     //     TyKind::Array => todo!(),

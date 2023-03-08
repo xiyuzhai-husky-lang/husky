@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Extern,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 7,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Structure,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 6;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 20,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 7,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Structure,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 8;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    8,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 16,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        9,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    8,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 8;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    8,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 16,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        9,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    8,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 10;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 10;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 12;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    12,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 16,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        13,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    12,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 12;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    12,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 16,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        13,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    12,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 14;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 28;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 8,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Inductive,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 28;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 25,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 8,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Type(\n                Inductive,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    30,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 17,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        31,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    30,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 30;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 21,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    30,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 17,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        31,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 21,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    30,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 32;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 34;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    34,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 17,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        35,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentifierToken {\n                ident: Identifier(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    34,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 34;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    34,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 17,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        35,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 22,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    34,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 36;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 19,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Type(\n                TypePath(\n                    Id {\n                        value: 6,\n                    },\n                ),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 27,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 44;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 27,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -700,7 +700,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 46;\n\ntoken = Identifier(\n    Identifier(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 46;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 22,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

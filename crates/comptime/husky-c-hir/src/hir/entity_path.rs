@@ -1,10 +1,10 @@
 use super::*;
 
 pub enum CEntityPathHir {
-    Enum(CIdentifier),
-    Struct(CIdentifier),
-    Function(CIdentifier),
-    Alias(CIdentifier),
+    Enum(CIdent),
+    Struct(CIdent),
+    Function(CIdent),
+    Alias(CIdent),
 }
 
 pub struct CEntityPathHirMenu {}

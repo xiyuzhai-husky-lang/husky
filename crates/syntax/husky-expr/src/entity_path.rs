@@ -12,13 +12,13 @@ use thiserror::Error;
 pub enum EntityPathExpr {
     Root {
         token_idx: TokenIdx,
-        ident: Identifier,
+        ident: Ident,
         entity_path: EntityPath,
     },
     Subentity {
         parent: EntityPathExprIdx,
         scope_resolution_token: ScopeResolutionToken,
-        ident_token: EntityPathExprResult<IdentifierToken>,
+        ident_token: EntityPathExprResult<IdentToken>,
         path: EntityPathExprResult<EntityPath>,
     },
 }

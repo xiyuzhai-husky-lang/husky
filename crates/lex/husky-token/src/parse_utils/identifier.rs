@@ -2,13 +2,13 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct IdentifierToken {
-    ident: Identifier,
+pub struct IdentToken {
+    ident: Ident,
     token_idx: TokenIdx,
 }
 
-impl IdentifierToken {
-    pub fn ident(&self) -> Identifier {
+impl IdentToken {
+    pub fn ident(&self) -> Ident {
         self.ident
     }
 
@@ -17,7 +17,7 @@ impl IdentifierToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for IdentifierToken
+impl<'a, Context> parsec::ParseFrom<Context> for IdentToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -26,7 +26,7 @@ where
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
-                Token::Identifier(ident) => Ok(Some(IdentifierToken { ident, token_idx })),
+                Token::Ident(ident) => Ok(Some(IdentToken { ident, token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)

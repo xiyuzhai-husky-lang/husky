@@ -6,7 +6,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "basic",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -24,7 +24,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "logic",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -42,7 +42,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "mem",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -60,7 +60,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "num",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -78,7 +78,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ops",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -96,7 +96,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "prelude",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -114,7 +114,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_bits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -132,7 +132,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fmt",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -150,7 +150,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "clone",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -168,7 +168,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "marker",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -186,7 +186,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "list",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -204,7 +204,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "cmp",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -222,7 +222,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "str",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -255,7 +255,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "bool",
                             ),
                             accessibility: Accessibility::Public,
@@ -271,7 +271,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "never",
                             ),
                             accessibility: Accessibility::Public,
@@ -287,7 +287,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "unit",
                             ),
                             accessibility: Accessibility::Public,
@@ -303,7 +303,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Trait",
                             ),
                             accessibility: Accessibility::Public,
@@ -319,7 +319,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Module",
                             ),
                             accessibility: Accessibility::Public,
@@ -350,7 +350,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Prop",
                             ),
                             accessibility: Accessibility::Public,
@@ -366,7 +366,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LogicAnd",
                             ),
                             accessibility: Accessibility::Public,
@@ -382,7 +382,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LogicOr",
                             ),
                             accessibility: Accessibility::Public,
@@ -413,7 +413,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Ref",
                             ),
                             accessibility: Accessibility::Public,
@@ -429,7 +429,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RefMut",
                             ),
                             accessibility: Accessibility::Public,
@@ -445,7 +445,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Leash",
                             ),
                             accessibility: Accessibility::Public,
@@ -476,7 +476,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i8",
                             ),
                             accessibility: Accessibility::Public,
@@ -492,7 +492,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i16",
                             ),
                             accessibility: Accessibility::Public,
@@ -508,7 +508,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i32",
                             ),
                             accessibility: Accessibility::Public,
@@ -524,7 +524,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i64",
                             ),
                             accessibility: Accessibility::Public,
@@ -540,7 +540,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i128",
                             ),
                             accessibility: Accessibility::Public,
@@ -556,7 +556,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "isize",
                             ),
                             accessibility: Accessibility::Public,
@@ -572,7 +572,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u8",
                             ),
                             accessibility: Accessibility::Public,
@@ -588,7 +588,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u16",
                             ),
                             accessibility: Accessibility::Public,
@@ -604,7 +604,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u32",
                             ),
                             accessibility: Accessibility::Public,
@@ -620,7 +620,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u64",
                             ),
                             accessibility: Accessibility::Public,
@@ -636,7 +636,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u128",
                             ),
                             accessibility: Accessibility::Public,
@@ -652,7 +652,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "usize",
                             ),
                             accessibility: Accessibility::Public,
@@ -668,7 +668,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "f32",
                             ),
                             accessibility: Accessibility::Public,
@@ -684,7 +684,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "f64",
                             ),
                             accessibility: Accessibility::Public,
@@ -731,9 +731,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -778,9 +778,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -825,9 +825,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -872,9 +872,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -919,9 +919,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -966,9 +966,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1013,9 +1013,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1060,9 +1060,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1107,9 +1107,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1154,9 +1154,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1201,9 +1201,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1248,9 +1248,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1295,9 +1295,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1342,9 +1342,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 34,
@@ -1372,9 +1372,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 33,
@@ -1399,8 +1399,8 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `core`,
                             token_idx: TokenIdx(
                                 1,
@@ -1414,7 +1414,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Add",
                             ),
                             accessibility: Accessibility::Public,
@@ -1430,7 +1430,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "AddAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1446,7 +1446,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitAnd",
                             ),
                             accessibility: Accessibility::Public,
@@ -1462,7 +1462,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitAndAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1478,7 +1478,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitOr",
                             ),
                             accessibility: Accessibility::Public,
@@ -1494,7 +1494,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitOrAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1510,7 +1510,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitXor",
                             ),
                             accessibility: Accessibility::Public,
@@ -1526,7 +1526,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BitXorAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1542,7 +1542,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Div",
                             ),
                             accessibility: Accessibility::Public,
@@ -1558,7 +1558,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "DivAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1574,7 +1574,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Mul",
                             ),
                             accessibility: Accessibility::Public,
@@ -1590,7 +1590,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "MulAssign",
                             ),
                             accessibility: Accessibility::Public,
@@ -1606,7 +1606,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Neg",
                             ),
                             accessibility: Accessibility::Public,
@@ -1622,7 +1622,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Not",
                             ),
                             accessibility: Accessibility::Public,
@@ -1638,7 +1638,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Sub",
                             ),
                             accessibility: Accessibility::Public,
@@ -1669,7 +1669,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "bool",
                             ),
                             accessibility: Accessibility::Public,
@@ -1698,7 +1698,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "never",
                             ),
                             accessibility: Accessibility::Public,
@@ -1727,7 +1727,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "unit",
                             ),
                             accessibility: Accessibility::Public,
@@ -1756,7 +1756,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Trait",
                             ),
                             accessibility: Accessibility::Public,
@@ -1785,7 +1785,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Module",
                             ),
                             accessibility: Accessibility::Public,
@@ -1814,7 +1814,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i8",
                             ),
                             accessibility: Accessibility::Public,
@@ -1843,7 +1843,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i16",
                             ),
                             accessibility: Accessibility::Public,
@@ -1872,7 +1872,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i32",
                             ),
                             accessibility: Accessibility::Public,
@@ -1901,7 +1901,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i64",
                             ),
                             accessibility: Accessibility::Public,
@@ -1930,7 +1930,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "i128",
                             ),
                             accessibility: Accessibility::Public,
@@ -1959,7 +1959,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "isize",
                             ),
                             accessibility: Accessibility::Public,
@@ -1988,7 +1988,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u8",
                             ),
                             accessibility: Accessibility::Public,
@@ -2017,7 +2017,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u16",
                             ),
                             accessibility: Accessibility::Public,
@@ -2046,7 +2046,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u32",
                             ),
                             accessibility: Accessibility::Public,
@@ -2075,7 +2075,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u64",
                             ),
                             accessibility: Accessibility::Public,
@@ -2104,7 +2104,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "u128",
                             ),
                             accessibility: Accessibility::Public,
@@ -2133,7 +2133,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "usize",
                             ),
                             accessibility: Accessibility::Public,
@@ -2162,7 +2162,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "f32",
                             ),
                             accessibility: Accessibility::Public,
@@ -2191,7 +2191,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "f64",
                             ),
                             accessibility: Accessibility::Public,
@@ -2220,7 +2220,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "r32",
                             ),
                             accessibility: Accessibility::Public,
@@ -2249,7 +2249,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Debug",
                             ),
                             accessibility: Accessibility::Public,
@@ -2278,7 +2278,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Copy",
                             ),
                             accessibility: Accessibility::Public,
@@ -2307,7 +2307,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Sized",
                             ),
                             accessibility: Accessibility::Public,
@@ -2336,7 +2336,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Clone",
                             ),
                             accessibility: Accessibility::Public,
@@ -2365,7 +2365,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "PartialEq",
                             ),
                             accessibility: Accessibility::Public,
@@ -2394,7 +2394,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Eq",
                             ),
                             accessibility: Accessibility::Public,
@@ -2423,7 +2423,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "PartialOrd",
                             ),
                             accessibility: Accessibility::Public,
@@ -2452,7 +2452,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Ord",
                             ),
                             accessibility: Accessibility::Public,
@@ -2807,9 +2807,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 1,
@@ -2850,9 +2850,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 4,
@@ -2893,9 +2893,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 7,
@@ -2936,9 +2936,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 8,
@@ -2979,9 +2979,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 10,
@@ -3022,9 +3022,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 9,
@@ -3065,9 +3065,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 12,
@@ -3191,7 +3191,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "r32",
                             ),
                             accessibility: Accessibility::Public,
@@ -3222,7 +3222,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Debug",
                             ),
                             accessibility: Accessibility::Public,
@@ -3253,7 +3253,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Clone",
                             ),
                             accessibility: Accessibility::Public,
@@ -3284,7 +3284,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Copy",
                             ),
                             accessibility: Accessibility::Public,
@@ -3300,7 +3300,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Sized",
                             ),
                             accessibility: Accessibility::Public,
@@ -3331,7 +3331,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "List",
                             ),
                             accessibility: Accessibility::Public,
@@ -3362,7 +3362,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "PartialEq",
                             ),
                             accessibility: Accessibility::Public,
@@ -3378,7 +3378,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Eq",
                             ),
                             accessibility: Accessibility::Public,
@@ -3394,7 +3394,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "PartialOrd",
                             ),
                             accessibility: Accessibility::Public,
@@ -3410,7 +3410,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Ord",
                             ),
                             accessibility: Accessibility::Public,
@@ -3441,7 +3441,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "str",
                             ),
                             accessibility: Accessibility::Public,
@@ -3457,7 +3457,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "StringLiteral",
                             ),
                             accessibility: Accessibility::Public,
@@ -3487,8 +3487,8 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 36,
@@ -3510,8 +3510,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 46,
@@ -3533,8 +3533,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 47,
@@ -3556,8 +3556,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 48,
@@ -3579,8 +3579,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 49,
@@ -3602,8 +3602,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 50,
@@ -3625,8 +3625,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 51,
@@ -3648,8 +3648,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 52,
@@ -3671,8 +3671,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 53,
@@ -3694,8 +3694,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 54,
@@ -3717,8 +3717,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 55,
@@ -3740,8 +3740,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 56,
@@ -3763,8 +3763,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 57,
@@ -3786,8 +3786,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 58,

@@ -21,7 +21,7 @@ where
                 Token::Punctuation(punc) => Ok(Some(PunctuationToken { punc, token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -49,7 +49,7 @@ where
             Token::Error(error) => Err(error),
             Token::Label(_)
             | Token::Punctuation(_)
-            | Token::Identifier(_)
+            | Token::Ident(_)
             | Token::WordOpr(_)
             | Token::Literal(_)
             | Token::Attr(_)
@@ -561,7 +561,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -614,7 +614,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -666,7 +666,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)
@@ -714,7 +714,7 @@ where
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
                 | Token::Attr(_)

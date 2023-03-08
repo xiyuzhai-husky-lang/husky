@@ -33,7 +33,7 @@ where
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
@@ -82,7 +82,7 @@ where
                 }
                 Token::Error(error) => Err(error),
                 Token::Label(_)
-                | Token::Identifier(_)
+                | Token::Ident(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
@@ -128,7 +128,7 @@ where
             match token {
                 Token::Label(label) => Ok(Some(BlockLabelToken { label, token_idx })),
                 Token::Error(error) => Err(error),
-                Token::Identifier(_)
+                Token::Ident(_)
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)

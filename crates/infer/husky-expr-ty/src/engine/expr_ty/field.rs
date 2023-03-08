@@ -1,11 +1,11 @@
 use super::*;
-use husky_token::IdentifierToken;
+use husky_token::IdentToken;
 
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_field_expr_ty(
         &mut self,
         owner: ExprIdx,
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal, local_term_region)else {

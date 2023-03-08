@@ -263,7 +263,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `quick_sort`,
                         token_idx: TokenIdx(
                             2,
@@ -298,7 +298,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `quick_sort_aux`,
                         token_idx: TokenIdx(
                             41,
@@ -333,7 +333,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `partition`,
                         token_idx: TokenIdx(
                             102,
@@ -373,7 +373,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `quick_sort_works_for_integers`,
                         token_idx: TokenIdx(
                             227,
@@ -413,7 +413,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `quick_sort_works_for_strs`,
                         token_idx: TokenIdx(
                             287,

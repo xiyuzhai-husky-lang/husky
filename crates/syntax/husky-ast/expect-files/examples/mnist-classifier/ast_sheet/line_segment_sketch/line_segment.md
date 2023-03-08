@@ -124,7 +124,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
                             23,
@@ -152,7 +152,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `dist_to_point`,
                         token_idx: TokenIdx(
                             40,
@@ -190,7 +190,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `LineSegment`,
                         token_idx: TokenIdx(
                             8,

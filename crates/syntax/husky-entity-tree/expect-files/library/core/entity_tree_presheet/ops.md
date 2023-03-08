@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Add",
                     ),
                     accessibility: Accessibility::Public,
@@ -19,7 +19,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "AddAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -34,7 +34,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitAnd",
                     ),
                     accessibility: Accessibility::Public,
@@ -49,7 +49,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitAndAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -64,7 +64,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitOr",
                     ),
                     accessibility: Accessibility::Public,
@@ -79,7 +79,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitOrAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -94,7 +94,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitXor",
                     ),
                     accessibility: Accessibility::Public,
@@ -109,7 +109,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "BitXorAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -124,7 +124,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Div",
                     ),
                     accessibility: Accessibility::Public,
@@ -139,7 +139,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "DivAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -154,7 +154,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Mul",
                     ),
                     accessibility: Accessibility::Public,
@@ -169,7 +169,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "MulAssign",
                     ),
                     accessibility: Accessibility::Public,
@@ -184,7 +184,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Neg",
                     ),
                     accessibility: Accessibility::Public,
@@ -199,7 +199,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Not",
                     ),
                     accessibility: Accessibility::Public,
@@ -214,7 +214,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Sub",
                     ),
                     accessibility: Accessibility::Public,

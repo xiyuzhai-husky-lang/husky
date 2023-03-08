@@ -4,7 +4,7 @@ use std::fmt::Debug;
 #[salsa::interned(jar = EntityPathJar, override_debug)]
 pub struct TypePath {
     pub module_path: ModulePath,
-    pub ident: Identifier,
+    pub ident: Ident,
     pub connection: ModuleItemConnection,
     pub ty_kind: TypeKind,
 }

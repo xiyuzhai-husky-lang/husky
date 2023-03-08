@@ -8,8 +8,8 @@ pub use symbol::*;
 
 use super::*;
 use husky_entity_path::EntityPath;
-use husky_token::{AtToken, DotDotToken, IdentifierToken, TokenStream};
-use husky_word::Identifier;
+use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
+use husky_word::Ident;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{ParseContext, ParseFrom};
@@ -34,8 +34,8 @@ pub enum PatternExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
-    Identifier {
-        ident_token: IdentifierToken,
+    Ident {
+        ident_token: IdentToken,
         liason: PatternLiason,
     },
     /// example: `A::B`
@@ -54,7 +54,7 @@ pub enum PatternExpr {
     OneOf { options: PatternExprIdxRange },
     /// example: `x @ 1..9`
     Binding {
-        ident_token: IdentifierToken,
+        ident_token: IdentToken,
         asperand_token: AtToken,
         /// example: `1..9`
         src: PatternExprIdx,

@@ -4,7 +4,7 @@ Ok(
         native_symbol_entries: NativeEntitySymbolTable(
             [
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "Nat",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -23,7 +23,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "OddNat",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -42,7 +42,7 @@ Ok(
                     ),
                 },
                 NativeEntitySymbolEntry {
-                    ident: Identifier(
+                    ident: Ident(
                         "EvenNat",
                     ),
                     accessibility: Accessibility::PublicUnder(

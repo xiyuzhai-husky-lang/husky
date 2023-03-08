@@ -5,7 +5,7 @@ use super::*;
 #[derive(PartialEq, Eq, Clone)]
 pub enum FeatureLazyStmtVariant {
     Init {
-        varname: Identifier,
+        varname: Ident,
         value: Arc<FeatureLazyExpr>,
     },
     Assert {

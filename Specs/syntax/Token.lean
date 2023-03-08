@@ -5,7 +5,7 @@ import Specs.syntax.Token.SpecialToken -- mod SpecialToken; use SpecialToken
 inductive TokenKind
   | Decorator : Decorator -> TokenKind
   | Keyword : Keyword -> TokenKind
-  | Identifier : Identifier -> TokenKind
+  | Ident : Ident -> TokenKind
   | Special : SpecialToken -> TokenKind
   | WordOpr : WordOpr -> TokenKind
   | WordPattern : WordPattern-> TokenKind
@@ -18,7 +18,7 @@ namespace TokenKind
 def kindName : TokenKind -> String
   | Decorator _ => "Decorator"
   | Keyword _ => "Keyword"
-  | Identifier _ => "Identifier"
+  | Ident _ => "Ident"
   | Special _ => "Special"
   | WordOpr _ => "WordOpr"
   | WordPattern _ => " WordPattern"
@@ -29,7 +29,7 @@ def kindName : TokenKind -> String
 def huskyCode : TokenKind -> String
   | Decorator dec => dec.huskyCode
   | Keyword kw => kw.huskyCode
-  | Identifier ident => ident.huskyCode
+  | Ident ident => ident.huskyCode
   | Special special => special.huskyCode
   | WordOpr opr => opr.huskyCode
   | WordPattern patt => patt.huskyCode

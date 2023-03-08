@@ -402,7 +402,7 @@ Inductive guarded_wf_typ : list (ident * typ) -> typ -> Prop :=
     forall (defs : list (ident * typ)) (sz : N) (t : typ),
       (sz > 0)%N -> element_typ t -> guarded_wf_typ defs t -> guarded_wf_typ defs (TYPE_Vector sz t)
 
-(* Identifier must be in the typing environment.
+(* Ident must be in the typing environment.
 
    Additionally the identifier must not occur anywhere in the type
    that it refers to *unless* it is guarded by a pointer. *)
@@ -1104,7 +1104,7 @@ Proof.
              auto);
         try (intros id Hidin; solve_guard).
 
-  (* Identifiers *)
+  (* Idents *)
   repeat simpl_remove_keys.
 
   (* If id is in ids, this means that guarded_typ id defs

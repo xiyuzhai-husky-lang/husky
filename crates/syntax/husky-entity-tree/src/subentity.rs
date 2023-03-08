@@ -7,7 +7,7 @@ use crate::*;
 pub(crate) fn module_subentity_path(
     _db: &dyn EntityTreeDb,
     _parent: ModulePath,
-    _identifier: Identifier,
+    _identifier: Ident,
 ) -> EntityTreeResult<EntityPath> {
     todo!()
 }
@@ -15,7 +15,7 @@ pub(crate) fn module_subentity_path(
 pub(crate) fn subentity_path(
     db: &dyn EntityTreeDb,
     parent: EntityPath,
-    ident: Identifier,
+    ident: Ident,
 ) -> EntityTreeResult<EntityPath> {
     match parent {
         EntityPath::Module(module_path) => {

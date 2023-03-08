@@ -1,5 +1,5 @@
 import Specs.syntax.Word.Keyword
-import Specs.syntax.Word.Identifier
+import Specs.syntax.Word.Ident
 import Specs.abstraction.Enumerable
 
 inductive WordOpr
@@ -73,7 +73,7 @@ end WordPattern
 --   | Opr: WordOpr -> Word
 --   | Decorator: Decorator -> Word
 --   | Pattern: WordPattern -> Word
---   | Identifier: Identifier -> Word
+--   | Ident: Ident -> Word
 --   deriving DecidableEq
 
 -- namespace Word
@@ -83,5 +83,5 @@ end WordPattern
 --   | Opr opr => s!"Word::Opr({opr})" -- Keyword -> Opr
 --   | Decorator dec => s!"Word::Decorator({dec})" -- Decorator
 --   | Pattern patt => s!"Word::Keyword({patt})"
---   | Identifier ident => s!"Word::Identifier({ident})"
+--   | Ident ident => s!"Word::Ident({ident})"
 -- end Word

@@ -18,7 +18,7 @@ Ok(
                         ),
                     },
                     entity_path: None,
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `add`,
                         token_idx: TokenIdx(
                             13,
@@ -69,7 +69,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `Nat`,
                         token_idx: TokenIdx(
                             1,
@@ -110,7 +110,7 @@ Ok(
                         7,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdentifier(
+                        OriginalAstError::ExpectIdent(
                             TokenIdx(
                                 46,
                             ),
@@ -148,7 +148,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `OddNat`,
                         token_idx: TokenIdx(
                             85,
@@ -183,7 +183,7 @@ Ok(
                             ),
                         ),
                     ),
-                    ident_token: IdentifierToken {
+                    ident_token: IdentToken {
                         ident: `EvenNat`,
                         token_idx: TokenIdx(
                             114,

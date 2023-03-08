@@ -154,7 +154,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.replace_top_expr(|this, finished_expr| match finished_expr {
             Some(self_expr) => {
                 let self_expr = this.alloc_expr(self_expr);
-                match this.parse::<IdentifierToken>() {
+                match this.parse::<IdentToken>() {
                     Ok(Some(ident_token)) => match this.parse::<LeftParenthesisToken>() {
                         Ok(Some(lpar)) => UnfinishedExpr::List {
                             opr: UnfinishedListOpr::MethodCall {

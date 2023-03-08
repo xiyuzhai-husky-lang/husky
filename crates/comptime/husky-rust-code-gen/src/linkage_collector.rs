@@ -19,7 +19,7 @@ impl<'a> LinkageCollector<'a> {
         //     }
         //     EntityRouteVariant::TargetInputValue { .. } => return,
         //     EntityRouteVariant::Root {
-        //         ident: RootBuiltinIdentifier::Vec,
+        //         ident: RootBuiltinIdent::Vec,
         //     } => {
         //         // ad hoc
         //         if entity_path.spatial_arguments.len() > 0 {

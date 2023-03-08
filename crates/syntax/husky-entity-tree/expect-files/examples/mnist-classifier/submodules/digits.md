@@ -7,7 +7,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 129,
@@ -35,7 +35,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 124,
@@ -63,7 +63,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 126,
@@ -91,7 +91,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 127,
@@ -119,7 +119,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 122,
@@ -147,7 +147,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 121,
@@ -175,7 +175,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 126,
@@ -203,7 +203,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 125,
@@ -231,7 +231,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 120,
@@ -259,7 +259,7 @@ Ok(
                         value: 23,
                     },
                 ),
-                ident: Identifier(
+                ident: Ident(
                     Word(
                         Id {
                             value: 123,

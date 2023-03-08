@@ -1,4 +1,4 @@
-use husky_word::Identifier;
+use husky_word::Ident;
 
 use super::*;
 
@@ -41,7 +41,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         _text: &HuskyText,
         _routine_keyword: &'static str,
-        _ident: Identifier,
+        _ident: Ident,
         _parameters: &[Parameter],
     ) {
         todo!()

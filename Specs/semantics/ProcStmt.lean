@@ -35,7 +35,7 @@ inductive ProcStmt where
   | _ (file : File) (range : Range) (variant : ProcStmtVariant)
 
 inductive ProcStmtVariant where
-  | Init (varname : Identifier) (initial_value : EagerExpr)
+  | Init (varname : Ident) (initial_value : EagerExpr)
   | Assert (condition : EagerExpr)
   | Execute (expr : EagerExpr)
   | ConditionFlow (branches : List ProcConditionFlowBranch)
@@ -69,7 +69,7 @@ inductive FuncStmt where
   | _ (file : File) (range : Range) (variant : FuncStmtVariant)
 
 inductive FuncStmtVariant where
-  | Init (varname : Identifier) (initial_value : EagerExpr)
+  | Init (varname : Ident) (initial_value : EagerExpr)
   | Assert (condition : EagerExpr)
   | ConditionFlow (branches : List FuncConditionFlowBranch)
   | Return (result : EagerExpr)

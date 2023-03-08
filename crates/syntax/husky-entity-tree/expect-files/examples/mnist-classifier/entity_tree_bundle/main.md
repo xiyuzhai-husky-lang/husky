@@ -6,7 +6,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -24,7 +24,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -42,7 +42,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "geom2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -60,7 +60,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -78,7 +78,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -96,7 +96,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "digits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -114,7 +114,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -132,7 +132,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -167,7 +167,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -200,7 +200,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -233,7 +233,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -266,7 +266,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -299,7 +299,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -332,7 +332,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -365,7 +365,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -398,7 +398,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -431,7 +431,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -464,7 +464,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -497,7 +497,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -543,7 +543,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -589,7 +589,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -635,7 +635,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -694,9 +694,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 129,
@@ -724,9 +724,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 129,
@@ -754,9 +754,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -795,9 +795,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 136,
@@ -836,9 +836,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -877,9 +877,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -918,9 +918,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -959,9 +959,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -989,7 +989,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `find_raw_contours`,
                                     token_idx: TokenIdx(
                                         45,
@@ -1091,24 +1091,24 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `mnist`,
                             token_idx: TokenIdx(
                                 22,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `mnist`,
                             token_idx: TokenIdx(
                                 26,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 51,
@@ -1123,7 +1123,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponentDistribution",
                             ),
                             accessibility: Accessibility::Public,
@@ -1139,7 +1139,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "EffHoles",
                             ),
                             accessibility: Accessibility::Public,
@@ -1155,7 +1155,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "hole_tmpl",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1175,7 +1175,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponent",
                             ),
                             accessibility: Accessibility::Public,
@@ -1191,7 +1191,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "horizontal_extend",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1211,7 +1211,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_connected_components",
                             ),
                             accessibility: Accessibility::Public,
@@ -1227,7 +1227,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1258,7 +1258,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1289,7 +1289,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "geom2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1320,7 +1320,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1351,7 +1351,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1382,7 +1382,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "digits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1413,7 +1413,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1444,7 +1444,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1494,7 +1494,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1542,7 +1542,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1590,7 +1590,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1638,7 +1638,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1686,7 +1686,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1734,7 +1734,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1782,7 +1782,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1830,7 +1830,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1878,7 +1878,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1926,7 +1926,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1974,7 +1974,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2007,7 +2007,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2068,7 +2068,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2129,7 +2129,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2190,7 +2190,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2281,9 +2281,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 156,
@@ -2405,9 +2405,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -2482,8 +2482,8 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `cv`,
                             token_idx: TokenIdx(
                                 1,
@@ -2497,7 +2497,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::Public,
@@ -2513,7 +2513,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Direction",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2533,7 +2533,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_pixel_pair",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2553,7 +2553,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_pixel_to_the_left",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2573,7 +2573,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_pixel_to_the_right",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2593,7 +2593,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_inward_direction",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2613,7 +2613,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_angle_change",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2633,7 +2633,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_outward_direction",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2653,7 +2653,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "StreakCache",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2673,7 +2673,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "get_concave_middle_point",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2693,7 +2693,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2713,7 +2713,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2746,7 +2746,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2779,7 +2779,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2812,7 +2812,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2845,7 +2845,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2878,7 +2878,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2911,7 +2911,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponentDistribution",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2944,7 +2944,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "EffHoles",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2977,7 +2977,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3010,7 +3010,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3043,7 +3043,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3076,7 +3076,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3109,7 +3109,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3155,7 +3155,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3201,7 +3201,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3418,9 +3418,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 129,
@@ -3448,9 +3448,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 133,
@@ -3493,9 +3493,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 131,
@@ -3538,9 +3538,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -3632,8 +3632,8 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `mnist`,
                             token_idx: TokenIdx(
                                 19,
@@ -3647,7 +3647,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::Public,
@@ -3663,7 +3663,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::Public,
@@ -3679,7 +3679,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::Public,
@@ -3695,7 +3695,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::Public,
@@ -3711,7 +3711,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::Public,
@@ -3727,7 +3727,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::Public,
@@ -3790,9 +3790,9 @@ Ok(
                         variant: ImplVariant::Err(
                             ImplError::MajorPath(
                                 Original(
-                                    UnrecognizedIdentifier(
-                                        IdentifierToken {
-                                            ident: Identifier(
+                                    UnrecognizedIdent(
+                                        IdentToken {
+                                            ident: Ident(
                                                 Word(
                                                     Id {
                                                         value: 304,
@@ -3854,7 +3854,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "concave_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3872,7 +3872,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convex_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3890,7 +3890,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convexity",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3908,7 +3908,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3926,7 +3926,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::Public,
@@ -3942,7 +3942,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::Public,
@@ -3958,7 +3958,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_right",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3978,7 +3978,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_left",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -3998,7 +3998,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_end",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4018,7 +4018,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_start",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4038,7 +4038,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_line_segments",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4058,7 +4058,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::Public,
@@ -4087,7 +4087,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::Public,
@@ -4116,7 +4116,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::Public,
@@ -4145,7 +4145,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4178,7 +4178,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4211,7 +4211,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4244,7 +4244,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4277,7 +4277,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4310,7 +4310,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4343,7 +4343,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4420,9 +4420,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -4459,9 +4459,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 312,
@@ -4498,9 +4498,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 314,
@@ -4633,9 +4633,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 314,
@@ -4674,9 +4674,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 133,
@@ -4719,9 +4719,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -4764,7 +4764,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `RawContour`,
                                     token_idx: TokenIdx(
                                         34,
@@ -4869,7 +4869,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::Public,
@@ -4885,7 +4885,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::Public,
@@ -4901,7 +4901,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4932,7 +4932,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4963,7 +4963,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "geom2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -4994,7 +4994,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5025,7 +5025,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5056,7 +5056,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "digits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5087,7 +5087,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5118,7 +5118,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5168,7 +5168,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5216,7 +5216,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5264,7 +5264,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5312,7 +5312,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5360,7 +5360,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5408,7 +5408,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5456,7 +5456,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5504,7 +5504,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5552,7 +5552,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5600,7 +5600,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5648,7 +5648,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "concave_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5679,7 +5679,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convex_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5710,7 +5710,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convexity",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5741,7 +5741,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5772,7 +5772,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_right",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5807,7 +5807,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_left",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5842,7 +5842,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_end",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5877,7 +5877,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_start",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5912,7 +5912,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_line_segments",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5947,7 +5947,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -5993,7 +5993,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6041,7 +6041,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6089,7 +6089,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6137,7 +6137,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6185,7 +6185,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6233,7 +6233,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6281,7 +6281,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6329,7 +6329,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6390,7 +6390,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_convex",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -6688,9 +6688,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -6733,9 +6733,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -6778,9 +6778,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -6823,9 +6823,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 133,
@@ -6868,9 +6868,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 314,
@@ -6913,9 +6913,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 313,
@@ -7047,7 +7047,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConvexComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7067,7 +7067,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "concave_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7098,7 +7098,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convex_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7129,7 +7129,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convexity",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7160,7 +7160,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7191,7 +7191,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7224,7 +7224,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7257,7 +7257,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_right",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7292,7 +7292,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_left",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7327,7 +7327,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_end",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7362,7 +7362,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_start",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7397,7 +7397,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_line_segments",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7432,7 +7432,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7478,7 +7478,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7524,7 +7524,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7570,7 +7570,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7618,7 +7618,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7666,7 +7666,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7714,7 +7714,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7762,7 +7762,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7810,7 +7810,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7858,7 +7858,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7983,9 +7983,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -8049,7 +8049,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_convex",
                             ),
                             accessibility: Accessibility::Public,
@@ -8065,7 +8065,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "concave_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8096,7 +8096,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convex_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8127,7 +8127,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "convexity",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8158,7 +8158,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8189,7 +8189,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8222,7 +8222,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8255,7 +8255,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_right",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8290,7 +8290,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "go_left",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8325,7 +8325,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_end",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8360,7 +8360,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "extend_start",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8395,7 +8395,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_line_segments",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8430,7 +8430,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8476,7 +8476,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8522,7 +8522,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8568,7 +8568,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8616,7 +8616,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8664,7 +8664,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8712,7 +8712,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8760,7 +8760,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8808,7 +8808,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -8856,7 +8856,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9058,9 +9058,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -9103,9 +9103,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -9148,9 +9148,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 133,
@@ -9248,7 +9248,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::Public,
@@ -9264,7 +9264,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9297,7 +9297,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9330,7 +9330,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9363,7 +9363,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9396,7 +9396,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9429,7 +9429,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9539,9 +9539,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 133,
@@ -9605,7 +9605,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "FermiMatchResult",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9625,7 +9625,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::Public,
@@ -9641,7 +9641,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9672,7 +9672,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9703,7 +9703,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "geom2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9734,7 +9734,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9765,7 +9765,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9796,7 +9796,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "digits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9827,7 +9827,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9858,7 +9858,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9908,7 +9908,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -9956,7 +9956,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10004,7 +10004,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10052,7 +10052,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10100,7 +10100,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10148,7 +10148,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10196,7 +10196,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10244,7 +10244,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10292,7 +10292,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10340,7 +10340,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10401,7 +10401,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10462,7 +10462,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10523,7 +10523,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10682,7 +10682,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "zero",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10700,7 +10700,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10718,7 +10718,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10736,7 +10736,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "three",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10754,7 +10754,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "four",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10772,7 +10772,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "five",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10790,7 +10790,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10808,7 +10808,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "seven",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10826,7 +10826,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "eight",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10844,7 +10844,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "nine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10862,7 +10862,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::Public,
@@ -10891,7 +10891,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10926,7 +10926,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_zero",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10961,7 +10961,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_three",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10996,7 +10996,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_seven",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11031,7 +11031,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_eight",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11066,7 +11066,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_nine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11112,9 +11112,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 389,
@@ -11153,9 +11153,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 390,
@@ -11194,9 +11194,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 388,
@@ -11235,9 +11235,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 397,
@@ -11265,9 +11265,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 391,
@@ -11306,9 +11306,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 393,
@@ -11347,9 +11347,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 390,
@@ -11388,9 +11388,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 394,
@@ -11429,9 +11429,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 395,
@@ -11470,9 +11470,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 396,
@@ -11509,7 +11509,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_one`,
                                     token_idx: TokenIdx(
                                         24,
@@ -11543,7 +11543,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
                                         28,
@@ -11579,7 +11579,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_zero`,
                                     token_idx: TokenIdx(
                                         32,
@@ -11615,7 +11615,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_three`,
                                     token_idx: TokenIdx(
                                         40,
@@ -11651,7 +11651,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_five`,
                                     token_idx: TokenIdx(
                                         44,
@@ -11674,7 +11674,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
                                         48,
@@ -11710,7 +11710,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
                                         52,
@@ -11746,7 +11746,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
                                         56,
@@ -11782,7 +11782,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
                                         60,
@@ -11815,8 +11815,8 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `two`,
                             token_idx: TokenIdx(
                                 34,
@@ -11826,8 +11826,8 @@ Ok(
                     EntityTreeError::SymbolNotAccessible,
                     EntityTreeError::SymbolNotAccessible,
                     EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `is_five`,
                             token_idx: TokenIdx(
                                 44,
@@ -11845,7 +11845,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "open_one_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11865,7 +11865,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "almost_closed",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11885,7 +11885,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_zero",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11905,7 +11905,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11938,7 +11938,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -11971,7 +11971,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12004,7 +12004,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12037,7 +12037,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12070,7 +12070,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12103,7 +12103,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12136,7 +12136,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12169,7 +12169,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12202,7 +12202,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12248,9 +12248,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 156,
@@ -12278,9 +12278,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -12308,9 +12308,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -12338,9 +12338,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -12556,9 +12556,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -12601,9 +12601,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -12646,9 +12646,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -12691,9 +12691,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 389,
@@ -12725,9 +12725,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -12819,40 +12819,40 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `cv`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 9,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 19,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 29,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `one`,
                             token_idx: TokenIdx(
                                 61,
@@ -12867,7 +12867,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "one_fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12887,7 +12887,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::Public,
@@ -12903,7 +12903,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "upmost",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12923,7 +12923,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "downmost",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12943,7 +12943,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "hat",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12963,7 +12963,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -12996,7 +12996,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13029,7 +13029,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13062,7 +13062,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13095,7 +13095,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13128,7 +13128,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13161,7 +13161,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13194,7 +13194,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13227,7 +13227,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13260,7 +13260,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13306,9 +13306,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 156,
@@ -13336,9 +13336,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -13366,9 +13366,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -13396,9 +13396,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -13567,9 +13567,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -13612,9 +13612,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -13657,9 +13657,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -13702,9 +13702,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -13796,32 +13796,32 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `cv`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 9,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 19,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 29,
@@ -13836,7 +13836,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "six_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13856,7 +13856,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "six_match_refined1",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13876,7 +13876,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13896,7 +13896,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "upmost",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13916,7 +13916,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "bottom1",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13936,7 +13936,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -13969,7 +13969,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14002,7 +14002,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14035,7 +14035,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14068,7 +14068,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14101,7 +14101,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14134,7 +14134,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14167,7 +14167,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14200,7 +14200,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14233,7 +14233,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14279,9 +14279,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 156,
@@ -14309,9 +14309,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -14339,9 +14339,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -14369,9 +14369,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -14587,9 +14587,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -14632,9 +14632,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -14677,9 +14677,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -14722,9 +14722,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 389,
@@ -14756,9 +14756,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -14850,40 +14850,40 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `cv`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 9,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 19,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 29,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `one`,
                             token_idx: TokenIdx(
                                 61,
@@ -14898,7 +14898,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "three_fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14918,7 +14918,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_three",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14938,7 +14938,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "uparc",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14958,7 +14958,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "downarc",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14978,7 +14978,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "back",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -14998,7 +14998,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15031,7 +15031,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15064,7 +15064,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15097,7 +15097,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15130,7 +15130,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15163,7 +15163,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15196,7 +15196,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15229,7 +15229,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15262,7 +15262,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15295,7 +15295,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15341,9 +15341,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -15371,9 +15371,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -15401,9 +15401,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -15431,9 +15431,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -15602,9 +15602,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -15647,9 +15647,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -15692,9 +15692,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -15737,9 +15737,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -15831,32 +15831,32 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 13,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 33,
@@ -15871,7 +15871,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "left_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15891,7 +15891,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "left_coordinate_max",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15911,7 +15911,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "components_max_downwards",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15931,7 +15931,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "components_max_heights",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15951,7 +15951,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_four",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15971,7 +15971,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "displacement_downwards",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -15991,7 +15991,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "cc_box_heights",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16011,7 +16011,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16044,7 +16044,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16077,7 +16077,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16110,7 +16110,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16143,7 +16143,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16176,7 +16176,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16209,7 +16209,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16242,7 +16242,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16275,7 +16275,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16308,7 +16308,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16354,9 +16354,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -16384,9 +16384,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -16414,9 +16414,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -16444,9 +16444,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -16615,9 +16615,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -16660,9 +16660,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -16705,9 +16705,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -16750,9 +16750,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -16844,32 +16844,32 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 13,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 33,
@@ -16898,7 +16898,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "simple_seven_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16918,7 +16918,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "simple_leftdown_pattern",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16938,7 +16938,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "special_seven_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16958,7 +16958,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "leftupcc_pattern",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16978,7 +16978,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "leftdowncc_pattern",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -16998,7 +16998,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_seven",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17018,7 +17018,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17051,7 +17051,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17084,7 +17084,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17117,7 +17117,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17150,7 +17150,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17183,7 +17183,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17216,7 +17216,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17249,7 +17249,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17282,7 +17282,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "zero",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17313,7 +17313,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17344,7 +17344,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17375,7 +17375,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "three",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17406,7 +17406,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "four",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17437,7 +17437,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "five",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17468,7 +17468,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "seven",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17499,7 +17499,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "eight",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17530,7 +17530,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "nine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17561,7 +17561,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17607,7 +17607,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_six",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17657,7 +17657,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_zero",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17707,7 +17707,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_three",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17757,7 +17757,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_eight",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17807,7 +17807,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_nine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17857,7 +17857,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17890,7 +17890,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -17936,9 +17936,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -18060,9 +18060,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -18278,9 +18278,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -18323,9 +18323,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -18368,9 +18368,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -18413,9 +18413,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -18458,9 +18458,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -18503,9 +18503,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 136,
@@ -18548,7 +18548,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `major_concave_components`,
                                     token_idx: TokenIdx(
                                         17,
@@ -18582,7 +18582,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `major_connected_component`,
                                     token_idx: TokenIdx(
                                         23,
@@ -18616,9 +18616,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -18727,16 +18727,16 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 25,
@@ -18751,7 +18751,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "upper_mouth_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18771,7 +18771,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_eight",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18791,7 +18791,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "big_mouth",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18811,7 +18811,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18844,7 +18844,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18877,7 +18877,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18910,7 +18910,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18943,7 +18943,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -18976,7 +18976,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -19022,9 +19022,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -19146,9 +19146,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -19505,9 +19505,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -19550,9 +19550,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -19595,9 +19595,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 389,
@@ -19629,9 +19629,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 390,
@@ -19663,9 +19663,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 388,
@@ -19697,9 +19697,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 394,
@@ -19731,9 +19731,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -19776,9 +19776,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -19821,9 +19821,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -19866,7 +19866,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `major_concave_components`,
                                     token_idx: TokenIdx(
                                         17,
@@ -19900,7 +19900,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentifierToken {
+                                ident_token: IdentToken {
                                     ident: `major_connected_component`,
                                     token_idx: TokenIdx(
                                         23,
@@ -19934,9 +19934,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -20028,48 +20028,48 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 25,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `one`,
                             token_idx: TokenIdx(
                                 37,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `six`,
                             token_idx: TokenIdx(
                                 43,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `zero`,
                             token_idx: TokenIdx(
                                 49,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `seven`,
                             token_idx: TokenIdx(
                                 55,
@@ -20084,7 +20084,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "nine_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20104,7 +20104,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "nine_match_refine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20124,7 +20124,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_nine",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20144,7 +20144,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "downmost",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20164,7 +20164,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "big_cc",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20184,7 +20184,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20217,7 +20217,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20250,7 +20250,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20283,7 +20283,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20316,7 +20316,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20349,7 +20349,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20382,7 +20382,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20415,7 +20415,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20448,7 +20448,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20481,7 +20481,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -20527,9 +20527,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -20557,9 +20557,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -20587,9 +20587,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -20617,9 +20617,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 141,
@@ -20882,9 +20882,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 137,
@@ -20927,9 +20927,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 135,
@@ -20972,9 +20972,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -21017,9 +21017,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 388,
@@ -21051,9 +21051,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 390,
@@ -21085,9 +21085,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -21179,48 +21179,48 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 1,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 13,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 33,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `zero`,
                             token_idx: TokenIdx(
                                 65,
                             ),
                         },
                     ),
-                    EntityTreeError::UnresolvedIdentifier(
-                        IdentifierToken {
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
                             ident: `six`,
                             token_idx: TokenIdx(
                                 71,
@@ -21235,7 +21235,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::Public,
@@ -21251,7 +21251,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::Public,
@@ -21267,7 +21267,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::Public,
@@ -21283,7 +21283,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::Public,
@@ -21299,7 +21299,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::Public,
@@ -21315,7 +21315,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::Public,
@@ -21331,7 +21331,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::Public,
@@ -21347,7 +21347,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "connected_component",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21378,7 +21378,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "raw_contour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21409,7 +21409,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "geom2d",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21440,7 +21440,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "line_segment_sketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21471,7 +21471,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21502,7 +21502,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "digits",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21533,7 +21533,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "major",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21564,7 +21564,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_raw_contours",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21614,7 +21614,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21662,7 +21662,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21710,7 +21710,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21758,7 +21758,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponentDistribution",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21791,7 +21791,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "EffHoles",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21824,7 +21824,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConnectedComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21857,7 +21857,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_connected_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21890,7 +21890,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21923,7 +21923,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21969,7 +21969,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -22015,7 +22015,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -22061,7 +22061,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: Identifier(
+                            ident: Ident(
                                 "is_one",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -22370,9 +22370,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 131,
@@ -22415,9 +22415,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 132,
@@ -22460,9 +22460,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -22505,9 +22505,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 134,
@@ -22550,9 +22550,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Identifier(
-                                    IdentifierToken {
-                                        ident: Identifier(
+                                parent_name_token: Ident(
+                                    IdentToken {
+                                        ident: Ident(
                                             Word(
                                                 Id {
                                                     value: 311,
@@ -22685,8 +22685,8 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 169,
@@ -22708,8 +22708,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 165,
@@ -22731,8 +22731,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 212,
@@ -22754,8 +22754,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 231,
@@ -22777,8 +22777,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 216,
@@ -22800,8 +22800,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 226,
@@ -22823,8 +22823,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 315,
@@ -22846,8 +22846,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 213,
@@ -22869,8 +22869,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 323,
@@ -22892,8 +22892,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 369,
@@ -22915,8 +22915,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 320,
@@ -22938,8 +22938,8 @@ Ok(
                     ),
                 },
                 Root {
-                    ident_token: IdentifierToken {
-                        ident: Identifier(
+                    ident_token: IdentToken {
+                        ident: Ident(
                             Word(
                                 Id {
                                     value: 382,

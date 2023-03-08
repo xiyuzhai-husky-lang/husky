@@ -5,7 +5,7 @@ use super::*;
 #[salsa::interned(jar = EntityPathJar, override_debug)]
 pub struct TraitPath {
     pub module_path: ModulePath,
-    pub ident: Identifier,
+    pub ident: Ident,
     pub connection: ModuleItemConnection,
 }
 

@@ -32,7 +32,7 @@ pub enum CExprHir {
     },
     Field {
         self_expr: CExprHirIdx,
-        ident: CFieldIdentifier,
+        ident: CFieldIdent,
     },
     NewBoxList {
         caller: Option<CExprHirIdx>,
@@ -43,7 +43,7 @@ pub enum CExprHir {
     },
 }
 
-pub struct CFieldIdentifier {}
+pub struct CFieldIdent {}
 
 pub type CExprHirArena = Arena<CExprHir>;
 pub type CExprHirIdx = ArenaIdx<CExprHir>;
