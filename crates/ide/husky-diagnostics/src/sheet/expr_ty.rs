@@ -133,10 +133,10 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 format!("Type Error: AmbiguousTypePath")
             }
             OriginalExprTypeError::RitchieCallWrongNumberOfArguments {
-                number_of_nonself_parameters: _,
-                number_of_nonself_arguments: _,
+                number_of_nonself_parameters,
+                number_of_nonself_arguments,
             } => {
-                format!("Type Error: RitchieCallWrongNumberOfArguments")
+                format!("expected {number_of_nonself_parameters} argument, found {number_of_nonself_arguments}")
             }
             OriginalExprTypeError::AmbiguousListExpr => {
                 format!("Type Error: AmbiguateListExpr")
