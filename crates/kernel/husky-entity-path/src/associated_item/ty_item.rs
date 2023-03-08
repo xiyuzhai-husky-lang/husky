@@ -23,7 +23,11 @@ where
 }
 
 impl TypeItemPath {
-    fn show_aux(self, _f: &mut std::fmt::Formatter<'_>, _db: &dyn EntityPathDb) -> std::fmt::Result {
+    fn show_aux(
+        self,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &dyn EntityPathDb,
+    ) -> std::fmt::Result {
         todo!()
     }
 }

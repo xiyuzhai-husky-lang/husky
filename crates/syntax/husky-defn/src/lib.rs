@@ -18,7 +18,7 @@ use husky_entity_path::*;
 use husky_entity_tree::*;
 use husky_expr::ExprIdx;
 use husky_expr::*;
-use husky_vfs::{ModulePath};
+use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = DefnDb)]

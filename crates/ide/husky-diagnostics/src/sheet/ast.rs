@@ -1,5 +1,5 @@
 use husky_ast::{Ast, AstError, OriginalAstError};
-use husky_token::{TokenGroupIdx};
+use husky_token::TokenGroupIdx;
 
 use super::*;
 

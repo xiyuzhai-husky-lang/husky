@@ -1,7 +1,8 @@
 //! Simple hierarchical profiler
 use std::{
     cell::RefCell,
-    collections::{BTreeMap, HashSet}, fmt,
+    collections::{BTreeMap, HashSet},
+    fmt,
     io::{stderr, Write},
     sync::{
         atomic::{AtomicBool, Ordering},

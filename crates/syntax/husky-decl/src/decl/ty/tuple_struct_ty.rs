@@ -1,7 +1,6 @@
 use super::*;
 use husky_expr::ExprIdx;
 
-
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeDecl {
     #[id]

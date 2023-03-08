@@ -1,7 +1,5 @@
 use super::*;
 
-
-
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct UnitStructTypeDecl {
     #[id]

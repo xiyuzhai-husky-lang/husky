@@ -1,8 +1,6 @@
 use crate::*;
 use husky_token::*;
 
-
-
 /// mod path expr is top-down
 /// because path is resolved top-down
 #[derive(Debug, PartialEq, Eq)]

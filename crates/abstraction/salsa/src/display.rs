@@ -1,11 +1,4 @@
-use std::{
-    convert::Infallible,
-    fmt,
-    rc::Rc,
-    sync::Arc,
-};
-
-
+use std::{convert::Infallible, fmt, rc::Rc, sync::Arc};
 
 pub struct DisplayFormatLevel(u8);
 

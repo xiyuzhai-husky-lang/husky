@@ -1,7 +1,7 @@
 use crate::*;
 
 use husky_fs_specs::FsSpecsError;
-use husky_path_utils::{collect_husky_package_dirs};
+use husky_path_utils::collect_husky_package_dirs;
 use vec_like::VecSet;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {

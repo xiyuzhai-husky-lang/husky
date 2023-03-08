@@ -6,8 +6,6 @@ mod tests;
 pub use engine::*;
 pub use error::*;
 
-
-
 pub trait Graph {
     type Value: Eq;
     fn len(&self) -> usize;

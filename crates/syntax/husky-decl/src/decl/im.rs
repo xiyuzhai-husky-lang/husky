@@ -5,7 +5,7 @@ pub use ty_as_trai_im::*;
 pub use ty_im::*;
 
 use super::*;
-use husky_entity_tree::{Impl};
+use husky_entity_tree::Impl;
 use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

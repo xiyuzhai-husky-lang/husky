@@ -1,5 +1,3 @@
-
-
 use husky_token::{Token, TokenError};
 
 use super::*;

@@ -1,7 +1,7 @@
 use crate::*;
 
-use husky_word::{Identifier};
-use vec_like::{VecMap};
+use husky_word::Identifier;
+use vec_like::VecMap;
 
 pub(crate) struct EntityTreeSymbolContext<'a> {
     db: &'a dyn EntityTreeDb,

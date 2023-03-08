@@ -1,7 +1,6 @@
 use super::*;
 use std::path::{Path, PathBuf};
 
-
 #[salsa::interned(db = VfsDb, jar = VfsJar)]
 pub struct DiffPath {
     #[return_ref]
@@ -14,7 +13,8 @@ impl DiffPath {
     }
 
     pub fn abs_path(self, db: &dyn VfsDb) -> VfsResult<PathBuf> {
-        std::path::absolute(db.vfs_cache().base_path()?.join(&self.data(db).0)).map_err(|_e| todo!())
+        std::path::absolute(db.vfs_cache().base_path()?.join(&self.data(db).0))
+            .map_err(|_e| todo!())
     }
 }
 

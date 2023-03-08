@@ -30,7 +30,10 @@ pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Term) -> RegMemoryKind {
 }
 
 #[salsa::tracked(jar = LayoutJar)]
-pub(crate) fn application_reg_memory_kind(_db: &dyn LayoutDb, _ty: TermApplication) -> RegMemoryKind {
+pub(crate) fn application_reg_memory_kind(
+    _db: &dyn LayoutDb,
+    _ty: TermApplication,
+) -> RegMemoryKind {
     todo!()
 }
 

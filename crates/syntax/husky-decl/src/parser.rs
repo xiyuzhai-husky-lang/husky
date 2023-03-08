@@ -4,12 +4,9 @@ use husky_ast::*;
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
 
-
 use husky_token::*;
 
 use parsec::*;
-
-
 
 pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
     match path {
@@ -102,10 +99,9 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                
+
                 entity_kind,
-                
-                
+
                 saved_stream_state,
                 ..
             } => self.parse_ty_decl_aux(
@@ -200,10 +196,7 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                
-                
-                
-                
+
                 saved_stream_state,
                 ..
             } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),
@@ -400,10 +393,9 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-                
+
                 entity_kind,
-                
-                
+
                 saved_stream_state,
                 ..
             } => self.parse_form_decl_aux(

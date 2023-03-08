@@ -1,4 +1,3 @@
-
 use proc_macro2::Ident;
 use syn::{Field, Item, ItemEnum};
 

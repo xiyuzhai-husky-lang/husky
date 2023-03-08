@@ -5,7 +5,6 @@ use crate::options::Options;
 use impl_enum::*;
 use impl_struct::*;
 
-
 use syn::{spanned::Spanned, Item};
 use syn::{Ident, ItemStruct, Path};
 

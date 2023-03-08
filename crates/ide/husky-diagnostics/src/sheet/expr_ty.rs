@@ -1,12 +1,8 @@
-use husky_expr::{
-    ExprIdx, ExprRegion,
-};
+use husky_expr::{ExprIdx, ExprRegion};
 use husky_expr_ty::{
     ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
     OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
-
-
 
 use super::*;
 

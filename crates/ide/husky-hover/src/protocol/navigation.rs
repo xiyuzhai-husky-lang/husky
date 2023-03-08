@@ -1,4 +1,3 @@
-
 use husky_doc::TextRange;
 use husky_documentation::Documentation;
 use std::path::PathBuf;

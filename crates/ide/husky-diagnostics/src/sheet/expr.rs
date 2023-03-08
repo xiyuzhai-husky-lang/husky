@@ -139,10 +139,16 @@ impl Diagnose for OriginalExprError {
             }
             OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
-            OriginalExprError::UnrecognizedIdentifier { token_idx: _, ident: _ } => {
+            OriginalExprError::UnrecognizedIdentifier {
+                token_idx: _,
+                ident: _,
+            } => {
                 format!("Syntax Error: unrecognized identifier")
             }
-            OriginalExprError::UnresolvedSubentity { token_idx: _, ident: _ } => {
+            OriginalExprError::UnresolvedSubentity {
+                token_idx: _,
+                ident: _,
+            } => {
                 format!("Syntax Error: unresolved subentity")
             }
             OriginalExprError::ExpectLetVariablesType(_) => todo!(),
@@ -222,7 +228,10 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx: _, error } => {
+            OriginalEntityPathExprError::EntityTree {
+                token_idx: _,
+                error,
+            } => {
                 format!("entity tree error {:?}", error.debug(ctx.db()))
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
@@ -231,9 +240,10 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn severity(&self) -> DiagnosticSeverity {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx: _, error: _ } => {
-                DiagnosticSeverity::Error
-            }
+            OriginalEntityPathExprError::EntityTree {
+                token_idx: _,
+                error: _,
+            } => DiagnosticSeverity::Error,
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
                 DiagnosticSeverity::Error
             }
@@ -242,9 +252,10 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx, error: _ } => {
-                ctx.ranged_token_sheet().token_text_range(*token_idx)
-            }
+            OriginalEntityPathExprError::EntityTree {
+                token_idx,
+                error: _,
+            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
         }
     }

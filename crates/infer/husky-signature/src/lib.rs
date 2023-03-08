@@ -19,8 +19,6 @@ use husky_raw_term::*;
 use husky_term_prelude::*;
 use husky_word::*;
 
-
-
 #[salsa::jar(db = SignatureDb)]
 pub struct SignatureJar(
     SignatureRawTermApplication,

@@ -1,9 +1,6 @@
 use super::*;
 use husky_opn_syntax::{BinaryOpr, Bracket};
 
-
-
-
 // punctuation in general
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

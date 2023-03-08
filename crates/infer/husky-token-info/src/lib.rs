@@ -15,8 +15,6 @@ use husky_entity_tree::*;
 use husky_token::*;
 use husky_vfs::*;
 
-
-
 #[salsa::jar(db =  TokenInfoDb)]
 pub struct TokenInfoJar(token_info_sheet);
 

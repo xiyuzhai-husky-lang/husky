@@ -5,16 +5,13 @@ mod use_expr_rule;
 pub use use_all_rule::*;
 pub use use_expr_rule::*;
 
-
-
 pub(crate) use action::*;
 
 use husky_token::TokenSheetData;
 
-
 use crate::*;
 
-use vec_like::{AsVecMapEntry};
+use vec_like::AsVecMapEntry;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(

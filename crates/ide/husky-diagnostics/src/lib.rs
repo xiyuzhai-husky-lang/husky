@@ -20,8 +20,6 @@ use husky_doc::TextRange;
 use husky_vfs::*;
 use sheet::*;
 
-
-
 #[salsa::jar(db = DiagnosticsDb)]
 pub struct DiagnosticsJar(
     DiagnosticSheet,

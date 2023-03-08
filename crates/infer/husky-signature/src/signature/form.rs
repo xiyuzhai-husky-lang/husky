@@ -12,7 +12,6 @@ pub use value::*;
 
 use crate::*;
 
-
 pub(crate) fn form_signature(
     db: &dyn SignatureDb,
     decl: FormDecl,

@@ -1,10 +1,6 @@
 use super::*;
 
-use husky_token::{
-    CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken,
-};
-
-
+use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {

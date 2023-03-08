@@ -357,7 +357,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                                 template: _,
                                 implicit_arguments: _,
                             } => todo!(),
-                            Expr::ExplicitApplication { function: _, argument: _ } => {
+                            Expr::ExplicitApplication {
+                                function: _,
+                                argument: _,
+                            } => {
                                 todo!()
                             }
                             Expr::Bracketed {
@@ -390,12 +393,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     }
                 }
             }
-            Expr::NewTuple {
-                
-                items,
-                
-                ..
-            } => {
+            Expr::NewTuple { items, .. } => {
                 p!(self.expr_region_data.path().debug(self.db));
                 p!(items.len());
                 todo!()

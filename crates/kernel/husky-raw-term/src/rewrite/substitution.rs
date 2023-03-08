@@ -1,6 +1,5 @@
 use super::*;
 
-
 pub struct RawTermSubstitution {
     src: RawTermSymbol,
     dst: RawTerm,

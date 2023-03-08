@@ -1,5 +1,3 @@
-
-
 use crate::*;
 
 pub(crate) fn raw_ty_method_raw_ty(
@@ -51,7 +49,6 @@ pub(crate) fn application_raw_ty_method_raw_ty(
     raw_ty: RawTermExplicitApplication,
     ident: Identifier,
 ) -> RawTypeResult<Option<RawTerm>> {
-    
     let application_expansion = application_expansion_salsa(db, raw_ty);
     let f = application_expansion.f();
     match f {

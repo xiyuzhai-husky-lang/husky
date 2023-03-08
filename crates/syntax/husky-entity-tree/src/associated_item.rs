@@ -109,11 +109,9 @@ pub(crate) fn impl_associated_items(
             let ast = &ast_sheet[ast_idx];
             match ast {
                 Ast::Defn {
-                    
-                    
                     accessibility,
                     entity_kind,
-                    
+
                     ident_token,
                     is_generic,
                     ..
