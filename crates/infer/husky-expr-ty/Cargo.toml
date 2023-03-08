@@ -11,6 +11,7 @@ salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
+either = "1.8.1"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
 # infer

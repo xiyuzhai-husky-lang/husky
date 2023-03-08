@@ -160,6 +160,10 @@ impl UnresolvedTermEntry {
             _ => None,
         }
     }
+
+    pub(crate) fn resolve_progress(&self) -> &LocalTermResolveProgress {
+        &self.resolve_progress
+    }
 }
 
 impl UnresolvedTerms {
