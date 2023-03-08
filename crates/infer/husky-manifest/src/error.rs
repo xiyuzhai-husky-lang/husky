@@ -6,7 +6,7 @@ pub enum ManifestError {}
 pub type ManifestResult<T> = Result<T, ManifestError>;
 
 impl From<&ManifestError> for ManifestError {
-    fn from(value: &ManifestError) -> Self {
+    fn from(_value: &ManifestError) -> Self {
         todo!()
     }
 }

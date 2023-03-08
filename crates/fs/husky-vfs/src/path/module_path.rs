@@ -42,7 +42,7 @@ impl ModulePath {
     pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Identifier> {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
-            ModulePathData::Child { parent, ident } => Ok(ident),
+            ModulePathData::Child { parent: _, ident } => Ok(ident),
         }
     }
 }
@@ -105,7 +105,7 @@ pub enum ModulePathData {
 impl ModulePathData {
     fn display(self, db: &dyn VfsDb, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            ModulePathData::Root(crate_path) => f.write_str("crate"),
+            ModulePathData::Root(_crate_path) => f.write_str("crate"),
             ModulePathData::Child { parent, ident } => {
                 parent.data(db).display(db, f)?;
                 f.write_str("::");
@@ -156,7 +156,7 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         self.show_aux(f, db)

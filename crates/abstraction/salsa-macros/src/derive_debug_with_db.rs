@@ -4,10 +4,10 @@ mod impl_struct;
 use crate::options::Options;
 use impl_enum::*;
 use impl_struct::*;
-use proc_macro2::Literal;
-use syn::{punctuated::Punctuated, Type};
+
+
 use syn::{spanned::Spanned, Item};
-use syn::{Field, FieldsUnnamed, Ident, ItemStruct, Path, Token};
+use syn::{Ident, ItemStruct, Path};
 
 // Source:
 //

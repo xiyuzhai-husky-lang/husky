@@ -16,7 +16,7 @@ pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsRes
 #[test]
 fn package_ident_works() {
     let db = DB::default();
-    let toolchain = db.dev_toolchain().unwrap();
+    let _toolchain = db.dev_toolchain().unwrap();
     let word_menu = db.word_menu();
     let path_menu = db.dev_path_menu().unwrap();
     assert_eq!(path_menu.core_package().ident(&db), Ok(word_menu.core()));
@@ -83,7 +83,7 @@ impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
         let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
         f.debug_struct("PackagePath")

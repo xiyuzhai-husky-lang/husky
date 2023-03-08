@@ -17,5 +17,5 @@ pub use crate::init_connection::init_connection;
 
 use db::AnalyzerDB;
 use error_utils::Result;
-use handle::*;
+
 use husky_print_utils::*;

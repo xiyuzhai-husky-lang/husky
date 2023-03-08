@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::ExprIdx;
-use husky_word::Identifier;
+
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TupleStructTypeDecl {

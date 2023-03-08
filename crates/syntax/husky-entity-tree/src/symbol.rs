@@ -5,8 +5,8 @@ pub use native::*;
 pub use table::*;
 
 use crate::*;
-use husky_token::{TokenAccessibility, TokenIdx};
-use vec_like::VecMapGetEntry;
+use husky_token::{TokenIdx};
+
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ModuleItemSymbol {
@@ -97,7 +97,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         match self {
@@ -140,7 +140,7 @@ impl<'a> ModuleSymbolContext<'a> {
         })
     }
 
-    pub fn resolve_ident(&self, token_idx: TokenIdx, ident: Identifier) -> Option<EntitySymbol> {
+    pub fn resolve_ident(&self, _token_idx: TokenIdx, ident: Identifier) -> Option<EntitySymbol> {
         self.module_symbols
             .resolve_ident(ident)
             .or_else(|| self.crate_prelude.resolve_ident(ident))

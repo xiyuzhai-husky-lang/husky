@@ -5,7 +5,7 @@ pub use ty_as_trai_im::*;
 pub use ty_im::*;
 
 use super::*;
-use husky_entity_tree::{Impl, ImplId};
+use husky_entity_tree::{Impl};
 use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -26,7 +26,7 @@ impl ImplDecl {
 
     pub fn implicit_parameters<'a>(
         self,
-        db: &'a dyn DeclDb,
+        _db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         todo!()
     }

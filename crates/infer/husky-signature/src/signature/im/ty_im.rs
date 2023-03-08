@@ -1,6 +1,6 @@
 use super::*;
-use husky_print_utils::p;
-use salsa::DebugWithDb;
+
+
 
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_im_signature(
@@ -10,7 +10,7 @@ pub(crate) fn ty_im_signature(
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+    let _implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db)?,
         &signature_term_region,
         raw_term_menu,

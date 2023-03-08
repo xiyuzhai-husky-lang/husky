@@ -13,16 +13,16 @@ impl RawTermAbstraction {
 
     pub(crate) fn show_with_db_fmt(
         self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn RawTermDb,
-        ctx: &mut RawTermShowContext,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &dyn RawTermDb,
+        _ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
         todo!()
     }
 }
 
 impl RawTermRewriteCopy for RawTermAbstraction {
-    fn substitute(self, db: &dyn RawTermDb, substituation: &RawTermSubstitution) -> Self {
+    fn substitute(self, _db: &dyn RawTermDb, _substituation: &RawTermSubstitution) -> Self {
         todo!()
     }
 }
@@ -32,7 +32,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermAbstraction {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         // use std::fmt::Write;
         // f.write_char(husky_unicode_symbols::greek::GREEK_LETTER_LOWERCASE_LAMBDA);

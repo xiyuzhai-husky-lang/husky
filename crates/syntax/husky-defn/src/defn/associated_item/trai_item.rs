@@ -22,14 +22,14 @@ pub enum TraitItemDefn {
 }
 
 impl TraitItemDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> TraitItemDecl {
+    pub fn decl(self, _db: &dyn DefnDb) -> TraitItemDecl {
         todo!()
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> AssociatedItemPath {
+    pub fn path(self, _db: &dyn DefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
+    pub fn expr_region(self, _db: &dyn DefnDb) -> ExprRegion {
         todo!()
     }
 }

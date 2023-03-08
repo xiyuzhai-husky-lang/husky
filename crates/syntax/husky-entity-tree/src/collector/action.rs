@@ -15,7 +15,7 @@ impl<'a> EntityTreeCollector<'a> {
         &'b self,
         presheet: &'b EntityTreePresheetMut<'b>,
     ) -> EntityTreeSymbolContext<'b> {
-        let module_path = presheet.module_path();
+        let _module_path = presheet.module_path();
         EntityTreeSymbolContext::new(
             self.db,
             self.crate_path,

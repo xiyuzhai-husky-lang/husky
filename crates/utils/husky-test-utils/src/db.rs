@@ -42,14 +42,14 @@ impl<Db: ?Sized> AsTestDb for Db {
         }
     }
 
-    fn expect_test_all<TestInput, R>(&self, f: impl Fn(&Self, &TestInput) -> R)
+    fn expect_test_all<TestInput, R>(&self, _f: impl Fn(&Self, &TestInput) -> R)
     where
         R: std::fmt::Debug,
     {
         todo!()
     }
 
-    fn expect_test_all_with_db<TestInput, R>(&self, f: impl Fn(&Self, &TestInput) -> R)
+    fn expect_test_all_with_db<TestInput, R>(&self, _f: impl Fn(&Self, &TestInput) -> R)
     where
         R: salsa::DebugWithDb<Self>,
     {
@@ -58,8 +58,8 @@ impl<Db: ?Sized> AsTestDb for Db {
 
     fn expect_test_all_results<TestInput, T, E>(
         &self,
-        dir: &std::path::Path,
-        f: impl for<'a> Fn(&'a Self, &'a TestInput) -> Result<&'a T, E>,
+        _dir: &std::path::Path,
+        _f: impl for<'a> Fn(&'a Self, &'a TestInput) -> Result<&'a T, E>,
     ) where
         T: std::fmt::Debug,
         E: std::fmt::Debug,
@@ -69,8 +69,8 @@ impl<Db: ?Sized> AsTestDb for Db {
 
     fn expect_test_all_results_with_db<TestInput, T, E>(
         &self,
-        dir: &std::path::Path,
-        f: impl for<'a> Fn(&'a Self, &'a TestInput) -> Result<&'a T, E>,
+        _dir: &std::path::Path,
+        _f: impl for<'a> Fn(&'a Self, &'a TestInput) -> Result<&'a T, E>,
     ) where
         T: salsa::DebugWithDb<Self>,
         E: salsa::DebugWithDb<Self>,

@@ -20,7 +20,7 @@ impl std::ops::Deref for RawTermMenu2 {
 impl RawTermMenu2 {
     pub(crate) fn new(
         db: &dyn RawTermDb,
-        toolchain: Toolchain,
+        _toolchain: Toolchain,
         menu1: RawTermMenu1,
     ) -> RawTermResult<Self> {
         // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());

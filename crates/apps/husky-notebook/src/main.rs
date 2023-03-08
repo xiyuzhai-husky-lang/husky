@@ -2,10 +2,10 @@ mod components;
 mod config;
 mod layout;
 
-use self::components::*;
+
 use self::config::*;
 use eframe::egui;
-use husky_code_edit::CodeEdit;
+
 
 fn main() -> Result<(), eframe::Error> {
     tracing_subscriber::fmt::init();
@@ -34,8 +34,8 @@ impl Default for HuskyNotebookApp {
 }
 
 impl eframe::App for HuskyNotebookApp {
-    fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
-        use eframe::egui::Widget;
+    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        
         egui::CentralPanel::default().show(ctx, |ui| self.render_layout(ctx, ui));
     }
 }

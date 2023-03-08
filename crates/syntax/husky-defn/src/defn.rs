@@ -53,7 +53,7 @@ impl Defn {
             Defn::Type(_) | Defn::Trait(_) => None,
             Defn::Form(defn) => Some(defn.expr_region(db)),
             Defn::AssociatedItem(defn) => defn.expr_region(db),
-            Defn::Variant(defn) => None,
+            Defn::Variant(_defn) => None,
             Defn::Impl(_) => None,
         }
     }

@@ -15,7 +15,7 @@ where
     }
 }
 
-pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, ty: Term) -> RegMemoryKind {
+pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Term) -> RegMemoryKind {
     todo!()
     // let ty = ty.intrinsic();
     // if ty.is_primitive() {
@@ -30,7 +30,7 @@ pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, ty: Term) -> RegMemoryKind {
 }
 
 #[salsa::tracked(jar = LayoutJar)]
-pub(crate) fn application_reg_memory_kind(db: &dyn LayoutDb, ty: TermApplication) -> RegMemoryKind {
+pub(crate) fn application_reg_memory_kind(_db: &dyn LayoutDb, _ty: TermApplication) -> RegMemoryKind {
     todo!()
 }
 

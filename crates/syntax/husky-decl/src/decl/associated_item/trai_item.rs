@@ -33,7 +33,7 @@ impl TraitItemDecl {
 
     pub fn implicit_parameters<'a>(
         self,
-        db: &'a dyn DeclDb,
+        _db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
             TraitItemDecl::AssociatedFunction(_) => todo!(),
@@ -43,7 +43,7 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, _db: &dyn DeclDb) -> ExprRegion {
         match self {
             TraitItemDecl::AssociatedFunction(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),
@@ -52,7 +52,7 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> TraitItemPath {
+    pub fn path(self, _db: &dyn DeclDb) -> TraitItemPath {
         match self {
             TraitItemDecl::AssociatedFunction(_) => todo!(),
             TraitItemDecl::Method(_) => todo!(),

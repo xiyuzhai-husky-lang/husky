@@ -17,8 +17,8 @@ pub(crate) fn defn_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.collect_defns(module_path),
     ) {
-        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
-        for (path, defn) in defn_sheet.defns() {
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        for (_path, defn) in defn_sheet.defns() {
             if let Ok(defn) = defn {
                 if let Some(expr_region) = defn.expr_region(db) {
                     let mut region_collector =
@@ -36,21 +36,21 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_defn(&mut self, defn: Defn) {
         match defn {
             Defn::Type(Defn) => match Defn {
-                TypeDefn::Enum(Defn) => (),
-                TypeDefn::RegularStruct(Defn) => (),
-                TypeDefn::UnitStruct(Defn) => (),
-                TypeDefn::TupleStruct(Defn) => (),
-                TypeDefn::Record(Defn) => (),
-                TypeDefn::Inductive(Defn) => (),
-                TypeDefn::Structure(Defn) => (),
-                TypeDefn::Extern(Defn) => (),
-                TypeDefn::Union(Defn) => (),
+                TypeDefn::Enum(_Defn) => (),
+                TypeDefn::RegularStruct(_Defn) => (),
+                TypeDefn::UnitStruct(_Defn) => (),
+                TypeDefn::TupleStruct(_Defn) => (),
+                TypeDefn::Record(_Defn) => (),
+                TypeDefn::Inductive(_Defn) => (),
+                TypeDefn::Structure(_Defn) => (),
+                TypeDefn::Extern(_Defn) => (),
+                TypeDefn::Union(_Defn) => (),
             },
-            Defn::Form(Defn) => (),
-            Defn::Trait(Defn) => (),
-            Defn::Impl(Defn) => (),
-            Defn::AssociatedItem(Defn) => (),
-            Defn::Variant(Defn) => (),
+            Defn::Form(_Defn) => (),
+            Defn::Trait(_Defn) => (),
+            Defn::Impl(_Defn) => (),
+            Defn::AssociatedItem(_Defn) => (),
+            Defn::Variant(_Defn) => (),
         }
     }
 }

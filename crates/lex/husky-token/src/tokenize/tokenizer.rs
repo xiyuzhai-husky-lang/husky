@@ -2,7 +2,7 @@ use super::*;
 
 use husky_doc::TextLine;
 use husky_opn_syntax::*;
-use husky_print_utils::p;
+
 
 pub(crate) struct Tokenizer<'lex> {
     db: &'lex dyn TokenDb,
@@ -41,7 +41,7 @@ impl<'token> Tokenizer<'token> {
                     self.tokens.push(token);
                     self.token_ranges.push(token_range)
                 }
-                TokenizerAction::ReplaceLast((token, token_range)) => {
+                TokenizerAction::ReplaceLast((token, _token_range)) => {
                     *self.tokens.last_mut().unwrap() = token;
                     todo!()
                 }
@@ -79,7 +79,7 @@ impl<'token> Tokenizer<'token> {
                     TokenizerAction::Push((token, ranged_pretoken.range))
                 }
                 AmbiguousPretoken::For => match self.last_token_in_unfinished_line() {
-                    Some(token) => TokenizerAction::Push((
+                    Some(_token) => TokenizerAction::Push((
                         Token::Keyword(ConnectionKeyword::For.into()),
                         ranged_pretoken.range,
                     )),

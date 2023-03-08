@@ -2,7 +2,7 @@ use husky_expr::ExprError;
 
 use crate::*;
 
-use std::convert::Infallible;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SignatureError {
@@ -37,8 +37,8 @@ impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        db: &DB,
-        level: salsa::DebugFormatLevel,
+        _db: &DB,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }

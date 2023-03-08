@@ -1,5 +1,5 @@
 use super::*;
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug};
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermExplicitApplicationOrRitchieCall {

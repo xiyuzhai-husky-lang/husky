@@ -1,5 +1,5 @@
 use husky_ast::{Ast, AstError, OriginalAstError};
-use husky_token::{TokenGroupIdx, TokenSheetData};
+use husky_token::{TokenGroupIdx};
 
 use super::*;
 
@@ -20,7 +20,7 @@ pub(crate) fn ast_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.ast_sheet(module_path),
     ) {
-        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for ast in ast_sheet.data() {
             match ast {
                 Ast::Err {
@@ -37,7 +37,7 @@ pub(crate) fn ast_diagnostic_sheet(
 impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &SheetDiagnosticsContext) -> String {
+    fn message(&self, _db: &SheetDiagnosticsContext) -> String {
         match self.1 {
             OriginalAstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
             OriginalAstError::StandaloneElif => format!("Syntax Error: standalone elif"),

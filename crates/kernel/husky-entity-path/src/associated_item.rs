@@ -17,7 +17,7 @@ pub enum AssociatedItemPath {
 }
 
 impl AssociatedItemPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> Identifier {
+    pub fn ident(self, _db: &dyn EntityPathDb) -> Identifier {
         match self {
             AssociatedItemPath::TypeItem(_) => todo!(),
             AssociatedItemPath::TraitItem(_) => todo!(),

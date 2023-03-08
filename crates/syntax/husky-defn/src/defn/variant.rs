@@ -18,11 +18,11 @@ pub enum VariantDefn {
 }
 
 impl VariantDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> Decl {
+    pub fn decl(self, _db: &dyn DefnDb) -> Decl {
         todo!()
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> VariantPath {
+    pub fn path(self, _db: &dyn DefnDb) -> VariantPath {
         todo!()
     }
 }

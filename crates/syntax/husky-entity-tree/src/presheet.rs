@@ -5,16 +5,16 @@ mod use_expr_rule;
 pub use use_all_rule::*;
 pub use use_expr_rule::*;
 
-use std::marker::PhantomData;
+
 
 pub(crate) use action::*;
-use husky_print_utils::p;
+
 use husky_token::TokenSheetData;
-use husky_word::IdentMap;
+
 
 use crate::*;
-use husky_doc::TextRange;
-use vec_like::{AsVecMapEntry, InsertEntryRepeatError};
+
+use vec_like::{AsVecMapEntry};
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
@@ -54,7 +54,7 @@ impl std::ops::Index<UseExprIdx> for EntityTreePresheet {
 impl EntityTreePresheet {
     pub(crate) fn presheet_mut<'a>(
         &'a self,
-        db: &'a dyn EntityTreeDb,
+        _db: &'a dyn EntityTreeDb,
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
@@ -188,14 +188,14 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Defn {
-                token_group_idx,
-                body,
+                token_group_idx: _,
+                body: _,
                 accessibility,
-                entity_kind,
+                entity_kind: _,
                 entity_path,
-                is_generic,
-                body_kind,
-                saved_stream_state,
+                is_generic: _,
+                body_kind: _,
+                saved_stream_state: _,
                 ident_token,
             } => {
                 let accessibility = *accessibility;
@@ -221,7 +221,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                     );
                     match self.native_symbol_entries.insert(new_entry) {
                         Ok(_) => (),
-                        Err(e) => {
+                        Err(_e) => {
                             todo!()
                             // let old_native_symbol_entry = &self.native_symbol_entries.data()[e.old];
                             // self.errors

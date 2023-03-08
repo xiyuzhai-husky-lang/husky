@@ -10,7 +10,7 @@ use crate::{
 
 use handle::*;
 
-use husky_vfs::{apply_live_file_changes, set_live_file, VfsDb};
+use husky_vfs::{apply_live_file_changes, set_live_file};
 
 pub(crate) fn dispatch_lsp_msg(
     server: &mut Server,

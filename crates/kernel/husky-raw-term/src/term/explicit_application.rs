@@ -1,5 +1,5 @@
 use crate::*;
-use std::fmt::{Debug, Display};
+use std::fmt::{Debug};
 
 /// in husky, application is generalized to include composition as a special case;
 ///
@@ -38,7 +38,7 @@ impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermExplicitApplica
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DisplayFormatLevel,
+        _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.show_with_db_fmt(f, db, &mut Default::default())

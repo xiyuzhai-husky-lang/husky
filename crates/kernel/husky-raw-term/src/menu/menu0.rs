@@ -62,7 +62,7 @@ impl RawTermMenu0 {
     pub fn new(db: &dyn RawTermDb, toolchain: Toolchain) -> Self {
         // let sort = db.it_term(RawTermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(RawTermAtom::new_universe(1).into());
-        let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
+        let _vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
         let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);

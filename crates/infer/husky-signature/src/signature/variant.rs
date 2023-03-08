@@ -9,7 +9,7 @@ pub use unit::*;
 use super::*;
 
 pub(crate) fn variant_signature(
-    db: &dyn SignatureDb,
+    _db: &dyn SignatureDb,
     decl: VariantDecl,
 ) -> SignatureResult<VariantSignature> {
     match decl {

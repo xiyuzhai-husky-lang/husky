@@ -33,7 +33,7 @@ impl From<TypeImplSignature> for ImplSignature {
 }
 
 impl ImplSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
     }
 }

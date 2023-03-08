@@ -5,10 +5,10 @@ pub(crate) fn ty_as_trai_method_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitMethodDecl,
 ) -> SignatureResult<TypeAsTraitMethodSignature> {
-    let im = decl.associated_item(db).im(db);
+    let _im = decl.associated_item(db).im(db);
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let _signature_term_region = signature_term_region(db, expr_region);
+    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     todo!()
     // let return_ty = match decl.return_ty(db) {
     //     Ok(return_ty) => engine.query_new(*return_ty),

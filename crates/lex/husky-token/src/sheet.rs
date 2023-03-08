@@ -1,5 +1,5 @@
 use husky_doc::TextPosition;
-use husky_print_utils::p;
+
 use salsa::DebugWithDb;
 
 use crate::*;
@@ -183,7 +183,7 @@ impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for TokenSheetData {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         f.debug_struct("TokenSheetData")
             .field("tokens", &self.tokens.debug(db))

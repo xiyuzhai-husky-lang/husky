@@ -28,7 +28,7 @@ pub(crate) fn entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: EntityPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -52,7 +52,7 @@ pub(crate) fn raw_ty_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
@@ -62,7 +62,7 @@ pub(crate) fn raw_ty_entity_variance_reprs(
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
     let implicit_parameters = signature.implicit_parameters(db);
-    let mut reprs = implicit_parameters
+    let reprs = implicit_parameters
         .iter()
         .map(|implicit_parameter| VarianceRepr {
             base: implicit_parameter
@@ -86,8 +86,8 @@ pub(crate) fn raw_ty_entity_variance_reprs(
         //      TypeSignature::Union(_) => todo!(),
         // }
     }
-    for (repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {
-        if let Some(annotated_variance) = implicit_parameter.annotated_variance() {
+    for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {
+        if let Some(_annotated_variance) = implicit_parameter.annotated_variance() {
             // verify the calculated is the same as the annotated
             // todo!()
         }
@@ -100,7 +100,7 @@ pub(crate) fn trai_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.trai_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
@@ -110,7 +110,7 @@ pub(crate) fn trai_entity_variance_reprs(
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
     let implicit_parameters = signature.implicit_parameters(db);
-    let mut reprs = implicit_parameters
+    let reprs = implicit_parameters
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter
@@ -140,7 +140,7 @@ pub(crate) fn form_entity_variance_reprs(
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
     let implicit_parameters = signature.implicit_parameters(db);
-    let mut reprs = implicit_parameters
+    let reprs = implicit_parameters
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter

@@ -19,7 +19,7 @@ impl From<&VfsError> for FoldingRangeError {
 }
 
 impl From<&FoldingRangeError> for FoldingRangeError {
-    fn from(value: &FoldingRangeError) -> Self {
+    fn from(_value: &FoldingRangeError) -> Self {
         todo!()
     }
 }

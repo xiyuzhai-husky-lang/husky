@@ -1,5 +1,5 @@
 use crate::*;
-use husky_doc::{TextPosition, TextRange};
+
 use husky_opn_syntax::Bracket;
 
 #[derive(Debug, Clone)]

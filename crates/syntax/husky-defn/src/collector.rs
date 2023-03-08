@@ -1,7 +1,7 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
-use husky_entity_tree::{CrateSymbolContext, EntityTreeResult, ModuleSymbolContext};
-use husky_token::{RangedTokenSheet, TokenSheetData};
+use husky_entity_tree::{EntityTreeResult, ModuleSymbolContext};
+use husky_token::{TokenSheetData};
 use vec_like::VecPairMap;
 pub(crate) struct DefnCollector<'a> {
     db: &'a dyn DefnDb,
@@ -25,7 +25,7 @@ impl<'a> DefnCollector<'a> {
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> DefnSheet<'a> {
+    pub(crate) fn collect_all(self) -> DefnSheet<'a> {
         let mut defns: VecPairMap<DefnRegionPath, DeclResultRef<'a, Defn>> = Default::default();
         for (path, decl) in self.decl_sheet.decls().iter().copied() {
             defns
@@ -182,17 +182,17 @@ pub(crate) fn feature_defn(db: &dyn DefnDb, decl: FeatureDecl) -> FeatureDefn {
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn unit_variant_defn(db: &dyn DefnDb, decl: UnitVariantDecl) -> UnitVariantDefn {
+pub(crate) fn unit_variant_defn(_db: &dyn DefnDb, _decl: UnitVariantDecl) -> UnitVariantDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn tuple_variant_defn(db: &dyn DefnDb, decl: TupleVariantDecl) -> TupleVariantDefn {
+pub(crate) fn tuple_variant_defn(_db: &dyn DefnDb, _decl: TupleVariantDecl) -> TupleVariantDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn props_variant_defn(db: &dyn DefnDb, decl: PropsVariantDecl) -> PropsVariantDefn {
+pub(crate) fn props_variant_defn(_db: &dyn DefnDb, _decl: PropsVariantDecl) -> PropsVariantDefn {
     todo!()
 }
 
@@ -216,8 +216,8 @@ fn ty_item_defn(db: &dyn DefnDb, decl: TypeItemDecl) -> TypeItemDefn {
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_associated_function_defn(
-    db: &dyn DefnDb,
-    decl: TypeAssociatedFunctionDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAssociatedFunctionDecl,
 ) -> TypeAssociatedFunctionDefn {
     todo!()
 }
@@ -245,16 +245,16 @@ pub(crate) fn ty_method_defn(db: &dyn DefnDb, decl: TypeMethodDecl) -> TypeMetho
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_associated_ty_defn(
-    db: &dyn DefnDb,
-    decl: TypeAssociatedTypeDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAssociatedTypeDecl,
 ) -> TypeAssociatedTypeDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_associated_value_defn(
-    db: &dyn DefnDb,
-    decl: TypeAssociatedValueDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAssociatedValueDecl,
 ) -> TypeAssociatedValueDefn {
     todo!()
 }
@@ -284,36 +284,36 @@ fn trai_item_defn(db: &dyn DefnDb, decl: TraitItemDecl) -> TraitItemDefn {
     match decl {
         TraitItemDecl::AssociatedFunction(decl) => trai_associated_function_defn(db, decl).into(),
         TraitItemDecl::Method(decl) => trai_method_defn(db, decl).into(),
-        TraitItemDecl::AssociatedType(decl) => todo!(),
-        TraitItemDecl::Value(decl) => todo!(),
+        TraitItemDecl::AssociatedType(_decl) => todo!(),
+        TraitItemDecl::Value(_decl) => todo!(),
     }
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_associated_function_defn(
-    db: &dyn DefnDb,
-    decl: TraitAssociatedFunctionDecl,
+    _db: &dyn DefnDb,
+    _decl: TraitAssociatedFunctionDecl,
 ) -> TraitAssociatedFunctionDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn trai_method_defn(db: &dyn DefnDb, decl: TraitMethodDecl) -> TraitMethodDefn {
+pub(crate) fn trai_method_defn(_db: &dyn DefnDb, _decl: TraitMethodDecl) -> TraitMethodDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_associated_ty_defn(
-    db: &dyn DefnDb,
-    decl: TraitAssociatedTypeDecl,
+    _db: &dyn DefnDb,
+    _decl: TraitAssociatedTypeDecl,
 ) -> TraitAssociatedTypeDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_associated_value_defn(
-    db: &dyn DefnDb,
-    decl: TraitAssociatedValueDecl,
+    _db: &dyn DefnDb,
+    _decl: TraitAssociatedValueDecl,
 ) -> TraitAssociatedValueDefn {
     todo!()
 }
@@ -331,8 +331,8 @@ fn ty_as_trai_item_defn(db: &dyn DefnDb, decl: TypeAsTraitItemDecl) -> TypeAsTra
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_as_trai_associated_function_defn(
-    db: &dyn DefnDb,
-    decl: TypeAsTraitAssociatedFunctionDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAsTraitAssociatedFunctionDecl,
 ) -> TypeAsTraitAssociatedFunctionDefn {
     todo!()
 }
@@ -363,16 +363,16 @@ pub(crate) fn ty_as_trai_method_defn(
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_as_trai_associated_ty_defn(
-    db: &dyn DefnDb,
-    decl: TypeAsTraitAssociatedTypeDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAsTraitAssociatedTypeDecl,
 ) -> TypeAsTraitAssociatedTypeDefn {
     todo!()
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn ty_as_trai_associated_value_defn(
-    db: &dyn DefnDb,
-    decl: TypeAsTraitAssociatedValueDecl,
+    _db: &dyn DefnDb,
+    _decl: TypeAsTraitAssociatedValueDecl,
 ) -> TypeAsTraitAssociatedValueDefn {
     todo!()
 }

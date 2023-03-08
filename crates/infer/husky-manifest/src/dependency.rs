@@ -10,8 +10,8 @@ pub(crate) fn unchecked_package_dependencies(
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_dependencies(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
+    _db: &dyn ManifestDb,
+    _package_path: PackagePath,
 ) -> ManifestResult<Vec<PackageDependency>> {
     // ad hoc
     Ok(Default::default())

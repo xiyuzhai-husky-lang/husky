@@ -21,7 +21,7 @@ impl HuskyNotebookApp {
         });
     }
 
-    fn render_main_view(&mut self, ctx: &egui::Context, ui: &mut egui::Ui) {
+    fn render_main_view(&mut self, _ctx: &egui::Context, ui: &mut egui::Ui) {
         ui.label("todo: main view");
     }
 }

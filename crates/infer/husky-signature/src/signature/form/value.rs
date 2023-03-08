@@ -3,8 +3,8 @@ use crate::*;
 #[salsa::tracked(jar = SignatureJar)]
 pub fn value_signature(db: &dyn SignatureDb, decl: ValueDecl) -> SignatureResult<ValueSignature> {
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let _signature_term_region = signature_term_region(db, expr_region);
+    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(ValueSignature::new(db))
 }
 
@@ -12,7 +12,7 @@ pub fn value_signature(db: &dyn SignatureDb, decl: ValueDecl) -> SignatureResult
 pub struct ValueSignature {}
 
 impl ValueSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()

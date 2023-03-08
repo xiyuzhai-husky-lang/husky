@@ -1,4 +1,4 @@
-use std::fmt::format;
+
 
 use husky_token::{Token, TokenError};
 
@@ -30,7 +30,7 @@ pub(crate) fn token_diagnostic_sheet(
 impl Diagnose for (&TextRange, &TokenError) {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &Self::Context<'_>) -> String {
+    fn message(&self, _db: &Self::Context<'_>) -> String {
         match self.1 {
             TokenError::IncompleteStringLiteral => {
                 format!("Syntax Error: incomplete string literal")
@@ -52,7 +52,7 @@ impl Diagnose for (&TextRange, &TokenError) {
         DiagnosticSeverity::Error
     }
 
-    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+    fn range(&self, _ctx: &Self::Context<'_>) -> TextRange {
         *self.0
     }
 }

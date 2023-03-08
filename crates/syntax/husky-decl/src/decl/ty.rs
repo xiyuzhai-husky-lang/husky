@@ -19,7 +19,7 @@ pub use union_ty::*;
 pub use unit_struct_ty::*;
 
 use super::*;
-use salsa::DbWithJar;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

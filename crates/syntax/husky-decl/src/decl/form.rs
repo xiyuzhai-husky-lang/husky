@@ -7,7 +7,7 @@ mod value;
 pub use feature::*;
 pub use function::*;
 pub use morphism::*;
-use salsa::DbWithJar;
+
 pub use type_alias::*;
 pub use value::*;
 
@@ -39,7 +39,7 @@ impl FormDecl {
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
             FormDecl::Function(decl) => decl.implicit_parameters(db),
-            FormDecl::Feature(decl) => Ok(&[]),
+            FormDecl::Feature(_decl) => Ok(&[]),
             FormDecl::Morphism(decl) => decl.implicit_parameters(db),
             FormDecl::Value(decl) => decl.implicit_parameters(db),
         }

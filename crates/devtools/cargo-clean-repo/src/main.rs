@@ -1,4 +1,4 @@
-use husky_path_utils::{clear_directory, collect_rust_package_dirs, find_paths, Path};
+use husky_path_utils::{clear_directory, collect_rust_package_dirs, find_paths};
 use husky_print_utils::p;
 use std::path::PathBuf;
 

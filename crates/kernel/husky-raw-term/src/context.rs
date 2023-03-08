@@ -4,8 +4,8 @@ pub(crate) use entry::is_ty_path_lifetime_ty;
 
 use crate::*;
 use entry::*;
-use husky_entity_path::EntityPath;
-use vec_like::{VecMap, VecPairMap, VecSet};
+
+use vec_like::{VecMap};
 
 #[derive(Default)]
 pub(crate) struct RawTermShowContext {

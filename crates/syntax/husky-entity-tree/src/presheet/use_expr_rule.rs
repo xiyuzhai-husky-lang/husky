@@ -90,7 +90,7 @@ impl AccessibilityProgress {
                 AccessibilityExpr::Public { .. } => AccessibilityProgress::Done {
                     accessibility: Accessibility::Public,
                 },
-                AccessibilityExpr::PublicUnder { scope, .. } => todo!(),
+                AccessibilityExpr::PublicUnder {  .. } => todo!(),
             },
             None => AccessibilityProgress::Done {
                 accessibility: Accessibility::PublicUnder(module_path),
@@ -116,11 +116,11 @@ impl UseExprRule {
         module_path: ModulePath,
     ) -> Option<Self> {
         match use_expr {
-            UseExpr::All { star_token } => todo!(),
-            UseExpr::Leaf { ident_token } => todo!(),
+            UseExpr::All { star_token: _ } => todo!(),
+            UseExpr::Leaf { ident_token: _ } => todo!(),
             UseExpr::Parent {
                 parent_name_token,
-                scope_resolution_token,
+                scope_resolution_token: _,
                 children,
             } => Some(Self {
                 ast_idx,
@@ -134,7 +134,7 @@ impl UseExprRule {
                 },
             }),
             UseExpr::Err(_) => todo!(),
-            UseExpr::SelfOne { self_token } => todo!(),
+            UseExpr::SelfOne { self_token: _ } => todo!(),
         }
     }
     pub fn new_nonroot(

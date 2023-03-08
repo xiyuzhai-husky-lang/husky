@@ -2,7 +2,7 @@ use husky_expr::{
     EntityPathExpr, EntityPathExprError, Expr, ExprError, ExprRegion, OriginalEntityPathExprError,
     OriginalExprError, Stmt, StmtError,
 };
-use husky_token::RangedTokenSheet;
+
 use salsa::DebugWithDb;
 
 use super::*;
@@ -23,7 +23,7 @@ pub(crate) fn expr_diagnostic_sheet(
         db.ranged_token_sheet(module_path),
         db.collect_defns(module_path),
     ) {
-        let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
+        let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for (_, defn) in defn_sheet.defns() {
             if let Ok(defn) = defn {
                 let decl = defn.decl(db);
@@ -82,7 +82,7 @@ fn collect_expr_diagnostics(
 impl Diagnose for OriginalExprError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, db: &Self::Context<'_>) -> String {
+    fn message(&self, _db: &Self::Context<'_>) -> String {
         match self {
             OriginalExprError::MismatchingBracket { .. } => {
                 format!("Syntax Error: mismatching bracket")
@@ -139,10 +139,10 @@ impl Diagnose for OriginalExprError {
             }
             OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
             OriginalExprError::UnexpectedSheba(_) => format!("Syntax Error: unexpected `$`"),
-            OriginalExprError::UnrecognizedIdentifier { token_idx, ident } => {
+            OriginalExprError::UnrecognizedIdentifier { token_idx: _, ident: _ } => {
                 format!("Syntax Error: unrecognized identifier")
             }
-            OriginalExprError::UnresolvedSubentity { token_idx, ident } => {
+            OriginalExprError::UnresolvedSubentity { token_idx: _, ident: _ } => {
                 format!("Syntax Error: unresolved subentity")
             }
             OriginalExprError::ExpectLetVariablesType(_) => todo!(),
@@ -222,7 +222,7 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
+            OriginalEntityPathExprError::EntityTree { token_idx: _, error } => {
                 format!("entity tree error {:?}", error.debug(ctx.db()))
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
@@ -231,7 +231,7 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn severity(&self) -> DiagnosticSeverity {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
+            OriginalEntityPathExprError::EntityTree { token_idx: _, error: _ } => {
                 DiagnosticSeverity::Error
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => {
@@ -242,7 +242,7 @@ impl Diagnose for OriginalEntityPathExprError {
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self {
-            OriginalEntityPathExprError::EntityTree { token_idx, error } => {
+            OriginalEntityPathExprError::EntityTree { token_idx, error: _ } => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
             OriginalEntityPathExprError::ExpectIdentifierAfterScopeResolution(_) => todo!(),
@@ -253,7 +253,7 @@ impl Diagnose for OriginalEntityPathExprError {
 impl Diagnose for StmtError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
         todo!()
     }
 
@@ -261,7 +261,7 @@ impl Diagnose for StmtError {
         todo!()
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
     }
 }

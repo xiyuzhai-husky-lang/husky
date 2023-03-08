@@ -1,12 +1,11 @@
 use std::{
-    collections::{HashMap, HashSet},
     convert::Infallible,
     fmt,
     rc::Rc,
     sync::Arc,
 };
 
-use vec_like::{AsVecMapEntry, InsertEntryRepeatError, VecMap, VecSet};
+
 
 pub struct DisplayFormatLevel(u8);
 
@@ -155,9 +154,9 @@ where
 impl<Db: ?Sized> DisplayWithDb<Db> for Infallible {
     fn display_with_db_fmt(
         &self,
-        f: &mut fmt::Formatter<'_>,
-        db: &Db,
-        level: DisplayFormatLevel,
+        _f: &mut fmt::Formatter<'_>,
+        _db: &Db,
+        _level: DisplayFormatLevel,
     ) -> fmt::Result {
         unreachable!()
     }

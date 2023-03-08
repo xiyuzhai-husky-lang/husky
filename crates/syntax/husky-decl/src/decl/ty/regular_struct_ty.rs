@@ -1,10 +1,10 @@
 use super::*;
-use husky_expr::ExprIdx;
+
 use husky_token::{
-    ColonToken, CommaToken, IdentifierToken, LeftCurlyBraceToken, RightCurlyBraceToken,
+    CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken,
 };
-use husky_word::Identifier;
-use parsec::ParseContext;
+
+
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct RegularStructTypeDecl {

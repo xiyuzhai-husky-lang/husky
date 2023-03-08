@@ -16,7 +16,7 @@ where
     fn semantic_tokens_ext(
         &self,
         module_path: ModulePath,
-        range: Option<TextRange>,
+        _range: Option<TextRange>,
     ) -> EntityTreeResult<&[ext::SemanticToken]> {
         Ok(semantic_tokens_ext_without_range(self, module_path)
             .as_ref()

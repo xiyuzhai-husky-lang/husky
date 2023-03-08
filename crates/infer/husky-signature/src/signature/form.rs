@@ -11,7 +11,7 @@ pub use type_alias::*;
 pub use value::*;
 
 use crate::*;
-use salsa::DbWithJar;
+
 
 pub(crate) fn form_signature(
     db: &dyn SignatureDb,
@@ -38,7 +38,7 @@ impl FormSignature {
     pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             FormSignature::Function(decl) => decl.implicit_parameters(db),
-            FormSignature::Feature(decl) => &[],
+            FormSignature::Feature(_decl) => &[],
             FormSignature::Morphism(decl) => decl.implicit_parameters(db),
             FormSignature::Value(decl) => decl.implicit_parameters(db),
         }

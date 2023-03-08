@@ -24,7 +24,7 @@ pub(crate) fn entity_variance_crate_dependencies(
     db: &dyn RawTypeDb,
     id: VarianceId,
 ) -> VarianceResultRef<&[VarianceId]> {
-    let raw_term_menu = db.raw_term_menu(id.path.toolchain(db)).as_ref().unwrap();
+    let _raw_term_menu = db.raw_term_menu(id.path.toolchain(db)).as_ref().unwrap();
     match id.path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -51,9 +51,9 @@ pub(crate) fn entity_variance_crate_dependencies(
 pub(crate) fn raw_ty_entity_variance_crate_dependencies(
     db: &dyn RawTypeDb,
     path: TypePath,
-    idx: u8,
+    _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
@@ -78,9 +78,9 @@ pub(crate) fn raw_ty_entity_variance_crate_dependencies(
 
 #[salsa::tracked(jar = RawTypeJar, return_ref)]
 pub(crate) fn trai_entity_variance_crate_dependencies(
-    db: &dyn RawTypeDb,
-    path: TraitPath,
-    idx: u8,
+    _db: &dyn RawTypeDb,
+    _path: TraitPath,
+    _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     todo!()
 }
@@ -89,13 +89,13 @@ pub(crate) fn trai_entity_variance_crate_dependencies(
 pub(crate) fn form_entity_variance_crate_dependencies(
     db: &dyn RawTypeDb,
     path: FormPath,
-    idx: u8,
+    _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let decl = match db.form_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.form_signature(decl) {
+    let _signature = match db.form_signature(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

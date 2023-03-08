@@ -1,5 +1,5 @@
 use crate::*;
-use husky_defn::DefnDb;
+
 use husky_expr_ty::ExprTypeDb;
 use salsa::DbWithJar;
 

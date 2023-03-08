@@ -1,5 +1,5 @@
 use super::*;
-use with_db::{PartialOrdWithDb, WithDb};
+
 
 #[derive(Debug)]
 pub(crate) enum PresheetAction {
@@ -24,7 +24,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PresheetAction {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
         match self {
@@ -79,20 +79,20 @@ impl<'a> EntityTreePresheetMut<'a> {
                             .resolve_subentity(parent, ident_token.ident())
                             .ok_or(*ident_token),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: ParentNameToken::SelfValue(self_value_token),
-                            children,
+                            parent_name_token: ParentNameToken::SelfValue(_self_value_token),
+                            children: _,
                         } => {
                             todo!()
                         }
                         UseExprRuleVariant::Parent {
                             parent_name_token: ParentNameToken::Super(_),
-                            children,
+                            children: _,
                         } => {
                             todo!()
                         }
                         UseExprRuleVariant::Parent {
-                            parent_name_token: ParentNameToken::Crate(crate_token),
-                            children,
+                            parent_name_token: ParentNameToken::Crate(_crate_token),
+                            children: _,
                         } => {
                             // todo: prevent this in the parsing stage
                             todo!()
@@ -105,18 +105,18 @@ impl<'a> EntityTreePresheetMut<'a> {
                             ..
                         } => ctx.resolve_ident(ident_token.ident()).ok_or(*ident_token),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: ParentNameToken::SelfValue(self_value_token),
-                            children,
+                            parent_name_token: ParentNameToken::SelfValue(_self_value_token),
+                            children: _,
                         } => {
                             todo!()
                         }
                         UseExprRuleVariant::Parent {
                             parent_name_token: ParentNameToken::Super(_),
-                            children,
+                            children: _,
                         } => Ok(todo!()),
                         UseExprRuleVariant::Parent {
                             parent_name_token: ParentNameToken::Crate(_),
-                            children,
+                            children: _,
                         } => Ok(EntitySymbol::CrateRoot(ctx.crate_root())),
                     },
                 };
@@ -166,14 +166,14 @@ impl<'a> EntityTreePresheetMut<'a> {
         let path = original_symbol.path(db);
         match rule.variant() {
             UseExprRuleVariant::Parent {
-                parent_name_token,
+                parent_name_token: _,
                 children,
             } => {
                 for use_expr_idx in children {
                     let use_expr = &self.use_expr_arena[use_expr_idx];
                     let rule = &self.use_expr_rules[rule_idx];
                     match use_expr {
-                        UseExpr::All { star_token } => match path {
+                        UseExpr::All { star_token: _ } => match path {
                             EntityPath::Module(path) => {
                                 let new_rule = UseAllRule::new(
                                     path,
@@ -199,7 +199,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         }
                         UseExpr::Parent {
                             parent_name_token,
-                            scope_resolution_token,
+                            scope_resolution_token: _,
                             children: Ok(children),
                         } => {
                             let new_rule = rule.new_nonroot(
@@ -216,11 +216,11 @@ impl<'a> EntityTreePresheetMut<'a> {
                             children: Err(_), ..
                         }
                         | UseExpr::Err(_) => todo!(),
-                        UseExpr::SelfOne { self_token } => todo!(),
+                        UseExpr::SelfOne { self_token: _ } => todo!(),
                     }
                 }
             }
-            UseExprRuleVariant::Leaf { ident_token } => match self.symbols.insert(
+            UseExprRuleVariant::Leaf { ident_token: _ } => match self.symbols.insert(
                 EntitySymbolEntry::new_use_symbol_entry(db, original_symbol, rule),
             ) {
                 Ok(_) => (),

@@ -41,12 +41,12 @@ use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::EntityKind;
-use husky_package_path::*;
+
 use husky_vfs::*;
 use husky_word::{Identifier, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
-use vec_like::{AsVecMapEntry, VecMap};
+use vec_like::{AsVecMapEntry};
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(

@@ -31,7 +31,7 @@ impl salsa::storage::IngredientsFor for VfsCache {
 
     type Ingredients = Self;
 
-    fn create_ingredients<DB>(routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
+    fn create_ingredients<DB>(_routes: &mut salsa::routes::Routes<DB>) -> Self::Ingredients
     where
         DB: salsa::DbWithJar<Self::Jar> + salsa::storage::JarFromJars<Self::Jar>,
     {

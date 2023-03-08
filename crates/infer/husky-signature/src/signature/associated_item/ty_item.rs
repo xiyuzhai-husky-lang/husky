@@ -66,7 +66,7 @@ impl From<TypeMethodSignature> for TypeItemSignature {
 }
 
 impl TypeItemSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
             TypeItemSignature::Function(_) => todo!(),
             TypeItemSignature::Method(_) => todo!(),

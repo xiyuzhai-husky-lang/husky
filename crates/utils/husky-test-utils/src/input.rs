@@ -6,7 +6,7 @@ pub trait AsTestInput<Db: ?Sized>: Sized {
 }
 
 impl<Db: ?Sized> AsTestInput<Db> for String {
-    fn collect(db: &Db, dir: &std::path::Path) -> Vec<Self> {
+    fn collect(_db: &Db, _dir: &std::path::Path) -> Vec<Self> {
         todo!()
     }
 

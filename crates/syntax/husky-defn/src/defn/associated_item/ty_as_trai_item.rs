@@ -9,7 +9,7 @@ pub use function::*;
 pub use method::*;
 
 use crate::*;
-use husky_entity_path::AssociatedItemPath;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DefnDb)]
@@ -31,7 +31,7 @@ impl TypeAsTraitItemDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> TypeAsTraitItemPath {
+    pub fn path(self, _db: &dyn DefnDb) -> TypeAsTraitItemPath {
         todo!()
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {

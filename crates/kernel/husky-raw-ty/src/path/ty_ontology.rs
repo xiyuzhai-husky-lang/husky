@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypeConstructorDeclError.into()),

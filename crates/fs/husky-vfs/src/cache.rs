@@ -31,8 +31,8 @@ impl Default for VfsCache {
             corgi_install_path,
             huskyup_install_path,
             base_path: match std::env::current_dir() {
-                Ok(dir) => std::path::absolute(dir).map_err(|e| todo!()),
-                Err(e) => todo!(),
+                Ok(dir) => std::path::absolute(dir).map_err(|_e| todo!()),
+                Err(_e) => todo!(),
             },
             watcher: None,
         }

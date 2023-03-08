@@ -7,7 +7,7 @@ pub use error::*;
 
 use calc::*;
 use husky_ast::AstDb;
-use husky_entity_path::EntityPath;
+
 use husky_vfs::*;
 use lsp_types::FoldingRange;
 

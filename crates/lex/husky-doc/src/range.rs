@@ -7,7 +7,7 @@ use husky_word::Identifier;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;
-use husky_print_utils::*;
+
 use serde::{Deserialize, Serialize};
 use std::{
     fmt::Write,
@@ -92,7 +92,7 @@ impl<S: Deref<Target = T>, T: HasSourceRange + 'static> HasSourceRange for S {
 }
 
 impl ModuleRange {
-    pub fn new(file: PathBuf, range: TextRange) -> Self {
+    pub fn new(_file: PathBuf, _range: TextRange) -> Self {
         todo!()
         // Self { file, range }
     }

@@ -22,12 +22,12 @@ use self::method::*;
 use self::tests::*;
 use self::variance::*;
 use husky_entity_path::*;
-use husky_entity_taxonomy::*;
+
 use husky_raw_term::*;
 use husky_signature::*;
 use husky_term_prelude::*;
 use husky_ty_expectation::TypePathDisambiguation;
-use husky_vfs::Toolchain;
+
 use map_collect::*;
 use husky_word::*;
 

@@ -28,7 +28,7 @@ pub(crate) fn function_entity_raw_ty(
     db: &dyn RawTypeDb,
     variances: &[Variance],
     signature: FunctionSignature,
-    raw_term_menu: &RawTermMenu,
+    _raw_term_menu: &RawTermMenu,
 ) -> RawTypeResult<RawTerm> {
     let param_raw_tys = signature
         .parameters(db)
@@ -48,7 +48,7 @@ pub(crate) fn function_entity_raw_ty(
 pub(crate) fn feature_entity_raw_ty(
     db: &dyn RawTypeDb,
     signature: FeatureSignature,
-    raw_term_menu: &RawTermMenu,
+    _raw_term_menu: &RawTermMenu,
 ) -> RawTypeResult<RawTerm> {
     Ok(signature.return_ty(db))
 }

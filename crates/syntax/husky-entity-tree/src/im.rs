@@ -27,7 +27,7 @@ impl ImplVariant {
     pub fn kind(&self) -> ImplKind {
         match self {
             ImplVariant::Type { ty } => ImplKind::Type { ty: *ty },
-            ImplVariant::TypeAsTrait { ty, trai } => todo!(),
+            ImplVariant::TypeAsTrait { ty: _, trai: _ } => todo!(),
             ImplVariant::Err(_) => ImplKind::Err,
         }
     }
@@ -78,7 +78,7 @@ impl Impl {
         module_path: ModulePath,
         ast_idx: AstIdx,
         body: AstIdxRange,
-        mut token_stream: TokenStream<'a>,
+        token_stream: TokenStream<'a>,
         princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {
         let mut parser = MajorPathExprParser::new(
@@ -91,10 +91,10 @@ impl Impl {
         if let Some(_) = parser.try_parse::<LeftAngleBracketOrLessThanToken>() {
             match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),
-                Err(e) => todo!(),
+                Err(_e) => todo!(),
             }
         }
-        let (expr, path) = match parser.parse_principal_path_expr() {
+        let (_expr, path) = match parser.parse_principal_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
                 return new_impl(
@@ -180,7 +180,7 @@ pub enum ImplError {
 pub type ImplResult<T> = Result<T, ImplError>;
 
 fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
-    let mut layer = 1;
+    let layer = 1;
     while let Some(token) = token_stream.next() {
         match token {
             Token::Punctuation(_) => todo!(),

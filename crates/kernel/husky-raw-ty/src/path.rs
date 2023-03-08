@@ -10,13 +10,13 @@ pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
 
 use crate::*;
-use husky_print_utils::p;
+
 use salsa::assert_eq_with_db;
 use utils::*;
 
 #[inline(always)]
 pub fn raw_term_entity_path_raw_ty(
-    db: &dyn RawTypeDb,
+    _db: &dyn RawTypeDb,
     path: RawTermEntityPath,
 ) -> RawTypeResult<RawTerm> {
     match path {
@@ -32,7 +32,7 @@ pub fn entity_path_raw_ty(
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
 ) -> RawTypeResult<RawTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -55,9 +55,9 @@ fn entity_path_path_raw_term_raw_ty_works() {
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty: RawTerm = raw_term_menu.invariant_ty0_to_trai_ty().into();
-    let ex_co_lifetime_to_ex_co_ty0_to_ty0: RawTerm =
+    let _ex_co_lifetime_to_ex_co_ty0_to_ty0: RawTerm =
         raw_term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0().into();
-    let ex_co_lifetime_to_ex_inv_ty0_to_ty0: RawTerm =
+    let _ex_co_lifetime_to_ex_inv_ty0_to_ty0: RawTerm =
         raw_term_menu.ex_co_lifetime_to_ex_inv_ty0_to_ty0().into();
     let trai_ty = raw_term_menu.trai_ty();
     assert_eq_with_db!(
@@ -207,7 +207,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     let decl = match db.ty_decl(path) {
         Ok(decl) => decl,
-        Err(e) => {
+        Err(_e) => {
             return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
         }
     };

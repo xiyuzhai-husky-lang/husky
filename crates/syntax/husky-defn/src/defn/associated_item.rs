@@ -34,7 +34,7 @@ impl AssociatedItemDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> Option<AssociatedItemPath> {
+    pub fn path(self, _db: &dyn DefnDb) -> Option<AssociatedItemPath> {
         match self {
             AssociatedItemDefn::TypeItem(_) => todo!(),
             AssociatedItemDefn::TraitItem(_) => todo!(),

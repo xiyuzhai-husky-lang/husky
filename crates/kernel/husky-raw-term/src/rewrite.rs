@@ -36,7 +36,7 @@ impl RawTermRewriteCopy for RawTerm {
             RawTerm::Curry(term) => term.substitute(db, substitution).into(),
             RawTerm::Abstraction(term) => term.substitute(db, substitution).into(),
             RawTerm::ExplicitApplication(term) => term.substitute(db, substitution).into(),
-            RawTerm::ExplicitApplicationOrRitchieCall(term) => todo!(),
+            RawTerm::ExplicitApplicationOrRitchieCall(_term) => todo!(),
             RawTerm::Subentity(term) => term.substitute(db, substitution).into(),
             RawTerm::AsTraitSubentity(term) => term.substitute(db, substitution).into(),
             RawTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),

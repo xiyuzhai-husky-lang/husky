@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_doc::{FilePosition, ModuleRange, RangeInfo, TextPosition, TextRange};
+use husky_doc::{FilePosition, RangeInfo, TextPosition};
 use husky_entity_tree::EntityTreeResult;
 use husky_token_info::TokenInfoDb;
 
