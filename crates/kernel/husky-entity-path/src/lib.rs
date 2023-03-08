@@ -22,6 +22,7 @@ pub use variant::*;
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
 use husky_word::Ident;
+use either::*;
 use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]
 use tests::*;
