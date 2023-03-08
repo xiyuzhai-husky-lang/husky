@@ -1,14 +1,16 @@
 mod expectation;
+mod pattern;
 mod progress;
 mod region;
 mod unresolved;
 mod utils;
 
-pub use expectation::*;
-pub use progress::*;
+pub use self::expectation::*;
+pub use self::progress::*;
 
-pub(crate) use region::*;
-pub(crate) use unresolved::*;
+pub(crate) use self::pattern::*;
+pub(crate) use self::region::*;
+pub(crate) use self::unresolved::*;
 
 use crate::*;
 

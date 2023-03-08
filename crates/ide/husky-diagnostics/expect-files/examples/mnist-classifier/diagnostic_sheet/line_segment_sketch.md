@@ -129,7 +129,7 @@ DiagnosticSheet {
                 range: [155:29, 155:31),
             },
             Diagnostic {
-                message: "Type Error: RitchieCallWrongNumberOfArguments",
+                message: "expected 0 argument, found 2",
                 severity: Error,
                 range: [52:16, 55:10),
             },

@@ -16,8 +16,9 @@ pub use self::info::*;
 pub use self::local_term::*;
 pub use self::region::*;
 
-use engine::*;
+use self::engine::*;
 use husky_defn::*;
+use either::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
