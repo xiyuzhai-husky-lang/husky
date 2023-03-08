@@ -359,7 +359,7 @@ impl LocalTermRegion {
                 }
             }
         }
-        let new_expectation_rules: Vec<LocalTermExpectationEntry> = Default::default();
+        let new_expectation_rules: Vec<LocalTermExpectationRule> = Default::default();
         for (idx, rule) in self.expectations.unresolved_indexed_iter_mut() {
             let target_substitution =
                 match self.unresolved_terms.try_reduce_local_term(rule.expectee()) {

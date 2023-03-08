@@ -6,7 +6,8 @@ mod symbol;
 #[macro_use]
 mod utils;
 
-use self::utils::*;
+pub(crate) use self::utils::*;
+
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};

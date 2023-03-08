@@ -3,8 +3,8 @@ use husky_print_utils::p;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use vec_like::VecSet;
 
-pub(crate) type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationEntry>;
-pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationEntry>;
+pub(crate) type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
+pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
 
 impl std::ops::Index<UnresolvedTermIdx> for LocalTermRegion {
     type Output = UnresolvedTermEntry;
@@ -15,7 +15,7 @@ impl std::ops::Index<UnresolvedTermIdx> for LocalTermRegion {
 }
 
 impl std::ops::Index<LocalTermExpectationIdx> for LocalTermRegion {
-    type Output = LocalTermExpectationEntry;
+    type Output = LocalTermExpectationRule;
 
     fn index(&self, index: LocalTermExpectationIdx) -> &Self::Output {
         &self.expectations[index]

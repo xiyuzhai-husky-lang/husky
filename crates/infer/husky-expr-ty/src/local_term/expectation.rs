@@ -103,7 +103,7 @@ pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub struct LocalTermExpectationEntry {
+pub struct LocalTermExpectationRule {
     src_expr_idx: ExprIdx,
     expectee: LocalTerm,
     expectation: LocalTermExpectation,
@@ -220,7 +220,7 @@ impl LocalTermExpectationResolveProgress {
     }
 }
 
-impl LocalTermExpectationEntry {
+impl LocalTermExpectationRule {
     pub(crate) fn variant(&self) -> &LocalTermExpectation {
         &self.expectation
     }
@@ -261,12 +261,12 @@ pub(super) struct LocalTermExpectationEffect {
 
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct LocalTermExpectations {
-    arena: Arena<LocalTermExpectationEntry>,
+    arena: Arena<LocalTermExpectationRule>,
     first_unresolved_expectation: usize,
 }
 
 impl std::ops::Index<LocalTermExpectationIdx> for LocalTermExpectations {
-    type Output = LocalTermExpectationEntry;
+    type Output = LocalTermExpectationRule;
 
     fn index(&self, index: LocalTermExpectationIdx) -> &Self::Output {
         &self.arena[index]
@@ -276,7 +276,7 @@ impl std::ops::Index<LocalTermExpectationIdx> for LocalTermExpectations {
 impl LocalTermExpectations {
     pub(super) fn unresolved_rule_iter(
         &self,
-    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &LocalTermExpectationEntry)> {
+    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &LocalTermExpectationRule)> {
         self.arena
             .indexed_iter_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -285,13 +285,13 @@ impl LocalTermExpectations {
             })
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = &LocalTermExpectationEntry> {
+    pub fn iter(&self) -> impl Iterator<Item = &LocalTermExpectationRule> {
         self.arena.iter()
     }
 
     pub(super) fn unresolved_indexed_iter_mut(
         &mut self,
-    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &mut LocalTermExpectationEntry)> {
+    ) -> impl Iterator<Item = (LocalTermExpectationIdx, &mut LocalTermExpectationRule)> {
         self.arena
             .indexed_iter_mut_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -300,10 +300,7 @@ impl LocalTermExpectations {
             })
     }
 
-    pub(super) fn alloc_rule(
-        &mut self,
-        rule: LocalTermExpectationEntry,
-    ) -> LocalTermExpectationIdx {
+    pub(super) fn alloc_rule(&mut self, rule: LocalTermExpectationRule) -> LocalTermExpectationIdx {
         self.arena.alloc_one(rule)
     }
 
@@ -328,7 +325,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> OptionLocalTermExpectationIdx {
         local_term_region
             .expectations
-            .alloc_rule(LocalTermExpectationEntry {
+            .alloc_rule(LocalTermExpectationRule {
                 src_expr_idx,
                 expectee: target.into(),
                 expectation: expectation.into(),
@@ -338,7 +335,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
     pub(super) fn resolve_expectation(
         &self,
-        rule: &LocalTermExpectationEntry,
+        rule: &LocalTermExpectationRule,
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
@@ -350,13 +347,16 @@ impl<'a> ExprTypeEngine<'a> {
                     level,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::ImplicitlyConvertible(exp) => self
-                .resolve_implicitly_convertible(
+            LocalTermExpectation::ImplicitlyConvertible(exp) => {
+                print_debug_expr!(self, rule.src_expr_idx);
+                p!(self.debug(&exp));
+                exp.resolve_implicitly_convertible(
+                    self.db(),
                     rule.expectee,
-                    exp.destination,
                     level,
                     unresolved_terms,
-                ),
+                )
+            }
             LocalTermExpectation::EqsSort(ref expectation) => {
                 self.resolve_eqs_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }

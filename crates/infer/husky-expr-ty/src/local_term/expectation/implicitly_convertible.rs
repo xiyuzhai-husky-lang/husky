@@ -30,8 +30,6 @@ impl ExpectImplicitlyConvertible {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectImplicitlyConvertibleOutcome {
     implicit_conversion: ImplicitConversion,
-    expectee: LocalTerm,
-    destination: LocalTerm,
 }
 
 impl ExpectLocalTermOutcome for ExpectImplicitlyConvertibleOutcome {
@@ -65,7 +63,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_implicitly_convertible(
+    pub(super) fn resolve_implicitly_convertible2(
         &self,
         expectee: LocalTerm,
         destination: LocalTerm,
@@ -92,8 +90,6 @@ impl<'a> ExprTypeEngine<'a> {
                                 result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
                                     ExpectImplicitlyConvertibleOutcome {
                                         implicit_conversion: ImplicitConversion::None,
-                                        expectee,
-                                        destination: expectee,
                                     },
                                 )),
                             }),
@@ -162,8 +158,6 @@ impl<'a> ExprTypeEngine<'a> {
             expectee if expectee == destination => Some(LocalTermExpectationEffect {
                 result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::None,
-                    expectee: expectee.into(),
-                    destination: destination.into(),
                 }
                 .into()),
                 actions: vec![],
@@ -171,8 +165,6 @@ impl<'a> ExprTypeEngine<'a> {
             expectee if expectee == self.term_menu().never() => Some(LocalTermExpectationEffect {
                 result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::Never,
-                    expectee: expectee.into(),
-                    destination: destination.into(),
                 }
                 .into()),
                 actions: vec![],
@@ -198,8 +190,6 @@ impl<'a> ExprTypeEngine<'a> {
                     result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
                         ExpectImplicitlyConvertibleOutcome {
                             implicit_conversion: ImplicitConversion::None,
-                            expectee: destination.into(),
-                            destination: destination.into(),
                         },
                     )),
                     actions: vec![TermResolveAction::SubstituteImplicitSymbol {
@@ -308,6 +298,45 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             LocalTerm::Unresolved(_) => todo!(),
+        }
+    }
+}
+
+impl ExpectImplicitlyConvertible {
+    pub(super) fn resolve_implicitly_convertible(
+        &self,
+        db: &dyn ExprTypeDb,
+        expectee: LocalTerm,
+        level: LocalTermResolveLevel,
+        unresolved_terms: &mut UnresolvedTerms,
+    ) -> Option<LocalTermExpectationEffect> {
+        if expectee == self.destination {
+            return Some(LocalTermExpectationEffect {
+                result: Ok(ExpectImplicitlyConvertibleOutcome {
+                    implicit_conversion: ImplicitConversion::None,
+                }
+                .into()),
+                actions: vec![],
+            });
+        }
+        let expectee_pattern = match expectee.pattern(db, unresolved_terms) {
+            Ok(expectee_pattern) => expectee_pattern,
+            Err(_) => todo!(),
+        };
+        let destination_pattern = match self.destination.pattern(db, unresolved_terms) {
+            Ok(destination_pattern) => destination_pattern,
+            Err(_) => todo!(),
+        };
+        match destination_pattern {
+            LocalTermPattern::Literal(_) => todo!(),
+            LocalTermPattern::TypeOntology { path, arguments } => match expectee_pattern {
+                LocalTermPattern::TypeOntology { path, arguments } => todo!(),
+                _ => Some(LocalTermExpectationEffect {
+                    result: Err(todo!()),
+                    actions: vec![],
+                }),
+            },
+            LocalTermPattern::Curry {} => todo!(),
         }
     }
 }
