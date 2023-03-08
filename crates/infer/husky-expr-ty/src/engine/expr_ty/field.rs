@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentToken,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
-        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal, local_term_region)else {
+        let Some(owner_ty) = self.infer_new_expr_ty_with_ty_returned(owner, ExpectAnyOriginal, local_term_region)else {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
         };
         match owner_ty {

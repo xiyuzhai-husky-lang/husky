@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Ok(result) = result {
                     match self.return_ty {
                         Some(return_ty) => {
-                            self.infer_new_expr_ty(
+                            self.infer_new_expr_ty_discarded(
                                 *result,
                                 ExpectImplicitlyConvertible {
                                     destination: return_ty.into(),
@@ -59,7 +59,11 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            self.infer_new_expr_ty(*result, ExpectAnyDerived, local_term_region);
+                            self.infer_new_expr_ty_discarded(
+                                *result,
+                                ExpectAnyDerived,
+                                local_term_region,
+                            );
                         }
                     }
                 };
@@ -67,7 +71,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Stmt::Require { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(
+                    self.infer_new_expr_ty_discarded(
                         *condition,
                         self.expect_implicitly_convertible_to_bool(),
                         local_term_region,
@@ -77,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Stmt::Assert { ref condition, .. } => {
                 if let Ok(condition) = condition {
-                    self.infer_new_expr_ty(
+                    self.infer_new_expr_ty_discarded(
                         *condition,
                         self.expect_implicitly_convertible_to_bool(),
                         local_term_region,
@@ -86,9 +90,11 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(self.term_menu.unit().into())
             }
             Stmt::Break { .. } => Some(self.term_menu.never().into()),
-            Stmt::Eval { expr_idx } => {
-                self.infer_new_expr_ty(expr_idx, expr_expectation, local_term_region)
-            }
+            Stmt::Eval { expr_idx } => self.infer_new_expr_ty_with_ty_returned(
+                expr_idx,
+                expr_expectation,
+                local_term_region,
+            ),
             Stmt::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
@@ -97,7 +103,11 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal, local_term_region) {
+                    match self.infer_new_expr_ty_with_ty_returned(
+                        bound_expr,
+                        ExpectAnyOriginal,
+                        local_term_region,
+                    ) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
                         None => (),
                     }
@@ -105,7 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(bound_expr) = particulars.range.final_boundary.bound_expr {
                     match expected_frame_var_ty {
                         Some(expected_frame_var_ty) => {
-                            self.infer_new_expr_ty(
+                            self.infer_new_expr_ty_discarded(
                                 bound_expr,
                                 ExpectImplicitlyConvertible {
                                     destination: expected_frame_var_ty,
@@ -114,7 +124,7 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            if let Some(ty) = self.infer_new_expr_ty(
+                            if let Some(ty) = self.infer_new_expr_ty_with_ty_returned(
                                 bound_expr,
                                 ExpectAnyOriginal,
                                 local_term_region,
@@ -158,7 +168,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => {
                 condition.as_ref().copied().map(|condition| {
-                    self.infer_new_expr_ty(
+                    self.infer_new_expr_ty_discarded(
                         condition,
                         self.expect_implicitly_convertible_to_bool(),
                         local_term_region,
@@ -293,7 +303,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch.condition.as_ref().copied().map(|condition| {
-            self.infer_new_expr_ty(
+            self.infer_new_expr_ty_with_ty_returned(
                 condition,
                 self.expect_implicitly_convertible_to_bool(),
                 local_term_region,
@@ -302,7 +312,7 @@ impl<'a> ExprTypeEngine<'a> {
         branch_tys.visit_branch(self, &if_branch.block, local_term_region);
         for elif_branch in elif_branches {
             elif_branch.condition.as_ref().copied().map(|condition| {
-                self.infer_new_expr_ty(
+                self.infer_new_expr_ty_discarded(
                     condition,
                     self.expect_implicitly_convertible_to_bool(),
                     local_term_region,

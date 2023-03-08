@@ -95,8 +95,6 @@ pub enum TypePathDisambiguationResult {
 }
 
 pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {
-    fn destination(&self) -> LocalTerm;
-
     /// will panic if not right
     fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self;
 }

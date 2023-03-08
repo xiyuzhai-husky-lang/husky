@@ -36,10 +36,6 @@ pub(crate) struct ExpectEqsSortOutcome {
 }
 
 impl ExpectLocalTermOutcome for ExpectEqsSortOutcome {
-    fn destination(&self) -> LocalTerm {
-        self.destination
-    }
-
     fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
             LocalTermExpectationOutcome::EqsSort(resolved_ok) => resolved_ok,

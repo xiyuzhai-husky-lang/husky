@@ -53,10 +53,6 @@ pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
 }
 
 impl ExpectLocalTermOutcome for ExpectEqsFunctionTypeOutcome {
-    fn destination(&self) -> LocalTerm {
-        self.destination
-    }
-
     fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
             LocalTermExpectationOutcome::EqsRitchieCallType(resolved_ok) => resolved_ok,

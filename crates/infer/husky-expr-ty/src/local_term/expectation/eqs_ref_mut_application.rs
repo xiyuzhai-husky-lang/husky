@@ -34,10 +34,6 @@ pub(crate) struct ExpectEqsRefMutApplicationOutcome {
 }
 
 impl ExpectLocalTermOutcome for ExpectEqsRefMutApplicationOutcome {
-    fn destination(&self) -> LocalTerm {
-        self.destination
-    }
-
     fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
             LocalTermExpectationOutcome::EqsRefMutApplication(resolved_ok) => resolved_ok,

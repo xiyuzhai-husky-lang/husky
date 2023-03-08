@@ -10,7 +10,11 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
+                let opd_ty = self.infer_new_expr_ty_with_ty_returned(
+                    opd,
+                    ExpectAnyOriginal,
+                    local_term_region,
+                );
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
@@ -43,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                let _opd_ty = self.infer_new_expr_ty(
+                self.infer_new_expr_ty_discarded(
                     opd,
                     self.expect_implicitly_convertible_to_bool(),
                     local_term_region,
@@ -71,25 +75,26 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::AnyDerived => Err(DerivedExprTypeError::AmbiguousTildeExpr)?,
             },
             PrefixOpr::Ref => {
-                let opd_ty =
-                    self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty(), local_term_region);
+                self.infer_new_expr_ty_discarded(
+                    opd,
+                    self.expect_eqs_exactly_ty(),
+                    local_term_region,
+                );
                 // Should consider more cases, could also be taking references
-                Ok((
-                    ExprDisambiguation::Trivial,
-                    opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
-                ))
+                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
             PrefixOpr::Vector => todo!(),
             PrefixOpr::Slice => todo!(),
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
-                let opd_ty =
-                    self.infer_new_expr_ty(opd, self.expect_eqs_exactly_ty(), local_term_region);
-                Ok((
-                    ExprDisambiguation::Trivial,
-                    opd_ty.ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
-                ))
+                // todo!("consider universe");
+                self.infer_new_expr_ty_discarded(
+                    opd,
+                    self.expect_eqs_exactly_ty(),
+                    local_term_region,
+                );
+                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
         }
     }

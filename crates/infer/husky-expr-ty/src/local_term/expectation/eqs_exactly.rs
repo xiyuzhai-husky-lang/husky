@@ -29,10 +29,6 @@ pub(crate) struct ExpectEqsExactlyOutcome {
 }
 
 impl ExpectLocalTermOutcome for ExpectEqsExactlyOutcome {
-    fn destination(&self) -> LocalTerm {
-        self.destination
-    }
-
     fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
         match resolved_ok {
             LocalTermExpectationOutcome::EqsExactly(resolved_ok) => resolved_ok,
