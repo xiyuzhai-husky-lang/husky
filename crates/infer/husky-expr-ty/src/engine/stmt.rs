@@ -362,11 +362,11 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
                 {
                     ()
                 }
-                Some(new_block_ty) => match self.ever_ty {
-                    Some(ever_ty) if new_block_ty == ever_ty => (),
-                    Some(new_block_ty) => todo!(),
-                    None => self.ever_ty = Some(new_block_ty),
-                },
+                Some(new_block_ty) => {
+                    if self.ever_ty.is_none() {
+                        self.ever_ty = Some(new_block_ty)
+                    }
+                }
                 None => self.has_error = true,
             },
             Err(_) => self.has_error = true,
@@ -374,12 +374,9 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
     }
 
     fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<LocalTerm> {
-        if self.has_error {
-            return None;
-        }
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }
-        Some(menu.never().into())
+        (!self.has_error).then_some(menu.never().into())
     }
 }

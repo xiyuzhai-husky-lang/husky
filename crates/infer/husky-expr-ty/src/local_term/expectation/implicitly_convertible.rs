@@ -352,6 +352,20 @@ impl ExpectImplicitlyConvertible {
                     p!(dst_path.debug(db), src_path.debug(db));
                     todo!()
                 }
+                LocalTermPattern::ImplicitSymbol(src_implicit_symbol) => match level {
+                    LocalTermResolveLevel::Weak => None,
+                    LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
+                        actions: vec![TermResolveAction::SubstituteImplicitSymbol {
+                            implicit_symbol: src_implicit_symbol,
+                            substitution: self.dst,
+                        }],
+                        result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
+                            ExpectImplicitlyConvertibleOutcome {
+                                implicit_conversion: ImplicitConversion::None,
+                            },
+                        )),
+                    }),
+                },
                 _ => {
                     p!(src.debug(db), self.dst.debug(db));
                     Some(LocalTermExpectationEffect {
@@ -361,11 +375,11 @@ impl ExpectImplicitlyConvertible {
                 }
             },
             LocalTermPattern::Curry {} => todo!(),
-            LocalTermPattern::ImplicitSymbol(implicit_symbol) => match level {
+            LocalTermPattern::ImplicitSymbol(dst_implicit_symbol) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                     actions: vec![TermResolveAction::SubstituteImplicitSymbol {
-                        implicit_symbol,
+                        implicit_symbol: dst_implicit_symbol,
                         substitution: src,
                     }],
                     result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
