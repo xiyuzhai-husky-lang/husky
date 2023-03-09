@@ -25,7 +25,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.term_menu.leash_ty_ontology(),
                             opd_term,
                         )
-                        .map_err(|e| DerivedExprTermError::TildeTerm(e))?
+                        .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
                         .into()),
                         LocalTerm::Unresolved(_) => todo!(),
                     },
@@ -41,7 +41,13 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Slice => todo!(),
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
-            PrefixOpr::Option => todo!(),
+            PrefixOpr::Option => Ok(LocalTerm::new_application(
+                self.db,
+                self.term_menu.leash_ty_ontology().into(),
+                opd_term,
+            )
+            .map_err(|e| DerivedExprTermError::OptionApplicationTerm(e))?
+            .into()),
         }
     }
 }

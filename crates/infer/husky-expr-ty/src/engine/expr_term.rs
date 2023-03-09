@@ -80,6 +80,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::MethodCall { .. } => todo!(),
             Expr::TemplateInstantiation { .. } => todo!(),
             Expr::ExplicitApplication { function, argument } => {
+                // todo: implicit arguments
                 self.calc_explicit_application_expr_term(function, argument)
             }
             Expr::Bracketed {

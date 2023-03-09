@@ -16,9 +16,43 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb, jar = ExprTypeJar)]
+#[enum_class::from_variants]
 pub enum LocalTerm {
     Resolved(Term),
     Unresolved(UnresolvedTermIdx),
+}
+
+impl LocalTerm {
+    pub fn unresolved(self) -> Option<UnresolvedTermIdx> {
+        match self {
+            LocalTerm::Resolved(_) => None,
+            LocalTerm::Unresolved(idx) => Some(idx),
+        }
+    }
+
+    pub fn new_application(
+        db: &dyn ExprTypeDb,
+        function: LocalTerm,
+        argument: LocalTerm,
+    ) -> TermResult<Self> {
+        match (function, argument) {
+            (LocalTerm::Resolved(function), LocalTerm::Resolved(argument)) => {
+                Ok(TermApplication::new(db, function, argument)?.into())
+            }
+            (LocalTerm::Resolved(_), LocalTerm::Unresolved(_)) => todo!(),
+            (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),
+            (LocalTerm::Unresolved(_), LocalTerm::Unresolved(_)) => todo!(),
+        }
+    }
+}
+
+impl LocalTerm {
+    fn resolved(self) -> Option<Term> {
+        match self {
+            LocalTerm::Resolved(term) => Some(term),
+            LocalTerm::Unresolved(_) => None,
+        }
+    }
 }
 
 impl From<TermLiteral> for LocalTerm {
@@ -89,69 +123,5 @@ impl From<TermAsTraitSubentity> for LocalTerm {
 impl From<TermTraitConstraint> for LocalTerm {
     fn from(value: TermTraitConstraint) -> Self {
         LocalTerm::Resolved(value.into())
-    }
-}
-
-impl LocalTerm {
-    pub fn unresolved(self) -> Option<UnresolvedTermIdx> {
-        match self {
-            LocalTerm::Resolved(_) => None,
-            LocalTerm::Unresolved(idx) => Some(idx),
-        }
-    }
-}
-
-#[derive(Default, Debug, PartialEq, Eq)]
-pub struct LocalTermRegion {
-    unresolved_terms: UnresolvedTerms,
-    expectations: LocalTermExpectations,
-}
-
-impl LocalTermRegion {
-    pub fn unresolved_terms(&self) -> &UnresolvedTerms {
-        &self.unresolved_terms
-    }
-
-    pub fn expectations(&self) -> &LocalTermExpectations {
-        &self.expectations
-    }
-
-    pub(crate) fn new_implicit_symbol(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        variant: ImplicitSymbolVariant,
-    ) -> UnresolvedTermIdx {
-        self.unresolved_terms
-            .new_implicit_symbol(src_expr_idx, variant)
-    }
-
-    pub(crate) fn intern_unresolved_term(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
-    ) -> LocalTerm {
-        self.unresolved_terms
-            .intern_unresolved_term(src_expr_idx, unresolved_term)
-    }
-}
-
-impl LocalTerm {
-    fn resolved(self) -> Option<Term> {
-        match self {
-            LocalTerm::Resolved(term) => Some(term),
-            LocalTerm::Unresolved(_) => None,
-        }
-    }
-}
-
-impl From<UnresolvedTermIdx> for LocalTerm {
-    fn from(v: UnresolvedTermIdx) -> Self {
-        Self::Unresolved(v)
-    }
-}
-
-impl From<Term> for LocalTerm {
-    fn from(v: Term) -> Self {
-        Self::Resolved(v)
     }
 }
