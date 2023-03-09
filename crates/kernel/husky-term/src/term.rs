@@ -93,7 +93,10 @@ impl Term {
                     TermEntityPath::TypeOntology(path) => {
                         path.refine(db)?;
                     }
-                    TermEntityPath::TypeConstructor(_) => todo!(),
+                    TermEntityPath::TypeConstructor(_) => {
+                        p!(path.debug(db));
+                        todo!()
+                    }
                 }
                 Ok(())
             }
@@ -159,6 +162,7 @@ impl Term {
                 TermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?.into()
             }
             RawTerm::ExplicitApplication(raw_term) => {
+                // todo: implicit arguments
                 TermApplication::from_raw_unchecked(db, raw_term, term_ty_expectation)?
             }
             RawTerm::ExplicitApplicationOrRitchieCall(raw_term) => {

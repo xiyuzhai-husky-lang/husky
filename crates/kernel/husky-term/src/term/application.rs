@@ -79,6 +79,7 @@ impl TermApplication {
         raw_term_application: RawTermExplicitApplication,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Term> {
+        // todo: implicit arguments
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
     }
 
@@ -108,6 +109,7 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     raw_term_application: RawTermExplicitApplication,
     raw_ty_expectation: TermTypeExpectation,
 ) -> TermResult<Term> {
+    // todo: implicit arguments
     let function =
         Term::from_raw_unchecked(db, raw_term_application.function(db), raw_ty_expectation)?;
     let function_raw_ty = match function.raw_ty(db)? {
@@ -116,6 +118,11 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     };
     let parameter_ty = function_raw_ty.parameter_ty(db);
     let argument_expectation = parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
+    p!(
+        raw_term_application.debug(db),
+        parameter_ty.debug(db),
+        argument_expectation.debug(db)
+    );
     let argument =
         Term::from_raw_unchecked(db, raw_term_application.argument(db), argument_expectation)?;
     let argument_ty_total_number_of_curry_parameters =
@@ -142,6 +149,7 @@ fn parameter_ty_raw_term_to_argument_ty_expectation(
         RawTerm::EntityPath(RawTermEntityPath::Type(path)) => {
             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
         }
+        RawTerm::Category(_) => TermTypeExpectation::FinalDestinationEqsSort,
         RawTerm::Curry(_) => todo!(),
         RawTerm::ExplicitApplication(_) => todo!(),
         _ => TermTypeExpectation::Any,

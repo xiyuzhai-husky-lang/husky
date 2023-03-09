@@ -1,6 +1,7 @@
-use husky_entity_path::TypePath;
+use husky_entity_path::{EntityPathDb, TypePath};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityPathDb)]
 pub enum TermTypeExpectation {
     FinalDestinationEqsSort,
     FinalDestinationEqsNonSortTypePath(TypePath),

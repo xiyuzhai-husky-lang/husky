@@ -47,6 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
                     return
                 };
             if let Ok(ty) = current_symbol_term.ty(self.db) {
+                p!(ty.debug(self.db));
                 if let Ok(ty) =
                     Term::from_raw(self.db, ty, TermTypeExpectation::FinalDestinationEqsSort)
                 {
