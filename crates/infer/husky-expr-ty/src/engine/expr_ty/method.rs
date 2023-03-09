@@ -22,20 +22,10 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let method_ty = todo!();
-        //  match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
-        //     Ok(_) => todo!(),
-        //     Err(error) => {
-        //         return Err(match error {
-        //             TypeError::Original(error) => {
-        //                 OriginalExprTypeError::TypeMethodTypeError(error).into()
-        //             }
-        //             TypeError::Derived(error) => {
-        //                 DerivedExprTypeError::TypeMethodTypeError(error).into()
-        //             }
-        //         })
-        //     }
-        // };
+        let method_ty = match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
+            Ok(_) => todo!(),
+            Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
+        };
         self.calc_ritchie_call_arguments_expr_ty(
             expr_idx,
             method_ty,

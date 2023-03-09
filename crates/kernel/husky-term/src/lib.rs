@@ -25,6 +25,7 @@ use husky_entity_path::*;
 use husky_print_utils::p;
 use husky_raw_term::*;
 use husky_term_prelude::*;
+use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::*;
 use husky_word::Ident;
 use salsa::DebugWithDb;
@@ -82,4 +83,6 @@ pub struct TermJar(
     term_from_raw_term_list_unchecked,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
+    // method ty
+    term_application_ty_method_ty,
 );

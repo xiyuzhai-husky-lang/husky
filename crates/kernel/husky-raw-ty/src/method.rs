@@ -9,7 +9,7 @@ pub(crate) fn raw_ty_method_raw_ty(
         RawTerm::Literal(_) => unreachable!(),
         RawTerm::Symbol(_) => Ok(None),
         RawTerm::EntityPath(path) => {
-            entity_raw_ty_method_raw_ty(db, path.ty_path().expect("should be raw_type"), ident)
+            ty_path_ty_method_raw_ty(db, path.ty_path().expect("should be raw_type"), ident)
         }
         RawTerm::Category(_) => Ok(None),
         RawTerm::Universe(_) => unreachable!(),
@@ -26,8 +26,8 @@ pub(crate) fn raw_ty_method_raw_ty(
     }
 }
 
-#[salsa::tracked(jar = RawTypeJar,  )]
-pub(crate) fn entity_raw_ty_method_raw_ty(
+#[salsa::tracked(jar = RawTypeJar)]
+pub fn ty_path_ty_method_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
     _ident: Ident,
