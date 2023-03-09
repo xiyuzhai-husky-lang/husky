@@ -54,7 +54,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     ) -> TypePathDisambiguationResult {
         match self.final_destination(db, unresolved_terms) {
             FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
-            FinalDestination::TypePath(_) => TypePathDisambiguation::Constructor.into(),
+            FinalDestination::TypeOntology(_) => TypePathDisambiguation::Constructor.into(),
             FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromAnyOriginal,
             FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromAnyDerived,
         }
@@ -75,7 +75,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum FinalDestination {
     Sort,
-    TypePath(Either<CustomTypePath, PreludeTypePath>),
+    TypeOntology(Either<CustomTypePath, PreludeTypePath>),
     AnyOriginal,
     AnyDerived,
 }

@@ -66,7 +66,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Ok(self.term_menu.ty0().into()),
                     ))
                 }
-                FinalDestination::TypePath(_) => todo!(),
+                FinalDestination::TypeOntology(_) => todo!(),
                 FinalDestination::AnyOriginal => Err(OriginalExprTypeError::AmbiguousTildeExpr)?,
                 FinalDestination::AnyDerived => Err(DerivedExprTypeError::AmbiguousTildeExpr)?,
             },

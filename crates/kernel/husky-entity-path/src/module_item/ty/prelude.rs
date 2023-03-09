@@ -140,6 +140,7 @@ pub(crate) fn prelude_ty_path(
         path if path == menu.trai_ty_path() => PreludeTypePath::Trait.into(),
         path if path == menu.ref_ty_path() => PreludeBorrowTypePath::Ref.into(),
         path if path == menu.ref_mut_ty_path() => PreludeBorrowTypePath::RefMut.into(),
+        path if path == menu.leash_ty_path() => PreludeBorrowTypePath::Leash.into(),
         path if path == menu.list_ty_path() => PreludeTypePath::List.into(),
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),

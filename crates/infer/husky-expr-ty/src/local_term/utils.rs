@@ -6,9 +6,12 @@ impl LocalTerm {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTerm {
-        match self {
-            LocalTerm::Resolved(resolved_term) => curry_destination(db, resolved_term).into(),
-            LocalTerm::Unresolved(_) => todo!(),
+        match self.pattern(db, unresolved_terms) {
+            LocalTermPattern::Literal(_)
+            | LocalTermPattern::TypeOntology { .. }
+            | LocalTermPattern::ImplicitSymbol(_, _)
+            | LocalTermPattern::Category(_) => self,
+            LocalTermPattern::Curry {} => todo!(),
         }
     }
 
@@ -18,54 +21,14 @@ impl LocalTerm {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        match self.curry_destination(db, unresolved_terms) {
-            LocalTerm::Resolved(resolved_term) => match resolved_term {
-                Term::Literal(_) => todo!(),
-                Term::Symbol(_) => todo!(),
-                Term::EntityPath(path) => match path {
-                    TermEntityPath::Form(_) => todo!(),
-                    TermEntityPath::Trait(_) => todo!(),
-                    TermEntityPath::TypeOntology(path) => {
-                        FinalDestination::TypePath(path.refine(db).expect("should be checked"))
-                    }
-                    TermEntityPath::TypeConstructor(path) => {
-                        unreachable!("type constructor is not a type!")
-                    }
-                },
-                Term::Category(_) => FinalDestination::Sort,
-                Term::Universe(_) => todo!(),
-                Term::Curry(_) => todo!(),
-                Term::Ritchie(_) => todo!(),
-                Term::Abstraction(_) => todo!(),
-                Term::Application(_) => {
-                    let expansion = db.term_application_expansion(resolved_term);
-                    match expansion.f() {
-                        Term::Literal(_) => todo!(),
-                        Term::Symbol(_) => todo!(),
-                        Term::EntityPath(path) => match path {
-                            TermEntityPath::Form(_) => todo!(),
-                            TermEntityPath::Trait(_) => todo!(),
-                            TermEntityPath::TypeOntology(ty_path) => FinalDestination::TypePath(
-                                ty_path.refine(db).expect("should be checked"),
-                            ),
-                            TermEntityPath::TypeConstructor(_) => todo!(),
-                        },
-                        Term::Category(_) => todo!(),
-                        Term::Universe(_) => todo!(),
-                        Term::Curry(_) => todo!(),
-                        Term::Ritchie(_) => todo!(),
-                        Term::Abstraction(_) => todo!(),
-                        Term::Application(_) => todo!(),
-                        Term::Subentity(_) => todo!(),
-                        Term::AsTraitSubentity(_) => todo!(),
-                        Term::TraitConstraint(_) => todo!(),
-                    }
-                }
-                Term::Subentity(_) => todo!(),
-                Term::AsTraitSubentity(_) => todo!(),
-                Term::TraitConstraint(_) => todo!(),
-            },
-            LocalTerm::Unresolved(_) => todo!(),
+        match self.pattern(db, unresolved_terms) {
+            LocalTermPattern::Literal(_) => todo!(),
+            LocalTermPattern::TypeOntology { path, arguments } => {
+                FinalDestination::TypeOntology(path)
+            }
+            LocalTermPattern::Curry {} => todo!(),
+            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+            LocalTermPattern::Category(_) => FinalDestination::Sort,
         }
     }
 }

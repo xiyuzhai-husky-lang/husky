@@ -19,7 +19,10 @@ pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermRes
         Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
-        Term::Application(_) => todo!(),
+        Term::Application(_) => {
+            p!(owner_ty.debug(db));
+            todo!()
+        }
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
