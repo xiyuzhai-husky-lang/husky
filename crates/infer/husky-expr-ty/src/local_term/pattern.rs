@@ -9,6 +9,8 @@ pub enum LocalTermPattern {
         arguments: SmallVec<[LocalTerm; 2]>,
     },
     Curry {},
+    ImplicitSymbol(UnresolvedTermIdx),
+    Category(TermCategory),
 }
 
 impl LocalTerm {
@@ -57,7 +59,7 @@ impl LocalTermPattern {
                 },
                 TermEntityPath::TypeConstructor(path) => todo!(),
             },
-            Term::Category(_) => todo!(),
+            Term::Category(term) => LocalTermPattern::Category(term),
             Term::Universe(_) => todo!(),
             Term::Curry(_) => todo!(),
             Term::Ritchie(_) => todo!(),
@@ -75,7 +77,7 @@ impl LocalTermPattern {
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermPatternResult<LocalTermPattern> {
         match unresolved_terms[term].unresolved_term() {
-            UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+            UnresolvedTerm::ImplicitSymbol(_) => Ok(LocalTermPattern::ImplicitSymbol(term)),
             UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
             UnresolvedTerm::Ritchie {
                 ritchie_kind,

@@ -11,7 +11,7 @@ pub enum ImplicitConversion {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectImplicitlyConvertible {
-    pub(crate) destination: LocalTerm,
+    pub(crate) dst: LocalTerm,
 }
 
 impl ExpectImplicitlyConvertible {
@@ -19,8 +19,10 @@ impl ExpectImplicitlyConvertible {
         &self,
         unresolved_terms: &'a UnresolvedTerms,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
-        match unresolved_terms.try_reduce_local_term(self.destination)? {
-            Some(destination) => Ok(Some(ExpectImplicitlyConvertible { destination }.into())),
+        match unresolved_terms.try_reduce_local_term(self.dst)? {
+            Some(destination) => Ok(Some(
+                ExpectImplicitlyConvertible { dst: destination }.into(),
+            )),
             None => Ok(None),
         }
     }
@@ -45,7 +47,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
     type Outcome = ExpectImplicitlyConvertibleOutcome;
 
     fn destination(&self) -> Option<LocalTerm> {
-        Some(self.destination)
+        Some(self.dst)
     }
 
     #[inline(always)]
@@ -54,7 +56,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        self.destination.final_destination(db, unresolved_terms)
+        self.dst.final_destination(db, unresolved_terms)
     }
 }
 
@@ -302,11 +304,11 @@ impl ExpectImplicitlyConvertible {
     pub(super) fn resolve_implicitly_convertible(
         &self,
         db: &dyn ExprTypeDb,
-        expectee: LocalTerm,
+        src: LocalTerm,
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        if expectee == self.destination {
+        if src == self.dst {
             return Some(LocalTermExpectationEffect {
                 result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::None,
@@ -315,20 +317,20 @@ impl ExpectImplicitlyConvertible {
                 actions: vec![],
             });
         }
-        let expectee_pattern = match expectee.pattern(db, unresolved_terms) {
+        let src_pattern = match src.pattern(db, unresolved_terms) {
             Ok(expectee_pattern) => expectee_pattern,
             Err(_) => todo!(),
         };
-        let destination_pattern = match self.destination.pattern(db, unresolved_terms) {
-            Ok(destination_pattern) => destination_pattern,
+        let dst_patt = match self.dst.pattern(db, unresolved_terms) {
+            Ok(dst_patt) => dst_patt,
             Err(_) => todo!(),
         };
-        match destination_pattern {
+        match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path: dst_path,
                 arguments: dst_arguments,
-            } => match expectee_pattern {
+            } => match src_pattern {
                 LocalTermPattern::TypeOntology {
                     path: Right(PreludeTypePath::Never),
                     ..
@@ -350,12 +352,30 @@ impl ExpectImplicitlyConvertible {
                     p!(dst_path.debug(db), src_path.debug(db));
                     todo!()
                 }
-                _ => Some(LocalTermExpectationEffect {
-                    result: Err(todo!()),
-                    actions: vec![],
-                }),
+                _ => {
+                    p!(src.debug(db), self.dst.debug(db));
+                    Some(LocalTermExpectationEffect {
+                        result: Err(todo!()),
+                        actions: vec![],
+                    })
+                }
             },
             LocalTermPattern::Curry {} => todo!(),
+            LocalTermPattern::ImplicitSymbol(implicit_symbol) => match level {
+                LocalTermResolveLevel::Weak => None,
+                LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
+                    actions: vec![TermResolveAction::SubstituteImplicitSymbol {
+                        implicit_symbol,
+                        substitution: src,
+                    }],
+                    result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
+                        ExpectImplicitlyConvertibleOutcome {
+                            implicit_conversion: ImplicitConversion::None,
+                        },
+                    )),
+                }),
+            },
+            LocalTermPattern::Category(_) => todo!(),
         }
     }
 }

@@ -199,7 +199,7 @@ impl<'a> ExprTypeEngine<'a> {
         match lopd_ty {
             Some(destination) => self.infer_new_expr_ty_discarded(
                 ropd,
-                ExpectImplicitlyConvertible { destination },
+                ExpectImplicitlyConvertible { dst: destination },
                 local_term_region,
             ),
             None => self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region),
@@ -280,6 +280,8 @@ impl<'a> ExprTypeEngine<'a> {
             },
             local_term_region,
         );
+        print_debug_expr!(self, ropd);
+        p!(self.debug(&ropd_term));
         Ok(ropd_term)
     }
 
