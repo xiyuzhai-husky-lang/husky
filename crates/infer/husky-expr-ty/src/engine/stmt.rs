@@ -53,7 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty_discarded(
                                 *result,
                                 ExpectImplicitlyConvertible {
-                                    destination: return_ty.into(),
+                                    dst: return_ty.into(),
                                 },
                                 local_term_region,
                             );
@@ -118,7 +118,7 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty_discarded(
                                 bound_expr,
                                 ExpectImplicitlyConvertible {
-                                    destination: expected_frame_var_ty,
+                                    dst: expected_frame_var_ty,
                                 },
                                 local_term_region,
                             );

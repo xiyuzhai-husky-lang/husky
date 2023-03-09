@@ -24,9 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 self.infer_new_expr_ty_discarded(
                     argument,
-                    ExpectImplicitlyConvertible {
-                        destination: parameter_ty,
-                    },
+                    ExpectImplicitlyConvertible { dst: parameter_ty },
                     local_term_region,
                 );
                 match parameter_symbol {
