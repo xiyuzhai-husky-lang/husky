@@ -2,6 +2,8 @@ mod explicit_application;
 mod list;
 mod prefix;
 
+use husky_ty_expectation::TypePathDisambiguation;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -112,11 +114,13 @@ impl<'a> ExprTypeEngine<'a> {
                         .expr_disambiguation(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
-                        ExprDisambiguation::TypePath(disambiguation) => Ok(self
-                            .db
-                            .ty_path_ty(path, disambiguation)
-                            .map_err(|e| DerivedExprTermError::TypePathTypeError)?
-                            .into()),
+                        ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
+                            TypePathDisambiguation::Ontology => TermEntityPath::TypeOntology(path),
+                            TypePathDisambiguation::Constructor => {
+                                TermEntityPath::TypeConstructor(path)
+                            }
+                        }
+                        .into()),
                         _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),
