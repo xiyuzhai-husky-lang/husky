@@ -9,8 +9,11 @@ pub(crate) struct ExpectInsSort {
 impl ExpectLocalTerm for ExpectInsSort {
     type Outcome = ExpectInsSortOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        None
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::InsSort(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -44,15 +47,6 @@ pub(crate) struct ExpectInsSortOutcome {
 impl ExpectInsSortOutcome {
     pub(crate) fn resolved(&self) -> Option<Term> {
         todo!()
-    }
-}
-
-impl ExpectLocalTermOutcome for ExpectInsSortOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::InsSort(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
     }
 }
 

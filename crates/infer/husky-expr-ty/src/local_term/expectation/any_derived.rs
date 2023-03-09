@@ -4,10 +4,10 @@ use super::*;
 pub(crate) struct ExpectAnyDerived;
 
 impl ExpectLocalTerm for ExpectAnyDerived {
-    type Outcome = ExpectInsSortOutcome;
+    type Outcome = ();
 
-    fn destination(&self) -> Option<LocalTerm> {
-        None
+    fn retrieve_outcome(_outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        &()
     }
 
     #[inline(always)]

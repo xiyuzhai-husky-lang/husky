@@ -14,10 +14,13 @@ impl ExpectEqsCategory {
 }
 
 impl ExpectLocalTerm for ExpectEqsCategory {
-    type Outcome = ExpectEqsSortOutcome;
+    type Outcome = TermUniverse;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        None
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::EqsSort(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -35,15 +38,6 @@ pub(crate) struct ExpectEqsSortOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermOutcome for ExpectEqsSortOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::EqsSort(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
-}
-
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_sort_expectation(
         &self,
@@ -57,11 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Term::Category(cat) => {
                         Some(match cat.universe() >= expectation.smallest_universe {
                             true => LocalTermExpectationEffect {
-                                result: Ok(LocalTermExpectationOutcome::EqsSort(
-                                    ExpectEqsSortOutcome {
-                                        destination: expectee,
-                                    },
-                                )),
+                                result: Ok(LocalTermExpectationOutcome::EqsSort(cat.universe())),
                                 actions: vec![],
                             },
                             false => LocalTermExpectationEffect {

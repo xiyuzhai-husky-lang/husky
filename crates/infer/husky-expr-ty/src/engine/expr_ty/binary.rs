@@ -1,3 +1,5 @@
+mod pure_closed;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -34,168 +36,13 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_pure_closed_expr_ty(
-        &mut self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
-        opr: BinaryPureClosedOpr,
-        menu: &TermMenu,
-        local_term_region: &mut LocalTermRegion,
-    ) -> Result<LocalTerm, ExprTypeError> {
-        // todo: don't use resolved
-        let lopd_ty = self.infer_new_expr_ty_with_resolved_ty_returned(
-            lopd,
-            ExpectAnyOriginal,
-            local_term_region,
-        );
-        let ropd_ty = self.infer_new_expr_ty_with_resolved_ty_returned(
-            ropd,
-            ExpectAnyOriginal,
-            local_term_region,
-        );
-        let Some(lopd_ty) = lopd_ty
-            else {
-                return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
-            };
-        let Some(ropd_ty) = ropd_ty
-            else {
-                return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
-            };
-        let lopd_ty: Term = todo!();
-        //  self.db.intrinsic_ty(lopd_ty).reduced_term();
-        let ropd_ty: Term = todo!();
-        //  self.db.intrinsic_ty(ropd_ty).reduced_term();
-        match opr {
-            BinaryPureClosedOpr::Add => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::BitAnd => match lopd_ty {
-                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::BitOr => match lopd_ty {
-                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::BitXor => match lopd_ty {
-                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r32() => Ok(menu.r32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.r64() => Ok(menu.r64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::Div => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::Mul => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.f32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.f32() => Ok(menu.f32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.f64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.f64() => Ok(menu.f64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::RemEuclid => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::Power => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::Shl => todo!(),
-            BinaryPureClosedOpr::Shr => match lopd_ty {
-                lopd_ty if lopd_ty == menu.r32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.r32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.r64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.r64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-            BinaryPureClosedOpr::Sub => match lopd_ty {
-                lopd_ty if lopd_ty == menu.i32() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i32() => Ok(menu.i32().into()),
-                    _ => Err(todo!()),
-                },
-                lopd_ty if lopd_ty == menu.i64() => match ropd_ty {
-                    ropd_ty if ropd_ty == menu.i64() => Ok(menu.i64().into()),
-                    _ => Err(todo!()),
-                },
-                _ => Err(todo!()),
-            },
-        }
-    }
-
     fn calc_comparison_expr_ty(
         &mut self,
         lopd: ExprIdx,
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let lopd_ty =
-            self.infer_new_expr_ty_with_ty_returned(lopd, ExpectAnyOriginal, local_term_region);
+        let lopd_ty = self.infer_new_expr_ty(lopd, ExpectAnyOriginal, local_term_region);
         match lopd_ty {
             Some(destination) => self.infer_new_expr_ty_discarded(
                 ropd,
@@ -231,7 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let Some(ropd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(
+        let Some(ropd_ty) = self.infer_new_expr_ty(
             ropd,
             ExpectAnyOriginal,
             local_term_region,
@@ -294,24 +141,14 @@ impl<'a> ExprTypeEngine<'a> {
         let expect_any_sort = ExpectEqsCategory {
             smallest_universe: 0.into(),
         };
-        let Some(lopd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(lopd, expect_any_sort, local_term_region)
+        let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort, local_term_region)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
             };
-        let Some(ropd_ty) = self.infer_new_expr_ty_with_resolved_ty_returned(ropd, expect_any_sort, local_term_region)
+        let Some(ropd_universe) = self.infer_new_expr_ty_for_outcome(ropd, expect_any_sort, local_term_region)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
-        let x = lopd_ty;
-        let x_u = match x {
-            Term::Category(x_cat) => x_cat.universe(),
-            _ => return Err(todo!()),
-        };
-        let y = ropd_ty;
-        let y_u = match y {
-            Term::Category(y_cat) => y_cat.universe(),
-            _ => return Err(todo!()),
-        };
         todo!()
         // Ok(Term::new_category(x_u.max(y_u)).into())
     }
@@ -326,7 +163,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_with_expectation_returned(
+        match self.infer_new_expr_ty_for_outcome(
             lopd,
             ExpectEqsRefMutApplication {
                 lifetime: expr_eval_lifetime,
@@ -347,8 +184,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) {
-        let ropd_ty =
-            self.infer_new_expr_ty_with_ty_returned(ropd, ExpectAnyOriginal, local_term_region);
+        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal, local_term_region);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
             LocalTerm::Resolved(lopd_ty) => match lopd_ty {

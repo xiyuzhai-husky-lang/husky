@@ -25,9 +25,9 @@ use idx_arena::Arena;
 use thiserror::Error;
 
 pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
-    type Outcome: ExpectLocalTermOutcome;
+    type Outcome: Clone;
 
-    fn destination(&self) -> Option<LocalTerm>;
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome;
 
     /// final destination of `A1 -> ... -> An` is equal to that of `An`
     ///
@@ -54,12 +54,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     ) -> TypePathDisambiguationResult {
         match self.final_destination(db, unresolved_terms) {
             FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
-            FinalDestination::TypePath(final_destination_ty_path) => {
-                match final_destination_ty_path == ty_path {
-                    true => TypePathDisambiguation::Constructor.into(),
-                    false => todo!(),
-                }
-            }
+            FinalDestination::TypePath(_) => TypePathDisambiguation::Constructor.into(),
             FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromAnyOriginal,
             FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromAnyDerived,
         }
@@ -80,7 +75,7 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum FinalDestination {
     Sort,
-    TypePath(TypePath),
+    TypePath(Either<CustomTypePath, PreludeTypePath>),
     AnyOriginal,
     AnyDerived,
 }
@@ -92,11 +87,6 @@ pub enum TypePathDisambiguationResult {
     ErrDifferentTypePath {},
     ErrFromAnyOriginal,
     ErrFromAnyDerived,
-}
-
-pub(crate) trait ExpectLocalTermOutcome: Into<LocalTermExpectationOutcome> {
-    /// will panic if not right
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self;
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -115,7 +105,7 @@ pub(crate) enum LocalTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     ImplicitlyConvertible(ExpectImplicitlyConvertibleOutcome),
     InsSort(ExpectInsSortOutcome),
-    EqsSort(ExpectEqsSortOutcome),
+    EqsSort(TermUniverse),
     EqsExactly(ExpectEqsExactlyOutcome),
     EqsRefMutApplication(ExpectEqsRefMutApplicationOutcome),
     EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
@@ -143,11 +133,11 @@ pub(crate) enum LocalTermExpectationResolveProgress {
 }
 
 impl LocalTermExpectationResolveProgress {
-    pub(crate) fn resolved_ok<R: ExpectLocalTermOutcome>(&self) -> Option<&R> {
+    pub(crate) fn outcome<E: ExpectLocalTerm>(&self) -> Option<&E::Outcome> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
-            LocalTermExpectationResolveProgress::Resolved(Ok(resolved_ok)) => {
-                Some(R::downcast_ref(resolved_ok))
+            LocalTermExpectationResolveProgress::Resolved(Ok(outcome)) => {
+                Some(E::retrieve_outcome(outcome))
             }
             LocalTermExpectationResolveProgress::Resolved(Err(_)) => None,
         }

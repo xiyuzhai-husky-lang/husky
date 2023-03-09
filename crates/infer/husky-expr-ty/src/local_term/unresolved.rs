@@ -43,10 +43,37 @@ impl ImplicitSymbol {
     pub(crate) fn variant(&self) -> &ImplicitSymbolVariant {
         &self.variant
     }
+
+    pub(crate) fn kind(&self) -> ImplicitSymbolKind {
+        self.variant.kind()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum ImplicitSymbolVariant {
+    ImplicitLifetime,
+    ExprEvalLifetime,
+    UnspecifiedIntegerType,
+    UnspecifiedFloatType,
+    ImplicitType,
+}
+
+impl ImplicitSymbolVariant {
+    fn kind(&self) -> ImplicitSymbolKind {
+        match self {
+            ImplicitSymbolVariant::ImplicitLifetime => ImplicitSymbolKind::ImplicitLifetime,
+            ImplicitSymbolVariant::ExprEvalLifetime => ImplicitSymbolKind::ExprEvalLifetime,
+            ImplicitSymbolVariant::UnspecifiedIntegerType => {
+                ImplicitSymbolKind::UnspecifiedIntegerType
+            }
+            ImplicitSymbolVariant::UnspecifiedFloatType => ImplicitSymbolKind::UnspecifiedFloatType,
+            ImplicitSymbolVariant::ImplicitType => ImplicitSymbolKind::ImplicitType,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ImplicitSymbolKind {
     ImplicitLifetime,
     ExprEvalLifetime,
     UnspecifiedIntegerType,

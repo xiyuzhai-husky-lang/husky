@@ -10,11 +10,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty_with_ty_returned(
-                    opd,
-                    ExpectAnyOriginal,
-                    local_term_region,
-                );
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),

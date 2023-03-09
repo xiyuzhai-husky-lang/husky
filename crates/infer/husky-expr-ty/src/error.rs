@@ -4,6 +4,7 @@ mod term;
 pub use self::pattern::*;
 pub use self::term::*;
 
+use husky_entity_path::EntityPathError;
 use husky_expr::ExprIdx;
 use husky_term::TermError;
 use thiserror::Error;
@@ -121,6 +122,8 @@ pub enum DerivedExprTypeError {
     ExplicitApplicationFunctionTypeNotInferred,
     #[error("AmbiguousTildeExpr")]
     AmbiguousTildeExpr,
+    #[error("IntegerLiteralExpectationTypePathRefine")]
+    IntegerLiteralExpectationTypePathRefine(EntityPathError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

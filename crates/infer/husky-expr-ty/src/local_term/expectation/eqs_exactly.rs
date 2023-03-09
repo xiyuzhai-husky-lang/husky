@@ -9,8 +9,11 @@ pub(crate) struct ExpectEqsExactly {
 impl ExpectLocalTerm for ExpectEqsExactly {
     type Outcome = ExpectEqsExactlyOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        Some(self.destination)
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::EqsExactly(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -26,15 +29,6 @@ impl ExpectLocalTerm for ExpectEqsExactly {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(crate) struct ExpectEqsExactlyOutcome {
     destination: LocalTerm,
-}
-
-impl ExpectLocalTermOutcome for ExpectEqsExactlyOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::EqsExactly(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
 }
 
 impl ExpectEqsExactlyOutcome {

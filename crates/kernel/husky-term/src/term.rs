@@ -86,7 +86,17 @@ impl Term {
         match self {
             Term::Literal(_) => Ok(()),
             Term::Symbol(term) => term.check(db),
-            Term::EntityPath(_) => Ok(()),
+            Term::EntityPath(path) => {
+                match path {
+                    TermEntityPath::Form(_) => todo!(),
+                    TermEntityPath::Trait(_) => todo!(),
+                    TermEntityPath::TypeOntology(path) => {
+                        path.refine(db)?;
+                    }
+                    TermEntityPath::TypeConstructor(_) => todo!(),
+                }
+                Ok(())
+            }
             Term::Category(_) => Ok(()),
             Term::Universe(_) => Ok(()),
             Term::Curry(term) => term.check(db),
@@ -173,7 +183,7 @@ impl Term {
                 }
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
                     match path.prelude_ty_path(db)? {
-                        Some(PreludeTypePath::I8 | PreludeTypePath::I8 | PreludeTypePath::I8) => {
+                        Some(PreludeTypePath::Num(_)) => {
                             todo!()
                         }
                         Some(_) | None => todo!(),

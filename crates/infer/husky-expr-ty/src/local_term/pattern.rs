@@ -9,7 +9,7 @@ pub enum LocalTermPattern {
         arguments: SmallVec<[LocalTerm; 2]>,
     },
     Curry {},
-    ImplicitSymbol(UnresolvedTermIdx),
+    ImplicitSymbol(ImplicitSymbolKind, UnresolvedTermIdx),
     Category(TermCategory),
 }
 
@@ -18,7 +18,7 @@ impl LocalTerm {
         self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-    ) -> LocalTermPatternResult<LocalTermPattern> {
+    ) -> LocalTermPattern {
         match self {
             LocalTerm::Resolved(term) => LocalTermPattern::from_resolved(db, term),
             LocalTerm::Unresolved(term) => match unresolved_terms[term].resolve_progress() {
@@ -46,15 +46,15 @@ pub enum LocalTermPatternError {
 pub type LocalTermPatternResult<T> = Result<T, LocalTermPatternError>;
 
 impl LocalTermPattern {
-    fn from_resolved(db: &dyn ExprTypeDb, term: Term) -> LocalTermPatternResult<Self> {
-        Ok(match term {
+    fn from_resolved(db: &dyn ExprTypeDb, term: Term) -> Self {
+        match term {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
-                    path: path.refine(db)?,
+                    path: path.refine(db).expect("should be checked"),
                     arguments: smallvec![],
                 },
                 TermEntityPath::TypeConstructor(path) => todo!(),
@@ -68,16 +68,18 @@ impl LocalTermPattern {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
-        })
+        }
     }
 
     fn from_unresolved(
         db: &dyn ExprTypeDb,
         term: UnresolvedTermIdx,
         unresolved_terms: &UnresolvedTerms,
-    ) -> LocalTermPatternResult<LocalTermPattern> {
+    ) -> LocalTermPattern {
         match unresolved_terms[term].unresolved_term() {
-            UnresolvedTerm::ImplicitSymbol(_) => Ok(LocalTermPattern::ImplicitSymbol(term)),
+            UnresolvedTerm::ImplicitSymbol(symbol) => {
+                LocalTermPattern::ImplicitSymbol(symbol.kind(), term)
+            }
             UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
             UnresolvedTerm::Ritchie {
                 ritchie_kind,
