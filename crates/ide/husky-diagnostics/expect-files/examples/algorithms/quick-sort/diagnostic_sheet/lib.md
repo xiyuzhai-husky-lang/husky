@@ -42,26 +42,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [3:35, 3:36),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [8:38, 8:39),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [9:33, 9:34),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [13:33, 13:34),
-            },
-            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [32:17, 32:54),
