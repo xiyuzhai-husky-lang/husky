@@ -8,12 +8,14 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         argument: ExprIdx,
     ) -> ExprTermResult<LocalTerm> {
-        let function_term = self
+        // todo: implicit arguments
+        let function = self
             .infer_new_expr_term(function)
             .ok_or(DerivedExprTermError::Todo)?;
-        let argument_term = self
+        let argument = self
             .infer_new_expr_term(argument)
             .ok_or(DerivedExprTermError::Todo)?;
-        Ok(todo!())
+        LocalTerm::new_application(self.db, function, argument)
+            .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

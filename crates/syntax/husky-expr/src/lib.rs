@@ -164,6 +164,7 @@ pub enum Expr {
         template: ExprIdx,
         implicit_arguments: ImplicitArgumentList,
     },
+    // todo: implicit arguments
     ExplicitApplication {
         function: ExprIdx,
         argument: ExprIdx,

@@ -23,10 +23,14 @@ pub enum DerivedExprTermError {
     PrefixOprTermNotInferred,
     #[error("AmbiguousTilde")]
     AmbiguousTilde,
-    #[error("TildeTermError")]
-    TildeTerm(TermError),
+    #[error("TildeApplicationTermError")]
+    TildeApplicationTerm(TermError),
     #[error("TypePathTypeError")]
     TypePathTypeError,
+    #[error("OptionApplicationTermError")]
+    OptionApplicationTerm(TermError),
+    #[error("ExplicitApplicationTerm")]
+    ExplicitApplicationTerm(TermError),
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;

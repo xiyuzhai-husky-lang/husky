@@ -3,6 +3,40 @@ use husky_print_utils::p;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use vec_like::VecSet;
 
+#[derive(Default, Debug, PartialEq, Eq)]
+pub struct LocalTermRegion {
+    pub(super) unresolved_terms: UnresolvedTerms,
+    pub(super) expectations: LocalTermExpectations,
+}
+
+impl LocalTermRegion {
+    pub fn unresolved_terms(&self) -> &UnresolvedTerms {
+        &self.unresolved_terms
+    }
+
+    pub fn expectations(&self) -> &LocalTermExpectations {
+        &self.expectations
+    }
+
+    pub(crate) fn new_implicit_symbol(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        variant: ImplicitSymbolVariant,
+    ) -> UnresolvedTermIdx {
+        self.unresolved_terms
+            .new_implicit_symbol(src_expr_idx, variant)
+    }
+
+    pub(crate) fn intern_unresolved_term(
+        &mut self,
+        src_expr_idx: ExprIdx,
+        unresolved_term: UnresolvedTerm,
+    ) -> LocalTerm {
+        self.unresolved_terms
+            .intern_unresolved_term(src_expr_idx, unresolved_term)
+    }
+}
+
 pub(crate) type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
 pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
 
