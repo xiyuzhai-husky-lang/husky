@@ -21,9 +21,10 @@ impl<'a> ExprTypeEngine<'a> {
                         Ok(match expectation
                             .final_destination(self.db, local_term_region.unresolved_terms())
                         {
-                            FinalDestination::TypePath(Right(PreludeTypePath::Num(
+                            FinalDestination::TypeOntology(Right(PreludeTypePath::Num(
                                 PreludeNumTypePath::Int(path),
                             ))) => match path {
+                                // MOM
                                 PreludeIntTypePath::I32 => self.term_menu.i32(),
                                 PreludeIntTypePath::I64 => self.term_menu.i64(),
                                 PreludeIntTypePath::ISize => self.term_menu.isize(),
@@ -38,12 +39,12 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::USize => todo!(),
                                 PreludeIntTypePath::R8 => todo!(),
                                 PreludeIntTypePath::R16 => todo!(),
-                                PreludeIntTypePath::R32 => todo!(),
+                                PreludeIntTypePath::R32 => self.term_menu.r32(),
                                 PreludeIntTypePath::R64 => todo!(),
                                 PreludeIntTypePath::R128 => todo!(),
                                 PreludeIntTypePath::RSize => todo!(),
                             },
-                            FinalDestination::TypePath(_)
+                            FinalDestination::TypeOntology(_)
                             | FinalDestination::AnyOriginal
                             | FinalDestination::AnyDerived => {
                                 return Ok(local_term_region
@@ -80,13 +81,13 @@ impl<'a> ExprTypeEngine<'a> {
                     FloatLiteral::Unspecified => match expectation
                         .final_destination(self.db, local_term_region.unresolved_terms())
                     {
-                        FinalDestination::TypePath(Right(PreludeTypePath::Num(
+                        FinalDestination::TypeOntology(Right(PreludeTypePath::Num(
                             PreludeNumTypePath::Float(path),
                         ))) => match path {
                             PreludeFloatTypePath::F32 => Ok(self.term_menu.f32().into()),
                             PreludeFloatTypePath::F64 => Ok(self.term_menu.f64().into()),
                         },
-                        FinalDestination::TypePath(_)
+                        FinalDestination::TypeOntology(_)
                         | FinalDestination::AnyOriginal
                         | FinalDestination::AnyDerived => Ok(local_term_region
                             .new_implicit_symbol(

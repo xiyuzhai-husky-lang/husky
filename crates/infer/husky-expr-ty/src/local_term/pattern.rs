@@ -64,7 +64,31 @@ impl LocalTermPattern {
             Term::Curry(_) => todo!(),
             Term::Ritchie(_) => todo!(),
             Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
+            Term::Application(term_application) => {
+                let expansion = db.term_application_expansion(term);
+                match expansion.f() {
+                    Term::Symbol(_) => todo!(),
+                    Term::EntityPath(path) => match path {
+                        TermEntityPath::Form(_) => todo!(),
+                        TermEntityPath::Trait(_) => todo!(),
+                        TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
+                            path: path.refine(db).expect("should work"),
+                            arguments: expansion
+                                .arguments(db)
+                                .iter()
+                                .copied()
+                                .map(Into::into)
+                                .collect(),
+                        },
+                        TermEntityPath::TypeConstructor(_) => todo!(),
+                    },
+                    Term::Application(_) => todo!(),
+                    Term::Subentity(_) => todo!(),
+                    Term::AsTraitSubentity(_) => todo!(),
+                    Term::TraitConstraint(_) => todo!(),
+                    _ => unreachable!(),
+                }
+            }
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
