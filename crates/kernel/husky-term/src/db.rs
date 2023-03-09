@@ -15,8 +15,10 @@ pub trait TermDb: DbWithJar<TermJar> + RawTypeDb {
         path: TypePath,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<Term>;
-    fn trai_path_ty_unchecked(&self, trai_path: TraitPath) -> TermResult<Term>;
-    fn form_path_ty_unchecked(&self, form_path: FormPath) -> TermResult<Term>;
+    fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term>;
+    fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term>;
+    fn ty_method_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>>;
+    fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>>;
 }
 
 impl<Db> TermDb for Db
@@ -45,11 +47,20 @@ where
         ty_path_ty(self, path, disambiguation)
     }
 
-    fn trai_path_ty_unchecked(&self, trai_path: TraitPath) -> TermResult<Term> {
-        trai_path_ty_unchecked(self, trai_path)
+    fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term> {
+        trai_path_ty_unchecked(self, trai_path)?.checked(self)
     }
 
-    fn form_path_ty_unchecked(&self, form_path: FormPath) -> TermResult<Term> {
-        form_path_ty_unchecked(self, form_path)
+    fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term> {
+        form_path_ty_unchecked(self, form_path)?.checked(self)
+    }
+
+    fn ty_method_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {
+        todo!()
+        // raw_ty_method_raw_ty(self, raw_ty, ident)
+    }
+
+    fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {
+        field_ty(self, ty, ident)
     }
 }

@@ -27,6 +27,7 @@ use husky_raw_term::*;
 use husky_term_prelude::*;
 use husky_vfs::*;
 use husky_word::Ident;
+use salsa::DebugWithDb;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(

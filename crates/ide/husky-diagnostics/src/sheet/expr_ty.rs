@@ -111,7 +111,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
             }
-            OriginalExprTypeError::FieldTypeError => format!("TypeError: "),
             OriginalExprTypeError::TypeMethodTypeError => format!("TypeError: "),
             OriginalExprTypeError::TypeCallTypeError => format!("TypeError: "),
             OriginalExprTypeError::TodoScopeResolution => {

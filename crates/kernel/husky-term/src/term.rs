@@ -77,6 +77,11 @@ impl Term {
         Ok(term)
     }
 
+    pub fn checked(self, db: &dyn TermDb) -> TermResult<Self> {
+        self.check(db)?;
+        Ok(self)
+    }
+
     fn check(self, db: &dyn TermDb) -> TermResult<()> {
         match self {
             Term::Literal(_) => Ok(()),
@@ -91,6 +96,14 @@ impl Term {
             Term::Subentity(term) => term.check(db),
             Term::AsTraitSubentity(term) => term.check(db),
             Term::TraitConstraint(term) => term.check(db),
+        }
+    }
+
+    fn check_is_ins_ty0(self, db: &dyn TermDb) -> TermResult<()> {
+        self.check(db);
+        match self.raw_ty(db)? {
+            Left(RawTerm::Category(cat)) if cat.universe().raw() == 1 => Ok(()),
+            _ => todo!(),
         }
     }
 

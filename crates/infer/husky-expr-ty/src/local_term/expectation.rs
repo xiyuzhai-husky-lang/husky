@@ -345,16 +345,12 @@ impl<'a> ExprTypeEngine<'a> {
                     level,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::ImplicitlyConvertible(exp) => {
-                print_debug_expr!(self, rule.src_expr_idx);
-                p!(self.debug(&exp));
-                exp.resolve_implicitly_convertible(
-                    self.db(),
-                    rule.expectee,
-                    level,
-                    unresolved_terms,
-                )
-            }
+            LocalTermExpectation::ImplicitlyConvertible(exp) => exp.resolve_implicitly_convertible(
+                self.db(),
+                rule.expectee,
+                level,
+                unresolved_terms,
+            ),
             LocalTermExpectation::EqsSort(ref expectation) => {
                 self.resolve_eqs_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }

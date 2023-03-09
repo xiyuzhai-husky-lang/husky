@@ -1,5 +1,7 @@
-mod path;
+mod entity_path;
+mod field;
 
-pub use self::path::*;
+pub use self::entity_path::*;
+pub use self::field::*;
 
 use crate::*;

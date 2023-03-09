@@ -27,7 +27,7 @@ pub(crate) fn field_raw_ty(
 }
 
 #[salsa::tracked(jar = RawTypeJar,  )]
-pub(crate) fn ty_path_field_raw_ty(
+pub fn ty_path_field_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
     _ident: Ident,
