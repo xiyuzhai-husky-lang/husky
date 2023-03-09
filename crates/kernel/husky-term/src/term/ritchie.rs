@@ -82,7 +82,10 @@ impl TermRitchie {
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        todo!()
+        for parameter_liasoned_ty in self.parameter_tys(db) {
+            parameter_liasoned_ty.check(db)?
+        }
+        self.return_ty(db).check_is_ins_ty0(db)
     }
 
     #[inline(always)]
@@ -180,6 +183,10 @@ pub struct TermRitchieParameterLiasonedType {
 }
 
 impl TermRitchieParameterLiasonedType {
+    fn check(self, db: &dyn TermDb) -> TermResult<()> {
+        self.ty.check_is_ins_ty0(db)
+    }
+
     fn reduce(self, db: &dyn TermDb) -> Self {
         Self {
             ty: self.ty.reduce(db),

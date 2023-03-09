@@ -26,8 +26,6 @@ impl From<TermError> for ExprTypeError {
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]
     UnresolvedTerm,
-    #[error("field type error")]
-    FieldTypeError,
     #[error("type method type error")]
     TypeMethodTypeError,
     #[error("type call type error")]
@@ -58,7 +56,7 @@ pub enum OriginalExprTypeError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
     #[error("field type error {0}")]
-    FieldTypeError(TermError),
+    FieldTypeTermError(TermError),
     #[error("type method type error {0}")]
     TypeMethodTypeError(TermError),
     #[error("type call type error {0}")]

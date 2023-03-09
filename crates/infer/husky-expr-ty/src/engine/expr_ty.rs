@@ -213,10 +213,13 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Expr::Field {
                 owner, ident_token, ..
-            } => Ok((
-                ExprDisambiguation::Trivial,
-                self.calc_field_expr_ty(owner, ident_token, local_term_region),
-            )),
+            } => {
+                print_debug_expr!(self, expr_idx);
+                Ok((
+                    ExprDisambiguation::Trivial,
+                    self.calc_field_expr_ty(owner, ident_token, local_term_region),
+                ))
+            }
             Expr::MethodCall {
                 self_argument,
                 ident_token,
@@ -329,14 +332,14 @@ impl<'a> ExprTypeEngine<'a> {
                     ModuleItemPath::Trait(trai_path) => Ok((
                         ExprDisambiguation::Trivial,
                         self.db
-                            .trai_path_ty_unchecked(trai_path)
+                            .trai_path_ty(trai_path)
                             .map(Into::into)
                             .map_err(|e| todo!()),
                     )),
                     ModuleItemPath::Form(form_path) => Ok((
                         ExprDisambiguation::Trivial,
                         self.db
-                            .form_path_ty_unchecked(form_path)
+                            .form_path_ty(form_path)
                             .map(Into::into)
                             .map_err(Into::into),
                     )),

@@ -13,10 +13,10 @@ mod variance;
 
 pub use self::db::*;
 pub use self::error::*;
+pub use self::field::*;
 pub use self::path::*;
 pub use self::term::*;
 
-use self::field::*;
 use self::method::*;
 #[cfg(test)]
 use self::tests::*;
