@@ -25,20 +25,14 @@ pub(crate) struct ExpectExplicitlyConvertibleOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTermOutcome for ExpectExplicitlyConvertibleOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::ExplicitlyConvertible(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
-}
-
 impl ExpectLocalTerm for ExpectExplicitlyConvertible {
     type Outcome = ExpectExplicitlyConvertibleOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        Some(self.destination)
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::ExplicitlyConvertible(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]

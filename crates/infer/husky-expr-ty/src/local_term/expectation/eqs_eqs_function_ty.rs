@@ -15,8 +15,11 @@ impl ExpectEqsFunctionType {
 impl ExpectLocalTerm for ExpectEqsFunctionType {
     type Outcome = ExpectEqsFunctionTypeOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        None
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::EqsRitchieCallType(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -50,15 +53,6 @@ pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
         parameter_ty: LocalTerm,
         return_ty: LocalTerm,
     },
-}
-
-impl ExpectLocalTermOutcome for ExpectEqsFunctionTypeOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::EqsRitchieCallType(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
 }
 
 impl<'a> ExprTypeEngine<'a> {

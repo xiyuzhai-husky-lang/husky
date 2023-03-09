@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         final_destination: FinalDestination,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
-        let Some(function_ty_outcome) = self.infer_new_expr_ty_with_expectation_returned(
+        let Some(function_ty_outcome) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(final_destination),
             local_term_region,

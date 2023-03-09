@@ -12,8 +12,11 @@ pub(crate) struct ExpectEqsRefMutApplication {
 impl ExpectLocalTerm for ExpectEqsRefMutApplication {
     type Outcome = ExpectEqsRefMutApplicationOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        None
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::EqsRefMutApplication(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -31,15 +34,6 @@ pub(crate) struct ExpectEqsRefMutApplicationOutcome {
     destination: LocalTerm,
     /// T
     inner_ty: LocalTerm,
-}
-
-impl ExpectLocalTermOutcome for ExpectEqsRefMutApplicationOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::EqsRefMutApplication(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
 }
 
 impl<'a> ExprTypeEngine<'a> {

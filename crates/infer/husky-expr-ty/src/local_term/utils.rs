@@ -25,7 +25,9 @@ impl LocalTerm {
                 Term::EntityPath(path) => match path {
                     TermEntityPath::Form(_) => todo!(),
                     TermEntityPath::Trait(_) => todo!(),
-                    TermEntityPath::TypeOntology(path) => FinalDestination::TypePath(path),
+                    TermEntityPath::TypeOntology(path) => {
+                        FinalDestination::TypePath(path.refine(db).expect("should be checked"))
+                    }
                     TermEntityPath::TypeConstructor(path) => {
                         unreachable!("type constructor is not a type!")
                     }
@@ -43,9 +45,9 @@ impl LocalTerm {
                         Term::EntityPath(path) => match path {
                             TermEntityPath::Form(_) => todo!(),
                             TermEntityPath::Trait(_) => todo!(),
-                            TermEntityPath::TypeOntology(ty_path) => {
-                                FinalDestination::TypePath(ty_path)
-                            }
+                            TermEntityPath::TypeOntology(ty_path) => FinalDestination::TypePath(
+                                ty_path.refine(db).expect("should be checked"),
+                            ),
                             TermEntityPath::TypeConstructor(_) => todo!(),
                         },
                         Term::Category(_) => todo!(),

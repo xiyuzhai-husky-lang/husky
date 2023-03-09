@@ -34,20 +34,14 @@ pub(crate) struct ExpectImplicitlyConvertibleOutcome {
     implicit_conversion: ImplicitConversion,
 }
 
-impl ExpectLocalTermOutcome for ExpectImplicitlyConvertibleOutcome {
-    fn downcast_ref(resolved_ok: &LocalTermExpectationOutcome) -> &Self {
-        match resolved_ok {
-            LocalTermExpectationOutcome::ImplicitlyConvertible(resolved_ok) => resolved_ok,
-            _ => unreachable!(),
-        }
-    }
-}
-
 impl ExpectLocalTerm for ExpectImplicitlyConvertible {
     type Outcome = ExpectImplicitlyConvertibleOutcome;
 
-    fn destination(&self) -> Option<LocalTerm> {
-        Some(self.dst)
+    fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
+        match outcome {
+            LocalTermExpectationOutcome::ImplicitlyConvertible(outcome) => outcome,
+            _ => unreachable!(),
+        }
     }
 
     #[inline(always)]
@@ -317,22 +311,16 @@ impl ExpectImplicitlyConvertible {
                 actions: vec![],
             });
         }
-        let src_pattern = match src.pattern(db, unresolved_terms) {
-            Ok(expectee_pattern) => expectee_pattern,
-            Err(_) => todo!(),
-        };
-        let dst_patt = match self.dst.pattern(db, unresolved_terms) {
-            Ok(dst_patt) => dst_patt,
-            Err(_) => todo!(),
-        };
+        let src_patt = src.pattern(db, unresolved_terms);
+        let dst_patt = self.dst.pattern(db, unresolved_terms);
         match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path: dst_path,
                 arguments: dst_arguments,
-            } => match src_pattern {
+            } => match src_patt {
                 LocalTermPattern::TypeOntology {
-                    path: Right(PreludeTypePath::Never),
+                    path: Right(PreludeTypePath::NEVER),
                     ..
                 } => Some(LocalTermExpectationEffect {
                     result: Ok(ExpectImplicitlyConvertibleOutcome {
@@ -352,7 +340,7 @@ impl ExpectImplicitlyConvertible {
                     p!(dst_path.debug(db), src_path.debug(db));
                     todo!()
                 }
-                LocalTermPattern::ImplicitSymbol(src_implicit_symbol) => match level {
+                LocalTermPattern::ImplicitSymbol(_, src_implicit_symbol) => match level {
                     LocalTermResolveLevel::Weak => None,
                     LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                         actions: vec![TermResolveAction::SubstituteImplicitSymbol {
@@ -375,7 +363,7 @@ impl ExpectImplicitlyConvertible {
                 }
             },
             LocalTermPattern::Curry {} => todo!(),
-            LocalTermPattern::ImplicitSymbol(dst_implicit_symbol) => match level {
+            LocalTermPattern::ImplicitSymbol(_, dst_implicit_symbol) => match level {
                 LocalTermResolveLevel::Weak => None,
                 LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                     actions: vec![TermResolveAction::SubstituteImplicitSymbol {

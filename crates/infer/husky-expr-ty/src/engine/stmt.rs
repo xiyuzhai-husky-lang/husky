@@ -90,11 +90,9 @@ impl<'a> ExprTypeEngine<'a> {
                 Some(self.term_menu.unit().into())
             }
             Stmt::Break { .. } => Some(self.term_menu.never().into()),
-            Stmt::Eval { expr_idx } => self.infer_new_expr_ty_with_ty_returned(
-                expr_idx,
-                expr_expectation,
-                local_term_region,
-            ),
+            Stmt::Eval { expr_idx } => {
+                self.infer_new_expr_ty(expr_idx, expr_expectation, local_term_region)
+            }
             Stmt::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
@@ -103,11 +101,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty_with_ty_returned(
-                        bound_expr,
-                        ExpectAnyOriginal,
-                        local_term_region,
-                    ) {
+                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal, local_term_region) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
                         None => (),
                     }
@@ -124,7 +118,7 @@ impl<'a> ExprTypeEngine<'a> {
                             );
                         }
                         None => {
-                            if let Some(ty) = self.infer_new_expr_ty_with_ty_returned(
+                            if let Some(ty) = self.infer_new_expr_ty(
                                 bound_expr,
                                 ExpectAnyOriginal,
                                 local_term_region,
@@ -303,7 +297,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch.condition.as_ref().copied().map(|condition| {
-            self.infer_new_expr_ty_with_ty_returned(
+            self.infer_new_expr_ty(
                 condition,
                 self.expect_implicitly_convertible_to_bool(),
                 local_term_region,

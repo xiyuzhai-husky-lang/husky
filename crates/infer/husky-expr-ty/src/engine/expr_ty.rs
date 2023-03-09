@@ -19,24 +19,7 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectLocalTerm> {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr_ty_with_resolved_ty_returned(
-        &mut self,
-        expr_idx: ExprIdx,
-        expr_ty_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
-    ) -> Option<Term> {
-        let ty = self.infer_new_expr_ty_with_ty_returned(
-            expr_idx,
-            expr_ty_expectation,
-            local_term_region,
-        )?;
-        match ty {
-            LocalTerm::Resolved(ty) => Some(ty),
-            LocalTerm::Unresolved(ty) => self.resolve_term(ty, local_term_region),
-        }
-    }
-
-    pub(super) fn infer_new_expr_ty_with_ty_returned<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty<E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -56,7 +39,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-    pub(super) fn infer_new_expr_ty_with_expectation_returned<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty_for_outcome<E: ExpectLocalTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -68,14 +51,14 @@ impl<'a> ExprTypeEngine<'a> {
         let expectation_idx =
             self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
-        let resolved_ok = match expectation_idx.into_option() {
+        let outcome = match expectation_idx.into_option() {
             Some(expectation_idx) => local_term_region[expectation_idx]
                 .resolve_progress()
-                .resolved_ok()
+                .outcome::<E>()
                 .cloned(),
             None => None,
         };
-        resolved_ok
+        outcome
     }
 
     #[inline(always)]
@@ -171,11 +154,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::Be {
                 src, ref target, ..
             } => {
-                match self.infer_new_expr_ty_with_ty_returned(
-                    src,
-                    ExpectAnyOriginal,
-                    local_term_region,
-                ) {
+                match self.infer_new_expr_ty(src, ExpectAnyOriginal, local_term_region) {
                     Some(src_ty) => match target {
                         Ok(target) => todo!(),
                         Err(_) => (),
@@ -250,12 +229,8 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Expr::Bracketed { item, .. } => Ok((
                 ExprDisambiguation::Trivial,
-                self.infer_new_expr_ty_with_ty_returned(
-                    item,
-                    expr_ty_expectation.clone(),
-                    local_term_region,
-                )
-                .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
+                self.infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
+                    .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             )),
             Expr::NewTuple { items, .. } => todo!(),
             Expr::IndexOrCompositionWithList {
@@ -387,13 +362,13 @@ impl<'a> ExprTypeEngine<'a> {
         implicit_arguments: &Option<ImplicitArgumentList>,
         items: &idx_arena::ArenaIdxRange<Expr>,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        let Some(expectation_ok) = self.infer_new_expr_ty_with_expectation_returned(
+        let Some(expectation_ok) = self.infer_new_expr_ty_for_outcome(
                 function,
                 ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self.db(), local_term_region.unresolved_terms())),
                 local_term_region,
             ) else {
                 for item in items {
-                    self.infer_new_expr_ty_with_ty_returned(item, ExpectAnyDerived, local_term_region);
+                    self.infer_new_expr_ty(item, ExpectAnyDerived, local_term_region);
                 }
                 return
                     Err(
@@ -434,10 +409,10 @@ impl<'a> ExprTypeEngine<'a> {
         indices: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        let Some(owner_ty) = self.infer_new_expr_ty_with_ty_returned(owner, ExpectAnyOriginal, local_term_region)
+        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal, local_term_region)
         else  {
             for index in indices {
-                self.infer_new_expr_ty_with_ty_returned(index, ExpectAnyDerived, local_term_region);
+                self.infer_new_expr_ty(index, ExpectAnyDerived, local_term_region);
             }
             let e = DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred;
             return Err( DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into()            )

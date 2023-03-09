@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(self_expr_ty) =
-            self.infer_new_expr_ty_with_resolved_ty_returned( self_argument, ExpectAnyOriginal,local_term_region)
+            self.infer_new_expr_ty( self_argument, ExpectAnyOriginal,local_term_region)
             else {
                 if let Some(implicit_arguments) = implicit_arguments {
                     todo!()
@@ -22,7 +22,11 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let method_ty = match self.db.ty_method_ty(self_expr_ty, ident_token.ident()) {
+        let self_expr_ty_intrinsic: Term = todo!();
+        let method_ty = match self
+            .db
+            .ty_method_ty(self_expr_ty_intrinsic, ident_token.ident())
+        {
             Ok(_) => todo!(),
             Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
         };

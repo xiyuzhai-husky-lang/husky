@@ -48,6 +48,7 @@ pub struct TermMenu0 {
     i16: Term,
     i32: Term,
     i64: Term,
+    isize: Term,
     f32: Term,
     f64: Term,
     r32: Term,
@@ -112,6 +113,7 @@ impl TermMenu0 {
             i16: TermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
             i32: TermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
             i64: TermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
+            isize: TermEntityPath::TypeOntology(entity_path_menu.isize_ty_path()).into(),
             f32: TermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
             f64: TermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
             r32: TermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
@@ -264,6 +266,10 @@ impl TermMenu0 {
 
     pub fn i64(&self) -> Term {
         self.i64
+    }
+
+    pub fn isize(&self) -> Term {
+        self.isize
     }
 
     pub fn f32(&self) -> Term {
