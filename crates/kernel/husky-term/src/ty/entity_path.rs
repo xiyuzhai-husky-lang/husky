@@ -32,7 +32,7 @@ pub(crate) fn ty_constructor_path_ty_unchecked(
     Term::from_raw_unchecked(
         db,
         ty_constructor_path_raw_ty(db, path)?,
-        TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path),
+        TermTypeExpectation::FinalDestinationEqsSort,
     )
 }
 
@@ -41,7 +41,7 @@ pub(crate) fn trai_path_ty_unchecked(db: &dyn TermDb, path: TraitPath) -> TermRe
     Term::from_raw_unchecked(
         db,
         trai_path_raw_ty(db, path)?,
-        /* ad hoc but enough */ TermTypeExpectation::Any,
+        TermTypeExpectation::FinalDestinationEqsSort,
     )
 }
 
