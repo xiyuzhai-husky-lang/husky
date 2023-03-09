@@ -6,12 +6,11 @@ use super::*;
 pub enum PreludeTypePath {
     Basic(PreludeBasicTypePath),
     Num(PreludeNumTypePath),
+    Borrow(PreludeBorrowTypePath),
     Nat,
     Lifetime,
     Module,
     Trait,
-    Ref,
-    RefMut,
     List,
     Array,
     Array2d,
@@ -32,6 +31,13 @@ pub enum PreludeBasicTypePath {
     Unit,
     Never,
     Bool,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum PreludeBorrowTypePath {
+    Ref,
+    RefMut,
+    Leash,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -132,8 +138,8 @@ pub(crate) fn prelude_ty_path(
         path if path == menu.lifetime_ty_path() => PreludeTypePath::Lifetime.into(),
         path if path == menu.module_ty_path() => PreludeTypePath::Module.into(),
         path if path == menu.trai_ty_path() => PreludeTypePath::Trait.into(),
-        path if path == menu.ref_ty_path() => PreludeTypePath::Ref.into(),
-        path if path == menu.ref_mut_ty_path() => PreludeTypePath::RefMut.into(),
+        path if path == menu.ref_ty_path() => PreludeBorrowTypePath::Ref.into(),
+        path if path == menu.ref_mut_ty_path() => PreludeBorrowTypePath::RefMut.into(),
         path if path == menu.list_ty_path() => PreludeTypePath::List.into(),
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),

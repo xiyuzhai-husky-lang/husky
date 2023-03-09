@@ -44,6 +44,29 @@ impl LocalTerm {
             (LocalTerm::Unresolved(_), LocalTerm::Unresolved(_)) => todo!(),
         }
     }
+
+    pub(crate) fn unravel_borrow(
+        self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> Self {
+        match self.pattern(db, unresolved_terms) {
+            LocalTermPattern::TypeOntology {
+                path: Right(PreludeTypePath::Borrow(path)),
+                arguments,
+            } => match path {
+                PreludeBorrowTypePath::Ref | PreludeBorrowTypePath::RefMut => {
+                    assert_eq!(arguments.len(), 2);
+                    todo!()
+                }
+                PreludeBorrowTypePath::Leash => {
+                    assert_eq!(arguments.len(), 1);
+                    arguments[0]
+                }
+            },
+            _ => self,
+        }
+    }
 }
 
 impl LocalTerm {
