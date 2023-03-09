@@ -2,22 +2,22 @@
 #![feature(const_trait_impl)]
 #![feature(const_default_impls)]
 mod db;
+mod entity_path;
 mod error;
 mod field;
 mod method;
-mod path;
 mod term;
 #[cfg(test)]
 mod tests;
 mod variance;
 
 pub use self::db::*;
+pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::field::*;
-pub use self::path::*;
+pub use self::method::*;
 pub use self::term::*;
 
-use self::method::*;
 #[cfg(test)]
 use self::tests::*;
 use self::variance::*;
@@ -48,7 +48,7 @@ pub struct RawTypeJar(
     form_entity_variance_crate_dependencies,
     application_expansion_salsa,
     ApplicationArguments,
-    entity_raw_ty_method_raw_ty,
+    ty_path_ty_method_raw_ty,
     application_raw_ty_method_raw_ty,
     ty_path_field_raw_ty,
     application_raw_ty_field_raw_ty,

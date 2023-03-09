@@ -256,6 +256,21 @@ DiagnosticSheet {
                 severity: Error,
                 range: [106:9, 106:24),
             },
+            Diagnostic {
+                message: "unresolved term",
+                severity: Error,
+                range: [42:21, 42:24),
+            },
+            Diagnostic {
+                message: "unresolved term",
+                severity: Error,
+                range: [63:71, 63:72),
+            },
+            Diagnostic {
+                message: "unresolved term",
+                severity: Error,
+                range: [91:71, 91:72),
+            },
         ],
     },
 }

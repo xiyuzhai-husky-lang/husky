@@ -56,8 +56,7 @@ where
     }
 
     fn ty_method_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {
-        todo!()
-        // raw_ty_method_raw_ty(self, raw_ty, ident)
+        ty_method_ty(self, ty, ident)
     }
 
     fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {

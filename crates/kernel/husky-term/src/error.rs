@@ -37,6 +37,10 @@ pub enum TermError {
         parameter_ty: Term,
         argument_ty: Either<Term, PreludeTypePath>,
     },
+    #[error("TypePathApplicationMethodDeclError")]
+    TypePathApplicationMethodDeclError,
+    #[error("SignatureError")]
+    SignatureError,
 }
 
 impl From<EntityPathError> for TermError {

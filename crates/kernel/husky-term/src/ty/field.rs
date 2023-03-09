@@ -1,6 +1,5 @@
 use super::*;
 use husky_raw_ty::ty_path_field_raw_ty;
-use husky_ty_expectation::TermTypeExpectation;
 
 pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermResult<Option<Term>> {
     match owner_ty {
