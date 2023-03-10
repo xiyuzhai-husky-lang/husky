@@ -4,6 +4,7 @@ mod term;
 pub use self::pattern::*;
 pub use self::term::*;
 
+use crate::*;
 use husky_entity_path::EntityPathError;
 use husky_expr::ExprIdx;
 use husky_term::TermError;

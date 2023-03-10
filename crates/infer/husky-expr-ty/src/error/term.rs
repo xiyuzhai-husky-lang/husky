@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum ExprTermError {
     #[error("original expr term error: {0}")]
     Original(#[from] OriginalExprTermError),
@@ -9,12 +10,14 @@ pub enum ExprTermError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalExprTermError {
     #[error("todo")]
     Todo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum DerivedExprTermError {
     #[error("expr error")]
     ExprError,

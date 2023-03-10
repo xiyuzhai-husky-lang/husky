@@ -19,7 +19,7 @@ pub struct VfsPathMenu {
     core_option: ModulePath,
     core_prelude: ModulePath,
     core_raw_bits: ModulePath,
-    core_vec: ModulePath,
+    core_list: ModulePath,
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
@@ -37,6 +37,7 @@ impl VfsPathMenu {
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
         let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
+        let core_list = ModulePath::new_child(db, core, db.it_ident_borrowed("list").unwrap());
         let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("mem").unwrap());
         let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
@@ -47,7 +48,6 @@ impl VfsPathMenu {
             ModulePath::new_child(db, core, db.it_ident_borrowed("raw_bits").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
         let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
-        let core_vec = ModulePath::new_child(db, core, db.it_ident_borrowed("vec").unwrap());
         Ok(Self {
             core_package,
             std_package,
@@ -64,7 +64,7 @@ impl VfsPathMenu {
             core_raw_bits,
             core_slice,
             core_str,
-            core_vec,
+            core_list,
         })
     }
 
@@ -108,8 +108,8 @@ impl VfsPathMenu {
     }
 
     /// core::vec
-    pub fn core_vec(&self) -> ModulePath {
-        self.core_vec
+    pub fn core_list(&self) -> ModulePath {
+        self.core_list
     }
 
     pub fn std(&self) -> ModulePath {
@@ -155,5 +155,5 @@ fn vfs_path_menu_works() {
         menu.core_raw_bits().to_string_with_db(&db),
         "core::raw_bits"
     );
-    assert_eq!(menu.core_vec().to_string_with_db(&db), "core::vec");
+    assert_eq!(menu.core_list().to_string_with_db(&db), "core::list");
 }

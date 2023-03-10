@@ -10,19 +10,26 @@ impl<'a> ExprTypeEngine<'a> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {
+                    p!(ty);
                     self.infer_new_expr_ty_discarded(
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                         local_term_region,
                     );
-                    self.infer_new_expr_term(ty)
+                    let pattern_ty = self.infer_new_expr_term(ty);
+
+                    p!(self.expr_terms[ty].debug(self.db));
+                    pattern_ty
                 }
                 None => None,
             },
             Err(_) => todo!(),
         };
+        p!(let_variable_pattern.debug(self.db));
+        p!(pattern_ty.debug(self.db));
         match pattern_ty {
             Some(ty) => {
+                p!(ty.debug(self.db));
                 initial_value.as_ref().ok().copied().map(|initial_value| {
                     self.infer_new_expr_ty_discarded(
                         initial_value,

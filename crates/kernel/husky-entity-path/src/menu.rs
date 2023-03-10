@@ -87,7 +87,7 @@ impl EntityPathMenu {
         let core_num = path_menu.core_num();
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
-        let core_vec = path_menu.core_vec();
+        let core_list = path_menu.core_list();
         let option_ty_path = TypePath::new(
             db,
             core_option,
@@ -300,7 +300,7 @@ impl EntityPathMenu {
         );
         let list_ty_path = TypePath::new(
             db,
-            core_vec,
+            core_list,
             db.it_ident_borrowed("List").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,

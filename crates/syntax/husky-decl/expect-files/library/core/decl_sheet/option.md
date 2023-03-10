@@ -1,29 +1,28 @@
 Ok(
-    DefnSheet {
-        defns: [
+    DeclSheet {
+        decls: [
             (
-                DefnRegionPath::Entity(
+                DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
-                        ModuleItemPath::Trait(
-                            TraitPath(`std::ops::Add`),
+                        ModuleItemPath::Type(
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                     ),
                 ),
                 Ok(
-                    Defn::Trait(
-                        TraitDefn {
-                            path: TraitPath(`std::ops::Add`),
-                            decl: TraitDecl {
-                                path: TraitPath(`std::ops::Add`),
-                                ast_idx: 3,
+                    Decl::Type(
+                        TypeDecl::Enum(
+                            EnumTypeDecl {
+                                path: TypePath(`core::option::Option`, `Enum`),
+                                ast_idx: 0,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
-                                                    ModuleItemPath::Trait(
-                                                        TraitPath(`std::ops::Add`),
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::option::Option`, `Enum`),
                                                     ),
                                                 ),
                                             ),
@@ -55,15 +54,15 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            10,
+                                                            5,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
-                                                                    ident: `B`,
+                                                                    ident: `T`,
                                                                     token_idx: TokenIdx(
-                                                                        9,
+                                                                        4,
                                                                     ),
                                                                 },
                                                             },
@@ -85,7 +84,7 @@ Ok(
                                         ImplicitParameterDeclList {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
-                                                    8,
+                                                    3,
                                                 ),
                                             ),
                                             implicit_parameters: [
@@ -98,12 +97,12 @@ Ok(
                                                                 ident: Ident(
                                                                     Word(
                                                                         Id {
-                                                                            value: 110,
+                                                                            value: 97,
                                                                         },
                                                                     ),
                                                                 ),
                                                                 token_idx: TokenIdx(
-                                                                    9,
+                                                                    4,
                                                                 ),
                                                             },
                                                         },
@@ -118,7 +117,7 @@ Ok(
                                             rangle: Ok(
                                                 RightAngleBracketToken(
                                                     TokenIdx(
-                                                        10,
+                                                        5,
                                                     ),
                                                 ),
                                             ),
@@ -126,7 +125,7 @@ Ok(
                                     ),
                                 ),
                             },
-                        },
+                        ),
                     ),
                 ),
             ),

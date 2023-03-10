@@ -5,17 +5,17 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Type(
-                            TypePath(`core::list::List`, `Extern`),
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                     ),
                 ),
                 Ok(
                     Defn::Type(
-                        TypeDefn::Extern(
-                            ExternTypeDefn {
-                                path: TypePath(`core::list::List`, `Extern`),
-                                decl: ExternTypeDecl {
-                                    path: TypePath(`core::list::List`, `Extern`),
+                        TypeDefn::Enum(
+                            EnumTypeDefn {
+                                path: TypePath(`core::option::Option`, `Enum`),
+                                decl: EnumTypeDecl {
+                                    path: TypePath(`core::option::Option`, `Enum`),
                                     ast_idx: 0,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
-                                                            TypePath(`core::list::List`, `Extern`),
+                                                            TypePath(`core::option::Option`, `Enum`),
                                                         ),
                                                     ),
                                                 ),
@@ -56,15 +56,15 @@ Ok(
                                                     data: [
                                                         CurrentSymbol {
                                                             access_start: TokenIdx(
-                                                                6,
+                                                                5,
                                                             ),
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentToken {
-                                                                        ident: `E`,
+                                                                        ident: `T`,
                                                                         token_idx: TokenIdx(
-                                                                            5,
+                                                                            4,
                                                                         ),
                                                                     },
                                                                 },
@@ -92,27 +92,19 @@ Ok(
                                                 implicit_parameters: [
                                                     ImplicitParameterDecl {
                                                         pattern: ImplicitParameterDeclPattern {
-                                                            annotated_variance_token: Some(
-                                                                Covariant(
-                                                                    CovariantToken {
-                                                                        token_idx: TokenIdx(
-                                                                            4,
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            annotated_variance_token: None,
                                                             symbol: 0,
                                                             variant: Type0 {
                                                                 ident_token: IdentToken {
                                                                     ident: Ident(
                                                                         Word(
                                                                             Id {
-                                                                                value: 31,
+                                                                                value: 97,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     token_idx: TokenIdx(
-                                                                        5,
+                                                                        4,
                                                                     ),
                                                                 },
                                                             },
@@ -127,7 +119,7 @@ Ok(
                                                 rangle: Ok(
                                                     RightAngleBracketToken(
                                                         TokenIdx(
-                                                            6,
+                                                            5,
                                                         ),
                                                     ),
                                                 ),

@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 14,
+    [salsa id]: 11,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -7,7 +7,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [4:1, 4:10),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside module",
+                severity: Error,
+                range: [5:1, 5:7),
+            },
+        ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],

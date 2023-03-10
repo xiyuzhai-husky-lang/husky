@@ -136,7 +136,7 @@ Ok(
                                                             Ident(
                                                                 Word(
                                                                     Id {
-                                                                        value: 143,
+                                                                        value: 145,
                                                                     },
                                                                 ),
                                                             ),
@@ -148,7 +148,7 @@ Ok(
                                                             Ident(
                                                                 Word(
                                                                     Id {
-                                                                        value: 380,
+                                                                        value: 382,
                                                                     },
                                                                 ),
                                                             ),
@@ -413,7 +413,7 @@ Ok(
                                                                     Ident(
                                                                         Word(
                                                                             Id {
-                                                                                value: 143,
+                                                                                value: 145,
                                                                             },
                                                                         ),
                                                                     ),
@@ -425,7 +425,7 @@ Ok(
                                                                     Ident(
                                                                         Word(
                                                                             Id {
-                                                                                value: 380,
+                                                                                value: 382,
                                                                             },
                                                                         ),
                                                                     ),
@@ -1699,7 +1699,7 @@ Ok(
                                                         frame_var_ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 203,
+                                                                    value: 205,
                                                                 },
                                                             ),
                                                         ),
@@ -1807,7 +1807,7 @@ Ok(
                                                         frame_var_ident: Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 205,
+                                                                    value: 207,
                                                                 },
                                                             ),
                                                         ),
@@ -2140,7 +2140,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 339,
+                                                                    value: 341,
                                                                 },
                                                             ),
                                                         ),
@@ -2152,7 +2152,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 381,
+                                                                    value: 383,
                                                                 },
                                                             ),
                                                         ),
@@ -2164,7 +2164,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 382,
+                                                                    value: 384,
                                                                 },
                                                             ),
                                                         ),
@@ -2176,7 +2176,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 383,
+                                                                    value: 385,
                                                                 },
                                                             ),
                                                         ),
@@ -2188,7 +2188,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 384,
+                                                                    value: 386,
                                                                 },
                                                             ),
                                                         ),
@@ -2200,7 +2200,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 385,
+                                                                    value: 387,
                                                                 },
                                                             ),
                                                         ),
@@ -2212,7 +2212,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 244,
                                                                 },
                                                             ),
                                                         ),
@@ -2224,7 +2224,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 386,
+                                                                    value: 388,
                                                                 },
                                                             ),
                                                         ),
@@ -2236,7 +2236,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 387,
+                                                                    value: 389,
                                                                 },
                                                             ),
                                                         ),
@@ -2248,7 +2248,7 @@ Ok(
                                                         Ident(
                                                             Word(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 244,
                                                                 },
                                                             ),
                                                         ),
