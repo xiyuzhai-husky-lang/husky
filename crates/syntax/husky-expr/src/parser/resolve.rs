@@ -105,7 +105,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     OriginalExprError::UnexpectedSheba(token_idx).into(),
                 )),
                 Punctuation::Shr => {
-                    ResolvedToken::BinaryOpr(token_idx, BinaryPureClosedOpr::Shr.into())
+                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Shift(BinaryShiftOpr::Shr))
                 }
                 Punctuation::DeriveAssign => return TokenResolveResult::Break(()),
                 Punctuation::Minus => ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Minus),
@@ -150,7 +150,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     _ => match self.finished_expr().is_some() {
                         true => ResolvedToken::BinaryOpr(
                             token_idx,
-                            BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
+                            BinaryOpr::Closed(BinaryClosedOpr::BitOr),
                         ),
                         false => ResolvedToken::Bra(token_idx, Bracket::Vertical),
                     },
@@ -175,17 +175,16 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     Some(_) => ResolvedToken::BinaryOpr(
                         token_idx,
-                        BinaryOpr::PureClosed(BinaryPureClosedOpr::BitOr),
+                        BinaryOpr::Closed(BinaryClosedOpr::BitOr),
                     ),
                 },
                 Punctuation::DotDot => todo!(),
                 Punctuation::ColonColon => {
                     ResolvedToken::BinaryOpr(token_idx, BinaryOpr::ScopeResolution)
                 }
-                Punctuation::Star => ResolvedToken::BinaryOpr(
-                    token_idx,
-                    BinaryOpr::PureClosed(BinaryPureClosedOpr::Mul),
-                ),
+                Punctuation::Star => {
+                    ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Closed(BinaryClosedOpr::Mul))
+                }
                 Punctuation::Eq => match self.env() {
                     Some(env) => match env {
                         ExprEnvironment::LetVariablesType => match self.last_bra() {
@@ -194,7 +193,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         },
                         ExprEnvironment::WithinBracket(_) => todo!(),
                     },
-                    None => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Assign(None)),
+                    None => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Assign),
                 },
                 Punctuation::EqEq => todo!(),
                 Punctuation::ForAll => todo!(),

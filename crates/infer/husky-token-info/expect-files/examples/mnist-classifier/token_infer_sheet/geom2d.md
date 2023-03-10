@@ -106,7 +106,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 239,
+                        value: 240,
                     },
                 ),
             },
@@ -133,7 +133,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 239,
+                        value: 240,
                     },
                 ),
             },
@@ -200,7 +200,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 265,
+                        value: 266,
                     },
                 ),
             },
@@ -237,7 +237,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 265,
+                        value: 266,
                     },
                 ),
             },
@@ -349,7 +349,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 241,
+                        value: 242,
                     },
                 ),
             },
@@ -413,7 +413,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 267,
+                        value: 268,
                     },
                 ),
             },
@@ -437,7 +437,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 267,
+                        value: 268,
                     },
                 ),
             },
@@ -537,7 +537,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 243,
+                        value: 244,
                     },
                 ),
             },
@@ -590,7 +590,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 269,
+                        value: 270,
                     },
                 ),
             },
@@ -826,7 +826,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 246,
+                        value: 247,
                     },
                 ),
             },
@@ -890,7 +890,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 271,
+                        value: 272,
                     },
                 ),
             },
@@ -914,7 +914,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 271,
+                        value: 272,
                     },
                 ),
             },
@@ -993,118 +993,6 @@ Ok(
                             TypeItemPath(
                                 Id {
                                     value: 36,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 248,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 273,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 45,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 273,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 37,
                                 },
                             ),
                         ),
@@ -1216,7 +1104,7 @@ Ok(
                         TypeItem(
                             TypeItemPath(
                                 Id {
-                                    value: 38,
+                                    value: 37,
                                 },
                             ),
                         ),
@@ -1239,6 +1127,118 @@ Ok(
                 expr_region: ExprRegion(
                     Id {
                         value: 250,
+                    },
+                ),
+            },
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Ident(
+                        Word(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 275,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            SelfValue,
+            None,
+            Field,
+            None,
+            InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: RegularParameter {
+                    ident: Ident(
+                        Word(
+                            Id {
+                                value: 45,
+                            },
+                        ),
+                    ),
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 275,
+                    },
+                ),
+            },
+            None,
+            Field,
+            None,
+            Entity(
+                Some(
+                    AssociatedItem(
+                        TypeItem(
+                            TypeItemPath(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: Parameter {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 251,
                     },
                 ),
             },
@@ -1282,7 +1282,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 275,
+                        value: 276,
                     },
                 ),
             },
@@ -1311,7 +1311,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 275,
+                        value: 276,
                     },
                 ),
             },
@@ -1334,7 +1334,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 275,
+                        value: 276,
                     },
                 ),
             },
@@ -1411,7 +1411,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 251,
+                        value: 252,
                     },
                 ),
             },
@@ -1464,7 +1464,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 276,
+                        value: 277,
                     },
                 ),
             },
@@ -1502,7 +1502,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 252,
+                        value: 253,
                     },
                 ),
             },
@@ -1529,7 +1529,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 252,
+                        value: 253,
                     },
                 ),
             },
@@ -1573,7 +1573,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1591,7 +1591,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1605,7 +1605,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1623,7 +1623,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1639,7 +1639,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1653,7 +1653,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1676,7 +1676,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1690,7 +1690,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1702,7 +1702,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1721,7 +1721,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1744,7 +1744,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1764,7 +1764,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1787,7 +1787,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1816,7 +1816,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -1831,7 +1831,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 277,
+                        value: 278,
                     },
                 ),
             },
@@ -2073,7 +2073,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 254,
+                        value: 255,
                     },
                 ),
             },
@@ -2143,7 +2143,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 278,
+                        value: 279,
                     },
                 ),
             },
@@ -2170,7 +2170,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 278,
+                        value: 279,
                     },
                 ),
             },
@@ -2208,7 +2208,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 255,
+                        value: 256,
                     },
                 ),
             },
@@ -2278,7 +2278,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 279,
+                        value: 280,
                     },
                 ),
             },
@@ -2305,7 +2305,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 279,
+                        value: 280,
                     },
                 ),
             },

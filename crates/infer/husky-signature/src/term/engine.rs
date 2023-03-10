@@ -177,10 +177,13 @@ impl<'a> SignatureRawTermEngine<'a> {
                     return  Err(DerivedSignatureRawTermError::CannotInferOperandRawTermInPrefix.into());
                 };
                 match opr {
-                    BinaryOpr::PureClosed(_) => todo!(),
+                    BinaryOpr::Closed(_) => todo!(),
+                    BinaryOpr::Shift(_) => todo!(),
                     BinaryOpr::Comparison(_) => todo!(),
                     BinaryOpr::ShortCircuitLogic(_) => todo!(),
-                    BinaryOpr::Assign(_) => todo!(),
+                    BinaryOpr::Assign => todo!(),
+                    BinaryOpr::AssignClosed(_) => todo!(),
+                    BinaryOpr::AssignShift(_) => todo!(),
                     BinaryOpr::ScopeResolution => todo!(),
                     BinaryOpr::Curry => Ok(RawTermCurry::new(
                         self.db,

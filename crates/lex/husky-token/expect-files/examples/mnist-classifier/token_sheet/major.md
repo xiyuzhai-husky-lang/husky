@@ -626,10 +626,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Add,
-                        ),
+                    AssignClosed(
+                        Add,
                     ),
                 ),
             ),
@@ -689,7 +687,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),

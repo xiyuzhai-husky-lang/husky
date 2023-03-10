@@ -92,7 +92,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         RemEuclid,
                     ),
                 ),

@@ -22,13 +22,19 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let self_expr_ty_intrinsic: Term = todo!();
-        let method_ty = match self
-            .db
-            .ty_method_ty(self_expr_ty_intrinsic, ident_token.ident())
-        {
-            Ok(_) => todo!(),
-            Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
+        let self_expr_ty_unravelled =
+            self_expr_ty.unravel_borrow(self.db, local_term_region.unresolved_terms());
+        let method_ty = match self_expr_ty_unravelled {
+            LocalTerm::Resolved(self_expr_ty_unravelled) => {
+                match self
+                    .db
+                    .ty_method_ty(self_expr_ty_unravelled, ident_token.ident())
+                {
+                    Ok(_) => todo!(),
+                    Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
+                }
+            }
+            LocalTerm::Unresolved(_) => todo!(),
         };
         self.calc_ritchie_call_arguments_expr_ty(
             expr_idx,

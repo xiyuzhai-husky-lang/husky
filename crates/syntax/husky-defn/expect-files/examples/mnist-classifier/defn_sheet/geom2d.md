@@ -1951,7 +1951,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 1,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -1995,7 +1995,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 6,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -3430,7 +3430,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 3,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -3440,7 +3440,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 7,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -4064,7 +4064,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 2,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -4074,7 +4074,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 6,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -4084,7 +4084,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 8,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Add,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -6291,7 +6291,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 3,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -6301,7 +6301,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 7,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -6925,7 +6925,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 2,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -6935,7 +6935,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 6,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -6945,7 +6945,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 8,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Add,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -7716,7 +7716,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 2,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -7726,7 +7726,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 6,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -7736,7 +7736,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 8,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Add,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -8485,7 +8485,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 2,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -8495,7 +8495,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 6,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -8505,7 +8505,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 8,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Sub,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -9220,7 +9220,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 2,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Div,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -9281,7 +9281,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 8,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Add,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -9438,7 +9438,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 24,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -9453,7 +9453,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 26,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -9468,7 +9468,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 28,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Div,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11326,7 +11326,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 12,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11367,7 +11367,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 15,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Div,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11428,7 +11428,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 21,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Add,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11576,7 +11576,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 36,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11601,7 +11601,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 39,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Mul,
                                                         ),
                                                         opr_token_idx: TokenIdx(
@@ -11616,7 +11616,7 @@ Ok(
                                                     ),
                                                     Expr::Binary {
                                                         lopd: 41,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Div,
                                                         ),
                                                         opr_token_idx: TokenIdx(

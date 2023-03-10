@@ -1,4 +1,4 @@
-use husky_opn_syntax::{BinaryOpr, BinaryPureClosedOpr, Bracket};
+use husky_opn_syntax::{BinaryClosedOpr, BinaryOpr, Bracket};
 use husky_token::{TokenParseContext, TokenStream};
 use parsec::StreamWrapper;
 

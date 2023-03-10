@@ -19,7 +19,13 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeConstructorDeclError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -39,7 +45,13 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeConstructorDeclError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -177,26 +189,6 @@
                 ty_result: Ok(
                     (
                         Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
                         Err(
                             Derived(
                                 BinaryOperationLeftOperandTypeNotInferred,
@@ -208,13 +200,24 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        PrefixOperandTypeNotInferred,
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -244,28 +247,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -308,26 +289,6 @@
                 ),
                 expectation_rule_idx: None,
                 resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    3,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -381,49 +342,17 @@
         local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
                 implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 3,
+                    next: 1,
                 },
                 arena: [
-                    UnresolvedTermEntry {
-                        src_expr_idx: 2,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    0,
-                                ),
-                                src_expr_idx: 2,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Unresolved,
-                    },
                     UnresolvedTermEntry {
                         src_expr_idx: 3,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
-                                    1,
+                                    0,
                                 ),
                                 src_expr_idx: 3,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Unresolved,
-                    },
-                    UnresolvedTermEntry {
-                        src_expr_idx: 10,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    2,
-                                ),
-                                src_expr_idx: 10,
                                 variant: UnspecifiedFloatType,
                             },
                         ),
@@ -438,8 +367,8 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 2,
+                        LocalTermExpectationRule {
+                            src_expr_idx: 3,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     0,
@@ -450,19 +379,19 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 3,
+                        LocalTermExpectationRule {
+                            src_expr_idx: 5,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
-                                    1,
+                                    0,
                                 ),
                             ),
-                            expectation: AnyOriginal(
-                                ExpectAnyOriginal,
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 6,
                             expectee: Resolved(
                                 EntityPath(
@@ -477,7 +406,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -495,44 +424,10 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
-                        },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 10,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
-                                    2,
-                                ),
-                            ),
-                            expectation: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
                         },
                     ],
                 },
@@ -590,28 +485,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -625,7 +498,7 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -650,7 +523,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -720,28 +599,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -819,28 +676,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -904,28 +739,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1023,28 +836,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1060,7 +851,13 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeConstructorDeclError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1133,28 +930,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1289,28 +1064,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1374,28 +1127,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1425,7 +1156,13 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeConstructorDeclError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1445,7 +1182,13 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeConstructorDeclError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1511,28 +1254,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1624,28 +1345,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1659,7 +1358,7 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -1684,7 +1383,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1763,28 +1468,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1798,7 +1481,7 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -1823,7 +1506,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1902,28 +1591,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1937,7 +1604,7 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -1962,7 +1629,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -2050,28 +1723,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -2094,43 +1745,6 @@
                         Err(
                             Derived(
                                 FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2203,28 +1817,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -2238,7 +1830,7 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 54,
@@ -2263,7 +1855,50 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Original(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                MethodOwnerTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        ExprError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2278,10 +1913,10 @@
                         Ok(
                             Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 3,
                                             },
                                         ),
                                     ),
@@ -2294,46 +1929,21 @@
                     29,
                 ),
                 resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                ExpectImplicitlyConvertibleOutcome {
+                                    implicit_conversion: None,
+                                },
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        ExprError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2390,125 +2000,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ExprError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    31,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -2538,7 +2029,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    31,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -2564,7 +2055,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    32,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2572,28 +2063,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -2652,7 +2121,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    33,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2660,28 +2129,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -3153,7 +2600,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 EntityPath(
@@ -3168,7 +2615,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3186,38 +2633,16 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -3231,7 +2656,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 5,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3243,7 +2668,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 6,
                             expectee: Resolved(
                                 EntityPath(
@@ -3258,7 +2683,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3276,34 +2701,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 10,
                             expectee: Resolved(
                                 EntityPath(
@@ -3318,7 +2721,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3336,34 +2739,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 12,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3375,7 +2756,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 13,
                             expectee: Resolved(
                                 EntityPath(
@@ -3390,7 +2771,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3408,34 +2789,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 16,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3447,7 +2806,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 18,
                             expectee: Resolved(
                                 EntityPath(
@@ -3462,7 +2821,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3480,34 +2839,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 21,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3519,7 +2856,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 22,
                             expectee: Resolved(
                                 EntityPath(
@@ -3534,7 +2871,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3552,34 +2889,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 25,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3591,7 +2906,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 30,
                             expectee: Resolved(
                                 EntityPath(
@@ -3606,7 +2921,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3624,34 +2939,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 32,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3663,7 +2956,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 33,
                             expectee: Resolved(
                                 EntityPath(
@@ -3678,7 +2971,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3696,34 +2989,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 42,
                             expectee: Resolved(
                                 EntityPath(
@@ -3738,7 +3009,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3756,34 +3027,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 58,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3795,7 +3044,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 59,
                             expectee: Resolved(
                                 EntityPath(
@@ -3810,7 +3059,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3828,38 +3077,16 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 60,
                             expectee: Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -3873,7 +3100,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 63,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3885,7 +3112,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 65,
                             expectee: Resolved(
                                 EntityPath(
@@ -3900,7 +3127,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3918,38 +3145,16 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 66,
                             expectee: Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -3963,7 +3168,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 69,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3975,7 +3180,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 71,
                             expectee: Resolved(
                                 EntityPath(
@@ -3990,7 +3195,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4008,38 +3213,16 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 72,
                             expectee: Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 43,
@@ -4053,7 +3236,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 75,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -4065,7 +3248,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 78,
                             expectee: Resolved(
                                 EntityPath(
@@ -4080,7 +3263,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4098,34 +3281,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 87,
                             expectee: Resolved(
                                 EntityPath(
@@ -4140,7 +3301,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4158,38 +3319,16 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 88,
                             expectee: Resolved(
                                 EntityPath(
-                                    TypeConstructor(
+                                    TypeOntology(
                                         TypePath(
                                             Id {
                                                 value: 54,
@@ -4203,25 +3342,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
-                            src_expr_idx: 90,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeConstructor(
-                                        TypePath(
-                                            Id {
-                                                value: 54,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            expectation: AnyOriginal(
-                                ExpectAnyOriginal,
-                            ),
-                            resolve_progress: Unresolved,
-                        },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 96,
                             expectee: Resolved(
                                 EntityPath(
@@ -4236,7 +3357,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4254,34 +3375,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 101,
                             expectee: Resolved(
                                 EntityPath(
@@ -4296,7 +3395,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4314,34 +3413,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 103,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -4353,7 +3430,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 104,
                             expectee: Resolved(
                                 EntityPath(
@@ -4368,7 +3445,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4386,34 +3463,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 108,
                             expectee: Resolved(
                                 EntityPath(
@@ -4428,7 +3483,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -4446,28 +3501,6 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 3,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),

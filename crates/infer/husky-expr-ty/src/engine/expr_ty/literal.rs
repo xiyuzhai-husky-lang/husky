@@ -44,6 +44,8 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => todo!(),
                                 PreludeIntTypePath::RSize => todo!(),
                             },
+                            FinalDestination::UnspecifiedIntegerType(idx) => return Ok(idx.into()),
+                            FinalDestination::UnspecifiedFloatType(_) => todo!(),
                             FinalDestination::TypeOntology(_)
                             | FinalDestination::AnyOriginal
                             | FinalDestination::AnyDerived => {
@@ -87,6 +89,8 @@ impl<'a> ExprTypeEngine<'a> {
                             PreludeFloatTypePath::F32 => Ok(self.term_menu.f32().into()),
                             PreludeFloatTypePath::F64 => Ok(self.term_menu.f64().into()),
                         },
+                        FinalDestination::UnspecifiedFloatType(idx) => return Ok(idx.into()),
+                        FinalDestination::UnspecifiedIntegerType(_) => todo!(),
                         FinalDestination::TypeOntology(_)
                         | FinalDestination::AnyOriginal
                         | FinalDestination::AnyDerived => Ok(local_term_region

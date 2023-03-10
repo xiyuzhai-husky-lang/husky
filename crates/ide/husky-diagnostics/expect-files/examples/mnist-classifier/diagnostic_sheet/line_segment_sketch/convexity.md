@@ -19,17 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [8:68, 8:69),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [13:68, 13:69),
-            },
-        ],
+        diagnostics: [],
     },
 }

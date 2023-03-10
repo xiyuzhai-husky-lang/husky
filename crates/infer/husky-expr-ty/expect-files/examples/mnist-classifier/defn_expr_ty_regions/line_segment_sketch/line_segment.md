@@ -335,28 +335,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -549,28 +527,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 1,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -612,34 +568,6 @@
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
                             ),
                         ),
                     ),
@@ -803,7 +731,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 4,
                             expectee: Resolved(
                                 EntityPath(
@@ -821,7 +749,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 9,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -833,7 +761,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 10,
                             expectee: Resolved(
                                 EntityPath(
@@ -848,7 +776,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -866,34 +794,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 15,
                             expectee: Resolved(
                                 EntityPath(
@@ -911,7 +817,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 20,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -923,7 +829,7 @@
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 21,
                             expectee: Resolved(
                                 EntityPath(
@@ -938,7 +844,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -956,28 +862,6 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 1,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),

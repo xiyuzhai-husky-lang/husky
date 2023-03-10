@@ -36,17 +36,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -78,17 +70,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -120,17 +104,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -162,17 +138,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -201,7 +169,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -222,22 +190,14 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
@@ -258,22 +218,14 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 Category(
@@ -294,22 +246,14 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 3,
                             expectee: Resolved(
                                 Category(
@@ -330,17 +274,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -547,24 +483,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -595,17 +513,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -635,7 +545,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 Curry(
@@ -700,7 +610,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -742,7 +652,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
@@ -784,7 +694,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 3,
                             expectee: Resolved(
                                 Category(
@@ -797,7 +707,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         Category(
                                             TermCategory {
                                                 universe: TermUniverse(
@@ -813,30 +723,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 4,
                             expectee: Resolved(
                                 Category(
@@ -857,17 +749,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -957,17 +841,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -984,7 +860,11 @@
             ],
         },
         inherited_symbol_tys: [],
-        current_symbol_tys: [],
+        current_symbol_tys: [
+            LocalTerm::Resolved(
+                Term(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            ),
+        ],
         local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
                 implicit_symbol_registry: ImplicitSymbolRegistry {
@@ -996,7 +876,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 Category(
@@ -1038,7 +918,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 3,
                             expectee: Resolved(
                                 Category(
@@ -1059,17 +939,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1166,17 +1038,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -1211,7 +1075,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 Category(
@@ -1232,17 +1096,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1385,17 +1241,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -1424,7 +1272,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Curry(
@@ -1489,7 +1337,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 3,
                             expectee: Resolved(
                                 Category(
@@ -1510,17 +1358,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1712,24 +1552,6 @@
                             ImplicitlyConvertible(
                                 ExpectImplicitlyConvertibleOutcome {
                                     implicit_conversion: None,
-                                    expectee: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
                                 },
                             ),
                         ),
@@ -1760,17 +1582,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -1798,7 +1612,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Curry(
@@ -1863,7 +1677,7 @@
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
@@ -1876,7 +1690,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
+                                    dst: Resolved(
                                         Category(
                                             TermCategory {
                                                 universe: TermUniverse(
@@ -1892,30 +1706,12 @@
                                     ImplicitlyConvertible(
                                         ExpectImplicitlyConvertibleOutcome {
                                             implicit_conversion: None,
-                                            expectee: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         },
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 2,
                             expectee: Resolved(
                                 Category(
@@ -1936,17 +1732,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2003,17 +1791,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2039,7 +1819,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2060,17 +1840,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2127,17 +1899,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2163,7 +1927,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2184,17 +1948,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2251,17 +2007,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2287,7 +2035,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2308,17 +2056,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2375,17 +2115,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2411,7 +2143,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2432,17 +2164,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2499,17 +2223,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2535,7 +2251,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2556,17 +2272,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2623,17 +2331,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2659,7 +2359,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2680,17 +2380,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2747,17 +2439,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2783,7 +2467,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -2804,17 +2488,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2871,17 +2547,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -2912,7 +2580,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
@@ -2933,17 +2601,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3000,17 +2660,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -3041,7 +2693,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
@@ -3062,17 +2714,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),

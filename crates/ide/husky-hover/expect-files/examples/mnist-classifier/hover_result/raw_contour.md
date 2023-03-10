@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 304;\n\ntoken = Punctuation(\n    Binary(\n        PureClosed(\n            Sub,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 304;\n\ntoken = Punctuation(\n    Binary(\n        Closed(\n            Sub,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
