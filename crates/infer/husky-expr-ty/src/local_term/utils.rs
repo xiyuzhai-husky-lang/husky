@@ -23,20 +23,14 @@ impl LocalTerm {
     ) -> FinalDestination {
         match self.pattern(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
-            LocalTermPattern::TypeOntology { path, arguments } => {
-                FinalDestination::TypeOntology(path)
-            }
+            LocalTermPattern::TypeOntology { .. } => FinalDestination::TypeOntology,
             LocalTermPattern::Curry {} => todo!(),
             LocalTermPattern::ImplicitSymbol(kind, idx) => match kind {
                 ImplicitSymbolKind::ImplicitLifetime => todo!(),
                 ImplicitSymbolKind::ExprEvalLifetime => todo!(),
-                ImplicitSymbolKind::UnspecifiedIntegerType => {
-                    FinalDestination::UnspecifiedIntegerType(idx)
-                }
-                ImplicitSymbolKind::UnspecifiedFloatType => {
-                    FinalDestination::UnspecifiedFloatType(idx)
-                }
-                ImplicitSymbolKind::ImplicitType => todo!(),
+                ImplicitSymbolKind::UnspecifiedIntegerType
+                | ImplicitSymbolKind::UnspecifiedFloatType
+                | ImplicitSymbolKind::ImplicitType => FinalDestination::TypeOntology,
             },
             LocalTermPattern::Category(_) => FinalDestination::Sort,
         }

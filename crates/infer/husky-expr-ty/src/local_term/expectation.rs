@@ -50,19 +50,24 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
         &self,
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
-        ty_path: TypePath,
-    ) -> TypePathDisambiguationResult {
+    ) -> TypePathDisambiguation {
         match self.final_destination(db, unresolved_terms) {
-            FinalDestination::Sort => TypePathDisambiguation::Ontology.into(),
-            FinalDestination::TypeOntology(_) => TypePathDisambiguation::Constructor.into(),
-            FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromAnyOriginal,
-            FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromAnyDerived,
-            FinalDestination::UnspecifiedIntegerType(_) => todo!(),
-            FinalDestination::UnspecifiedFloatType(_) => todo!(),
+            FinalDestination::Sort => TypePathDisambiguation::Ontology,
+            FinalDestination::TypeOntology
+            | FinalDestination::AnyOriginal
+            | FinalDestination::AnyDerived => TypePathDisambiguation::Constructor,
         }
-        // LocalTerm::Resolved(term) if let Term::Category(_) = term  => todo!(),
-        // LocalTerm::Resolved(term) if term == ty_path.into() => todo!(),
-        // _ => Err(todo!()),
+    }
+
+    fn destination(&self) -> Option<LocalTerm>;
+
+    fn destination_pattern(
+        &self,
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> Option<LocalTermPattern> {
+        self.destination()
+            .map(|destination| destination.pattern(db, unresolved_terms))
     }
 }
 
@@ -77,20 +82,9 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum FinalDestination {
     Sort,
-    TypeOntology(Either<CustomTypePath, PreludeTypePath>),
+    TypeOntology,
     AnyOriginal,
     AnyDerived,
-    UnspecifiedIntegerType(UnresolvedTermIdx),
-    UnspecifiedFloatType(UnresolvedTermIdx),
-}
-
-/// disambiguate between type itself (or template) and its instance or constructor
-#[enum_class::from_variants]
-pub enum TypePathDisambiguationResult {
-    Ok(TypePathDisambiguation),
-    ErrDifferentTypePath {},
-    ErrFromAnyOriginal,
-    ErrFromAnyDerived,
 }
 
 #[derive(Debug, PartialEq, Eq)]

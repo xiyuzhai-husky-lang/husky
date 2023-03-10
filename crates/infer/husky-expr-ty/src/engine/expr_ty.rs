@@ -241,12 +241,10 @@ impl<'a> ExprTypeEngine<'a> {
                 local_term_region,
             ),
             Expr::List { items, .. } => {
-                match expr_ty_expectation.disambiguate_ty_path(
-                    self.db(),
-                    local_term_region.unresolved_terms(),
-                    self.entity_path_menu.list_ty_path(),
-                ) {
-                    TypePathDisambiguationResult::Ok(disambiguation) => Ok(match disambiguation {
+                Ok(
+                    match expr_ty_expectation
+                        .disambiguate_ty_path(self.db(), local_term_region.unresolved_terms())
+                    {
                         TypePathDisambiguation::Ontology => {
                             // ad hoc, assume universe is 1
                             match items.len() {
@@ -265,17 +263,21 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                         }
                         TypePathDisambiguation::Constructor => {
+                            match expr_ty_expectation.destination_pattern(
+                                self.db(),
+                                local_term_region.unresolved_terms(),
+                            ) {
+                                Some(_) => todo!(),
+                                None => {
+                                    for item in items {
+                                        todo!()
+                                    }
+                                }
+                            }
                             (ListExprDisambiguation::NewList.into(), todo!())
                         }
-                    }),
-                    TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
-                    TypePathDisambiguationResult::ErrFromAnyOriginal => {
-                        Err(OriginalExprTypeError::AmbiguousListExpr.into())
-                    }
-                    TypePathDisambiguationResult::ErrFromAnyDerived => {
-                        Err(DerivedExprTypeError::AmbiguateListExpr.into())
-                    }
-                }
+                    },
+                )
             }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => Ok((
@@ -328,26 +330,15 @@ impl<'a> ExprTypeEngine<'a> {
         ty_path: TypePath,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        match expr_ty_expectation.disambiguate_ty_path(
-            self.db(),
-            local_term_region.unresolved_terms(),
-            ty_path,
-        ) {
-            TypePathDisambiguationResult::Ok(disambiguation) => Ok((
-                disambiguation.into(),
-                self.db
-                    .ty_path_ty(ty_path, disambiguation)
-                    .map(Into::into)
-                    .map_err(|e| e.into()),
-            )),
-            TypePathDisambiguationResult::ErrDifferentTypePath {} => todo!(),
-            TypePathDisambiguationResult::ErrFromAnyOriginal => {
-                Err(OriginalExprTypeError::AmbiguousTypePath.into())
-            }
-            TypePathDisambiguationResult::ErrFromAnyDerived => {
-                Err(DerivedExprTypeError::AmbiguousTypePath.into())
-            }
-        }
+        let disambiguation = expr_ty_expectation
+            .disambiguate_ty_path(self.db(), local_term_region.unresolved_terms());
+        Ok((
+            disambiguation.into(),
+            self.db
+                .ty_path_ty(ty_path, disambiguation)
+                .map(Into::into)
+                .map_err(|e| e.into()),
+        ))
     }
 
     fn calc_explicit_application_or_ritchie_call_expr_ty(

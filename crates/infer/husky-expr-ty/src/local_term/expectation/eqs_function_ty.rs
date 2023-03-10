@@ -30,6 +30,10 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
     ) -> FinalDestination {
         self.final_destination
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

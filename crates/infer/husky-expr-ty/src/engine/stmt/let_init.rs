@@ -34,7 +34,7 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_ty_discarded(
                         initial_value,
                         // ad hoc
-                        ExpectImplicitlyConvertible { dst: ty },
+                        ExpectImplicitlyConvertible { destination: ty },
                         local_term_region,
                     )
                 });

@@ -27,6 +27,10 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
     ) -> FinalDestination {
         todo!()
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]

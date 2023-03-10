@@ -24,6 +24,10 @@ impl ExpectLocalTerm for ExpectEqsExactly {
     ) -> FinalDestination {
         self.destination.final_destination(db, unresolved_terms)
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        Some(self.destination)
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

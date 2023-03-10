@@ -11,7 +11,7 @@ pub enum ImplicitConversion {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) struct ExpectImplicitlyConvertible {
-    pub(crate) dst: LocalTerm,
+    pub(crate) destination: LocalTerm,
 }
 
 impl ExpectImplicitlyConvertible {
@@ -19,10 +19,8 @@ impl ExpectImplicitlyConvertible {
         &self,
         unresolved_terms: &'a UnresolvedTerms,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
-        match unresolved_terms.try_reduce_local_term(self.dst)? {
-            Some(destination) => Ok(Some(
-                ExpectImplicitlyConvertible { dst: destination }.into(),
-            )),
+        match unresolved_terms.try_reduce_local_term(self.destination)? {
+            Some(destination) => Ok(Some(ExpectImplicitlyConvertible { destination }.into())),
             None => Ok(None),
         }
     }
@@ -50,7 +48,11 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        self.dst.final_destination(db, unresolved_terms)
+        self.destination.final_destination(db, unresolved_terms)
+    }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        Some(self.destination)
     }
 }
 
@@ -302,7 +304,7 @@ impl ExpectImplicitlyConvertible {
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        if src == self.dst {
+        if src == self.destination {
             return Some(LocalTermExpectationEffect {
                 result: Ok(ExpectImplicitlyConvertibleOutcome {
                     implicit_conversion: ImplicitConversion::None,
@@ -312,7 +314,7 @@ impl ExpectImplicitlyConvertible {
             });
         }
         let src_patt = src.pattern(db, unresolved_terms);
-        let dst_patt = self.dst.pattern(db, unresolved_terms);
+        let dst_patt = self.destination.pattern(db, unresolved_terms);
         match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
@@ -345,7 +347,7 @@ impl ExpectImplicitlyConvertible {
                     LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {
                         actions: vec![TermResolveAction::SubstituteImplicitSymbol {
                             implicit_symbol: src_implicit_symbol,
-                            substitution: self.dst,
+                            substitution: self.destination,
                         }],
                         result: Ok(LocalTermExpectationOutcome::ImplicitlyConvertible(
                             ExpectImplicitlyConvertibleOutcome {
@@ -355,7 +357,7 @@ impl ExpectImplicitlyConvertible {
                     }),
                 },
                 _ => {
-                    p!(src.debug(db), self.dst.debug(db));
+                    p!(src.debug(db), self.destination.debug(db));
                     Some(LocalTermExpectationEffect {
                         result: Err(todo!()),
                         actions: vec![],

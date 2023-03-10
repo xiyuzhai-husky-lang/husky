@@ -43,6 +43,10 @@ impl ExpectLocalTerm for ExpectExplicitlyConvertible {
     ) -> FinalDestination {
         todo!()
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        Some(self.destination)
+    }
 }
 
 // LocalTermExpectationRuleVariant::AsBool => {

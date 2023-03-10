@@ -115,7 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
                         root.expr(),
                         ExpectImplicitlyConvertible {
-                            dst: return_ty.into(),
+                            destination: return_ty.into(),
                         },
                         local_term_region,
                     ),
