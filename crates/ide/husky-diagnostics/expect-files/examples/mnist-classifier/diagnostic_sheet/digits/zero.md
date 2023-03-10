@@ -182,6 +182,11 @@ DiagnosticSheet {
                 range: [28:5, 34:7),
             },
             Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [41:9, 41:47),
+            },
+            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [46:5, 46:21),

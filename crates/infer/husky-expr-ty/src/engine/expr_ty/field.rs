@@ -16,8 +16,8 @@ impl<'a> ExprTypeEngine<'a> {
         match owner_ty_unravelled {
             LocalTerm::Resolved(owner_ty_unravelled) => {
                 match self.db.field_ty(owner_ty_unravelled, ident_token.ident()) {
-                    Ok(Some(_)) => todo!(),
-                    Ok(None) => todo!(),
+                    Ok(Some(field_ty)) => Ok(field_ty.into()),
+                    Ok(None) => Err(OriginalExprTypeError::NoSuchField.into()),
                     Err(e) => Err(DerivedExprTypeError::FieldTypeTermError(e).into()),
                 }
             }

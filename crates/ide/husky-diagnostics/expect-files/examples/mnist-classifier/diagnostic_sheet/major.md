@@ -25,6 +25,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [34:5, 34:42),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [37:5, 37:49),
+            },
+        ],
     },
 }

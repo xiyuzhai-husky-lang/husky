@@ -48,6 +48,11 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [17:15, 17:29),
+            },
+            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [127:22, 127:24),
