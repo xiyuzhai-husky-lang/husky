@@ -45,7 +45,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
-                range: [88:34, 88:36),
+                range: [88:54, 88:56),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

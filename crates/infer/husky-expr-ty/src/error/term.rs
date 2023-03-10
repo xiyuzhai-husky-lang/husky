@@ -9,7 +9,10 @@ pub enum ExprTermError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalExprTermError {}
+pub enum OriginalExprTermError {
+    #[error("todo")]
+    Todo,
+}
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTermError {

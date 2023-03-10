@@ -1817,6 +1817,7 @@ Ok(
             None,
             None,
             None,
+            None,
             CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: LetVariable {
