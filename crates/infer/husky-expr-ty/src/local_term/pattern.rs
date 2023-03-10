@@ -5,7 +5,8 @@ use super::*;
 pub enum LocalTermPattern {
     Literal(TermLiteral),
     TypeOntology {
-        path: Either<CustomTypePath, PreludeTypePath>,
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: SmallVec<[LocalTerm; 2]>,
     },
     Curry {},
@@ -22,16 +23,11 @@ impl LocalTerm {
         match self {
             LocalTerm::Resolved(term) => LocalTermPattern::from_resolved(db, term),
             LocalTerm::Unresolved(term) => match unresolved_terms[term].resolve_progress() {
-                LocalTermResolveProgress::Unresolved => {
+                Some(LocalTerm::Unresolved(term)) => {
                     LocalTermPattern::from_unresolved(db, term, unresolved_terms)
                 }
-                LocalTermResolveProgress::PartiallyResolved(term) => {
-                    LocalTermPattern::from_unresolved(db, *term, unresolved_terms)
-                }
-                LocalTermResolveProgress::FullyResolved(term) => {
-                    LocalTermPattern::from_resolved(db, *term)
-                }
-                LocalTermResolveProgress::Err(_) => todo!(),
+                Some(LocalTerm::Resolved(term)) => LocalTermPattern::from_resolved(db, term),
+                None => todo!(),
             },
         }
     }
@@ -54,7 +50,8 @@ impl LocalTermPattern {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
-                    path: path.refine(db).expect("should be checked"),
+                    path,
+                    refined_path: path.refine(db).expect("should be checked"),
                     arguments: smallvec![],
                 },
                 TermEntityPath::TypeConstructor(path) => todo!(),
@@ -72,7 +69,8 @@ impl LocalTermPattern {
                         TermEntityPath::Form(_) => todo!(),
                         TermEntityPath::Trait(_) => todo!(),
                         TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
-                            path: path.refine(db).expect("should work"),
+                            path,
+                            refined_path: path.refine(db).expect("should work"),
                             arguments: expansion
                                 .arguments(db)
                                 .iter()
@@ -104,10 +102,11 @@ impl LocalTermPattern {
             UnresolvedTerm::ImplicitSymbol(symbol) => {
                 LocalTermPattern::ImplicitSymbol(symbol.kind(), term)
             }
-            UnresolvedTerm::TypeOntology {
-                path: ty_path,
-                arguments,
-            } => todo!(),
+            UnresolvedTerm::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
+                path: *path,
+                refined_path: path.refine(db).expect("should checked before"),
+                arguments: arguments.clone(),
+            },
             UnresolvedTerm::Ritchie {
                 ritchie_kind,
                 parameter_tys,

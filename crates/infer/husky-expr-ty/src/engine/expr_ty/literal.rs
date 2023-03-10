@@ -22,7 +22,8 @@ impl<'a> ExprTypeEngine<'a> {
                             destination.pattern(self.db, local_term_region.unresolved_terms())
                         }) {
                             Some(LocalTermPattern::TypeOntology {
-                                path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
+                                refined_path:
+                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
                                 ..
                             }) => match path {
                                 // MOM
@@ -85,7 +86,8 @@ impl<'a> ExprTypeEngine<'a> {
                             destination.pattern(self.db, local_term_region.unresolved_terms())
                         }) {
                             Some(LocalTermPattern::TypeOntology {
-                                path: Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
+                                refined_path:
+                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
                                 ..
                             }) => match path {
                                 PreludeFloatTypePath::F32 => Ok(self.term_menu.f32().into()),

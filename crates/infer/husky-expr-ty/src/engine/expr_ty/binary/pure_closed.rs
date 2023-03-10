@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
             lopd_ty.unravel_borrow(self.db, local_term_region.unresolved_terms());
         match lopd_ty_unravelled.pattern(self.db, local_term_region.unresolved_terms()) {
             LocalTermPattern::TypeOntology {
-                path: Right(PreludeTypePath::Num(_)),
+                refined_path: Right(PreludeTypePath::Num(_)),
                 ..
             }
             | LocalTermPattern::ImplicitSymbol(
