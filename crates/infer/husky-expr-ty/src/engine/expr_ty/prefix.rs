@@ -68,7 +68,10 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
-                | FinalDestination::AnyDerived => todo!(),
+                | FinalDestination::AnyDerived => Ok((
+                    ExprDisambiguation::Tilde(TildeDisambiguation::BitNot),
+                    self.calc_bitnot_expr_ty(opd, local_term_region),
+                )),
             },
             PrefixOpr::Ref => {
                 self.infer_new_expr_ty_discarded(
@@ -92,6 +95,42 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
+        }
+    }
+
+    fn calc_bitnot_expr_ty(
+        &mut self,
+        opd: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
+    ) -> ExprTypeResult<LocalTerm> {
+        let Some(ty) = self.infer_new_expr_ty(
+            opd,
+            self.expect_eqs_exactly_ty(),
+            local_term_region,
+        ) else {
+            return Err(DerivedExprTypeError::BitNotOperandTypeNotInferred.into())
+        };
+        match ty.pattern(self.db(), local_term_region.unresolved_terms()) {
+            LocalTermPattern::Literal(_) => todo!(),
+            LocalTermPattern::TypeOntology {
+                path,
+                refined_path,
+                arguments,
+            } => todo!(),
+            LocalTermPattern::Curry {
+                curry_kind,
+                variance,
+                parameter_symbol,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+            LocalTermPattern::Category(_) => todo!(),
+            LocalTermPattern::Ritchie {
+                ritchie_kind,
+                parameter_liasoned_tys,
+                return_ty,
+            } => todo!(),
         }
     }
 }

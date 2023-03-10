@@ -268,7 +268,35 @@ impl<'a> ExprTypeEngine<'a> {
                                     self.db(),
                                     local_term_region.unresolved_terms(),
                                 ) {
-                                Some(_) => todo!(),
+                                Some(ty_pattern) => match ty_pattern {
+                                    LocalTermPattern::Literal(_) => todo!(),
+                                    LocalTermPattern::TypeOntology {
+                                        path,
+                                        refined_path,
+                                        arguments,
+                                    } => match refined_path {
+                                        Right(PreludeTypePath::List) => {
+                                            assert_eq!(arguments.len(), 1);
+                                            arguments[0]
+                                        }
+                                        Right(PreludeTypePath::Array) => todo!(),
+                                        _ => todo!(),
+                                    },
+                                    LocalTermPattern::Curry {
+                                        curry_kind,
+                                        variance,
+                                        parameter_symbol,
+                                        parameter_ty,
+                                        return_ty,
+                                    } => todo!(),
+                                    LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+                                    LocalTermPattern::Category(_) => todo!(),
+                                    LocalTermPattern::Ritchie {
+                                        ritchie_kind,
+                                        parameter_liasoned_tys,
+                                        return_ty,
+                                    } => todo!(),
+                                },
                                 None => local_term_region
                                     .new_implicit_symbol(
                                         expr_idx,

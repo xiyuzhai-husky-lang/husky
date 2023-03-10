@@ -127,6 +127,8 @@ pub enum DerivedExprTypeError {
     AmbiguousTildeExpr,
     #[error("IntegerLiteralExpectationTypePathRefine")]
     IntegerLiteralExpectationTypePathRefine(EntityPathError),
+    #[error("BitNotOperandTypeNotInferred")]
+    BitNotOperandTypeNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

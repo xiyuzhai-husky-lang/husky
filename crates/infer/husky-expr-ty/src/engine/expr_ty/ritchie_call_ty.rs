@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         ritchie_kind: TermRitchieKind,
-        nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
+        nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
         nonself_arguments: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) {

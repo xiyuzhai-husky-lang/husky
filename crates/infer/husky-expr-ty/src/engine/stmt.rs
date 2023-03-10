@@ -45,14 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref let_variable_pattern,
                 ref initial_value,
                 ..
-            } => {
-                let result =
-                    self.calc_let_init_stmt(let_variable_pattern, initial_value, local_term_region);
-                if let_token.token_idx().raw() == 115 {
-                    todo!()
-                }
-                result
-            }
+            } => self.calc_let_init_stmt(let_variable_pattern, initial_value, local_term_region),
             Stmt::Return { ref result, .. } => {
                 if let Ok(result) = result {
                     match self.return_ty {

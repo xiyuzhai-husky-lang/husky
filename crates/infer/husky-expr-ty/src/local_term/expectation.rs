@@ -346,15 +346,12 @@ impl<'a> ExprTypeEngine<'a> {
                     expectation,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::EqsFunctionType(ref expectation) => {
-                print_debug_expr!(self, rule.src_expr_idx);
-                expectation.resolve(
-                    self.db(),
-                    rule.src_expr_idx,
-                    rule.expectee,
-                    unresolved_terms,
-                )
-            }
+            LocalTermExpectation::EqsFunctionType(ref expectation) => expectation.resolve(
+                self.db(),
+                rule.src_expr_idx,
+                rule.expectee,
+                unresolved_terms,
+            ),
             LocalTermExpectation::InsSort(ref expectation) => {
                 self.resolve_ins_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }

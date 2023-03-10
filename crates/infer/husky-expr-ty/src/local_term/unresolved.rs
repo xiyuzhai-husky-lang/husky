@@ -17,14 +17,14 @@ pub(crate) enum UnresolvedTerm {
     },
     Ritchie {
         ritchie_kind: TermRitchieKind,
-        parameter_tys: Vec<LocalTermRitchieParameter>,
+        parameter_tys: Vec<LocalTermRitchieParameterLiasonedType>,
         return_ty: LocalTerm,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
-pub struct LocalTermRitchieParameter {
+pub struct LocalTermRitchieParameterLiasonedType {
     pub(crate) ty: LocalTerm,
 }
 
