@@ -40,17 +40,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
-                severity: Error,
-                range: [32:17, 32:54),
-            },
-            Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
-                severity: Error,
-                range: [38:20, 38:73),
-            },
-        ],
+        diagnostics: [],
     },
 }

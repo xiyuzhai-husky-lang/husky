@@ -213,24 +213,42 @@ impl UnresolvedTerms {
         &mut self,
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
-        parameter_symbol: TermSymbol,
+        parameter_symbol: LocalTerm,
     ) -> UnresolvedTermIdx {
-        let variant = match parameter_symbol.ty(db) {
-            Term::Literal(_) => todo!(),
-            Term::Symbol(_) => todo!(),
-            Term::EntityPath(_) => todo!(),
-            Term::Category(cat) if cat.universe().raw() == 0 => todo!(),
-            Term::Category(cat) if cat.universe().raw() == 1 => ImplicitSymbolVariant::ImplicitType,
-            Term::Category(_) => todo!(),
-            Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(_) => todo!(),
-            Term::Subentity(_) => todo!(),
-            Term::AsTraitSubentity(_) => todo!(),
-            Term::TraitConstraint(_) => todo!(),
+        let variant = match parameter_symbol.pattern(db, self) {
+            LocalTermPattern::Literal(_) => todo!(),
+            LocalTermPattern::TypeOntology {
+                path,
+                refined_path,
+                arguments,
+            } => todo!(),
+            LocalTermPattern::Curry {
+                curry_kind,
+                variance,
+                parameter_symbol,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
+            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+            LocalTermPattern::Category(_) => todo!(),
         };
+        // match parameter_symbol.ty(db) {
+        //     Term::Literal(_) => todo!(),
+        //     Term::Symbol(_) => todo!(),
+        //     Term::EntityPath(_) => todo!(),
+        //     Term::Category(cat) if cat.universe().raw() == 0 => todo!(),
+        //     Term::Category(cat) if cat.universe().raw() == 1 => ImplicitSymbolVariant::ImplicitType,
+        //     Term::Category(_) => todo!(),
+        //     Term::Universe(_) => todo!(),
+        //     Term::Curry(_) => todo!(),
+        //     Term::Ritchie(_) => todo!(),
+        //     Term::Abstraction(_) => todo!(),
+        //     Term::Application(_) => todo!(),
+        //     Term::Subentity(_) => todo!(),
+        //     Term::AsTraitSubentity(_) => todo!(),
+        //     Term::TraitConstraint(_) => todo!(),
+        // };
         self.new_implicit_symbol(src_expr_idx, variant)
     }
 
@@ -384,27 +402,31 @@ impl LocalTermRegion {
                 continue;
             }
             let resolve_progress = entry.resolve_progress().unwrap();
-            let resolve_progress_pattern = resolve_progress.pattern(db, unresolved_terms);
-            let resolve_progress = match resolve_progress_pattern {
-                LocalTermPattern::Literal(_) => todo!(),
-                LocalTermPattern::TypeOntology {
-                    path, arguments, ..
-                } => {
-                    let arguments = arguments
-                        .iter()
-                        .map(|argument| argument.resolve_progress(unresolved_terms).unwrap())
-                        .collect();
-                    Ok(LocalTerm::new_ty_ontology_application(
-                        db,
-                        unresolved_terms,
-                        entry.src_expr_idx,
-                        path,
-                        arguments,
-                    ))
+            let resolve_progress = if resolve_progress == implicit_symbol.into() {
+                Ok(substitution)
+            } else {
+                let resolve_progress_pattern = resolve_progress.pattern(db, unresolved_terms);
+                match resolve_progress_pattern {
+                    LocalTermPattern::Literal(_) => todo!(),
+                    LocalTermPattern::TypeOntology {
+                        path, arguments, ..
+                    } => {
+                        let arguments = arguments
+                            .iter()
+                            .map(|argument| argument.resolve_progress(unresolved_terms).unwrap())
+                            .collect();
+                        Ok(LocalTerm::new_ty_ontology_application(
+                            db,
+                            unresolved_terms,
+                            entry.src_expr_idx,
+                            path,
+                            arguments,
+                        ))
+                    }
+                    LocalTermPattern::Curry { .. } => todo!(),
+                    LocalTermPattern::Category(_) => todo!(),
+                    _ => Ok(resolve_progress),
                 }
-                LocalTermPattern::Curry {} => todo!(),
-                LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
-                LocalTermPattern::Category(_) => todo!(),
             };
             unresolved_terms.data[i].resolve_progress = resolve_progress
         }
@@ -433,6 +455,18 @@ impl LocalTermRegion {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct UnresolvedTermIdx(usize);
+
+impl UnresolvedTermIdx {
+    pub(crate) fn resolve_progress(
+        self,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> LocalTermResolveResultRef<LocalTerm> {
+        match unresolved_terms[self].resolve_progress {
+            Ok(term) => Ok(term),
+            Err(ref e) => Err(e),
+        }
+    }
+}
 
 impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTerms {
     type Output = UnresolvedTermEntry;

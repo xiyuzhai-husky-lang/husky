@@ -39,8 +39,9 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermPattern::TypeOntology { .. }
             | LocalTermPattern::ImplicitSymbol(_, _)
             | LocalTermPattern::Literal(_)
-            | LocalTermPattern::Curry {}
+            | LocalTermPattern::Curry { .. }
             | LocalTermPattern::Category(_) => todo!(),
+            LocalTermPattern::Ritchie {} => todo!(),
         }
     }
 }

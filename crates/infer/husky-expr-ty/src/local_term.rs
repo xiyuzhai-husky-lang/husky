@@ -86,10 +86,24 @@ impl LocalTerm {
         db: &dyn ExprTypeDb,
         unresolved_terms: &mut UnresolvedTerms,
         src_expr_idx: ExprIdx,
-        ty_ontology_path: TypePath,
-        arguments: Vec<LocalTerm>,
+        path: TypePath,
+        arguments: SmallVec<[LocalTerm; 2]>,
     ) -> Self {
-        todo!()
+        let mut resolved_arguments: SmallVec<[Term; 2]> = smallvec![];
+        for argument in &arguments {
+            match argument {
+                LocalTerm::Resolved(argument) => resolved_arguments.push(*argument),
+                LocalTerm::Unresolved(_) => break,
+            }
+        }
+        if resolved_arguments.len() == arguments.len() {
+            todo!()
+        } else {
+            unresolved_terms.intern_unresolved_term(
+                src_expr_idx,
+                UnresolvedTerm::TypeOntology { path, arguments },
+            )
+        }
     }
 
     pub(crate) fn unravel_borrow(
@@ -127,7 +141,10 @@ impl LocalTerm {
         self,
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermResolveResultRef<Self> {
-        todo!()
+        match self {
+            LocalTerm::Resolved(term) => Ok(term.into()),
+            LocalTerm::Unresolved(idx) => idx.resolve_progress(unresolved_terms),
+        }
     }
 }
 

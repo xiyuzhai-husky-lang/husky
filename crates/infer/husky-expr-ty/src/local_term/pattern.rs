@@ -9,9 +9,16 @@ pub enum LocalTermPattern {
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: SmallVec<[LocalTerm; 2]>,
     },
-    Curry {},
+    Curry {
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_symbol: Option<LocalTerm>,
+        parameter_ty: LocalTerm,
+        return_ty: LocalTerm,
+    },
     ImplicitSymbol(ImplicitSymbolKind, UnresolvedTermIdx),
     Category(TermCategory),
+    Ritchie {},
 }
 
 impl LocalTerm {
@@ -58,8 +65,14 @@ impl LocalTermPattern {
             },
             Term::Category(term) => LocalTermPattern::Category(term),
             Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
+            Term::Curry(term) => LocalTermPattern::Curry {
+                curry_kind: term.curry_kind(db),
+                variance: term.variance(db),
+                parameter_symbol: term.parameter_symbol(db).map(Into::into),
+                parameter_ty: term.parameter_ty(db).into(),
+                return_ty: term.return_ty(db).into(),
+            },
+            Term::Ritchie(term) => LocalTermPattern::Ritchie {},
             Term::Abstraction(_) => todo!(),
             Term::Application(term_application) => {
                 let expansion = db.term_application_expansion(term);

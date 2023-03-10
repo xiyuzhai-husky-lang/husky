@@ -43,7 +43,7 @@ pub(crate) struct ExpectEqsSortOutcome {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn resolve_eqs_sort_expectation(
+    pub(super) fn resolve_eqs_category_expectation(
         &self,
         expectee: LocalTerm,
         expectation: &ExpectEqsCategory,
@@ -56,11 +56,11 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(match cat.universe() >= expectation.smallest_universe {
                             true => LocalTermExpectationEffect {
                                 result: Ok(LocalTermExpectationOutcome::EqsSort(cat.universe())),
-                                actions: vec![],
+                                actions: smallvec![],
                             },
                             false => LocalTermExpectationEffect {
                                 result: Err(todo!()),
-                                actions: vec![],
+                                actions: smallvec![],
                             },
                         })
                     }

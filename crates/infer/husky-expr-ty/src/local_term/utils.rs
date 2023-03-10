@@ -11,7 +11,8 @@ impl LocalTerm {
             | LocalTermPattern::TypeOntology { .. }
             | LocalTermPattern::ImplicitSymbol(_, _)
             | LocalTermPattern::Category(_) => self,
-            LocalTermPattern::Curry {} => todo!(),
+            LocalTermPattern::Curry { .. } => todo!(),
+            LocalTermPattern::Ritchie {} => todo!(),
         }
     }
 
@@ -24,7 +25,7 @@ impl LocalTerm {
         match self.pattern(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology { .. } => FinalDestination::TypeOntology,
-            LocalTermPattern::Curry {} => todo!(),
+            LocalTermPattern::Curry { .. } => todo!(),
             LocalTermPattern::ImplicitSymbol(kind, idx) => match kind {
                 ImplicitSymbolKind::ImplicitLifetime => todo!(),
                 ImplicitSymbolKind::ExprEvalLifetime => todo!(),
@@ -33,6 +34,7 @@ impl LocalTerm {
                 | ImplicitSymbolKind::ImplicitType => FinalDestination::TypeOntology,
             },
             LocalTermPattern::Category(_) => FinalDestination::Sort,
+            LocalTermPattern::Ritchie {} => todo!(),
         }
     }
 }
