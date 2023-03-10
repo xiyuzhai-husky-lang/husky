@@ -49,7 +49,6 @@ pub struct RawTypeJar(
     application_expansion_salsa,
     ApplicationArguments,
     ty_path_ty_method_raw_ty,
-    application_raw_ty_method_raw_ty,
     ty_path_field_raw_ty,
     application_raw_ty_field_raw_ty,
     application_raw_term_raw_ty,
