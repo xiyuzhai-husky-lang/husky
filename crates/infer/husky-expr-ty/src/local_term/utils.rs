@@ -12,7 +12,7 @@ impl LocalTerm {
             | LocalTermPattern::ImplicitSymbol(_, _)
             | LocalTermPattern::Category(_) => self,
             LocalTermPattern::Curry { .. } => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
     }
 
@@ -34,7 +34,7 @@ impl LocalTerm {
                 | ImplicitSymbolKind::ImplicitType => FinalDestination::TypeOntology,
             },
             LocalTermPattern::Category(_) => FinalDestination::Sort,
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
     }
 }

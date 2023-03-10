@@ -142,7 +142,7 @@ impl ExpectImplicitlyConvertible {
                 }),
             },
             LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
     }
 }

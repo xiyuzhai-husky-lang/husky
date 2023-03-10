@@ -18,7 +18,11 @@ pub enum LocalTermPattern {
     },
     ImplicitSymbol(ImplicitSymbolKind, UnresolvedTermIdx),
     Category(TermCategory),
-    Ritchie {},
+    Ritchie {
+        ritchie_kind: TermRitchieKind,
+        parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
+        return_ty: LocalTerm,
+    },
 }
 
 impl LocalTerm {
@@ -72,7 +76,19 @@ impl LocalTermPattern {
                 parameter_ty: term.parameter_ty(db).into(),
                 return_ty: term.return_ty(db).into(),
             },
-            Term::Ritchie(term) => LocalTermPattern::Ritchie {},
+            Term::Ritchie(term) => LocalTermPattern::Ritchie {
+                ritchie_kind: term.ritchie_kind(db),
+                parameter_liasoned_tys: term
+                    .parameter_tys(db)
+                    .iter()
+                    .map(
+                        |parameter_liasoned_ty| LocalTermRitchieParameterLiasonedType {
+                            ty: parameter_liasoned_ty.ty().into(),
+                        },
+                    )
+                    .collect(),
+                return_ty: term.return_ty(db).into(),
+            },
             Term::Abstraction(_) => todo!(),
             Term::Application(term_application) => {
                 let expansion = db.term_application_expansion(term);

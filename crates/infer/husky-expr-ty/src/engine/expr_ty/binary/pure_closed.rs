@@ -41,7 +41,7 @@ impl<'a> ExprTypeEngine<'a> {
             | LocalTermPattern::Literal(_)
             | LocalTermPattern::Curry { .. }
             | LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
     }
 }

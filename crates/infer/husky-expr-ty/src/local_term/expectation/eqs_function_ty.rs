@@ -49,7 +49,7 @@ pub(crate) struct ExpectEqsFunctionTypeOutcome {
 pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: TermRitchieKind,
-        parameter_liasoned_tys: Vec<LocalTermRitchieParameter>,
+        parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
     },
     Curry {
         parameter_symbol: Option<LocalTerm>,
@@ -66,6 +66,7 @@ impl ExpectEqsFunctionType {
         expectee: LocalTerm,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
+        // todo: move these to aux
         match expectee.pattern(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
@@ -94,7 +95,22 @@ impl ExpectEqsFunctionType {
             ),
             LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
             LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie {
+                ritchie_kind,
+                parameter_liasoned_tys,
+                return_ty,
+            } => Some(LocalTermExpectationEffect {
+                result: Ok(ExpectEqsFunctionTypeOutcome {
+                    implicit_parameter_substitutions: smallvec![],
+                    return_ty,
+                    variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
+                        ritchie_kind,
+                        parameter_liasoned_tys,
+                    },
+                }
+                .into()),
+                actions: smallvec![],
+            }),
         }
     }
 
@@ -180,7 +196,7 @@ impl ExpectEqsFunctionType {
             } => todo!(),
             LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
             LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
     }
 }

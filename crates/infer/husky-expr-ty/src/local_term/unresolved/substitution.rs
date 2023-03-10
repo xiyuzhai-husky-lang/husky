@@ -53,7 +53,7 @@ impl UnresolvedTerms {
             } => todo!(),
             LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
             LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {} => todo!(),
+            LocalTermPattern::Ritchie { .. } => todo!(),
         }
         //  Term::Literal(_) => todo!(),
         // Term::Symbol(symbol) => {
