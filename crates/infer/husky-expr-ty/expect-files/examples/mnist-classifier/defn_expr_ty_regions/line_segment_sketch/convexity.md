@@ -44,8 +44,14 @@
                             Derived(
                                 FieldTypeTermError(
                                     RawTypeError(
-                                        Original(
-                                            Todo,
+                                        Derived(
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -104,8 +110,14 @@
                             Derived(
                                 FieldTypeTermError(
                                     RawTypeError(
-                                        Original(
-                                            Todo,
+                                        Derived(
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -239,8 +251,14 @@
                             Derived(
                                 FieldTypeTermError(
                                     RawTypeError(
-                                        Original(
-                                            Todo,
+                                        Derived(
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -610,8 +628,14 @@
                             Derived(
                                 FieldTypeTermError(
                                     RawTypeError(
-                                        Original(
-                                            Todo,
+                                        Derived(
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -883,49 +907,25 @@
                 ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                FieldTypeTermError(
-                                    RawTypeError(
-                                        Original(
-                                            Todo,
-                                        ),
+                        Ok(
+                            Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 4,
+                                        },
                                     ),
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
+                expectation_rule_idx: Some(
+                    21,
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
+                resolve_progress: Expected(
+                    Unresolved,
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -933,21 +933,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
+                                TypeMethodTypeError(
+                                    RawTypeError(
+                                        Original(
+                                            Todo,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1059,7 +1051,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    22,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1087,7 +1079,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    23,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1107,7 +1099,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    23,
+                    24,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1133,7 +1125,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    25,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1147,8 +1139,14 @@
                             Derived(
                                 FieldTypeTermError(
                                     RawTypeError(
-                                        Original(
-                                            Todo,
+                                        Derived(
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1179,7 +1177,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    26,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1219,7 +1217,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    27,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1324,7 +1322,31 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    28,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    29,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1336,69 +1358,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldTypeTermError(
+                                TypeMethodTypeError(
                                     RawTypeError(
                                         Original(
                                             Todo,
                                         ),
                                     ),
                                 ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
                             ),
                         ),
                     ),
@@ -1510,7 +1476,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    30,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1572,7 +1538,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    31,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1614,7 +1580,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    32,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1640,7 +1606,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    33,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1674,7 +1640,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    34,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2322,6 +2288,22 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
+                            src_expr_idx: 46,
+                            expectee: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
                             src_expr_idx: 57,
                             expectee: Resolved(
                                 EntityPath(
@@ -2447,6 +2429,22 @@
                                                 value: 54,
                                             },
                                         ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 75,
+                            expectee: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 4,
+                                        },
                                     ),
                                 ),
                             ),

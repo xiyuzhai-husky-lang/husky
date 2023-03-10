@@ -1117,14 +1117,8 @@
                     (
                         Trivial,
                         Err(
-                            Derived(
-                                FieldTypeTermError(
-                                    RawTypeError(
-                                        Original(
-                                            Todo,
-                                        ),
-                                    ),
-                                ),
+                            Original(
+                                NoSuchField,
                             ),
                         ),
                     ),

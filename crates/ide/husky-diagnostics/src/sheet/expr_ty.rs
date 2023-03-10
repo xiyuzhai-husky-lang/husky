@@ -143,6 +143,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::AmbiguousTildeExpr => {
                 format!("Type Error: AmbiguateTildeExpr")
             }
+            OriginalExprTypeError::NoSuchField => {
+                format!("Type Error: NoSuchField")
+            }
         }
     }
 

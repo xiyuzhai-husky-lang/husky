@@ -30,17 +30,30 @@ pub(crate) fn field_raw_ty(
 pub fn ty_path_field_raw_ty(
     db: &dyn RawTypeDb,
     raw_ty_path: TypePath,
-    _ident: Ident,
+    ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
     let decl = match db.ty_decl(raw_ty_path) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypePathFieldDeclError.into()),
     };
-    let _signature = match db.ty_signature(decl) {
+    let signature = match db.ty_signature(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
-    Err(OriginalRawTypeError::Todo.into())
+    Ok(match signature {
+        TypeSignature::Enum(_) => todo!(),
+        TypeSignature::RegularStruct(signature) => signature
+            .fields(db)
+            .iter()
+            .find_map(|field| (field.ident() == ident).then_some(field.ty())),
+        TypeSignature::UnitStruct(_) => todo!(),
+        TypeSignature::TupleStruct(_) => todo!(),
+        TypeSignature::Record(_) => todo!(),
+        TypeSignature::Inductive(_) => todo!(),
+        TypeSignature::Structure(_) => todo!(),
+        TypeSignature::Foreign(_) => todo!(),
+        TypeSignature::Union(_) => todo!(),
+    })
 }
 
 #[salsa::tracked(jar = RawTypeJar)]
