@@ -1,8 +1,8 @@
 mod any_derived;
 mod any_original;
 mod eqs_category;
-mod eqs_eqs_function_ty;
 mod eqs_exactly;
+mod eqs_function_ty;
 mod eqs_ref_mut_application;
 mod explicitly_convertible;
 mod implicitly_convertible;
@@ -11,8 +11,8 @@ mod ins_sort;
 pub(crate) use self::any_derived::*;
 pub(crate) use self::any_original::*;
 pub(crate) use self::eqs_category::*;
-pub(crate) use self::eqs_eqs_function_ty::*;
 pub(crate) use self::eqs_exactly::*;
+pub(crate) use self::eqs_function_ty::*;
 pub(crate) use self::eqs_ref_mut_application::*;
 pub(crate) use self::explicitly_convertible::*;
 pub(crate) use self::implicitly_convertible::*;
@@ -57,6 +57,8 @@ pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
             FinalDestination::TypeOntology(_) => TypePathDisambiguation::Constructor.into(),
             FinalDestination::AnyOriginal => TypePathDisambiguationResult::ErrFromAnyOriginal,
             FinalDestination::AnyDerived => TypePathDisambiguationResult::ErrFromAnyDerived,
+            FinalDestination::UnspecifiedIntegerType(_) => todo!(),
+            FinalDestination::UnspecifiedFloatType(_) => todo!(),
         }
         // LocalTerm::Resolved(term) if let Term::Category(_) = term  => todo!(),
         // LocalTerm::Resolved(term) if term == ty_path.into() => todo!(),
@@ -78,6 +80,8 @@ pub enum FinalDestination {
     TypeOntology(Either<CustomTypePath, PreludeTypePath>),
     AnyOriginal,
     AnyDerived,
+    UnspecifiedIntegerType(UnresolvedTermIdx),
+    UnspecifiedFloatType(UnresolvedTermIdx),
 }
 
 /// disambiguate between type itself (or template) and its instance or constructor

@@ -704,7 +704,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Div,
                     ),
                 ),

@@ -1737,7 +1737,7 @@ Ok(
                                                 },
                                                 Expr::Binary {
                                                     lopd: 28,
-                                                    opr: PureClosed(
+                                                    opr: Closed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
@@ -2010,7 +2010,7 @@ Ok(
                                                 },
                                                 Expr::Binary {
                                                     lopd: 55,
-                                                    opr: PureClosed(
+                                                    opr: Closed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(

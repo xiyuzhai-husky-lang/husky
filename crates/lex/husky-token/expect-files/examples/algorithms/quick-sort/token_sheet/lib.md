@@ -195,7 +195,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -515,7 +515,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -567,7 +567,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -820,7 +820,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -885,10 +885,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Add,
-                        ),
+                    AssignClosed(
+                        Add,
                     ),
                 ),
             ),
@@ -987,10 +985,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Add,
-                        ),
+                    AssignClosed(
+                        Add,
                     ),
                 ),
             ),
@@ -1010,10 +1006,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Sub,
-                        ),
+                    AssignClosed(
+                        Sub,
                     ),
                 ),
             ),
@@ -1140,10 +1134,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Sub,
-                        ),
+                    AssignClosed(
+                        Sub,
                     ),
                 ),
             ),

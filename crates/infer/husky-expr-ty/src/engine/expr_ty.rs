@@ -192,13 +192,10 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Expr::Field {
                 owner, ident_token, ..
-            } => {
-                print_debug_expr!(self, expr_idx);
-                Ok((
-                    ExprDisambiguation::Trivial,
-                    self.calc_field_expr_ty(owner, ident_token, local_term_region),
-                ))
-            }
+            } => Ok((
+                ExprDisambiguation::Trivial,
+                self.calc_field_expr_ty(owner, ident_token, local_term_region),
+            )),
             Expr::MethodCall {
                 self_argument,
                 ident_token,

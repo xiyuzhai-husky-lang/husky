@@ -42,7 +42,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::NoRightOperandForBinaryOperator {
                                                             lopd: 0,
-                                                            punctuation: PureClosed(
+                                                            punctuation: Closed(
                                                                 RemEuclid,
                                                             ),
                                                             punctuation_token_idx: TokenIdx(

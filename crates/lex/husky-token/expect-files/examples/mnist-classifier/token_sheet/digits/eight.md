@@ -674,7 +674,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),

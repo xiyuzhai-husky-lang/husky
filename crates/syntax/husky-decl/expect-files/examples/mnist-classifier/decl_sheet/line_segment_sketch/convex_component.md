@@ -59,7 +59,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::NoRightOperandForBinaryOperator {
                                                             lopd: 2,
-                                                            punctuation: PureClosed(
+                                                            punctuation: Closed(
                                                                 RemEuclid,
                                                             ),
                                                             punctuation_token_idx: TokenIdx(

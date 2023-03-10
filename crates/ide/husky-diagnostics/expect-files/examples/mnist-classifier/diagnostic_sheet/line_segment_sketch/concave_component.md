@@ -58,16 +58,6 @@ DiagnosticSheet {
                 range: [97:13, 97:18),
             },
             Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [98:26, 98:27),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [104:23, 104:24),
-            },
-            Diagnostic {
                 message: "expected 0 argument, found 2",
                 severity: Error,
                 range: [55:16, 58:10),

@@ -48,79 +48,14 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [20:11, 20:14),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [119:32, 119:33),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [119:43, 119:44),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [120:32, 120:33),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [120:43, 120:44),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [123:28, 123:29),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [123:39, 123:40),
-            },
-            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [127:22, 127:24),
             },
             Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [140:44, 140:45),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [141:71, 141:72),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [146:34, 146:35),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [149:80, 149:81),
-            },
-            Diagnostic {
                 message: "Type Error: AmbiguateListExpr",
                 severity: Error,
                 range: [32:43, 32:45),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [68:39, 68:40),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [73:36, 73:37),
             },
         ],
     },

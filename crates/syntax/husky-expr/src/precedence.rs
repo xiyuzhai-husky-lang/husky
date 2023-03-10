@@ -37,16 +37,18 @@ fn test_precedence_order() {
 impl From<BinaryOpr> for Precedence {
     fn from(binary: BinaryOpr) -> Self {
         match binary {
-            BinaryOpr::PureClosed(pure_binary) => match pure_binary {
-                BinaryPureClosedOpr::BitAnd => Precedence::BitAnd,
-                BinaryPureClosedOpr::BitOr => Precedence::BitOr,
-                BinaryPureClosedOpr::BitXor => Precedence::BitXor,
-                BinaryPureClosedOpr::Mul
-                | BinaryPureClosedOpr::Div
-                | BinaryPureClosedOpr::RemEuclid => Precedence::Multiplicative,
-                BinaryPureClosedOpr::Add | BinaryPureClosedOpr::Sub => Precedence::Additive,
-                BinaryPureClosedOpr::Shl | BinaryPureClosedOpr::Shr => Precedence::Shift,
-                BinaryPureClosedOpr::Power => Precedence::Power,
+            BinaryOpr::Closed(opr) => match opr {
+                BinaryClosedOpr::BitAnd => Precedence::BitAnd,
+                BinaryClosedOpr::BitOr => Precedence::BitOr,
+                BinaryClosedOpr::BitXor => Precedence::BitXor,
+                BinaryClosedOpr::Mul | BinaryClosedOpr::Div | BinaryClosedOpr::RemEuclid => {
+                    Precedence::Multiplicative
+                }
+                BinaryClosedOpr::Add | BinaryClosedOpr::Sub => Precedence::Additive,
+                BinaryClosedOpr::Power => Precedence::Power,
+            },
+            BinaryOpr::Shift(opr) => match opr {
+                BinaryShiftOpr::Shl | BinaryShiftOpr::Shr => Precedence::Shift,
             },
             BinaryOpr::Comparison(cmp_opr) => match cmp_opr {
                 BinaryComparisonOpr::Eq | BinaryComparisonOpr::Neq => Precedence::EqComparison,
@@ -59,7 +61,9 @@ impl From<BinaryOpr> for Precedence {
                 BinaryShortcuitLogicOpr::And => Precedence::And,
                 BinaryShortcuitLogicOpr::Or => Precedence::Or,
             },
-            BinaryOpr::Assign(_) => Precedence::None,
+            BinaryOpr::Assign | BinaryOpr::AssignClosed(_) | BinaryOpr::AssignShift(_) => {
+                Precedence::None
+            }
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::Curry => Precedence::Curry,
             BinaryOpr::As => Precedence::As,

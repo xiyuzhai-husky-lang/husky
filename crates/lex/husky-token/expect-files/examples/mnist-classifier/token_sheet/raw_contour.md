@@ -1334,7 +1334,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -1413,10 +1413,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Add,
-                        ),
+                    AssignClosed(
+                        Add,
                     ),
                 ),
             ),
@@ -1448,7 +1446,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -1503,7 +1501,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -1536,7 +1534,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -1669,7 +1667,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -1744,10 +1742,8 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    Assign(
-                        Some(
-                            Add,
-                        ),
+                    AssignClosed(
+                        Add,
                     ),
                 ),
             ),
@@ -1779,7 +1775,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -1834,7 +1830,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -1867,7 +1863,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -2126,7 +2122,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         RemEuclid,
                     ),
                 ),
@@ -2195,7 +2191,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         RemEuclid,
                     ),
                 ),
@@ -2499,7 +2495,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -2775,7 +2771,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -3717,7 +3713,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -5346,7 +5342,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -5403,7 +5399,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -5460,7 +5456,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -5493,7 +5489,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Div,
                     ),
                 ),
@@ -5534,7 +5530,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -5567,7 +5563,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Div,
                     ),
                 ),
@@ -5847,7 +5843,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -5947,7 +5943,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Shift(
                         Shl,
                     ),
                 ),
@@ -5985,7 +5981,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Shift(
                         Shl,
                     ),
                 ),
@@ -6442,7 +6438,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -7171,7 +7167,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Shift(
                         Shl,
                     ),
                 ),
@@ -8227,7 +8223,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -8307,7 +8303,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),
@@ -8378,7 +8374,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -8514,7 +8510,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Add,
                     ),
                 ),
@@ -8577,7 +8573,7 @@ Ok(
             ),
             Punctuation(
                 Binary(
-                    PureClosed(
+                    Closed(
                         Sub,
                     ),
                 ),

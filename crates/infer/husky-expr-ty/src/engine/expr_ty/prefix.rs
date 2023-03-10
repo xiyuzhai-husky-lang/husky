@@ -69,6 +69,8 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::TypeOntology(_) => todo!(),
                 FinalDestination::AnyOriginal => Err(OriginalExprTypeError::AmbiguousTildeExpr)?,
                 FinalDestination::AnyDerived => Err(DerivedExprTypeError::AmbiguousTildeExpr)?,
+                FinalDestination::UnspecifiedIntegerType(_) => todo!(),
+                FinalDestination::UnspecifiedFloatType(_) => todo!(),
             },
             PrefixOpr::Ref => {
                 self.infer_new_expr_ty_discarded(

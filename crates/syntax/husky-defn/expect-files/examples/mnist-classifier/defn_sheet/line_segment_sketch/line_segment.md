@@ -1885,7 +1885,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 28,
-                                                        opr: PureClosed(
+                                                        opr: Closed(
                                                             Div,
                                                         ),
                                                         opr_token_idx: TokenIdx(

@@ -172,16 +172,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [14:31, 14:34),
-            },
-            Diagnostic {
-                message: "unresolved term",
-                severity: Error,
-                range: [15:24, 15:27),
-            },
-            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [26:9, 26:25),

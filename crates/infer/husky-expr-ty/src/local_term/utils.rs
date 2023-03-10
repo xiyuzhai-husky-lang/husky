@@ -27,7 +27,17 @@ impl LocalTerm {
                 FinalDestination::TypeOntology(path)
             }
             LocalTermPattern::Curry {} => todo!(),
-            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+            LocalTermPattern::ImplicitSymbol(kind, idx) => match kind {
+                ImplicitSymbolKind::ImplicitLifetime => todo!(),
+                ImplicitSymbolKind::ExprEvalLifetime => todo!(),
+                ImplicitSymbolKind::UnspecifiedIntegerType => {
+                    FinalDestination::UnspecifiedIntegerType(idx)
+                }
+                ImplicitSymbolKind::UnspecifiedFloatType => {
+                    FinalDestination::UnspecifiedFloatType(idx)
+                }
+                ImplicitSymbolKind::ImplicitType => todo!(),
+            },
             LocalTermPattern::Category(_) => FinalDestination::Sort,
         }
     }

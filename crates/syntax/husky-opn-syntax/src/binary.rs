@@ -1,40 +1,29 @@
 mod comparison;
 mod logic;
 mod pure_closed;
+mod shift;
 
 pub use comparison::*;
 pub use logic::*;
 pub use pure_closed::*;
+pub use shift::*;
+
+use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
-    PureClosed(BinaryPureClosedOpr),
+    Closed(BinaryClosedOpr),
+    Shift(BinaryShiftOpr),
+    Assign,
+    AssignClosed(BinaryClosedOpr),
+    AssignShift(BinaryShiftOpr),
     Comparison(BinaryComparisonOpr),
     ShortCircuitLogic(BinaryShortcuitLogicOpr),
-    Assign(Option<BinaryPureClosedOpr>),
     ScopeResolution,
     Curry, // ->
     As,    // as
     Ins,   // :
     In,    // in
-}
-
-impl From<Option<BinaryPureClosedOpr>> for BinaryOpr {
-    fn from(v: Option<BinaryPureClosedOpr>) -> Self {
-        Self::Assign(v)
-    }
-}
-
-impl From<BinaryShortcuitLogicOpr> for BinaryOpr {
-    fn from(v: BinaryShortcuitLogicOpr) -> Self {
-        Self::ShortCircuitLogic(v)
-    }
-}
-
-impl From<BinaryPureClosedOpr> for BinaryOpr {
-    fn from(v: BinaryPureClosedOpr) -> Self {
-        Self::PureClosed(v)
-    }
 }
 
 impl From<BinaryComparisonOpr> for BinaryOpr {
@@ -46,20 +35,23 @@ impl From<BinaryComparisonOpr> for BinaryOpr {
 impl BinaryOpr {
     pub fn code(self) -> &'static str {
         match self {
-            BinaryOpr::PureClosed(pure_opr) => pure_opr.husky_code(),
-            BinaryOpr::Assign(None) => "=",
-            BinaryOpr::Assign(Some(pure_opr)) => match pure_opr {
-                BinaryPureClosedOpr::Add => "+=",
-                BinaryPureClosedOpr::BitAnd => "&=",
-                BinaryPureClosedOpr::BitOr => "|=",
-                BinaryPureClosedOpr::BitXor => "^=",
-                BinaryPureClosedOpr::Div => "/=",
-                BinaryPureClosedOpr::Mul => "*=",
-                BinaryPureClosedOpr::RemEuclid => "%=",
-                BinaryPureClosedOpr::Power => "**=",
-                BinaryPureClosedOpr::Shl => "<<=",
-                BinaryPureClosedOpr::Shr => ">>=",
-                BinaryPureClosedOpr::Sub => "-=",
+            BinaryOpr::Closed(opr) => opr.husky_code(),
+            BinaryOpr::Shift(opr) => opr.husky_code(),
+            BinaryOpr::Assign => "=",
+            BinaryOpr::AssignClosed(opr) => match opr {
+                BinaryClosedOpr::Add => "+=",
+                BinaryClosedOpr::BitAnd => "&=",
+                BinaryClosedOpr::BitOr => "|=",
+                BinaryClosedOpr::BitXor => "^=",
+                BinaryClosedOpr::Div => "/=",
+                BinaryClosedOpr::Mul => "*=",
+                BinaryClosedOpr::RemEuclid => "%=",
+                BinaryClosedOpr::Power => "**=",
+                BinaryClosedOpr::Sub => "-=",
+            },
+            BinaryOpr::AssignShift(opr) => match opr {
+                BinaryShiftOpr::Shl => "<<=",
+                BinaryShiftOpr::Shr => ">>=",
             },
             BinaryOpr::Comparison(cmp_opr) => cmp_opr.husky_code(),
             BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.husky_code(),
@@ -73,28 +65,26 @@ impl BinaryOpr {
 
     pub fn spaced_code(self) -> &'static str {
         match self {
-            BinaryOpr::PureClosed(pure_binary_opr) => pure_binary_opr.spaced_husky_code(),
-            BinaryOpr::Comparison(cmp_opr) => cmp_opr.spaced_husky_code(),
-            BinaryOpr::ShortCircuitLogic(logic_opr) => logic_opr.spaced_husky_code(),
-            BinaryOpr::Assign(opt_binary_opr) => {
-                if let Some(binary_opr) = opt_binary_opr {
-                    match binary_opr {
-                        BinaryPureClosedOpr::Add => " += ",
-                        BinaryPureClosedOpr::BitAnd => " &= ",
-                        BinaryPureClosedOpr::BitOr => " |= ",
-                        BinaryPureClosedOpr::BitXor => " ^= ",
-                        BinaryPureClosedOpr::Div => " /= ",
-                        BinaryPureClosedOpr::Mul => " *= ",
-                        BinaryPureClosedOpr::RemEuclid => " %= ",
-                        BinaryPureClosedOpr::Power => " **= ",
-                        BinaryPureClosedOpr::Shl => " <<= ",
-                        BinaryPureClosedOpr::Shr => " >>= ",
-                        BinaryPureClosedOpr::Sub => " -= ",
-                    }
-                } else {
-                    " = "
-                }
-            }
+            BinaryOpr::Closed(opr) => opr.spaced_husky_code(),
+            BinaryOpr::Shift(opr) => opr.spaced_husky_code(),
+            BinaryOpr::Comparison(opr) => opr.spaced_husky_code(),
+            BinaryOpr::ShortCircuitLogic(opr) => opr.spaced_husky_code(),
+            BinaryOpr::Assign => " = ",
+            BinaryOpr::AssignClosed(opr) => match opr {
+                BinaryClosedOpr::Add => " += ",
+                BinaryClosedOpr::BitAnd => " &= ",
+                BinaryClosedOpr::BitOr => " |= ",
+                BinaryClosedOpr::BitXor => " ^= ",
+                BinaryClosedOpr::Div => " /= ",
+                BinaryClosedOpr::Mul => " *= ",
+                BinaryClosedOpr::RemEuclid => " %= ",
+                BinaryClosedOpr::Power => " **= ",
+                BinaryClosedOpr::Sub => " -= ",
+            },
+            BinaryOpr::AssignShift(opr) => match opr {
+                BinaryShiftOpr::Shl => " <<= ",
+                BinaryShiftOpr::Shr => " >>= ",
+            },
             BinaryOpr::Curry => " -> ",
             BinaryOpr::As => " as ",
             BinaryOpr::Ins => " : ",

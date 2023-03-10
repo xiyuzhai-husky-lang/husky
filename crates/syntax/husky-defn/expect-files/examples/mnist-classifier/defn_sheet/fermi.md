@@ -2349,9 +2349,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 12,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
+                                                        opr: Assign,
                                                         opr_token_idx: TokenIdx(
                                                             48,
                                                         ),
@@ -3160,9 +3158,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 12,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
+                                                        opr: Assign,
                                                         opr_token_idx: TokenIdx(
                                                             86,
                                                         ),
@@ -3993,9 +3989,7 @@ Ok(
                                                     },
                                                     Expr::Binary {
                                                         lopd: 13,
-                                                        opr: Assign(
-                                                            None,
-                                                        ),
+                                                        opr: Assign,
                                                         opr_token_idx: TokenIdx(
                                                             124,
                                                         ),

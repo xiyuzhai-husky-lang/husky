@@ -143,17 +143,9 @@
                     Resolved(
                         Ok(
                             EqsSort(
-                                ExpectEqsSortOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                TermUniverse(
+                                    1,
+                                ),
                             ),
                         ),
                     ),
@@ -179,7 +171,7 @@
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationEntry {
+                        LocalTermExpectationRule {
                             src_expr_idx: 0,
                             expectee: Resolved(
                                 Category(
@@ -200,17 +192,9 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsSort(
-                                        ExpectEqsSortOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        TermUniverse(
+                                            1,
+                                        ),
                                     ),
                                 ),
                             ),

@@ -15,7 +15,7 @@ TokenSheetData {
     tokens: [
         Punctuation(
             Binary(
-                PureClosed(
+                Closed(
                     Add,
                 ),
             ),
@@ -97,7 +97,7 @@ TokenSheetData {
     tokens: [
         Punctuation(
             Binary(
-                PureClosed(
+                Closed(
                     Div,
                 ),
             ),
@@ -127,7 +127,7 @@ TokenSheetData {
     tokens: [
         Punctuation(
             Binary(
-                PureClosed(
+                Closed(
                     Power,
                 ),
             ),

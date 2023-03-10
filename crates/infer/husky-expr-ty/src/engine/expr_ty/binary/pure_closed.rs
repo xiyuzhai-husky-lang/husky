@@ -1,11 +1,11 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_pure_closed_expr_ty(
+    pub(super) fn calc_binary_closed_expr_ty(
         &mut self,
         lopd: ExprIdx,
         ropd: ExprIdx,
-        opr: BinaryPureClosedOpr,
+        opr: BinaryClosedOpr,
         menu: &TermMenu,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
