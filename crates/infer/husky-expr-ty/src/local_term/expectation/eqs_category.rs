@@ -31,6 +31,10 @@ impl ExpectLocalTerm for ExpectEqsCategory {
     ) -> FinalDestination {
         FinalDestination::Sort
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

@@ -18,4 +18,8 @@ impl ExpectLocalTerm for ExpectAnyOriginal {
     ) -> FinalDestination {
         FinalDestination::AnyOriginal
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }

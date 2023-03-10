@@ -24,6 +24,10 @@ impl ExpectLocalTerm for ExpectInsSort {
     ) -> FinalDestination {
         todo!()
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }
 
 impl ExpectInsSort {

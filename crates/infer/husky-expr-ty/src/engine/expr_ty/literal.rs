@@ -18,12 +18,13 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLikeLiteral::Unspecified => {
                         // match in the order of most frequent to least frequent
-                        Ok(match expectation
-                            .final_destination(self.db, local_term_region.unresolved_terms())
-                        {
-                            FinalDestination::TypeOntology(Right(PreludeTypePath::Num(
-                                PreludeNumTypePath::Int(path),
-                            ))) => match path {
+                        Ok(match expectation.destination().map(|destination| {
+                            destination.pattern(self.db, local_term_region.unresolved_terms())
+                        }) {
+                            Some(LocalTermPattern::TypeOntology {
+                                path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
+                                ..
+                            }) => match path {
                                 // MOM
                                 PreludeIntTypePath::I32 => self.term_menu.i32(),
                                 PreludeIntTypePath::I64 => self.term_menu.i64(),
@@ -44,11 +45,11 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => todo!(),
                                 PreludeIntTypePath::RSize => todo!(),
                             },
-                            FinalDestination::UnspecifiedIntegerType(idx) => return Ok(idx.into()),
-                            FinalDestination::UnspecifiedFloatType(_) => todo!(),
-                            FinalDestination::TypeOntology(_)
-                            | FinalDestination::AnyOriginal
-                            | FinalDestination::AnyDerived => {
+                            Some(LocalTermPattern::ImplicitSymbol(
+                                ImplicitSymbolKind::UnspecifiedIntegerType,
+                                idx,
+                            )) => return Ok(idx.into()),
+                            _ => {
                                 return Ok(local_term_region
                                     .new_implicit_symbol(
                                         expr_idx,
@@ -56,7 +57,6 @@ impl<'a> ExprTypeEngine<'a> {
                                     )
                                     .into())
                             }
-                            FinalDestination::Sort => todo!(),
                         }
                         .into())
                     }
@@ -80,27 +80,29 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::USize(_) => todo!(),
                 },
                 Literal::Float(float_literal) => match float_literal {
-                    FloatLiteral::Unspecified => match expectation
-                        .final_destination(self.db, local_term_region.unresolved_terms())
-                    {
-                        FinalDestination::TypeOntology(Right(PreludeTypePath::Num(
-                            PreludeNumTypePath::Float(path),
-                        ))) => match path {
-                            PreludeFloatTypePath::F32 => Ok(self.term_menu.f32().into()),
-                            PreludeFloatTypePath::F64 => Ok(self.term_menu.f64().into()),
-                        },
-                        FinalDestination::UnspecifiedFloatType(idx) => return Ok(idx.into()),
-                        FinalDestination::UnspecifiedIntegerType(_) => todo!(),
-                        FinalDestination::TypeOntology(_)
-                        | FinalDestination::AnyOriginal
-                        | FinalDestination::AnyDerived => Ok(local_term_region
-                            .new_implicit_symbol(
-                                expr_idx,
-                                ImplicitSymbolVariant::UnspecifiedFloatType,
-                            )
-                            .into()),
-                        FinalDestination::Sort => todo!(),
-                    },
+                    FloatLiteral::Unspecified => {
+                        match expectation.destination().map(|destination| {
+                            destination.pattern(self.db, local_term_region.unresolved_terms())
+                        }) {
+                            Some(LocalTermPattern::TypeOntology {
+                                path: Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
+                                ..
+                            }) => match path {
+                                PreludeFloatTypePath::F32 => Ok(self.term_menu.f32().into()),
+                                PreludeFloatTypePath::F64 => Ok(self.term_menu.f64().into()),
+                            },
+                            Some(LocalTermPattern::ImplicitSymbol(
+                                ImplicitSymbolKind::UnspecifiedFloatType,
+                                idx,
+                            )) => return Ok(idx.into()),
+                            _ => Ok(local_term_region
+                                .new_implicit_symbol(
+                                    expr_idx,
+                                    ImplicitSymbolVariant::UnspecifiedFloatType,
+                                )
+                                .into()),
+                        }
+                    }
                     FloatLiteral::F32(_) => todo!(),
                     FloatLiteral::F64(_) => todo!(),
                 },

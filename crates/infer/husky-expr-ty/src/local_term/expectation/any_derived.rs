@@ -18,4 +18,8 @@ impl ExpectLocalTerm for ExpectAnyDerived {
     ) -> FinalDestination {
         FinalDestination::AnyDerived
     }
+
+    fn destination(&self) -> Option<LocalTerm> {
+        None
+    }
 }
