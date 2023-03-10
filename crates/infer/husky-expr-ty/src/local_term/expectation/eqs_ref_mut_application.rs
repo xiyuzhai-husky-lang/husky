@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
         match expectee {
             LocalTerm::Resolved(expectee) => Some(LocalTermExpectationEffect {
                 result: Err(todo!()),
-                actions: vec![],
+                actions: smallvec![],
             }),
             LocalTerm::Unresolved(unresolved_expectee) => {
                 match unresolved_terms[unresolved_expectee].unresolved_term() {
@@ -66,7 +66,7 @@ impl<'a> ExprTypeEngine<'a> {
                         arguments,
                     } => Some(LocalTermExpectationEffect {
                         result: Err(todo!()),
-                        actions: vec![],
+                        actions: smallvec![],
                     }),
                     UnresolvedTerm::Ritchie {
                         ritchie_kind,

@@ -46,7 +46,6 @@ impl<'a> ExprTypeEngine<'a> {
                 ref initial_value,
                 ..
             } => {
-                println!("\n\n\n\n\n\n\n\n\n\n");
                 let result =
                     self.calc_let_init_stmt(let_variable_pattern, initial_value, local_term_region);
                 if let_token.token_idx().raw() == 115 {

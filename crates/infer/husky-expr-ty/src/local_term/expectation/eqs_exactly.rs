@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                         destination: destination.into(),
                     },
                 )),
-                actions: vec![],
+                actions: smallvec![],
             },
             false => todo!(),
         }

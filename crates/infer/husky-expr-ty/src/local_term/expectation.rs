@@ -101,7 +101,7 @@ pub struct LocalTermExpectationRule {
 #[enum_class::from_variants]
 pub(crate) enum LocalTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
-    ImplicitlyConvertible(ExpectImplicitlyConvertibleOutcome),
+    ImplicitlyConvertible(ImplicitConversion),
     InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
     EqsExactly(ExpectEqsExactlyOutcome),
@@ -242,7 +242,7 @@ impl LocalTermExpectationRule {
 
 pub(super) struct LocalTermExpectationEffect {
     pub(super) result: LocalTermExpectationResult<LocalTermExpectationOutcome>,
-    pub(super) actions: Vec<TermResolveAction>,
+    pub(super) actions: SmallVec<[TermResolveAction; 2]>,
 }
 
 #[derive(Default, Debug, PartialEq, Eq)]
@@ -294,7 +294,7 @@ impl LocalTermExpectations {
         &mut self,
         rule_idx: LocalTermExpectationIdx,
         effect: LocalTermExpectationEffect,
-    ) -> Option<Vec<TermResolveAction>> {
+    ) -> Option<SmallVec<[TermResolveAction; 2]>> {
         self.arena
             .update(rule_idx, |rule| rule.set_resolved(effect.result));
         Some(effect.actions)
@@ -333,14 +333,11 @@ impl<'a> ExprTypeEngine<'a> {
                     level,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::ImplicitlyConvertible(exp) => exp.resolve_implicitly_convertible(
-                self.db(),
-                rule.expectee,
-                level,
-                unresolved_terms,
-            ),
+            LocalTermExpectation::ImplicitlyConvertible(exp) => {
+                exp.resolve(self.db(), rule.expectee, level, unresolved_terms)
+            }
             LocalTermExpectation::EqsSort(ref expectation) => {
-                self.resolve_eqs_sort_expectation(rule.expectee, expectation, unresolved_terms)
+                self.resolve_eqs_category_expectation(rule.expectee, expectation, unresolved_terms)
             }
             LocalTermExpectation::FrameVariableType => todo!(),
             LocalTermExpectation::EqsRefMutApplication(ref expectation) => self
@@ -350,7 +347,13 @@ impl<'a> ExprTypeEngine<'a> {
                     unresolved_terms,
                 ),
             LocalTermExpectation::EqsFunctionType(ref expectation) => {
-                self.resolve_eqs_function_ty(rule.src_expr_idx, rule.expectee, unresolved_terms)
+                print_debug_expr!(self, rule.src_expr_idx);
+                expectation.resolve(
+                    self.db(),
+                    rule.src_expr_idx,
+                    rule.expectee,
+                    unresolved_terms,
+                )
             }
             LocalTermExpectation::InsSort(ref expectation) => {
                 self.resolve_ins_sort_expectation(rule.expectee, expectation, unresolved_terms)

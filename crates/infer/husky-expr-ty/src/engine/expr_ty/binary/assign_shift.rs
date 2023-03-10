@@ -41,9 +41,10 @@ impl<'a> ExprTypeEngine<'a> {
                             _,
                         ) => {}
                         LocalTermPattern::TypeOntology { .. } => todo!(),
-                        LocalTermPattern::Curry {} => todo!(),
+                        LocalTermPattern::Curry { .. } => todo!(),
                         LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
                         LocalTermPattern::Category(_) => todo!(),
+                        LocalTermPattern::Ritchie {} => todo!(),
                     }
                 }
                 Ok(lopd_ty_unravelled)
@@ -51,8 +52,9 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermPattern::TypeOntology { .. }
             | LocalTermPattern::ImplicitSymbol(_, _)
             | LocalTermPattern::Literal(_)
-            | LocalTermPattern::Curry {}
+            | LocalTermPattern::Curry { .. }
             | LocalTermPattern::Category(_) => todo!(),
+            LocalTermPattern::Ritchie {} => todo!(),
         }
     }
 }
