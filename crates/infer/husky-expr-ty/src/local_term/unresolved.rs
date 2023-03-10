@@ -11,8 +11,8 @@ use super::*;
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
-    TypeApplication {
-        ty_path: TypePath,
+    TypeOntology {
+        path: TypePath,
         arguments: Vec<LocalTerm>,
     },
     Ritchie {
@@ -278,8 +278,8 @@ impl UnresolvedTerms {
         };
         match unresolved_term {
             UnresolvedTerm::ImplicitSymbol(_) => (),
-            UnresolvedTerm::TypeApplication {
-                ty_path: ty,
+            UnresolvedTerm::TypeOntology {
+                path: ty,
                 arguments,
             } => arguments.iter().copied().for_each(f),
             UnresolvedTerm::Ritchie {

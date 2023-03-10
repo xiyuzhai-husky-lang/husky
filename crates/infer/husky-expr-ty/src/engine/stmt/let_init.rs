@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
                         local_term_region,
                     );
-                    let pattern_ty = self.infer_new_expr_term(ty);
+                    let pattern_ty = self.infer_new_expr_term(ty, local_term_region);
 
                     p!(self.expr_terms[ty].debug(self.db));
                     pattern_ty
@@ -25,8 +25,6 @@ impl<'a> ExprTypeEngine<'a> {
             },
             Err(_) => todo!(),
         };
-        p!(let_variable_pattern.debug(self.db));
-        p!(pattern_ty.debug(self.db));
         match pattern_ty {
             Some(ty) => {
                 p!(ty.debug(self.db));

@@ -88,7 +88,10 @@ impl<'a> ExprTypeEngine<'a> {
                                 )),
                             }),
                         },
-                        UnresolvedTerm::TypeApplication { ty_path, arguments } => {
+                        UnresolvedTerm::TypeOntology {
+                            path: ty_path,
+                            arguments,
+                        } => {
                             let ty_path = *ty_path;
                             match resolved_expectee {
                                 Term::Literal(_) => todo!(),
@@ -192,8 +195,8 @@ impl<'a> ExprTypeEngine<'a> {
                     }],
                 }),
             },
-            UnresolvedTerm::TypeApplication {
-                ty_path: ty,
+            UnresolvedTerm::TypeOntology {
+                path: ty,
                 arguments,
             } => self.unresolved_ty_app_expectee_implicitly_convertible_to(
                 *ty,

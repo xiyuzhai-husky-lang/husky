@@ -104,7 +104,10 @@ impl LocalTermPattern {
             UnresolvedTerm::ImplicitSymbol(symbol) => {
                 LocalTermPattern::ImplicitSymbol(symbol.kind(), term)
             }
-            UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
+            UnresolvedTerm::TypeOntology {
+                path: ty_path,
+                arguments,
+            } => todo!(),
             UnresolvedTerm::Ritchie {
                 ritchie_kind,
                 parameter_tys,

@@ -5,6 +5,8 @@ mod region;
 mod unresolved;
 mod utils;
 
+use husky_print_utils::p;
+
 pub use self::expectation::*;
 pub use self::progress::*;
 
@@ -32,14 +34,49 @@ impl LocalTerm {
 
     pub fn new_application(
         db: &dyn ExprTypeDb,
-        function: LocalTerm,
-        argument: LocalTerm,
+        src_expr_idx: ExprIdx,
+        function: impl Into<LocalTerm>,
+        argument: impl Into<LocalTerm>,
+        local_term_region: &mut LocalTermRegion,
     ) -> TermResult<Self> {
-        match (function, argument) {
+        match (function.into(), argument.into()) {
             (LocalTerm::Resolved(function), LocalTerm::Resolved(argument)) => {
                 Ok(TermApplication::new(db, function, argument)?.into())
             }
-            (LocalTerm::Resolved(_), LocalTerm::Unresolved(_)) => todo!(),
+            (LocalTerm::Resolved(function), argument) => {
+                let expansion = db.term_application_expansion(function);
+                match expansion.f() {
+                    Term::Literal(_) => todo!(),
+                    Term::Symbol(_) => todo!(),
+                    Term::EntityPath(path) => match path {
+                        TermEntityPath::Form(_) => todo!(),
+                        TermEntityPath::Trait(_) => todo!(),
+                        TermEntityPath::TypeOntology(path) => {
+                            let mut arguments: Vec<LocalTerm> = expansion
+                                .arguments(db)
+                                .iter()
+                                .copied()
+                                .map(Into::into)
+                                .collect();
+                            arguments.push(argument);
+                            Ok(local_term_region.intern_unresolved_term(
+                                src_expr_idx,
+                                UnresolvedTerm::TypeOntology { path, arguments },
+                            ))
+                        }
+                        TermEntityPath::TypeConstructor(_) => todo!(),
+                    },
+                    Term::Category(_) => todo!(),
+                    Term::Universe(_) => todo!(),
+                    Term::Curry(_) => todo!(),
+                    Term::Ritchie(_) => todo!(),
+                    Term::Abstraction(_) => todo!(),
+                    Term::Application(_) => todo!(),
+                    Term::Subentity(_) => todo!(),
+                    Term::AsTraitSubentity(_) => todo!(),
+                    Term::TraitConstraint(_) => todo!(),
+                }
+            }
             (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),
             (LocalTerm::Unresolved(_), LocalTerm::Unresolved(_)) => todo!(),
         }

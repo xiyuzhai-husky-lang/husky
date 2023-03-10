@@ -214,7 +214,10 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match unresolved_terms[expectee].unresolved_term() {
             UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-            UnresolvedTerm::TypeApplication { ty_path, arguments } => todo!(),
+            UnresolvedTerm::TypeOntology {
+                path: ty_path,
+                arguments,
+            } => todo!(),
             UnresolvedTerm::Ritchie {
                 ritchie_kind,
                 parameter_tys,

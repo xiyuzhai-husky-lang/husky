@@ -263,18 +263,39 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                         }
                         TypePathDisambiguation::Constructor => {
-                            match expr_ty_expectation.destination_pattern(
-                                self.db(),
-                                local_term_region.unresolved_terms(),
-                            ) {
+                            let element_ty: LocalTerm = match expr_ty_expectation
+                                .destination_pattern(
+                                    self.db(),
+                                    local_term_region.unresolved_terms(),
+                                ) {
                                 Some(_) => todo!(),
-                                None => {
-                                    for item in items {
-                                        todo!()
-                                    }
-                                }
+                                None => local_term_region
+                                    .new_implicit_symbol(
+                                        expr_idx,
+                                        ImplicitSymbolVariant::ImplicitType,
+                                    )
+                                    .into(),
+                            };
+                            for item in items {
+                                self.infer_new_expr_ty_discarded(
+                                    item,
+                                    ExpectImplicitlyConvertible {
+                                        destination: element_ty,
+                                    },
+                                    local_term_region,
+                                );
                             }
-                            (ListExprDisambiguation::NewList.into(), todo!())
+                            (
+                                ListExprDisambiguation::NewList.into(),
+                                LocalTerm::new_application(
+                                    self.db,
+                                    expr_idx,
+                                    self.term_menu.list_ty_ontology(),
+                                    element_ty,
+                                    local_term_region,
+                                )
+                                .map_err(|_| todo!()),
+                            )
                         }
                     },
                 )

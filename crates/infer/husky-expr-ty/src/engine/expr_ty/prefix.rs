@@ -27,8 +27,8 @@ impl<'a> ExprTypeEngine<'a> {
                                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
                                     }
                                 }
-                                UnresolvedTerm::TypeApplication {
-                                    ty_path: ty,
+                                UnresolvedTerm::TypeOntology {
+                                    path: ty,
                                     arguments,
                                 } => todo!(),
                                 UnresolvedTerm::Ritchie {
