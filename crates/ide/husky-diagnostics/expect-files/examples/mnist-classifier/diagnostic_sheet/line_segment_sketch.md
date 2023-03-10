@@ -28,26 +28,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [61:9, 61:21),
             },
-            Diagnostic {
-                message: "Syntax Error: standalone elif",
-                severity: Error,
-                range: [98:9, 98:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [99:13, 99:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: standalone elif",
-                severity: Error,
-                range: [129:9, 129:30),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [130:13, 130:28),
-            },
         ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {

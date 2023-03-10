@@ -222,6 +222,45 @@ Ok(
             ),
         },
         FoldingRange {
+            start_line: 221,
+            start_character: Some(
+                20,
+            ),
+            end_line: 226,
+            end_character: Some(
+                53,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 227,
+            start_character: Some(
+                20,
+            ),
+            end_line: 233,
+            end_character: Some(
+                41,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
+            start_line: 234,
+            start_character: Some(
+                20,
+            ),
+            end_line: 237,
+            end_character: Some(
+                53,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
+        FoldingRange {
             start_line: 210,
             start_character: Some(
                 16,
