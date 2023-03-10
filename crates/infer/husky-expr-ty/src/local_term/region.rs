@@ -88,7 +88,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
         local_term_region
             .unresolved_terms
-            .resolve_term(unresolved_term_idx)
+            .force_resolve_term(unresolved_term_idx)
     }
 
     pub(crate) fn resolve_as_much_as_possible(
@@ -104,8 +104,11 @@ impl<'a> ExprTypeEngine<'a> {
                         TermResolveAction::SubstituteImplicitSymbol {
                             implicit_symbol,
                             substitution,
-                        } => local_term_region
-                            .substitute_implicit_symbol(implicit_symbol, substitution),
+                        } => local_term_region.substitute_implicit_symbol(
+                            self.db(),
+                            implicit_symbol,
+                            substitution,
+                        ),
                     }
                 }
             }

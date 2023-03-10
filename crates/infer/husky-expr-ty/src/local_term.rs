@@ -25,14 +25,14 @@ pub enum LocalTerm {
 }
 
 impl LocalTerm {
-    pub fn unresolved(self) -> Option<UnresolvedTermIdx> {
+    pub(crate) fn unresolved(self) -> Option<UnresolvedTermIdx> {
         match self {
             LocalTerm::Resolved(_) => None,
             LocalTerm::Unresolved(idx) => Some(idx),
         }
     }
 
-    pub fn new_application(
+    pub(crate) fn new_application(
         db: &dyn ExprTypeDb,
         src_expr_idx: ExprIdx,
         function: impl Into<LocalTerm>,
@@ -52,7 +52,7 @@ impl LocalTerm {
                         TermEntityPath::Form(_) => todo!(),
                         TermEntityPath::Trait(_) => todo!(),
                         TermEntityPath::TypeOntology(path) => {
-                            let mut arguments: Vec<LocalTerm> = expansion
+                            let mut arguments: SmallVec<[LocalTerm; 2]> = expansion
                                 .arguments(db)
                                 .iter()
                                 .copied()
@@ -82,6 +82,16 @@ impl LocalTerm {
         }
     }
 
+    pub(crate) fn new_ty_ontology_application(
+        db: &dyn ExprTypeDb,
+        unresolved_terms: &mut UnresolvedTerms,
+        src_expr_idx: ExprIdx,
+        ty_ontology_path: TypePath,
+        arguments: Vec<LocalTerm>,
+    ) -> Self {
+        todo!()
+    }
+
     pub(crate) fn unravel_borrow(
         self,
         db: &dyn ExprTypeDb,
@@ -89,8 +99,9 @@ impl LocalTerm {
     ) -> Self {
         match self.pattern(db, unresolved_terms) {
             LocalTermPattern::TypeOntology {
-                path: Right(PreludeTypePath::Borrow(path)),
+                refined_path: Right(PreludeTypePath::Borrow(path)),
                 arguments,
+                ..
             } => match path {
                 PreludeBorrowTypePath::Ref | PreludeBorrowTypePath::RefMut => {
                     assert_eq!(arguments.len(), 2);
@@ -104,14 +115,19 @@ impl LocalTerm {
             _ => self,
         }
     }
-}
 
-impl LocalTerm {
     fn resolved(self) -> Option<Term> {
         match self {
             LocalTerm::Resolved(term) => Some(term),
             LocalTerm::Unresolved(_) => None,
         }
+    }
+
+    pub(crate) fn resolve_progress(
+        self,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> LocalTermResolveResultRef<Self> {
+        todo!()
     }
 }
 

@@ -24,7 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_idx,
                 UnresolvedTerm::TypeOntology {
                     path: self.entity_path_menu.list_ty_path(),
-                    arguments: vec![element_ty],
+                    arguments: smallvec![element_ty],
                 },
             )
             .into())

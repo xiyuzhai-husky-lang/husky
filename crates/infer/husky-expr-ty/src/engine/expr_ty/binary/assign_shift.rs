@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
             lopd_ty.unravel_borrow(self.db, local_term_region.unresolved_terms());
         match lopd_ty_unravelled.pattern(self.db, local_term_region.unresolved_terms()) {
             LocalTermPattern::TypeOntology {
-                path: Right(PreludeTypePath::Num(_)),
+                refined_path: Right(PreludeTypePath::Num(_)),
                 ..
             }
             | LocalTermPattern::ImplicitSymbol(
@@ -33,14 +33,14 @@ impl<'a> ExprTypeEngine<'a> {
                     match ropd_ty.pattern(self.db, local_term_region.unresolved_terms()) {
                         LocalTermPattern::Literal(_) => todo!(),
                         LocalTermPattern::TypeOntology {
-                            path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+                            refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                             ..
                         }
                         | LocalTermPattern::ImplicitSymbol(
                             ImplicitSymbolKind::UnspecifiedIntegerType,
                             _,
                         ) => {}
-                        LocalTermPattern::TypeOntology { path, arguments } => todo!(),
+                        LocalTermPattern::TypeOntology { .. } => todo!(),
                         LocalTermPattern::Curry {} => todo!(),
                         LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
                         LocalTermPattern::Category(_) => todo!(),

@@ -13,7 +13,7 @@ pub(crate) enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
     TypeOntology {
         path: TypePath,
-        arguments: Vec<LocalTerm>,
+        arguments: SmallVec<[LocalTerm; 2]>,
     },
     Ritchie {
         ritchie_kind: TermRitchieKind,
@@ -123,44 +123,35 @@ impl UnresolvedTermRitchieParameterBookType {
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct UnresolvedTerms {
     implicit_symbol_registry: ImplicitSymbolRegistry,
-    arena: Vec<UnresolvedTermEntry>,
+    data: Vec<UnresolvedTermEntry>,
     first_unresolved_term: usize,
 }
 
 impl UnresolvedTerms {
-    pub(super) fn resolve_term(&mut self, unresolved_term_idx: UnresolvedTermIdx) -> Option<Term> {
-        let unresolved_term_entry = &mut self.arena[unresolved_term_idx.0];
+    pub(super) fn force_resolve_term(
+        &mut self,
+        unresolved_term_idx: UnresolvedTermIdx,
+    ) -> Option<Term> {
+        let unresolved_term_entry = &mut self.data[unresolved_term_idx.0];
         match unresolved_term_entry.resolve_progress {
-            LocalTermResolveProgress::FullyResolved(term) => Some(term),
-            LocalTermResolveProgress::Unresolved
-            | LocalTermResolveProgress::PartiallyResolved(_) => {
-                unresolved_term_entry.resolve_progress = LocalTermResolveProgress::Err(
-                    OriginalLocalTermResolveError::UnresolvedTerm.into(),
-                );
+            Ok(LocalTerm::Resolved(term)) => Some(term),
+            Ok(LocalTerm::Unresolved(_)) => {
+                unresolved_term_entry.resolve_progress =
+                    Err(OriginalLocalTermResolveError::UnresolvedTerm.into());
                 None
             }
-            LocalTermResolveProgress::Err(_) => None,
+            Err(_) => None,
         }
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &UnresolvedTermEntry> {
-        self.arena[self.first_unresolved_term..].iter()
+        self.data[self.first_unresolved_term..].iter()
     }
 
     pub(super) fn unresolved_iter_mut(&mut self) -> impl Iterator<Item = &mut UnresolvedTermEntry> {
-        self.arena[self.first_unresolved_term..]
+        self.data[self.first_unresolved_term..]
             .iter_mut()
-            .filter(|entry| !entry.resolve_progress.is_done())
-    }
-}
-
-impl LocalTermResolveProgress {
-    fn is_done(&self) -> bool {
-        match self {
-            LocalTermResolveProgress::Unresolved
-            | LocalTermResolveProgress::PartiallyResolved(_) => false,
-            LocalTermResolveProgress::FullyResolved(_) | LocalTermResolveProgress::Err(_) => true,
-        }
+            .filter(|entry| !entry.is_done())
     }
 }
 
@@ -169,7 +160,7 @@ pub struct UnresolvedTermEntry {
     src_expr_idx: ExprIdx,
     unresolved_term: UnresolvedTerm,
     implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
-    resolve_progress: LocalTermResolveProgress,
+    resolve_progress: LocalTermResolveResult<LocalTerm>,
 }
 
 impl UnresolvedTermEntry {
@@ -183,13 +174,23 @@ impl UnresolvedTermEntry {
 
     pub fn original_error(&self) -> Option<&OriginalLocalTermResolveError> {
         match self.resolve_progress {
-            LocalTermResolveProgress::Err(LocalTermResolveError::Original(ref e)) => Some(e),
+            Err(LocalTermResolveError::Original(ref e)) => Some(e),
             _ => None,
         }
     }
 
-    pub(crate) fn resolve_progress(&self) -> &LocalTermResolveProgress {
-        &self.resolve_progress
+    pub(crate) fn resolve_progress(&self) -> Option<LocalTerm> {
+        match self.resolve_progress {
+            Ok(resolve_progress) => Some(resolve_progress),
+            Err(_) => None,
+        }
+    }
+
+    pub(crate) fn is_done(&self) -> bool {
+        match self.resolve_progress {
+            Ok(LocalTerm::Resolved(_)) | Err(_) => true,
+            Ok(LocalTerm::Unresolved(_)) => false,
+        }
     }
 }
 
@@ -241,7 +242,7 @@ impl UnresolvedTerms {
         // todo: check that unresolved_term is indeed unresolved;
         // if not, return reduced term
         let position = self
-            .arena
+            .data
             .iter()
             .position(|entry| entry.unresolved_term == unresolved_term);
         match position {
@@ -256,16 +257,16 @@ impl UnresolvedTerms {
         src_expr_idx: ExprIdx,
         unresolved_term: UnresolvedTerm,
     ) -> UnresolvedTermIdx {
-        let idx = self.arena.len();
+        let idx = UnresolvedTermIdx(self.data.len());
         let implicit_symbol_dependencies =
             self.extract_implicit_symbol_dependencies(&unresolved_term);
-        self.arena.push(UnresolvedTermEntry {
+        self.data.push(UnresolvedTermEntry {
             src_expr_idx,
             unresolved_term,
             implicit_symbol_dependencies,
-            resolve_progress: LocalTermResolveProgress::Unresolved,
+            resolve_progress: Ok(LocalTerm::Unresolved(idx)),
         });
-        UnresolvedTermIdx(idx)
+        idx
     }
 
     fn extract_implicit_symbol_dependencies(
@@ -332,10 +333,9 @@ impl UnresolvedTerms {
             LocalTerm::Resolved(_) => Ok(None),
             LocalTerm::Unresolved(unresolved_term) => {
                 match self[unresolved_term].resolve_progress {
-                    LocalTermResolveProgress::Unresolved => Ok(None),
-                    LocalTermResolveProgress::PartiallyResolved(term) => Ok(Some(term.into())),
-                    LocalTermResolveProgress::FullyResolved(term) => Ok(Some(term.into())),
-                    LocalTermResolveProgress::Err(ref e) => Err(e),
+                    Ok(resolve_progress) if resolve_progress == local_term => Ok(None),
+                    Ok(resolve_progress) => Ok(Some(resolve_progress)),
+                    Err(ref e) => Err(e),
                 }
             }
         }
@@ -367,6 +367,7 @@ impl UnresolvedTerms {
 impl LocalTermRegion {
     pub(super) fn substitute_implicit_symbol(
         &mut self,
+        db: &dyn ExprTypeDb,
         implicit_symbol: UnresolvedTermIdx,
         substitution: LocalTerm,
     ) {
@@ -376,15 +377,36 @@ impl LocalTermRegion {
         if substitution_implicit_symbol_dependencies.has(implicit_symbol) {
             todo!("report error of cyclic substitution")
         }
-        for entry in self.unresolved_terms.unresolved_iter_mut() {
-            if entry.implicit_symbol_dependencies.has(implicit_symbol) {
-                match entry.resolve_progress {
-                    LocalTermResolveProgress::Unresolved => (),
-                    LocalTermResolveProgress::PartiallyResolved(_) => todo!(),
-                    LocalTermResolveProgress::FullyResolved(_)
-                    | LocalTermResolveProgress::Err(_) => unreachable!(),
-                }
+        let unresolved_terms = &mut self.unresolved_terms;
+        for i in 0..unresolved_terms.data.len() {
+            let entry = &unresolved_terms.data[i];
+            if !entry.implicit_symbol_dependencies.has(implicit_symbol) {
+                continue;
             }
+            let resolve_progress = entry.resolve_progress().unwrap();
+            let resolve_progress_pattern = resolve_progress.pattern(db, unresolved_terms);
+            let resolve_progress = match resolve_progress_pattern {
+                LocalTermPattern::Literal(_) => todo!(),
+                LocalTermPattern::TypeOntology {
+                    path, arguments, ..
+                } => {
+                    let arguments = arguments
+                        .iter()
+                        .map(|argument| argument.resolve_progress(unresolved_terms).unwrap())
+                        .collect();
+                    Ok(LocalTerm::new_ty_ontology_application(
+                        db,
+                        unresolved_terms,
+                        entry.src_expr_idx,
+                        path,
+                        arguments,
+                    ))
+                }
+                LocalTermPattern::Curry {} => todo!(),
+                LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
+                LocalTermPattern::Category(_) => todo!(),
+            };
+            unresolved_terms.data[i].resolve_progress = resolve_progress
         }
         let new_expectation_rules: Vec<LocalTermExpectationRule> = Default::default();
         for (idx, rule) in self.expectations.unresolved_indexed_iter_mut() {
@@ -402,8 +424,8 @@ impl LocalTermRegion {
                 .unresolved_terms
                 .try_substitute_expectation_rule_variant(rule.variant());
         }
-        let implicit_symbol_entry = &mut self.unresolved_terms.arena[implicit_symbol.0];
-        implicit_symbol_entry.resolve_progress = LocalTermResolveProgress::new(substitution);
+        let implicit_symbol_entry = &mut self.unresolved_terms.data[implicit_symbol.0];
+        implicit_symbol_entry.resolve_progress = Ok(substitution);
         implicit_symbol_entry.implicit_symbol_dependencies =
             substitution_implicit_symbol_dependencies;
     }
@@ -416,6 +438,6 @@ impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTerms {
     type Output = UnresolvedTermEntry;
 
     fn index(&self, index: UnresolvedTermIdx) -> &Self::Output {
-        &self.arena[index.0]
+        &self.data[index.0]
     }
 }

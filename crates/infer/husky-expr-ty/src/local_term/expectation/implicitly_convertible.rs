@@ -321,11 +321,12 @@ impl ExpectImplicitlyConvertible {
         match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
-                path: dst_path,
+                refined_path: dst_path,
                 arguments: dst_arguments,
+                ..
             } => match src_patt {
                 LocalTermPattern::TypeOntology {
-                    path: Right(PreludeTypePath::NEVER),
+                    refined_path: Right(PreludeTypePath::NEVER),
                     ..
                 } => Some(LocalTermExpectationEffect {
                     result: Ok(ExpectImplicitlyConvertibleOutcome {
@@ -335,12 +336,14 @@ impl ExpectImplicitlyConvertible {
                     actions: vec![],
                 }),
                 LocalTermPattern::TypeOntology {
-                    path: src_path,
+                    refined_path: src_path,
                     arguments: src_arguments,
+                    ..
                 } if dst_path == src_path => todo!(),
                 LocalTermPattern::TypeOntology {
-                    path: src_path,
+                    refined_path: src_path,
                     arguments: src_arguments,
+                    ..
                 } => {
                     p!(dst_path.debug(db), src_path.debug(db));
                     todo!()
