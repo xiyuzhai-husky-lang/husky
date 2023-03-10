@@ -19,66 +19,6 @@ DiagnosticSheet {
                 range: [53:9, 53:41),
             },
             Diagnostic {
-                message: "Syntax Error: standalone elif",
-                severity: Error,
-                range: [222:21, 224:51),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [225:25, 225:72),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [226:25, 226:52),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [227:25, 227:54),
-            },
-            Diagnostic {
-                message: "Syntax Error: standalone elif",
-                severity: Error,
-                range: [228:21, 231:50),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [232:25, 232:72),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [233:25, 233:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [234:25, 234:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: standalone else",
-                severity: Error,
-                range: [235:21, 235:26),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [236:25, 236:68),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [237:25, 237:52),
-            },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [238:25, 238:54),
-            },
-            Diagnostic {
                 message: "Syntax Error: unexpected stmt inside module",
                 severity: Error,
                 range: [56:1, 56:5),
@@ -111,6 +51,21 @@ DiagnosticSheet {
                 message: "entity tree error EntityTreeError::NoSubentity",
                 severity: Error,
                 range: [219:47, 219:61),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::NoSubentity",
+                severity: Error,
+                range: [225:52, 225:66),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::NoSubentity",
+                severity: Error,
+                range: [232:52, 232:66),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::NoSubentity",
+                severity: Error,
+                range: [236:47, 236:61),
             },
             Diagnostic {
                 message: "entity tree error EntityTreeError::NoSubentity",

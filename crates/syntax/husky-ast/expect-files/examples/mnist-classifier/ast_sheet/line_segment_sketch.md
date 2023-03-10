@@ -460,7 +460,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        77,
+                        72,
                     ),
                     body: ArenaIdxRange(
                         44..44,
@@ -468,7 +468,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        76,
+                        71,
                     ),
                     body: ArenaIdxRange(
                         44..45,
@@ -476,7 +476,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        79,
+                        77,
                     ),
                     body: ArenaIdxRange(
                         46..46,
@@ -484,7 +484,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        78,
+                        76,
                     ),
                     body: ArenaIdxRange(
                         46..47,
@@ -492,10 +492,26 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
+                        79,
+                    ),
+                    body: ArenaIdxRange(
+                        48..48,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        78,
+                    ),
+                    body: ArenaIdxRange(
+                        48..49,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
                         74,
                     ),
                     body: ArenaIdxRange(
-                        44..44,
+                        46..46,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -503,15 +519,8 @@ Ok(
                         75,
                     ),
                     body: ArenaIdxRange(
-                        44..44,
-                    ),
-                },
-                Ast::IfElseStmts {
-                    if_branch: 45,
-                    elif_branches: ArenaIdxRange(
                         46..46,
                     ),
-                    else_branch: None,
                 },
                 Ast::IfElseStmts {
                     if_branch: 47,
@@ -520,12 +529,19 @@ Ok(
                     ),
                     else_branch: None,
                 },
+                Ast::IfElseStmts {
+                    if_branch: 49,
+                    elif_branches: ArenaIdxRange(
+                        50..50,
+                    ),
+                    else_branch: None,
+                },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         73,
                     ),
                     body: ArenaIdxRange(
-                        48..52,
+                        50..54,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -539,30 +555,14 @@ Ok(
                 Ast::IfElseStmts {
                     if_branch: 43,
                     elif_branches: ArenaIdxRange(
-                        44..44,
+                        45..46,
                     ),
                     else_branch: None,
                 },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        71,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::StandaloneElif,
-                    ),
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        72,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
-                    ),
-                },
                 Ast::IfElseStmts {
-                    if_branch: 52,
+                    if_branch: 54,
                     elif_branches: ArenaIdxRange(
-                        53..53,
+                        55..55,
                     ),
                     else_branch: None,
                 },
@@ -571,7 +571,7 @@ Ok(
                         80,
                     ),
                     body: ArenaIdxRange(
-                        53..53,
+                        55..55,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -579,7 +579,7 @@ Ok(
                         81,
                     ),
                     body: ArenaIdxRange(
-                        53..53,
+                        55..55,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -658,7 +658,7 @@ Ok(
                         67,
                     ),
                     body: ArenaIdxRange(
-                        53..60,
+                        55..60,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -727,7 +727,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        107,
+                        102,
                     ),
                     body: ArenaIdxRange(
                         78..78,
@@ -735,7 +735,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        106,
+                        101,
                     ),
                     body: ArenaIdxRange(
                         78..79,
@@ -743,7 +743,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        109,
+                        107,
                     ),
                     body: ArenaIdxRange(
                         80..80,
@@ -751,7 +751,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        108,
+                        106,
                     ),
                     body: ArenaIdxRange(
                         80..81,
@@ -759,10 +759,26 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
+                        109,
+                    ),
+                    body: ArenaIdxRange(
+                        82..82,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        108,
+                    ),
+                    body: ArenaIdxRange(
+                        82..83,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
                         104,
                     ),
                     body: ArenaIdxRange(
-                        78..78,
+                        80..80,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -770,15 +786,8 @@ Ok(
                         105,
                     ),
                     body: ArenaIdxRange(
-                        78..78,
-                    ),
-                },
-                Ast::IfElseStmts {
-                    if_branch: 79,
-                    elif_branches: ArenaIdxRange(
                         80..80,
                     ),
-                    else_branch: None,
                 },
                 Ast::IfElseStmts {
                     if_branch: 81,
@@ -787,12 +796,19 @@ Ok(
                     ),
                     else_branch: None,
                 },
+                Ast::IfElseStmts {
+                    if_branch: 83,
+                    elif_branches: ArenaIdxRange(
+                        84..84,
+                    ),
+                    else_branch: None,
+                },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         103,
                     ),
                     body: ArenaIdxRange(
-                        82..86,
+                        84..88,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -800,7 +816,7 @@ Ok(
                         112,
                     ),
                     body: ArenaIdxRange(
-                        87..87,
+                        89..89,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -808,13 +824,13 @@ Ok(
                         111,
                     ),
                     body: ArenaIdxRange(
-                        87..88,
+                        89..90,
                     ),
                 },
                 Ast::IfElseStmts {
-                    if_branch: 88,
+                    if_branch: 90,
                     elif_branches: ArenaIdxRange(
-                        89..89,
+                        91..91,
                     ),
                     else_branch: None,
                 },
@@ -823,7 +839,7 @@ Ok(
                         113,
                     ),
                     body: ArenaIdxRange(
-                        89..89,
+                        91..91,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -831,7 +847,7 @@ Ok(
                         110,
                     ),
                     body: ArenaIdxRange(
-                        89..91,
+                        91..93,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -839,7 +855,7 @@ Ok(
                         115,
                     ),
                     body: ArenaIdxRange(
-                        92..92,
+                        94..94,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -847,7 +863,7 @@ Ok(
                         114,
                     ),
                     body: ArenaIdxRange(
-                        92..93,
+                        94..95,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -869,40 +885,24 @@ Ok(
                 Ast::IfElseStmts {
                     if_branch: 77,
                     elif_branches: ArenaIdxRange(
-                        78..78,
-                    ),
-                    else_branch: None,
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        101,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::StandaloneElif,
-                    ),
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        102,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
-                    ),
-                },
-                Ast::IfElseStmts {
-                    if_branch: 86,
-                    elif_branches: ArenaIdxRange(
-                        87..87,
+                        79..80,
                     ),
                     else_branch: None,
                 },
                 Ast::IfElseStmts {
-                    if_branch: 91,
+                    if_branch: 88,
                     elif_branches: ArenaIdxRange(
-                        92..92,
+                        89..89,
+                    ),
+                    else_branch: None,
+                },
+                Ast::IfElseStmts {
+                    if_branch: 93,
+                    elif_branches: ArenaIdxRange(
+                        94..94,
                     ),
                     else_branch: Some(
-                        93,
+                        95,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -1005,7 +1005,7 @@ Ok(
                         96,
                     ),
                     body: ArenaIdxRange(
-                        94..101,
+                        96..101,
                     ),
                 },
                 Ast::IfElseStmts {

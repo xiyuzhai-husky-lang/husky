@@ -140,13 +140,13 @@ impl<'a> AstParser<'a> {
 
     fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx, context: &Context) -> Ast {
         Ast::IfElseStmts {
-            if_branch: self.alloc_stmt(idx, &context),
-            elif_branches: self.alloc_elif_stmts(context.subcontext(AstContextKind::InsideForm)),
-            else_branch: self.alloc_else_stmt(&context),
+            if_branch: self.alloc_stmt(idx, context),
+            elif_branches: self.alloc_elif_stmts(context),
+            else_branch: self.alloc_else_stmt(context),
         }
     }
 
-    fn alloc_elif_stmts(&mut self, context: Context) -> AstIdxRange {
+    fn alloc_elif_stmts(&mut self, context: &Context) -> AstIdxRange {
         let mut elif_stmts = vec![];
         while let Some((idx, token_group, first_noncomment_token)) = self
             .token_groups

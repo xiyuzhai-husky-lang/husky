@@ -3173,13 +3173,53 @@ Ok(
             None,
             None,
             None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 341,
+                    },
+                ),
+            },
             None,
+            CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 341,
+                    },
+                ),
+            },
             None,
+            CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 341,
+                    },
+                ),
+            },
             None,
-            None,
-            None,
-            None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 341,
+                    },
+                ),
+            },
             None,
             CurrentSymbol {
                 current_symbol_idx: 7,
@@ -4349,13 +4389,53 @@ Ok(
             None,
             None,
             None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 342,
+                    },
+                ),
+            },
             None,
+            CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 342,
+                    },
+                ),
+            },
             None,
+            CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 342,
+                    },
+                ),
+            },
             None,
-            None,
-            None,
-            None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 342,
+                    },
+                ),
+            },
             None,
             CurrentSymbol {
                 current_symbol_idx: 7,

@@ -4541,100 +4541,399 @@ Ok(
             None,
             None,
             None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            CurrentSymbol {
+                current_symbol_idx: 17,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 15,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 8,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 9,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 10,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 8,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 21,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 19,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 22,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 20,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 17,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 15,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 22,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 20,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 8,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 9,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 10,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 8,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 21,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 19,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 8,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 6,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            Method,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 9,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 10,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 8,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 21,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 19,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            CurrentSymbol {
+                current_symbol_idx: 20,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 18,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
+            None,
+            CurrentSymbol {
+                current_symbol_idx: 22,
+                current_symbol_kind: LetVariable {
+                    pattern_symbol_idx: 20,
+                },
+                expr_region: ExprRegion(
+                    Id {
+                        value: 380,
+                    },
+                ),
+            },
             CurrentSymbol {
                 current_symbol_idx: 22,
                 current_symbol_kind: LetVariable {
