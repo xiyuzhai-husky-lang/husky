@@ -366,10 +366,38 @@ Ok(
                         26,
                     ),
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        13,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core`,
+                    ),
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::option`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `option`,
+                        token_idx: TokenIdx(
+                            27,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        28,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..13,
+            0..14,
         ),
     },
 )
