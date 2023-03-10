@@ -7,13 +7,17 @@ use husky_ty_expectation::TypePathDisambiguation;
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<LocalTerm> {
+    pub(super) fn infer_new_expr_term(
+        &mut self,
+        expr_idx: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
+    ) -> Option<LocalTerm> {
         #[cfg(test)]
         if self.expr_ty_infos.get(expr_idx).is_none() {
             print_debug_expr!(self, expr_idx);
             panic!("expect to infer type before infer term")
         }
-        let term_result = self.calc_expr_term(expr_idx);
+        let term_result = self.calc_expr_term(expr_idx, local_term_region);
         let term = term_result.as_ref().ok().copied();
         self.save_new_expr_term(expr_idx, term_result);
         term
@@ -23,7 +27,11 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_terms.insert_new(expr_idx, term_result)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<LocalTerm> {
+    fn calc_expr_term(
+        &mut self,
+        expr_idx: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
+    ) -> ExprTermResult<LocalTerm> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
@@ -61,7 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr,
                 opr_token_idx,
                 opd,
-            } => self.calc_prefix_expr_term(expr_idx, opr, opd),
+            } => self.calc_prefix_expr_term(expr_idx, opr, opd, local_term_region),
             Expr::Suffix {
                 opd,
                 opr: punctuation,
@@ -79,7 +87,12 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::TemplateInstantiation { .. } => Err(OriginalExprTermError::Todo.into()),
             Expr::ExplicitApplication { function, argument } => {
                 // todo: implicit arguments
-                self.calc_explicit_application_expr_term(function, argument)
+                self.calc_explicit_application_expr_term(
+                    expr_idx,
+                    function,
+                    argument,
+                    local_term_region,
+                )
             }
             Expr::Bracketed {
                 lpar_token_idx,

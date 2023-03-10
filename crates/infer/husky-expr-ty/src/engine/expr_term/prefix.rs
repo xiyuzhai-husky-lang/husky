@@ -6,8 +6,9 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         opr: PrefixOpr,
         opd: ExprIdx,
+        local_term_region: &mut LocalTermRegion,
     ) -> ExprTermResult<LocalTerm> {
-        let Some(opd_term) = self.infer_new_expr_term(opd) else {
+        let Some(opd_term) = self.infer_new_expr_term(opd, local_term_region) else {
            return Err(DerivedExprTermError::PrefixOprTermNotInferred.into())
         };
         match opr {
@@ -43,8 +44,10 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => Ok(LocalTerm::new_application(
                 self.db,
-                self.term_menu.leash_ty_ontology().into(),
+                expr_idx,
+                self.term_menu.leash_ty_ontology(),
                 opd_term,
+                local_term_region,
             )
             .map_err(|e| DerivedExprTermError::OptionApplicationTerm(e))?
             .into()),

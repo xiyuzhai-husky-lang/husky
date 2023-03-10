@@ -114,7 +114,7 @@ impl<'a> ExprTypeEngine<'a> {
             },
             local_term_region,
         );
-        let Some(ropd_term) = self.infer_new_expr_term(ropd)
+        let Some(ropd_term) = self.infer_new_expr_term(ropd, local_term_region)
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
@@ -238,8 +238,8 @@ impl<'a> ExprTypeEngine<'a> {
             },
             LocalTerm::Unresolved(lopd_ty) => match local_term_region[lopd_ty].unresolved_term() {
                 UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                UnresolvedTerm::TypeApplication {
-                    ty_path: ty,
+                UnresolvedTerm::TypeOntology {
+                    path: ty,
                     arguments,
                 } => {
                     todo!()

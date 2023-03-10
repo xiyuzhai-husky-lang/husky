@@ -22,8 +22,8 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(local_term_region
             .intern_unresolved_term(
                 expr_idx,
-                UnresolvedTerm::TypeApplication {
-                    ty_path: self.entity_path_menu.list_ty_path(),
+                UnresolvedTerm::TypeOntology {
+                    path: self.entity_path_menu.list_ty_path(),
                     arguments: vec![element_ty],
                 },
             )

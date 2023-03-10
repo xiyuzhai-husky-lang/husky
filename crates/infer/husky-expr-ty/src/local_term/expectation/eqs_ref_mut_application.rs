@@ -55,14 +55,14 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Unresolved(unresolved_expectee) => {
                 match unresolved_terms[unresolved_expectee].unresolved_term() {
                     UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                    UnresolvedTerm::TypeApplication {
-                        ty_path: ty,
+                    UnresolvedTerm::TypeOntology {
+                        path: ty,
                         arguments,
                     } if *ty == self.entity_path_menu().ref_mut_ty_path() => {
                         todo!()
                     }
-                    UnresolvedTerm::TypeApplication {
-                        ty_path: ty,
+                    UnresolvedTerm::TypeOntology {
+                        path: ty,
                         arguments,
                     } => Some(LocalTermExpectationEffect {
                         result: Err(todo!()),
