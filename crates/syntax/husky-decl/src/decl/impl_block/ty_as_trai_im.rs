@@ -1,5 +1,15 @@
 use super::*;
 
+#[salsa::tracked(jar = DeclJar, return_ref)]
+pub(crate) fn ty_as_trai_impl_decl(
+    db: &dyn DeclDb,
+    impl_block: TypeAsTraitImplBlock,
+) -> DeclResult<TypeAsTraitImplDecl> {
+    todo!()
+    // let parser = DeclParser::new(db, impl_block.module_path(db))?;
+    // Ok(parser.parse_ty_as_trai_impl_decl(impl_block)?.into())
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAsTraitImplDecl {
     pub ast_idx: AstIdx,

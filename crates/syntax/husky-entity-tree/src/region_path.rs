@@ -38,7 +38,7 @@ impl From<DeclRegionPath> for RegionPath {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum DeclRegionPath {
     Entity(EntityPath),
-    Impl(ImplId),
+    Impl(ImplBlockId),
     AssociatedItem(AssociatedItemId),
 }
 
@@ -66,7 +66,7 @@ impl DeclRegionPath {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum DefnRegionPath {
     Entity(EntityPath),
-    Impl(ImplId),
+    Impl(ImplBlockId),
     AssociatedItem(AssociatedItemId),
 }
 

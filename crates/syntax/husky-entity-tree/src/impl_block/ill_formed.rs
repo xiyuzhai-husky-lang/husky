@@ -1,9 +1,9 @@
 use super::*;
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct IllFormedImplBlock {
     #[id]
-    pub id: TypeImplId,
+    pub id: TypeImplBlockId,
     pub ast_idx: AstIdx,
     pub body: AstIdxRange,
     #[return_ref]
@@ -12,7 +12,7 @@ pub struct IllFormedImplBlock {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct IllFormedImplId {
+pub struct IllFormedImplBlockId {
     module_path: ModulePath,
     disambiguator: u8,
 }

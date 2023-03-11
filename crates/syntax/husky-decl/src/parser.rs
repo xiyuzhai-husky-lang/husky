@@ -42,10 +42,18 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDec
     parser.parse_trai_decl(path)
 }
 
-#[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResult<ImplDecl> {
-    let parser = DeclParser::new(db, impl_block.module_path(db))?;
-    parser.parse_impl_decl(impl_block)
+pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
+    match impl_block {
+        ImplBlock::Type(impl_block) => ty_impl_decl(db, impl_block)
+            .as_ref()
+            .copied()
+            .map(Into::into),
+        ImplBlock::TypeAsTrait(impl_block) => ty_as_trai_impl_decl(db, impl_block)
+            .as_ref()
+            .copied()
+            .map(Into::into),
+        ImplBlock::IllFormed(_) => todo!(),
+    }
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
@@ -79,6 +87,7 @@ impl<'a> DeclParser<'a> {
         })
     }
 
+    // MOM
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ident = path.ident(self.db);
         let Some(entity_symbol) = self
@@ -300,7 +309,7 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn expr_parser(
+    pub(crate) fn expr_parser(
         &self,
         expr_path: DeclRegionPath,
         parent_expr_region: Option<ExprRegion>,
@@ -502,56 +511,6 @@ impl<'a> DeclParser<'a> {
         .into())
     }
 
-    fn parse_impl_decl(&self, impl_block: ImplBlock) -> DeclResult<ImplDecl> {
-        let ast_idx = impl_block.ast_idx(self.db);
-        match self.ast_sheet[ast_idx] {
-            Ast::Impl {
-                token_group_idx,
-                body: _,
-            } => match impl_block.kind(self.db) {
-                ImplKind::Type { ty: _ } => Ok(self
-                    .parse_ty_impl_decl(ast_idx, token_group_idx, impl_block)?
-                    .into()),
-                ImplKind::TypeAsTrait { ty: _, trai: _ } => todo!(),
-                ImplKind::Err => Err(DerivedDeclError::ImplErr.into()),
-            },
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_ty_impl_decl(
-        &self,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        impl_block: ImplBlock,
-    ) -> DeclResult<TypeImplDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Impl(impl_block.id(self.db)),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, None),
-        );
-        let impl_token = ctx.parse().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.parse();
-        let ty = ctx.parse().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(TypeImplDecl::new(
-            self.db,
-            ast_idx,
-            impl_block,
-            impl_token,
-            implicit_parameter_decl_list,
-            ty,
-            eol_colon,
-            parser.finish(),
-        ))
-    }
-
     fn parse_associated_item_decl(
         &self,
         associated_item: AssociatedItem,
@@ -747,5 +706,17 @@ impl<'a> DeclParser<'a> {
             eol_colon,
         )
         .into())
+    }
+
+    pub(crate) fn db(&self) -> &'a dyn DeclDb {
+        self.db
+    }
+
+    pub(crate) fn token_sheet_data(&self) -> &'a TokenSheetData {
+        self.token_sheet_data
+    }
+
+    pub(crate) fn ast_sheet(&self) -> &'a AstSheet {
+        self.ast_sheet
     }
 }

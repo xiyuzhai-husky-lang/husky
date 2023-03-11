@@ -20,7 +20,7 @@ pub struct AssociatedItem {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct AssociatedItemId {
-    impl_id: ImplId,
+    impl_id: ImplBlockId,
     ident: Ident,
 }
 
@@ -47,18 +47,18 @@ impl AssociatedItem {
         let path: Option<AssociatedItemPath> = match associated_item_kind {
             AssociatedItemKind::TraitItem(_) => todo!(),
             AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block.kind(db) {
-                ImplKind::Type { ty } => {
+                ImplBlockKind::Type { ty } => {
                     Some(TypeItemPath::new(db, ty, ident, ty_item_kind).into())
                 }
-                ImplKind::Err => None,
+                ImplBlockKind::Err => None,
                 _ => unreachable!(),
             },
             AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => {
                 match impl_block.kind(db) {
-                    ImplKind::TypeAsTrait { ty, trai } => Some(
+                    ImplBlockKind::TypeAsTrait { ty, trai } => Some(
                         TypeAsTraitItemPath::new(db, ty, trai, ident, ty_as_trai_item_kind).into(),
                     ),
-                    ImplKind::Err => None,
+                    ImplBlockKind::Err => None,
                     _ => {
                         p!(impl_block.kind(db));
                         unreachable!()
@@ -99,13 +99,29 @@ impl AsVecMapEntry for AssociatedItem {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn impl_associated_items(
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ty_impl_block_associated_items(
+    db: &dyn EntityTreeDb,
+    impl_block: TypeImplBlock,
+) -> IdentPairMap<AssociatedItem> {
+    todo!()
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ty_as_trai_impl_block_associated_items(
+    db: &dyn EntityTreeDb,
+    impl_block: TypeAsTraitImplBlock,
+) -> IdentPairMap<AssociatedItem> {
+    todo!()
+}
+
+pub(crate) fn impl_block_associated_items_aux(
     db: &dyn EntityTreeDb,
     impl_block: ImplBlock,
+    module_path: ModulePath,
+    body: AstIdxRange,
 ) -> IdentPairMap<AssociatedItem> {
-    let body = impl_block.body(db);
-    let ast_sheet = db.ast_sheet(impl_block.module_path(db)).unwrap();
+    let ast_sheet = db.ast_sheet(module_path).unwrap();
     body.into_iter()
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];

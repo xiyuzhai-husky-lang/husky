@@ -8,7 +8,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     crate_root: ModulePath,
-    impl_registry: ImplRegistry,
+    impl_registry: ImplBlockRegistry,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
     // can't use `crate_prelude` here because it might not be available
@@ -60,7 +60,7 @@ impl<'a> EntityTreeCollector<'a> {
             db,
             crate_path,
             crate_root,
-            impl_registry: ImplRegistry::default(),
+            impl_registry: ImplBlockRegistry::default(),
             presheets,
             core_prelude_module,
             opt_universal_prelude: universal_prelude,
