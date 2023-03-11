@@ -996,7 +996,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 32,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -1156,7 +1156,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -1650,7 +1650,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 37,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -1810,7 +1810,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -2304,7 +2304,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 42,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -2464,7 +2464,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -2958,7 +2958,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 47,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -3118,7 +3118,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -3612,7 +3612,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 52,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -3772,7 +3772,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -4266,7 +4266,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 57,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -4426,7 +4426,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -4920,7 +4920,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 62,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -5080,7 +5080,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -5574,7 +5574,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 67,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -5734,7 +5734,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -6228,7 +6228,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 72,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -6388,7 +6388,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -6882,7 +6882,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 77,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -7042,7 +7042,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -7536,7 +7536,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 82,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -7696,7 +7696,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -8190,7 +8190,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 87,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -8350,7 +8350,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -8844,7 +8844,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 92,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -9004,7 +9004,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {
@@ -9498,7 +9498,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 97,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `core::num`,
                                         impl_kind: ImplKind::Type {
@@ -9658,7 +9658,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `core::num`,
                                                     impl_kind: ImplKind::Type {

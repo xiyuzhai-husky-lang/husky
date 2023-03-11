@@ -254,7 +254,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 4,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                         impl_kind: ImplKind::Type {

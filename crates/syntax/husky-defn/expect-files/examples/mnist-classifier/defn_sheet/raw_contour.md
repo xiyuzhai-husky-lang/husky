@@ -11880,7 +11880,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 200,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::raw_contour`,
                                         impl_kind: ImplKind::Type {
@@ -12047,7 +12047,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     impl_kind: ImplKind::Type {
@@ -12606,7 +12606,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     impl_kind: ImplKind::Type {
@@ -14268,7 +14268,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     impl_kind: ImplKind::Type {
@@ -14848,7 +14848,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     impl_kind: ImplKind::Type {
@@ -16459,7 +16459,7 @@ Ok(
                                                     },
                                                 ),
                                             ),
-                                            im: Impl {
+                                            impl_block: ImplBlock {
                                                 id: ImplId {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     impl_kind: ImplKind::Type {

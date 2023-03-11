@@ -2181,7 +2181,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 170,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         impl_kind: ImplKind::Type {
@@ -2333,7 +2333,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 impl_kind: ImplKind::Type {
@@ -2847,7 +2847,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 impl_kind: ImplKind::Type {
@@ -3099,7 +3099,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 172,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         impl_kind: ImplKind::Type {
@@ -3258,7 +3258,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 impl_kind: ImplKind::Type {
@@ -3524,7 +3524,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 impl_kind: ImplKind::Type {
@@ -3768,7 +3768,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::line_segment_sketch`,
                                                 impl_kind: ImplKind::Type {

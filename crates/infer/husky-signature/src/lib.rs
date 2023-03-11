@@ -60,7 +60,7 @@ pub struct SignatureJar(
     TypeAliasSignature,
     // impl block
     // im_signature,
-    ty_im_signature,
+    ty_impl_block_signature,
     TypeImplSignature,
     ty_as_trai_im_signature,
     TypeAsTraitImplSignature,

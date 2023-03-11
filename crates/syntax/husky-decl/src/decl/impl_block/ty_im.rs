@@ -4,7 +4,7 @@ use husky_token::EolColonToken;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplDecl {
     pub ast_idx: AstIdx,
-    pub im: Impl,
+    pub impl_block: ImplBlock,
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,

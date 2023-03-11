@@ -1,14 +1,14 @@
-mod ty_as_trai_im;
-mod ty_im;
+mod ty;
+mod ty_as_trai;
 
-pub use ty_as_trai_im::*;
-pub use ty_im::*;
+pub use ty::*;
+pub use ty_as_trai::*;
 
 use super::*;
 
 pub(crate) fn im_signature(db: &dyn SignatureDb, decl: ImplDecl) -> SignatureResult<ImplSignature> {
     match decl {
-        ImplDecl::Type(decl) => ty_im_signature(db, decl).map(Into::into),
+        ImplDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
         ImplDecl::TypeAsTrait(decl) => ty_as_trai_im_signature(db, decl).map(Into::into),
     }
 }

@@ -6,7 +6,7 @@ use thiserror::Error;
 use vec_like::VecPairMap;
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct Impl {
+pub struct ImplBlock {
     #[id]
     pub id: ImplId,
     pub ast_idx: AstIdx,
@@ -70,7 +70,7 @@ impl ImplRegistry {
     }
 }
 
-impl Impl {
+impl ImplBlock {
     pub(crate) fn parse_from_token_group<'a>(
         db: &dyn EntityTreeDb,
         impl_registry: &mut ImplRegistry,
@@ -151,9 +151,9 @@ fn new_impl(
     ast_idx: ArenaIdx<Ast>,
     body: ArenaIdxRange<Ast>,
     variant: ImplVariant,
-) -> Impl {
+) -> ImplBlock {
     let impl_kind = variant.kind();
-    Impl::new(
+    ImplBlock::new(
         db,
         ImplId {
             module_path,
@@ -195,15 +195,17 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_impls(
+pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeCrateBundleResult<Vec<Impl>> {
+) -> EntityTreeCrateBundleResult<Vec<ImplBlock>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .impl_iter()
-        .filter_map(|im| (im.variant(db) == &ImplVariant::Type { ty }).then_some(im))
+        .filter_map(|impl_block| {
+            (impl_block.variant(db) == &ImplVariant::Type { ty }).then_some(impl_block)
+        })
         .collect())
 }
 
@@ -216,9 +218,9 @@ pub(crate) fn ty_associated_items(
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .impl_iter()
-        .filter_map(|im| {
-            (im.kind(db) == ImplKind::Type { ty }).then_some({
-                db.impl_associated_items(im)
+        .filter_map(|impl_block| {
+            (impl_block.kind(db) == ImplKind::Type { ty }).then_some({
+                db.impl_associated_items(impl_block)
                     .iter()
                     .map(|(ident, associated_item)| (*ident, *associated_item))
             })

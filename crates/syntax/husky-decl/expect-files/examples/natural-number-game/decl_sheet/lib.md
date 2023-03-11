@@ -217,7 +217,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 6,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `natural_number_game`,
                                         impl_kind: ImplKind::Type {
@@ -376,7 +376,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `natural_number_game`,
                                                 impl_kind: ImplKind::Type {

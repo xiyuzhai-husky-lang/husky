@@ -15,7 +15,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     crate_specific_prelude: EntitySymbolTableRef<'a>,
     major_path_expr_arena: MajorPathExprArena,
-    impls: Vec<Impl>,
+    impls: Vec<ImplBlock>,
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -101,7 +101,7 @@ impl<'a> EntityTreeCollector<'a> {
         EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impls)
     }
 
-    fn collect_implss(&mut self) -> Vec<Vec<Impl>> {
+    fn collect_implss(&mut self) -> Vec<Vec<ImplBlock>> {
         let mut implss = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
@@ -123,7 +123,7 @@ impl<'a> EntityTreeCollector<'a> {
                             crate_prelude,
                             presheet.module_specific_symbols(),
                         );
-                        Some(Impl::parse_from_token_group(
+                        Some(ImplBlock::parse_from_token_group(
                             self.db,
                             &mut self.impl_registry,
                             module_symbol_context,
