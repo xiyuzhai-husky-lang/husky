@@ -20,7 +20,7 @@ impl TypeImplBlock {
         Self::new_inner(
             db,
             TypeImplBlockId {
-                module_path,
+                module: module_path,
                 ty,
                 disambiguator: registry
                     .issue_disambiguitor(module_path, ImplBlockKind::Type { ty }),
@@ -31,21 +31,25 @@ impl TypeImplBlock {
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).module_path
+        self.id(db).module
+    }
+
+    pub fn ty(self, db: &dyn EntityTreeDb) -> TypePath {
+        self.id(db).ty
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct TypeImplBlockId {
-    module_path: ModulePath,
+    module: ModulePath,
     ty: TypePath,
     disambiguator: u8,
 }
 
 impl TypeImplBlockId {
-    pub fn module_path(&self) -> ModulePath {
-        self.module_path
+    pub fn module(&self) -> ModulePath {
+        self.module
     }
 
     pub fn ty(&self) -> TypePath {

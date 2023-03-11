@@ -56,7 +56,7 @@ impl DeclRegionPath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
             DeclRegionPath::Entity(path) => path.module_path(db),
-            DeclRegionPath::Impl(id) => id.module_path(),
+            DeclRegionPath::Impl(id) => id.module(),
             DeclRegionPath::AssociatedItem(id) => id.module_path(),
         }
     }
@@ -75,7 +75,7 @@ impl DefnRegionPath {
         match self {
             DefnRegionPath::Entity(path) => path.module_path(db),
             DefnRegionPath::AssociatedItem(id) => id.module_path(),
-            DefnRegionPath::Impl(id) => id.module_path(),
+            DefnRegionPath::Impl(id) => id.module(),
         }
     }
 }

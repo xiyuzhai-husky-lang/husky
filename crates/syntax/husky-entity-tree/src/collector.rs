@@ -15,7 +15,7 @@ pub(crate) struct EntityTreeCollector<'a> {
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     crate_specific_prelude: EntitySymbolTableRef<'a>,
     major_path_expr_arena: MajorPathExprArena,
-    impls: Vec<ImplBlock>,
+    impl_blocks: ImplBlockBundle,
 }
 
 impl<'a> EntityTreeCollector<'a> {
@@ -69,7 +69,7 @@ impl<'a> EntityTreeCollector<'a> {
                 .map(|table| table.as_ref())
                 .map_err(|e| e.clone())?,
             major_path_expr_arena: Default::default(),
-            impls: Default::default(),
+            impl_blocks: Default::default(),
         })
     }
 
@@ -98,7 +98,7 @@ impl<'a> EntityTreeCollector<'a> {
         let sheets = std::iter::zip(self.presheets.into_iter(), implss.into_iter())
             .map(|(presheet, impls)| presheet.into_sheet(impls))
             .collect();
-        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impls)
+        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena, self.impl_blocks)
     }
 
     fn collect_implss(&mut self) -> Vec<Vec<ImplBlock>> {

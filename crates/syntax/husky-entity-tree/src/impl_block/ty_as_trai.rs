@@ -21,23 +21,31 @@ impl TypeAsTraitImplBlock {
         todo!()
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).module_path
+    pub fn module(self, db: &dyn EntityTreeDb) -> ModulePath {
+        self.id(db).module
+    }
+
+    pub fn ty(self, db: &dyn EntityTreeDb) -> TypePath {
+        self.id(db).ty
+    }
+
+    pub fn trai(self, db: &dyn EntityTreeDb) -> TraitPath {
+        self.id(db).trai
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct TypeAsTraitImplBlockId {
-    module_path: ModulePath,
+    module: ModulePath,
     ty: TypePath,
     trai: TraitPath,
     disambiguator: u8,
 }
 
 impl TypeAsTraitImplBlockId {
-    pub fn module_path(&self) -> ModulePath {
-        self.module_path
+    pub fn module(&self) -> ModulePath {
+        self.module
     }
 
     pub fn ty(&self) -> TypePath {

@@ -169,12 +169,12 @@ impl ExprRegion {
             RegionPath::Snippet(toolchain) => toolchain,
             RegionPath::Decl(path) => match path {
                 DeclRegionPath::Entity(path) => path.toolchain(db),
-                DeclRegionPath::Impl(impl_block) => impl_block.module_path().toolchain(db),
+                DeclRegionPath::Impl(impl_block) => impl_block.module().toolchain(db),
                 DeclRegionPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
             RegionPath::Defn(path) => match path {
                 DefnRegionPath::Entity(path) => path.toolchain(db),
-                DefnRegionPath::Impl(impl_block) => impl_block.module_path().toolchain(db),
+                DefnRegionPath::Impl(impl_block) => impl_block.module().toolchain(db),
                 DefnRegionPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
         }

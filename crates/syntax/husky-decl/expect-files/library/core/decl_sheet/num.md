@@ -941,34 +941,29 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::i8`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 32,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i8`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::i8`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 32,
                                     body: ArenaIdxRange(
                                         0..1,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i8`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -993,13 +988,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -1071,13 +1066,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -1088,13 +1083,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -1106,22 +1101,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 32,
+                                                body: ArenaIdxRange(
+                                                    0..1,
+                                                ),
                                             },
-                                            ast_idx: 32,
-                                            body: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::i8`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 0,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -1146,13 +1138,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::i8`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -1220,13 +1212,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::i8`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -1345,11 +1337,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 0,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 0,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -1358,52 +1351,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
+                DeclRegionPath::Impl(
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
+                            ty: TypePath(`core::num::i16`, `Extern`),
                             disambiguator: 0,
                         },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
-                ),
-            ),
-            (
-                DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
-                            ty: TypePath(`core::num::i16`, `Extern`),
-                        },
-                        disambiguator: 0,
-                    },
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 37,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i16`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::i16`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 37,
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i16`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -1428,13 +1399,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -1506,13 +1477,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -1523,13 +1494,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -1541,22 +1512,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 37,
+                                                body: ArenaIdxRange(
+                                                    2..3,
+                                                ),
                                             },
-                                            ast_idx: 37,
-                                            body: ArenaIdxRange(
-                                                2..3,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::i16`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 2,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -1581,13 +1549,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::i16`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -1655,13 +1623,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::i16`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -1780,11 +1748,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 1,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 1,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -1793,52 +1762,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 1,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::i32`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 42,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i32`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::i32`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 42,
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i32`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -1863,13 +1810,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -1941,13 +1888,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -1958,13 +1905,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -1976,22 +1923,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 42,
+                                                body: ArenaIdxRange(
+                                                    4..5,
+                                                ),
                                             },
-                                            ast_idx: 42,
-                                            body: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::i32`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 4,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -2016,13 +1960,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::i32`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -2090,13 +2034,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::i32`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -2215,11 +2159,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 2,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 2,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -2228,52 +2173,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 2,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::i64`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 47,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i64`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::i64`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 47,
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i64`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -2298,13 +2221,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -2376,13 +2299,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -2393,13 +2316,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -2411,22 +2334,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 47,
+                                                body: ArenaIdxRange(
+                                                    6..7,
+                                                ),
                                             },
-                                            ast_idx: 47,
-                                            body: ArenaIdxRange(
-                                                6..7,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::i64`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 6,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -2451,13 +2371,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::i64`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -2525,13 +2445,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::i64`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -2650,11 +2570,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 3,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 3,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -2663,52 +2584,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 3,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::i128`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 52,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::i128`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::i128`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 52,
                                     body: ArenaIdxRange(
                                         8..9,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::i128`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -2733,13 +2632,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -2811,13 +2710,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -2828,13 +2727,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -2846,22 +2745,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 52,
+                                                body: ArenaIdxRange(
+                                                    8..9,
+                                                ),
                                             },
-                                            ast_idx: 52,
-                                            body: ArenaIdxRange(
-                                                8..9,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::i128`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 8,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -2886,13 +2782,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::i128`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -2960,13 +2856,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::i128`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -3085,11 +2981,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 4,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 4,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -3098,52 +2995,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 4,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::isize`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 57,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::isize`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::isize`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 57,
                                     body: ArenaIdxRange(
                                         10..11,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::isize`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -3168,13 +3043,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -3246,13 +3121,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -3263,13 +3138,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -3281,22 +3156,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 57,
+                                                body: ArenaIdxRange(
+                                                    10..11,
+                                                ),
                                             },
-                                            ast_idx: 57,
-                                            body: ArenaIdxRange(
-                                                10..11,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::isize`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 10,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -3321,13 +3193,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::isize`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -3395,13 +3267,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::isize`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -3520,11 +3392,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 5,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 5,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -3533,52 +3406,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 5,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::u8`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 62,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u8`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::u8`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 62,
                                     body: ArenaIdxRange(
                                         12..13,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u8`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -3603,13 +3454,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -3681,13 +3532,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u8`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -3698,13 +3549,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -3716,22 +3567,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 62,
+                                                body: ArenaIdxRange(
+                                                    12..13,
+                                                ),
                                             },
-                                            ast_idx: 62,
-                                            body: ArenaIdxRange(
-                                                12..13,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::u8`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 12,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -3756,13 +3604,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::u8`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -3830,13 +3678,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::u8`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -3955,11 +3803,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 6,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 6,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -3968,52 +3817,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 6,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::u16`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 67,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u16`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::u16`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 67,
                                     body: ArenaIdxRange(
                                         14..15,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u16`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -4038,13 +3865,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -4116,13 +3943,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u16`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -4133,13 +3960,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -4151,22 +3978,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 67,
+                                                body: ArenaIdxRange(
+                                                    14..15,
+                                                ),
                                             },
-                                            ast_idx: 67,
-                                            body: ArenaIdxRange(
-                                                14..15,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::u16`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 14,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -4191,13 +4015,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::u16`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -4265,13 +4089,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::u16`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -4390,11 +4214,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 7,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 7,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -4403,52 +4228,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 7,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::u32`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 72,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u32`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::u32`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 72,
                                     body: ArenaIdxRange(
                                         16..17,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u32`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -4473,13 +4276,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -4551,13 +4354,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -4568,13 +4371,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -4586,22 +4389,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 72,
+                                                body: ArenaIdxRange(
+                                                    16..17,
+                                                ),
                                             },
-                                            ast_idx: 72,
-                                            body: ArenaIdxRange(
-                                                16..17,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::u32`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 16,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -4626,13 +4426,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::u32`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -4700,13 +4500,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::u32`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -4825,11 +4625,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 8,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 8,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -4838,52 +4639,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 8,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::u64`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 77,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u64`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::u64`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 77,
                                     body: ArenaIdxRange(
                                         18..19,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u64`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -4908,13 +4687,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -4986,13 +4765,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -5003,13 +4782,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -5021,22 +4800,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 77,
+                                                body: ArenaIdxRange(
+                                                    18..19,
+                                                ),
                                             },
-                                            ast_idx: 77,
-                                            body: ArenaIdxRange(
-                                                18..19,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::u64`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 18,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -5061,13 +4837,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::u64`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -5135,13 +4911,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::u64`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -5260,11 +5036,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 9,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 9,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -5273,52 +5050,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 9,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::u128`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 82,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::u128`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::u128`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 82,
                                     body: ArenaIdxRange(
                                         20..21,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::u128`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -5343,13 +5098,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -5421,13 +5176,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u128`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -5438,13 +5193,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -5456,22 +5211,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 82,
+                                                body: ArenaIdxRange(
+                                                    20..21,
+                                                ),
                                             },
-                                            ast_idx: 82,
-                                            body: ArenaIdxRange(
-                                                20..21,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::u128`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 20,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -5496,13 +5248,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::u128`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -5570,13 +5322,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::u128`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -5695,11 +5447,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 10,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 10,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -5708,52 +5461,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 10,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::usize`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 87,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::usize`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::usize`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 87,
                                     body: ArenaIdxRange(
                                         22..23,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::usize`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -5778,13 +5509,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -5856,13 +5587,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::usize`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -5873,13 +5604,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -5891,22 +5622,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 87,
+                                                body: ArenaIdxRange(
+                                                    22..23,
+                                                ),
                                             },
-                                            ast_idx: 87,
-                                            body: ArenaIdxRange(
-                                                22..23,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::usize`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 22,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -5931,13 +5659,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::usize`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -6005,13 +5733,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::usize`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -6130,11 +5858,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 11,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 11,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -6143,52 +5872,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 11,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 92,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::f32`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::f32`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 92,
                                     body: ArenaIdxRange(
                                         24..25,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::f32`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -6213,13 +5920,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -6291,13 +5998,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -6308,13 +6015,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -6326,22 +6033,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 92,
+                                                body: ArenaIdxRange(
+                                                    24..25,
+                                                ),
                                             },
-                                            ast_idx: 92,
-                                            body: ArenaIdxRange(
-                                                24..25,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::f32`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 24,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -6366,13 +6070,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -6440,13 +6144,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -6565,11 +6269,12 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 12,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 12,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
@@ -6578,52 +6283,30 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 12,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
-                    ),
-                ),
-            ),
-            (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `core::num`,
                             ty: TypePath(`core::num::f64`, `Extern`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 97,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `core::num`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`core::num::f64`, `Extern`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `core::num`,
+                                        ty: TypePath(`core::num::f64`, `Extern`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 97,
                                     body: ArenaIdxRange(
                                         26..27,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`core::num::f64`, `Extern`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -6648,13 +6331,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `core::num`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `core::num`,
                                                         ty: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {
@@ -6726,13 +6409,13 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        impl_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
-                        },
+                        ),
                         ident: `abs`,
                     },
                 ),
@@ -6743,13 +6426,13 @@ Ok(
                                 TypeMethodDecl {
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                            impl_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
-                                            },
+                                            ),
                                             ident: `abs`,
                                         },
                                         path: Some(
@@ -6761,22 +6444,19 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        impl_block: ImplBlock {
-                                            id: ImplId {
-                                                module_path: `core::num`,
-                                                impl_kind: ImplKind::Type {
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module: `core::num`,
                                                     ty: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
                                                 },
-                                                disambiguator: 0,
+                                                ast_idx: 97,
+                                                body: ArenaIdxRange(
+                                                    26..27,
+                                                ),
                                             },
-                                            ast_idx: 97,
-                                            body: ArenaIdxRange(
-                                                26..27,
-                                            ),
-                                            variant: ImplVariant::Type {
-                                                ty: TypePath(`core::num::f64`, `Extern`),
-                                            },
-                                        },
+                                        ),
                                         ast_idx: 26,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
@@ -6801,13 +6481,13 @@ Ok(
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::Impl(
-                                                                ImplId {
-                                                                    module_path: `core::num`,
-                                                                    impl_kind: ImplKind::Type {
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module: `core::num`,
                                                                         ty: TypePath(`core::num::f64`, `Extern`),
+                                                                        disambiguator: 0,
                                                                     },
-                                                                    disambiguator: 0,
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                         expr_arena: Arena {
@@ -6875,13 +6555,13 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplId {
-                                                            module_path: `core::num`,
-                                                            impl_kind: ImplKind::Type {
+                                                        impl_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module: `core::num`,
                                                                 ty: TypePath(`core::num::f64`, `Extern`),
+                                                                disambiguator: 0,
                                                             },
-                                                            disambiguator: 0,
-                                                        },
+                                                        ),
                                                         ident: `abs`,
                                                     },
                                                 ),
@@ -7000,32 +6680,16 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `core::num`,
-                        impl_kind: ImplKind::Err,
-                        disambiguator: 13,
-                    },
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::num`,
+                            disambiguator: 13,
+                        },
+                    ),
                 ),
                 Err(
                     DeclError::Derived(
                         DerivedDeclError::ImplErr,
-                    ),
-                ),
-            ),
-            (
-                DeclRegionPath::AssociatedItem(
-                    AssociatedItemId {
-                        impl_id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 13,
-                        },
-                        ident: `add`,
-                    },
-                ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl,
                     ),
                 ),
             ),

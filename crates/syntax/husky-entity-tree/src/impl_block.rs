@@ -24,6 +24,28 @@ pub enum ImplBlock {
     IllFormed(IllFormedImplBlock),
 }
 
+#[derive(Debug, Default, PartialEq, Eq)]
+// #[salsa::derive_debug_with_db(db = EntityTreeDb)]
+pub struct ImplBlockBundle {
+    all_ty_impl_blocks: Vec<TypeImplBlock>,
+    all_ty_as_trai_impl_blocks: Vec<TypeAsTraitImplBlock>,
+    all_ill_formed_impl_blocks: Vec<IllFormedImplBlock>,
+}
+
+impl ImplBlockBundle {
+    pub fn all_ty_impl_blocks(&self) -> &[TypeImplBlock] {
+        self.all_ty_impl_blocks.as_ref()
+    }
+
+    pub fn all_ty_as_trai_impl_blocks(&self) -> &[TypeAsTraitImplBlock] {
+        self.all_ty_as_trai_impl_blocks.as_ref()
+    }
+
+    pub fn all_ill_formed_impl_blocks(&self) -> &[IllFormedImplBlock] {
+        self.all_ill_formed_impl_blocks.as_ref()
+    }
+}
+
 impl ImplBlock {
     pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockId {
         match self {
@@ -85,11 +107,6 @@ impl ImplBlock {
         }
     }
 
-    pub fn kind(&self, db: &dyn EntityTreeDb) -> ImplBlockKind {
-        todo!()
-        // self.variant(db).kind()
-    }
-
     pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
         todo!()
         // self.id(db).module_path
@@ -106,9 +123,12 @@ pub enum ImplBlockId {
 }
 
 impl ImplBlockId {
-    pub fn module_path(&self) -> ModulePath {
-        todo!()
-        // self.module_path
+    pub fn module(self) -> ModulePath {
+        match self {
+            ImplBlockId::Type(id) => id.module(),
+            ImplBlockId::TypeAsTrait(id) => id.module(),
+            ImplBlockId::IllFormed(id) => id.module(),
+        }
     }
 }
 
@@ -167,16 +187,16 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
 pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeCrateBundleResult<Vec<ImplBlock>> {
-    todo!()
-    // let crate_path = ty.module_path(db).crate_path(db);
-    // let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
-    // Ok(entity_tree_crate_bundle
-    //     .impl_iter()
-    //     .filter_map(|impl_block| {
-    //         (impl_block.variant(db) == &ImplVariant::Type { ty }).then_some(impl_block)
-    //     })
-    //     .collect())
+) -> EntityTreeCrateBundleResult<Vec<TypeImplBlock>> {
+    let crate_path = ty.module_path(db).crate_path(db);
+    let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+    Ok(entity_tree_crate_bundle
+        .impl_blocks()
+        .all_ty_impl_blocks
+        .iter()
+        .copied()
+        .filter_map(|impl_block| (impl_block.ty(db) == ty).then_some(impl_block))
+        .collect())
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -187,13 +207,14 @@ pub(crate) fn ty_associated_items(
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .impl_iter()
-        .filter_map(|impl_block| {
-            (impl_block.kind(db) == ImplBlockKind::Type { ty }).then_some({
-                db.impl_associated_items(impl_block)
-                    .iter()
-                    .map(|(ident, associated_item)| (*ident, *associated_item))
-            })
+        .impl_blocks()
+        .all_ty_impl_blocks()
+        .iter()
+        .copied()
+        .map(|impl_block| {
+            ty_impl_block_associated_items(db, impl_block)
+                .iter()
+                .map(|(ident, associated_item)| (*ident, *associated_item))
         })
         .flatten()
         .collect())

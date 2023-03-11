@@ -26,7 +26,7 @@ pub struct AssociatedItemId {
 
 impl AssociatedItemId {
     pub fn module_path(self) -> ModulePath {
-        self.impl_id.module_path()
+        self.impl_id.module()
     }
 }
 
@@ -46,25 +46,27 @@ impl AssociatedItem {
         };
         let path: Option<AssociatedItemPath> = match associated_item_kind {
             AssociatedItemKind::TraitItem(_) => todo!(),
-            AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block.kind(db) {
-                ImplBlockKind::Type { ty } => {
-                    Some(TypeItemPath::new(db, ty, ident, ty_item_kind).into())
+            AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block {
+                ImplBlock::Type(impl_block) => {
+                    Some(TypeItemPath::new(db, impl_block.ty(db), ident, ty_item_kind).into())
                 }
-                ImplBlockKind::Err => None,
-                _ => unreachable!(),
+                ImplBlock::TypeAsTrait(_) => unreachable!(),
+                ImplBlock::IllFormed(_) => None,
             },
-            AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => {
-                match impl_block.kind(db) {
-                    ImplBlockKind::TypeAsTrait { ty, trai } => Some(
-                        TypeAsTraitItemPath::new(db, ty, trai, ident, ty_as_trai_item_kind).into(),
-                    ),
-                    ImplBlockKind::Err => None,
-                    _ => {
-                        p!(impl_block.kind(db));
-                        unreachable!()
-                    }
-                }
-            }
+            AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => match impl_block {
+                ImplBlock::TypeAsTrait(impl_block) => Some(
+                    TypeAsTraitItemPath::new(
+                        db,
+                        impl_block.ty(db),
+                        impl_block.trai(db),
+                        ident,
+                        ty_as_trai_item_kind,
+                    )
+                    .into(),
+                ),
+                ImplBlock::Type(_) => unreachable!(),
+                ImplBlock::IllFormed(_) => None,
+            },
         };
         Self::new(
             db,
@@ -80,7 +82,7 @@ impl AssociatedItem {
     }
 
     pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).impl_id.module_path()
+        self.id(db).impl_id.module()
     }
 }
 
@@ -99,7 +101,7 @@ impl AsVecMapEntry for AssociatedItem {
     }
 }
 
-pub(crate) fn impl_block_associated_items(
+pub fn impl_block_associated_items(
     db: &dyn EntityTreeDb,
     impl_block: ImplBlock,
 ) -> &[(Ident, AssociatedItem)] {
@@ -117,7 +119,12 @@ pub(crate) fn ty_impl_block_associated_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeImplBlock,
 ) -> IdentPairMap<AssociatedItem> {
-    todo!()
+    impl_block_associated_items_aux(
+        db,
+        impl_block.into(),
+        impl_block.module_path(db),
+        impl_block.body(db),
+    )
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -125,7 +132,12 @@ pub(crate) fn ty_as_trai_impl_block_associated_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeAsTraitImplBlock,
 ) -> IdentPairMap<AssociatedItem> {
-    todo!()
+    impl_block_associated_items_aux(
+        db,
+        impl_block.into(),
+        impl_block.module(db),
+        impl_block.body(db),
+    )
 }
 
 pub(crate) fn impl_block_associated_items_aux(
