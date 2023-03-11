@@ -1059,7 +1059,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 81,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
                                         impl_kind: ImplKind::Type {
@@ -1211,7 +1211,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -1641,7 +1641,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -1916,7 +1916,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -2270,7 +2270,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -2545,7 +2545,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -2876,7 +2876,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 84,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
                                         impl_kind: ImplKind::Type {
@@ -3028,7 +3028,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -3301,7 +3301,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -3653,7 +3653,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -3928,7 +3928,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -4282,7 +4282,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -4636,7 +4636,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -4990,7 +4990,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -5344,7 +5344,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -5801,7 +5801,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 89,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
                                         impl_kind: ImplKind::Type {
@@ -5953,7 +5953,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -6307,7 +6307,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -6661,7 +6661,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -6936,7 +6936,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -7211,7 +7211,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -7486,7 +7486,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -7738,7 +7738,7 @@ Ok(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 91,
-                                im: Impl {
+                                impl_block: ImplBlock {
                                     id: ImplId {
                                         module_path: `mnist_classifier::geom2d`,
                                         impl_kind: ImplKind::Type {
@@ -7890,7 +7890,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -8165,7 +8165,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -8440,7 +8440,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {
@@ -8715,7 +8715,7 @@ Ok(
                                                 },
                                             ),
                                         ),
-                                        im: Impl {
+                                        impl_block: ImplBlock {
                                             id: ImplId {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 impl_kind: ImplKind::Type {

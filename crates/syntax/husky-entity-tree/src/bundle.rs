@@ -22,6 +22,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError
 }
 
 pub type EntityTreeCrateBundleResult<T> = Result<T, EntityTreeBundleError>;
+pub type EntityTreeCrateBundleResultRef<'a, T> = Result<T, &'a EntityTreeBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(
@@ -48,14 +49,14 @@ fn entity_tree_crate_bundle_works() {
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
-    impls: Vec<Impl>,
+    impls: Vec<ImplBlock>,
 }
 
 impl EntityTreeCrateBundle {
     pub(crate) fn new(
         sheets: VecMap<EntityTreeSheet>,
         principal_entity_path_expr_arena: MajorPathExprArena,
-        impls: Vec<Impl>,
+        impls: Vec<ImplBlock>,
     ) -> Self {
         Self {
             sheets,
@@ -72,7 +73,7 @@ impl EntityTreeCrateBundle {
         self.sheets.get_entry(module_path)
     }
 
-    pub fn impl_iter<'a>(&'a self) -> impl Iterator<Item = Impl> + 'a {
+    pub fn impl_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
         self.impls.iter().copied()
     }
 }

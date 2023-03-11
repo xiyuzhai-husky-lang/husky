@@ -5,7 +5,7 @@ use crate::*;
 pub struct EntityTreeSheet {
     module_path: ModulePath,
     symbols: EntitySymbolTable,
-    impls: Vec<Impl>,
+    impls: Vec<ImplBlock>,
     use_expr_rules: UseExprRules,
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
@@ -30,7 +30,7 @@ impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         symbols: EntitySymbolTable,
-        impls: Vec<Impl>,
+        impls: Vec<ImplBlock>,
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
@@ -72,7 +72,7 @@ impl EntityTreeSheet {
         self.module_path
     }
 
-    pub fn ims(&self) -> &[Impl] {
+    pub fn ims(&self) -> &[ImplBlock] {
         &self.impls
     }
 }

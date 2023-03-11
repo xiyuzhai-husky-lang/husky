@@ -5,7 +5,7 @@ pub(crate) fn ty_memo_signature(
     db: &dyn SignatureDb,
     decl: TypeMemoDecl,
 ) -> SignatureResult<TypeMemoSignature> {
-    let _im = decl.associated_item(db).im(db);
+    let _im = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();

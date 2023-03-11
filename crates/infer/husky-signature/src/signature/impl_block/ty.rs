@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_im_signature(
+pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplDecl,
 ) -> SignatureResult<TypeImplSignature> {
