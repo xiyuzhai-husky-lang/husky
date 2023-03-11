@@ -26,7 +26,11 @@ pub enum ImplBlock {
 
 impl ImplBlock {
     pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockId {
-        todo!()
+        match self {
+            ImplBlock::Type(impl_block) => impl_block.id(db).into(),
+            ImplBlock::TypeAsTrait(impl_block) => impl_block.id(db).into(),
+            ImplBlock::IllFormed(impl_block) => impl_block.id(db).into(),
+        }
     }
 }
 
@@ -57,7 +61,15 @@ impl ImplBlock {
         let (_expr, path) = match parser.parse_principal_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
-                return new_impl(db, registry, module_path, ast_idx, body, todo!());
+                return IllFormedImplBlock::new(
+                    db,
+                    registry,
+                    module_path,
+                    ast_idx,
+                    body,
+                    ImplBlockIllForm::MajorPath(e),
+                )
+                .into();
             }
         };
         match path {

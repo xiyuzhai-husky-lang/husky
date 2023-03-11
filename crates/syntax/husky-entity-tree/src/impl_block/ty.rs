@@ -9,7 +9,7 @@ pub struct TypeImplBlock {
 }
 
 impl TypeImplBlock {
-    pub fn new(
+    pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,

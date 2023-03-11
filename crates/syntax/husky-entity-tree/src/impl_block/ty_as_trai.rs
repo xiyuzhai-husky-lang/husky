@@ -9,6 +9,18 @@ pub struct TypeAsTraitImplBlock {
 }
 
 impl TypeAsTraitImplBlock {
+    pub(super) fn new(
+        db: &dyn EntityTreeDb,
+        registry: &mut ImplBlockRegistry,
+        module_path: ModulePath,
+        ast_idx: AstIdx,
+        body: AstIdxRange,
+        ty: TypePath,
+        trai: TraitPath,
+    ) -> Self {
+        todo!()
+    }
+
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.id(db).module_path
     }
