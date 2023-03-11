@@ -99,7 +99,20 @@ impl AsVecMapEntry for AssociatedItem {
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn impl_block_associated_items(
+    db: &dyn EntityTreeDb,
+    impl_block: ImplBlock,
+) -> &[(Ident, AssociatedItem)] {
+    match impl_block {
+        ImplBlock::Type(impl_block) => ty_impl_block_associated_items(db, impl_block),
+        ImplBlock::TypeAsTrait(impl_block) => {
+            ty_as_trai_impl_block_associated_items(db, impl_block)
+        }
+        ImplBlock::IllFormed(_) => &[],
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_associated_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeImplBlock,
@@ -107,7 +120,7 @@ pub(crate) fn ty_impl_block_associated_items(
     todo!()
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_as_trai_impl_block_associated_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeAsTraitImplBlock,
