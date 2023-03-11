@@ -95,7 +95,8 @@ where
     }
 
     fn impl_associated_items(&self, impl_block: ImplBlock) -> &IdentPairMap<AssociatedItem> {
-        impl_associated_items(self, impl_block)
+        todo!()
+        // impl_block_associated_items(self, impl_block)
     }
 
     fn ty_impl_blocks(&self, path: TypePath) -> EntityTreeCrateBundleResultRef<&[ImplBlock]> {

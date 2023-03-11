@@ -14,12 +14,13 @@ pub use error::*;
 pub use parameter::*;
 pub use sheet::*;
 
-use husky_ast::AstIdx;
+use husky_ast::*;
 use husky_entity_path::*;
-use husky_entity_tree::EntityTreeResult;
+use husky_entity_tree::*;
 use husky_expr::*;
 use husky_token::*;
 use husky_vfs::ModulePath;
+use parsec::ParseContext;
 use parser::*;
 #[cfg(test)]
 use tests::*;
@@ -48,8 +49,9 @@ pub struct DeclJar(
     MorphismDecl,
     TypeAliasDecl,
     // impl block
-    impl_decl,
+    ty_impl_decl,
     TypeImplDecl,
+    ty_as_trai_impl_decl,
     TypeAsTraitImplDecl,
     // variant
     UnitVariantDecl,

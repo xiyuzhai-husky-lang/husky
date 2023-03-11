@@ -1,8 +1,10 @@
 mod ill_formed;
+mod registry;
 mod ty;
 mod ty_as_trai;
 
 pub use self::ill_formed::*;
+pub use self::registry::*;
 pub use self::ty::*;
 pub use self::ty_as_trai::*;
 
@@ -13,75 +15,25 @@ use parsec::ParseContext;
 use thiserror::Error;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
-pub struct ImplBlock {
-    #[id]
-    pub id: ImplId,
-    pub ast_idx: AstIdx,
-    pub body: AstIdxRange,
-    #[return_ref]
-    pub variant: ImplVariant,
-}
-
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum ImplVariant {
-    Type { ty: TypePath },
-    TypeAsTrait { ty: TypePath, trai: TraitPath },
-    Err(ImplError),
+#[enum_class::from_variants]
+pub enum ImplBlock {
+    Type(TypeImplBlock),
+    TypeAsTrait(TypeAsTraitImplBlock),
+    IllFormed(IllFormedImplBlock),
 }
 
-impl ImplVariant {
-    pub fn kind(&self) -> ImplKind {
-        match self {
-            ImplVariant::Type { ty } => ImplKind::Type { ty: *ty },
-            ImplVariant::TypeAsTrait { ty: _, trai: _ } => todo!(),
-            ImplVariant::Err(_) => ImplKind::Err,
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct ImplId {
-    module_path: ModulePath,
-    impl_kind: ImplKind,
-    disambiguator: u8,
-}
-
-impl ImplId {
-    pub fn module_path(&self) -> ModulePath {
-        self.module_path
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum ImplKind {
-    Type { ty: TypePath },
-    TypeAsTrait { ty: TypePath, trai: TraitPath },
-    Err,
-}
-
-#[derive(Default)]
-pub struct ImplRegistry {
-    next_disambiguitors: VecPairMap<(ModulePath, ImplKind), u8>,
-}
-impl ImplRegistry {
-    fn issue_disambiguitor(&mut self, module_path: ModulePath, impl_kind: ImplKind) -> u8 {
-        let next_disambiguitor = self
-            .next_disambiguitors
-            .get_mut_or_insert_default((module_path, impl_kind));
-        let new_disambiguitor = *next_disambiguitor;
-        *next_disambiguitor += 1;
-        new_disambiguitor
+impl ImplBlock {
+    pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockId {
+        todo!()
     }
 }
 
 impl ImplBlock {
     pub(crate) fn parse_from_token_group<'a>(
         db: &dyn EntityTreeDb,
-        impl_registry: &mut ImplRegistry,
+        registry: &mut ImplBlockRegistry,
         module_symbol_context: ModuleSymbolContext<'a>,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -105,73 +57,70 @@ impl ImplBlock {
         let (_expr, path) = match parser.parse_principal_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
-                return new_impl(
-                    db,
-                    impl_registry,
-                    module_path,
-                    ast_idx,
-                    body,
-                    ImplVariant::Err(e.into()),
-                );
+                return new_impl(db, registry, module_path, ast_idx, body, todo!());
             }
         };
         match path {
-            ModuleItemPath::Type(ty) => new_impl(
-                db,
-                impl_registry,
-                module_path,
-                ast_idx,
-                body,
-                ImplVariant::Type { ty },
-            ),
+            ModuleItemPath::Type(ty) => {
+                TypeImplBlock::new(db, registry, module_path, ast_idx, body, ty).into()
+            }
             ModuleItemPath::Trait(_) => {
                 todo!();
 
-                new_impl(
-                    db,
-                    impl_registry,
-                    module_path,
-                    ast_idx,
-                    body,
-                    ImplVariant::TypeAsTrait {
-                        ty: todo!(),
-                        trai: todo!(),
-                    },
-                )
+                new_impl(db, registry, module_path, ast_idx, body, todo!())
             }
             ModuleItemPath::Form(_) => todo!(),
         }
     }
 
-    pub fn kind(&self, db: &dyn EntityTreeDb) -> ImplKind {
-        self.variant(db).kind()
+    pub fn kind(&self, db: &dyn EntityTreeDb) -> ImplBlockKind {
+        todo!()
+        // self.variant(db).kind()
     }
 
     pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).module_path
+        todo!()
+        // self.id(db).module_path
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[enum_class::from_variants]
+pub enum ImplBlockId {
+    Type(TypeImplBlockId),
+    TypeAsTrait(TypeAsTraitImplBlockId),
+    IllFormed(IllFormedImplBlockId),
+}
+
+impl ImplBlockId {
+    pub fn module_path(&self) -> ModulePath {
+        todo!()
+        // self.module_path
     }
 }
 
 fn new_impl(
     db: &dyn EntityTreeDb,
-    registry: &mut ImplRegistry,
+    registry: &mut ImplBlockRegistry,
     module_path: ModulePath,
     ast_idx: ArenaIdx<Ast>,
     body: ArenaIdxRange<Ast>,
-    variant: ImplVariant,
+    variant: (),
 ) -> ImplBlock {
-    let impl_kind = variant.kind();
-    ImplBlock::new(
-        db,
-        ImplId {
-            module_path,
-            impl_kind,
-            disambiguator: registry.issue_disambiguitor(module_path, impl_kind),
-        },
-        ast_idx,
-        body,
-        variant,
-    )
+    // let impl_kind = variant.kind();
+    todo!()
+    // ImplBlock::new(
+    //     db,
+    //     ImplId {
+    //         module_path,
+    //         impl_kind,
+    //         disambiguator: registry.issue_disambiguitor(module_path, impl_kind),
+    //     },
+    //     ast_idx,
+    //     body,
+    //     variant,
+    // )
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -207,14 +156,15 @@ pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
 ) -> EntityTreeCrateBundleResult<Vec<ImplBlock>> {
-    let crate_path = ty.module_path(db).crate_path(db);
-    let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
-    Ok(entity_tree_crate_bundle
-        .impl_iter()
-        .filter_map(|impl_block| {
-            (impl_block.variant(db) == &ImplVariant::Type { ty }).then_some(impl_block)
-        })
-        .collect())
+    todo!()
+    // let crate_path = ty.module_path(db).crate_path(db);
+    // let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+    // Ok(entity_tree_crate_bundle
+    //     .impl_iter()
+    //     .filter_map(|impl_block| {
+    //         (impl_block.variant(db) == &ImplVariant::Type { ty }).then_some(impl_block)
+    //     })
+    //     .collect())
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -227,7 +177,7 @@ pub(crate) fn ty_associated_items(
     Ok(entity_tree_crate_bundle
         .impl_iter()
         .filter_map(|impl_block| {
-            (impl_block.kind(db) == ImplKind::Type { ty }).then_some({
+            (impl_block.kind(db) == ImplBlockKind::Type { ty }).then_some({
                 db.impl_associated_items(impl_block)
                     .iter()
                     .map(|(ident, associated_item)| (*ident, *associated_item))

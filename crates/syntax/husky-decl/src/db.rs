@@ -41,7 +41,7 @@ where
     }
 
     fn impl_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
-        impl_decl(self, impl_block).as_ref().copied()
+        impl_decl(self, impl_block)
     }
 
     fn associated_item_decl(
