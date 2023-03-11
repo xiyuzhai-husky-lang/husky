@@ -32,7 +32,7 @@ impl<'a> DeclSheet<'a> {
                 ))
                 .unwrap()
         }
-        for impl_block in entity_tree_sheet.ims().iter().copied() {
+        for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
             decls
                 .insert_new((
                     DeclRegionPath::Impl(impl_block.id(db)),
