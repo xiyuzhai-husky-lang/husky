@@ -49,19 +49,19 @@ fn entity_tree_crate_bundle_works() {
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
-    impls: Vec<ImplBlock>,
+    impl_blocks: Vec<ImplBlock>,
 }
 
 impl EntityTreeCrateBundle {
     pub(crate) fn new(
         sheets: VecMap<EntityTreeSheet>,
         principal_entity_path_expr_arena: MajorPathExprArena,
-        impls: Vec<ImplBlock>,
+        impl_blocks: Vec<ImplBlock>,
     ) -> Self {
         Self {
             sheets,
             principal_entity_path_expr_arena,
-            impls,
+            impl_blocks,
         }
     }
 
@@ -74,6 +74,6 @@ impl EntityTreeCrateBundle {
     }
 
     pub fn impl_iter<'a>(&'a self) -> impl Iterator<Item = ImplBlock> + 'a {
-        self.impls.iter().copied()
+        self.impl_blocks.iter().copied()
     }
 }

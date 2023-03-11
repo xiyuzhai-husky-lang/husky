@@ -1,3 +1,9 @@
+mod ty;
+mod ty_as_trai;
+
+pub use self::ty::*;
+pub use self::ty_as_trai::*;
+
 use crate::*;
 use husky_token::*;
 use husky_word::IdentPairMap;
