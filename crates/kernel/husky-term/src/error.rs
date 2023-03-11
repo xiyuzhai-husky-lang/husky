@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_path::{EntityPath, EntityPathError};
+use husky_entity_tree::EntityTreeBundleError;
 use husky_raw_ty::RawTypeError;
 use std::sync::Arc;
 use thiserror::Error;
@@ -52,6 +53,12 @@ impl From<EntityPathError> for TermError {
 impl From<&EntityPathError> for TermError {
     fn from(_value: &EntityPathError) -> Self {
         TermError::EntityPathError
+    }
+}
+
+impl From<&EntityTreeBundleError> for TermError {
+    fn from(value: &EntityTreeBundleError) -> Self {
+        todo!()
     }
 }
 

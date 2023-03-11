@@ -1,6 +1,8 @@
+mod ill_formed;
 mod ty;
 mod ty_as_trai;
 
+pub use self::ill_formed::*;
 pub use self::ty::*;
 pub use self::ty_as_trai::*;
 

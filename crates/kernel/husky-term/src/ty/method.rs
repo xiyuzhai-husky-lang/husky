@@ -90,6 +90,6 @@ fn ty_ontology_path_application_ty_method_ty(
         Ok(signature) => signature,
         Err(_) => return Err(TermError::SignatureError),
     };
-    let impl_blocks = db.ty_impl_blocks(path);
+    let impl_blocks = db.ty_impl_blocks(path)?;
     todo!()
 }

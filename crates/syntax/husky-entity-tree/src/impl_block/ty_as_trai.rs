@@ -11,6 +11,7 @@ pub struct TypeAsTraitImplBlock {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct TypeAsTraitImplId {
+    module_path: ModulePath,
     ty: TypePath,
     trai: TraitPath,
     disambiguator: u8,
