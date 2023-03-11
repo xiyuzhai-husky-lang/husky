@@ -52,7 +52,7 @@ pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResultRef
             .as_ref()
             .copied()
             .map(Into::into),
-        ImplBlock::IllFormed(_) => todo!(),
+        ImplBlock::IllFormed(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
     }
 }
 

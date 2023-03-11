@@ -238,34 +238,29 @@ Ok(
             ),
             (
                 DeclRegionPath::Impl(
-                    ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                        impl_kind: ImplKind::Type {
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::convex_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                 ),
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
                             TypeImplDecl {
                                 ast_idx: 4,
-                                impl_block: ImplBlock {
-                                    id: ImplId {
-                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                        impl_kind: ImplKind::Type {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                        },
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
                                     ast_idx: 4,
                                     body: ArenaIdxRange(
                                         0..2,
                                     ),
-                                    variant: ImplVariant::Type {
-                                        ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                    },
                                 },
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
@@ -290,13 +285,13 @@ Ok(
                                         parent: None,
                                         path: RegionPath::Decl(
                                             DeclRegionPath::Impl(
-                                                ImplId {
-                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                    impl_kind: ImplKind::Type {
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module: `mnist_classifier::line_segment_sketch::convex_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                        disambiguator: 0,
                                                     },
-                                                    disambiguator: 0,
-                                                },
+                                                ),
                                             ),
                                         ),
                                         expr_arena: Arena {

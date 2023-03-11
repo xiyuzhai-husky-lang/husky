@@ -14,7 +14,7 @@ impl IllFormedImplBlock {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut ImplBlockRegistry,
-        module_path: ModulePath,
+        module: ModulePath,
         ast_idx: AstIdx,
         body: AstIdxRange,
         ill_form: ImplBlockIllForm,
@@ -22,8 +22,8 @@ impl IllFormedImplBlock {
         IllFormedImplBlock::new_inner(
             db,
             IllFormedImplBlockId {
-                module_path,
-                disambiguator: registry.issue_disambiguitor(module_path, ImplBlockKind::Err),
+                module,
+                disambiguator: registry.issue_disambiguitor(module, ImplBlockKind::Err),
             },
             ast_idx,
             body,
@@ -35,8 +35,14 @@ impl IllFormedImplBlock {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct IllFormedImplBlockId {
-    module_path: ModulePath,
+    module: ModulePath,
     disambiguator: u8,
+}
+
+impl IllFormedImplBlockId {
+    pub fn module(self) -> ModulePath {
+        self.module
+    }
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

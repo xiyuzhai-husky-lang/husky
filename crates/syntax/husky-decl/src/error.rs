@@ -10,9 +10,9 @@ use thiserror::Error;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 pub enum DeclError {
     #[error("{0}")]
-    Original(OriginalDeclError),
+    Original(#[from] OriginalDeclError),
     #[error("{0}")]
-    Derived(DerivedDeclError),
+    Derived(#[from] DerivedDeclError),
 }
 
 impl From<EntityTreeError> for DeclError {
@@ -30,18 +30,6 @@ impl From<VfsError> for DeclError {
 impl From<TokenError> for DeclError {
     fn from(value: TokenError) -> Self {
         DeclError::Derived(value.into())
-    }
-}
-
-impl From<DerivedDeclError> for DeclError {
-    fn from(v: DerivedDeclError) -> Self {
-        Self::Derived(v)
-    }
-}
-
-impl From<OriginalDeclError> for DeclError {
-    fn from(v: OriginalDeclError) -> Self {
-        Self::Original(v)
     }
 }
 
