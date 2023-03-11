@@ -54,6 +54,7 @@ pub struct EntityTreeJar(
     ModuleItemSymbol,
     UseSymbol,
     ImplBlock,
+    IllFormedImplBlock,
     TypeImplBlock,
     TypeAsTraitImplBlock,
     AssociatedItem,
