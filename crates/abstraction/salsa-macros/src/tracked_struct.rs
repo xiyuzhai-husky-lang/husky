@@ -150,11 +150,12 @@ impl TrackedStruct {
 
         let all_field_names = self.all_field_names();
         let all_field_tys = self.all_field_tys();
+        let constructor_visibility = self.constructor_visibility();
         let constructor_name = self.constructor_name();
 
         parse_quote! {
             impl #ident {
-                pub fn #constructor_name(__db: &#db_dyn_ty, #(#all_field_names: #all_field_tys,)*) -> Self
+                #constructor_visibility fn #constructor_name(__db: &#db_dyn_ty, #(#all_field_names: #all_field_tys,)*) -> Self
                 {
                     let (__jar, __runtime) = <_ as salsa::storage::HasJar<#jar_ty>>::jar(__db);
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
