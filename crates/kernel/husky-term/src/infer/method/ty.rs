@@ -9,7 +9,6 @@ pub(crate) fn ty_method_card(
     ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
     match owner_ty {
-        Term::Literal(_) => unreachable!(),
         Term::Symbol(_) => Ok(None),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
@@ -17,15 +16,13 @@ pub(crate) fn ty_method_card(
             TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_method_card(db, path, ident),
             TermEntityPath::TypeConstructor(_) => todo!(),
         },
-        Term::Category(_) => Ok(None),
-        Term::Universe(_) => unreachable!(),
-        Term::Curry(_) => Ok(None),
-        Term::Ritchie(_) => Ok(None),
-        Term::Abstraction(_) => unreachable!(),
+        Term::Category(_) | Term::Curry(_) | Term::Ritchie(_) => Ok(None),
         Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
-        Term::TraitConstraint(_) => unreachable!(),
+        Term::Literal(_) | Term::Universe(_) | Term::Abstraction(_) | Term::TraitConstraint(_) => {
+            unreachable!()
+        }
     }
 }
 
