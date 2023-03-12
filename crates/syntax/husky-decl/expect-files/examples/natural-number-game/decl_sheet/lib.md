@@ -329,7 +329,7 @@ Ok(
             (
                 DeclRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `natural_number_game`,
                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -353,7 +353,7 @@ Ok(
                                     ),
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
-                                            impl_id: ImplBlockId::Type(
+                                            impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
                                                     module: `natural_number_game`,
                                                     ty: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -477,7 +477,7 @@ Ok(
                                             path: RegionPath::Decl(
                                                 DeclRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `natural_number_game`,
                                                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),

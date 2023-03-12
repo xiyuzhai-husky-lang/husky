@@ -29,7 +29,7 @@ pub enum TypeItemDecl {
 pub(crate) fn ty_item_decls<'a>(
     db: &'a dyn DeclDb,
     path: TypePath,
-) -> EntityTreeCrateBundleResult<IdentPairMap<Result<TypeItemDecl, ()>>> {
+) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecl, ()>>> {
     let ty_items = db.ty_items(path)?;
     Ok(ty_items
         .iter()

@@ -1,8 +1,4 @@
-use crate::*;
-use husky_entity_tree::AssociatedItemId;
-use husky_raw_ty::ty_path_ty_method_raw_ty;
-use husky_signature::{SignatureResult, TypeMethodSignature};
-use husky_word::IdentPairMap;
+use super::*;
 
 pub(crate) fn ty_method_card(
     db: &dyn TermDb,
@@ -100,30 +96,41 @@ fn ty_ontology_path_application_ty_method_card(
 }
 
 #[salsa::tracked(jar = TermJar, return_ref)]
-pub(crate) fn ty_method_cards(db: &dyn TermDb, path: TypePath) -> IdentPairMap<TypeMethodCard> {
-    let ty_item_decls = db.ty_item_decls(path);
-    todo!()
+pub(crate) fn ty_method_cards(
+    db: &dyn TermDb,
+    path: TypePath,
+) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodCard, ()>>> {
+    let ty_item_decls = db.ty_item_decls(path)?;
+    Ok(ty_item_decls
+        .iter()
+        .copied()
+        .filter_map(|(ident, decl)| {
+            Some((
+                ident,
+                match decl {
+                    Ok(TypeItemDecl::Method(decl)) => Ok(TypeMethodCard::new(db, decl)),
+                    Ok(_) => return None,
+                    Err(_) => Err(()),
+                },
+            ))
+        })
+        .collect())
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[enum_class::from_variants]
-pub enum MethodCard {
-    Type(TypeMethodCard),
-    TypeAsTrait(TypeAsTraitMethodCard),
-}
-
-#[salsa::tracked(db = TermDb, jar = TermJar)]
+#[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TypeMethodCard {
     #[id]
     id: AssociatedItemId,
-    signature: SignatureResult<TypeMethodSignature>,
-    method_ty: TermResult<Term>,
+    pub decl: TypeMethodDecl,
+    pub signature: SignatureResult<TypeMethodSignature>,
+    pub method_ty: TermResult<Term>,
 }
 
-#[salsa::tracked(db = TermDb, jar = TermJar)]
-pub struct TypeAsTraitMethodCard {
-    #[id]
-    id: AssociatedItemId,
-    signature: SignatureResult<TypeMethodSignature>,
-    method_ty: TermResult<Term>,
+impl TypeMethodCard {
+    fn new(db: &dyn TermDb, decl: TypeMethodDecl) -> Self {
+        let id = decl.associated_item(db).id(db);
+        let signature = todo!();
+        let method_ty = todo!();
+        Self::new_inner(db, id, decl, signature, method_ty)
+    }
 }

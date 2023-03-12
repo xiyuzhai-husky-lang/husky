@@ -22,7 +22,7 @@ impl<'a> EntityTreeCollector<'a> {
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
-    ) -> EntityTreeCrateBundleResult<Self> {
+    ) -> EntityTreeBundleResult<Self> {
         let crate_root = ModulePath::new_root(db, crate_path);
         let all_modules = db.all_modules_within_crate(crate_path);
         for i in 0..all_modules.len() {

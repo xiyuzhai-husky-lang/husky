@@ -27,14 +27,14 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError
     }
 }
 
-pub type EntityTreeCrateBundleResult<T> = Result<T, EntityTreeBundleError>;
+pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
 pub type EntityTreeCrateBundleResultRef<'a, T> = Result<T, &'a EntityTreeBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(
     db: &dyn EntityTreeDb,
     crate_path: CratePath,
-) -> EntityTreeCrateBundleResult<EntityTreeCrateBundle> {
+) -> EntityTreeBundleResult<EntityTreeCrateBundle> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
@@ -42,7 +42,7 @@ pub(crate) fn entity_tree_crate_bundle(
 fn entity_tree_crate_bundle_works() {
     DB::default().vfs_expect_test_debug_with_db(
         "entity_tree_bundle",
-        |db, crate_path| -> EntityTreeCrateBundleResult<_> {
+        |db, crate_path| -> EntityTreeBundleResult<_> {
             Ok(entity_tree_crate_bundle(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?)

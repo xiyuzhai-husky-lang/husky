@@ -1,3 +1,11 @@
+mod trai;
+mod ty;
+mod ty_as_trai;
+
+pub use self::trai::*;
+pub use self::ty::*;
+pub use self::ty_as_trai::*;
+
 use husky_entity_taxonomy::AssociatedItemKind;
 use husky_print_utils::p;
 use husky_word::IdentPairMap;
@@ -20,13 +28,13 @@ pub struct AssociatedItem {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct AssociatedItemId {
-    impl_id: ImplBlockId,
+    impl_block_id: ImplBlockId,
     ident: Ident,
 }
 
 impl AssociatedItemId {
     pub fn module_path(self) -> ModulePath {
-        self.impl_id.module()
+        self.impl_block_id.module()
     }
 }
 
@@ -41,7 +49,7 @@ impl AssociatedItem {
         is_generic: bool,
     ) -> Self {
         let id = AssociatedItemId {
-            impl_id: impl_block.id(db),
+            impl_block_id: impl_block.id(db),
             ident,
         };
         let path: Option<AssociatedItemPath> = match associated_item_kind {
@@ -82,7 +90,7 @@ impl AssociatedItem {
     }
 
     pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).impl_id.module()
+        self.id(db).impl_block_id.module()
     }
 }
 
