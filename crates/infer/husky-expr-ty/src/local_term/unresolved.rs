@@ -220,7 +220,7 @@ impl UnresolvedTerms {
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                argument_tys: arguments,
             } => todo!(),
             LocalTermPattern::Curry {
                 curry_kind,
@@ -409,7 +409,9 @@ impl LocalTermRegion {
                 match resolve_progress_pattern {
                     LocalTermPattern::Literal(_) => todo!(),
                     LocalTermPattern::TypeOntology {
-                        path, arguments, ..
+                        path,
+                        argument_tys: arguments,
+                        ..
                     } => {
                         let arguments = arguments
                             .iter()

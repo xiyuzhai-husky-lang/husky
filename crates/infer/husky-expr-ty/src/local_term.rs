@@ -114,7 +114,7 @@ impl LocalTerm {
         match self.pattern(db, unresolved_terms) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Borrow(path)),
-                arguments,
+                argument_tys: arguments,
                 ..
             } => match path {
                 PreludeBorrowTypePath::Ref | PreludeBorrowTypePath::RefMut => {

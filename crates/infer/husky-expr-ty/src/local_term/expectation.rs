@@ -301,24 +301,25 @@ impl LocalTermExpectations {
     }
 }
 
-impl<'a> ExprTypeEngine<'a> {
+impl LocalTermRegion {
     pub(crate) fn add_expectation_rule(
         &mut self,
         src_expr_idx: ExprIdx,
-        target: LocalTerm,
-        expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
+        expectee: LocalTerm,
+        expectation: impl Into<LocalTermExpectation>,
     ) -> OptionLocalTermExpectationIdx {
-        local_term_region
-            .expectations
+        self.expectations
             .alloc_rule(LocalTermExpectationRule {
                 src_expr_idx,
-                expectee: target.into(),
+                expectee: expectee.into(),
                 expectation: expectation.into(),
                 resolve_progress: LocalTermExpectationResolveProgress::Unresolved,
             })
             .into()
     }
+}
+
+impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_expectation(
         &self,
         rule: &LocalTermExpectationRule,
@@ -333,9 +334,13 @@ impl<'a> ExprTypeEngine<'a> {
                     level,
                     unresolved_terms,
                 ),
-            LocalTermExpectation::ImplicitlyConvertible(exp) => {
-                exp.resolve(self.db(), rule.expectee, level, unresolved_terms)
-            }
+            LocalTermExpectation::ImplicitlyConvertible(exp) => exp.resolve(
+                self.db(),
+                rule.src_expr_idx,
+                rule.expectee,
+                level,
+                unresolved_terms,
+            ),
             LocalTermExpectation::EqsSort(ref expectation) => {
                 self.resolve_eqs_category_expectation(rule.expectee, expectation, unresolved_terms)
             }

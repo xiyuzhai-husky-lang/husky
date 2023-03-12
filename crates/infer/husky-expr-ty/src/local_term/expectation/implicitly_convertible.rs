@@ -54,6 +54,7 @@ impl ExpectImplicitlyConvertible {
     pub(super) fn resolve(
         &self,
         db: &dyn ExprTypeDb,
+        src_expr_idx: ExprIdx,
         src: LocalTerm,
         level: LocalTermResolveLevel,
         unresolved_terms: &mut UnresolvedTerms,
@@ -70,7 +71,7 @@ impl ExpectImplicitlyConvertible {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 refined_path: dst_path,
-                arguments: dst_arguments,
+                argument_tys: dst_argument_tys,
                 ..
             } => match src_patt {
                 LocalTermPattern::TypeOntology {
@@ -82,20 +83,23 @@ impl ExpectImplicitlyConvertible {
                 }),
                 LocalTermPattern::TypeOntology {
                     refined_path: src_path,
-                    arguments: src_arguments,
+                    argument_tys: src_argument_tys,
                     ..
                 } if dst_path == src_path => {
-                    if dst_arguments.len() != src_arguments.len() {
+                    if dst_argument_tys.len() != src_argument_tys.len() {
                         p!(src.debug(db), self.destination.debug(db));
                         todo!()
                     }
-                    let actions = smallvec![];
-                    for (src_argument, dst_argument) in
-                        std::iter::zip(src_arguments.into_iter(), dst_arguments.into_iter())
+                    let mut actions = smallvec![];
+                    for (src_argument_ty, dst_argument_ty) in
+                        std::iter::zip(src_argument_tys.into_iter(), dst_argument_tys.into_iter())
                     {
-                        if src_argument != dst_argument {
-                            p!(src_argument.debug(db), dst_argument.debug(db));
-                            todo!()
+                        if src_argument_ty != dst_argument_ty {
+                            actions.push(TermResolveAction::AddExpectation {
+                                src_expr_idx,
+                                expectee: src_argument_ty,
+                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
+                            })
                         }
                     }
                     Some(LocalTermExpectationEffect {
@@ -105,7 +109,7 @@ impl ExpectImplicitlyConvertible {
                 }
                 LocalTermPattern::TypeOntology {
                     refined_path: src_path,
-                    arguments: src_arguments,
+                    argument_tys: src_arguments,
                     ..
                 } => {
                     p!(dst_path.debug(db), src_path.debug(db));
