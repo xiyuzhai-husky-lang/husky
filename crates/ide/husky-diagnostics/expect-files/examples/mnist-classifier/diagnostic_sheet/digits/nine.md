@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 25,
+    [salsa id]: 26,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -66,6 +66,11 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [42:17, 42:70),
+            },
             Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,

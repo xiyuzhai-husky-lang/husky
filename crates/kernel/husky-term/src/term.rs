@@ -315,7 +315,36 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
 ) -> TermResult<Term> {
     let function = Term::from_raw_unchecked(db, raw_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
-        Left(_) => todo!(),
+        Left(raw_ty) => match raw_ty {
+            RawTerm::Literal(_) => todo!(),
+            RawTerm::Symbol(_) => todo!(),
+            RawTerm::EntityPath(_) => todo!(),
+            RawTerm::Category(_) => todo!(),
+            RawTerm::Universe(_) => todo!(),
+            RawTerm::Curry(_) => {
+                let items = raw_term.items(db);
+                let argument = match items.len() {
+                    0 => unreachable!(),
+                    1 => items[0],
+                    _ => todo!(),
+                };
+                term_uncheck_from_raw_term_application_aux(
+                    db,
+                    function,
+                    argument,
+                    term_ty_expectation,
+                )
+            }
+            RawTerm::Ritchie(_) => todo!(),
+            RawTerm::Abstraction(_) => todo!(),
+            RawTerm::ExplicitApplication(_) => todo!(),
+            RawTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
+            RawTerm::Subentity(_) => todo!(),
+            RawTerm::AsTraitSubentity(_) => todo!(),
+            RawTerm::TraitConstraint(_) => todo!(),
+            RawTerm::LeashOrBitNot(_) => todo!(),
+            RawTerm::List(_) => todo!(),
+        },
         Right(_) => todo!(),
     }
 }

@@ -110,16 +110,29 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     raw_ty_expectation: TermTypeExpectation,
 ) -> TermResult<Term> {
     // todo: implicit arguments
-    let function =
-        Term::from_raw_unchecked(db, raw_term_application.function(db), raw_ty_expectation)?;
+    term_uncheck_from_raw_term_application_aux(
+        db,
+        Term::from_raw_unchecked(db, raw_term_application.function(db), raw_ty_expectation)?,
+        raw_term_application.argument(db),
+        raw_ty_expectation,
+    )
+}
+
+/// argument is `RawTerm` instead of `Term` is because we need to read function type to get expectation for argument
+pub(crate) fn term_uncheck_from_raw_term_application_aux(
+    db: &dyn TermDb,
+    function: Term,
+    argument: RawTerm,
+    raw_ty_expectation: TermTypeExpectation,
+) -> TermResult<Term> {
+    // todo: implicit arguments
     let function_raw_ty = match function.raw_ty(db)? {
         Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
     let parameter_ty = function_raw_ty.parameter_ty(db);
     let argument_expectation = parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
-    let argument =
-        Term::from_raw_unchecked(db, raw_term_application.argument(db), argument_expectation)?;
+    let argument = Term::from_raw_unchecked(db, argument, argument_expectation)?;
     let argument_ty_total_number_of_curry_parameters =
         argument.ty_total_number_of_curry_parameters(db)?;
     let function_parameter_ty_total_number_of_curry_parameters =

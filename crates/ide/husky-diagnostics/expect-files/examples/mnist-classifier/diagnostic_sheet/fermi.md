@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 33,
+    [salsa id]: 34,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
-                severity: Error,
-                range: [33:45, 33:47),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 34,
+    [salsa id]: 35,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -42,6 +42,11 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [68:26, 68:38),
+            },
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,

@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 37,
+    [salsa id]: 38,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -19,6 +19,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [15:32, 15:101),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [21:32, 21:101),
+            },
+        ],
     },
 }
