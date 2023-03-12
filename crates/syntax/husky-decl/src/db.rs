@@ -1,6 +1,7 @@
 use crate::*;
 use husky_entity_tree::{AssociatedItem, EntityTreeResult, ImplBlock};
 use husky_vfs::ModulePath;
+use husky_word::Ident;
 use salsa::DbWithJar;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
@@ -14,6 +15,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
         associated_item: AssociatedItem,
     ) -> DeclResultRef<AssociatedItemDecl>;
     fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
+    fn ty_item_decls(&self, path: TypePath) -> &[(Ident, DeclResultRef<TypeItemDecl>)];
 }
 
 impl<Db> DeclDb for Db
@@ -51,5 +53,9 @@ where
         associated_item_decl(self, associated_item)
             .as_ref()
             .copied()
+    }
+
+    fn ty_item_decls(&self, path: TypePath) -> &[(Ident, DeclResultRef<TypeItemDecl>)] {
+        todo!()
     }
 }

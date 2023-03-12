@@ -16,6 +16,8 @@ vec-like = { path = "../../abstraction/vec-like" }
 enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# infer
+husky-signature = { path = "../../infer/husky-signature" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
@@ -37,7 +39,6 @@ husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
-husky-signature = { path = "../../infer/husky-signature" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

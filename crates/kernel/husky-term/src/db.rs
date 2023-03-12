@@ -17,7 +17,7 @@ pub trait TermDb: DbWithJar<TermJar> + RawTypeDb {
     ) -> TermResult<Term>;
     fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term>;
     fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term>;
-    fn ty_method_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>>;
+    fn ty_method_card(&self, ty: Term, ident: Ident) -> TermResult<Option<TypeMethodCard>>;
     fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>>;
 }
 
@@ -55,8 +55,8 @@ where
         form_path_ty_unchecked(self, form_path)?.checked(self)
     }
 
-    fn ty_method_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {
-        ty_method_ty(self, ty, ident)
+    fn ty_method_card(&self, ty: Term, ident: Ident) -> TermResult<Option<TypeMethodCard>> {
+        ty_method_card(self, ty, ident)
     }
 
     fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>> {
