@@ -71,7 +71,7 @@ impl<'a> ExprTypeEngine<'a> {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation, local_term_region);
         let expectation_idx = match ty_result {
             Ok((_, Ok(ty))) => {
-                self.add_expectation_rule(expr_idx, ty, expr_ty_expectation, local_term_region)
+                local_term_region.add_expectation_rule(expr_idx, ty, expr_ty_expectation)
             }
             _ => Default::default(),
         };
@@ -270,7 +270,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     LocalTermPattern::TypeOntology {
                                         path,
                                         refined_path,
-                                        arguments,
+                                        argument_tys: arguments,
                                     } => match refined_path {
                                         Right(PreludeTypePath::List) => {
                                             assert_eq!(arguments.len(), 1);

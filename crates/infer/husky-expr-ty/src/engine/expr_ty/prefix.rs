@@ -56,11 +56,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             PrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => {
-                    self.infer_new_expr_ty_discarded(
-                        opd,
-                        self.expect_eqs_exactly_ty(),
-                        local_term_region,
-                    );
+                    self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
                     Ok((
                         ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
                         Ok(self.term_menu.ty0().into()),
@@ -74,11 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
                 )),
             },
             PrefixOpr::Ref => {
-                self.infer_new_expr_ty_discarded(
-                    opd,
-                    self.expect_eqs_exactly_ty(),
-                    local_term_region,
-                );
+                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
                 // Should consider more cases, could also be taking references
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
@@ -88,11 +80,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                self.infer_new_expr_ty_discarded(
-                    opd,
-                    self.expect_eqs_exactly_ty(),
-                    local_term_region,
-                );
+                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
         }
@@ -105,7 +93,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<LocalTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
-            self.expect_eqs_exactly_ty(),
+            self.expect_eqs_ty0(),
             local_term_region,
         ) else {
             return Err(DerivedExprTypeError::BitNotOperandTypeNotInferred.into())
@@ -115,7 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                argument_tys: arguments,
             } => todo!(),
             LocalTermPattern::Curry {
                 curry_kind,

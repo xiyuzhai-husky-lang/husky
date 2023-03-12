@@ -72,7 +72,7 @@ impl ExpectEqsFunctionType {
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                argument_tys: arguments,
             } => Some(LocalTermExpectationEffect {
                 result: Err(OriginalLocalTermExpectationError::Todo.into()),
                 actions: smallvec![],
@@ -185,7 +185,7 @@ impl ExpectEqsFunctionType {
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                argument_tys: arguments,
             } => todo!(),
             LocalTermPattern::Curry {
                 curry_kind,

@@ -7,7 +7,7 @@ pub enum LocalTermPattern {
     TypeOntology {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
-        arguments: SmallVec<[LocalTerm; 2]>,
+        argument_tys: SmallVec<[LocalTerm; 2]>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -63,7 +63,7 @@ impl LocalTermPattern {
                 TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
                     path,
                     refined_path: path.refine(db).expect("should be checked"),
-                    arguments: smallvec![],
+                    argument_tys: smallvec![],
                 },
                 TermEntityPath::TypeConstructor(path) => todo!(),
             },
@@ -100,7 +100,7 @@ impl LocalTermPattern {
                         TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
                             path,
                             refined_path: path.refine(db).expect("should work"),
-                            arguments: expansion
+                            argument_tys: expansion
                                 .arguments(db)
                                 .iter()
                                 .copied()
@@ -134,7 +134,7 @@ impl LocalTermPattern {
             UnresolvedTerm::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
                 path: *path,
                 refined_path: path.refine(db).expect("should checked before"),
-                arguments: arguments.clone(),
+                argument_tys: arguments.clone(),
             },
             UnresolvedTerm::Ritchie {
                 ritchie_kind,

@@ -109,6 +109,17 @@ impl<'a> ExprTypeEngine<'a> {
                             implicit_symbol,
                             substitution,
                         ),
+                        TermResolveAction::AddExpectation {
+                            src_expr_idx,
+                            expectee,
+                            expectation,
+                        } => {
+                            local_term_region.add_expectation_rule(
+                                src_expr_idx,
+                                expectee,
+                                expectation,
+                            );
+                        }
                     }
                 }
             }
@@ -129,5 +140,10 @@ pub(super) enum TermResolveAction {
     SubstituteImplicitSymbol {
         implicit_symbol: UnresolvedTermIdx,
         substitution: LocalTerm,
+    },
+    AddExpectation {
+        src_expr_idx: ExprIdx,
+        expectee: LocalTerm,
+        expectation: LocalTermExpectation,
     },
 }

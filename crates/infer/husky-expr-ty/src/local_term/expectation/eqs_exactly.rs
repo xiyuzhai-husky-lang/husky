@@ -6,6 +6,12 @@ pub(crate) struct ExpectSubtype {
     destination: LocalTerm,
 }
 
+impl ExpectSubtype {
+    pub(crate) fn new(destination: LocalTerm) -> Self {
+        Self { destination }
+    }
+}
+
 impl ExpectLocalTerm for ExpectSubtype {
     type Outcome = ExpectSubtypeOutcome;
 
@@ -90,7 +96,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn expect_eqs_exactly_ty(&self) -> ExpectSubtype {
+    pub(crate) fn expect_eqs_ty0(&self) -> ExpectSubtype {
         ExpectSubtype {
             destination: self.term_menu().ty0().into(),
         }

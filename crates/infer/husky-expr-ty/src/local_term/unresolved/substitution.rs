@@ -42,7 +42,7 @@ impl UnresolvedTerms {
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                arguments,
+                argument_tys: arguments,
             } => todo!(),
             LocalTermPattern::Curry {
                 curry_kind,
