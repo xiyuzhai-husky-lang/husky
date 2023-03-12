@@ -156,6 +156,11 @@ pub type LocalTermExpectationResult<T> = Result<T, LocalTermExpectationError>;
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalLocalTermExpectationError {
+    #[error("type path mismatch")]
+    TypePathMismatch {
+        expected_path: TypePath,
+        expectee_path: TypePath,
+    },
     #[error("todo")]
     Todo,
 }
@@ -360,9 +365,12 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTermExpectation::InsSort(ref expectation) => {
                 self.resolve_ins_sort_expectation(rule.expectee, expectation, unresolved_terms)
             }
-            LocalTermExpectation::EqsExactly(ref expectation) => {
-                self.resolve_eqs_exactly(rule.expectee, expectation, unresolved_terms)
-            }
+            LocalTermExpectation::EqsExactly(ref expectation) => expectation.resolve(
+                self.db(),
+                rule.src_expr_idx,
+                rule.expectee,
+                unresolved_terms,
+            ),
             LocalTermExpectation::AnyOriginal(_) => None,
             LocalTermExpectation::AnyDerived(_) => None,
         }

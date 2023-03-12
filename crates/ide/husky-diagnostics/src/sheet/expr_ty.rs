@@ -3,6 +3,7 @@ use husky_expr_ty::{
     ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
     OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
+use salsa::DisplayWithDb;
 
 use super::*;
 
@@ -183,14 +184,19 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
 impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
             OriginalLocalTermExpectationError::Todo => {
-                todo!()
-                // format!("Type Error: {error} in term {}", term.display(ctx.db()))
-            } // OriginalLocalTermExpectationError::TypePathTypeError { ty_path, error } => {
-              //     format!("Type Error: type path type error")
-              // }
+                format!("OriginalLocalTermExpectationError::Todo")
+            }
+            OriginalLocalTermExpectationError::TypePathMismatch {
+                expected_path,
+                expectee_path,
+            } => format!(
+                "type path mismatch: expect {}, but got {} instead",
+                expected_path.display(ctx.db()),
+                expectee_path.display(ctx.db())
+            ),
         }
     }
 
