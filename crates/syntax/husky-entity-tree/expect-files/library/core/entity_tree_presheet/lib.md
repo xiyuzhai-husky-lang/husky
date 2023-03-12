@@ -224,6 +224,23 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
+                        "option",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core`,
+                    ),
+                    symbol: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::option`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 13,
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(

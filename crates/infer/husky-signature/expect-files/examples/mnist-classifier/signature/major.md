@@ -3,7 +3,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: RawTerm(`core::vec::List mnist_classifier::connected_component::ConnectedComponent`),
+                    return_ty: RawTerm(`core::list::List mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -30,7 +30,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: RawTerm(`core::vec::List mnist_classifier::raw_contour::RawContour`),
+                    return_ty: RawTerm(`core::list::List mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -57,7 +57,7 @@
         Signature::Form(
             FormSignature::Feature(
                 FeatureSignature {
-                    return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                    return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),

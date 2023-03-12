@@ -13,7 +13,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 38,
+                            value: 39,
                         },
                     ),
                 ),
@@ -31,7 +31,7 @@ Ok(
                     ident: Ident(
                         Word(
                             Id {
-                                value: 39,
+                                value: 40,
                             },
                         ),
                     ),
@@ -50,67 +50,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 26,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                RaOrGt,
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Type(
-                    Type,
-                ),
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 40,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                LaOrLt,
-            ),
-            Keyword(
-                Pattern(
-                    Covariant,
-                ),
-            ),
-            Label(
-                Label {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 39,
-                            },
-                        ),
-                    ),
-                    kind: AllNonGreek,
-                },
-            ),
-            Punctuation(
-                Comma,
-            ),
-            Keyword(
-                Pattern(
-                    Invariant,
-                ),
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 26,
+                            value: 27,
                         },
                     ),
                 ),
@@ -146,11 +86,71 @@ Ok(
                     Covariant,
                 ),
             ),
+            Label(
+                Label {
+                    ident: Ident(
+                        Word(
+                            Id {
+                                value: 40,
+                            },
+                        ),
+                    ),
+                    kind: AllNonGreek,
+                },
+            ),
+            Punctuation(
+                Comma,
+            ),
+            Keyword(
+                Pattern(
+                    Invariant,
+                ),
+            ),
             Ident(
                 Ident(
                     Word(
                         Id {
-                            value: 26,
+                            value: 27,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                RaOrGt,
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Type(
+                    Type,
+                ),
+            ),
+            Ident(
+                Ident(
+                    Word(
+                        Id {
+                            value: 42,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                LaOrLt,
+            ),
+            Keyword(
+                Pattern(
+                    Covariant,
+                ),
+            ),
+            Ident(
+                Ident(
+                    Word(
+                        Id {
+                            value: 27,
                         },
                     ),
                 ),

@@ -13,7 +13,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                 ),
@@ -49,7 +49,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 46,
+                            value: 47,
                         },
                     ),
                 ),
@@ -63,19 +63,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 24,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Comma,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 20,
+                            value: 25,
                         },
                     ),
                 ),
@@ -99,7 +87,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 19,
+                            value: 22,
                         },
                     ),
                 ),
@@ -111,7 +99,19 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 36,
+                            value: 20,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Comma,
+            ),
+            Ident(
+                Ident(
+                    Word(
+                        Id {
+                            value: 37,
                         },
                     ),
                 ),
@@ -133,7 +133,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 93,
+                            value: 98,
                         },
                     ),
                 ),

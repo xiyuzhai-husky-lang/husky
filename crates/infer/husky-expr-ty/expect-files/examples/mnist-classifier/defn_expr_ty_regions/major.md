@@ -64,14 +64,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -79,7 +72,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -152,13 +145,7 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -170,14 +157,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -192,13 +174,7 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -300,9 +276,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -362,9 +336,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -424,9 +396,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -441,13 +411,7 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -509,33 +473,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -543,7 +481,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 4,
                 },
-                arena: [
+                data: [
                     UnresolvedTermEntry {
                         src_expr_idx: 0,
                         unresolved_term: ImplicitSymbol(
@@ -558,7 +496,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 1,
@@ -574,7 +518,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 15,
@@ -590,7 +540,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    2,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 18,
@@ -606,7 +562,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                        ),
                     },
                 ],
                 first_unresolved_term: 0,
@@ -653,7 +615,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -669,9 +631,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -691,7 +651,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -707,9 +667,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -729,7 +687,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -745,9 +703,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -818,13 +774,7 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -836,14 +786,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -858,13 +803,7 @@
                                 TypeError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -952,9 +891,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -1016,26 +953,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1043,7 +961,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 2,
                 },
-                arena: [
+                data: [
                     UnresolvedTermEntry {
                         src_expr_idx: 0,
                         unresolved_term: ImplicitSymbol(
@@ -1058,7 +976,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 10,
@@ -1074,7 +998,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                        ),
                     },
                 ],
                 first_unresolved_term: 0,
@@ -1109,7 +1039,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -1125,9 +1055,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -1179,7 +1107,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 43,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1231,13 +1159,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1245,7 +1167,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1258,7 +1180,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 43,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1298,7 +1220,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 43,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1379,15 +1301,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1395,7 +1309,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 1,
                 },
-                arena: [
+                data: [
                     UnresolvedTermEntry {
                         src_expr_idx: 2,
                         unresolved_term: ImplicitSymbol(
@@ -1410,7 +1324,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
                     },
                 ],
                 first_unresolved_term: 0,
@@ -1425,7 +1345,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 43,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1477,7 +1397,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 44,
+                                                value: 43,
                                             },
                                         ),
                                     ),
@@ -1523,13 +1443,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1537,7 +1451,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1550,7 +1464,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 44,
+                                                value: 43,
                                             },
                                         ),
                                     ),
@@ -1590,7 +1504,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1636,13 +1550,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1650,7 +1558,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1663,7 +1571,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),

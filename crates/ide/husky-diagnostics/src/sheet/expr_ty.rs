@@ -151,6 +151,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::NoSuchMethod => {
                 format!("Type Error: NoSuchMethod")
             }
+            OriginalExprTypeError::TodoIndexOrComposeWithList => {
+                format!("Type Error: TodoIndexOrComposeWithList")
+            }
         }
     }
 

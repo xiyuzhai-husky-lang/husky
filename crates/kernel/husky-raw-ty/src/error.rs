@@ -17,6 +17,8 @@ pub enum RawTypeError {
 pub enum OriginalRawTypeError {
     #[error("raw_term error")]
     RawTerm(#[from] RawTermError),
+    #[error("InductiveTypeHasNoConstructor")]
+    InductiveTypeHasNoConstructor,
     #[error("todo")]
     Todo,
 }

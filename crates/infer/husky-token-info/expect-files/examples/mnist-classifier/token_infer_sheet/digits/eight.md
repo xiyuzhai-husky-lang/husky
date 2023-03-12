@@ -29,7 +29,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 141,
+                                value: 142,
                             },
                         ),
                     ),
@@ -77,7 +77,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -93,7 +93,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 23,
+                                value: 24,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 136,
+                                value: 137,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -167,7 +167,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -193,7 +193,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -219,7 +219,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -245,7 +245,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -261,7 +261,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -277,7 +277,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 24,
+                                value: 25,
                             },
                         ),
                     ),
@@ -295,7 +295,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -311,7 +311,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 21,
+                                value: 22,
                             },
                         ),
                     ),
@@ -329,7 +329,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -345,7 +345,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 18,
+                                value: 19,
                             },
                         ),
                     ),
@@ -475,7 +475,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 142,
+                        value: 143,
                     },
                 ),
             },
@@ -600,7 +600,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 140,
+                        value: 141,
                     },
                 ),
             },
@@ -612,7 +612,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 55,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -645,14 +645,14 @@ Ok(
                     ident: Ident(
                         Word(
                             Id {
-                                value: 227,
+                                value: 228,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -672,14 +672,14 @@ Ok(
                     ident: Ident(
                         Word(
                             Id {
-                                value: 227,
+                                value: 228,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -700,14 +700,14 @@ Ok(
                     ident: Ident(
                         Word(
                             Id {
-                                value: 227,
+                                value: 228,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },
@@ -727,14 +727,14 @@ Ok(
                     ident: Ident(
                         Word(
                             Id {
-                                value: 227,
+                                value: 228,
                             },
                         ),
                     ),
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 143,
+                        value: 144,
                     },
                 ),
             },

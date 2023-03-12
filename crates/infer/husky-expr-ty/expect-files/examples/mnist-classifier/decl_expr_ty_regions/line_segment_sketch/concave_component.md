@@ -36,17 +36,7 @@
                     Resolved(
                         Ok(
                             EqsExactly(
-                                ExpectEqsExactlyOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ExpectSubtypeOutcome,
                             ),
                         ),
                     ),
@@ -111,15 +101,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -213,17 +194,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -231,7 +202,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -249,8 +220,8 @@
                                 ),
                             ),
                             expectation: EqsExactly(
-                                ExpectEqsExactly {
-                                    destination: Resolved(
+                                ExpectSubtype {
+                                    expected: Resolved(
                                         Category(
                                             TermCategory {
                                                 universe: TermUniverse(
@@ -264,17 +235,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsExactly(
-                                        ExpectEqsExactlyOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ExpectSubtypeOutcome,
                                     ),
                                 ),
                             ),
@@ -327,15 +288,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(
@@ -446,15 +398,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -548,15 +491,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -564,7 +499,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -590,15 +525,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(
@@ -674,13 +600,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::line_segment_sketch::concave_component`,
                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -708,11 +634,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -720,7 +642,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -737,13 +659,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `norm`,
                 },
             ),
@@ -785,11 +707,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -797,7 +715,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -845,13 +763,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `rel_norm`,
                 },
             ),
@@ -893,11 +811,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -905,7 +819,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -953,13 +867,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `hausdorff_norm`,
                 },
             ),
@@ -1001,11 +915,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1013,7 +923,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1061,13 +971,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `angle_change`,
                 },
             ),
@@ -1109,11 +1019,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1121,7 +1027,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1169,13 +1075,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `bounding_box`,
                 },
             ),
@@ -1217,11 +1123,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1229,7 +1131,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1277,13 +1179,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `relative_bounding_box`,
                 },
             ),
@@ -1325,11 +1227,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1337,7 +1235,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1385,13 +1283,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `line_segment`,
                 },
             ),
@@ -1433,11 +1331,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1445,7 +1339,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1493,13 +1387,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `start`,
                 },
             ),
@@ -1541,11 +1435,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1553,7 +1443,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1601,13 +1491,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `end`,
                 },
             ),
@@ -1649,11 +1539,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1661,7 +1547,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1709,13 +1595,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `displacement`,
                 },
             ),
@@ -1757,11 +1643,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1769,7 +1651,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1817,13 +1699,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `start_tangent`,
                 },
             ),
@@ -1865,11 +1747,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1877,7 +1755,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1925,13 +1803,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::line_segment_sketch::concave_component`,
                             ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `end_tangent`,
                 },
             ),
@@ -1973,11 +1851,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1985,7 +1859,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {

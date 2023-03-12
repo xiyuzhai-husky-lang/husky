@@ -37,15 +37,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -139,13 +130,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -153,7 +138,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -179,15 +164,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(
@@ -295,11 +271,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -307,7 +279,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -367,11 +339,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -379,7 +347,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -459,15 +427,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -531,9 +490,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -573,13 +530,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -587,7 +538,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -613,15 +564,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(
@@ -671,7 +613,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         Category(
                                             TermCategory {
                                                 universe: TermUniverse(
@@ -685,9 +627,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -775,11 +715,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -787,7 +723,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -876,11 +812,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -888,7 +820,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -968,15 +900,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -1070,13 +993,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1084,7 +1001,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1110,15 +1027,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(

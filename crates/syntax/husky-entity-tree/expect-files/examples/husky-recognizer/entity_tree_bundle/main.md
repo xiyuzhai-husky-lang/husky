@@ -8,7 +8,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -21,6 +21,10 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [],
         },
-        impls: [],
+        impl_blocks: ImplBlockBundle {
+            all_ty_impl_blocks: [],
+            all_ty_as_trai_impl_blocks: [],
+            all_ill_formed_impl_blocks: [],
+        },
     },
 )

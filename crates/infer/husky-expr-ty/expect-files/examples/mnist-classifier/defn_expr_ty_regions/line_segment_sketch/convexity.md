@@ -20,7 +20,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -45,13 +45,7 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -63,14 +57,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -86,7 +75,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -111,13 +100,7 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -204,14 +187,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -227,7 +205,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -252,13 +230,7 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -321,9 +293,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -431,14 +401,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -473,14 +438,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -546,9 +506,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -604,7 +562,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -629,13 +587,7 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -698,9 +650,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -887,7 +837,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -912,7 +862,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 4,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -928,20 +878,9 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                TypeMethodTypeError(
-                                    RawTypeError(
-                                        Original(
-                                            Todo,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
+                ty_result: Err(
+                    Original(
+                        NoSuchMethod,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -990,14 +929,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1018,14 +952,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1057,9 +986,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -1115,7 +1042,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1140,13 +1067,7 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            TypeOntologyDeclError {
-                                                path: TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
-                                            },
+                                            SignatureError,
                                         ),
                                     ),
                                 ),
@@ -1312,7 +1233,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1337,7 +1258,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 4,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -1353,20 +1274,9 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                TypeMethodTypeError(
-                                    RawTypeError(
-                                        Original(
-                                            Todo,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
+                ty_result: Err(
+                    Original(
+                        NoSuchMethod,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1415,14 +1325,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1443,14 +1348,9 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                MethodOwnerTypeNotInferred,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1482,9 +1382,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -1544,9 +1442,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -1612,9 +1508,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: None,
-                                },
+                                None,
                             ),
                         ),
                     ),
@@ -1646,9 +1540,7 @@
                     Resolved(
                         Ok(
                             ImplicitlyConvertible(
-                                ExpectImplicitlyConvertibleOutcome {
-                                    implicit_conversion: Never,
-                                },
+                                Never,
                             ),
                         ),
                     ),
@@ -1656,104 +1548,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [
             Term(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
             Term(`TypeOntology(core::num::i32)`),
@@ -1764,7 +1559,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 6,
                 },
-                arena: [
+                data: [
                     UnresolvedTermEntry {
                         src_expr_idx: 24,
                         unresolved_term: ImplicitSymbol(
@@ -1779,7 +1574,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    0,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 26,
@@ -1795,7 +1596,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    1,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 57,
@@ -1811,7 +1618,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    2,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 58,
@@ -1827,7 +1640,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    3,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 86,
@@ -1843,7 +1662,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    4,
+                                ),
+                            ),
+                        ),
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 91,
@@ -1859,7 +1684,13 @@
                         implicit_symbol_dependencies: VecSet {
                             data: [],
                         },
-                        resolve_progress: Unresolved,
+                        resolve_progress: Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    5,
+                                ),
+                            ),
+                        ),
                     },
                 ],
                 first_unresolved_term: 0,
@@ -1874,7 +1705,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1892,7 +1723,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1946,7 +1777,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1990,7 +1821,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2006,9 +1837,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2094,7 +1923,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2110,9 +1939,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2148,7 +1975,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2192,7 +2019,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2208,9 +2035,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2276,7 +2101,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2293,7 +2118,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 4,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -2318,7 +2143,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2334,9 +2159,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2372,7 +2195,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2426,7 +2249,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2443,7 +2266,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 4,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -2468,7 +2291,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2484,9 +2307,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2506,7 +2327,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2522,9 +2343,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2556,7 +2375,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2572,9 +2391,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: None,
-                                        },
+                                        None,
                                     ),
                                 ),
                             ),
@@ -2594,7 +2411,7 @@
                             ),
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    dst: Resolved(
+                                    destination: Resolved(
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -2610,9 +2427,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        ExpectImplicitlyConvertibleOutcome {
-                                            implicit_conversion: Never,
-                                        },
+                                        Never,
                                     ),
                                 ),
                             ),

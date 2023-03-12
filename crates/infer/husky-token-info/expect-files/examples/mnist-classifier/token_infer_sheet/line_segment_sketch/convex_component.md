@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -42,7 +42,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 56,
+                                    value: 55,
                                 },
                             ),
                         ),
@@ -67,26 +67,6 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 54,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            None,
-            BoxPrefix,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
                                     value: 53,
                                 },
                             ),
@@ -98,13 +78,33 @@ Ok(
             None,
             None,
             None,
+            BoxPrefix,
+            None,
+            BoxPrefix,
             Entity(
                 Some(
                     ModuleItem(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 56,
+                                    value: 52,
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            None,
+            None,
+            None,
+            Entity(
+                Some(
+                    ModuleItem(
+                        Type(
+                            TypePath(
+                                Id {
+                                    value: 55,
                                 },
                             ),
                         ),

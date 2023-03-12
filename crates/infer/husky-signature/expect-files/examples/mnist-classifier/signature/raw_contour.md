@@ -13,7 +13,7 @@
                         },
                         RegularStructFieldSignature {
                             ident: `points`,
-                            ty: RawTerm(`core::vec::List mnist_classifier::geom2d::Point2d`),
+                            ty: RawTerm(`core::list::List mnist_classifier::geom2d::Point2d`),
                         },
                     ],
                 },
@@ -218,7 +218,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 44,
                                             },
                                         ),
                                     ),
@@ -230,7 +230,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 44,
                                             },
                                         ),
                                     ),
@@ -294,7 +294,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 45,
+                                                value: 44,
                                             },
                                         ),
                                     ),
@@ -375,7 +375,7 @@
                             },
                         ],
                     },
-                    return_ty: RawTerm(`core::vec::List mnist_classifier::raw_contour::RawContour`),
+                    return_ty: RawTerm(`core::list::List mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),

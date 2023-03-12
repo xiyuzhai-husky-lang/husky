@@ -12,7 +12,7 @@ Ok(
                             accessibility: Accessibility::Public,
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 53,
+                                    [salsa id]: 54,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort`, `Function`),
                                     ),
@@ -30,7 +30,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 54,
+                                    [salsa id]: 55,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_aux`, `Function`),
                                     ),
@@ -50,7 +50,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 55,
+                                    [salsa id]: 56,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::partition`, `Function`),
                                     ),
@@ -70,7 +70,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 56,
+                                    [salsa id]: 57,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                                     ),
@@ -90,7 +90,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 57,
+                                    [salsa id]: 58,
                                     path: ModuleItemPath::Form(
                                         FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                                     ),
@@ -103,7 +103,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -116,6 +116,10 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [],
         },
-        impls: [],
+        impl_blocks: ImplBlockBundle {
+            all_ty_impl_blocks: [],
+            all_ty_as_trai_impl_blocks: [],
+            all_ill_formed_impl_blocks: [],
+        },
     },
 )

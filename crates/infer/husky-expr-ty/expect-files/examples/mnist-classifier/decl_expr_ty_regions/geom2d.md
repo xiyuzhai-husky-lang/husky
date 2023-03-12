@@ -80,12 +80,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -93,7 +88,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -244,12 +239,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -257,7 +247,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -408,12 +398,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -421,7 +406,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -572,12 +557,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -585,7 +565,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -667,9 +647,7 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -677,7 +655,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -771,12 +749,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -784,7 +757,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -857,13 +830,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::geom2d`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::geom2d`,
                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -903,11 +876,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -915,7 +884,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -961,13 +930,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `from_i_shift28`,
                 },
             ),
@@ -1009,13 +978,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -1030,7 +993,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1078,13 +1041,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `vector`,
                 },
             ),
@@ -1126,11 +1089,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1138,7 +1097,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1186,13 +1145,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `to`,
                 },
             ),
@@ -1234,12 +1193,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -1251,7 +1205,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1299,13 +1253,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `norm`,
                 },
             ),
@@ -1347,11 +1301,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1359,7 +1309,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1407,13 +1357,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `dist`,
                 },
             ),
@@ -1455,12 +1405,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -1472,7 +1417,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1519,13 +1464,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::geom2d`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::geom2d`,
                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -1565,11 +1510,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1577,7 +1518,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1623,13 +1564,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `point`,
                 },
             ),
@@ -1671,11 +1612,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1683,7 +1620,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1731,13 +1668,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `to`,
                 },
             ),
@@ -1779,12 +1716,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -1796,7 +1728,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1844,13 +1776,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `norm`,
                 },
             ),
@@ -1892,11 +1824,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -1904,7 +1832,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -1952,13 +1880,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `dot`,
                 },
             ),
@@ -2000,12 +1928,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2017,7 +1940,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2065,13 +1988,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `cross`,
                 },
             ),
@@ -2113,12 +2036,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2130,7 +2048,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2178,13 +2096,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `angle`,
                 },
             ),
@@ -2226,12 +2144,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2243,7 +2156,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2291,13 +2204,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `rotation_direction_to`,
                 },
             ),
@@ -2339,12 +2252,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2356,7 +2264,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2404,13 +2312,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `angle_to`,
                 },
             ),
@@ -2452,13 +2360,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2473,7 +2375,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2520,13 +2422,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::geom2d`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::geom2d`,
                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -2566,11 +2468,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -2578,7 +2476,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2624,13 +2522,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `relative_bounding_box`,
                 },
             ),
@@ -2672,12 +2570,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2689,7 +2582,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2737,13 +2630,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `relative_point`,
                 },
             ),
@@ -2785,12 +2678,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [
             LocalTerm::Resolved(
@@ -2802,7 +2690,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2850,13 +2738,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `xmin`,
                 },
             ),
@@ -2898,11 +2786,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -2910,7 +2794,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -2958,13 +2842,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `xmax`,
                 },
             ),
@@ -3006,11 +2890,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3018,7 +2898,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3066,13 +2946,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `ymin`,
                 },
             ),
@@ -3114,11 +2994,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3126,7 +3002,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3174,13 +3050,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `ymax`,
                 },
             ),
@@ -3222,11 +3098,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3234,7 +3106,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3281,13 +3153,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::geom2d`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::geom2d`,
                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -3327,11 +3199,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3339,7 +3207,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3385,13 +3253,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `xmin`,
                 },
             ),
@@ -3433,11 +3301,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3445,7 +3309,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3493,13 +3357,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `xmax`,
                 },
             ),
@@ -3541,11 +3405,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3553,7 +3413,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3601,13 +3461,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `ymin`,
                 },
             ),
@@ -3649,11 +3509,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3661,7 +3517,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -3709,13 +3565,13 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `mnist_classifier::geom2d`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `mnist_classifier::geom2d`,
                             ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `ymax`,
                 },
             ),
@@ -3757,11 +3613,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -3769,7 +3621,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {

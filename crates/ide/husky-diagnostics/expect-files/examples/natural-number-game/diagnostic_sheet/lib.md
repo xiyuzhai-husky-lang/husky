@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 42,
+    [salsa id]: 43,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -77,12 +77,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: AmbiguousTypePath",
-                severity: Error,
-                range: [6:19, 6:22),
-            },
-        ],
+        diagnostics: [],
     },
 }

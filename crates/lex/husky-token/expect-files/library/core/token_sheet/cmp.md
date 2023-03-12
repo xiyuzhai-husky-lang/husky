@@ -11,24 +11,6 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 20,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Attr(
-                Pub,
-            ),
-            Keyword(
-                Trait,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
                             value: 21,
                         },
                     ),
@@ -66,6 +48,24 @@ Ok(
                     Word(
                         Id {
                             value: 23,
+                        },
+                    ),
+                ),
+            ),
+            Punctuation(
+                Semicolon,
+            ),
+            Attr(
+                Pub,
+            ),
+            Keyword(
+                Trait,
+            ),
+            Ident(
+                Ident(
+                    Word(
+                        Id {
+                            value: 24,
                         },
                     ),
                 ),

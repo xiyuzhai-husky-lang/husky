@@ -36,17 +36,7 @@
                     Resolved(
                         Ok(
                             EqsExactly(
-                                ExpectEqsExactlyOutcome {
-                                    destination: Resolved(
-                                        Category(
-                                            TermCategory {
-                                                universe: TermUniverse(
-                                                    1,
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
+                                ExpectSubtypeOutcome,
                             ),
                         ),
                     ),
@@ -111,15 +101,6 @@
                         Ok(
                             EqsRitchieCallType(
                                 ExpectEqsFunctionTypeOutcome {
-                                    destination: Resolved(
-                                        Curry(
-                                            TermCurry(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
-                                    ),
                                     implicit_parameter_substitutions: [],
                                     return_ty: Resolved(
                                         Category(
@@ -213,17 +194,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -231,7 +202,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -249,8 +220,8 @@
                                 ),
                             ),
                             expectation: EqsExactly(
-                                ExpectEqsExactly {
-                                    destination: Resolved(
+                                ExpectSubtype {
+                                    expected: Resolved(
                                         Category(
                                             TermCategory {
                                                 universe: TermUniverse(
@@ -264,17 +235,7 @@
                             resolve_progress: Resolved(
                                 Ok(
                                     EqsExactly(
-                                        ExpectEqsExactlyOutcome {
-                                            destination: Resolved(
-                                                Category(
-                                                    TermCategory {
-                                                        universe: TermUniverse(
-                                                            1,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                        },
+                                        ExpectSubtypeOutcome,
                                     ),
                                 ),
                             ),
@@ -327,15 +288,6 @@
                                 Ok(
                                     EqsRitchieCallType(
                                         ExpectEqsFunctionTypeOutcome {
-                                            destination: Resolved(
-                                                Curry(
-                                                    TermCurry(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
                                             implicit_parameter_substitutions: [],
                                             return_ty: Resolved(
                                                 Category(
@@ -411,13 +363,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `mnist_classifier::line_segment_sketch::convex_component`,
                         ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -445,11 +397,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -457,7 +405,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {

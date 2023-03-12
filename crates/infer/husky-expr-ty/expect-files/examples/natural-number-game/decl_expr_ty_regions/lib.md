@@ -11,9 +11,7 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -21,7 +19,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -46,9 +44,7 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -56,7 +52,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -81,9 +77,7 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -91,7 +85,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -107,13 +101,13 @@
     ExprTypeRegion {
         path: RegionPath::Decl(
             DeclRegionPath::Impl(
-                ImplId {
-                    module_path: `natural_number_game`,
-                    impl_kind: ImplKind::Type {
+                ImplBlockId::Type(
+                    TypeImplBlockId {
+                        module: `natural_number_game`,
                         ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                        disambiguator: 0,
                     },
-                    disambiguator: 0,
-                },
+                ),
             ),
         ),
         expr_ty_infos: [
@@ -153,11 +147,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -165,7 +155,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
@@ -211,22 +201,35 @@
         path: RegionPath::Decl(
             DeclRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_id: ImplId {
-                        module_path: `natural_number_game`,
-                        impl_kind: ImplKind::Type {
+                    impl_block_id: ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module: `natural_number_game`,
                             ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                            disambiguator: 0,
                         },
-                        disambiguator: 0,
-                    },
+                    ),
                     ident: `add`,
                 },
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
-                    Original(
-                        AmbiguousTypePath,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Err(
+                            Derived(
+                                TypeError(
+                                    RawTypeError(
+                                        Original(
+                                            InductiveTypeHasNoConstructor,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -262,15 +265,7 @@
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: ArenaMap {
-            data: [
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-        },
+        expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
         local_term_region: LocalTermRegion {
@@ -278,7 +273,7 @@
                 implicit_symbol_registry: ImplicitSymbolRegistry {
                     next: 0,
                 },
-                arena: [],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {

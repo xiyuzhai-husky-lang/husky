@@ -223,7 +223,7 @@ fn module_path_debug_with_db_works() {
                 ident: Ident(
                     Word(
                         Id {
-                            value: 32,
+                            value: 33,
                         },
                     ),
                 ),
