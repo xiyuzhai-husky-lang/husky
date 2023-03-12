@@ -28,7 +28,7 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Resolved(self_expr_ty_unravelled) => {
                 match self
                     .db
-                    .ty_method_ty(self_expr_ty_unravelled, ident_token.ident())
+                    .ty_method_card(self_expr_ty_unravelled, ident_token.ident())
                 {
                     Ok(_) => todo!(),
                     Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),

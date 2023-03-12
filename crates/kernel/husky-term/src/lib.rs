@@ -84,5 +84,7 @@ pub struct TermJar(
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
     // method ty
-    term_application_ty_method_ty,
+    term_application_ty_method_card,
+    ty_method_cards,
+    TypeMethodCard,
 );

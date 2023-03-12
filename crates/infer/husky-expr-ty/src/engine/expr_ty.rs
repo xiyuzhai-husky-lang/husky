@@ -203,7 +203,7 @@ impl<'a> ExprTypeEngine<'a> {
                 nonself_arguments,
                 ..
             } => Ok((
-                ExprDisambiguation::Trivial,
+                ExprDisambiguation::MethodCall(todo!()),
                 self.calc_method_expr_ty(
                     expr_idx,
                     self_argument,

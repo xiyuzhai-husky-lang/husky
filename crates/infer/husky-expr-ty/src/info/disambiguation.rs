@@ -10,6 +10,7 @@ pub enum ExprDisambiguation {
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
     Tilde(TildeDisambiguation),
+    MethodCall(MethodCallDisambiguation),
     Trivial,
 }
 
@@ -69,3 +70,6 @@ pub enum TildeDisambiguation {
     BitNot,
     Leash,
 }
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct MethodCallDisambiguation {}
