@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 39,
+    [salsa id]: 40,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -84,9 +84,34 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [64:13, 64:37),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [72:13, 72:37),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [81:18, 81:49),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [82:13, 82:29),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [85:9, 85:14),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [86:14, 86:45),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -94,9 +119,34 @@ DiagnosticSheet {
                 range: [107:9, 107:14),
             },
             Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [108:14, 108:45),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [114:19, 114:50),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [115:27, 115:43),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [117:9, 117:16),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [118:15, 118:46),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [125:18, 125:49),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -104,9 +154,29 @@ DiagnosticSheet {
                 range: [145:13, 145:20),
             },
             Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [158:23, 158:39),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [168:25, 168:41),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [190:13, 190:29),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo",
                 severity: Error,
                 range: [155:29, 155:31),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [23:27, 23:63),
             },
             Diagnostic {
                 message: "expected 0 argument, found 2",

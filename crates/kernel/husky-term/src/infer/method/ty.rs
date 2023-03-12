@@ -24,15 +24,14 @@ pub(crate) fn ty_ontology_path_ty_method_card(
     path: TypePath,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
+    let ty_method_cards = ty_path_ty_method_cards(db, path)?;
+    let Some(entry) = ty_method_cards.get_entry(ident) else {
+        return Ok(None)
+    };
+    let Ok(ty_method_card) = entry.1 else {
+        todo!()
+    };
     todo!()
-    // let Some(method_raw_ty) = ty_path_ty_method_raw_ty(db, path, ident)? else {
-    //     return Ok(None)
-    // };
-    // Ok(Some(Term::from_raw(
-    //     db,
-    //     method_raw_ty,
-    //     TermTypeExpectation::FinalDestinationEqsSort,
-    // )?))
 }
 
 #[salsa::tracked(jar = TermJar)]

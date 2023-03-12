@@ -443,13 +443,16 @@ impl<'a> ExprTypeEngine<'a> {
         indices: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal, local_term_region)
-        else  {
+        let Some(owner_ty) = self.infer_new_expr_ty(
+            owner, ExpectAnyOriginal, local_term_region
+        ) else {
             for index in indices {
                 self.infer_new_expr_ty(index, ExpectAnyDerived, local_term_region);
             }
             let e = DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred;
-            return Err( DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into()            )
+            return Err(
+                DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into()
+            )
         };
         todo!()
     }

@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 35,
+    [salsa id]: 36,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -42,11 +42,6 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
-            Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
-                severity: Error,
-                range: [88:54, 88:56),
-            },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
