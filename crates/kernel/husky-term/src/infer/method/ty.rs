@@ -8,21 +8,14 @@ pub(crate) fn ty_method_card(
     owner_ty: Term,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
+    assert!(owner_ty.is_reduced(db));
+    // using the fact that owner_ty is reduced
     match owner_ty {
-        Term::Symbol(_) => Ok(None),
-        Term::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(path) => ty_ontology_path_ty_method_card(db, path, ident),
-            TermEntityPath::TypeConstructor(_) => todo!(),
-        },
-        Term::Category(_) | Term::Curry(_) | Term::Ritchie(_) => Ok(None),
-        Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
-        Term::Subentity(_) => todo!(),
-        Term::AsTraitSubentity(_) => todo!(),
-        Term::Literal(_) | Term::Universe(_) | Term::Abstraction(_) | Term::TraitConstraint(_) => {
-            unreachable!()
+        Term::EntityPath(TermEntityPath::TypeOntology(path)) => {
+            ty_ontology_path_ty_method_card(db, path, ident)
         }
+        Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
+        _ => Ok(None),
     }
 }
 
