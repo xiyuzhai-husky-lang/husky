@@ -1108,7 +1108,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::i8`, `Extern`),
@@ -1133,7 +1133,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::i8`, `Extern`),
@@ -1262,7 +1262,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::i8`, `Extern`),
@@ -1465,7 +1465,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::i8`, `Extern`),
@@ -1541,7 +1541,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::i8`, `Extern`),
@@ -1738,7 +1738,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::i16`, `Extern`),
@@ -1763,7 +1763,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::i16`, `Extern`),
@@ -1892,7 +1892,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::i16`, `Extern`),
@@ -2095,7 +2095,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::i16`, `Extern`),
@@ -2171,7 +2171,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::i16`, `Extern`),
@@ -2368,7 +2368,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::i32`, `Extern`),
@@ -2393,7 +2393,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::i32`, `Extern`),
@@ -2522,7 +2522,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::i32`, `Extern`),
@@ -2725,7 +2725,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::i32`, `Extern`),
@@ -2801,7 +2801,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::i32`, `Extern`),
@@ -2998,7 +2998,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::i64`, `Extern`),
@@ -3023,7 +3023,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::i64`, `Extern`),
@@ -3152,7 +3152,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::i64`, `Extern`),
@@ -3355,7 +3355,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::i64`, `Extern`),
@@ -3431,7 +3431,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::i64`, `Extern`),
@@ -3628,7 +3628,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::i128`, `Extern`),
@@ -3653,7 +3653,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::i128`, `Extern`),
@@ -3782,7 +3782,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::i128`, `Extern`),
@@ -3985,7 +3985,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::i128`, `Extern`),
@@ -4061,7 +4061,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::i128`, `Extern`),
@@ -4258,7 +4258,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::isize`, `Extern`),
@@ -4283,7 +4283,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::isize`, `Extern`),
@@ -4412,7 +4412,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::isize`, `Extern`),
@@ -4615,7 +4615,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::isize`, `Extern`),
@@ -4691,7 +4691,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::isize`, `Extern`),
@@ -4888,7 +4888,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::u8`, `Extern`),
@@ -4913,7 +4913,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::u8`, `Extern`),
@@ -5042,7 +5042,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::u8`, `Extern`),
@@ -5245,7 +5245,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::u8`, `Extern`),
@@ -5321,7 +5321,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::u8`, `Extern`),
@@ -5518,7 +5518,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::u16`, `Extern`),
@@ -5543,7 +5543,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::u16`, `Extern`),
@@ -5672,7 +5672,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::u16`, `Extern`),
@@ -5875,7 +5875,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::u16`, `Extern`),
@@ -5951,7 +5951,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::u16`, `Extern`),
@@ -6148,7 +6148,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::u32`, `Extern`),
@@ -6173,7 +6173,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::u32`, `Extern`),
@@ -6302,7 +6302,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::u32`, `Extern`),
@@ -6505,7 +6505,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::u32`, `Extern`),
@@ -6581,7 +6581,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::u32`, `Extern`),
@@ -6778,7 +6778,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::u64`, `Extern`),
@@ -6803,7 +6803,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::u64`, `Extern`),
@@ -6932,7 +6932,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::u64`, `Extern`),
@@ -7135,7 +7135,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::u64`, `Extern`),
@@ -7211,7 +7211,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::u64`, `Extern`),
@@ -7408,7 +7408,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::u128`, `Extern`),
@@ -7433,7 +7433,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::u128`, `Extern`),
@@ -7562,7 +7562,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::u128`, `Extern`),
@@ -7765,7 +7765,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::u128`, `Extern`),
@@ -7841,7 +7841,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::u128`, `Extern`),
@@ -8038,7 +8038,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::usize`, `Extern`),
@@ -8063,7 +8063,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::usize`, `Extern`),
@@ -8192,7 +8192,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::usize`, `Extern`),
@@ -8395,7 +8395,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::usize`, `Extern`),
@@ -8471,7 +8471,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::usize`, `Extern`),
@@ -8668,7 +8668,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::f32`, `Extern`),
@@ -8693,7 +8693,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::f32`, `Extern`),
@@ -8822,7 +8822,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::f32`, `Extern`),
@@ -9025,7 +9025,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::f32`, `Extern`),
@@ -9101,7 +9101,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::f32`, `Extern`),
@@ -9298,7 +9298,7 @@ Ok(
             (
                 DefnRegionPath::AssociatedItem(
                     AssociatedItemId {
-                        impl_id: ImplBlockId::Type(
+                        impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
                                 module: `core::num`,
                                 ty: TypePath(`core::num::f64`, `Extern`),
@@ -9323,7 +9323,7 @@ Ok(
                                     decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
-                                                impl_id: ImplBlockId::Type(
+                                                impl_block_id: ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module: `core::num`,
                                                         ty: TypePath(`core::num::f64`, `Extern`),
@@ -9452,7 +9452,7 @@ Ok(
                                                 path: RegionPath::Decl(
                                                     DeclRegionPath::AssociatedItem(
                                                         AssociatedItemId {
-                                                            impl_id: ImplBlockId::Type(
+                                                            impl_block_id: ImplBlockId::Type(
                                                                 TypeImplBlockId {
                                                                     module: `core::num`,
                                                                     ty: TypePath(`core::num::f64`, `Extern`),
@@ -9655,7 +9655,7 @@ Ok(
                                                         path: RegionPath::Decl(
                                                             DeclRegionPath::AssociatedItem(
                                                                 AssociatedItemId {
-                                                                    impl_id: ImplBlockId::Type(
+                                                                    impl_block_id: ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module: `core::num`,
                                                                             ty: TypePath(`core::num::f64`, `Extern`),
@@ -9731,7 +9731,7 @@ Ok(
                                             path: RegionPath::Defn(
                                                 DefnRegionPath::AssociatedItem(
                                                     AssociatedItemId {
-                                                        impl_id: ImplBlockId::Type(
+                                                        impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
                                                                 module: `core::num`,
                                                                 ty: TypePath(`core::num::f64`, `Extern`),

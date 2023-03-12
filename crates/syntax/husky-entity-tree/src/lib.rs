@@ -57,6 +57,7 @@ pub struct EntityTreeJar(
     TypeAsTraitImplBlock,
     IllFormedImplBlock,
     AssociatedItem,
+    TypeAssociatedItem,
     entity_tree_presheet,
     entity_tree_crate_bundle,
     submodules,

@@ -187,7 +187,7 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
 pub(crate) fn ty_impl_blocks(
     db: &dyn EntityTreeDb,
     ty: TypePath,
-) -> EntityTreeCrateBundleResult<Vec<TypeImplBlock>> {
+) -> EntityTreeBundleResult<Vec<TypeImplBlock>> {
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
@@ -203,7 +203,7 @@ pub(crate) fn ty_impl_blocks(
 pub(crate) fn ty_items(
     db: &dyn EntityTreeDb,
     path: TypePath,
-) -> EntityTreeCrateBundleResult<IdentPairMap<AssociatedItem>> {
+) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle

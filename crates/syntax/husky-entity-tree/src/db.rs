@@ -24,7 +24,7 @@ pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + Manife
     fn entity_tree_crate_bundle(
         &self,
         crate_path: CratePath,
-    ) -> EntityTreeCrateBundleResult<&EntityTreeCrateBundle>;
+    ) -> EntityTreeBundleResult<&EntityTreeCrateBundle>;
     fn entity_tree_presheet(&self, module_path: ModulePath) -> VfsResult<&EntityTreePresheet>;
     fn entity_tree_sheet(&self, module_path: ModulePath) -> EntityTreeResult<&EntityTreeSheet>;
     fn module_symbol_context<'a>(
@@ -68,7 +68,7 @@ where
     fn entity_tree_crate_bundle(
         &self,
         crate_path: CratePath,
-    ) -> EntityTreeCrateBundleResult<&EntityTreeCrateBundle> {
+    ) -> EntityTreeBundleResult<&EntityTreeCrateBundle> {
         Ok(entity_tree_crate_bundle(self, crate_path)
             .as_ref()
             .map_err(|e| e.clone())?)
