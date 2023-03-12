@@ -10,6 +10,12 @@ pub enum EntityTreeBundleError {
     Prelude(#[from] PreludeError),
 }
 
+impl From<&EntityTreeBundleError> for EntityTreeBundleError {
+    fn from(value: &EntityTreeBundleError) -> Self {
+        todo!()
+    }
+}
+
 impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
     fn fmt(
         &self,

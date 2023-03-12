@@ -105,8 +105,23 @@ pub(crate) fn ty_method_cards(db: &dyn TermDb, path: TypePath) -> IdentPairMap<T
     todo!()
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[enum_class::from_variants]
+pub enum MethodCard {
+    Type(TypeMethodCard),
+    TypeAsTrait(TypeAsTraitMethodCard),
+}
+
 #[salsa::tracked(db = TermDb, jar = TermJar)]
 pub struct TypeMethodCard {
+    #[id]
+    id: AssociatedItemId,
+    signature: SignatureResult<TypeMethodSignature>,
+    method_ty: TermResult<Term>,
+}
+
+#[salsa::tracked(db = TermDb, jar = TermJar)]
+pub struct TypeAsTraitMethodCard {
     #[id]
     id: AssociatedItemId,
     signature: SignatureResult<TypeMethodSignature>,

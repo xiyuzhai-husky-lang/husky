@@ -7,6 +7,7 @@ mod method;
 pub use assoc_ty::*;
 pub use assoc_val::*;
 pub use function::*;
+use husky_word::{Ident, IdentPairMap};
 pub use memo::*;
 pub use method::*;
 
@@ -22,6 +23,28 @@ pub enum TypeItemDecl {
     ExternType(TypeAssociatedTypeDecl),
     Value(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
+}
+
+#[salsa::tracked(jar = DeclJar, return_ref)]
+pub(crate) fn ty_item_decls<'a>(
+    db: &'a dyn DeclDb,
+    path: TypePath,
+) -> EntityTreeCrateBundleResult<IdentPairMap<Result<TypeItemDecl, ()>>> {
+    let ty_items = db.ty_items(path)?;
+    Ok(ty_items
+        .iter()
+        .copied()
+        .map(|(ident, ty_item)| -> (Ident, Result<TypeItemDecl, ()>) {
+            (
+                ident,
+                match associated_item_decl(db, ty_item) {
+                    Ok(AssociatedItemDecl::TypeItem(decl)) => Ok(*decl),
+                    Ok(_) => unreachable!(), // todo: reduce this
+                    Err(_) => Err(()),
+                },
+            )
+        })
+        .collect())
 }
 
 impl TypeItemDecl {
