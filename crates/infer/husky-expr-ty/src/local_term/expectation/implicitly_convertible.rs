@@ -94,6 +94,7 @@ impl ExpectImplicitlyConvertible {
                         std::iter::zip(src_arguments.into_iter(), dst_arguments.into_iter())
                     {
                         if src_argument != dst_argument {
+                            p!(src_argument.debug(db), dst_argument.debug(db));
                             todo!()
                         }
                     }

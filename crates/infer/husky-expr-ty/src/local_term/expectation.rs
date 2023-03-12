@@ -104,7 +104,7 @@ pub(crate) enum LocalTermExpectationOutcome {
     ImplicitlyConvertible(ImplicitConversion),
     InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
-    EqsExactly(ExpectEqsExactlyOutcome),
+    EqsExactly(ExpectSubtypeOutcome),
     EqsRefMutApplication(ExpectEqsRefMutApplicationOutcome),
     EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
 }
@@ -376,7 +376,7 @@ pub(crate) enum LocalTermExpectation {
     EqsSort(ExpectEqsCategory),
     FrameVariableType,
     EqsRefMutApplication(ExpectEqsRefMutApplication),
-    EqsExactly(ExpectEqsExactly),
+    EqsExactly(ExpectSubtype),
     EqsFunctionType(ExpectEqsFunctionType),
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),

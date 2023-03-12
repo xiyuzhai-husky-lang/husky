@@ -107,6 +107,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
+        // MOM
         match self.1 {
             OriginalExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
@@ -145,6 +146,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             }
             OriginalExprTypeError::NoSuchField => {
                 format!("Type Error: NoSuchField")
+            }
+            OriginalExprTypeError::NoSuchMethod => {
+                format!("Type Error: NoSuchMethod")
             }
         }
     }

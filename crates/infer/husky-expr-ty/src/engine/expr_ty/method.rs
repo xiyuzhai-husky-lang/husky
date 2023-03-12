@@ -49,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ),
             ));
         }
-        todo!()
+        Err(OriginalExprTypeError::NoSuchMethod.into())
     }
 
     fn calc_ty_method_expr_ty(

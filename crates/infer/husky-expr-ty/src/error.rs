@@ -55,6 +55,8 @@ pub enum OriginalExprTypeError {
     AmbiguousTildeExpr,
     #[error("no such field")]
     NoSuchField,
+    #[error("no such method")]
+    NoSuchMethod,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

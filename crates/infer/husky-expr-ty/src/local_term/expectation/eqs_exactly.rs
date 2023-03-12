@@ -2,12 +2,12 @@ use super::*;
 
 /// expect term to be equal to `Type` i.e. `Sort 1`
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub(crate) struct ExpectEqsExactly {
+pub(crate) struct ExpectSubtype {
     destination: LocalTerm,
 }
 
-impl ExpectLocalTerm for ExpectEqsExactly {
-    type Outcome = ExpectEqsExactlyOutcome;
+impl ExpectLocalTerm for ExpectSubtype {
+    type Outcome = ExpectSubtypeOutcome;
 
     fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
@@ -31,11 +31,11 @@ impl ExpectLocalTerm for ExpectEqsExactly {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsExactlyOutcome {
+pub(crate) struct ExpectSubtypeOutcome {
     destination: LocalTerm,
 }
 
-impl ExpectEqsExactlyOutcome {
+impl ExpectSubtypeOutcome {
     pub(crate) fn resolved(&self) -> Option<Term> {
         todo!()
     }
@@ -45,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn resolve_eqs_exactly(
         &self,
         expectee: LocalTerm,
-        expectation: &ExpectEqsExactly,
+        expectation: &ExpectSubtype,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
@@ -79,7 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
         match expectee == destination {
             true => LocalTermExpectationEffect {
                 result: Ok(LocalTermExpectationOutcome::EqsExactly(
-                    ExpectEqsExactlyOutcome {
+                    ExpectSubtypeOutcome {
                         destination: destination.into(),
                     },
                 )),
@@ -90,8 +90,8 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn expect_eqs_exactly_ty(&self) -> ExpectEqsExactly {
-        ExpectEqsExactly {
+    pub(crate) fn expect_eqs_exactly_ty(&self) -> ExpectSubtype {
+        ExpectSubtype {
             destination: self.term_menu().ty0().into(),
         }
     }
