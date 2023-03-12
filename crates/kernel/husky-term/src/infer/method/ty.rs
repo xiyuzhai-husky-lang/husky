@@ -1,3 +1,6 @@
+use husky_entity_tree::EntityTreeBundleResultRef;
+use vec_like::VecMapGetEntry;
+
 use super::*;
 
 pub(crate) fn ty_method_card(
@@ -80,23 +83,30 @@ fn ty_ontology_path_application_ty_method_card(
     db: &dyn TermDb,
     path: TypePath,
     _arguments: &[Term],
-    _ident: Ident,
+    ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
-    let ty_method_cards = ty_method_cards(db, path);
-    // let decl = match db.ty_decl(path) {
-    //     Ok(decl) => decl,
-    //     Err(_) => return Err(TermError::TypePathApplicationMethodDeclError),
-    // };
-    // let _signature = match db.ty_signature(decl) {
-    //     Ok(signature) => signature,
-    //     Err(_) => return Err(TermError::SignatureError),
-    // };
-    // let ty_associated_items = db.ty_associated_item_signatures(path);
-    todo!()
+    let ty_method_cards = ty_path_ty_method_cards(db, path)?;
+    let Some(entry) = ty_method_cards.get_entry(ident) else {
+        return Ok(None)
+    };
+    let Ok(ty_method_card) = entry.1 else {
+        todo!()
+    };
+    todo!("substitute implicit symbols")
+}
+
+pub(crate) fn ty_path_ty_method_cards(
+    db: &dyn TermDb,
+    path: TypePath,
+) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeMethodCard, ()>)]> {
+    match ty_path_ty_method_cards_aux(db, path) {
+        Ok(ty_method_cards) => Ok(ty_method_cards),
+        Err(e) => Err(e),
+    }
 }
 
 #[salsa::tracked(jar = TermJar, return_ref)]
-pub(crate) fn ty_method_cards(
+pub(crate) fn ty_path_ty_method_cards_aux(
     db: &dyn TermDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodCard, ()>>> {

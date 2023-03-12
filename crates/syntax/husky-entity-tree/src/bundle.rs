@@ -28,7 +28,7 @@ impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError
 }
 
 pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
-pub type EntityTreeCrateBundleResultRef<'a, T> = Result<T, &'a EntityTreeBundleError>;
+pub type EntityTreeBundleResultRef<'a, T> = Result<T, &'a EntityTreeBundleError>;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(

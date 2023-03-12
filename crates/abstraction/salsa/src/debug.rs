@@ -143,6 +143,12 @@ impl<D: ?Sized> fmt::Debug for DebugWith<'_, D> {
     }
 }
 
+impl<Db: ?Sized> DebugWithDb<Db> for () {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        f.write_str("()")
+    }
+}
+
 impl<Db: ?Sized, T: ?Sized> DebugWithDb<Db> for &T
 where
     T: DebugWithDb<Db>,

@@ -18,7 +18,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn ty_item_decls(
         &self,
         path: TypePath,
-    ) -> EntityTreeCrateBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]>;
+    ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]>;
 }
 
 impl<Db> DeclDb for Db
@@ -61,7 +61,7 @@ where
     fn ty_item_decls(
         &self,
         path: TypePath,
-    ) -> EntityTreeCrateBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]> {
+    ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]> {
         match ty_item_decls(self, path) {
             Ok(ty_item_decls) => Ok(ty_item_decls),
             Err(e) => Err(e),

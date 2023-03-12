@@ -85,7 +85,7 @@ pub struct TermJar(
     is_ty_path_lifetime_ty,
     // method ty
     term_application_ty_method_card,
-    ty_method_cards,
+    ty_path_ty_method_cards_aux,
     TypeMethodCard,
     TypeAsTraitMethodCard,
 );
