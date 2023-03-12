@@ -284,6 +284,10 @@ impl Term {
         }
     }
 
+    pub(crate) fn is_reduced(self, db: &dyn TermDb) -> bool {
+        self.reduce(db) == self
+    }
+
     pub fn substitute(self, db: &dyn TermDb, substitution: &TermSubstitution) -> Self {
         todo!()
         // match self {
