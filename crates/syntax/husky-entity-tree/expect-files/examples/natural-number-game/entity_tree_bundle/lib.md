@@ -14,7 +14,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 141,
+                                    [salsa id]: 142,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                     ),
@@ -34,7 +34,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 142,
+                                    [salsa id]: 143,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::OddNat`, `Structure`),
                                     ),
@@ -54,7 +54,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 143,
+                                    [salsa id]: 144,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::EvenNat`, `Structure`),
                                     ),
@@ -67,23 +67,20 @@ Ok(
                         },
                     ],
                 ),
-                impls: [
-                    Impl {
-                        id: ImplId {
-                            module_path: `natural_number_game`,
-                            impl_kind: ImplKind::Type {
+                impl_blocks: [
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `natural_number_game`,
                                 ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 6,
+                            body: ArenaIdxRange(
+                                0..3,
+                            ),
                         },
-                        ast_idx: 6,
-                        body: ArenaIdxRange(
-                            0..3,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                        },
-                    },
+                    ),
                 ],
                 use_expr_rules: UseExprRules(
                     [],
@@ -101,7 +98,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 489,
+                                    value: 491,
                                 },
                             ),
                         ),
@@ -113,7 +110,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -121,6 +118,10 @@ Ok(
                 },
             ],
         },
-        impls: [],
+        impl_blocks: ImplBlockBundle {
+            all_ty_impl_blocks: [],
+            all_ty_as_trai_impl_blocks: [],
+            all_ill_formed_impl_blocks: [],
+        },
     },
 )

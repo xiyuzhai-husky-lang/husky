@@ -57,6 +57,8 @@ pub enum OriginalExprTypeError {
     NoSuchField,
     #[error("no such method")]
     NoSuchMethod,
+    #[error("TodoIndexOrComposeWithList")]
+    TodoIndexOrComposeWithList,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

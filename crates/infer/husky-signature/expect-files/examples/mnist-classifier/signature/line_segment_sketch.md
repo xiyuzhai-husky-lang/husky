@@ -18,7 +18,7 @@
                         },
                         RegularStructFieldSignature {
                             ident: `strokes`,
-                            ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                            ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         },
                     ],
                 },
@@ -40,7 +40,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 49,
+                                                value: 48,
                                             },
                                         ),
                                     ),
@@ -80,7 +80,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 49,
+                                                value: 48,
                                             },
                                         ),
                                     ),
@@ -250,7 +250,7 @@
                             },
                         ],
                     },
-                    return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                    return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                 },
             ),
         ),
@@ -353,7 +353,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: RawTerm(`core::vec::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
             ),

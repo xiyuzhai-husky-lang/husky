@@ -239,9 +239,27 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "option",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            symbol: Submodule(
+                                SubmoduleSymbol {
+                                    [salsa id]: 13,
+                                    path: `core::option`,
+                                    accessibility: Accessibility::PublicUnder(
+                                        `core`,
+                                    ),
+                                    ast_idx: 13,
+                                },
+                            ),
+                        },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -336,7 +354,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -399,7 +417,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -462,7 +480,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -701,42 +719,38 @@ Ok(
                         },
                     ],
                 ),
-                impls: [
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                impl_blocks: [
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 32,
+                            body: ArenaIdxRange(
+                                0..1,
+                            ),
                         },
-                        ast_idx: 32,
-                        body: ArenaIdxRange(
-                            0..1,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i8`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 0,
-                        },
-                        ast_idx: 33,
-                        body: ArenaIdxRange(
-                            1..2,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 0,
+                            },
+                            ast_idx: 33,
+                            body: ArenaIdxRange(
+                                1..2,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -747,43 +761,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 37,
+                            body: ArenaIdxRange(
+                                2..3,
+                            ),
                         },
-                        ast_idx: 37,
-                        body: ArenaIdxRange(
-                            2..3,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i16`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 1,
-                        },
-                        ast_idx: 38,
-                        body: ArenaIdxRange(
-                            3..4,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 1,
+                            },
+                            ast_idx: 38,
+                            body: ArenaIdxRange(
+                                3..4,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -794,43 +804,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 42,
+                            body: ArenaIdxRange(
+                                4..5,
+                            ),
                         },
-                        ast_idx: 42,
-                        body: ArenaIdxRange(
-                            4..5,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i32`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 2,
-                        },
-                        ast_idx: 43,
-                        body: ArenaIdxRange(
-                            5..6,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 2,
+                            },
+                            ast_idx: 43,
+                            body: ArenaIdxRange(
+                                5..6,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -841,43 +847,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 47,
+                            body: ArenaIdxRange(
+                                6..7,
+                            ),
                         },
-                        ast_idx: 47,
-                        body: ArenaIdxRange(
-                            6..7,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i64`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 3,
-                        },
-                        ast_idx: 48,
-                        body: ArenaIdxRange(
-                            7..8,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 3,
+                            },
+                            ast_idx: 48,
+                            body: ArenaIdxRange(
+                                7..8,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -888,43 +890,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 52,
+                            body: ArenaIdxRange(
+                                8..9,
+                            ),
                         },
-                        ast_idx: 52,
-                        body: ArenaIdxRange(
-                            8..9,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::i128`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 4,
-                        },
-                        ast_idx: 53,
-                        body: ArenaIdxRange(
-                            9..10,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 4,
+                            },
+                            ast_idx: 53,
+                            body: ArenaIdxRange(
+                                9..10,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -935,43 +933,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 57,
+                            body: ArenaIdxRange(
+                                10..11,
+                            ),
                         },
-                        ast_idx: 57,
-                        body: ArenaIdxRange(
-                            10..11,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::isize`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 5,
-                        },
-                        ast_idx: 58,
-                        body: ArenaIdxRange(
-                            11..12,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 5,
+                            },
+                            ast_idx: 58,
+                            body: ArenaIdxRange(
+                                11..12,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -982,43 +976,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u8`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 62,
+                            body: ArenaIdxRange(
+                                12..13,
+                            ),
                         },
-                        ast_idx: 62,
-                        body: ArenaIdxRange(
-                            12..13,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u8`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 6,
-                        },
-                        ast_idx: 63,
-                        body: ArenaIdxRange(
-                            13..14,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 6,
+                            },
+                            ast_idx: 63,
+                            body: ArenaIdxRange(
+                                13..14,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1029,43 +1019,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u16`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 67,
+                            body: ArenaIdxRange(
+                                14..15,
+                            ),
                         },
-                        ast_idx: 67,
-                        body: ArenaIdxRange(
-                            14..15,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u16`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 7,
-                        },
-                        ast_idx: 68,
-                        body: ArenaIdxRange(
-                            15..16,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 7,
+                            },
+                            ast_idx: 68,
+                            body: ArenaIdxRange(
+                                15..16,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1076,43 +1062,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 72,
+                            body: ArenaIdxRange(
+                                16..17,
+                            ),
                         },
-                        ast_idx: 72,
-                        body: ArenaIdxRange(
-                            16..17,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u32`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 8,
-                        },
-                        ast_idx: 73,
-                        body: ArenaIdxRange(
-                            17..18,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 8,
+                            },
+                            ast_idx: 73,
+                            body: ArenaIdxRange(
+                                17..18,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1123,43 +1105,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 77,
+                            body: ArenaIdxRange(
+                                18..19,
+                            ),
                         },
-                        ast_idx: 77,
-                        body: ArenaIdxRange(
-                            18..19,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u64`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 9,
-                        },
-                        ast_idx: 78,
-                        body: ArenaIdxRange(
-                            19..20,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 9,
+                            },
+                            ast_idx: 78,
+                            body: ArenaIdxRange(
+                                19..20,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1170,43 +1148,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::u128`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 82,
+                            body: ArenaIdxRange(
+                                20..21,
+                            ),
                         },
-                        ast_idx: 82,
-                        body: ArenaIdxRange(
-                            20..21,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::u128`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 10,
-                        },
-                        ast_idx: 83,
-                        body: ArenaIdxRange(
-                            21..22,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 10,
+                            },
+                            ast_idx: 83,
+                            body: ArenaIdxRange(
+                                21..22,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1217,43 +1191,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::usize`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 87,
+                            body: ArenaIdxRange(
+                                22..23,
+                            ),
                         },
-                        ast_idx: 87,
-                        body: ArenaIdxRange(
-                            22..23,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::usize`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 11,
-                        },
-                        ast_idx: 88,
-                        body: ArenaIdxRange(
-                            23..24,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 11,
+                            },
+                            ast_idx: 88,
+                            body: ArenaIdxRange(
+                                23..24,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1264,43 +1234,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 92,
+                            body: ArenaIdxRange(
+                                24..25,
+                            ),
                         },
-                        ast_idx: 92,
-                        body: ArenaIdxRange(
-                            24..25,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::f32`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 12,
-                        },
-                        ast_idx: 93,
-                        body: ArenaIdxRange(
-                            25..26,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 12,
+                            },
+                            ast_idx: 93,
+                            body: ArenaIdxRange(
+                                25..26,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1311,43 +1277,39 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Type {
+                        },
+                    ),
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module: `core::num`,
                                 ty: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
                             },
-                            disambiguator: 0,
+                            ast_idx: 97,
+                            body: ArenaIdxRange(
+                                26..27,
+                            ),
                         },
-                        ast_idx: 97,
-                        body: ArenaIdxRange(
-                            26..27,
-                        ),
-                        variant: ImplVariant::Type {
-                            ty: TypePath(`core::num::f64`, `Extern`),
-                        },
-                    },
-                    Impl {
-                        id: ImplId {
-                            module_path: `core::num`,
-                            impl_kind: ImplKind::Err,
-                            disambiguator: 13,
-                        },
-                        ast_idx: 98,
-                        body: ArenaIdxRange(
-                            27..28,
-                        ),
-                        variant: ImplVariant::Err(
-                            ImplError::MajorPath(
+                    ),
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::num`,
+                                disambiguator: 13,
+                            },
+                            ast_idx: 98,
+                            body: ArenaIdxRange(
+                                27..28,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
                                 Original(
                                     UnrecognizedIdent(
                                         IdentToken {
                                             ident: Ident(
                                                 Word(
                                                     Id {
-                                                        value: 34,
+                                                        value: 35,
                                                     },
                                                 ),
                                             ),
@@ -1358,8 +1320,8 @@ Ok(
                                     ),
                                 ),
                             ),
-                        ),
-                    },
+                        },
+                    ),
                 ],
                 use_expr_rules: UseExprRules(
                     [
@@ -1377,7 +1339,7 @@ Ok(
                                         ident: Ident(
                                             Word(
                                                 Id {
-                                                    value: 33,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -1655,7 +1617,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2482,7 +2444,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -3208,7 +3170,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3239,7 +3201,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3270,7 +3232,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3317,7 +3279,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3348,7 +3310,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3427,7 +3389,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3474,7 +3436,38 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::option`,
+                symbols: EntitySymbolTable(
+                    [
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "Option",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: ModuleItem(
+                                ModuleItemSymbol {
+                                    [salsa id]: 52,
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`core::option::Option`, `Enum`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 0,
+                                },
+                            ),
+                        },
+                    ],
+                ),
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -3491,7 +3484,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 36,
+                                    value: 37,
                                 },
                             ),
                         ),
@@ -3514,7 +3507,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 46,
+                                    value: 47,
                                 },
                             ),
                         ),
@@ -3537,7 +3530,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 47,
+                                    value: 48,
                                 },
                             ),
                         ),
@@ -3560,7 +3553,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 48,
+                                    value: 49,
                                 },
                             ),
                         ),
@@ -3583,7 +3576,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 49,
+                                    value: 50,
                                 },
                             ),
                         ),
@@ -3606,7 +3599,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 50,
+                                    value: 51,
                                 },
                             ),
                         ),
@@ -3629,7 +3622,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 51,
+                                    value: 52,
                                 },
                             ),
                         ),
@@ -3652,7 +3645,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 52,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -3675,7 +3668,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 53,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -3698,7 +3691,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 54,
+                                    value: 55,
                                 },
                             ),
                         ),
@@ -3721,7 +3714,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 55,
+                                    value: 56,
                                 },
                             ),
                         ),
@@ -3744,7 +3737,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 56,
+                                    value: 57,
                                 },
                             ),
                         ),
@@ -3767,7 +3760,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 57,
+                                    value: 58,
                                 },
                             ),
                         ),
@@ -3790,7 +3783,7 @@ Ok(
                         ident: Ident(
                             Word(
                                 Id {
-                                    value: 58,
+                                    value: 59,
                                 },
                             ),
                         ),
@@ -3810,6 +3803,10 @@ Ok(
                 },
             ],
         },
-        impls: [],
+        impl_blocks: ImplBlockBundle {
+            all_ty_impl_blocks: [],
+            all_ty_as_trai_impl_blocks: [],
+            all_ill_formed_impl_blocks: [],
+        },
     },
 )

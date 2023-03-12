@@ -14,7 +14,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 13,
+                                    [salsa id]: 14,
                                     path: `std::prelude`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -32,7 +32,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 14,
+                                    [salsa id]: 15,
                                     path: `std::logic`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -50,7 +50,7 @@ Ok(
                             ),
                             symbol: Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 15,
+                                    [salsa id]: 16,
                                     path: `std::ops`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
@@ -61,7 +61,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -75,7 +75,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -89,7 +89,7 @@ Ok(
                 symbols: EntitySymbolTable(
                     [],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
@@ -104,7 +104,7 @@ Ok(
                                         ident: Ident(
                                             Word(
                                                 Id {
-                                                    value: 33,
+                                                    value: 34,
                                                 },
                                             ),
                                         ),
@@ -149,7 +149,7 @@ Ok(
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 52,
+                                    [salsa id]: 53,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`std::ops::Add`),
                                     ),
@@ -162,7 +162,7 @@ Ok(
                         },
                     ],
                 ),
-                impls: [],
+                impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -175,6 +175,10 @@ Ok(
         principal_entity_path_expr_arena: Arena {
             data: [],
         },
-        impls: [],
+        impl_blocks: ImplBlockBundle {
+            all_ty_impl_blocks: [],
+            all_ty_as_trai_impl_blocks: [],
+            all_ill_formed_impl_blocks: [],
+        },
     },
 )

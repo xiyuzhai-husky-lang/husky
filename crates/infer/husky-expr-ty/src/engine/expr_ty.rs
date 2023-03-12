@@ -454,7 +454,7 @@ impl<'a> ExprTypeEngine<'a> {
                 DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into()
             )
         };
-        todo!()
+        Err(OriginalExprTypeError::TodoIndexOrComposeWithList.into())
     }
 
     fn calc_explicit_application(

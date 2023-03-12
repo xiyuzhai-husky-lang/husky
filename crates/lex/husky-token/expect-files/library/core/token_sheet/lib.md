@@ -68,7 +68,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 11,
+                            value: 12,
                         },
                     ),
                 ),
@@ -80,7 +80,7 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 12,
+                            value: 13,
                         },
                     ),
                 ),
@@ -152,7 +152,19 @@ Ok(
                 Ident(
                     Word(
                         Id {
-                            value: 13,
+                            value: 14,
+                        },
+                    ),
+                ),
+            ),
+            Keyword(
+                Mod,
+            ),
+            Ident(
+                Ident(
+                    Word(
+                        Id {
+                            value: 11,
                         },
                     ),
                 ),
@@ -172,8 +184,10 @@ Ok(
             20,
             22,
             24,
+            26,
         ],
         indents: [
+            0,
             0,
             0,
             0,

@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 17,
+                                value: 18,
                             },
                         ),
                     ),
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 18,
+                                value: 19,
                             },
                         ),
                     ),
@@ -79,7 +79,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -95,7 +95,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -113,7 +113,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -129,7 +129,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 20,
+                                value: 21,
                             },
                         ),
                     ),
@@ -145,7 +145,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 24,
+                                value: 25,
                             },
                         ),
                     ),
@@ -163,7 +163,7 @@ Ok(
                     original_symbol: CrateRoot(
                         ModulePath(
                             Id {
-                                value: 24,
+                                value: 23,
                             },
                         ),
                     ),
@@ -203,7 +203,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -259,7 +259,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 43,
+                                    value: 42,
                                 },
                             ),
                         ),
@@ -277,7 +277,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -292,7 +292,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -306,7 +306,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -338,7 +338,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -365,7 +365,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -380,7 +380,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -392,7 +392,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -404,7 +404,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -416,7 +416,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -427,7 +427,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -439,7 +439,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -466,7 +466,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 352,
+                        value: 353,
                     },
                 ),
             },
@@ -519,7 +519,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 353,
+                        value: 354,
                     },
                 ),
             },
@@ -533,7 +533,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 353,
+                        value: 354,
                     },
                 ),
             },
@@ -564,7 +564,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 353,
+                        value: 354,
                     },
                 ),
             },
@@ -591,7 +591,7 @@ Ok(
                 ),
                 expr_region: ExprRegion(
                     Id {
-                        value: 353,
+                        value: 354,
                     },
                 ),
             },
@@ -606,7 +606,7 @@ Ok(
                 },
                 expr_region: ExprRegion(
                     Id {
-                        value: 353,
+                        value: 354,
                     },
                 ),
             },
@@ -659,7 +659,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 44,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -714,7 +714,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 44,
+                                    value: 43,
                                 },
                             ),
                         ),
@@ -772,7 +772,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 54,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -829,7 +829,7 @@ Ok(
                         Type(
                             TypePath(
                                 Id {
-                                    value: 55,
+                                    value: 54,
                                 },
                             ),
                         ),

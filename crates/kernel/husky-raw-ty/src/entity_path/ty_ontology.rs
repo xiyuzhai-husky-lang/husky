@@ -22,7 +22,9 @@ pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawType
         TypeSignature::UnitStruct(_) => todo!(),
         TypeSignature::TupleStruct(_) => todo!(),
         TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => todo!(),
+        TypeSignature::Inductive(_) => {
+            Err(OriginalRawTypeError::InductiveTypeHasNoConstructor.into())
+        }
         TypeSignature::Structure(_) => todo!(),
         TypeSignature::Foreign(_) => todo!(),
         TypeSignature::Union(_) => todo!(),

@@ -4,13 +4,13 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 15,
+                        value: 16,
                     },
                 ),
                 ident: Ident(
                     Word(
                         Id {
-                            value: 11,
+                            value: 12,
                         },
                     ),
                 ),
@@ -32,7 +32,7 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 15,
+                        value: 16,
                     },
                 ),
                 ident: Ident(
@@ -60,7 +60,7 @@ Ok(
             [display]: Child {
                 parent: ModulePath(
                     Id {
-                        value: 15,
+                        value: 16,
                     },
                 ),
                 ident: Ident(

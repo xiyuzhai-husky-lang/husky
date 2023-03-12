@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 41,
+    [salsa id]: 42,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -83,19 +83,44 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
+                message: "Type Error: NoSuchMethod",
                 severity: Error,
-                range: [170:22, 170:24),
+                range: [101:28, 101:86),
             },
             Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
+                message: "Type Error: NoSuchMethod",
                 severity: Error,
-                range: [180:31, 180:33),
+                range: [161:13, 161:26),
+            },
+            Diagnostic {
+                message: "Type Error: TodoIndexOrComposeWithList",
+                severity: Error,
+                range: [162:14, 162:25),
+            },
+            Diagnostic {
+                message: "Type Error: TodoIndexOrComposeWithList",
+                severity: Error,
+                range: [163:14, 163:25),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [261:21, 261:37),
+            },
+            Diagnostic {
+                message: "expected 2 argument, found 0",
+                severity: Error,
+                range: [180:33, 180:42),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo",
+                severity: Error,
+                range: [170:22, 170:24),
+            },
+            Diagnostic {
+                message: "OriginalLocalTermExpectationError::Todo",
+                severity: Error,
+                range: [180:31, 180:33),
             },
             Diagnostic {
                 message: "expected 0 argument, found 2",
