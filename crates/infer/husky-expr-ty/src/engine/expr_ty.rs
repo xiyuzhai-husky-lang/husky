@@ -202,17 +202,14 @@ impl<'a> ExprTypeEngine<'a> {
                 ref implicit_arguments,
                 nonself_arguments,
                 ..
-            } => Ok((
-                ExprDisambiguation::MethodCall(todo!()),
-                self.calc_method_expr_ty(
-                    expr_idx,
-                    self_argument,
-                    ident_token,
-                    implicit_arguments.as_ref(),
-                    nonself_arguments,
-                    local_term_region,
-                ),
-            )),
+            } => self.calc_method_expr_ty(
+                expr_idx,
+                self_argument,
+                ident_token,
+                implicit_arguments.as_ref(),
+                nonself_arguments,
+                local_term_region,
+            ),
             Expr::TemplateInstantiation {
                 template,
                 ref implicit_arguments,

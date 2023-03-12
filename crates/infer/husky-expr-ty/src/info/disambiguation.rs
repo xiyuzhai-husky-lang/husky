@@ -1,3 +1,4 @@
+use husky_term::{MethodCard, TypeAsTraitMethodCard, TypeMethodCard};
 use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -10,7 +11,7 @@ pub enum ExprDisambiguation {
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
     Tilde(TildeDisambiguation),
-    MethodCall(MethodCallDisambiguation),
+    Method(MethodCallDisambiguation),
     Trivial,
 }
 
@@ -72,4 +73,22 @@ pub enum TildeDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct MethodCallDisambiguation {}
+pub struct MethodCallDisambiguation(MethodCard);
+
+impl From<MethodCard> for MethodCallDisambiguation {
+    fn from(value: MethodCard) -> Self {
+        MethodCallDisambiguation(value)
+    }
+}
+
+impl From<TypeMethodCard> for MethodCallDisambiguation {
+    fn from(value: TypeMethodCard) -> Self {
+        MethodCallDisambiguation(value.into())
+    }
+}
+
+impl From<TypeAsTraitMethodCard> for MethodCallDisambiguation {
+    fn from(value: TypeAsTraitMethodCard) -> Self {
+        MethodCallDisambiguation(value.into())
+    }
+}

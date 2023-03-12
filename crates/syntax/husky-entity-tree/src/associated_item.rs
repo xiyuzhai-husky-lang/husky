@@ -106,16 +106,14 @@ pub fn impl_block_associated_items(
     impl_block: ImplBlock,
 ) -> &[(Ident, AssociatedItem)] {
     match impl_block {
-        ImplBlock::Type(impl_block) => ty_impl_block_associated_items(db, impl_block),
-        ImplBlock::TypeAsTrait(impl_block) => {
-            ty_as_trai_impl_block_associated_items(db, impl_block)
-        }
+        ImplBlock::Type(impl_block) => ty_impl_block_items(db, impl_block),
+        ImplBlock::TypeAsTrait(impl_block) => ty_as_trai_impl_block_items(db, impl_block),
         ImplBlock::IllFormed(_) => &[],
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_impl_block_associated_items(
+pub(crate) fn ty_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeImplBlock,
 ) -> IdentPairMap<AssociatedItem> {
@@ -128,7 +126,7 @@ pub(crate) fn ty_impl_block_associated_items(
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_as_trai_impl_block_associated_items(
+pub(crate) fn ty_as_trai_impl_block_items(
     db: &dyn EntityTreeDb,
     impl_block: TypeAsTraitImplBlock,
 ) -> IdentPairMap<AssociatedItem> {

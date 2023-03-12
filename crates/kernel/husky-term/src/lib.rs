@@ -87,4 +87,5 @@ pub struct TermJar(
     term_application_ty_method_card,
     ty_method_cards,
     TypeMethodCard,
+    TypeAsTraitMethodCard,
 );

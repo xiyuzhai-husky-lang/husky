@@ -15,7 +15,10 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
         associated_item: AssociatedItem,
     ) -> DeclResultRef<AssociatedItemDecl>;
     fn decl_sheet<'a>(&'a self, module_path: ModulePath) -> EntityTreeResult<DeclSheet<'a>>;
-    fn ty_item_decls(&self, path: TypePath) -> &[(Ident, DeclResultRef<TypeItemDecl>)];
+    fn ty_item_decls(
+        &self,
+        path: TypePath,
+    ) -> EntityTreeCrateBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]>;
 }
 
 impl<Db> DeclDb for Db
@@ -55,7 +58,13 @@ where
             .copied()
     }
 
-    fn ty_item_decls(&self, path: TypePath) -> &[(Ident, DeclResultRef<TypeItemDecl>)] {
-        todo!()
+    fn ty_item_decls(
+        &self,
+        path: TypePath,
+    ) -> EntityTreeCrateBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]> {
+        match ty_item_decls(self, path) {
+            Ok(ty_item_decls) => Ok(ty_item_decls),
+            Err(e) => Err(e),
+        }
     }
 }

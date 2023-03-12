@@ -200,11 +200,11 @@ pub(crate) fn ty_impl_blocks(
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_associated_items(
+pub(crate) fn ty_items(
     db: &dyn EntityTreeDb,
-    ty: TypePath,
+    path: TypePath,
 ) -> EntityTreeCrateBundleResult<IdentPairMap<AssociatedItem>> {
-    let crate_path = ty.module_path(db).crate_path(db);
+    let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .impl_blocks()
@@ -212,7 +212,7 @@ pub(crate) fn ty_associated_items(
         .iter()
         .copied()
         .map(|impl_block| {
-            ty_impl_block_associated_items(db, impl_block)
+            ty_impl_block_items(db, impl_block)
                 .iter()
                 .map(|(ident, associated_item)| (*ident, *associated_item))
         })

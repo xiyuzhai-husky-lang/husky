@@ -64,7 +64,7 @@ pub struct EntityTreeJar(
     all_modules_within_crate,
     crate_specific_prelude,
     ty_impl_blocks,
-    ty_associated_items,
-    ty_impl_block_associated_items,
-    ty_as_trai_impl_block_associated_items,
+    ty_items,
+    ty_impl_block_items,
+    ty_as_trai_impl_block_items,
 );
