@@ -1,5 +1,5 @@
 DiagnosticSheet {
-    [salsa id]: 21,
+    [salsa id]: 22,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
@@ -53,14 +53,24 @@ DiagnosticSheet {
                 range: [17:15, 17:29),
             },
             Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
+                message: "OriginalLocalTermExpectationError::Todo",
                 severity: Error,
                 range: [127:22, 127:24),
             },
             Diagnostic {
-                message: "Type Error: AmbiguateListExpr",
+                message: "Type Error: NoSuchMethod",
                 severity: Error,
-                range: [32:43, 32:45),
+                range: [35:9, 35:71),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchMethod",
+                severity: Error,
+                range: [36:9, 36:71),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
+                severity: Error,
+                range: [37:25, 37:32),
             },
         ],
     },
