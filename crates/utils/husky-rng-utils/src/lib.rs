@@ -41,6 +41,10 @@ impl XRng {
     pub fn with_probability(&mut self, p: f32) -> bool {
         self.rng.gen_bool(p as f64)
     }
+
+    pub fn randbool(&mut self) -> bool {
+        self.rng.gen_bool(0.5)
+    }
 }
 
 #[test]

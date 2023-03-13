@@ -31,6 +31,7 @@ pub trait VfsDbInner {
     fn file_from_diff_path(&self, path: DiffPath) -> VfsResult<File>;
     fn vfs_jar(&self) -> &VfsJar;
     fn vfs_jar_mut(&mut self) -> &mut VfsJar;
+    fn vfs_db_mut(&mut self) -> &mut dyn VfsDb;
     fn vfs_cache(&self) -> &VfsCache;
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()>;
     fn refresh_file_from_disk(&mut self, path: &Path) -> VfsResult<()>
@@ -149,6 +150,10 @@ where
         } else {
             salsa::Durability::LOW
         })
+    }
+
+    fn vfs_db_mut(&mut self) -> &mut dyn VfsDb {
+        self
     }
 }
 

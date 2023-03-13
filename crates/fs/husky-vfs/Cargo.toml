@@ -16,6 +16,7 @@ dashmap = "5.4.0"
 eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
+indicatif = { version = "0.17.2", optional = true }
 relative-path = { version = "1.7.2", optional = true }
 serde = { version = "1.0.106", features = ["derive"], optional = true }
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
@@ -34,6 +35,8 @@ husky-platform = { path = "../../kernel/husky-platform" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
+husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils", optional = true }
+xrng = { path = "../../utils/husky-rng-utils", optional = true }
 
 [dev-dependencies]
 tempfile = "3.3.0"
@@ -41,5 +44,10 @@ husky-vfs = { path = ".", features = ["test-utils"] }
 
 [features]
 default = ["dep:relative-path"]
-test-utils = ["dep:serde"]
+test-utils = [
+    "dep:serde",
+    "dep:indicatif",
+    "dep:xrng",
+    "dep:husky-adversarial-utils"
+]
 lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]

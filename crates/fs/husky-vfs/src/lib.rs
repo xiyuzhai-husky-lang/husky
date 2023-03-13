@@ -1,3 +1,4 @@
+#![feature(iter_advance_by)]
 #![allow(incomplete_features)]
 #![feature(absolute_path)]
 #![feature(trait_upcasting)]
