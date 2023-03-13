@@ -1,4 +1,4 @@
-use crate::{Punctuation, Token};
+use crate::{Punctuation, Token, WordOpr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Convexity {
@@ -77,7 +77,12 @@ impl Token {
                 Punctuation::ForAll => todo!(),
                 Punctuation::Exists => todo!(),
             },
-            Token::WordOpr(_) => todo!(),
+            Token::WordOpr(opr) => match opr {
+                WordOpr::And => Convexity::Concave,
+                WordOpr::Or => Convexity::Concave,
+                WordOpr::As => Convexity::Concave,
+                WordOpr::Be => Convexity::Concave,
+            },
             Token::Literal(_) => Convexity::Convex,
             Token::Error(_) => Convexity::Any,
         }

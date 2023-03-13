@@ -4,6 +4,7 @@ use husky_opn_syntax::{BinaryOpr, Bracket};
 // punctuation in general
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct PunctuationToken {
     punc: Punctuation,
     token_idx: TokenIdx,
@@ -63,6 +64,7 @@ where
 // colon
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ColonToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for ColonToken
@@ -92,6 +94,7 @@ fn colon_token_works() {
 // comma
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CommaToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for CommaToken
@@ -121,6 +124,7 @@ fn comma_token_works() {
 // assign
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct AssignToken(TokenIdx);
 
 impl AssignToken {
@@ -156,6 +160,7 @@ fn assign_token_works() {
 // left parenthesis
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftParenthesisToken(TokenIdx);
 
 impl LeftParenthesisToken {
@@ -191,6 +196,7 @@ fn left_parenthesis_token_works() {
 // right parenthesis
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightParenthesisToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightParenthesisToken
@@ -220,6 +226,7 @@ fn right_parenthesis_token_works() {
 // left box bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftBoxBracketToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for LeftBoxBracketToken
@@ -249,6 +256,7 @@ fn left_box_bracket_token_works() {
 // right box bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightBoxBracketToken(TokenIdx);
 
 impl RightBoxBracketToken {
@@ -284,6 +292,7 @@ fn right_box_bracket_token_works() {
 // left curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftCurlyBraceToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for LeftCurlyBraceToken
@@ -313,6 +322,7 @@ fn left_curly_brace_token_works() {
 // right curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightCurlyBraceToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightCurlyBraceToken
@@ -342,6 +352,7 @@ fn right_curly_brace_token_works() {
 // left angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftAngleBracketOrLessThanToken(TokenIdx);
 
 impl LeftAngleBracketOrLessThanToken {
@@ -378,6 +389,7 @@ fn left_angle_or_less_bracket_token_works() {
 // colon colon left angle bracket
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ColonColonLeftAngleBracketToken(TokenIdx);
 
 impl ColonColonLeftAngleBracketToken {
@@ -418,6 +430,7 @@ fn colon_colon_left_angle_bracket_token_works() {
 // right curly brace
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightAngleBracketToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for RightAngleBracketToken
@@ -447,6 +460,7 @@ fn right_angle_bracket_token_works() {
 // vertical
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct VerticalToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for VerticalToken
@@ -476,6 +490,7 @@ fn vertical_token_works() {
 // at
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct AtToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for AtToken
@@ -506,6 +521,7 @@ fn at_token_works() {
 // dotdot
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct DotDotToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for DotDotToken
@@ -536,6 +552,7 @@ fn dotdot_token_works() {
 
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct EolColonToken(TokenIdx);
 
 impl EolColonToken {
@@ -590,6 +607,7 @@ fn eol_colon_token_works() {
 
 /// `::`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ScopeResolutionToken(TokenIdx);
 
 impl ScopeResolutionToken {
@@ -644,6 +662,7 @@ fn scope_resolution_token_works() {
 
 /// `*`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct StarToken(TokenIdx);
 
 impl StarToken {
@@ -696,6 +715,7 @@ fn star_token_works() {
 
 /// `->`
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CurryToken(TokenIdx);
 
 impl<'a, Context> parsec::ParseFrom<Context> for CurryToken

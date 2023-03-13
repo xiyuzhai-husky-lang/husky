@@ -177,13 +177,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 175,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `row_start`,
                                                     token_idx: TokenIdx(
                                                         22,
                                                     ),
@@ -197,13 +191,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 176,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `row_end`,
                                                     token_idx: TokenIdx(
                                                         26,
                                                     ),
@@ -217,13 +205,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 177,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `upper_mass`,
                                                     token_idx: TokenIdx(
                                                         30,
                                                     ),
@@ -237,13 +219,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 178,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `lower_mass`,
                                                     token_idx: TokenIdx(
                                                         34,
                                                     ),
@@ -425,13 +401,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 180,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `matches`,
                                                     token_idx: TokenIdx(
                                                         43,
                                                     ),
@@ -1171,13 +1141,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 186,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `mask`,
                                                     token_idx: TokenIdx(
                                                         81,
                                                     ),
@@ -4280,8 +4244,8 @@ Ok(
                                                         ),
                                                     },
                                                     eol_colon: Err(
-                                                        Original(
-                                                            ExpectEolColon(
+                                                        ExprError::Original(
+                                                            OriginalExprError::ExpectEolColon(
                                                                 TokenIdx(
                                                                     739,
                                                                 ),
@@ -4301,8 +4265,8 @@ Ok(
                                                         ),
                                                     },
                                                     eol_colon: Err(
-                                                        Original(
-                                                            ExpectEolColon(
+                                                        ExprError::Original(
+                                                            OriginalExprError::ExpectEolColon(
                                                                 TokenIdx(
                                                                     795,
                                                                 ),
@@ -10683,8 +10647,8 @@ Ok(
                                                             ),
                                                         },
                                                         eol_colon: Err(
-                                                            Original(
-                                                                ExpectEolColon(
+                                                            ExprError::Original(
+                                                                OriginalExprError::ExpectEolColon(
                                                                     TokenIdx(
                                                                         295,
                                                                     ),
@@ -10733,8 +10697,8 @@ Ok(
                                                             ),
                                                         },
                                                         eol_colon: Err(
-                                                            Original(
-                                                                ExpectEolColon(
+                                                            ExprError::Original(
+                                                                OriginalExprError::ExpectEolColon(
                                                                     TokenIdx(
                                                                         316,
                                                                     ),
@@ -13359,8 +13323,8 @@ Ok(
                                                             ),
                                                         },
                                                         eol_colon: Err(
-                                                            Original(
-                                                                ExpectEolColon(
+                                                            ExprError::Original(
+                                                                OriginalExprError::ExpectEolColon(
                                                                     TokenIdx(
                                                                         455,
                                                                     ),
@@ -14569,8 +14533,8 @@ Ok(
                                                             ),
                                                         },
                                                         eol_colon: Err(
-                                                            Original(
-                                                                ExpectEolColon(
+                                                            ExprError::Original(
+                                                                OriginalExprError::ExpectEolColon(
                                                                     TokenIdx(
                                                                         518,
                                                                     ),

@@ -149,13 +149,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 227,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `cc`,
                                                     token_idx: TokenIdx(
                                                         30,
                                                     ),
@@ -169,13 +163,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 196,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `points`,
                                                     token_idx: TokenIdx(
                                                         35,
                                                     ),
@@ -5314,13 +5302,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 278,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `prev1`,
                                                     token_idx: TokenIdx(
                                                         914,
                                                     ),
@@ -5334,13 +5316,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 279,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `prev2`,
                                                     token_idx: TokenIdx(
                                                         918,
                                                     ),
