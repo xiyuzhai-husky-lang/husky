@@ -27,7 +27,7 @@ pub(crate) enum Pretoken {
     NewLine,
     Ambiguous(AmbiguousPretoken),
     Comment,
-    Error(TokenError),
+    Err(TokenError),
 }
 
 impl From<AmbiguousPretoken> for Pretoken {
@@ -176,7 +176,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                                 break;
                             }
                         }
-                        Some(Pretoken::Error(e))
+                        Some(Pretoken::Err(e))
                     }
                 }
             }
@@ -206,7 +206,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
     fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
         let Some((fst, snd)) = self.char_iter.peek_two()
             else {
-                return Pretoken::Error(TokenError::NothingAfterSingleQuote)
+                return Pretoken::Err(TokenError::NothingAfterSingleQuote)
             };
         match fst {
             '\\' => todo!(),
@@ -220,7 +220,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             },
             _ => {
                 self.char_iter.next();
-                Pretoken::Error(TokenError::InvalidLabel)
+                Pretoken::Err(TokenError::InvalidLabel)
             }
         }
     }
@@ -237,7 +237,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         let word = &self.buffer;
         let pretoken = match self.db.it_auxiliary_ident_borrowed(word) {
             Some(identifier) => Token::Label(identifier).into(),
-            None => Pretoken::Error(TokenError::InvalidIdent),
+            None => Pretoken::Err(TokenError::InvalidIdent),
         };
         self.buffer.clear();
         pretoken
@@ -264,7 +264,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         } else {
             match self.db.it_ident_borrowed(word) {
                 Some(identifier) => Token::Ident(identifier).into(),
-                None => Pretoken::Error(TokenError::InvalidIdent),
+                None => Pretoken::Err(TokenError::InvalidIdent),
             }
         };
         self.buffer.clear();
@@ -278,7 +278,8 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             // parse float type
             self.eat_chars_with(|c| c.is_digit(radix));
             let float_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
-            let token = match float_suffix {
+            self.buffer.clear();
+            match float_suffix {
                 "" => FloatLiteral::Unspecified.into(),
                 "f8" => todo!(),
                 "f16" => todo!(),
@@ -286,10 +287,8 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "f64" => todo!(),
                 "f128" => todo!(),
                 "f256" => todo!(),
-                _invalid_float_suffix => todo!(),
-            };
-            self.buffer.clear();
-            token
+                _ => Pretoken::Err(TokenError::InvalidFloatSuffix),
+            }
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match integer_suffix {
@@ -298,13 +297,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "i16" => todo!(),
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Error(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::I32(i).into()
                 }
                 "i64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Error(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::I64(i).into()
                 }
@@ -314,13 +313,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "r16" => todo!(),
                 "r32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Error(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::R32(i).into()
                 }
                 "r64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Error(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError)
                     };
                     IntegerLikeLiteral::R64(i).into()
                 }
@@ -332,9 +331,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "u64" => todo!(),
                 "u128" => todo!(),
                 "u256" => todo!(),
-                _invalid_integer_suffix => {
-                    return Pretoken::Error(TokenError::InvalidIntegerSuffix)
-                }
+                _invalid_integer_suffix => return Pretoken::Err(TokenError::InvalidIntegerSuffix),
             };
             self.buffer.clear();
             token
@@ -509,7 +506,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 '#' => Punctuation::PoundSign,
                 '∀' => Punctuation::ForAll,
                 '∃' => Punctuation::Exists,
-                c => return Some(Pretoken::Error(TokenError::UnrecognizedChar(c))),
+                c => return Some(Pretoken::Err(TokenError::UnrecognizedChar(c))),
             }
             .into(),
         )

@@ -44,6 +44,7 @@ impl Diagnose for (&TextRange, &TokenError) {
             TokenError::NumberPseudoLiteral(_) => format!("Syntax Error: number pseudoliteral"),
             TokenError::ParseIntError => format!("Syntax Error: parse int error"),
             TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
+            TokenError::InvalidFloatSuffix => format!("Syntax Error: invalid float suffix"),
             TokenError::InvalidIdent => format!("Syntax Error: invalid identifier"),
             TokenError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
             TokenError::InvalidLabel => format!("Syntax Error: InvalidLabel"),
