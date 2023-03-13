@@ -216,7 +216,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         UseExpr::Parent(ParentUseExpr {
                             children: Err(_), ..
                         })
-                        | UseExpr::Err(_) => todo!(),
+                        | UseExpr::Err(_) => (),
                         UseExpr::SelfOne { self_token: _ } => todo!(),
                     }
                 }
