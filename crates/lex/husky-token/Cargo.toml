@@ -38,6 +38,9 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 [dev-dependencies]
 indicatif = "0.17.2"
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # utils
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
+
+[features]
+test-utils = ["husky-vfs/test-utils"]

@@ -1,98 +1,16 @@
+mod expect;
+mod robustness;
+mod unit;
+
+pub use self::expect::*;
+pub use self::robustness::*;
+pub use self::unit::*;
+
 use crate::*;
 use husky_path_utils::*;
 
 use salsa::DebugWithDb;
 use std::path::PathBuf;
-
-pub trait VfsTestUnit: Sized {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self>;
-    fn decide_expect_file_path(
-        &self,
-        db: &dyn VfsDb,
-        task_name: &str,
-        package_expects_dir: &Path,
-    ) -> PathBuf;
-}
-
-impl VfsTestUnit for PackagePath {
-    fn collect_from_package_path(_db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
-        vec![package_path]
-    }
-
-    fn decide_expect_file_path(
-        &self,
-        _db: &dyn VfsDb,
-        _task_name: &str,
-        package_expects_dir: &Path,
-    ) -> PathBuf {
-        package_expects_dir.with_extension(EXPECT_FILE_EXTENSION)
-    }
-}
-
-impl VfsTestUnit for CratePath {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
-        db.collect_crates(package_path).unwrap_or_default()
-    }
-
-    fn decide_expect_file_path(
-        &self,
-        db: &dyn VfsDb,
-        task_name: &str,
-        package_expects_dir: &Path,
-    ) -> PathBuf {
-        package_expects_dir.join(format!(
-            "{}/{}.{EXPECT_FILE_EXTENSION}",
-            task_name,
-            match self.crate_kind(db) {
-                CrateKind::Library => format!("lib"),
-                CrateKind::Main => format!("main"),
-                CrateKind::Binary(_) => todo!(),
-                CrateKind::StandaloneTest(_) => todo!(),
-            }
-        ))
-    }
-}
-
-impl VfsTestUnit for ModulePath {
-    fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self> {
-        db.collect_probable_modules(package_path)
-    }
-
-    fn decide_expect_file_path(
-        &self,
-        db: &dyn VfsDb,
-        task_name: &str,
-        package_expects_dir: &Path,
-    ) -> PathBuf {
-        fn decide_expect_file_aux_path(
-            db: &dyn VfsDb,
-            module_path: ModulePath,
-            task_name: &str,
-            package_expects_dir: &Path,
-        ) -> PathBuf {
-            match module_path.data(db) {
-                ModulePathData::Root(_) => package_expects_dir.join(task_name),
-                ModulePathData::Child { parent, ident } => {
-                    decide_expect_file_aux_path(db, parent, task_name, package_expects_dir)
-                        .join(db.dt_ident(ident))
-                }
-            }
-        }
-        let aux_path = decide_expect_file_aux_path(db, *self, task_name, package_expects_dir);
-        match self.data(db) {
-            ModulePathData::Root(crate_path) => aux_path.join(format!(
-                "{}.{EXPECT_FILE_EXTENSION}",
-                match crate_path.crate_kind(db) {
-                    CrateKind::Library => "lib",
-                    CrateKind::Main => "main",
-                    CrateKind::Binary(_) => todo!(),
-                    CrateKind::StandaloneTest(_) => todo!(),
-                }
-            )),
-            ModulePathData::Child { .. } => aux_path.with_extension(EXPECT_FILE_EXTENSION),
-        }
-    }
-}
 
 pub trait VfsTestUtils: VfsDb {
     // toolchain
@@ -106,11 +24,15 @@ pub trait VfsTestUtils: VfsDb {
             },
         ))
     }
+
     fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
         let toolchain = self.dev_toolchain()?;
         self.vfs_path_menu(toolchain)
     }
-    fn vfs_test<U>(&self, f: impl Fn(&Self, U))
+
+    /// only run to see whether the program will panic
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
+    fn vfs_plain_test<U>(&self, f: impl Fn(&Self, U))
     where
         U: VfsTestUnit,
     {
@@ -132,6 +54,8 @@ pub trait VfsTestUtils: VfsDb {
         }
     }
 
+    /// run to see whether the output agrees with previous
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug_with_db<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
         U: VfsTestUnit,
@@ -140,6 +64,8 @@ pub trait VfsTestUtils: VfsDb {
         vfs_expect_test(self, name, &f, |_db, r| format!("{:#?}", &r.debug(self)))
     }
 
+    /// run to see whether the output agrees with previous
+    /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
         U: VfsTestUnit,
@@ -177,34 +103,4 @@ fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
             dir.join("expect-files/examples"),
         ),
     ]
-}
-
-fn vfs_expect_test<'a, Db, U, R>(
-    db: &'a Db,
-    name: &str,
-    f: &impl Fn(&'a Db, U) -> R,
-    p: impl Fn(&'a Db, R) -> String,
-) where
-    Db: VfsDb + ?Sized,
-    U: VfsTestUnit,
-{
-    let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-    let toolchain = db.dev_toolchain().unwrap();
-    for (base, out) in expect_test_base_outs() {
-        std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-        for path in collect_package_relative_dirs(&base).into_iter() {
-            let package_path =
-                PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base)).unwrap();
-            for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path) {
-                let path = unit.decide_expect_file_path(vfs_db, name, &path.to_logical_path(&out));
-                std::fs::create_dir_all(path.parent().unwrap()).unwrap();
-                let f = f(db, unit);
-                // only test when CARGO_MANIFEST_DIR is set
-                match std::env::var("CARGO_MANIFEST_DIR") {
-                    Ok(_) => expect_test::expect_file![path].assert_eq(&p(db, f)),
-                    Err(_) => (),
-                }
-            }
-        }
-    }
 }

@@ -36,9 +36,9 @@ husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 
 [dev-dependencies]
 tempfile = "3.3.0"
-husky-vfs = { path = ".", features = ["test_utils"] }
+husky-vfs = { path = ".", features = ["test-utils"] }
 
 [features]
 default = ["dep:relative-path"]
-test_utils = []
+test-utils = []
 lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]

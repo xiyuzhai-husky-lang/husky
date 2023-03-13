@@ -43,3 +43,6 @@ husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
+
+[dev-dependencies]
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

@@ -1,4 +1,4 @@
-pub(crate) use husky_vfs::VfsTestUtils;
+pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -54,5 +54,5 @@ fn entity_raw_tys(db: &DB, module_path: ModulePath) -> Vec<(EntityPath, RawTypeR
 
 #[test]
 fn entity_raw_tys_works() {
-    DB::default().vfs_expect_test_debug_with_db("entity_raw_tys", entity_raw_tys)
+    DB::default().ast_expect_test_debug_with_db("entity_raw_tys", entity_raw_tys)
 }

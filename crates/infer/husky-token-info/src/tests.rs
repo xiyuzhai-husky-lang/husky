@@ -1,3 +1,5 @@
+pub(crate) use husky_ast::test_utils::*;
+
 use crate::*;
 use husky_ast::AstJar;
 use husky_decl::DeclJar;
@@ -44,5 +46,5 @@ impl salsa::Database for DB {}
 
 #[test]
 fn token_infer_sheet_works() {
-    DB::default().vfs_expect_test_debug("token_infer_sheet", TokenInfoDb::token_info_sheet)
+    DB::default().ast_expect_test_debug("token_infer_sheet", TokenInfoDb::token_info_sheet)
 }

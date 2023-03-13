@@ -31,3 +31,6 @@ husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-vm = { path = "../../vm/husky-vm" }
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+
+[dev-dependencies]
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

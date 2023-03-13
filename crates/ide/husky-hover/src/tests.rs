@@ -1,3 +1,5 @@
+pub(crate) use husky_ast::test_utils::*;
+
 use crate::*;
 use husky_ast::AstJar;
 use husky_decl::DeclJar;
@@ -47,7 +49,7 @@ impl salsa::Database for DB {}
 #[test]
 fn hover_result_works() {
     const N: usize = 20;
-    DB::default().vfs_expect_test_debug(
+    DB::default().ast_expect_test_debug(
         "hover_result",
         |db, module_path| -> EntityTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
             let ranged_token_sheet = db.ranged_token_sheet(module_path)?;

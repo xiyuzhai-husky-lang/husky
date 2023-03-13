@@ -50,12 +50,12 @@ fn collect_all_modules(
 
 #[test]
 fn submodules_works() {
-    DB::default().vfs_expect_test_debug_with_db("submodules", DB::submodules)
+    DB::default().ast_expect_test_debug_with_db("submodules", DB::submodules)
 }
 
 #[test]
 fn all_modules_works() {
-    DB::default().vfs_expect_test_debug_with_db(
+    DB::default().ast_expect_test_debug_with_db(
         "all_modules_within_crate",
         EntityTreeDb::all_modules_within_crate,
     )

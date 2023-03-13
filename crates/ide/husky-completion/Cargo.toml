@@ -12,4 +12,7 @@ husky-expr = { path = "../../syntax/husky-expr" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+
 # infer
+[dev-dependencies]
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

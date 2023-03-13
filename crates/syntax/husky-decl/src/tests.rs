@@ -1,4 +1,4 @@
-pub(crate) use husky_vfs::*;
+pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 

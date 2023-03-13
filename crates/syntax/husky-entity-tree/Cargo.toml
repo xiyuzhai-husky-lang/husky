@@ -41,5 +41,7 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# utils
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

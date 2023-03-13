@@ -10,6 +10,8 @@ mod parse_utils;
 mod sheet;
 mod snippet;
 mod stream;
+#[cfg(feature = "test-utils")]
+pub mod test_utils;
 #[cfg(test)]
 mod tests;
 mod token_accessibility;

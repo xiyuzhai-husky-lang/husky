@@ -20,7 +20,7 @@ pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: ExprRegion) -> Exp
 // #[test]
 // fn expr_range_sheet_works() {
 //     use tests::*;
-//     DB::default().vfs_expect_test_debug_with_db("expr_range_sheet", todo!());
+//     DB::default().ast_expect_test_debug_with_db("expr_range_sheet", todo!());
 // }
 
 impl std::ops::Index<EntityPathExprIdx> for ExprRangeRegion {
