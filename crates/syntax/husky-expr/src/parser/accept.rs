@@ -233,7 +233,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let expr = Expr::Be {
             src,
             be_token_idx,
-            target: self.parse_expected(OriginalExprError::ExpectPatternExprAfterBe),
+            target: self.parse_expected(OriginalExprError::ExpectedPatternExprAfterBe),
         };
         self.set_top_expr(expr.into())
     }

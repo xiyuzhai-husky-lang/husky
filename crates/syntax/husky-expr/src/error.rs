@@ -65,7 +65,7 @@ pub enum OriginalExprError {
     #[error("expect item before `be`")]
     ExpectItemBeforeBe { be_token_idx: TokenIdx },
     #[error("expect pattern expression after `be`")]
-    ExpectPatternExprAfterBe(TokenIdx),
+    ExpectedPatternExprAfterBe(TokenIdx),
     #[error("expect variable pattern")]
     ExpectLetVariablePattern(TokenIdx),
     #[error("expect `=`")]
@@ -99,9 +99,11 @@ pub enum OriginalExprError {
     #[error("unrecognized identifier")]
     UnresolvedSubentity { token_idx: TokenIdx, ident: Ident },
     #[error("expect let variables type")]
-    ExpectLetVariablesType(TokenIdx),
+    ExpectedLetVariablesType(TokenIdx),
     #[error("expect field type")]
-    ExpectFieldType(TokenIdx),
+    ExpectedFieldType(TokenIdx),
+    #[error("expect parameter type")]
+    ExpectParameterType(TokenIdx),
 }
 
 impl OriginalError for OriginalExprError {
