@@ -101,6 +101,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTraitInsideTrait => {
                 format!("Syntax Error: UnexpectedTraitInsideTrait")
             }
+            OriginalAstError::UnexpectedPattern => {
+                format!("Syntax Error: UnexpectedPattern")
+            }
         }
     }
 
@@ -128,7 +131,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedModInsideTrait
             | OriginalAstError::UnexpectedVisualInsideTrait
             | OriginalAstError::UnexpectedImplInsideTrait
-            | OriginalAstError::UnexpectedTraitInsideTrait => {
+            | OriginalAstError::UnexpectedTraitInsideTrait
+            | OriginalAstError::UnexpectedPattern => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }

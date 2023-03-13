@@ -90,7 +90,12 @@ impl<'a> AstParser<'a> {
                     | StmtKeyword::Require => self.parse_stmt(token_group_idx, &context),
                 },
                 Keyword::Pronoun(_) => self.parse_stmt(token_group_idx, &context),
-                Keyword::Pattern(_) => todo!(),
+                Keyword::Pattern(_) => {
+                    return Some(Ast::Err {
+                        token_group_idx,
+                        error: OriginalAstError::UnexpectedPattern.into(),
+                    });
+                }
                 Keyword::Use => self.parse_use_ast(token_group_idx, context),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
