@@ -1,7 +1,7 @@
 use husky_token::IdentToken;
 use husky_word::Ident;
 
-use crate::*;
+use crate::{ParentUseExpr, *};
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -110,32 +110,28 @@ pub enum UseExprRuleState {
 impl UseExprRule {
     pub fn new_root(
         ast_idx: AstIdx,
-        use_expr_idx: UseExprIdx,
+        use_expr_root: UseExprRoot,
         accessibility_expr: Option<AccessibilityExpr>,
-        use_expr: &UseExpr,
+        use_expr_arena: &UseExprArena,
         module_path: ModulePath,
     ) -> Option<Self> {
-        match use_expr {
-            UseExpr::All { star_token: _ } => todo!(),
-            UseExpr::Leaf { ident_token: _ } => todo!(),
-            UseExpr::Parent {
-                parent_name_token,
-                scope_resolution_token: _,
-                children,
-            } => Some(Self {
-                ast_idx,
-                use_expr_idx,
-                accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
-                parent: None,
-                state: UseExprRuleState::Unresolved,
-                variant: UseExprRuleVariant::Parent {
-                    parent_name_token: *parent_name_token,
-                    children: children.as_ref().ok()?.idx_range(),
-                },
-            }),
-            UseExpr::Err(_) => todo!(),
-            UseExpr::SelfOne { self_token: _ } => todo!(),
-        }
+        let parent_use_expr_idx = use_expr_root.parent_use_expr_idx();
+        let ParentUseExpr {
+            parent_name_token,
+            children,
+            ..
+        } = parent_use_expr_idx.index(use_expr_arena);
+        Some(Self {
+            ast_idx,
+            use_expr_idx: parent_use_expr_idx.into(),
+            accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
+            parent: None,
+            state: UseExprRuleState::Unresolved,
+            variant: UseExprRuleVariant::Parent {
+                parent_name_token: *parent_name_token,
+                children: children.as_ref().ok()?.idx_range(),
+            },
+        })
     }
     pub fn new_nonroot(
         &self,

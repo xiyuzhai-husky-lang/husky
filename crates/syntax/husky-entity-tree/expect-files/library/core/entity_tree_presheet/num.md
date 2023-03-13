@@ -268,62 +268,66 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 10,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    4,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                3,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                4,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 0,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 15,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    2,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                2,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 1,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 1,
+                            },
+                        ),
+                    },
+                ),
             ],
         },
         mod_path_arena: Arena {

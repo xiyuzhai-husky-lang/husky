@@ -171,14 +171,13 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 };
                 let Ok(use_expr_root) =
                     parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena) else {
-                        todo!()
+                        return
                     };
-                let use_expr_idx = use_expr_root.use_expr_idx();
                 if let Some(new_rule) = UseExprRule::new_root(
                     ast_idx,
-                    use_expr_idx,
+                    use_expr_root,
                     accessibility_expr,
-                    &self.use_expr_arena[use_expr_idx],
+                    &self.use_expr_arena,
                     self.module_path,
                 ) {
                     self.entity_use_trackers.push(new_rule)

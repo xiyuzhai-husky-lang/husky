@@ -2,6 +2,7 @@ use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_defn::*;
 
+use husky_entity_tree::ParentUseExpr;
 use husky_expr::*;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
 
@@ -67,9 +68,9 @@ impl<'a> InferEngine<'a> {
                     state: rule.state(),
                 },
             ),
-            UseExpr::Parent {
+            UseExpr::Parent(ParentUseExpr {
                 parent_name_token, ..
-            } => self.sheet.add(
+            }) => self.sheet.add(
                 parent_name_token.token_idx(),
                 TokenInfo::UseExpr {
                     use_expr_idx,
