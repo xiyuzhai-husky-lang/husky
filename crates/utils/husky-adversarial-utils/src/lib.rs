@@ -65,20 +65,24 @@ pub fn generate(seed: u64, length: usize, pieces: &[&str]) -> String {
 
 pub fn new_rand_string2(rng: &mut XRng, max_length: usize, pieces: &[&str]) -> String {
     // Generate a random length between 1 and max_length (inclusive)
-    let length = rng.randint(1, (max_length + 1));
+    let Some(length) = rng.randint(1..(max_length + 1)) else {
+        return "".into()
+    };
     generate2(rng, length, pieces)
 }
 
 pub fn generate2(rng: &mut XRng, length: usize, pieces: &[&str]) -> String {
     if pieces.is_empty() {
-        panic!("Provided charset is empty! It should contain at least one character");
+        return "".into();
     }
 
     let mut result = String::with_capacity(length);
 
     unsafe {
         for _ in 0..length {
-            result += pieces[rng.randint(0, pieces.len())];
+            result += pieces[rng
+                .randint(0..pieces.len())
+                .expect("already checked that !pieces.is_empty()")];
         }
     }
 
