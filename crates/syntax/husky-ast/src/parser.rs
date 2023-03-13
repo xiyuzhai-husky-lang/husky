@@ -130,7 +130,10 @@ impl<'a> AstParser<'a> {
             | Token::Label(_)
             | Token::WordOpr(_)
             | Token::Literal(_) => self.parse_stmt(token_group_idx, &context),
-            Token::Error(_) => todo!(),
+            Token::Error(e) => Ast::Err {
+                token_group_idx,
+                error: DerivedAstError::Token(e).into(),
+            },
         })
     }
 

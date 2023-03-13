@@ -354,7 +354,7 @@ impl<'a> TokenGroupIter<'a> {
     pub fn peek_token_group_of_exact_indent_with_its_first_token(
         &self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, &'a Token)> {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, Token)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() != indent {
             return None;
@@ -366,7 +366,7 @@ impl<'a> TokenGroupIter<'a> {
     pub fn next_token_group_of_equal_or_more_indent_with_its_first_token(
         &mut self,
         indent: u32,
-    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, &'a Token)> {
+    ) -> Option<(TokenGroupIdx, TokenGroup<'a>, Token)> {
         let (idx, token_group) = self.peek()?;
         if token_group.indent() >= indent {
             self.current += 1;
@@ -395,12 +395,12 @@ pub struct TokenGroup<'a> {
 }
 
 impl<'a> TokenGroup<'a> {
-    pub fn first(&self) -> &'a Token {
-        self.tokens.first().unwrap()
+    pub fn first(&self) -> Token {
+        *self.tokens.first().unwrap()
     }
 
-    pub fn last(&self) -> &'a Token {
-        self.tokens.last().unwrap()
+    pub fn last(&self) -> Token {
+        *self.tokens.last().unwrap()
     }
 
     pub fn indent(&self) -> u32 {
