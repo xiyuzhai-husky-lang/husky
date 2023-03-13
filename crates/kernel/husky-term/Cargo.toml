@@ -43,5 +43,5 @@ husky-manifest = { path = "../../infer/husky-manifest" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
 husky-expr = { path = "../../syntax/husky-expr" }

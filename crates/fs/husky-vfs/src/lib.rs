@@ -10,8 +10,8 @@ mod jar;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
 mod path;
-#[cfg(feature = "test_utils")]
-mod test_utils;
+#[cfg(feature = "test-utils")]
+pub mod test_utils;
 #[cfg(test)]
 mod tests;
 mod toolchain;
@@ -25,7 +25,7 @@ pub use jar::VfsJar;
 #[cfg(feature = "lsp_support")]
 pub use lsp_support::*;
 pub use path::*;
-#[cfg(feature = "test_utils")]
+#[cfg(feature = "test-utils")]
 pub use test_utils::*;
 pub use toolchain::*;
 pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};

@@ -8,14 +8,14 @@ use std::sync::Arc;
 
 #[salsa::db(WordJar, VfsJar, TomlTokenJar)]
 #[derive(Default)]
-struct MimicDB {
+struct DB {
     storage: salsa::Storage<Self>,
 }
 
-impl Database for MimicDB {}
+impl Database for DB {}
 
 fn err(input: &str, err: TomlTokenError) {
-    let db = MimicDB::default();
+    let db = DB::default();
     let mut t = TomlTokenIter::new(&db, input);
     let token = t.next().unwrap().variant().clone();
     assert_eq!(token, TomlTokenVariant::Err(err));
@@ -37,7 +37,7 @@ fn literal_strings() {
         assert!(t.next().is_none());
     }
 
-    let db = MimicDB::default();
+    let db = DB::default();
     t(&db, "''", "", false);
     t(&db, "''''''", "", true);
     t(&db, "'''\n'''", "", true);
@@ -63,7 +63,7 @@ fn basic_strings() {
         assert!(t.next().is_none());
     }
 
-    let db = MimicDB::default();
+    let db = DB::default();
     t(&db, r#""""#, "", false);
     t(&db, r#""""""""#, "", true);
     t(&db, r#""a""#, "a", false);
@@ -116,7 +116,7 @@ fn keylike() {
         assert!(t.next().is_none());
     }
 
-    let db = MimicDB::default();
+    let db = DB::default();
     t(&db, "foo");
     t(&db, "0bar");
     t(&db, "bar0");
@@ -142,7 +142,7 @@ fn all() {
         assert_eq!(actual.len(), expected.len());
     }
 
-    let db = MimicDB::default();
+    let db = DB::default();
     t(
         &db,
         " a ",
@@ -190,7 +190,7 @@ fn bare_cr_bad() {
 
 #[test]
 fn bad_comment() {
-    let db = MimicDB::default();
+    let db = DB::default();
     let mut t = TomlTokenIter::new(&db, "#\u{0}");
     t.next().unwrap();
     assert_eq!(
@@ -202,7 +202,7 @@ fn bad_comment() {
 
 #[test]
 fn builtin_library_toml_token_sheets() {
-    let db = MimicDB::default();
+    let db = DB::default();
     let _toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.dev_path_menu().unwrap();
     expect_file!["../tests/package_core_toml_token_sheets.txt"].assert_eq(&format!(

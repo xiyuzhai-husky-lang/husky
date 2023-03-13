@@ -34,3 +34,6 @@ husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-data-viewer = { path = "../husky-data-viewer" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+
+[dev-dependencies]
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

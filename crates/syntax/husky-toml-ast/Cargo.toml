@@ -27,3 +27,5 @@ expect-test = "1.4.0"
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

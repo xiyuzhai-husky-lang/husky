@@ -35,7 +35,12 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-# syntax
-husky-path-utils = { path = "../../utils/husky-path-utils" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+# lex
+husky-token = { path = "../../lex/husky-token", features = ["test-utils"] }
 # utils
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-path-utils = { path = "../../utils/husky-path-utils" }
+
+[features]
+test-utils = ["husky-vfs/test-utils", "husky-token/test-utils"]

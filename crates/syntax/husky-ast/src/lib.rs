@@ -4,6 +4,8 @@ mod error;
 mod parser;
 mod range;
 mod specs;
+#[cfg(feature = "test-utils")]
+pub mod test_utils;
 #[cfg(test)]
 mod tests;
 

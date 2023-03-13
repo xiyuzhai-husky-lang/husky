@@ -1,3 +1,5 @@
+pub(crate) use husky_token::test_utils::*;
+
 use crate::*;
 use husky_entity_path::EntityPathJar;
 use husky_token::TokenJar;
@@ -24,5 +26,5 @@ impl ParallelDatabase for DB {
 #[test]
 fn ast_sheet_works() {
     use tests::*;
-    DB::default().vfs_expect_test_debug_with_db("ast_sheet", AstDb::ast_sheet);
+    DB::default().token_expect_test_debug_with_db("ast_sheet", AstDb::ast_sheet);
 }

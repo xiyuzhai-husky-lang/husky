@@ -1,4 +1,4 @@
-pub(crate) use husky_vfs::VfsTestUtils;
+pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -45,7 +45,7 @@ fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<SignatureResult<Si
 
 #[test]
 fn module_signatures_works() {
-    DB::default().vfs_expect_test_debug_with_db("signature", module_signatures)
+    DB::default().ast_expect_test_debug_with_db("signature", module_signatures)
 }
 
 #[test]

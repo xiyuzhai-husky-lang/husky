@@ -1,9 +1,10 @@
-use husky_vfs::{VfsJar, VfsTestUtils};
+pub(crate) use husky_vfs::test_utils::*;
+
+use crate::*;
+use husky_vfs::VfsJar;
 use husky_word::WordJar;
 use salsa::{Database, Storage};
 use with_db::WithDb;
-
-use crate::*;
 
 #[salsa::db(WordJar, VfsJar)]
 #[derive(Default)]

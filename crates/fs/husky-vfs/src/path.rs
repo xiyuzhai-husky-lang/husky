@@ -135,7 +135,7 @@ pub(crate) fn resolve_module_path(
 
 #[test]
 fn resolve_module_path_works() {
-    DB::default().vfs_test(|db, module_path| {
+    DB::default().vfs_plain_test(|db, module_path| {
         let abs_path = module_diff_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
         let entity_path_resolved = db

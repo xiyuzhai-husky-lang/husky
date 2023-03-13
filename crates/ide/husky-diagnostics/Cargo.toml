@@ -39,7 +39,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
 husky-expr = { path = "../../syntax/husky-expr" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }

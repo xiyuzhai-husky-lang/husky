@@ -25,7 +25,7 @@ husky-defn = { path = "../../syntax/husky-defn" }
 
 [dev-dependencies]
 # fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test_utils"] }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
@@ -35,3 +35,5 @@ husky-term = { path = "../../kernel/husky-term" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 husky-signature = { path = "../../infer/husky-signature" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

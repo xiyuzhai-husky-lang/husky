@@ -1,5 +1,6 @@
-use crate::*;
+pub(crate) use husky_vfs::test_utils::*;
 
+use crate::*;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 use husky_word::WordJar;

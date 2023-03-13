@@ -16,3 +16,4 @@ husky-token = { path = "../../lex/husky-token" }
 [dev-dependencies]
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

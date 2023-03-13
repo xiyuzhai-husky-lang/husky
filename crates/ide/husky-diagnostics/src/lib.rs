@@ -10,15 +10,14 @@ mod tests;
 pub use db::DiagnosticsDb;
 use husky_token::{RangedTokenSheet, TokenSheetData};
 pub use severity::DiagnosticSeverity;
-#[cfg(test)]
-pub use tests::*;
 
 use collector::{RegionDiagnosticsCollector, SheetDiagnosticsCollector};
 use context::*;
-
 use husky_text::TextRange;
 use husky_vfs::*;
 use sheet::*;
+#[cfg(test)]
+use tests::*;
 
 #[salsa::jar(db = DiagnosticsDb)]
 pub struct DiagnosticsJar(

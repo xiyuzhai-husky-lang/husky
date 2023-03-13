@@ -1,4 +1,4 @@
-pub(crate) use husky_vfs::VfsTestUtils;
+pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 use husky_ast::AstJar;
@@ -55,7 +55,7 @@ fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion
 
 #[test]
 fn decl_expr_ty_sheets_works() {
-    DB::default().vfs_expect_test_debug_with_db("decl_expr_ty_regions", decl_expr_ty_regions)
+    DB::default().ast_expect_test_debug_with_db("decl_expr_ty_regions", decl_expr_ty_regions)
 }
 
 fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
@@ -75,5 +75,5 @@ fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion
 
 #[test]
 fn defn_expr_ty_sheets_works() {
-    DB::default().vfs_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
+    DB::default().ast_expect_test_debug_with_db("defn_expr_ty_regions", defn_expr_ty_regions)
 }

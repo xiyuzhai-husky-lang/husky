@@ -1,5 +1,6 @@
-use crate::*;
+pub(crate) use husky_ast::test_utils::*;
 
+use crate::*;
 use husky_ast::AstJar;
 use husky_entity_path::EntityPathJar;
 use husky_token::TokenJar;
@@ -16,5 +17,5 @@ impl salsa::Database for DB {}
 
 #[test]
 fn folding_ranges_works() {
-    DB::default().vfs_expect_test_debug("folding_ranges", FoldingRangeDb::folding_ranges);
+    DB::default().ast_expect_test_debug("folding_ranges", FoldingRangeDb::folding_ranges);
 }
