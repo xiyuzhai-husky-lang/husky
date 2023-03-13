@@ -1,8 +1,9 @@
 use super::*;
 use husky_opn_syntax::*;
+use husky_print_utils::p;
 use husky_text::{TextCharIter, TextRange};
 
-use husky_word::WordDb;
+use husky_word::{is_valid_ident_first_char, Label, WordDb};
 use std::str::FromStr;
 
 pub(crate) struct RangedPretoken {
@@ -201,6 +202,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
     }
 
+    /// assume a previous single quote has been taken
     fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
         let Some((fst, snd)) = self.char_iter.peek_two()
             else {
@@ -208,19 +210,18 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             };
         match fst {
             '\\' => todo!(),
-            fst => match snd {
+            fst if is_valid_ident_first_char(fst) => match snd {
                 Some('\'') => {
                     self.char_iter.next();
                     self.char_iter.next();
                     Pretoken::Literal(Literal::Char(CharLiteral::Basic(fst)))
                 }
-                Some(_) if fst.is_alphabetic() => self.next_auxiliary_identifier(),
-                Some(_) => {
-                    todo!()
-                    // self.next_word(f)
-                }
-                None => todo!(),
+                _ => self.next_auxiliary_identifier(),
             },
+            _ => {
+                self.char_iter.next();
+                Pretoken::Error(TokenError::InvalidLabel)
+            }
         }
     }
 

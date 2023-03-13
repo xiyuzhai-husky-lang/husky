@@ -43,6 +43,7 @@ impl Diagnose for (&TextRange, &TokenError) {
             TokenError::InvalidIntegerSuffix => format!("Syntax Error: invalid integer suffix"),
             TokenError::InvalidIdent => format!("Syntax Error: invalid identifier"),
             TokenError::NothingAfterSingleQuote => format!("Syntax Error: nothing after `'`"),
+            TokenError::InvalidLabel => format!("Syntax Error: InvalidLabel"),
         }
     }
 
