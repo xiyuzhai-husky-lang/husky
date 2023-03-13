@@ -32,7 +32,7 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for RegularStructFieldP
                 return Ok(None)
             };
         let colon: ColonToken = ctx.parse_expected(OriginalExprError::ExpectColon)?;
-        let ty = ctx.parse_expr_expected2(None, OriginalExprError::ExpectFieldType);
+        let ty = ctx.parse_expr_expected2(None, OriginalExprError::ExpectedFieldType);
         let variables = ctx.add_expr_root(ExprRoot::new(ExprRootKind::FieldType, ty));
         Ok(Some(RegularStructFieldPattern {
             ident_token,

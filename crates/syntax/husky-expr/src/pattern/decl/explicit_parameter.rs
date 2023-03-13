@@ -32,9 +32,10 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ExplicitParameterDeclPatter
                 })
                 .collect::<Vec<_>>();
             let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
-            let Some(ty) = ctx.parse_expr(ExprEnvironment::WithinBracket(Bracket::Par)) else {
-                todo!()
-            };
+            let ty = ctx.parse_expr_expected2(
+                Some(ExprEnvironment::WithinBracket(Bracket::Par)),
+                OriginalExprError::ExpectParameterType,
+            );
             let variables = ctx.define_symbols(
                 variables,
                 Some(PatternTypeConstraint::RegularParameter { pattern, ty }),

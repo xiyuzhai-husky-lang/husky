@@ -353,13 +353,14 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::ExpectIdentAfterMut(token_idx)
                     | OriginalExprError::UnexpectedSheba(token_idx)
                     | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-                    | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
+                    | OriginalExprError::UnresolvedSubentity { token_idx, .. }
+                    | OriginalExprError::ExpectedLetVariablesType(token_idx)
+                    | OriginalExprError::ExpectedFieldType(token_idx)
+                    | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
+                    | OriginalExprError::ExpectParameterType(token_idx) => {
                         TokenIdxRange::new_single(*token_idx)
                     }
                     OriginalExprError::ExpectBlock(_) => todo!(),
-                    OriginalExprError::ExpectLetVariablesType(_) => todo!(),
-                    OriginalExprError::ExpectFieldType(_) => todo!(),
-                    OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),
             },

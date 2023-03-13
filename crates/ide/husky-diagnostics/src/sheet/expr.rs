@@ -151,9 +151,18 @@ impl Diagnose for OriginalExprError {
             } => {
                 format!("Syntax Error: unresolved subentity")
             }
-            OriginalExprError::ExpectLetVariablesType(_) => todo!(),
-            OriginalExprError::ExpectFieldType(_) => todo!(),
-            OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
+            OriginalExprError::ExpectedLetVariablesType(_) => {
+                format!("Syntax Error: expected let variables type")
+            }
+            OriginalExprError::ExpectedFieldType(_) => {
+                format!("Syntax Error: expected field type")
+            }
+            OriginalExprError::ExpectedPatternExprAfterBe(_) => {
+                format!("Syntax Error: expected pattern expression after `be`")
+            }
+            OriginalExprError::ExpectParameterType(_) => {
+                format!("Syntax Error: expected parameter type")
+            }
         }
     }
 
@@ -212,13 +221,14 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::ExpectIdentAfterMut(token_idx)
             | OriginalExprError::UnexpectedSheba(token_idx)
             | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-            | OriginalExprError::UnresolvedSubentity { token_idx, .. } => {
+            | OriginalExprError::UnresolvedSubentity { token_idx, .. }
+            | OriginalExprError::ExpectedLetVariablesType(token_idx)
+            | OriginalExprError::ExpectedFieldType(token_idx)
+            | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
+            | OriginalExprError::ExpectParameterType(token_idx) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
             OriginalExprError::ExpectBlock(_) => todo!(),
-            OriginalExprError::ExpectLetVariablesType(_) => todo!(),
-            OriginalExprError::ExpectFieldType(_) => todo!(),
-            OriginalExprError::ExpectPatternExprAfterBe(_) => todo!(),
         }
     }
 }
