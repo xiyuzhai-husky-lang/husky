@@ -29,10 +29,17 @@ impl VfsAdversarialManager {
     {
         for adversarial in &self.adversarials {
             if adversarial.test(db, self.module, f).is_err() {
-                panic!(
-                    "failure against adversial {adversarial:?} for module {}",
-                    self.module.display(db)
-                )
+                println!(
+                    "{}failure against adversial{} `{}{adversarial:?}{}` for module `{}{}{}`",
+                    husky_print_utils::RED,
+                    husky_print_utils::RESET,
+                    husky_print_utils::YELLOW,
+                    husky_print_utils::RESET,
+                    husky_print_utils::GREEN,
+                    self.module.display(db),
+                    husky_print_utils::RESET,
+                );
+                std::process::exit(1)
             }
         }
         if let Some(generator) = self.generator {
