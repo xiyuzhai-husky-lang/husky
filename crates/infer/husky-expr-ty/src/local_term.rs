@@ -45,36 +45,20 @@ impl LocalTerm {
             }
             (LocalTerm::Resolved(function), argument) => {
                 let expansion = db.term_application_expansion(function);
-                match expansion.f() {
-                    Term::Literal(_) => todo!(),
-                    Term::Symbol(_) => todo!(),
-                    Term::EntityPath(path) => match path {
-                        TermEntityPath::Form(_) => todo!(),
-                        TermEntityPath::Trait(_) => todo!(),
-                        TermEntityPath::TypeOntology(path) => {
-                            let mut arguments: SmallVec<[LocalTerm; 2]> = expansion
-                                .arguments(db)
-                                .iter()
-                                .copied()
-                                .map(Into::into)
-                                .collect();
-                            arguments.push(argument);
-                            Ok(local_term_region.intern_unresolved_term(
-                                src_expr_idx,
-                                UnresolvedTerm::TypeOntology { path, arguments },
-                            ))
-                        }
-                        TermEntityPath::TypeConstructor(_) => todo!(),
-                    },
-                    Term::Category(_) => todo!(),
-                    Term::Universe(_) => todo!(),
-                    Term::Curry(_) => todo!(),
-                    Term::Ritchie(_) => todo!(),
-                    Term::Abstraction(_) => todo!(),
-                    Term::Application(_) => todo!(),
-                    Term::Subentity(_) => todo!(),
-                    Term::AsTraitSubentity(_) => todo!(),
-                    Term::TraitConstraint(_) => todo!(),
+                match expansion.function() {
+                    TermFunctionReduced::TypeOntology(path) => {
+                        let mut arguments: SmallVec<[LocalTerm; 2]> = expansion
+                            .arguments(db)
+                            .iter()
+                            .copied()
+                            .map(Into::into)
+                            .collect();
+                        arguments.push(argument);
+                        Ok(local_term_region.intern_unresolved_term(
+                            src_expr_idx,
+                            UnresolvedTerm::TypeOntology { path, arguments },
+                        ))
+                    }
                 }
             }
             (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),

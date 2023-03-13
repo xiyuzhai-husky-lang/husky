@@ -7,10 +7,16 @@ pub(crate) fn application_expansion(db: &dyn TermDb, term: Term) -> ApplicationE
 fn application_expansion_aux(db: &dyn TermDb, term: Term) -> ApplicationExpansion {
     match term {
         Term::Application(term) => application_expansion_salsa(db, term),
-        _ => ApplicationExpansion {
-            f: term,
-            arguments: None,
+        Term::EntityPath(path) => match path {
+            TermEntityPath::Form(_) => todo!(),
+            TermEntityPath::Trait(_) => todo!(),
+            TermEntityPath::TypeOntology(path) => ApplicationExpansion {
+                function: TermFunctionReduced::TypeOntology(path),
+                arguments: None,
+            },
+            TermEntityPath::TypeConstructor(_) => todo!(),
         },
+        _ => todo!(),
     }
 }
 
@@ -27,8 +33,13 @@ pub(crate) fn application_expansion_salsa(
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TermDb, jar = RawTypeJar)]
 pub struct ApplicationExpansion {
-    f: Term,
+    function: TermFunctionReduced,
     arguments: Option<ApplicationArguments>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum TermFunctionReduced {
+    TypeOntology(TypePath),
 }
 
 #[salsa::tracked(db = TermDb, jar = TermJar)]
@@ -38,8 +49,8 @@ pub(crate) struct ApplicationArguments {
 }
 
 impl ApplicationExpansion {
-    pub fn f(&self) -> Term {
-        self.f
+    pub fn function(&self) -> TermFunctionReduced {
+        self.function
     }
 
     pub fn opt_arguments<'a>(&self, db: &'a dyn TermDb) -> Option<&'a [Term]> {
@@ -55,7 +66,7 @@ impl ApplicationExpansion {
         let mut arguments = arguments.to_vec();
         arguments.push(argument);
         Self {
-            f: self.f,
+            function: self.function,
             arguments: Some(ApplicationArguments::new(db, arguments)),
         }
     }
