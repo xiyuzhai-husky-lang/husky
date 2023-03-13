@@ -41,30 +41,14 @@ pub(crate) fn term_application_ty_method_card(
     ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
     let application_expansion = application_expansion_salsa(db, raw_ty);
-    let f = application_expansion.f();
-    match f {
-        Term::Literal(_) => todo!(),
-        Term::Symbol(_) => todo!(),
-        Term::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
-                db,
-                path,
-                application_expansion.opt_arguments(db).unwrap(),
-                ident,
-            ),
-            TermEntityPath::TypeConstructor(_) => todo!(),
-        },
-        Term::Category(_) => todo!(),
-        Term::Universe(_) => todo!(),
-        Term::Curry(_) => todo!(),
-        Term::Ritchie(_) => todo!(),
-        Term::Abstraction(_) => todo!(),
-        Term::Application(_) => todo!(),
-        Term::Subentity(_) => todo!(),
-        Term::AsTraitSubentity(_) => todo!(),
-        Term::TraitConstraint(_) => todo!(),
+    let function = application_expansion.function();
+    match function {
+        TermFunctionReduced::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
+            db,
+            path,
+            application_expansion.opt_arguments(db).unwrap(),
+            ident,
+        ),
     }
 }
 
