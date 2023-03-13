@@ -613,8 +613,8 @@ Ok(
                                             },
                                         },
                                         curry_token: Err(
-                                            Original(
-                                                ExpectCurry(
+                                            DeclExprError::Original(
+                                                OriginalDeclExprError::ExpectCurry(
                                                     TokenIdx(
                                                         14,
                                                     ),
@@ -627,8 +627,8 @@ Ok(
                                             },
                                         ),
                                         eol_colon: Err(
-                                            Original(
-                                                ExpectEolColon(
+                                            DeclExprError::Original(
+                                                OriginalDeclExprError::ExpectEolColon(
                                                     TokenIdx(
                                                         18,
                                                     ),

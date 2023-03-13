@@ -1321,8 +1321,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     40,
                                                 ),
@@ -1732,8 +1732,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     92,
                                                 ),
@@ -2143,8 +2143,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     144,
                                                 ),
@@ -2554,8 +2554,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     195,
                                                 ),
@@ -2965,8 +2965,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     247,
                                                 ),
@@ -3376,8 +3376,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     299,
                                                 ),
@@ -3787,8 +3787,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     351,
                                                 ),
@@ -4198,8 +4198,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     403,
                                                 ),
@@ -4609,8 +4609,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     455,
                                                 ),
@@ -5020,8 +5020,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     507,
                                                 ),
@@ -5431,8 +5431,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     559,
                                                 ),
@@ -5842,8 +5842,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     611,
                                                 ),
@@ -6253,8 +6253,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     663,
                                                 ),
@@ -6664,8 +6664,8 @@ Ok(
                                         },
                                     ),
                                     eol_colon: Err(
-                                        Original(
-                                            ExpectEolColon(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
                                                 TokenIdx(
                                                     714,
                                                 ),

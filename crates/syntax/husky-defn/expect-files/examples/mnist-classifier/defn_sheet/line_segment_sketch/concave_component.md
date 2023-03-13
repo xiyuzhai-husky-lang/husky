@@ -171,13 +171,7 @@ Ok(
                                         [
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 145,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `line_segment_sketch`,
                                                     token_idx: TokenIdx(
                                                         36,
                                                     ),
@@ -191,13 +185,7 @@ Ok(
                                             },
                                             RegularStructFieldPattern {
                                                 ident_token: IdentToken {
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 333,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `strokes`,
                                                     token_idx: TokenIdx(
                                                         41,
                                                     ),

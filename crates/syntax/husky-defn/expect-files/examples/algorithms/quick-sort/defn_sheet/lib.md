@@ -273,8 +273,8 @@ Ok(
                                         },
                                     ),
                                     curry_token: Err(
-                                        Original(
-                                            ExpectCurry(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectCurry(
                                                 TokenIdx(
                                                     17,
                                                 ),
@@ -1212,8 +1212,8 @@ Ok(
                                         },
                                     ),
                                     curry_token: Err(
-                                        Original(
-                                            ExpectCurry(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectCurry(
                                                 TokenIdx(
                                                     64,
                                                 ),
@@ -3956,8 +3956,8 @@ Ok(
                                     path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
                                     ast_idx: 34,
                                     curry_token: Err(
-                                        Original(
-                                            ExpectCurry(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectCurry(
                                                 TokenIdx(
                                                     228,
                                                 ),
@@ -4398,8 +4398,8 @@ Ok(
                                     path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
                                     ast_idx: 36,
                                     curry_token: Err(
-                                        Original(
-                                            ExpectCurry(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectCurry(
                                                 TokenIdx(
                                                     288,
                                                 ),

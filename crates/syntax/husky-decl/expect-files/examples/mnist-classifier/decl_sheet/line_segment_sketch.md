@@ -162,13 +162,7 @@ Ok(
                                     [
                                         RegularStructFieldPattern {
                                             ident_token: IdentToken {
-                                                ident: Ident(
-                                                    Word(
-                                                        Id {
-                                                            value: 196,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `points`,
                                                 token_idx: TokenIdx(
                                                     43,
                                                 ),
@@ -182,13 +176,7 @@ Ok(
                                         },
                                         RegularStructFieldPattern {
                                             ident_token: IdentToken {
-                                                ident: Ident(
-                                                    Word(
-                                                        Id {
-                                                            value: 245,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `start`,
                                                 token_idx: TokenIdx(
                                                     50,
                                                 ),
@@ -213,8 +201,8 @@ Ok(
                                     ),
                                 ),
                                 rcurl: Err(
-                                    Original(
-                                        ExpectRightCurlyBrace(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectRightCurlyBrace(
                                             TokenIdx(
                                                 53,
                                             ),
@@ -372,13 +360,7 @@ Ok(
                                     [
                                         RegularStructFieldPattern {
                                             ident_token: IdentToken {
-                                                ident: Ident(
-                                                    Word(
-                                                        Id {
-                                                            value: 288,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `contour`,
                                                 token_idx: TokenIdx(
                                                     163,
                                                 ),
@@ -392,13 +374,7 @@ Ok(
                                         },
                                         RegularStructFieldPattern {
                                             ident_token: IdentToken {
-                                                ident: Ident(
-                                                    Word(
-                                                        Id {
-                                                            value: 333,
-                                                        },
-                                                    ),
-                                                ),
+                                                ident: `strokes`,
                                                 token_idx: TokenIdx(
                                                     168,
                                                 ),
