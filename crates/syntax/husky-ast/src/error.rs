@@ -74,6 +74,14 @@ pub enum OriginalAstError {
     UnexpectedTraitInsideTrait,
     #[error("UnexpectedPattern")]
     UnexpectedPattern,
+    #[error("UnexpectedModInsideForm")]
+    UnexpectedModInsideForm,
+    #[error("UnexpectedVisualInsideForm")]
+    UnexpectedVisualInsideForm,
+    #[error("UnexpectedImplInsideForm")]
+    UnexpectedImplInsideForm,
+    #[error("UnexpectedTraitInsideForm")]
+    UnexpectedTraitInsideForm,
 }
 
 impl OriginalError for OriginalAstError {
