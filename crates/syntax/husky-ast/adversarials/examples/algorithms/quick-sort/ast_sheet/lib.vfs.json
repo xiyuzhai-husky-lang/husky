@@ -3,5 +3,11 @@
     "DeleteToEof": {
       "position": 977
     }
+  },
+  {
+    "InsertString": {
+      "position": 536,
+      "insertion": "k"
+    }
   }
 ]
