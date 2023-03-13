@@ -1,4 +1,4 @@
-use husky_adversarial_utils::rand_string;
+use husky_adversarial_utils::new_rand_string;
 use husky_print_utils::p;
 
 use super::*;
@@ -8,7 +8,7 @@ type Seed = u64;
 
 macro_rules! check_env {
     () => {{
-        match std::env::var("ADVERSARIAL") {
+        match std::env::var("ADVERSARIAL_ROUND") {
             Ok(n) => n.parse::<Seed>().unwrap(),
             Err(_) => return,
         }
@@ -36,7 +36,6 @@ fn search_for_adversarials(name: &str, snippet_gen: impl Fn(Seed) -> String, n: 
                 let path = cargo_manifest_dir.join(format!(
                     "tests/snippets/adversarials/{name}.test-inputs.json"
                 ));
-                p!(path);
                 let mut snippets: Vec<String> =
                     match serde_json::from_str(&std::fs::read_to_string(&path).unwrap()) {
                         Ok(v) => v,
@@ -52,7 +51,7 @@ fn search_for_adversarials(name: &str, snippet_gen: impl Fn(Seed) -> String, n: 
 }
 
 fn escapes_gen(seed: Seed) -> String {
-    format!("\"{}\"", rand_string(seed, 4, &["\\", "\"", "t", "a"]))
+    format!("\"{}\"", new_rand_string(seed, 4, &["\\", "\"", "t", "a"]))
 }
 
 #[test]

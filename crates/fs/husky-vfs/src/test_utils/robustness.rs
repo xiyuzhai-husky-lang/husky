@@ -7,9 +7,10 @@ use self::adversarial::*;
 use self::adversarial_generator::*;
 use self::adversarial_manager::*;
 use self::edit::*;
-use std::panic::RefUnwindSafe;
-
 use super::*;
+use serde::{Deserialize, Serialize};
+use std::panic::RefUnwindSafe;
+use xrng::XRng;
 
 pub(super) fn vfs_robustness_test<Db, U, R>(
     db: &mut Db,
