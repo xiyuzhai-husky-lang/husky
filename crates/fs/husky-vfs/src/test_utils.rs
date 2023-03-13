@@ -1,3 +1,4 @@
+mod domain;
 mod expect;
 mod robustness;
 mod unit;
@@ -6,10 +7,11 @@ pub use self::expect::*;
 pub use self::robustness::*;
 pub use self::unit::*;
 
+use self::domain::*;
 use crate::*;
 use husky_path_utils::*;
-
 use salsa::DebugWithDb;
+use std::panic::{RefUnwindSafe, UnwindSafe};
 use std::path::PathBuf;
 
 pub trait VfsTestUtils: VfsDb {
@@ -32,23 +34,31 @@ pub trait VfsTestUtils: VfsDb {
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Self, U))
+    fn vfs_plain_test<U>(&mut self, task_name: &str, f: impl Fn(&Self, U))
     where
         U: VfsTestUnit,
     {
         for _dir in test_dirs() {
             let toolchain = self.dev_toolchain().unwrap();
-            for (base, out) in expect_test_base_outs() {
-                std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
-                for path in collect_package_relative_dirs(&base).into_iter() {
+            for domain in vfs_test_domains() {
+                for path in collect_package_relative_dirs(&domain.src_base()).into_iter() {
                     let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
-                    let package_path =
-                        PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base))
-                            .unwrap();
+                    let package_path = PackagePath::new_local(
+                        vfs_db,
+                        toolchain,
+                        &path.to_logical_path(&domain.src_base()),
+                    )
+                    .unwrap();
                     for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path)
                     {
                         f(self, unit);
-                        vfs_robustness_test(self, &f)
+                        vfs_robustness_test(
+                            self,
+                            task_name,
+                            &path.to_logical_path(&domain.adversarials_base()),
+                            unit,
+                            &f,
+                        )
                     }
                 }
             }
@@ -84,6 +94,7 @@ pub trait VfsTestUtils: VfsDb {
 }
 
 const EXPECT_FILE_EXTENSION: &'static str = "md";
+const ADVERSARIAL_EXTENSION: &'static str = "json";
 
 impl<Db> VfsTestUtils for Db where Db: VfsDb + ?Sized {}
 
@@ -92,23 +103,5 @@ fn test_dirs() -> Vec<PathBuf> {
     vec![
         env.lang_dev_library_dir().to_owned(),
         env.lang_dev_examples_dir().to_owned(),
-    ]
-}
-
-fn expect_test_base_outs() -> Vec<(PathBuf, PathBuf)> {
-    let env = HuskyDevPathEnv::new();
-    let dir = env
-        .cargo_manifest_dir()
-        .map(|p| p.to_owned())
-        .unwrap_or("temp".into());
-    vec![
-        (
-            env.lang_dev_library_dir().to_owned(),
-            dir.join("expect-files/library"),
-        ),
-        (
-            env.lang_dev_examples_dir().to_owned(),
-            dir.join("expect-files/examples"),
-        ),
     ]
 }

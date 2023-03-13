@@ -17,6 +17,7 @@ eyre = "0.6.8"
 semver = "1.0.14"
 replace_with = "0.1.7"
 relative-path = { version = "1.7.2", optional = true }
+serde = { version = "1.0.106", features = ["derive"], optional = true }
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
@@ -40,5 +41,5 @@ husky-vfs = { path = ".", features = ["test-utils"] }
 
 [features]
 default = ["dep:relative-path"]
-test-utils = []
+test-utils = ["dep:serde"]
 lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]
