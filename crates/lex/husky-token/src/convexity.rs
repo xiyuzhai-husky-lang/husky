@@ -70,7 +70,7 @@ impl Token {
                 Punctuation::Question => todo!(),
                 Punctuation::DotDot => todo!(),
                 Punctuation::Star => todo!(),
-                Punctuation::Sheba => todo!(),
+                Punctuation::Sheba => Convexity::Any,
                 Punctuation::Eq => Convexity::Concave,
                 Punctuation::EqEq => todo!(),
                 Punctuation::Tilde => todo!(),
@@ -79,7 +79,7 @@ impl Token {
             },
             Token::WordOpr(_) => todo!(),
             Token::Literal(_) => Convexity::Convex,
-            Token::Error(_) => unreachable!(),
+            Token::Error(_) => Convexity::Any,
         }
     }
 }
