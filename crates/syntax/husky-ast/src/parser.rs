@@ -123,7 +123,10 @@ impl<'a> AstParser<'a> {
                         },
                     )),
                 },
-                Keyword::End(_) => unreachable!(),
+                Keyword::End(_) => Ast::Err {
+                    token_group_idx,
+                    error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
+                },
                 Keyword::Connection(_) => todo!(),
             },
             Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },

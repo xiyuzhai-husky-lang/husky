@@ -152,6 +152,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTraitInsideForm => {
                 format!("Syntax Error: UnexpectedTraitInsideForm")
             }
+            OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken => {
+                format!("Syntax Error: UnexpectedEndKeyword")
+            }
         }
     }
 
@@ -187,7 +190,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedModInsideForm
             | OriginalAstError::UnexpectedVisualInsideForm
             | OriginalAstError::UnexpectedImplInsideForm
-            | OriginalAstError::UnexpectedTraitInsideForm => {
+            | OriginalAstError::UnexpectedTraitInsideForm
+            | OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
