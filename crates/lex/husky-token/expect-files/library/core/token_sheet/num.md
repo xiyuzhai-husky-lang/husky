@@ -162,7 +162,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -196,7 +196,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -278,7 +278,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -464,7 +464,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -498,7 +498,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -580,7 +580,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -766,7 +766,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -800,7 +800,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -879,7 +879,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1065,7 +1065,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -1099,7 +1099,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1181,7 +1181,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1367,7 +1367,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -1401,7 +1401,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1483,7 +1483,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1669,7 +1669,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -1703,7 +1703,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1785,7 +1785,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1971,7 +1971,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -2005,7 +2005,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2087,7 +2087,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2273,7 +2273,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -2307,7 +2307,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2389,7 +2389,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2575,7 +2575,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -2609,7 +2609,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2691,7 +2691,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2877,7 +2877,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -2911,7 +2911,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2993,7 +2993,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3179,7 +3179,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -3213,7 +3213,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3295,7 +3295,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3481,7 +3481,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -3515,7 +3515,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3597,7 +3597,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3783,7 +3783,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -3817,7 +3817,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -3896,7 +3896,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -4082,7 +4082,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -4116,7 +4116,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -4198,7 +4198,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),

@@ -5,6 +5,7 @@ mod utils;
 
 use crate::*;
 use context::*;
+use husky_entity_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::{
     ConnectionKeyword, Keyword, Punctuation, RangedTokenSheet, StmtKeyword, Token, TokenGroupIter,
@@ -18,6 +19,7 @@ pub(crate) struct AstParser<'a> {
     token_sheet: &'a TokenSheetData,
     token_groups: TokenGroupIter<'a>,
     ast_arena: AstArena,
+    disambiguator_registry: DisambiguatorRegistry,
 }
 
 impl<'a> AstParser<'a> {
@@ -29,6 +31,7 @@ impl<'a> AstParser<'a> {
             token_sheet,
             token_groups: token_sheet.token_group_iter(),
             ast_arena: Default::default(),
+            disambiguator_registry: Default::default(),
         })
     }
 
@@ -106,7 +109,7 @@ impl<'a> AstParser<'a> {
                     body: self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
                 },
                 Keyword::Mod
-                | Keyword::Paradigm(_)
+                | Keyword::Form(_)
                 | Keyword::Visual
                 | Keyword::Trait
                 | Keyword::Type(_) => self.parse_defn(context, token_group_idx),

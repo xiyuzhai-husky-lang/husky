@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 180;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 180;\n\ntoken = Keyword(\n    Form(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

@@ -436,7 +436,9 @@ impl<'a> DeclParser<'a> {
                 self.parse_function_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
             FormKind::Value => todo!(),
-            FormKind::TypeAlias => todo!(),
+            FormKind::TypeAlias => {
+                todo!()
+            }
         }
     }
 

@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 12;\n\ntoken = Keyword(\n    Paradigm(\n        Function,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 12;\n\ntoken = Keyword(\n    Form(\n        Function,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

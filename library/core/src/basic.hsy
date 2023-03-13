@@ -1,8 +1,8 @@
-pub type bool;
+pub extern bool;
 
-pub type never;
+pub extern never;
 
-pub type unit;
+pub extern unit;
 
 pub structure Trait;
 

@@ -39,7 +39,7 @@ impl<'a> AstParser<'a> {
                 module_item_kind,
                 connection,
             } => {
-                let connection = self.new_connection(connection);
+                let connection = self.new_connection(ident, connection);
                 Some(match module_item_kind {
                     ModuleItemKind::Type(ty_kind) => {
                         TypePath::new(self.db, self.module_path, ident, connection, ty_kind).into()
@@ -92,10 +92,17 @@ impl<'a> AstParser<'a> {
         })
     }
 
-    fn new_connection(&mut self, kind: ModuleItemConnectionKind) -> ModuleItemConnection {
+    #[inline(always)]
+    fn new_connection(
+        &mut self,
+        ident: Ident,
+        kind: ModuleItemConnectionKind,
+    ) -> ModuleItemConnection {
         match kind {
             ModuleItemConnectionKind::Connected => ModuleItemConnection::Connected,
-            ModuleItemConnectionKind::Disconnected => todo!(),
+            ModuleItemConnectionKind::Disconnected => {
+                ModuleItemConnection::Disconnected(self.disambiguator_registry.issue_new(ident))
+            }
         }
     }
 
@@ -140,153 +147,25 @@ impl<'a> AstParser<'a> {
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    fn parse_head(
-        mut self,
-    ) -> Result<(Accessibility, EntityKind, IdentToken, bool, TokenIdx), AstError> {
+    fn parse_head(mut self) -> AstResult<(Accessibility, EntityKind, IdentToken, bool, TokenIdx)> {
         let accessibility = self.parse_accessibility()?;
         let kw = self.take_entity_kind_keyword()?;
         let ident: IdentToken = self.parse_expected(OriginalAstError::ExpectIdent)?;
         let is_generic = self.parse_is_generic();
         let entity_kind = match self.ast_context_kind() {
-            AstContextKind::InsideTrait { module_item_path } => match kw {
-                Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(kw) => {
-                    let Some(trai_item_kind_token) = self.token_stream().peek() else {
-                        return Err(OriginalAstError::UnexpectedEndAfterParadigmInsideTrait.into());
-                    };
-                    let trai_item_kind: TraitItemKind = match trai_item_kind_token {
-                        Token::Punctuation(special_token) => match special_token {
-                            Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
-                                FormKeyword::Def => todo!(),
-                                FormKeyword::Func
-                                | FormKeyword::Proc
-                                | FormKeyword::Fn
-                                | FormKeyword::Function => TraitItemKind::Method,
-                                FormKeyword::Theorem => todo!(),
-                                FormKeyword::Lemma => todo!(),
-                                FormKeyword::Proposition => todo!(),
-                            },
-                            Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
-                                todo!()
-                            }
-                            unexpected_special_token => {
-                                return Err(OriginalAstError::UnexpectedTokenForTraitItem(
-                                    self.token_stream().state(),
-                                )
-                                .into())
-                            }
-                        },
-                        ref unexpected_token => {
-                            return Err(OriginalAstError::UnexpectedTokenForTraitItem(
-                                self.token_stream().state(),
-                            )
-                            .into())
-                        }
-                    };
-                    EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
-                    }
-                }
-                Keyword::Type(kw) => {
-                    let trai_item_kind: TraitItemKind = match kw {
-                        TypeKeyword::Type => TraitItemKind::AssociatedType,
-                        TypeKeyword::Struct => todo!(),
-                        TypeKeyword::Enum => todo!(),
-                        TypeKeyword::Record => todo!(),
-                        TypeKeyword::Structure => todo!(),
-                        TypeKeyword::Inductive => todo!(),
-                    };
-                    EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
-                    }
-                }
-                Keyword::Stmt(_) | Keyword::Pattern(_) => {
-                    return Err(OriginalAstError::UnexpectedStmtInsideTrait.into())
-                }
-                Keyword::Main => return Err(OriginalAstError::UnexpectedMainInsideTrait.into()),
-                Keyword::Use => return Err(OriginalAstError::UnexpectedUseInsideTrait.into()),
-                Keyword::Mod => return Err(OriginalAstError::UnexpectedModInsideTrait.into()),
-                Keyword::Visual => return Err(OriginalAstError::UnexpectedVisualInsideTrait.into()),
-                Keyword::Impl => return Err(OriginalAstError::UnexpectedImplInsideTrait.into()),
-                Keyword::Trait => return Err(OriginalAstError::UnexpectedTraitInsideTrait.into()),
-                Keyword::End(_) => todo!(),
-                Keyword::Connection(_) => todo!(),
-                Keyword::Pronoun(_) => todo!(),
-            },
+            AstContextKind::InsideTrait { module_item_path } => {
+                self.parse_entity_kind_inside_trai(kw)?
+            }
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
-            AstContextKind::InsideForm => match kw {
-                Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(_) => todo!(),
-                Keyword::Type(_) => todo!(),
-                Keyword::Stmt(_) => todo!(),
-                Keyword::Pattern(_) => todo!(),
-                Keyword::Main => todo!(),
-                Keyword::Use => todo!(),
-                Keyword::Mod => return Err(OriginalAstError::UnexpectedModInsideForm.into()),
-                Keyword::Visual => return Err(OriginalAstError::UnexpectedVisualInsideForm.into()),
-                Keyword::Impl => return Err(OriginalAstError::UnexpectedImplInsideForm.into()),
-                Keyword::Trait => return Err(OriginalAstError::UnexpectedTraitInsideForm.into()),
-                Keyword::End(_) => todo!(),
-                Keyword::Connection(_) => todo!(),
-                Keyword::Pronoun(_) => todo!(),
-            },
-            AstContextKind::InsideTypeImplBlock => match kw {
-                Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(kw) => {
-                    let Some(type_item_kind_token) = self.token_stream().peek() else {
-                        Err(OriginalAstError::UnexpectedEndAfterParadigmInsideTypeImplBlock)?
-                    };
-                    let type_item_kind: TypeItemKind = match type_item_kind_token {
-                        Token::Punctuation(special_token) => match special_token {
-                            Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
-                                FormKeyword::Def => todo!(),
-                                FormKeyword::Func
-                                | FormKeyword::Proc
-                                | FormKeyword::Fn
-                                | FormKeyword::Function => TypeItemKind::Method,
-                                FormKeyword::Theorem => todo!(),
-                                FormKeyword::Lemma => todo!(),
-                                FormKeyword::Proposition => todo!(),
-                            },
-                            Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
-                                TypeItemKind::Memo
-                            }
-                            unexpected_special_token => {
-                                return Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
-                                    self.token_stream().state(),
-                                )
-                                .into())
-                            }
-                        },
-                        ref unexpected_token => {
-                            return Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
-                                self.token_stream().state(),
-                            )
-                            .into())
-                        }
-                    };
-                    EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TypeItem(type_item_kind),
-                    }
-                }
-                Keyword::Type(_) => todo!(),
-                Keyword::Stmt(_) => todo!(),
-                Keyword::Pattern(_) => todo!(),
-                Keyword::Main => todo!(),
-                Keyword::Use => todo!(),
-                Keyword::Mod => todo!(),
-                Keyword::Visual => todo!(),
-                Keyword::Impl => todo!(),
-                Keyword::Trait => todo!(),
-                Keyword::End(_) => todo!(),
-                Keyword::Connection(_) => todo!(),
-                Keyword::Pronoun(_) => todo!(),
-            },
+            AstContextKind::InsideForm => self.parse_form_item_entity_kind(kw)?,
+            AstContextKind::InsideTypeImplBlock => {
+                self.parse_entity_kind_inside_ty_impl_block(kw)?
+            }
             AstContextKind::InsideTypeAsTraitImplBlock => match kw {
                 Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(kw) => {
+                Keyword::Form(kw) => {
                     let Some(trait_item_kind_token) = self.token_stream_mut().peek() else {
-                       Err(OriginalAstError::UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock)?
+                       Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock)?
                     };
                     let ty_as_trai_impl_block_item_kind: TraitItemKind = match trait_item_kind_token
                     {
@@ -300,20 +179,24 @@ impl<'a> BasicAuxAstParser<'a> {
                                 FormKeyword::Theorem => todo!(),
                                 FormKeyword::Lemma => todo!(),
                                 FormKeyword::Proposition => todo!(),
+                                FormKeyword::Type => todo!(),
+                                FormKeyword::Const => todo!(),
                             },
                             Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                 todo!()
                                 // TraitItemKind::Memo
                             }
                             unexpected_special_token => {
-                                return Err(OriginalAstError::UnexpectedTokenForTraitImplItem(
-                                    self.token_stream().state(),
+                                return Err(
+                                    OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(
+                                        self.token_stream().state(),
+                                    )
+                                    .into(),
                                 )
-                                .into())
                             }
                         },
                         ref unexpected_token => {
-                            return Err(OriginalAstError::UnexpectedTokenForTraitImplItem(
+                            return Err(OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(
                                 self.token_stream().state(),
                             )
                             .into())
@@ -338,75 +221,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::Connection(_) => todo!(),
                 Keyword::Pronoun(_) => todo!(),
             },
-            AstContextKind::InsideModule => match kw {
-                Keyword::Config(_) => todo!(),
-                Keyword::Paradigm(kw) => {
-                    let Some(form_kind_token) = self.token_stream_mut().peek() else {
-                        Err(OriginalAstError::UnexpectedEndAfterParadigmInsideModule)?
-                    };
-                    let form_kind = match form_kind_token {
-                        Token::Punctuation(special_token) => match special_token {
-                            Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
-                                FormKeyword::Def => todo!(),
-                                FormKeyword::Func
-                                | FormKeyword::Proc
-                                | FormKeyword::Fn
-                                | FormKeyword::Function => FormKind::Function,
-                                FormKeyword::Theorem => todo!(),
-                                FormKeyword::Lemma => todo!(),
-                                FormKeyword::Proposition => todo!(),
-                            },
-                            Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
-                                FormKind::Feature
-                            }
-                            unexpected_special_token => {
-                                return Err(OriginalAstError::UnexpectedTokenForModuleItem(
-                                    self.token_stream().state(),
-                                )
-                                .into())
-                            }
-                        },
-                        ref unexpected_token => {
-                            return Err(OriginalAstError::UnexpectedTokenForModuleItem(
-                                self.token_stream().state(),
-                            )
-                            .into())
-                        }
-                    };
-                    EntityKind::ModuleItem {
-                        module_item_kind: ModuleItemKind::Form(form_kind).into(),
-                        connection: ModuleItemConnectionKind::Connected,
-                    }
-                }
-                Keyword::Type(kw) => {
-                    let type_kind = match kw {
-                        TypeKeyword::Type => TypeKind::Extern,
-                        TypeKeyword::Struct => TypeKind::Struct,
-                        TypeKeyword::Enum => TypeKind::Enum,
-                        TypeKeyword::Record => TypeKind::Record,
-                        TypeKeyword::Structure => TypeKind::Structure,
-                        TypeKeyword::Inductive => TypeKind::Inductive,
-                    };
-                    EntityKind::ModuleItem {
-                        module_item_kind: ModuleItemKind::Type(type_kind).into(),
-                        connection: ModuleItemConnectionKind::Connected,
-                    }
-                }
-                Keyword::Stmt(_) => todo!(),
-                Keyword::Pattern(_) => todo!(),
-                Keyword::Main => todo!(),
-                Keyword::Use => todo!(),
-                Keyword::Mod => EntityKind::Module,
-                Keyword::Visual => todo!(),
-                Keyword::Impl => todo!(),
-                Keyword::Trait => EntityKind::ModuleItem {
-                    module_item_kind: ModuleItemKind::Trait.into(),
-                    connection: ModuleItemConnectionKind::Connected,
-                },
-                Keyword::End(_) => todo!(),
-                Keyword::Connection(_) => todo!(),
-                Keyword::Pronoun(_) => todo!(),
-            },
+            AstContextKind::InsideModule => self.parse_module_item_entity_kind(kw)?,
             AstContextKind::InsideMatchStmt => todo!(),
             AstContextKind::InsideNoChild => return Err(OriginalAstError::ExpectNothing.into()),
         };
@@ -417,5 +232,246 @@ impl<'a> BasicAuxAstParser<'a> {
             is_generic,
             self.finish_with_saved_stream_state(),
         ))
+    }
+
+    fn parse_module_item_entity_kind(&mut self, kw: Keyword) -> AstResult<EntityKind> {
+        Ok(match kw {
+            Keyword::Config(_) => todo!(),
+            Keyword::Form(kw) => {
+                let Some(form_kind_token) = self.token_stream_mut().peek() else {
+                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule)?
+                };
+                let form_kind = match *form_kind_token {
+                    Token::Punctuation(punctuation) => match punctuation {
+                        Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
+                            FormKeyword::Def => todo!(),
+                            FormKeyword::Func
+                            | FormKeyword::Proc
+                            | FormKeyword::Fn
+                            | FormKeyword::Function => FormKind::Function,
+                            FormKeyword::Theorem => todo!(),
+                            FormKeyword::Lemma => todo!(),
+                            FormKeyword::Proposition => todo!(),
+                            FormKeyword::Type => FormKind::TypeAlias,
+                            FormKeyword::Const => FormKind::Value,
+                        },
+                        Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
+                            FormKind::Feature
+                        }
+                        unexpected_punctuation => Err(
+                            OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(
+                                self.token_stream().state(),
+                                unexpected_punctuation,
+                            ),
+                        )?,
+                    },
+                    unexpected_token => {
+                        Err(OriginalAstError::UnexpectedTokenForConnectedModuleItem(
+                            self.token_stream().state(),
+                        ))?
+                    }
+                };
+                EntityKind::ModuleItem {
+                    module_item_kind: ModuleItemKind::Form(form_kind).into(),
+                    connection: ModuleItemConnectionKind::Connected,
+                }
+            }
+            Keyword::Type(kw) => {
+                let type_kind = match kw {
+                    TypeKeyword::Extern => TypeKind::Extern,
+                    TypeKeyword::Struct => TypeKind::Struct,
+                    TypeKeyword::Enum => TypeKind::Enum,
+                    TypeKeyword::Record => TypeKind::Record,
+                    TypeKeyword::Structure => TypeKind::Structure,
+                    TypeKeyword::Inductive => TypeKind::Inductive,
+                };
+                EntityKind::ModuleItem {
+                    module_item_kind: ModuleItemKind::Type(type_kind).into(),
+                    connection: ModuleItemConnectionKind::Connected,
+                }
+            }
+            Keyword::Stmt(_) => todo!(),
+            Keyword::Pattern(_) => todo!(),
+            Keyword::Main => todo!(),
+            Keyword::Use => todo!(),
+            Keyword::Mod => EntityKind::Module,
+            Keyword::Visual => todo!(),
+            Keyword::Impl => todo!(),
+            Keyword::Trait => EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Trait.into(),
+                connection: ModuleItemConnectionKind::Connected,
+            },
+            Keyword::End(_) => todo!(),
+            Keyword::Connection(_) => todo!(),
+            Keyword::Pronoun(_) => todo!(),
+        })
+    }
+
+    fn parse_entity_kind_inside_ty_impl_block(&mut self, kw: Keyword) -> AstResult<EntityKind> {
+        Ok(match kw {
+            Keyword::Config(_) => todo!(),
+            Keyword::Form(kw) => {
+                let Some(type_item_kind_token) = self.token_stream().peek() else {
+                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock)?
+                };
+                let type_item_kind: TypeItemKind = match *type_item_kind_token {
+                    Token::Punctuation(punctuation) => match punctuation {
+                        Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
+                            FormKeyword::Def => todo!(),
+                            FormKeyword::Func
+                            | FormKeyword::Proc
+                            | FormKeyword::Fn
+                            | FormKeyword::Function => TypeItemKind::Method,
+                            FormKeyword::Theorem => todo!(),
+                            FormKeyword::Lemma => todo!(),
+                            FormKeyword::Proposition => todo!(),
+                            FormKeyword::Type => todo!(),
+                            FormKeyword::Const => todo!(),
+                        },
+                        Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
+                            TypeItemKind::Memo
+                        }
+                        unexpected_punctuation => {
+                            return Err(OriginalAstError::UnexpectedPunctuationForTypeImplItem(
+                                self.token_stream().state(),
+                                unexpected_punctuation,
+                            ))?
+                        }
+                    },
+                    ref unexpected_token => Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
+                        self.token_stream().state(),
+                    ))?,
+                };
+                EntityKind::AssociatedItem {
+                    associated_item_kind: AssociatedItemKind::TypeItem(type_item_kind),
+                }
+            }
+            Keyword::Type(_) => todo!(),
+            Keyword::Stmt(_) => todo!(),
+            Keyword::Pattern(_) => todo!(),
+            Keyword::Main => todo!(),
+            Keyword::Use => todo!(),
+            Keyword::Mod => todo!(),
+            Keyword::Visual => todo!(),
+            Keyword::Impl => todo!(),
+            Keyword::Trait => todo!(),
+            Keyword::End(_) => todo!(),
+            Keyword::Connection(_) => todo!(),
+            Keyword::Pronoun(_) => todo!(),
+        })
+    }
+
+    fn parse_entity_kind_inside_trai(&mut self, kw: Keyword) -> AstResult<EntityKind> {
+        Ok(match kw {
+            Keyword::Config(_) => todo!(),
+            Keyword::Form(kw) => {
+                let Some(trai_item_kind_token) = self.token_stream().peek() else {
+                    return  Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait.into());
+                };
+                let trai_item_kind: TraitItemKind = match trai_item_kind_token {
+                    Token::Punctuation(punctuation) => match punctuation {
+                        Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
+                            FormKeyword::Def => todo!(),
+                            FormKeyword::Func
+                            | FormKeyword::Proc
+                            | FormKeyword::Fn
+                            | FormKeyword::Function => TraitItemKind::Method,
+                            FormKeyword::Theorem => todo!(),
+                            FormKeyword::Lemma => todo!(),
+                            FormKeyword::Proposition => todo!(),
+                            FormKeyword::Type => todo!(),
+                            FormKeyword::Const => todo!(),
+                        },
+                        Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
+                            todo!()
+                        }
+                        unexpected_punctuation => {
+                            Err(OriginalAstError::UnexpectedPunctuationForTraitItem(
+                                self.token_stream().state(),
+                                *unexpected_punctuation,
+                            ))?
+                        }
+                    },
+                    unexpected_token => Err(OriginalAstError::UnexpectedTokenForTraitItem(
+                        self.token_stream().state(),
+                    ))?,
+                };
+                EntityKind::AssociatedItem {
+                    associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
+                }
+            }
+            Keyword::Type(kw) => {
+                todo!()
+            }
+            Keyword::Stmt(_) | Keyword::Pattern(_) => {
+                Err(OriginalAstError::UnexpectedStmtInsideTrait)?
+            }
+            Keyword::Main => Err(OriginalAstError::UnexpectedMainInsideTrait)?,
+            Keyword::Use => Err(OriginalAstError::UnexpectedUseInsideTrait)?,
+            Keyword::Mod => Err(OriginalAstError::UnexpectedModInsideTrait)?,
+            Keyword::Visual => Err(OriginalAstError::UnexpectedVisualInsideTrait)?,
+            Keyword::Impl => Err(OriginalAstError::UnexpectedImplInsideTrait)?,
+            Keyword::Trait => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
+            Keyword::End(_) => todo!(),
+            Keyword::Connection(_) => todo!(),
+            Keyword::Pronoun(_) => todo!(),
+        })
+    }
+
+    fn parse_form_item_entity_kind(&mut self, kw: Keyword) -> AstResult<EntityKind> {
+        Ok(match kw {
+            Keyword::Config(_) => todo!(),
+            Keyword::Form(kw) => {
+                let Some(form_kind_token) = self.token_stream_mut().peek() else {
+                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule)?
+                };
+                let form_kind = match form_kind_token {
+                    Token::Punctuation(punctuation) => match punctuation {
+                        Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
+                            FormKeyword::Def => todo!(),
+                            FormKeyword::Func
+                            | FormKeyword::Proc
+                            | FormKeyword::Fn
+                            | FormKeyword::Function => FormKind::Function,
+                            FormKeyword::Theorem => todo!(),
+                            FormKeyword::Lemma => todo!(),
+                            FormKeyword::Proposition => todo!(),
+                            FormKeyword::Type => todo!(),
+                            FormKeyword::Const => todo!(),
+                        },
+                        Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
+                            FormKind::Feature
+                        }
+                        unexpected_punctuation => Err(
+                            OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(
+                                self.token_stream().state(),
+                                *unexpected_punctuation,
+                            ),
+                        )?,
+                    },
+                    ref unexpected_token => {
+                        Err(OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(
+                            self.token_stream().state(),
+                        ))?
+                    }
+                };
+                EntityKind::ModuleItem {
+                    module_item_kind: ModuleItemKind::Form(form_kind).into(),
+                    connection: ModuleItemConnectionKind::Disconnected,
+                }
+            }
+            Keyword::Type(_) => todo!(),
+            Keyword::Stmt(_) => todo!(),
+            Keyword::Pattern(_) => todo!(),
+            Keyword::Main => todo!(),
+            Keyword::Use => todo!(),
+            Keyword::Mod => Err(OriginalAstError::UnexpectedModInsideForm)?,
+            Keyword::Visual => Err(OriginalAstError::UnexpectedVisualInsideForm)?,
+            Keyword::Impl => Err(OriginalAstError::UnexpectedImplInsideForm)?,
+            Keyword::Trait => Err(OriginalAstError::UnexpectedTraitInsideForm)?,
+            Keyword::End(_) => todo!(),
+            Keyword::Connection(_) => todo!(),
+            Keyword::Pronoun(_) => todo!(),
+        })
     }
 }

@@ -95,7 +95,7 @@ Ok(
                 Static,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -289,7 +289,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -386,7 +386,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -560,7 +560,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -714,7 +714,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1002,7 +1002,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1102,7 +1102,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1276,7 +1276,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1430,7 +1430,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1581,7 +1581,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -1732,7 +1732,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -2105,7 +2105,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -2225,7 +2225,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -2886,7 +2886,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -3267,7 +3267,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -3542,7 +3542,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -3749,7 +3749,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -3956,7 +3956,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4026,7 +4026,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4096,7 +4096,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4166,7 +4166,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4326,7 +4326,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4396,7 +4396,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4466,7 +4466,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -4536,7 +4536,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),

@@ -118,7 +118,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -215,7 +215,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),

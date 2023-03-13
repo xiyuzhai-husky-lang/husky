@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 1;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 1;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -51,7 +51,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -77,11 +77,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 13,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -107,11 +107,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 13,
+                                    character: 15,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 14,
+                                    character: 16,
                                 },
                             },
                         ),
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 5;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 5;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -171,7 +171,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 14,
+                                    character: 16,
                                 },
                             },
                         ),
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 14,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 15,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 9;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 9;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -291,7 +291,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -317,11 +317,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 13,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -347,11 +347,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 13,
+                                    character: 15,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 14,
+                                    character: 16,
                                 },
                             },
                         ),

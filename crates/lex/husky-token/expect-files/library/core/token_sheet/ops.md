@@ -76,7 +76,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -93,7 +93,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -237,7 +237,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -254,7 +254,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -398,7 +398,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -415,7 +415,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -559,7 +559,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -694,7 +694,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -711,7 +711,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -855,7 +855,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -990,7 +990,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -1007,7 +1007,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1151,7 +1151,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1286,7 +1286,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -1303,7 +1303,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1447,7 +1447,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1582,7 +1582,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -1599,7 +1599,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1743,7 +1743,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1863,7 +1863,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -1880,7 +1880,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -1993,7 +1993,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -2010,7 +2010,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
@@ -2138,7 +2138,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -2155,7 +2155,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),

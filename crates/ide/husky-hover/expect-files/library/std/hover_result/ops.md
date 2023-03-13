@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 12;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 12;\n\ntoken = Keyword(\n    Form(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 15;\n\ntoken = Keyword(\n    Paradigm(\n        Fn,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 15;\n\ntoken = Keyword(\n    Form(\n        Fn,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(

@@ -1,5 +1,5 @@
 use husky_token::{
-    IdentToken, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
+    IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
 };
 use parsec::OriginalError;
 use thiserror::Error;
@@ -38,26 +38,38 @@ pub enum OriginalAstError {
     UnexpectedStmtInsideModule,
     #[error("unexpected stmt inside impl")]
     UnexpectedStmtInsideImpl,
+    #[error("unexpected punctuation `{1}` for trait item")]
+    UnexpectedPunctuationForTraitItem(TokenIdx, Punctuation),
     #[error("unexpected token for trait item")]
     UnexpectedTokenForTraitItem(TokenIdx),
+    #[error("unexpected punctuation `{1}` for type implementation item")]
+    UnexpectedPunctuationForTypeImplItem(TokenIdx, Punctuation),
     #[error("unexpected token for type implementation item")]
     UnexpectedTokenForTypeImplItem(TokenIdx),
-    #[error("unexpected token for trait implementation item")]
-    UnexpectedTokenForTraitImplItem(TokenIdx),
+    #[error("unexpected punctuation `{1}` for type as trait implementation item")]
+    UnexpectedPunctuationForTypeAsTraitImplItem(TokenIdx, Punctuation),
+    #[error("unexpected token for type as trait implementation item")]
+    UnexpectedTokenForTypeAsTraitImplItem(TokenIdx),
+    #[error("unexpected punctuation `{1}` for connected module item")]
+    UnexpectedPunctuationForConnectedModuleItem(TokenIdx, Punctuation),
+    #[error("unexpected token for connected module item")]
+    UnexpectedTokenForConnectedModuleItem(TokenIdx),
+    #[error("unexpected punctuation `{1}` for disconnected module item")]
+    UnexpectedPunctuationForDisconnectedModuleItem(TokenIdx, Punctuation),
     #[error("unexpected token for module item")]
-    UnexpectedTokenForModuleItem(TokenIdx),
+    UnexpectedTokenForDisconnectedModuleItem(TokenIdx),
     #[error("invalid ast for definition or use")]
     InvalidAstForDefinitionOrUse,
     #[error("todo")]
     Todo,
-    #[error("UnexpectedEndAfterParadigmInsideModule")]
-    UnexpectedEndAfterParadigmInsideModule,
-    #[error("UnexpectedEndAfterParadigmInsideTrait")]
-    UnexpectedEndAfterParadigmInsideTrait,
-    #[error("UnexpectedEndAfterParadigmInsideTypeImplBlock")]
-    UnexpectedEndAfterParadigmInsideTypeImplBlock,
-    #[error("UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock")]
-    UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock,
+    #[error("UnexpectedEndAfterFormKeywordInsideModule")]
+    UnexpectedEndAfterFormKeywordInsideModule,
+    #[error("UnexpectedEndAfterFormKeywordInsideTrait")]
+    UnexpectedEndAfterFormKeywordInsideTrait,
+    #[error("UnexpectedEndAfterFormKeywordInsideTypeImplBlock")]
+    UnexpectedEndAfterFormKeywordInsideTypeImplBlock,
+    #[error("UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock")]
+    UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock,
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
     #[error("UnexpectedMainInsideTrait")]

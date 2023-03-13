@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 1;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 1;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -51,7 +51,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -77,11 +77,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 12,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -107,11 +107,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 12,
+                                    character: 14,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 13,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -137,11 +137,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 13,
+                                    character: 15,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 22,
+                                    character: 24,
                                 },
                             },
                         ),
@@ -167,11 +167,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 23,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 25,
+                                    character: 27,
                                 },
                             },
                         ),
@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 25,
+                                    character: 27,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 26,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 27,
+                                    character: 29,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 36,
+                                    character: 38,
                                 },
                             },
                         ),
@@ -257,11 +257,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 37,
+                                    character: 39,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 38,
+                                    character: 40,
                                 },
                             },
                         ),
@@ -287,11 +287,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 38,
+                                    character: 40,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 39,
+                                    character: 41,
                                 },
                             },
                         ),
@@ -317,11 +317,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 39,
+                                    character: 41,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 40,
+                                    character: 42,
                                 },
                             },
                         ),
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 12;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 12;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -381,7 +381,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -407,11 +407,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 15,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -437,11 +437,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 15,
+                                    character: 17,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 16,
+                                    character: 18,
                                 },
                             },
                         ),
@@ -467,11 +467,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 16,
+                                    character: 18,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 25,
+                                    character: 27,
                                 },
                             },
                         ),
@@ -497,11 +497,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 26,
+                                    character: 28,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 28,
+                                    character: 30,
                                 },
                             },
                         ),
@@ -527,11 +527,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 28,
+                                    character: 30,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 29,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -557,11 +557,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 30,
+                                    character: 32,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 39,
+                                    character: 41,
                                 },
                             },
                         ),
@@ -587,11 +587,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 40,
+                                    character: 42,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 41,
+                                    character: 43,
                                 },
                             },
                         ),
@@ -617,11 +617,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 41,
+                                    character: 43,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 42,
+                                    character: 44,
                                 },
                             },
                         ),
@@ -647,11 +647,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 42,
+                                    character: 44,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 43,
+                                    character: 45,
                                 },
                             },
                         ),
@@ -700,7 +700,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 23;\n\ntoken = Keyword(\n    Type(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 23;\n\ntoken = Keyword(\n    Type(\n        Extern,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -711,7 +711,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 8,
+                                    character: 10,
                                 },
                             },
                         ),
@@ -737,11 +737,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 9,
+                                    character: 11,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 14,
+                                    character: 16,
                                 },
                             },
                         ),
@@ -767,11 +767,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 14,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 15,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -797,11 +797,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 15,
+                                    character: 17,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 24,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -827,11 +827,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 25,
+                                    character: 27,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 26,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -857,11 +857,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 26,
+                                    character: 28,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 27,
+                                    character: 29,
                                 },
                             },
                         ),
@@ -887,11 +887,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 27,
+                                    character: 29,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 28,
+                                    character: 30,
                                 },
                             },
                         ),

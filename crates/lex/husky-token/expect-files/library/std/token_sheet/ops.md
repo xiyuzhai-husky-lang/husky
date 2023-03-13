@@ -66,7 +66,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Type(
+                Form(
                     Type,
                 ),
             ),
@@ -83,7 +83,7 @@ Ok(
                 Semicolon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),

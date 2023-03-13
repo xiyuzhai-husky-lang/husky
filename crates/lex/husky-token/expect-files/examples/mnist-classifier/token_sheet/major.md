@@ -135,7 +135,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -207,7 +207,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -507,7 +507,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -717,7 +717,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -782,7 +782,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -852,7 +852,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -907,7 +907,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),

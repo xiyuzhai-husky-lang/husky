@@ -5,7 +5,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -228,7 +228,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -595,7 +595,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -1364,7 +1364,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
@@ -1644,7 +1644,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),
