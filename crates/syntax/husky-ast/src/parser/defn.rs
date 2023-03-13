@@ -460,7 +460,20 @@ impl<'a> BasicAuxAstParser<'a> {
                     connection: ModuleItemConnectionKind::Disconnected,
                 }
             }
-            Keyword::Type(_) => todo!(),
+            Keyword::Type(kw) => {
+                let type_kind = match kw {
+                    TypeKeyword::Extern => TypeKind::Extern,
+                    TypeKeyword::Struct => TypeKind::Struct,
+                    TypeKeyword::Enum => TypeKind::Enum,
+                    TypeKeyword::Record => TypeKind::Record,
+                    TypeKeyword::Structure => TypeKind::Structure,
+                    TypeKeyword::Inductive => TypeKind::Inductive,
+                };
+                EntityKind::ModuleItem {
+                    module_item_kind: ModuleItemKind::Type(type_kind).into(),
+                    connection: ModuleItemConnectionKind::Disconnected,
+                }
+            }
             Keyword::Stmt(_) => todo!(),
             Keyword::Pattern(_) => todo!(),
             Keyword::Main => todo!(),
