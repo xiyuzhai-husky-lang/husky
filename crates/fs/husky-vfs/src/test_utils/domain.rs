@@ -3,17 +3,19 @@ use super::*;
 pub(super) struct VfsTestDomain {
     src_base: PathBuf,
     expect_files_base: PathBuf,
-    adversarials_base: PathBuf,
+    adversarials_base: Option<PathBuf>,
 }
 
 impl VfsTestDomain {
     pub(super) fn new(
         src_base: PathBuf,
         expect_files_base: PathBuf,
-        adversarials_base: PathBuf,
+        adversarials_base: Option<PathBuf>,
     ) -> Self {
         std::fs::create_dir_all(&expect_files_base).expect("failed_to_create_dir_all");
-        std::fs::create_dir_all(&adversarials_base).expect("failed_to_create_dir_all");
+        adversarials_base.as_ref().map(|adversarials_base| {
+            std::fs::create_dir_all(&adversarials_base).expect("failed_to_create_dir_all")
+        });
         Self {
             src_base,
             expect_files_base,
@@ -29,8 +31,8 @@ impl VfsTestDomain {
         &self.expect_files_base
     }
 
-    pub(super) fn adversarials_base(&self) -> &Path {
-        &self.adversarials_base
+    pub(super) fn adversarials_base(&self) -> Option<&Path> {
+        self.adversarials_base.as_ref().map(|p| p as &Path)
     }
 }
 
@@ -44,12 +46,12 @@ pub(super) fn vfs_test_domains() -> Vec<VfsTestDomain> {
         VfsTestDomain::new(
             env.lang_dev_library_dir().to_owned(),
             dir.join("expect-files/library"),
-            dir.join("adversarials/library"),
+            None,
         ),
         VfsTestDomain::new(
             env.lang_dev_examples_dir().to_owned(),
             dir.join("expect-files/examples"),
-            dir.join("adversarials/examples"),
+            Some(dir.join("adversarials/examples")),
         ),
     ]
 }

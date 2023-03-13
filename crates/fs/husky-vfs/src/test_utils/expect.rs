@@ -28,13 +28,15 @@ where
                     Ok(_) => ::expect_test::expect_file![expect_file_path].assert_eq(&f(db, unit)),
                     Err(_) => (),
                 }
-                vfs_robustness_test(
-                    db,
-                    task_name,
-                    &path.to_logical_path(&domain.adversarials_base()),
-                    unit,
-                    &f,
-                )
+                if let Some(adversarials_base) = domain.adversarials_base() {
+                    vfs_robustness_test(
+                        db,
+                        task_name,
+                        &path.to_logical_path(adversarials_base),
+                        unit,
+                        &f,
+                    )
+                }
             }
         }
     }
