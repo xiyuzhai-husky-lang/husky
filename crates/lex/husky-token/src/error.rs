@@ -22,6 +22,8 @@ pub enum TokenError {
     InvalidIdent,
     #[error("nothing after `'`")]
     NothingAfterSingleQuote,
+    #[error("InvalidLabel")]
+    InvalidLabel,
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

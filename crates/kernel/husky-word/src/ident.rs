@@ -94,19 +94,29 @@ fn test_is_valid_ident() {
     assert_eq!(is_valid_ident("}"), false);
 }
 
-pub(crate) fn is_valid_ident(word: &str) -> bool {
+pub fn is_valid_ident(word: &str) -> bool {
     let mut chars = word.chars();
     if let Some(start) = chars.next() {
-        if !(start.is_alphabetic() || start == '_') {
+        if !is_valid_ident_first_char(start) {
             return false;
         }
     }
     for c in chars {
-        if !(c.is_alphanumeric() || c == '_') {
+        if !is_valid_ident_nonfirst_char(c) {
             return false;
         }
     }
     true
+}
+
+pub fn is_valid_ident_first_char(c: char) -> bool {
+    // ad hoc
+    c.is_alphabetic() || c == '_'
+}
+
+pub fn is_valid_ident_nonfirst_char(c: char) -> bool {
+    // ad hoc
+    c.is_alphanumeric() || c == '_'
 }
 
 impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Ident {
