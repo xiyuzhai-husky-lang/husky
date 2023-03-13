@@ -237,7 +237,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
         match self.finish_batch() {
             Some(expr_idx) => expr_idx,
-            None => todo!(), // Err(err(state)),
+            None => self.alloc_expr(Expr::Err(err(state).into())),
         }
     }
 
