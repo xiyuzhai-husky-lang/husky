@@ -14,7 +14,7 @@ output
 TokenSheetData {
     tokens: [
         Keyword(
-            Paradigm(
+            Form(
                 Def,
             ),
         ),
@@ -42,7 +42,7 @@ output
 TokenSheetData {
     tokens: [
         Keyword(
-            Paradigm(
+            Form(
                 Func,
             ),
         ),
@@ -70,7 +70,7 @@ output
 TokenSheetData {
     tokens: [
         Keyword(
-            Paradigm(
+            Form(
                 Proc,
             ),
         ),

@@ -1,4 +1,4 @@
-pub type Prop;
+pub extern Prop;
 
 pub structure LogicAnd<P: Prop, Q: Prop> {
     left: P,

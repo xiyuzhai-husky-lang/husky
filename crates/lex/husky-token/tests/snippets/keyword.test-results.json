@@ -1,15 +1,15 @@
 [
   {
     "input": "def",
-    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Def,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Form(\n                Def,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "func",
-    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Func,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Form(\n                Func,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "proc",
-    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Paradigm(\n                Proc,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        Keyword(\n            Form(\n                Proc,\n            ),\n        ),\n    ],\n    group_starts: [\n        0,\n    ],\n    indents: [\n        0,\n    ],\n}"
   },
   {
     "input": "trait",

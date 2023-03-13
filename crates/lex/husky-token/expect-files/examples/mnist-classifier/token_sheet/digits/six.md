@@ -352,7 +352,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -433,7 +433,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -526,7 +526,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Def,
                 ),
             ),
@@ -2065,7 +2065,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),
@@ -2236,7 +2236,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Func,
                 ),
             ),

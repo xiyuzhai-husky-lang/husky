@@ -6,7 +6,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(

@@ -59,17 +59,44 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedStmtInsideImpl => {
                 format!("Syntax Error: unexpected stmt inside impl")
             }
+            OriginalAstError::UnexpectedPunctuationForTraitItem(_, unexpected_punctuation) => {
+                format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for trait item")
+            }
             OriginalAstError::UnexpectedTokenForTraitItem(_) => {
                 format!("Syntax Error: unexpected token for trait item")
+            }
+            OriginalAstError::UnexpectedPunctuationForTypeImplItem(_, unexpected_punctuation) => {
+                format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for type implementation item")
             }
             OriginalAstError::UnexpectedTokenForTypeImplItem(_) => {
                 format!("Syntax Error: unexpected token for type implementation item")
             }
-            OriginalAstError::UnexpectedTokenForTraitImplItem(_) => {
+            OriginalAstError::UnexpectedPunctuationForTypeAsTraitImplItem(
+                _,
+                unexpected_punctuation,
+            ) => {
+                format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for trait implementation item")
+            }
+            OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(_) => {
                 format!("Syntax Error: unexpected token for trait implementation item")
             }
-            OriginalAstError::UnexpectedTokenForModuleItem(_) => {
-                format!("Syntax Error: unexpected token for module item")
+            OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(
+                _,
+                unexpected_punctuation,
+            ) => {
+                format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for connected module item")
+            }
+            OriginalAstError::UnexpectedTokenForConnectedModuleItem(_) => {
+                format!("Syntax Error: unexpected token for connected module item")
+            }
+            OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(
+                _,
+                unexpected_punctuation,
+            ) => {
+                format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for disconnected module item")
+            }
+            OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(_) => {
+                format!("Syntax Error: unexpected token for disconnected module item")
             }
             OriginalAstError::InvalidAstForDefinitionOrUse => {
                 format!("Syntax Error: invalid ast for definition or use")
@@ -77,17 +104,17 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
-            OriginalAstError::UnexpectedEndAfterParadigmInsideModule => {
-                format!("Syntax Error: UnexpectedEndAfterParadigmInsideModule")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideModule")
             }
-            OriginalAstError::UnexpectedEndAfterParadigmInsideTrait => {
-                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTrait")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTrait")
             }
-            OriginalAstError::UnexpectedEndAfterParadigmInsideTypeImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTypeImplBlock")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeImplBlock")
             }
-            OriginalAstError::UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock")
             }
             OriginalAstError::UnexpectedStmtInsideTrait => {
                 format!("Syntax Error: UnexpectedStmtInsideTrait")
@@ -145,10 +172,10 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideImpl
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
-            | OriginalAstError::UnexpectedEndAfterParadigmInsideModule
-            | OriginalAstError::UnexpectedEndAfterParadigmInsideTrait
-            | OriginalAstError::UnexpectedEndAfterParadigmInsideTypeImplBlock
-            | OriginalAstError::UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
@@ -167,9 +194,15 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExpectIdent(token_idx)
             | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
             | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForTraitItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)
-            | OriginalAstError::UnexpectedTokenForTraitImplItem(token_idx)
-            | OriginalAstError::UnexpectedTokenForModuleItem(token_idx) => {
+            | OriginalAstError::UnexpectedPunctuationForTypeImplItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForTypeAsTraitImplItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForConnectedModuleItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
         }

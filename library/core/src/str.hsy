@@ -1,2 +1,2 @@
-pub type str;
-pub type StringLiteral;
+pub extern str;
+pub extern StringLiteral;

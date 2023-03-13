@@ -9,23 +9,6 @@ pub struct FormPath {
     pub form_kind: FormKind,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ModuleItemConnection {
-    Connected,
-    Disconnected(Disambiguator),
-}
-impl ModuleItemConnection {
-    pub(crate) fn kind(&self) -> ModuleItemConnectionKind {
-        match self {
-            ModuleItemConnection::Connected => ModuleItemConnectionKind::Connected,
-            ModuleItemConnection::Disconnected(_) => ModuleItemConnectionKind::Disconnected,
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct Disambiguator(u8);
-
 impl FormPath {
     pub fn show_aux(
         self,

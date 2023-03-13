@@ -32,7 +32,7 @@ use std::ops::Deref;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Keyword {
     Config(ConfigKeyword),
-    Paradigm(FormKeyword),
+    Form(FormKeyword),
     Type(TypeKeyword),
     Stmt(StmtKeyword),
     Pattern(PatternKeyword),
@@ -69,7 +69,7 @@ impl Keyword {
     pub const fn code(&self) -> &'static str {
         match self {
             Keyword::Config(keyword) => keyword.code(),
-            Keyword::Paradigm(keyword) => keyword.code(),
+            Keyword::Form(keyword) => keyword.code(),
             Keyword::Type(keyword) => keyword.code(),
             Keyword::Stmt(keyword) => keyword.code(),
             Keyword::Use => "use",

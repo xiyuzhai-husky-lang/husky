@@ -10,6 +10,8 @@ pub enum FormKeyword {
     Theorem,
     Lemma,
     Proposition,
+    Type,
+    Const,
 }
 
 impl FormKeyword {
@@ -23,6 +25,8 @@ impl FormKeyword {
             FormKeyword::Theorem => "theorem",
             FormKeyword::Lemma => "lemma",
             FormKeyword::Proposition => "proposition",
+            FormKeyword::Type => "type",
+            FormKeyword::Const => "const",
         }
     }
 
@@ -44,7 +48,7 @@ impl Deref for FormKeyword {
 
 impl const From<FormKeyword> for Keyword {
     fn from(kw: FormKeyword) -> Self {
-        Keyword::Paradigm(kw)
+        Keyword::Form(kw)
     }
 }
 

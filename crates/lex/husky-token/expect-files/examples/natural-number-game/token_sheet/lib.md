@@ -74,7 +74,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Function,
                 ),
             ),
@@ -265,7 +265,7 @@ Ok(
                 ),
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Theorem,
                 ),
             ),

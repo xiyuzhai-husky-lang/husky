@@ -6,7 +6,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -66,7 +66,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(
@@ -126,7 +126,7 @@ Ok(
             ),
             Keyword(
                 Type(
-                    Type,
+                    Extern,
                 ),
             ),
             Ident(

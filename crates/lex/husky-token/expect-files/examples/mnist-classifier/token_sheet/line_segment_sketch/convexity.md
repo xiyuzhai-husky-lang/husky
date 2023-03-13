@@ -83,7 +83,7 @@ Ok(
                 Pub,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Proc,
                 ),
             ),

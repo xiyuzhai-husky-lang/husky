@@ -2,32 +2,17 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                16,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            15,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        16,
                     ),
                 },
                 Ast::Defn {
@@ -58,32 +43,17 @@ Ok(
                         19,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                45,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            44,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        45,
                     ),
                 },
                 Ast::Defn {
@@ -114,32 +84,17 @@ Ok(
                         48,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                74,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            73,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        74,
                     ),
                 },
                 Ast::Defn {
@@ -198,32 +153,17 @@ Ok(
                         103,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                128,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            127,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        128,
                     ),
                 },
                 Ast::Defn {
@@ -282,32 +222,17 @@ Ok(
                         157,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                182,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            181,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        182,
                     ),
                 },
                 Ast::Defn {
@@ -366,32 +291,17 @@ Ok(
                         211,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                236,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            235,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        236,
                     ),
                 },
                 Ast::Defn {
@@ -450,32 +360,17 @@ Ok(
                         265,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                290,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            289,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        290,
                     ),
                 },
                 Ast::Defn {
@@ -534,32 +429,17 @@ Ok(
                         319,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                341,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            340,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        341,
                     ),
                 },
                 Ast::Defn {
@@ -590,32 +470,17 @@ Ok(
                         344,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         49,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                365,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            364,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        365,
                     ),
                 },
                 Ast::Defn {
@@ -646,32 +511,17 @@ Ok(
                         368,
                     ),
                 },
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         53,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `core::ops`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TraitItem(
-                            AssociatedType,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedPunctuationForTraitItem(
+                            TokenIdx(
+                                392,
+                            ),
+                            Semicolon,
                         ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `Output`,
-                        token_idx: TokenIdx(
-                            391,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        392,
                     ),
                 },
                 Ast::Defn {

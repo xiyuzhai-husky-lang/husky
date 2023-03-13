@@ -20,7 +20,7 @@ Ok(
                 Colon,
             ),
             Keyword(
-                Paradigm(
+                Form(
                     Fn,
                 ),
             ),
