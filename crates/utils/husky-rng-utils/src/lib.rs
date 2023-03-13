@@ -5,7 +5,7 @@ pub use permutation::*;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 /// a wrapper for random generation
-use rand::{rngs::StdRng, Rng, RngCore, SeedableRng};
+use rand::{distributions::uniform::SampleRange, rngs::StdRng, Rng, RngCore, SeedableRng};
 
 pub struct XRng {
     rng: StdRng,
@@ -27,11 +27,11 @@ impl XRng {
         }
     }
 
-    pub fn randint<T>(&mut self, a: T, b: T) -> T
+    pub fn randint<T>(&mut self, range: impl SampleRange<T>) -> Option<T>
     where
         T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
     {
-        self.rng.gen_range(a..b)
+        (!range.is_empty()).then(|| self.rng.gen_range(range))
     }
 
     pub fn randidx(&mut self) -> usize {
@@ -45,10 +45,4 @@ impl XRng {
     pub fn randbool(&mut self) -> bool {
         self.rng.gen_bool(0.5)
     }
-}
-
-#[test]
-fn haha() {
-    let mut xrng = XRng::new(1213);
-    println!("random number between 0 and 1: {}", xrng.randint(0, 2));
 }

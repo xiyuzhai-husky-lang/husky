@@ -49,14 +49,17 @@ impl VfsAdversarialGenerator {
     where
         Db: VfsDb + ?Sized,
     {
-        let adversarial = self.generate_adversarial(db.module_content(module_path).unwrap());
+        let Some(adversarial) =
+            self.generate_adversarial(db.module_content(module_path).unwrap()) else {
+                return Ok(())
+            };
         match adversarial.test(db, module_path, f) {
             Ok(_) => Ok(()),
             Err(_) => Err(adversarial),
         }
     }
 
-    fn generate_adversarial(&mut self, text: &str) -> VfsAdversarial {
+    fn generate_adversarial(&mut self, text: &str) -> Option<VfsAdversarial> {
         VfsAdversarial::new_rand(text, &mut self.rng)
     }
 }
