@@ -20,6 +20,8 @@ pub enum TokenError {
     ParseIntError,
     #[error("invalid integer suffix")]
     InvalidIntegerSuffix,
+    #[error("invalid float suffix")]
+    InvalidFloatSuffix,
     #[error("invalid identifier")]
     InvalidIdent,
     #[error("nothing after `'`")]
