@@ -15,8 +15,8 @@ pub(super) enum AstContextKind {
     },
     /// inside function, method or inline block or main or config
     InsideForm,
-    InsideTypeImpl,
-    InsideTraitImpl,
+    InsideTypeImplBlock,
+    InsideTypeAsTraitImplBlock,
     /// module level
     InsideModule,
     /// ```python
@@ -105,8 +105,8 @@ impl Context {
             }
             AstContextKind::InsideTrait { .. }
             | AstContextKind::InsideForm
-            | AstContextKind::InsideTypeImpl
-            | AstContextKind::InsideTraitImpl
+            | AstContextKind::InsideTypeImplBlock
+            | AstContextKind::InsideTypeAsTraitImplBlock
             | AstContextKind::InsideModule
             | AstContextKind::InsideNoChild => self.indent + INDENT_INCR,
         };
