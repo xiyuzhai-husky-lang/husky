@@ -52,13 +52,15 @@ pub trait VfsTestUtils: VfsDb {
                     for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path)
                     {
                         f(self, unit);
-                        vfs_robustness_test(
-                            self,
-                            task_name,
-                            &path.to_logical_path(&domain.adversarials_base()),
-                            unit,
-                            &f,
-                        )
+                        if let Some(adversarials_base) = domain.adversarials_base() {
+                            vfs_robustness_test(
+                                self,
+                                task_name,
+                                &path.to_logical_path(adversarials_base),
+                                unit,
+                                &f,
+                            )
+                        }
                     }
                 }
             }
