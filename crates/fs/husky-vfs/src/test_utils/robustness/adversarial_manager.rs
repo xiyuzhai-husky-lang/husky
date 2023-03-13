@@ -9,11 +9,14 @@ pub(super) struct VfsAdversarialManager {
 
 impl VfsAdversarialManager {
     pub(super) fn new(module: ModulePath, path: PathBuf) -> Self {
+        let adversarials = match std::fs::read_to_string(&path) {
+            Ok(text) => serde_json::from_str(&text).expect("should be deserialized"),
+            Err(_) => vec![],
+        };
         Self {
             module,
             path,
-            // todo
-            adversarials: vec![],
+            adversarials,
             generator: VfsAdversarialGenerator::from_env(),
         }
     }
@@ -23,13 +26,20 @@ impl VfsAdversarialManager {
         Db: VfsDb + ?Sized,
     {
         for adversarial in &self.adversarials {
-            f(db)
+            assert!(adversarial.test(db, self.module, f).is_ok())
         }
         if let Some(generator) = self.generator {
             match generator.run(db, self.module, f) {
                 Ok(_) => (),
                 Err(adversarial) => {
                     self.adversarials.push(adversarial);
+                    std::fs::create_dir_all(&self.path.parent().unwrap());
+                    husky_io_utils::diff_write(
+                        &self.path,
+                        &serde_json::to_string_pretty(&self.adversarials)
+                            .expect("serializing should work"),
+                        true,
+                    );
                     panic!("found an adversarial")
                 }
             }

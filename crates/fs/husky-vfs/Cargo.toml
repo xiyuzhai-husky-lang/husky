@@ -19,6 +19,9 @@ replace_with = "0.1.7"
 indicatif = { version = "0.17.2", optional = true }
 relative-path = { version = "1.7.2", optional = true }
 serde = { version = "1.0.106", features = ["derive"], optional = true }
+serde_json = { version = "1.0.48", features = [
+    "preserve_order"
+], optional = true }
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 # abstraction
 vec-like = { path = "../../abstraction/vec-like" }
@@ -36,6 +39,7 @@ husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils", optional = true }
+husky-io-utils = { path = "../../utils/husky-io-utils", optional = true }
 xrng = { path = "../../utils/husky-rng-utils", optional = true }
 
 [dev-dependencies]
@@ -46,8 +50,10 @@ husky-vfs = { path = ".", features = ["test-utils"] }
 default = ["dep:relative-path"]
 test-utils = [
     "dep:serde",
+    "dep:serde_json",
     "dep:indicatif",
     "dep:xrng",
+    "dep:husky-io-utils",
     "dep:husky-adversarial-utils"
 ]
 lsp_support = ["dep:lsp-types", "husky-text/lsp_support"]

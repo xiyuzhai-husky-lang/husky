@@ -49,24 +49,9 @@ impl VfsAdversarialGenerator {
     where
         Db: VfsDb + ?Sized,
     {
-        let original_text = db.module_content(module_path).unwrap().to_owned();
-        let adversarial = self.generate_adversarial(&original_text);
-        let edited_text = adversarial.edit(&original_text);
-        let file = db
-            .file_from_diff_path(db.module_diff_path(module_path).unwrap())
-            .unwrap();
-        // edit text using adversarial
-        file.set_content(db.vfs_db_mut())
-            .to(FileContent::LiveDoc(edited_text));
-        // run the function to see if it panicked
-        match std::panic::catch_unwind(AssertUnwindSafe(|| f(db))) {
-            Ok(_) => {
-                // if okay, then rollback to original
-                file.set_content(db.vfs_db_mut())
-                    .to(FileContent::LiveDoc(original_text));
-                Ok(())
-            }
-            // otherwise return the adversarial as an error
+        let adversarial = self.generate_adversarial(db.module_content(module_path).unwrap());
+        match adversarial.test(db, module_path, f) {
+            Ok(_) => Ok(()),
             Err(_) => Err(adversarial),
         }
     }

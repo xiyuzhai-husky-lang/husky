@@ -1,3 +1,5 @@
+use std::panic::AssertUnwindSafe;
+
 use husky_adversarial_utils::{new_rand_string, new_rand_string2};
 
 use super::*;
@@ -26,7 +28,35 @@ impl VfsAdversarial {
         }
     }
 
-    pub(super) fn edit(&self, text: &str) -> String {
+    pub(super) fn test<Db>(
+        &self,
+        db: &mut Db,
+        module_path: ModulePath,
+        f: &(impl Fn(&Db)),
+    ) -> Result<(), ()>
+    where
+        Db: VfsDb + ?Sized,
+    {
+        let original_text = db.module_content(module_path).unwrap().to_owned();
+        let edited_text = self.edit(&original_text);
+        let file = db
+            .file_from_diff_path(db.module_diff_path(module_path).unwrap())
+            .unwrap();
+        // edit text using adversarial
+        file.set_content(db.vfs_db_mut())
+            .to(FileContent::LiveDoc(edited_text));
+        // run the function to see if it panicked
+        let catch_unwind = std::panic::catch_unwind(AssertUnwindSafe(|| f(db)));
+        // then rollback to original
+        file.set_content(db.vfs_db_mut())
+            .to(FileContent::LiveDoc(original_text));
+        match catch_unwind {
+            Ok(_) => Ok(()),
+            Err(_) => Err(()),
+        }
+    }
+
+    fn edit(&self, text: &str) -> String {
         self.to_edit(text).apply(text)
     }
 
