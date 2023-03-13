@@ -114,9 +114,9 @@ impl<'a> AstParser<'a> {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(
                         if self.is_trai_impl(token_group_idx) {
-                            AstContextKind::InsideTraitImpl
+                            AstContextKind::InsideTypeAsTraitImplBlock
                         } else {
-                            AstContextKind::InsideTypeImpl
+                            AstContextKind::InsideTypeImplBlock
                         },
                     )),
                 },
@@ -204,7 +204,7 @@ impl<'a> AstParser<'a> {
             }
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
             AstContextKind::InsideForm => (),
-            AstContextKind::InsideTypeImpl | AstContextKind::InsideTraitImpl => {
+            AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTypeAsTraitImplBlock => {
                 return Ast::Err {
                     token_group_idx,
                     error: OriginalAstError::UnexpectedStmtInsideImpl.into(),

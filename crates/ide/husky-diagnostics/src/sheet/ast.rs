@@ -77,8 +77,14 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
-            OriginalAstError::UnexpectedEnd => {
-                format!("Syntax Error: UnexpectedEnd")
+            OriginalAstError::UnexpectedEndAfterParadigmInsideTrait => {
+                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTrait")
+            }
+            OriginalAstError::UnexpectedEndAfterParadigmInsideTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTypeImplBlock")
+            }
+            OriginalAstError::UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock")
             }
             OriginalAstError::UnexpectedStmtInsideTrait => {
                 format!("Syntax Error: UnexpectedStmtInsideTrait")
@@ -124,7 +130,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideImpl
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
-            | OriginalAstError::UnexpectedEnd
+            | OriginalAstError::UnexpectedEndAfterParadigmInsideTrait
+            | OriginalAstError::UnexpectedEndAfterParadigmInsideTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterParadigmInsideTypeAsTraitImplBlock
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
