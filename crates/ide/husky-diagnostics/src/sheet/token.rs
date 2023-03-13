@@ -30,11 +30,14 @@ impl Diagnose for (&TextRange, &TokenError) {
 
     fn message(&self, _db: &Self::Context<'_>) -> String {
         match self.1 {
-            TokenError::IncompleteStringLiteral => {
-                format!("Syntax Error: incomplete string literal")
+            TokenError::IncompleteStringLiteralBeforeEof => {
+                format!("Syntax Error: incomplete string literal before end of file")
             }
-            TokenError::UnexpectedCharAfterBackslash => {
-                format!("Syntax Error: unexpected char after backslash")
+            TokenError::IncompleteStringLiteralBeforeEol => {
+                format!("Syntax Error: incomplete string literal before end of line")
+            }
+            TokenError::UnexpectedCharAfterBackslash(c) => {
+                format!("Syntax Error: unexpected char `{c}` after backslash")
             }
             TokenError::UnrecognizedChar(_) => format!("Syntax Error: unrecognized char"),
             TokenError::IllFormedLiteral(_) => format!("Syntax Error: ill-formed literal"),
@@ -52,6 +55,7 @@ impl Diagnose for (&TextRange, &TokenError) {
     }
 
     fn range(&self, _ctx: &Self::Context<'_>) -> TextRange {
+        // todo: modify for special cases like TokenError::IncompleteStringLiteralBeforeEol
         *self.0
     }
 }

@@ -167,7 +167,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             '\n' => Some(Pretoken::NewLine),
             '\'' => Some(self.next_char_or_lifetime_or_label()),
             '"' => {
-                match self.next_string_literal() {
+                match self.next_string_literal(StringLiteralKind::SingleLine) {
                     Ok(v) => Some(v),
                     Err(e) => {
                         // skip this line
@@ -515,7 +515,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         )
     }
 
-    fn next_string_literal(&mut self) -> TokenResult<Pretoken> {
+    fn next_string_literal(
+        &mut self,
+        string_literal_kind: StringLiteralKind,
+    ) -> TokenResult<Pretoken> {
         let mut s = String::new();
         while let Some(c) = self.char_iter.next() {
             match c {
@@ -528,13 +531,18 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                             'n' => s.push('\n'),
                             'r' => s.push('\r'),
                             't' => s.push('\t'),
-                            _c => return Err(TokenError::UnexpectedCharAfterBackslash),
+                            c => return Err(TokenError::UnexpectedCharAfterBackslash(c)),
                         }
                     } else {
-                        return Err(TokenError::IncompleteStringLiteral);
+                        return Err(TokenError::IncompleteStringLiteralBeforeEof);
                     }
                 }
-                '\n' => todo!(),
+                '\n' => match string_literal_kind {
+                    StringLiteralKind::SingleLine => {
+                        return Err(TokenError::IncompleteStringLiteralBeforeEol);
+                    }
+                    StringLiteralKind::MultipleLine => s.push('\n'),
+                },
                 c => s.push(c),
             }
         }
@@ -542,6 +550,11 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             self.db, s,
         ))))
     }
+}
+
+enum StringLiteralKind {
+    SingleLine,
+    MultipleLine,
 }
 
 impl<'token_line, 'lex: 'token_line> Iterator for PretokenStream<'token_line, 'lex> {

@@ -4,10 +4,12 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum TokenError {
-    #[error("incomplete string literal")]
-    IncompleteStringLiteral,
+    #[error("incomplete string literal before end of file")]
+    IncompleteStringLiteralBeforeEof,
+    #[error("incomplete string literal before end of line")]
+    IncompleteStringLiteralBeforeEol,
     #[error("unexpected char after backslash")]
-    UnexpectedCharAfterBackslash,
+    UnexpectedCharAfterBackslash(char),
     #[error("unrecognized char")]
     UnrecognizedChar(char),
     #[error("ill-formed literal")]
