@@ -137,7 +137,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SelfValue(_) => Ok((
                 ExprDisambiguation::Trivial,
                 match self.self_ty {
-                    Some(self_ty) => Ok(self_ty), // todo: impl binding
+                    Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
             )),
