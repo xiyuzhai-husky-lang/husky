@@ -297,90 +297,96 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 144,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 144,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    6,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                5,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                6,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 0,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 166,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 166,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    4,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                3,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                4,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 1,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 165,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 1,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 165,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    2,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                2,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 2,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 2,
+                            },
+                        ),
+                    },
+                ),
                 Leaf {
                     ident_token: IdentToken {
                         ident: Ident(
@@ -395,118 +401,126 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 238,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 238,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    16,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                15,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                16,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 4,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 151,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 4,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 151,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    14,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                13,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                14,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 5,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 150,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 5,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 150,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    12,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                11,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                12,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 6,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 149,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 6,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 149,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    10,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                9,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                10,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 7,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 7,
+                            },
+                        ),
+                    },
+                ),
                 Leaf {
                     ident_token: IdentToken {
                         ident: Ident(
@@ -521,118 +535,126 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 240,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 240,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    26,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                25,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                26,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 9,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 151,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 9,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 151,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    24,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                23,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                24,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 10,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 150,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 10,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 150,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    21,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    22,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                21,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                22,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 11,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 149,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 11,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 149,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    20,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                19,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                20,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 12,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 12,
+                            },
+                        ),
+                    },
+                ),
                 Leaf {
                     ident_token: IdentToken {
                         ident: Ident(
@@ -647,118 +669,126 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 221,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 221,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    35,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    36,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                35,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                36,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 14,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 151,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 14,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 151,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    34,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                33,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                34,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 15,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 150,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 15,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 150,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    31,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    32,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                31,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                32,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 16,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 149,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 16,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 149,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    30,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                29,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                30,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 17,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 17,
+                            },
+                        ),
+                    },
+                ),
                 All {
                     star_token: StarToken(
                         TokenIdx(
@@ -766,55 +796,59 @@ Ok(
                         ),
                     ),
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 142,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 142,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    42,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                41,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                42,
+                        ),
+                        children: Ok(
+                            Single {
+                                child: 19,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    39,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    40,
+                                ),
                             ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 19,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Crate(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                39,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                40,
-                            ),
+                        children: Ok(
+                            Single {
+                                child: 20,
+                            },
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 20,
-                        },
-                    ),
-                },
+                    },
+                ),
                 All {
                     star_token: StarToken(
                         TokenIdx(
@@ -822,55 +856,59 @@ Ok(
                         ),
                     ),
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 135,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 135,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    48,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                47,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                48,
+                        ),
+                        children: Ok(
+                            Single {
+                                child: 22,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    45,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    46,
+                                ),
                             ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 22,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Crate(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                45,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                46,
-                            ),
+                        children: Ok(
+                            Single {
+                                child: 23,
+                            },
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 23,
-                        },
-                    ),
-                },
+                    },
+                ),
                 All {
                     star_token: StarToken(
                         TokenIdx(
@@ -878,83 +916,89 @@ Ok(
                         ),
                     ),
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 138,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 138,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    56,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                55,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                56,
-                            ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 25,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 137,
-                                    },
+                        children: Ok(
+                            Single {
+                                child: 25,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 137,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    54,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                53,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                54,
+                        ),
+                        children: Ok(
+                            Single {
+                                child: 26,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    52,
+                                ),
                             ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 26,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Crate(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                51,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                52,
-                            ),
+                        children: Ok(
+                            Single {
+                                child: 27,
+                            },
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 27,
-                        },
-                    ),
-                },
+                    },
+                ),
                 Leaf {
                     ident_token: IdentToken {
                         ident: Ident(
@@ -969,55 +1013,59 @@ Ok(
                         ),
                     },
                 },
-                Parent {
-                    parent_name_token: Ident(
-                        IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 129,
-                                    },
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Ident(
+                            IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 129,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    62,
                                 ),
                             ),
-                            token_idx: TokenIdx(
-                                61,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                62,
+                        ),
+                        children: Ok(
+                            Single {
+                                child: 29,
+                            },
+                        ),
+                    },
+                ),
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    60,
+                                ),
                             ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 29,
-                        },
-                    ),
-                },
-                Parent {
-                    parent_name_token: Crate(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                59,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                60,
-                            ),
+                        children: Ok(
+                            Single {
+                                child: 30,
+                            },
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 30,
-                        },
-                    ),
-                },
+                    },
+                ),
             ],
         },
         mod_path_arena: Arena {

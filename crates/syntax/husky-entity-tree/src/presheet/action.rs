@@ -1,3 +1,5 @@
+use crate::ParentUseExpr;
+
 use super::*;
 
 #[derive(Debug)]
@@ -196,11 +198,11 @@ impl<'a> EntityTreePresheetMut<'a> {
                             );
                             self.use_expr_rules.push(new_rule)
                         }
-                        UseExpr::Parent {
+                        UseExpr::Parent(ParentUseExpr {
                             parent_name_token,
                             scope_resolution_token: _,
                             children: Ok(children),
-                        } => {
+                        }) => {
                             let new_rule = rule.new_nonroot(
                                 use_expr_idx,
                                 path,
@@ -211,9 +213,9 @@ impl<'a> EntityTreePresheetMut<'a> {
                             );
                             self.use_expr_rules.push(new_rule)
                         }
-                        UseExpr::Parent {
+                        UseExpr::Parent(ParentUseExpr {
                             children: Err(_), ..
-                        }
+                        })
                         | UseExpr::Err(_) => todo!(),
                         UseExpr::SelfOne { self_token: _ } => todo!(),
                     }

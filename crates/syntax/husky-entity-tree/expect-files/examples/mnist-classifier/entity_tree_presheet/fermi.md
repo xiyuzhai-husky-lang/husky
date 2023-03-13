@@ -78,27 +78,29 @@ Ok(
                         ),
                     ),
                 },
-                Parent {
-                    parent_name_token: Crate(
-                        CrateToken {
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
-                    ),
-                    scope_resolution_token: Ok(
-                        ScopeResolutionToken(
-                            TokenIdx(
-                                2,
+                Parent(
+                    ParentUseExpr {
+                        parent_name_token: Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    2,
+                                ),
                             ),
                         ),
-                    ),
-                    children: Ok(
-                        Single {
-                            child: 0,
-                        },
-                    ),
-                },
+                        children: Ok(
+                            Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
             ],
         },
         mod_path_arena: Arena {
