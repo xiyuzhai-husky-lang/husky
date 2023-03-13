@@ -14,7 +14,9 @@ output
 TokenSheetData {
     tokens: [
         Error(
-            UnexpectedCharAfterBackslash,
+            UnexpectedCharAfterBackslash(
+                'a',
+            ),
         ),
     ],
     group_starts: [
