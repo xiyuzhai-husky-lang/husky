@@ -10,7 +10,8 @@ fn main() {
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
     // remove_folder_in_tests("try/try");
-    clean_expect_files();
+    // clean_expect_files();
+    clean_library_adversarials();
     // clean_tests()
     // restructure()
 }
@@ -23,6 +24,17 @@ fn clean_expect_files() {
             assert!(expect_files_dir.is_dir());
         }
         clear_directory(&expect_files_dir);
+    }
+}
+
+fn clean_library_adversarials() {
+    for dir in collect_rust_package_dirs(".") {
+        assert!(dir.join("Cargo.toml").exists());
+        let library_adversarials_dir = dir.join("adversarials/library");
+        if library_adversarials_dir.exists() {
+            assert!(library_adversarials_dir.is_dir());
+        }
+        clear_directory(&library_adversarials_dir);
     }
 }
 
