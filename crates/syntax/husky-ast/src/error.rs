@@ -52,6 +52,20 @@ pub enum OriginalAstError {
     Todo,
     #[error("UnexpectedEnd")]
     UnexpectedEnd,
+    #[error("UnexpectedStmtInsideTrait")]
+    UnexpectedStmtInsideTrait,
+    #[error("UnexpectedMainInsideTrait")]
+    UnexpectedMainInsideTrait,
+    #[error("UnexpectedUseInsideTrait")]
+    UnexpectedUseInsideTrait,
+    #[error("UnexpectedModInsideTrait")]
+    UnexpectedModInsideTrait,
+    #[error("UnexpectedVisualInsideTrait")]
+    UnexpectedVisualInsideTrait,
+    #[error("UnexpectedImplInsideTrait")]
+    UnexpectedImplInsideTrait,
+    #[error("UnexpectedTraitInsideTrait")]
+    UnexpectedTraitInsideTrait,
 }
 
 impl OriginalError for OriginalAstError {

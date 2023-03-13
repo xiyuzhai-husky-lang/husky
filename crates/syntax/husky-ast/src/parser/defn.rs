@@ -203,14 +203,15 @@ impl<'a> BasicAuxAstParser<'a> {
                         associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
                     }
                 }
-                Keyword::Stmt(_) => todo!(),
-                Keyword::Pattern(_) => todo!(),
-                Keyword::Main => todo!(),
-                Keyword::Use => todo!(),
-                Keyword::Mod => todo!(),
-                Keyword::Visual => todo!(),
-                Keyword::Impl => todo!(),
-                Keyword::Trait => todo!(),
+                Keyword::Stmt(_) | Keyword::Pattern(_) => {
+                    return Err(OriginalAstError::UnexpectedStmtInsideTrait.into())
+                }
+                Keyword::Main => return Err(OriginalAstError::UnexpectedMainInsideTrait.into()),
+                Keyword::Use => return Err(OriginalAstError::UnexpectedUseInsideTrait.into()),
+                Keyword::Mod => return Err(OriginalAstError::UnexpectedModInsideTrait.into()),
+                Keyword::Visual => return Err(OriginalAstError::UnexpectedVisualInsideTrait.into()),
+                Keyword::Impl => return Err(OriginalAstError::UnexpectedImplInsideTrait.into()),
+                Keyword::Trait => return Err(OriginalAstError::UnexpectedTraitInsideTrait.into()),
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
                 Keyword::Pronoun(_) => todo!(),

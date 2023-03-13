@@ -80,6 +80,27 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedEnd => {
                 format!("Syntax Error: UnexpectedEnd")
             }
+            OriginalAstError::UnexpectedStmtInsideTrait => {
+                format!("Syntax Error: UnexpectedStmtInsideTrait")
+            }
+            OriginalAstError::UnexpectedMainInsideTrait => {
+                format!("Syntax Error: UnexpectedMainInsideTrait")
+            }
+            OriginalAstError::UnexpectedUseInsideTrait => {
+                format!("Syntax Error: UnexpectedUseInsideTrait")
+            }
+            OriginalAstError::UnexpectedModInsideTrait => {
+                format!("Syntax Error: UnexpectedModInsideTrait")
+            }
+            OriginalAstError::UnexpectedVisualInsideTrait => {
+                format!("Syntax Error: UnexpectedVisualInsideTrait")
+            }
+            OriginalAstError::UnexpectedImplInsideTrait => {
+                format!("Syntax Error: UnexpectedImplInsideTrait")
+            }
+            OriginalAstError::UnexpectedTraitInsideTrait => {
+                format!("Syntax Error: UnexpectedTraitInsideTrait")
+            }
         }
     }
 
@@ -100,7 +121,14 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideImpl
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
-            | OriginalAstError::UnexpectedEnd => {
+            | OriginalAstError::UnexpectedEnd
+            | OriginalAstError::UnexpectedStmtInsideTrait
+            | OriginalAstError::UnexpectedMainInsideTrait
+            | OriginalAstError::UnexpectedUseInsideTrait
+            | OriginalAstError::UnexpectedModInsideTrait
+            | OriginalAstError::UnexpectedVisualInsideTrait
+            | OriginalAstError::UnexpectedImplInsideTrait
+            | OriginalAstError::UnexpectedTraitInsideTrait => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
