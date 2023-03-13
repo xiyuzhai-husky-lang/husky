@@ -341,38 +341,37 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideModule => match kw {
                 Keyword::Config(_) => todo!(),
                 Keyword::Paradigm(kw) => {
-                    let form_kind = if let Some(token) = self.token_stream_mut().peek() {
-                        match token {
-                            Token::Punctuation(special_token) => match special_token {
-                                Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
-                                    FormKeyword::Def => todo!(),
-                                    FormKeyword::Func
-                                    | FormKeyword::Proc
-                                    | FormKeyword::Fn
-                                    | FormKeyword::Function => FormKind::Function,
-                                    FormKeyword::Theorem => todo!(),
-                                    FormKeyword::Lemma => todo!(),
-                                    FormKeyword::Proposition => todo!(),
-                                },
-                                Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
-                                    FormKind::Feature
-                                }
-                                unexpected_special_token => {
-                                    return Err(OriginalAstError::UnexpectedTokenForModuleItem(
-                                        self.token_stream().state(),
-                                    )
-                                    .into())
-                                }
+                    let Some(form_kind_token) = self.token_stream_mut().peek() else {
+                        Err(OriginalAstError::UnexpectedEndAfterParadigmInsideModule)?
+                    };
+                    let form_kind = match form_kind_token {
+                        Token::Punctuation(special_token) => match special_token {
+                            Punctuation::Bra(Bracket::Par) | Punctuation::LaOrLt => match kw {
+                                FormKeyword::Def => todo!(),
+                                FormKeyword::Func
+                                | FormKeyword::Proc
+                                | FormKeyword::Fn
+                                | FormKeyword::Function => FormKind::Function,
+                                FormKeyword::Theorem => todo!(),
+                                FormKeyword::Lemma => todo!(),
+                                FormKeyword::Proposition => todo!(),
                             },
-                            ref unexpected_token => {
+                            Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
+                                FormKind::Feature
+                            }
+                            unexpected_special_token => {
                                 return Err(OriginalAstError::UnexpectedTokenForModuleItem(
                                     self.token_stream().state(),
                                 )
                                 .into())
                             }
+                        },
+                        ref unexpected_token => {
+                            return Err(OriginalAstError::UnexpectedTokenForModuleItem(
+                                self.token_stream().state(),
+                            )
+                            .into())
                         }
-                    } else {
-                        todo!()
                     };
                     EntityKind::ModuleItem {
                         module_item_kind: ModuleItemKind::Form(form_kind).into(),

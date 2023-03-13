@@ -50,6 +50,8 @@ pub enum OriginalAstError {
     InvalidAstForDefinitionOrUse,
     #[error("todo")]
     Todo,
+    #[error("UnexpectedEndAfterParadigmInsideModule")]
+    UnexpectedEndAfterParadigmInsideModule,
     #[error("UnexpectedEndAfterParadigmInsideTrait")]
     UnexpectedEndAfterParadigmInsideTrait,
     #[error("UnexpectedEndAfterParadigmInsideTypeImplBlock")]
