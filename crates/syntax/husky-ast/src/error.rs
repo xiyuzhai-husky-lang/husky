@@ -50,6 +50,8 @@ pub enum OriginalAstError {
     InvalidAstForDefinitionOrUse,
     #[error("todo")]
     Todo,
+    #[error("UnexpectedEnd")]
+    UnexpectedEnd,
 }
 
 impl OriginalError for OriginalAstError {

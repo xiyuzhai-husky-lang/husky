@@ -184,7 +184,7 @@ impl<'a> BasicAuxAstParser<'a> {
                             }
                         }
                     } else {
-                        todo!()
+                        return Err(OriginalAstError::UnexpectedEnd.into());
                     };
                     EntityKind::AssociatedItem {
                         associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
