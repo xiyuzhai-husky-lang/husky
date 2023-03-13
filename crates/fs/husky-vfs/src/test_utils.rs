@@ -32,22 +32,23 @@ pub trait VfsTestUtils: VfsDb {
 
     /// only run to see whether the program will panic
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_plain_test<U>(&self, f: impl Fn(&Self, U))
+    fn vfs_plain_test<U>(&mut self, f: impl Fn(&Self, U))
     where
         U: VfsTestUnit,
     {
         for _dir in test_dirs() {
-            let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
             let toolchain = self.dev_toolchain().unwrap();
             for (base, out) in expect_test_base_outs() {
                 std::fs::create_dir_all(&out).expect("failed_to_create_dir_all");
                 for path in collect_package_relative_dirs(&base).into_iter() {
+                    let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
                     let package_path =
                         PackagePath::new_local(vfs_db, toolchain, &path.to_logical_path(&base))
                             .unwrap();
                     for unit in <U as VfsTestUnit>::collect_from_package_path(vfs_db, package_path)
                     {
-                        f(self, unit)
+                        f(self, unit);
+                        vfs_robustness_test(self, &f)
                     }
                 }
             }
@@ -56,22 +57,29 @@ pub trait VfsTestUtils: VfsDb {
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug_with_db<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
-    where
+    fn vfs_expect_test_debug_with_db<'a, U, R>(
+        &'a mut self,
+        name: &str,
+        f: impl Fn(&'a Self, U) -> R,
+    ) where
         U: VfsTestUnit,
         R: salsa::DebugWithDb<Self>,
     {
-        vfs_expect_test(self, name, &f, |_db, r| format!("{:#?}", &r.debug(self)))
+        vfs_expect_test(self, name, |db, u| {
+            format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db))
+        })
     }
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
-    fn vfs_expect_test_debug<'a, U, R>(&'a self, name: &str, f: impl Fn(&'a Self, U) -> R)
+    fn vfs_expect_test_debug<'a, U, R>(&'a mut self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
         U: VfsTestUnit,
         R: std::fmt::Debug,
     {
-        vfs_expect_test(self, name, &f, |_db, r| format!("{:#?}", r))
+        vfs_expect_test(self, name, |db, u| {
+            format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u))
+        })
     }
 }
 
