@@ -1,3 +1,5 @@
+use salsa::DisplayWithDb;
+
 use super::*;
 
 pub(super) struct VfsAdversarialManager {
@@ -26,7 +28,12 @@ impl VfsAdversarialManager {
         Db: VfsDb + ?Sized,
     {
         for adversarial in &self.adversarials {
-            assert!(adversarial.test(db, self.module, f).is_ok())
+            if adversarial.test(db, self.module, f).is_err() {
+                panic!(
+                    "failure against adversial {adversarial:?} for module {}",
+                    self.module.display(db)
+                )
+            }
         }
         if let Some(generator) = self.generator {
             match generator.run(db, self.module, f) {
