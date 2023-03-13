@@ -77,6 +77,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
+            OriginalAstError::UnexpectedEnd => {
+                format!("Syntax Error: UnexpectedEnd")
+            }
         }
     }
 
@@ -96,7 +99,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideModule
             | OriginalAstError::UnexpectedStmtInsideImpl
             | OriginalAstError::InvalidAstForDefinitionOrUse
-            | OriginalAstError::Todo => {
+            | OriginalAstError::Todo
+            | OriginalAstError::UnexpectedEnd => {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
