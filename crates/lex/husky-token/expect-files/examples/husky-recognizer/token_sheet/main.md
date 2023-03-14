@@ -1,65 +1,47 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Config(
+            Token::Keyword(
+                Keyword::Config(
                     Task,
                 ),
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 119,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `imagenet`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 120,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `stage0`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 121,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `new_husky_dataset`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Main,
+            Token::Keyword(
+                Keyword::Main,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Literal(
-                Integer(
+            Token::Literal(
+                Literal::Integer(
                     Unspecified,
                 ),
             ),

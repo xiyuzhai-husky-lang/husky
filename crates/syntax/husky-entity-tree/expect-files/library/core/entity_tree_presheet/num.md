@@ -226,15 +226,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
+                                ident: `core`,
                                 token_idx: TokenIdx(
                                     1,
                                 ),

@@ -11,7 +11,7 @@ Ok(
                             TokenIdx(
                                 14,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },

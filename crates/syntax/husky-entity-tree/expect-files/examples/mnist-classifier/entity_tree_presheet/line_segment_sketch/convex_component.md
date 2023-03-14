@@ -35,7 +35,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,

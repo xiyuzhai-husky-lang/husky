@@ -1,45 +1,33 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `str`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 99,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `StringLiteral`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
         ],
         group_starts: [

@@ -1,173 +1,89 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 1,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `basic`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `logic`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 8,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `mem`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 9,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `num`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ops`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `prelude`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 13,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `raw_bits`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 4,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `fmt`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `clone`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 7,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `marker`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 5,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `list`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 3,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `cmp`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 14,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `str`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 11,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `option`,
             ),
         ],
         group_starts: [

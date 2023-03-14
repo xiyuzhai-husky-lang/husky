@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 0;\n\ntoken = Attr(\n    Pub,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 0;\n\ntoken = Token::Attr(\n    AttributeKeyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 1;\n\ntoken = Keyword(\n    Trait,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 1;\n\ntoken = Token::Keyword(\n    Keyword::Trait,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 2;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 43,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Trait(\n                TraitPath(\n                    Id {\n                        value: 18,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Trait,\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 2;\n\ntoken = Token::Ident(\n    `Copy`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Trait(\n                TraitPath(`core::marker::Copy`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Trait,\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken = Punctuation(\n    Semicolon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken = Token::Punctuation(\n    Punctuation::Semicolon,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 4;\n\ntoken = Attr(\n    Pub,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 4;\n\ntoken = Token::Attr(\n    AttributeKeyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 5;\n\ntoken = Keyword(\n    Trait,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 5;\n\ntoken = Token::Keyword(\n    Keyword::Trait,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 91,\n            },\n        ),\n    ),\n);\n\ntoken_info = Entity(\n    Some(\n        ModuleItem(\n            Trait(\n                TraitPath(\n                    Id {\n                        value: 19,\n                    },\n                ),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Trait,\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 6;\n\ntoken = Token::Ident(\n    `Sized`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Trait(\n                TraitPath(`core::marker::Sized`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Trait,\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 7;\n\ntoken = Punctuation(\n    Semicolon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 7;\n\ntoken = Token::Punctuation(\n    Punctuation::Semicolon,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

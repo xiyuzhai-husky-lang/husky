@@ -130,15 +130,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 149,
-                                        },
-                                    ),
-                                ),
+                                ident: `domains`,
                                 token_idx: TokenIdx(
                                     1,
                                 ),
@@ -160,7 +154,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     13,
@@ -183,7 +177,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     19,
@@ -206,15 +200,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 149,
-                                        },
-                                    ),
-                                ),
+                                ident: `domains`,
                                 token_idx: TokenIdx(
                                     25,
                                 ),
@@ -236,7 +224,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     35,
@@ -259,7 +247,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     41,
@@ -282,7 +270,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     47,
@@ -305,7 +293,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     55,

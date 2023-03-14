@@ -1,105 +1,75 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 15,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `bool`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 16,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `never`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 17,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `unit`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Structure,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 18,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Trait`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Structure,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 19,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Module`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
         ],
         group_starts: [

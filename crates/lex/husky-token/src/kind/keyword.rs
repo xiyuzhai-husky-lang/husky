@@ -30,6 +30,7 @@ use serde::{Deserialize, Serialize};
 use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub enum Keyword {
     Config(ConfigKeyword),
     Form(FormKeyword),

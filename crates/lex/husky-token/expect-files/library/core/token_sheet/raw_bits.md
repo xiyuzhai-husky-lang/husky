@@ -1,145 +1,95 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Punctuation(
-                PoundSign,
+            Token::Punctuation(
+                Punctuation::PoundSign,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 45,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `rust`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Literal(
-                String(
-                    StringLiteral(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+            Token::Literal(
+                Literal::String(
+                    StringLiteral {
+                        data: "u32",
+                    },
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Punctuation(
-                At,
+            Token::Punctuation(
+                Punctuation::At,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 47,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `derive`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 25,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Debug`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 21,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `PartialEq`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 22,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Eq`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 20,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Clone`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 37,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Copy`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Extern,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 98,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `r32`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
         ],
         group_starts: [

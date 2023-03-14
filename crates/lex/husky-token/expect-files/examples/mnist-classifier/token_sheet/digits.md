@@ -1,368 +1,188 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 133,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `zero`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 128,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `one`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 130,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `six`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 131,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `three`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 126,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `four`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 125,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `five`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 130,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `six`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 129,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `seven`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 124,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `eight`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 127,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `nine`,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 128,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `one`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 153,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_one`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 130,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `six`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 154,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_six`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 133,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `zero`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 155,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_zero`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 132,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `two`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 161,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_two`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 131,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `three`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 158,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_three`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 125,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `five`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 160,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_five`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 130,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `six`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 154,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_six`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 129,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `seven`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 156,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_seven`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 124,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `eight`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 157,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_eight`,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 127,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `nine`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 159,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_nine`,
             ),
         ],
         group_starts: [

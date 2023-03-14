@@ -1334,15 +1334,9 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 34,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `core`,
                                         token_idx: TokenIdx(
                                             1,
                                         ),
@@ -2454,7 +2448,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             2,
@@ -2499,7 +2493,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             9,
@@ -2544,7 +2538,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             16,
@@ -2589,7 +2583,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             23,
@@ -2634,7 +2628,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -2679,7 +2673,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             37,
@@ -2724,7 +2718,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Crate(
+                                parent_name_token: ParentNameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             44,
@@ -2769,15 +2763,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 1,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `basic`,
                                         token_idx: TokenIdx(
                                             4,
                                         ),
@@ -2812,15 +2800,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 4,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `num`,
                                         token_idx: TokenIdx(
                                             11,
                                         ),
@@ -2855,15 +2837,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 7,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `raw_bits`,
                                         token_idx: TokenIdx(
                                             18,
                                         ),
@@ -2898,15 +2874,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 8,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `fmt`,
                                         token_idx: TokenIdx(
                                             25,
                                         ),
@@ -2941,15 +2911,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 10,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `marker`,
                                         token_idx: TokenIdx(
                                             32,
                                         ),
@@ -2984,15 +2948,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 9,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `clone`,
                                         token_idx: TokenIdx(
                                             39,
                                         ),
@@ -3027,15 +2985,9 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: Ident(
+                                parent_name_token: ParentNameToken::Ident(
                                     IdentToken {
-                                        ident: Ident(
-                                            Word(
-                                                Id {
-                                                    value: 12,
-                                                },
-                                            ),
-                                        ),
+                                        ident: `cmp`,
                                         token_idx: TokenIdx(
                                             46,
                                         ),

@@ -1,80 +1,50 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Enum,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 94,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Option`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 95,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `T`,
             ),
-            Punctuation(
-                RaOrGt,
+            Token::Punctuation(
+                Punctuation::RaOrGt,
             ),
-            Punctuation(
-                Vertical,
+            Token::Punctuation(
+                Punctuation::Vertical,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 96,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Some`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 95,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `T`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Vertical,
+            Token::Punctuation(
+                Punctuation::Vertical,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 97,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `None`,
             ),
         ],
         group_starts: [

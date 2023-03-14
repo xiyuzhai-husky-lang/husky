@@ -62,16 +62,7 @@ Ok(
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                                     label_token: LifetimeLabelToken {
-                                                                        label: Label {
-                                                                            ident: Ident(
-                                                                                Word(
-                                                                                    Id {
-                                                                                        value: 30,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            kind: AllNonGreek,
-                                                                        },
+                                                                        label: `'a`,
                                                                         token_idx: TokenIdx(
                                                                             5,
                                                                         ),
@@ -265,16 +256,7 @@ Ok(
                                                             variant: CurrentSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                                     label_token: LifetimeLabelToken {
-                                                                        label: Label {
-                                                                            ident: Ident(
-                                                                                Word(
-                                                                                    Id {
-                                                                                        value: 30,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                            kind: AllNonGreek,
-                                                                        },
+                                                                        label: `'a`,
                                                                         token_idx: TokenIdx(
                                                                             16,
                                                                         ),

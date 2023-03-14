@@ -13,7 +13,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     2,
@@ -34,7 +34,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -55,7 +55,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     16,
@@ -76,7 +76,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     23,
@@ -97,7 +97,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -118,7 +118,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     37,
@@ -139,7 +139,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     44,

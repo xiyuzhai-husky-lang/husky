@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 0;\n\ntoken = Punctuation(\n    PoundSign,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 0;\n\ntoken = Token::Punctuation(\n    Punctuation::PoundSign,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 20;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 46,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 20;\n\ntoken = Token::Ident(\n    `other`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 40;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 60,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 60,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    40,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 79,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        41,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 60,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    40,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 40;\n\ntoken = Token::Ident(\n    `Rhs`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `Rhs`,\n                token_idx: TokenIdx(\n                    40,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion {\n        data: ExprRegionData {\n            parent: None,\n            path: RegionPath::Decl(\n                DeclRegionPath::Entity(\n                    EntityPath::ModuleItem(\n                        ModuleItemPath::Trait(\n                            TraitPath(`core::ops::AddAssign`),\n                        ),\n                    ),\n                ),\n            ),\n            expr_arena: Arena {\n                data: [],\n            },\n            entity_path_expr_arena: Arena {\n                data: [],\n            },\n            stmt_arena: Arena {\n                data: [],\n            },\n            pattern_expr_region: PatternExprRegion {\n                pattern_expr_arena: Arena {\n                    data: [],\n                },\n                pattern_infos: [],\n                pattern_symbol_maps: [],\n                pattern_symbol_arena: Arena {\n                    data: [],\n                },\n            },\n            symbol_region: SymbolRegion {\n                inherited_symbol_arena: Arena {\n                    data: [],\n                },\n                current_symbol_arena: Arena {\n                    data: [\n                        CurrentSymbol {\n                            access_start: TokenIdx(\n                                41,\n                            ),\n                            access_end: None,\n                            variant: CurrentSymbolVariant::ImplicitParameter {\n                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n                                    ident_token: IdentToken {\n                                        ident: `Rhs`,\n                                        token_idx: TokenIdx(\n                                            40,\n                                        ),\n                                    },\n                                },\n                            },\n                        },\n                    ],\n                },\n                allow_self_type: True,\n                allow_self_value: False,\n                pattern_ty_constraints: [\n                    ImplicitTypeParameter,\n                ],\n            },\n            roots: [],\n        },\n    },\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        41,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `Rhs`,\n                token_idx: TokenIdx(\n                    40,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 36,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 60;\n\ntoken = Token::Ident(\n    `rust`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 80;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 60,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 80;\n\ntoken = Token::Ident(\n    `Rhs`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 100;\n\ntoken = Punctuation(\n    Colon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 100;\n\ntoken = Token::Punctuation(\n    Punctuation::Colon,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 120;\n\ntoken = Keyword(\n    Trait,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 120;\n\ntoken = Token::Keyword(\n    Keyword::Trait,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 140;\n\ntoken = Punctuation(\n    Semicolon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 140;\n\ntoken = Token::Punctuation(\n    Punctuation::Semicolon,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 160;\n\ntoken = Punctuation(\n    Comma,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 160;\n\ntoken = Token::Punctuation(\n    Punctuation::Comma,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 180;\n\ntoken = Keyword(\n    Form(\n        Type,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 180;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Type,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 200;\n\ntoken = Punctuation(\n    Ket(\n        Par,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 200;\n\ntoken = Token::Punctuation(\n    Punctuation::Ket(\n        Par,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 220;\n\ntoken = Punctuation(\n    PoundSign,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 220;\n\ntoken = Token::Punctuation(\n    Punctuation::PoundSign,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 240;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 65,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 240;\n\ntoken = Token::Ident(\n    `rhs`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 260;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 60,\n            },\n        ),\n    ),\n);\n\ntoken_info = CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: ImplicitParameter {\n        implicit_parameter_kind: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 60,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    260,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion(\n        Id {\n            value: 87,\n        },\n    ),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        261,\n    ),\n    access_end: None,\n    variant: ImplicitParameter {\n        implicit_parameter_variant: Type {\n            ident_token: IdentToken {\n                ident: Ident(\n                    Word(\n                        Id {\n                            value: 60,\n                        },\n                    ),\n                ),\n                token_idx: TokenIdx(\n                    260,\n                ),\n            },\n        },\n    },\n}\n",
+                                value: "\ntoken_idx = 260;\n\ntoken = Token::Ident(\n    `Rhs`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 0,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {\n            ident_token: IdentToken {\n                ident: `Rhs`,\n                token_idx: TokenIdx(\n                    260,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegion {\n        data: ExprRegionData {\n            parent: None,\n            path: RegionPath::Decl(\n                DeclRegionPath::Entity(\n                    EntityPath::ModuleItem(\n                        ModuleItemPath::Trait(\n                            TraitPath(`core::ops::DivAssign`),\n                        ),\n                    ),\n                ),\n            ),\n            expr_arena: Arena {\n                data: [],\n            },\n            entity_path_expr_arena: Arena {\n                data: [],\n            },\n            stmt_arena: Arena {\n                data: [],\n            },\n            pattern_expr_region: PatternExprRegion {\n                pattern_expr_arena: Arena {\n                    data: [],\n                },\n                pattern_infos: [],\n                pattern_symbol_maps: [],\n                pattern_symbol_arena: Arena {\n                    data: [],\n                },\n            },\n            symbol_region: SymbolRegion {\n                inherited_symbol_arena: Arena {\n                    data: [],\n                },\n                current_symbol_arena: Arena {\n                    data: [\n                        CurrentSymbol {\n                            access_start: TokenIdx(\n                                261,\n                            ),\n                            access_end: None,\n                            variant: CurrentSymbolVariant::ImplicitParameter {\n                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n                                    ident_token: IdentToken {\n                                        ident: `Rhs`,\n                                        token_idx: TokenIdx(\n                                            260,\n                                        ),\n                                    },\n                                },\n                            },\n                        },\n                    ],\n                },\n                allow_self_type: True,\n                allow_self_value: False,\n                pattern_ty_constraints: [\n                    ImplicitTypeParameter,\n                ],\n            },\n            roots: [],\n        },\n    },\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        261,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {\n            ident_token: IdentToken {\n                ident: `Rhs`,\n                token_idx: TokenIdx(\n                    260,\n                ),\n            },\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 280;\n\ntoken = Punctuation(\n    Ket(\n        Box,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 280;\n\ntoken = Token::Punctuation(\n    Punctuation::Ket(\n        Box,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 300;\n\ntoken = Punctuation(\n    ColonColon,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 300;\n\ntoken = Token::Punctuation(\n    Punctuation::ColonColon,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 320;\n\ntoken = Keyword(\n    Pattern(\n        Mut,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 320;\n\ntoken = Token::Keyword(\n    Keyword::Pattern(\n        Mut,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 340;\n\ntoken = Ident(\n    Ident(\n        Word(\n            Id {\n                value: 61,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 340;\n\ntoken = Token::Ident(\n    `Output`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 360;\n\ntoken = Keyword(\n    Trait,\n);\n\ntoken_info = None;\n\n\n",
+                                value: "Other\ntoken_idx = 360;\n\ntoken = Token::Keyword(\n    Keyword::Trait,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 380;\n\ntoken = Literal(\n    String(\n        StringLiteral(\n            Id {\n                value: 15,\n            },\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 380;\n\ntoken = Token::Literal(\n    Literal::String(\n        StringLiteral {\n            data: \"std::ops::Sub\",\n        },\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 400;\n\ntoken = Punctuation(\n    Binary(\n        Curry,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                                value: "\ntoken_idx = 400;\n\ntoken = Token::Punctuation(\n    Punctuation::Binary(\n        Curry,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

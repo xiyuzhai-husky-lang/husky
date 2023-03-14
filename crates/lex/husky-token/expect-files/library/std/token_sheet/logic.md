@@ -1,38 +1,26 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 43,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `core`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `logic`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
         ],
         group_starts: [

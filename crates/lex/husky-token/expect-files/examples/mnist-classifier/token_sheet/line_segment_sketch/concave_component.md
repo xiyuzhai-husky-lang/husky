@@ -1,3718 +1,2404 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 140,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 139,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `convexity`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 135,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `geom2d`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
-            Keyword(
-                Use,
+            Token::Keyword(
+                Keyword::Use,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     Crate,
                 ),
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Punctuation(
-                Star,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Type(
+            Token::Keyword(
+                Keyword::Type(
                     Struct,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 229,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ConcaveComponent`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Curl,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Punctuation(
-                Ambersand,
+            Token::Punctuation(
+                Punctuation::Ambersand,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 377,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `LineSegmentSketch`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         RemEuclid,
                     ),
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 378,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `LineSegmentStroke`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Curl,
                 ),
             ),
-            Keyword(
-                Impl,
+            Token::Keyword(
+                Keyword::Impl,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 229,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ConcaveComponent`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `norm`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 62,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `f32`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 273,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `rel_norm`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 62,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `f32`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `norm`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         Div,
                     ),
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `norm`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Proc,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 62,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `f32`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Literal(
-                Float(
+            Token::Literal(
+                Literal::Float(
                     Unspecified,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 380,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `curve_start`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 233,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `firstx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 381,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `curve_ls`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 140,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 382,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp_norm`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 381,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `curve_ls`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 254,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `norm`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     For,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Comparison(
                         Leq,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 383,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point_dist`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 381,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `curve_ls`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 384,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dist_to_point`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     If,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 383,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point_dist`,
             ),
-            Punctuation(
-                RaOrGt,
+            Token::Punctuation(
+                Punctuation::RaOrGt,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 383,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point_dist`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Return,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 379,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `hausdorff_norm`,
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Proc,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `angle_change`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 62,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `f32`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `angle_change`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Literal(
-                Float(
+            Token::Literal(
+                Literal::Float(
                     Unspecified,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 385,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp0`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     For,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 257,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `angle_change`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     AssignClosed(
                         Add,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 385,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp0`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 363,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `angle_to`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 257,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Literal(
-                Bool(
+            Token::Literal(
+                Literal::Bool(
                     True,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 385,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp0`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 257,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `dp`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Return,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 256,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `angle_change`,
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Proc,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `bounding_box`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 372,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `BoundingBox`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 386,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_point`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 233,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `firstx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 376,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmin`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 386,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 205,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `x`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 242,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmax`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 386,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 205,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `x`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 258,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymin`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 386,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `y`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 231,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymax`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 386,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `y`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     For,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Comparison(
                         Leq,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 184,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `i`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 376,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmin`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 376,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmin`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 359,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `min`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 205,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `x`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 242,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmax`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 242,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmax`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 190,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `max`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 205,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `x`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 258,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymin`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 258,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymin`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 359,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `min`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `y`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 231,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymax`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 231,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymax`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 190,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `max`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 354,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `point`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `y`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Return,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 372,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `BoundingBox`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 367,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ClosedRange`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 376,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmin`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 242,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `xmax`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 367,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ClosedRange`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 258,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymin`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 231,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ymax`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 230,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `relative_bounding_box`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 375,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `RelativeBoundingBox`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `bounding_box`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 230,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `relative_bounding_box`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `bounding_box`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 140,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 387,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `LineSegment`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 387,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `LineSegment`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 233,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `firstx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `clone`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 388,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `lastx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `clone`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 347,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Point2d`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 233,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `firstx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `clone`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 347,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Point2d`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 388,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `lastx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `clone`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 350,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Vector2d`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 140,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 289,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start_tangent`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 350,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Vector2d`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 233,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `firstx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Func,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 292,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end_tangent`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 350,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Vector2d`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Pronoun(
+            Token::Keyword(
+                Keyword::Pronoun(
                     SelfValue,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 388,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `lastx`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 251,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `displacement`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Visual,
+            Token::Keyword(
+                Keyword::Visual,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Form(
+            Token::Keyword(
+                Keyword::Form(
                     Proc,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 389,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `find_concave_components`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Punctuation(
-                Ambersand,
+            Token::Punctuation(
+                Punctuation::Ambersand,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 377,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `LineSegmentSketch`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Curry,
                 ),
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 229,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ConcaveComponent`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 344,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `concave_components`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 229,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ConcaveComponent`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Box,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Box,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 390,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `L`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 185,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ilen`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Literal(
-                Integer(
+            Token::Literal(
+                Literal::Integer(
                     Unspecified,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Keyword(
-                Pattern(
+            Token::Keyword(
+                Keyword::Pattern(
                     Mut,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Literal(
-                Integer(
+            Token::Literal(
+                Literal::Integer(
                     Unspecified,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     While,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                RaOrGt,
+            Token::Punctuation(
+                Punctuation::RaOrGt,
             ),
-            Punctuation(
-                Minus,
+            Token::Punctuation(
+                Punctuation::Minus,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 390,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `L`,
             ),
-            WordOpr(
-                And,
+            Token::WordOpr(
+                WordOpr::And,
             ),
-            Punctuation(
-                Exclamation,
+            Token::Punctuation(
+                Punctuation::Exclamation,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 391,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_convex`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Suffix(
+            Token::Punctuation(
+                Punctuation::Suffix(
                     Decr,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Let,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 392,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ccv_start`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     While,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                LaOrLt,
+            Token::Punctuation(
+                Punctuation::LaOrLt,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 392,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ccv_start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         Add,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 390,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `L`,
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     While,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Comparison(
                         Leq,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         Add,
                     ),
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 390,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `L`,
             ),
-            WordOpr(
-                And,
+            Token::WordOpr(
+                WordOpr::And,
             ),
-            Punctuation(
-                Exclamation,
+            Token::Punctuation(
+                Punctuation::Exclamation,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 391,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `is_convex`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Suffix(
+            Token::Punctuation(
+                Punctuation::Suffix(
                     Incr,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     If,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                RaOrGt,
+            Token::Punctuation(
+                Punctuation::RaOrGt,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         Add,
                     ),
                 ),
             ),
-            Literal(
-                Integer(
+            Token::Literal(
+                Literal::Integer(
                     Unspecified,
                 ),
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 344,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `concave_components`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 182,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `push`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 229,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ConcaveComponent`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `line_segment_sketch`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 232,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `strokes`,
             ),
-            Punctuation(
-                Dot,
+            Token::Punctuation(
+                Punctuation::Dot,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 393,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `cyclic_slice`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Comma,
+            Token::Punctuation(
+                Punctuation::Comma,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 235,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `end`,
             ),
-            Punctuation(
-                Eq,
+            Token::Punctuation(
+                Punctuation::Eq,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `start`,
             ),
-            Punctuation(
-                Binary(
+            Token::Punctuation(
+                Punctuation::Binary(
                     Closed(
                         Add,
                     ),
                 ),
             ),
-            Literal(
-                Integer(
+            Token::Literal(
+                Literal::Integer(
                     Unspecified,
                 ),
             ),
-            Keyword(
-                Stmt(
+            Token::Keyword(
+                Keyword::Stmt(
                     Return,
                 ),
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 344,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `concave_components`,
             ),
         ],
         group_starts: [

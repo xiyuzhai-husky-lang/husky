@@ -1672,13 +1672,7 @@ Ok(
                                                             119,
                                                         ),
                                                         frame_var_expr_idx: 40,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 205,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `i1`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: Some(
@@ -1780,13 +1774,7 @@ Ok(
                                                             177,
                                                         ),
                                                         frame_var_expr_idx: 69,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 207,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `i2`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: Some(

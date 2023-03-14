@@ -22,6 +22,7 @@ pub enum UseExpr {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ParentNameToken {
     Ident(IdentToken),
     Crate(CrateToken),

@@ -207,15 +207,9 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 138,
-                                        },
-                                    ),
-                                ),
+                                ident: `concave_component`,
                                 token_idx: TokenIdx(
                                     10,
                                 ),
@@ -235,15 +229,9 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 139,
-                                        },
-                                    ),
-                                ),
+                                ident: `convex_component`,
                                 token_idx: TokenIdx(
                                     15,
                                 ),
@@ -263,15 +251,9 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 141,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment`,
                                 token_idx: TokenIdx(
                                     20,
                                 ),
@@ -293,7 +275,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     24,
@@ -316,7 +298,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -339,15 +321,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 141,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment`,
                                 token_idx: TokenIdx(
                                     36,
                                 ),

@@ -1,41 +1,23 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 12,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `prelude`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 6,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `logic`,
             ),
-            Keyword(
-                Mod,
+            Token::Keyword(
+                Keyword::Mod,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 10,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `ops`,
             ),
         ],
         group_starts: [
