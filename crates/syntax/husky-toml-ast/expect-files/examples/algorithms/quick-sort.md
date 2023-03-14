@@ -18,7 +18,7 @@ Ok(
                                 },
                             ),
                         ],
-                        kind: Normal,
+                        kind: TomlSectionKind::Normal,
                         key_value_pairs: [
                             (
                                 1,

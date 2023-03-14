@@ -4,6 +4,7 @@ use idx_arena::{Arena, ArenaIdx};
 use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlSectionSheet {
     arena: Arena<TomlSection>,
     errors: Vec<TomlAstError>,
@@ -13,6 +14,7 @@ pub type TomlSectionArena = Arena<TomlSection>;
 pub type TomlSectionIdx = ArenaIdx<TomlSection>;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlSection {
     title: SmallVec<[Word; 2]>,
     kind: TomlSectionKind,
@@ -20,6 +22,7 @@ pub struct TomlSection {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlSectionKind {
     Normal,
     Scattered,
@@ -60,6 +63,7 @@ struct TomlSectionIter<'a> {
     section_errors: &'a mut Vec<TomlAstError>,
 }
 
+#[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlSectionIterState {
     Normal,
     Err,
