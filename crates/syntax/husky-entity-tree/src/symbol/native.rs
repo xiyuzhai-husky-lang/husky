@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[enum_class::from_variants]
 pub enum NativeEntitySymbol {
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
@@ -17,22 +18,17 @@ impl From<NativeEntitySymbol> for EntitySymbol {
 }
 
 impl NativeEntitySymbol {
-    pub(crate) fn ast_idx(self, _db: &dyn EntityTreeDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
         match self {
-            NativeEntitySymbol::Submodule(_) => todo!(),
-            NativeEntitySymbol::ModuleItem(_) => todo!(),
+            NativeEntitySymbol::Submodule(symbol) => symbol.ast_idx(db),
+            NativeEntitySymbol::ModuleItem(symbol) => symbol.ast_idx(db),
         }
     }
-}
 
-impl From<ModuleItemSymbol> for NativeEntitySymbol {
-    fn from(v: ModuleItemSymbol) -> Self {
-        Self::ModuleItem(v)
-    }
-}
-
-impl From<SubmoduleSymbol> for NativeEntitySymbol {
-    fn from(v: SubmoduleSymbol) -> Self {
-        Self::Submodule(v)
+    pub fn ident_token(self, db: &dyn EntityTreeDb) -> IdentToken {
+        match self {
+            NativeEntitySymbol::Submodule(symbol) => symbol.ident_token(db),
+            NativeEntitySymbol::ModuleItem(symbol) => symbol.ident_token(db),
+        }
     }
 }

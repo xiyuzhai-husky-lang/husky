@@ -17,6 +17,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `connected_component`,
+                                token_idx: TokenIdx(
+                                    8,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `raw_contour`,
+                                token_idx: TokenIdx(
+                                    10,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -51,6 +63,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 14,
+                            ident_token: IdentToken {
+                                ident: `geom2d`,
+                                token_idx: TokenIdx(
+                                    12,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -68,6 +86,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 15,
+                            ident_token: IdentToken {
+                                ident: `line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -85,6 +109,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 16,
+                            ident_token: IdentToken {
+                                ident: `fermi`,
+                                token_idx: TokenIdx(
+                                    16,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -102,6 +132,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 17,
+                            ident_token: IdentToken {
+                                ident: `digits`,
+                                token_idx: TokenIdx(
+                                    18,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -119,6 +155,12 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 18,
+                            ident_token: IdentToken {
+                                ident: `major`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
                         },
                     ),
                 },

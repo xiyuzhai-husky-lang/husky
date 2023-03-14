@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 23,
+                            ident_token: IdentToken {
+                                ident: `connected_components`,
+                                token_idx: TokenIdx(
+                                    32,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 24,
+                            ident_token: IdentToken {
+                                ident: `major_connected_component`,
+                                token_idx: TokenIdx(
+                                    44,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 25,
+                            ident_token: IdentToken {
+                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                token_idx: TokenIdx(
+                                    94,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -60,6 +78,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 26,
+                            ident_token: IdentToken {
+                                ident: `major_raw_contours`,
+                                token_idx: TokenIdx(
+                                    128,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -75,6 +99,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 27,
+                            ident_token: IdentToken {
+                                ident: `major_raw_contour`,
+                                token_idx: TokenIdx(
+                                    139,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -90,6 +120,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 28,
+                            ident_token: IdentToken {
+                                ident: `major_line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    151,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -105,6 +141,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 29,
+                            ident_token: IdentToken {
+                                ident: `major_concave_components`,
+                                token_idx: TokenIdx(
+                                    160,
+                                ),
+                            },
                         },
                     ),
                 },

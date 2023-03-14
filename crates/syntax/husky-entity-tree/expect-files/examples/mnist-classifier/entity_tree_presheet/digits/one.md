@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 68,
+                            ident_token: IdentToken {
+                                ident: `one_fermi_match`,
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 69,
+                            ident_token: IdentToken {
+                                ident: `is_one`,
+                                token_idx: TokenIdx(
+                                    77,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -53,6 +65,12 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 70,
+                            ident_token: IdentToken {
+                                ident: `upmost`,
+                                token_idx: TokenIdx(
+                                    554,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -72,6 +90,12 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 71,
+                            ident_token: IdentToken {
+                                ident: `downmost`,
+                                token_idx: TokenIdx(
+                                    583,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -91,6 +115,12 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 72,
+                            ident_token: IdentToken {
+                                ident: `hat`,
+                                token_idx: TokenIdx(
+                                    617,
+                                ),
+                            },
                         },
                     ),
                 },

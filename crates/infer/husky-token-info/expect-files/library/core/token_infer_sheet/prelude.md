@@ -9,7 +9,7 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -21,14 +21,19 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 0,
                             path: `core::basic`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `basic`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -43,7 +48,7 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -55,14 +60,19 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 3,
                             path: `core::num`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `num`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -77,7 +87,7 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -89,14 +99,19 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 6,
                             path: `core::raw_bits`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `raw_bits`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -111,7 +126,7 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -123,14 +138,19 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 7,
                             path: `core::fmt`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `fmt`,
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -145,7 +165,7 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -157,14 +177,19 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 9,
                             path: `core::marker`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `marker`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -179,7 +204,7 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -191,14 +216,19 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 8,
                             path: `core::clone`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -213,7 +243,7 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `core`,
                     ),
                 },
@@ -225,14 +255,19 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 11,
                             path: `core::cmp`,
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
                             ast_idx: 11,
+                            ident_token: IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
                         },
                     ),
                 },

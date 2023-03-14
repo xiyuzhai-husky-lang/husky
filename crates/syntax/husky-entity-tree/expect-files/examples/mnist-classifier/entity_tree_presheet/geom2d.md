@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 80,
+                            ident_token: IdentToken {
+                                ident: `Point2d`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 82,
+                            ident_token: IdentToken {
+                                ident: `RelativePoint2d`,
+                                token_idx: TokenIdx(
+                                    144,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 83,
+                            ident_token: IdentToken {
+                                ident: `Vector2d`,
+                                token_idx: TokenIdx(
+                                    157,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -60,6 +78,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 85,
+                            ident_token: IdentToken {
+                                ident: `ClosedRange`,
+                                token_idx: TokenIdx(
+                                    488,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -75,6 +99,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 87,
+                            ident_token: IdentToken {
+                                ident: `BoundingBox`,
+                                token_idx: TokenIdx(
+                                    596,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -90,6 +120,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 90,
+                            ident_token: IdentToken {
+                                ident: `RelativeBoundingBox`,
+                                token_idx: TokenIdx(
+                                    732,
+                                ),
+                            },
                         },
                     ),
                 },

@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 44,
+                            ident_token: IdentToken {
+                                ident: `nine_match`,
+                                token_idx: TokenIdx(
+                                    75,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 45,
+                            ident_token: IdentToken {
+                                ident: `nine_match_refine`,
+                                token_idx: TokenIdx(
+                                    88,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 46,
+                            ident_token: IdentToken {
+                                ident: `is_nine`,
+                                token_idx: TokenIdx(
+                                    101,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 47,
+                            ident_token: IdentToken {
+                                ident: `downmost`,
+                                token_idx: TokenIdx(
+                                    273,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 48,
+                            ident_token: IdentToken {
+                                ident: `big_cc`,
+                                token_idx: TokenIdx(
+                                    302,
+                                ),
+                            },
                         },
                     ),
                 },

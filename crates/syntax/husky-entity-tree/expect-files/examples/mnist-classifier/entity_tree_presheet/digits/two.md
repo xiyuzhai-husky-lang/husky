@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             ast_idx: 62,
+                            ident_token: IdentToken {
+                                ident: `two_match`,
+                                token_idx: TokenIdx(
+                                    99,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             ast_idx: 63,
+                            ident_token: IdentToken {
+                                ident: `left_cc_pattern`,
+                                token_idx: TokenIdx(
+                                    116,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             ast_idx: 64,
+                            ident_token: IdentToken {
+                                ident: `right_cc_pattern`,
+                                token_idx: TokenIdx(
+                                    144,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             ast_idx: 65,
+                            ident_token: IdentToken {
+                                ident: `down_cc_pattern`,
+                                token_idx: TokenIdx(
+                                    172,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             ast_idx: 66,
+                            ident_token: IdentToken {
+                                ident: `is_two`,
+                                token_idx: TokenIdx(
+                                    200,
+                                ),
+                            },
                         },
                     ),
                 },

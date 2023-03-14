@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `Ref`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `RefMut`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `Leash`,
+                                token_idx: TokenIdx(
+                                    24,
+                                ),
+                            },
                         },
                     ),
                 },

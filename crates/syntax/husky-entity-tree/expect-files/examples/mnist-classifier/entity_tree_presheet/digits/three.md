@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 34,
+                            ident_token: IdentToken {
+                                ident: `three_fermi_match`,
+                                token_idx: TokenIdx(
+                                    63,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 35,
+                            ident_token: IdentToken {
+                                ident: `is_three`,
+                                token_idx: TokenIdx(
+                                    80,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 36,
+                            ident_token: IdentToken {
+                                ident: `uparc`,
+                                token_idx: TokenIdx(
+                                    210,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 37,
+                            ident_token: IdentToken {
+                                ident: `downarc`,
+                                token_idx: TokenIdx(
+                                    244,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 38,
+                            ident_token: IdentToken {
+                                ident: `back`,
+                                token_idx: TokenIdx(
+                                    278,
+                                ),
+                            },
                         },
                     ),
                 },

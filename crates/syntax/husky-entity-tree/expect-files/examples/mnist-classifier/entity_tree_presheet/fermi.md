@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::fermi`,
                             ),
                             ast_idx: 22,
+                            ident_token: IdentToken {
+                                ident: `FermiMatchResult`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 24,
+                            ident_token: IdentToken {
+                                ident: `fermi_match`,
+                                token_idx: TokenIdx(
+                                    146,
+                                ),
+                            },
                         },
                     ),
                 },

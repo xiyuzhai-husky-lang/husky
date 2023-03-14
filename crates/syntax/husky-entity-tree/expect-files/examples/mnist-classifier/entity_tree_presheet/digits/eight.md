@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 28,
+                            ident_token: IdentToken {
+                                ident: `upper_mouth_match`,
+                                token_idx: TokenIdx(
+                                    79,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 29,
+                            ident_token: IdentToken {
+                                ident: `is_eight`,
+                                token_idx: TokenIdx(
+                                    92,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 30,
+                            ident_token: IdentToken {
+                                ident: `big_mouth`,
+                                token_idx: TokenIdx(
+                                    155,
+                                ),
+                            },
                         },
                     ),
                 },

@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 16,
+                            ident_token: IdentToken {
+                                ident: `LineSegment`,
+                                token_idx: TokenIdx(
+                                    8,
+                                ),
+                            },
                         },
                     ),
                 },

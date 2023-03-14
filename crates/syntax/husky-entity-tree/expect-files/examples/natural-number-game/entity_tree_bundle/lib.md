@@ -12,9 +12,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 142,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::Nat`, `Inductive`),
                                     ),
@@ -22,6 +21,12 @@ Ok(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Nat`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -32,9 +37,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 143,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::OddNat`, `Structure`),
                                     ),
@@ -42,6 +46,12 @@ Ok(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `OddNat`,
+                                        token_idx: TokenIdx(
+                                            85,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -52,9 +62,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 144,
                                     path: ModuleItemPath::Type(
                                         TypePath(`natural_number_game::EvenNat`, `Structure`),
                                     ),
@@ -62,6 +71,12 @@ Ok(
                                         `natural_number_game`,
                                     ),
                                     ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `EvenNat`,
+                                        token_idx: TokenIdx(
+                                            114,
+                                        ),
+                                    },
                                 },
                             ),
                         },

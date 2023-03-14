@@ -5,7 +5,7 @@ pub use native::*;
 pub use table::*;
 
 use crate::*;
-use husky_token::TokenIdx;
+use husky_token::{IdentToken, TokenIdx};
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct ModuleItemSymbol {
@@ -13,6 +13,7 @@ pub struct ModuleItemSymbol {
     pub path: ModuleItemPath,
     pub accessibility: Accessibility,
     pub ast_idx: AstIdx,
+    pub ident_token: IdentToken,
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
@@ -21,6 +22,7 @@ pub struct SubmoduleSymbol {
     pub path: ModulePath,
     pub accessibility: Accessibility,
     pub ast_idx: AstIdx,
+    pub ident_token: IdentToken,
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
@@ -40,17 +42,13 @@ impl ModuleItemSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[enum_class::from_variants]
 pub enum EntitySymbol {
     CrateRoot(ModulePath),
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
     Use(UseSymbol),
-}
-
-impl From<UseSymbol> for EntitySymbol {
-    fn from(v: UseSymbol) -> Self {
-        Self::Use(v)
-    }
 }
 
 impl EntitySymbol {
@@ -80,37 +78,6 @@ impl EntitySymbol {
         match self {
             EntitySymbol::ModuleItem(symbol) => Some(symbol),
             _ => None,
-        }
-    }
-
-    // pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
-    //     Self {
-    //         path: todo!(),
-    //         accessibility: todo!(),
-    //     }
-    // }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbol {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        match self {
-            EntitySymbol::CrateRoot(root) => {
-                f.debug_tuple("CrateRoot").field(&root.debug(db)).finish()
-            }
-            EntitySymbol::Submodule(symbol) => {
-                f.debug_tuple("Submodule").field(&symbol.debug(db)).finish()
-            }
-            EntitySymbol::ModuleItem(symbol) => f
-                .debug_tuple("ModuleItem")
-                .field(&symbol.debug(db))
-                .finish(),
-            EntitySymbol::Use(symbol) => f.debug_tuple("Use").field(&symbol.debug(db)).finish(),
         }
     }
 }

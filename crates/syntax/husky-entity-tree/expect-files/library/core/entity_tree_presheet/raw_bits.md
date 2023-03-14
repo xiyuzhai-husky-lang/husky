@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `r32`,
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
                         },
                     ),
                 },

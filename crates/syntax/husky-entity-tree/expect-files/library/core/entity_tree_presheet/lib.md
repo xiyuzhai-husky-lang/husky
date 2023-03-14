@@ -17,6 +17,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `basic`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `logic`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -51,6 +63,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `mem`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -68,6 +86,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `num`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -85,6 +109,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 4,
+                            ident_token: IdentToken {
+                                ident: `ops`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -102,6 +132,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 5,
+                            ident_token: IdentToken {
+                                ident: `prelude`,
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -119,6 +155,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `raw_bits`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -136,6 +178,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `fmt`,
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -153,6 +201,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -170,6 +224,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `marker`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -187,6 +247,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 10,
+                            ident_token: IdentToken {
+                                ident: `list`,
+                                token_idx: TokenIdx(
+                                    21,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -204,6 +270,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 11,
+                            ident_token: IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -221,6 +293,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `str`,
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -238,6 +316,12 @@ Ok(
                                 `core`,
                             ),
                             ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `option`,
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
                         },
                     ),
                 },

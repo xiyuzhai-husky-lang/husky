@@ -25,7 +25,7 @@ use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DbWithJar;
 
 #[salsa::jar(db = AstDb)]
-pub struct AstJar(ast_sheet, ast_range_sheet);
+pub struct AstJar(ast_sheet, ast_token_idx_range_sheet);
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = AstDb)]

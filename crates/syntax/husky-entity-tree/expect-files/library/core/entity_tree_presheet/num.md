@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 31,
+                            ident_token: IdentToken {
+                                ident: `i8`,
+                                token_idx: TokenIdx(
+                                    28,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 36,
+                            ident_token: IdentToken {
+                                ident: `i16`,
+                                token_idx: TokenIdx(
+                                    80,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 41,
+                            ident_token: IdentToken {
+                                ident: `i32`,
+                                token_idx: TokenIdx(
+                                    132,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -60,6 +78,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 46,
+                            ident_token: IdentToken {
+                                ident: `i64`,
+                                token_idx: TokenIdx(
+                                    183,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -75,6 +99,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 51,
+                            ident_token: IdentToken {
+                                ident: `i128`,
+                                token_idx: TokenIdx(
+                                    235,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -90,6 +120,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 56,
+                            ident_token: IdentToken {
+                                ident: `isize`,
+                                token_idx: TokenIdx(
+                                    287,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -105,6 +141,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 61,
+                            ident_token: IdentToken {
+                                ident: `u8`,
+                                token_idx: TokenIdx(
+                                    339,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -120,6 +162,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 66,
+                            ident_token: IdentToken {
+                                ident: `u16`,
+                                token_idx: TokenIdx(
+                                    391,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -135,6 +183,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 71,
+                            ident_token: IdentToken {
+                                ident: `u32`,
+                                token_idx: TokenIdx(
+                                    443,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -150,6 +204,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 76,
+                            ident_token: IdentToken {
+                                ident: `u64`,
+                                token_idx: TokenIdx(
+                                    495,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -165,6 +225,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 81,
+                            ident_token: IdentToken {
+                                ident: `u128`,
+                                token_idx: TokenIdx(
+                                    547,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -180,6 +246,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 86,
+                            ident_token: IdentToken {
+                                ident: `usize`,
+                                token_idx: TokenIdx(
+                                    599,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -195,6 +267,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 91,
+                            ident_token: IdentToken {
+                                ident: `f32`,
+                                token_idx: TokenIdx(
+                                    651,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -210,6 +288,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 96,
+                            ident_token: IdentToken {
+                                ident: `f64`,
+                                token_idx: TokenIdx(
+                                    702,
+                                ),
+                            },
                         },
                     ),
                 },

@@ -20,7 +20,7 @@ impl<'a> DefnCollector<'a> {
             module_symbol_context,
             token_sheet_data: db.token_sheet_data(module_path)?,
             ast_sheet: db.ast_sheet(module_path)?,
-            ast_range_sheet: db.ast_range_sheet(module_path)?,
+            ast_range_sheet: db.ast_token_idx_range_sheet(module_path)?,
             decl_sheet: db.decl_sheet(module_path)?,
         })
     }
@@ -416,7 +416,7 @@ fn expr_parser<'a>(
     BlockExprParser::new(
         parser,
         db.ast_sheet(module_path).unwrap(),
-        db.ast_range_sheet(module_path).unwrap(),
+        db.ast_token_idx_range_sheet(module_path).unwrap(),
         None, // ad hoc
     )
 }

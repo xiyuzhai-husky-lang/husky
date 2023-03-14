@@ -17,6 +17,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `zero`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -51,6 +63,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -68,6 +86,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `three`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -85,6 +109,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 4,
+                            ident_token: IdentToken {
+                                ident: `four`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -102,23 +132,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 5,
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
-                        "six",
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits`,
-                    ),
-                    symbol: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::six`,
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `five`,
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -136,6 +155,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `seven`,
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -153,6 +178,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `eight`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -170,6 +201,12 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `nine`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -747,6 +784,41 @@ Ok(
         mod_path_arena: Arena {
             data: [],
         },
-        errors: [],
+        errors: [
+            EntityTreeError::Original(
+                OriginalEntityTreeError::EntitySymbolAlreadyDefined {
+                    old: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::six`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
+                    ),
+                    new: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::six`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        },
+                    ),
+                },
+            ),
+        ],
     },
 )

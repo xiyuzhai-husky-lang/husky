@@ -8,7 +8,7 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },
@@ -20,14 +20,19 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 19,
                             path: `mnist_classifier::geom2d`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 14,
+                            ident_token: IdentToken {
+                                ident: `geom2d`,
+                                token_idx: TokenIdx(
+                                    12,
+                                ),
+                            },
                         },
                     ),
                 },

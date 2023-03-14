@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 121,
+                            ident_token: IdentToken {
+                                ident: `ConnectedComponentDistribution`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 122,
+                            ident_token: IdentToken {
+                                ident: `EffHoles`,
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -49,6 +61,12 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 123,
+                            ident_token: IdentToken {
+                                ident: `hole_tmpl`,
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -64,6 +82,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 124,
+                            ident_token: IdentToken {
+                                ident: `ConnectedComponent`,
+                                token_idx: TokenIdx(
+                                    79,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -83,6 +107,12 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 126,
+                            ident_token: IdentToken {
+                                ident: `horizontal_extend`,
+                                token_idx: TokenIdx(
+                                    560,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -98,6 +128,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 127,
+                            ident_token: IdentToken {
+                                ident: `find_connected_components`,
+                                token_idx: TokenIdx(
+                                    646,
+                                ),
+                            },
                         },
                     ),
                 },

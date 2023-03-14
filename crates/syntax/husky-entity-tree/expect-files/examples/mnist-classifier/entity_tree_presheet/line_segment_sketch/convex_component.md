@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `ConvexComponent`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },

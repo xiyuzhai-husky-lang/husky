@@ -33,7 +33,7 @@ fn folding_ranges(
     module_path: ModulePath,
 ) -> FoldingRangeResult<Vec<FoldingRange>> {
     let ast_sheet = db.ast_sheet(module_path)?;
-    let ast_range_sheet = db.ast_range_sheet(module_path)?;
+    let ast_range_sheet = db.ast_token_idx_range_sheet(module_path)?;
     let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
     Ok(calc_folding_ranges(
         ast_sheet,
