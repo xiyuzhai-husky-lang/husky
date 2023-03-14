@@ -215,18 +215,9 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                             EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
                         },
                     );
-                    match self.native_symbol_entries.insert(new_entry) {
-                        Ok(_) => (),
-                        Err(_e) => {
-                            todo!()
-                            // let old_native_symbol_entry = &self.native_symbol_entries.data()[e.old];
-                            // self.errors
-                            //     .push(EntityTreeError::EntitySymbolAlreadyDefined {
-                            //         old: old_native_symbol_entry.symbol().ast_idx(self.db),
-                            //         new: ast_idx,
-                            //     })
-                        }
-                    }
+                    self.native_symbol_entries
+                        .insert(self.db, new_entry)
+                        .map_err(|e| self.errors.push(e));
                 }
             }
             Ast::Err { .. }

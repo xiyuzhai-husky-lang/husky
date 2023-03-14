@@ -359,9 +359,14 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
                     | OriginalExprError::ExpectParameterType(token_idx)
                     | OriginalExprError::SelfTypeNotAllowed(token_idx)
-                    | OriginalExprError::SelfValueNotAllowed(token_idx) => {
-                        TokenIdxRange::new_single(*token_idx)
+                    | OriginalExprError::SelfValueNotAllowed(token_idx)
+                    | OriginalExprError::ExpectedIdentAfterDot {
+                        dot_token_idx: token_idx,
+                        ..
                     }
+                    | OriginalExprError::ExpectedExprBeforeDot {
+                        dot_token_idx: token_idx,
+                    } => TokenIdxRange::new_single(*token_idx),
                     OriginalExprError::ExpectBlock(_) => todo!(),
                 },
                 ExprError::Derived(_) => todo!(),

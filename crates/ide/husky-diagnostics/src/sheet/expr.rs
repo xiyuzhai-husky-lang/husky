@@ -169,6 +169,12 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::SelfValueNotAllowed(_) => {
                 format!("Syntax Error: SelfValueNotAllowed")
             }
+            OriginalExprError::ExpectedIdentAfterDot { .. } => {
+                format!("Syntax Error: ExpectedIdentAfterDot")
+            }
+            OriginalExprError::ExpectedExprBeforeDot { .. } => {
+                format!("Syntax Error: ExpectedExprBeforeDot")
+            }
         }
     }
 
@@ -235,9 +241,14 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
             | OriginalExprError::ExpectParameterType(token_idx)
             | OriginalExprError::SelfTypeNotAllowed(token_idx)
-            | OriginalExprError::SelfValueNotAllowed(token_idx) => {
-                ctx.ranged_token_sheet().token_text_range(*token_idx)
+            | OriginalExprError::SelfValueNotAllowed(token_idx)
+            | OriginalExprError::ExpectedIdentAfterDot {
+                dot_token_idx: token_idx,
+                ..
             }
+            | OriginalExprError::ExpectedExprBeforeDot {
+                dot_token_idx: token_idx,
+            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalExprError::ExpectBlock(_) => todo!(),
         }
     }

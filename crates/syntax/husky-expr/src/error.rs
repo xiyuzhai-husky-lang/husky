@@ -108,6 +108,13 @@ pub enum OriginalExprError {
     SelfTypeNotAllowed(TokenIdx),
     #[error("SelfValueNotAllowed")]
     SelfValueNotAllowed(TokenIdx),
+    #[error("ExpectedIdentAfterDot")]
+    ExpectedIdentAfterDot {
+        self_expr: ExprIdx,
+        dot_token_idx: TokenIdx,
+    },
+    #[error("ExpectedExprBeforeDot")]
+    ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
 }
 
 impl OriginalError for OriginalExprError {
