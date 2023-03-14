@@ -42,16 +42,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [68:26, 68:38),
             },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [108:40, 108:52),
-            },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [109:40, 109:52),
-            },
         ],
     },
 }

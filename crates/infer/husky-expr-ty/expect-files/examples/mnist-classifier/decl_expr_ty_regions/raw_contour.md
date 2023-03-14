@@ -1790,33 +1790,21 @@
                         TypePath(
                             Ontology,
                         ),
-                        Ok(
-                            Resolved(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
+                        Err(
+                            Derived(
+                                TypeError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
                                         ),
-                                    },
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsSort(
-                                TermUniverse(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
@@ -1833,36 +1821,7 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 0,
-                            expectee: Resolved(
-                                Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                            ),
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsSort(
-                                        TermUniverse(
-                                            1,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },

@@ -45,8 +45,10 @@
                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
             ),
         ),
-        Ok(
-            RawTerm(`Type`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
