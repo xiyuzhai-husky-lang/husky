@@ -4884,7 +4884,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 192,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    136,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -4917,7 +4939,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 192,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    147,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,

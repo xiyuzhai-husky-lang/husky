@@ -5218,7 +5218,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 303,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    416,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,

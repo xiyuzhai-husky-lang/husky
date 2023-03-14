@@ -49,7 +49,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ),
             ));
         }
-        Err(OriginalExprTypeError::NoSuchMethod.into())
+        Err(OriginalExprTypeError::NoMethodForType {
+            self_expr_ty_unravelled,
+            ident_token,
+        }
+        .into())
     }
 
     fn calc_ty_method_expr_ty(

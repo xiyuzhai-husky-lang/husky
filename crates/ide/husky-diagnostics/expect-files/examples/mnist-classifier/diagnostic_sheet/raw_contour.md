@@ -69,14 +69,14 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `last_bits` for type `LocalTerm::Resolved(Term(`TypeOntology(core::raw_bits::r32)`))`",
                 severity: Error,
-                range: [101:28, 101:86),
+                range: [101:74, 101:83),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [161:13, 161:26),
+                range: [161:20, 161:24),
             },
             Diagnostic {
                 message: "Type Error: TodoIndexOrComposeWithList",

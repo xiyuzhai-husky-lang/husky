@@ -343,7 +343,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 304,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    380,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2044,7 +2068,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 304,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    477,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3465,7 +3513,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    569,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3522,7 +3594,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    584,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3822,7 +3916,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    612,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5511,7 +5629,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    758,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7492,7 +7634,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    806,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7575,7 +7741,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    823,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7835,7 +8023,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    845,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8406,7 +8618,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 43,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 245,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    904,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -12057,7 +12293,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1082,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -12854,7 +13112,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1177,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -14610,7 +14890,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    1389,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -17292,7 +17594,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 330,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    114,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,

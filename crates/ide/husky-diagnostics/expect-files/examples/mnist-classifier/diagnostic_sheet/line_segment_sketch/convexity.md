@@ -21,14 +21,14 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [15:32, 15:101),
+                range: [15:60, 15:72),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [21:32, 21:101),
+                range: [21:60, 21:72),
             },
         ],
     },
