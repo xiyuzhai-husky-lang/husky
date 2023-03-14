@@ -41,18 +41,18 @@ pub fn ty_path_field_raw_ty(
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
     Ok(match signature {
-        TypeSignature::Enum(_) => todo!(),
         TypeSignature::RegularStruct(signature) => signature
             .fields(db)
             .iter()
             .find_map(|field| (field.ident() == ident).then_some(field.ty())),
-        TypeSignature::UnitStruct(_) => todo!(),
-        TypeSignature::TupleStruct(_) => todo!(),
         TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => todo!(),
         TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Foreign(_) => todo!(),
-        TypeSignature::Union(_) => todo!(),
+        TypeSignature::Enum(_)
+        | TypeSignature::UnitStruct(_)
+        | TypeSignature::TupleStruct(_)
+        | TypeSignature::Inductive(_)
+        | TypeSignature::Foreign(_)
+        | TypeSignature::Union(_) => None,
     })
 }
 
