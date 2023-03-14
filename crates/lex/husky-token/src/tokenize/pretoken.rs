@@ -421,7 +421,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 ']' => Punctuation::Ket(Bracket::Box),
                 '}' => Punctuation::Ket(Bracket::Curl),
                 ',' => Punctuation::Comma,
-                '@' => Punctuation::At,
+                '@' => match self.peek_char() {
+                    Some('=') => self.pass_two(Punctuation::AtEq),
+                    _ => Punctuation::At,
+                },
                 '&' => match self.peek_char() {
                     Some('&') => self.pass_two(Punctuation::Binary(BinaryOpr::ShortCircuitLogic(
                         BinaryShortcuitLogicOpr::And,

@@ -42,6 +42,8 @@ pub enum Punctuation {
     Sheba,             // $
     /// `@`
     At,
+    /// `@=`
+    AtEq,
     /// `?`
     Question,
     /// written as `#`
@@ -93,6 +95,7 @@ impl Punctuation {
             Punctuation::Semicolon => ";",
             Punctuation::XmlKet => "/>",
             Punctuation::At => "@",
+            Punctuation::AtEq => "@=",
             Punctuation::Question => "?",
             Punctuation::PoundSign => "#",
             Punctuation::Star => "*",
@@ -139,6 +142,7 @@ impl Punctuation {
             Punctuation::Semicolon => todo!(),
             Punctuation::XmlKet => todo!(),
             Punctuation::At => todo!(),
+            Punctuation::AtEq => todo!(),
             Punctuation::Question => todo!(),
             Punctuation::PoundSign => todo!(),
             Punctuation::Star => todo!(),

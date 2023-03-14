@@ -65,6 +65,7 @@ impl Token {
                 Punctuation::Semicolon => Convexity::Any,
                 Punctuation::XmlKet => Convexity::Convex,
                 Punctuation::At => Convexity::Concave,
+                Punctuation::AtEq => Convexity::Concave,
                 Punctuation::Ambersand => Convexity::Concave,
                 Punctuation::PoundSign => Convexity::Concave,
                 Punctuation::Question => Convexity::Any,
