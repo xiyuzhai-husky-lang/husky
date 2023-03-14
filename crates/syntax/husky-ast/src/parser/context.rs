@@ -3,9 +3,9 @@ use husky_entity_taxonomy::{
     AssociatedItemKind, EntityKind, ModuleItemKind, TraitItemKind, TypeItemKind, TypeKind,
 };
 
-use crate::INDENT_INCR;
+use crate::{AstResult, OriginalAstError, INDENT_INCR};
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub(super) enum AstContextKind {
     InsideTrait {
         module_item_path: ModuleItemPath,
@@ -76,6 +76,22 @@ impl AstContextKind {
                 },
             },
             EntityKind::Variant => todo!(),
+        }
+    }
+
+    pub(crate) fn allow_stmt(self) -> AstResult<()> {
+        match self {
+            AstContextKind::InsideTrait { module_item_path } => {
+                Err(OriginalAstError::UnexpectedStmtInsideTrait)?
+            }
+            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::InsideForm => Ok(()),
+            AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTypeAsTraitImplBlock => {
+                Err(OriginalAstError::UnexpectedStmtInsideImplBlock)?
+            }
+            AstContextKind::InsideModule => Err(OriginalAstError::UnexpectedStmtInsideModule)?,
+            AstContextKind::InsideMatchStmt => Ok(()),
+            AstContextKind::InsideNoChild => Err(OriginalAstError::ExpectNothing)?,
         }
     }
 }

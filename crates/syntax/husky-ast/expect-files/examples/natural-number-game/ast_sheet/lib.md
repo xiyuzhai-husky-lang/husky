@@ -35,7 +35,7 @@ Ok(
                         5,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideImpl,
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Err {
@@ -43,7 +43,7 @@ Ok(
                         6,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideImpl,
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Defn {

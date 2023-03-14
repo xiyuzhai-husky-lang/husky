@@ -70,28 +70,44 @@ impl<'a> AstParser<'a> {
         Some(match first_noncomment_token {
             Token::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
             Token::Keyword(kw) => match kw {
-                Keyword::Stmt(kw) => match kw {
-                    StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, &context),
-                    StmtKeyword::Elif => Ast::Err {
-                        token_group_idx,
-                        error: OriginalAstError::StandaloneElif.into(),
-                    },
-                    StmtKeyword::Else => Ast::Err {
-                        token_group_idx,
-                        error: OriginalAstError::StandaloneElse.into(),
-                    },
-                    StmtKeyword::Match => self.parse_match_stmts(token_group_idx, &context),
-                    StmtKeyword::While
-                    | StmtKeyword::Do
-                    | StmtKeyword::For
-                    | StmtKeyword::ForExt
-                    | StmtKeyword::Let
-                    | StmtKeyword::Var
-                    | StmtKeyword::Break
-                    | StmtKeyword::Return
-                    | StmtKeyword::Assert
-                    | StmtKeyword::Require => self.parse_stmt(token_group_idx, &context),
-                },
+                Keyword::Stmt(StmtKeyword::Let)
+                    if context.kind() == AstContextKind::InsideModule =>
+                {
+                    todo!("feature")
+                }
+                Keyword::Stmt(kw) => {
+                    match context.kind().allow_stmt() {
+                        Ok(_) => (),
+                        Err(error) => {
+                            return Some(Ast::Err {
+                                token_group_idx,
+                                error,
+                            })
+                        }
+                    }
+                    match kw {
+                        StmtKeyword::If => self.parse_if_else_stmts(token_group_idx, &context),
+                        StmtKeyword::Elif => Ast::Err {
+                            token_group_idx,
+                            error: OriginalAstError::StandaloneElif.into(),
+                        },
+                        StmtKeyword::Else => Ast::Err {
+                            token_group_idx,
+                            error: OriginalAstError::StandaloneElse.into(),
+                        },
+                        StmtKeyword::Match => self.parse_match_stmts(token_group_idx, &context),
+                        StmtKeyword::While
+                        | StmtKeyword::Do
+                        | StmtKeyword::For
+                        | StmtKeyword::ForExt
+                        | StmtKeyword::Let
+                        | StmtKeyword::Var
+                        | StmtKeyword::Break
+                        | StmtKeyword::Return
+                        | StmtKeyword::Assert
+                        | StmtKeyword::Require => self.parse_stmt(token_group_idx, &context),
+                    }
+                }
                 Keyword::Pronoun(_) => self.parse_stmt(token_group_idx, &context),
                 Keyword::Pattern(_) => {
                     return Some(Ast::Err {
@@ -204,32 +220,12 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
-        match context.kind() {
-            AstContextKind::InsideTrait { module_item_path } => {
+        match context.kind().allow_stmt() {
+            Ok(_) => (),
+            Err(error) => {
                 return Ast::Err {
                     token_group_idx,
-                    error: OriginalAstError::Todo.into(),
-                }
-            }
-            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
-            AstContextKind::InsideForm => (),
-            AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTypeAsTraitImplBlock => {
-                return Ast::Err {
-                    token_group_idx,
-                    error: OriginalAstError::UnexpectedStmtInsideImpl.into(),
-                }
-            }
-            AstContextKind::InsideModule => {
-                return Ast::Err {
-                    token_group_idx,
-                    error: OriginalAstError::UnexpectedStmtInsideModule.into(),
-                }
-            }
-            AstContextKind::InsideMatchStmt => (),
-            AstContextKind::InsideNoChild => {
-                return Ast::Err {
-                    token_group_idx,
-                    error: OriginalAstError::ExpectNothing.into(),
+                    error,
                 }
             }
         }

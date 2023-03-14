@@ -56,7 +56,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedStmtInsideModule => {
                 format!("Syntax Error: unexpected stmt inside module")
             }
-            OriginalAstError::UnexpectedStmtInsideImpl => {
+            OriginalAstError::UnexpectedStmtInsideImplBlock => {
                 format!("Syntax Error: unexpected stmt inside impl")
             }
             OriginalAstError::UnexpectedPunctuationForTraitItem(_, unexpected_punctuation) => {
@@ -172,7 +172,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::ExpectDecoratorOrEntityKeyword
             | OriginalAstError::ExpectNothing
             | OriginalAstError::UnexpectedStmtInsideModule
-            | OriginalAstError::UnexpectedStmtInsideImpl
+            | OriginalAstError::UnexpectedStmtInsideImplBlock
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
             | OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule
