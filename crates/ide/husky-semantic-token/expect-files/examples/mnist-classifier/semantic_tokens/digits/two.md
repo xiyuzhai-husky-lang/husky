@@ -1,9 +1,11 @@
 Err(
-    InvalidModulePath(
-        ModulePath(
-            Id {
-                value: 34,
-            },
+    Derived(
+        InvalidModulePath(
+            ModulePath(
+                Id {
+                    value: 34,
+                },
+            ),
         ),
     ),
 )

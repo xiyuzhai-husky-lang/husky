@@ -9335,7 +9335,9 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     1301,
                                                                 ),
-                                                                error: EntityTreeError::NoSubentity,
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -9372,7 +9374,9 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     1338,
                                                                 ),
-                                                                error: EntityTreeError::NoSubentity,
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -9409,7 +9413,9 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     1376,
                                                                 ),
-                                                                error: EntityTreeError::NoSubentity,
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -9446,7 +9452,9 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     1398,
                                                                 ),
-                                                                error: EntityTreeError::NoSubentity,
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
                                                             },
                                                         ),
                                                     ),
@@ -12037,7 +12045,9 @@ Ok(
                                                                     token_idx: TokenIdx(
                                                                         52,
                                                                     ),
-                                                                    error: EntityTreeError::NoSubentity,
+                                                                    error: EntityTreeError::Original(
+                                                                        OriginalEntityTreeError::NoSubentity,
+                                                                    ),
                                                                 },
                                                             ),
                                                         ),

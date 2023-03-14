@@ -1,7 +1,13 @@
 DiagnosticSheet {
     [salsa id]: 16,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [1:9, 1:13),
+            },
+        ],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],

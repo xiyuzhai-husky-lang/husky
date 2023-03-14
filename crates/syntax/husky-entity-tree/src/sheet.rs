@@ -62,6 +62,10 @@ impl EntityTreeSheet {
             })
     }
 
+    pub fn errors(&self) -> &[EntityTreeError] {
+        &self.errors
+    }
+
     pub fn use_expr_rule_indexed_iter<'a>(
         &'a self,
     ) -> impl Iterator<Item = (UseExprRuleIdx, &'a UseExprRule)> + 'a {
@@ -87,5 +91,5 @@ pub(crate) fn entity_tree_sheet(
         .map_err(|e| e.clone())?;
     entity_tree_bundle
         .get_sheet(module_path)
-        .ok_or_else(|| EntityTreeError::InvalidModulePath(module_path))
+        .ok_or_else(|| DerivedEntityTreeError::InvalidModulePath(module_path).into())
 }

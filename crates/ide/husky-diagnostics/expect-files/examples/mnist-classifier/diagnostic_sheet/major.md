@@ -1,7 +1,13 @@
 DiagnosticSheet {
     [salsa id]: 41,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "SymbolNotAccessible",
+                severity: Error,
+                range: [4:33, 4:50),
+            },
+        ],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],

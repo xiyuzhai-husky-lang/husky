@@ -46,7 +46,7 @@ pub(crate) fn subentity_path(
                         })
                     } else {
                         // todo: check trait impls
-                        Err(EntityTreeError::NoSubentity)
+                        Err(OriginalEntityTreeError::NoSubentity)?
                     }
                 }
                 ModuleItemPath::Trait(_) => todo!(),

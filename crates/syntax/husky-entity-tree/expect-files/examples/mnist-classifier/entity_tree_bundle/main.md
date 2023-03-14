@@ -694,7 +694,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
@@ -718,7 +718,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
@@ -742,7 +742,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -777,7 +777,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `digits`,
                                         token_idx: TokenIdx(
@@ -812,7 +812,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -847,7 +847,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -882,7 +882,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -917,7 +917,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -941,7 +941,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
@@ -1067,39 +1067,56 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `mnist`,
-                            token_idx: TokenIdx(
-                                22,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `mnist`,
-                            token_idx: TokenIdx(
-                                26,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                51,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `mnist`,
-                            token_idx: TokenIdx(
-                                61,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `find_raw_contours`,
+                                token_idx: TokenIdx(
+                                    45,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -2262,7 +2279,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cv`,
                                         token_idx: TokenIdx(
@@ -2286,7 +2303,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             9,
@@ -2313,7 +2330,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             15,
@@ -2340,7 +2357,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -2411,13 +2428,15 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `cv`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
                 ],
             },
@@ -3203,7 +3222,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -3230,7 +3249,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -3257,7 +3276,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -3284,7 +3303,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
@@ -3308,7 +3327,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -3347,7 +3366,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `connected_component`,
                                         token_idx: TokenIdx(
@@ -3386,7 +3405,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -3474,13 +3493,15 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `mnist`,
-                            token_idx: TokenIdx(
-                                19,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
                     ),
                 ],
             },
@@ -4237,7 +4258,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -4270,7 +4291,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `convex_component`,
                                         token_idx: TokenIdx(
@@ -4303,7 +4324,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -4338,7 +4359,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             24,
@@ -4365,7 +4386,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -4392,7 +4413,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -4427,7 +4448,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -4466,7 +4487,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -6191,7 +6212,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -6218,7 +6239,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -6245,7 +6266,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             15,
@@ -6272,7 +6293,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             23,
@@ -6299,7 +6320,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             29,
@@ -6326,7 +6347,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -6365,7 +6386,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -6404,7 +6425,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -6443,7 +6464,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -6482,7 +6503,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment`,
                                         token_idx: TokenIdx(
@@ -6521,7 +6542,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `convexity`,
                                         token_idx: TokenIdx(
@@ -7535,7 +7556,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -7562,7 +7583,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -8490,7 +8511,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -8517,7 +8538,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -8544,7 +8565,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -8571,7 +8592,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -8610,7 +8631,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -8649,7 +8670,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -8984,7 +9005,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -9011,7 +9032,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `geom2d`,
                                         token_idx: TokenIdx(
@@ -10077,7 +10098,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -10555,7 +10576,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -10590,7 +10611,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -10625,7 +10646,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `zero`,
                                         token_idx: TokenIdx(
@@ -10660,7 +10681,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `two`,
                                         token_idx: TokenIdx(
@@ -10684,7 +10705,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `three`,
                                         token_idx: TokenIdx(
@@ -10719,7 +10740,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `five`,
                                         token_idx: TokenIdx(
@@ -10754,7 +10775,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -10789,7 +10810,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `seven`,
                                         token_idx: TokenIdx(
@@ -10824,7 +10845,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `eight`,
                                         token_idx: TokenIdx(
@@ -10859,7 +10880,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `nine`,
                                         token_idx: TokenIdx(
@@ -11198,29 +11219,96 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `two`,
-                            token_idx: TokenIdx(
-                                34,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `two`,
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `is_five`,
-                            token_idx: TokenIdx(
-                                44,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    28,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::SymbolNotAccessible,
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_zero`,
+                                token_idx: TokenIdx(
+                                    32,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_three`,
+                                token_idx: TokenIdx(
+                                    40,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `is_five`,
+                                token_idx: TokenIdx(
+                                    44,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    48,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_seven`,
+                                token_idx: TokenIdx(
+                                    52,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_eight`,
+                                token_idx: TokenIdx(
+                                    56,
+                                ),
+                            },
+                        ),
+                    ),
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `is_nine`,
+                                token_idx: TokenIdx(
+                                    60,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -11631,7 +11719,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cv`,
                                         token_idx: TokenIdx(
@@ -11655,7 +11743,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -11679,7 +11767,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -11703,7 +11791,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -11727,7 +11815,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             39,
@@ -11754,7 +11842,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             45,
@@ -11781,7 +11869,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             51,
@@ -11808,7 +11896,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             59,
@@ -11835,7 +11923,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -11874,7 +11962,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -11913,7 +12001,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -11952,7 +12040,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -11980,7 +12068,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -12068,47 +12156,66 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `cv`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                9,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                19,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                29,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `one`,
-                            token_idx: TokenIdx(
-                                61,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -12555,7 +12662,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cv`,
                                         token_idx: TokenIdx(
@@ -12579,7 +12686,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -12603,7 +12710,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -12627,7 +12734,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -12651,7 +12758,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             39,
@@ -12678,7 +12785,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             45,
@@ -12705,7 +12812,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             51,
@@ -12732,7 +12839,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -12771,7 +12878,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -12810,7 +12917,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -12849,7 +12956,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -12937,39 +13044,56 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `cv`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                9,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                19,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                29,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -13420,7 +13544,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cv`,
                                         token_idx: TokenIdx(
@@ -13444,7 +13568,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -13468,7 +13592,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -13492,7 +13616,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -13516,7 +13640,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             39,
@@ -13543,7 +13667,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             45,
@@ -13570,7 +13694,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             51,
@@ -13597,7 +13721,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             59,
@@ -13624,7 +13748,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -13663,7 +13787,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -13702,7 +13826,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -13741,7 +13865,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -13769,7 +13893,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -13857,47 +13981,66 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `cv`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                9,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                19,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                29,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `one`,
-                            token_idx: TokenIdx(
-                                61,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -14348,7 +14491,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -14372,7 +14515,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -14396,7 +14539,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -14420,7 +14563,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -14444,7 +14587,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             43,
@@ -14471,7 +14614,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             49,
@@ -14498,7 +14641,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             55,
@@ -14525,7 +14668,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -14564,7 +14707,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -14603,7 +14746,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -14642,7 +14785,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -14730,39 +14873,56 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                13,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                23,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                33,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -15253,7 +15413,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -15277,7 +15437,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -15301,7 +15461,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -15325,7 +15485,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -15349,7 +15509,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             43,
@@ -15376,7 +15536,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             49,
@@ -15403,7 +15563,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             55,
@@ -15430,7 +15590,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -15469,7 +15629,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -15508,7 +15668,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -15547,7 +15707,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -15635,39 +15795,56 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                13,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                23,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                33,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -16727,7 +16904,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -16751,7 +16928,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -16778,7 +16955,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             19,
@@ -16805,7 +16982,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -16829,7 +17006,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             35,
@@ -16856,7 +17033,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             41,
@@ -16883,7 +17060,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             47,
@@ -16910,7 +17087,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             55,
@@ -16937,7 +17114,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -16976,7 +17153,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -17015,7 +17192,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -17054,7 +17231,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -17093,7 +17270,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -17132,7 +17309,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `digits`,
                                         token_idx: TokenIdx(
@@ -17239,7 +17416,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -17344,23 +17521,36 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                25,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    51,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -17639,7 +17829,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -17663,7 +17853,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -17690,7 +17880,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             19,
@@ -17717,7 +17907,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -17741,7 +17931,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             35,
@@ -17768,7 +17958,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             41,
@@ -17795,7 +17985,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             47,
@@ -17822,7 +18012,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             53,
@@ -17849,7 +18039,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             59,
@@ -17876,7 +18066,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             67,
@@ -17903,7 +18093,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             73,
@@ -17930,7 +18120,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -17969,7 +18159,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -18008,7 +18198,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `one`,
                                         token_idx: TokenIdx(
@@ -18036,7 +18226,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -18064,7 +18254,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `zero`,
                                         token_idx: TokenIdx(
@@ -18092,7 +18282,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `seven`,
                                         token_idx: TokenIdx(
@@ -18120,7 +18310,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -18159,7 +18349,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -18198,7 +18388,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -18305,7 +18495,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -18393,55 +18583,76 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                25,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    25,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `one`,
-                            token_idx: TokenIdx(
-                                37,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    37,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `six`,
-                            token_idx: TokenIdx(
-                                43,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    43,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `zero`,
-                            token_idx: TokenIdx(
-                                49,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `zero`,
+                                token_idx: TokenIdx(
+                                    49,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `seven`,
-                            token_idx: TokenIdx(
-                                55,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `seven`,
+                                token_idx: TokenIdx(
+                                    55,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    63,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -18892,7 +19103,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -18916,7 +19127,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -18940,7 +19151,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -18964,7 +19175,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `domains`,
                                         token_idx: TokenIdx(
@@ -18988,7 +19199,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             43,
@@ -19015,7 +19226,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             49,
@@ -19042,7 +19253,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             55,
@@ -19069,7 +19280,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             63,
@@ -19096,7 +19307,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             69,
@@ -19123,7 +19334,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `major`,
                                         token_idx: TokenIdx(
@@ -19162,7 +19373,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fermi`,
                                         token_idx: TokenIdx(
@@ -19201,7 +19412,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -19240,7 +19451,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `zero`,
                                         token_idx: TokenIdx(
@@ -19268,7 +19479,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `six`,
                                         token_idx: TokenIdx(
@@ -19296,7 +19507,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -19384,55 +19595,76 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                13,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                23,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `domains`,
-                            token_idx: TokenIdx(
-                                33,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `domains`,
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `zero`,
-                            token_idx: TokenIdx(
-                                65,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `zero`,
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `six`,
-                            token_idx: TokenIdx(
-                                71,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    71,
+                                ),
+                            },
+                        ),
                     ),
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
             EntityTreeSheet {
@@ -20340,7 +20572,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             1,
@@ -20367,7 +20599,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             7,
@@ -20394,7 +20626,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             13,
@@ -20421,7 +20653,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             19,
@@ -20448,7 +20680,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             27,
@@ -20475,7 +20707,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `connected_component`,
                                         token_idx: TokenIdx(
@@ -20514,7 +20746,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
@@ -20553,7 +20785,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -20592,7 +20824,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `line_segment_sketch`,
                                         token_idx: TokenIdx(
@@ -20631,7 +20863,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `concave_component`,
                                         token_idx: TokenIdx(
@@ -20753,7 +20985,16 @@ Ok(
                     ],
                 ),
                 errors: [
-                    EntityTreeError::SymbolNotAccessible,
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::SymbolNotAccessible(
+                            IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                        ),
+                    ),
                 ],
             },
         ],

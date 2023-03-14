@@ -1250,7 +1250,7 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `core`,
                                         token_idx: TokenIdx(
@@ -1271,13 +1271,15 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `core`,
-                            token_idx: TokenIdx(
-                                1,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `core`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
                     ),
                 ],
             },
@@ -2364,7 +2366,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             2,
@@ -2389,7 +2391,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             9,
@@ -2414,7 +2416,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             16,
@@ -2439,7 +2441,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             23,
@@ -2464,7 +2466,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             30,
@@ -2489,7 +2491,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             37,
@@ -2514,7 +2516,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Crate(
+                                parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
                                             44,
@@ -2539,7 +2541,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `basic`,
                                         token_idx: TokenIdx(
@@ -2576,7 +2578,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `num`,
                                         token_idx: TokenIdx(
@@ -2613,7 +2615,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_bits`,
                                         token_idx: TokenIdx(
@@ -2650,7 +2652,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `fmt`,
                                         token_idx: TokenIdx(
@@ -2687,7 +2689,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `marker`,
                                         token_idx: TokenIdx(
@@ -2724,7 +2726,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `clone`,
                                         token_idx: TokenIdx(
@@ -2761,7 +2763,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `cmp`,
                                         token_idx: TokenIdx(

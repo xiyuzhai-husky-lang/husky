@@ -1,7 +1,33 @@
 DiagnosticSheet {
     [salsa id]: 30,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [1:5, 1:12),
+            },
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [2:5, 2:12),
+            },
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [3:5, 3:12),
+            },
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [4:5, 4:12),
+            },
+            Diagnostic {
+                message: "SymbolNotAccessible",
+                severity: Error,
+                range: [7:33, 7:50),
+            },
+        ],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],

@@ -99,7 +99,7 @@ Ok(
                                 accessibility: Accessibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: ParentNameToken::Ident(
+                                parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `core`,
                                         token_idx: TokenIdx(
@@ -120,13 +120,15 @@ Ok(
                     [],
                 ),
                 errors: [
-                    EntityTreeError::UnresolvedIdent(
-                        IdentToken {
-                            ident: `core`,
-                            token_idx: TokenIdx(
-                                2,
-                            ),
-                        },
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::UnresolvedIdent(
+                            IdentToken {
+                                ident: `core`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
                     ),
                 ],
             },
