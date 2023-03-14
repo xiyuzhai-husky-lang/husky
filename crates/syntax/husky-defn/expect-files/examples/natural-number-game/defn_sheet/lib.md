@@ -888,8 +888,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },

@@ -851,37 +851,19 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 289,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `i0`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 486,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `max_row_span_sum`,
                                                         1,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 201,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `row_span_sum`,
                                                         2,
                                                     ),
                                                 ],
@@ -1438,13 +1420,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 487,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `sum`,
                                                         0,
                                                     ),
                                                 ],

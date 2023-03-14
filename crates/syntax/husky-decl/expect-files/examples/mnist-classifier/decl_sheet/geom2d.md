@@ -1372,25 +1372,13 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 194,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `i`,
                                                             0,
                                                         ),
                                                     ],
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 222,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `shift`,
                                                             1,
                                                         ),
                                                     ],
@@ -2042,13 +2030,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -2665,13 +2647,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -3408,13 +3384,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -4031,13 +4001,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -4382,13 +4346,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -4733,13 +4691,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 312,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `is_branch_cut_positive`,
                                                             0,
                                                         ),
                                                     ],
@@ -5084,13 +5036,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -5466,25 +5412,13 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 312,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `is_branch_cut_positive`,
                                                             1,
                                                         ),
                                                     ],
@@ -6003,13 +5937,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 46,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `other`,
                                                             0,
                                                         ),
                                                     ],
@@ -6354,13 +6282,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 239,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `point`,
                                                             0,
                                                         ),
                                                     ],

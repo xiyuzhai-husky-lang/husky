@@ -1586,8 +1586,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -2216,8 +2216,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -2846,8 +2846,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -3476,8 +3476,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -4106,8 +4106,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -4736,8 +4736,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -5366,8 +5366,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -5996,8 +5996,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -6626,8 +6626,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -7256,8 +7256,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -7886,8 +7886,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -8516,8 +8516,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -9146,8 +9146,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
@@ -9776,8 +9776,8 @@ Ok(
                                         },
                                     },
                                     body: Err(
-                                        Original(
-                                            ExpectBody,
+                                        DefnError::Original(
+                                            OriginalDefnError::ExpectBody,
                                         ),
                                     ),
                                 },
