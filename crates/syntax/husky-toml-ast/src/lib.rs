@@ -27,6 +27,7 @@ use section::{TomlSection, TomlSectionIdx, TomlSectionKind, TomlSectionSheet};
 pub struct TomlAstJar(package_manifest_ast);
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlAst {
     exprs: TomlExprArena,
     sections: TomlSectionSheet,
