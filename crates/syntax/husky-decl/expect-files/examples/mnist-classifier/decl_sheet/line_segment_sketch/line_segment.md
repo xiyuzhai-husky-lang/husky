@@ -811,13 +811,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 391,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `pt`,
                                                             0,
                                                         ),
                                                     ],

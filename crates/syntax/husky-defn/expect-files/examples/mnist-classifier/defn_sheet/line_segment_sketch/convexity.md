@@ -133,25 +133,13 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 145,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `line_segment_sketch`,
                                                             0,
                                                         ),
                                                     ],
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 382,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `index`,
                                                             1,
                                                         ),
                                                     ],
@@ -410,25 +398,13 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 145,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    `line_segment_sketch`,
                                                                     0,
                                                                 ),
                                                             ],
                                                             [
                                                                 (
-                                                                    Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 382,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    `index`,
                                                                     1,
                                                                 ),
                                                             ],
@@ -2137,121 +2113,61 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 341,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `L`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 383,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `current_displacement`,
                                                         1,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 384,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `previous_displacement`,
                                                         2,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 385,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `is_rotation_counterclockwise_result`,
                                                         3,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 386,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `previous_raw_cross`,
                                                         4,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 387,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `previous_interval`,
                                                         5,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 244,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `displacement`,
                                                         6,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 388,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `current_raw_cross`,
                                                         7,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 389,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `current_interval`,
                                                         8,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 244,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `displacement`,
                                                         9,
                                                     ),
                                                 ],

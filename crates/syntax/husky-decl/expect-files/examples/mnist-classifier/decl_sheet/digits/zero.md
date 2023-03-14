@@ -213,13 +213,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 228,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `cc`,
                                                         0,
                                                     ),
                                                 ],

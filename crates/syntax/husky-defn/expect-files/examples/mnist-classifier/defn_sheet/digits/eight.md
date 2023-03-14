@@ -960,85 +960,43 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         1,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         2,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         3,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 475,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `upper_excess`,
                                                         4,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         5,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         6,
                                                     ),
                                                 ],
@@ -1228,13 +1186,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 227,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `cc`,
                                                             0,
                                                         ),
                                                     ],
@@ -1441,13 +1393,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 227,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    `cc`,
                                                                     0,
                                                                 ),
                                                             ],

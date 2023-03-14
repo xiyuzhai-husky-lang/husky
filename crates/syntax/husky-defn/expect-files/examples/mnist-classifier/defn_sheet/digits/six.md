@@ -2969,169 +2969,85 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 438,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `upmost_match`,
                                                         1,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 412,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `some`,
                                                         2,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 188,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `eff_holes`,
                                                         3,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 439,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `lower_excess`,
                                                         4,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 409,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `none`,
                                                         5,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 441,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `bottom1_match`,
                                                         6,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 442,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `bottom1_match_dp`,
                                                         7,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 443,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `bottom1_match_dp_y`,
                                                         8,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 444,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `upmost_match_dp_y`,
                                                         9,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 395,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `others`,
                                                         10,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 412,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `some`,
                                                         11,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 445,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `rel_upmost_match_end`,
                                                         12,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 412,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `some`,
                                                         13,
                                                     ),
                                                 ],
@@ -3470,13 +3386,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 227,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `cc`,
                                                             0,
                                                         ),
                                                     ],
@@ -3683,13 +3593,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 227,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    `cc`,
                                                                     0,
                                                                 ),
                                                             ],
@@ -3916,13 +3820,7 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 347,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `dp`,
                                                         0,
                                                     ),
                                                 ],
@@ -4103,13 +4001,7 @@ Ok(
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
-                                                            Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 227,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            `cc`,
                                                             0,
                                                         ),
                                                     ],
@@ -4316,13 +4208,7 @@ Ok(
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
-                                                                    Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 227,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    `cc`,
                                                                     0,
                                                                 ),
                                                             ],
@@ -4954,25 +4840,13 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 347,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `dp`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 446,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `relative_end`,
                                                         1,
                                                     ),
                                                 ],

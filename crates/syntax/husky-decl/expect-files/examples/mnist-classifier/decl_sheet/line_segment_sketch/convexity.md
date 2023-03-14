@@ -131,25 +131,13 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 146,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `line_segment_sketch`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 383,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `index`,
                                                         1,
                                                     ),
                                                 ],

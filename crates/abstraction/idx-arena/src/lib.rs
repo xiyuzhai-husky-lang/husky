@@ -31,6 +31,17 @@ where
     }
 }
 
+impl<T, Db: ?Sized> salsa::DebugWithDb<Db> for ArenaIdx<T> {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        self.raw.fmt(f)
+    }
+}
+
 impl<T> Default for Arena<T> {
     fn default() -> Self {
         Self {

@@ -460,25 +460,13 @@ Ok(
                                             pattern_symbol_maps: [
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 335,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `concave_components`,
                                                         0,
                                                     ),
                                                 ],
                                                 [
                                                     (
-                                                        Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 399,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        `templates`,
                                                         1,
                                                     ),
                                                 ],
