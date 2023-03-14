@@ -333,6 +333,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 rbox_token_idx: _,
             } => todo!(),
             Expr::Err(_) => Err(DerivedSignatureRawTermError::ExprError.into()),
+            Expr::Unit {
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 

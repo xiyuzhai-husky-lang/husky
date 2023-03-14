@@ -41,6 +41,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let items = this.alloc_expr_batch(items);
                     match opr {
                         UnfinishedListOpr::NewTuple => match (items.len(), commas.len()) {
+                            (0, 0) => Expr::Unit {
+                                lpar_token_idx: bra_token_idx,
+                                rpar_token_idx: ket_token_idx,
+                            },
                             (1, 0) => Expr::Bracketed {
                                 lpar_token_idx: bra_token_idx,
                                 item: items.start(),

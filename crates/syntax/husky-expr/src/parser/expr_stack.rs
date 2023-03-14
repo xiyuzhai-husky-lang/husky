@@ -73,6 +73,10 @@ impl Expr {
             Expr::MethodCall { .. } => BaseEntityPath::None,
             Expr::ExplicitApplication { function, argument } => todo!(),
             Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
+            // although unit is a valid entity,
+            // but unit doesn't contains any subentity, so effectively none
+            // ad hoc
+            Expr::Unit { .. } => BaseEntityPath::None,
             Expr::NewTuple {
                 lpar_token_idx,
                 items,

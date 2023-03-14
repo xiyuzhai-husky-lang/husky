@@ -263,15 +263,17 @@ impl<'a> ExprRangeCalculator<'a> {
                 implicit_arguments,
             } => todo!(),
             Expr::ExplicitApplication { function, argument } => self[function].join(self[argument]),
-            Expr::Bracketed {
+            Expr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
-            } => TokenIdxRange::new(
-                *lpar_token_idx,
-                TokenIdxRangeEnd::new_after(*rpar_token_idx),
-            ),
-            Expr::NewTuple {
+            }
+            | Expr::Bracketed {
+                lpar_token_idx,
+                rpar_token_idx,
+                ..
+            }
+            | Expr::NewTuple {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..

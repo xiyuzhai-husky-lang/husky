@@ -110,6 +110,10 @@ impl<'a> ExprTypeEngine<'a> {
                 rbox_token_idx,
             } => Err(OriginalExprTermError::Todo.into()),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
+            Expr::Unit {
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 
