@@ -124,7 +124,7 @@ proc horizontal_extend(a: r32, x: r32) -> r32:
     return y
 
 pub proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
-    let mut result = []ConnectedComponent()
+    let mut result: []ConnectedComponent = []
     let mut unsearched = img.clone()
     for j < 30:
         while unsearched[j]:

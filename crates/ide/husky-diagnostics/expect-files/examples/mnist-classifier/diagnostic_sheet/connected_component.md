@@ -59,11 +59,6 @@ DiagnosticSheet {
                 range: [17:15, 17:29),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo",
-                severity: Error,
-                range: [127:22, 127:24),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
                 range: [35:17, 35:21),
