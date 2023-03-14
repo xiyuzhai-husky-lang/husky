@@ -3,6 +3,7 @@ use husky_token::*;
 use parsec::*;
 use thiserror::Error;
 
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum AccessibilityExpr {
     Public {
         pub_token: PubToken,
@@ -16,6 +17,7 @@ pub enum AccessibilityExpr {
 }
 
 #[derive(Debug, Error)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum AccessibilityExprError {
     #[error("token error")]
     Token(#[from] TokenError),

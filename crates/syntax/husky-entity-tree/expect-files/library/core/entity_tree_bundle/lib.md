@@ -744,16 +744,10 @@ Ok(
                                 1..2,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 42,
                                             ),
@@ -787,16 +781,10 @@ Ok(
                                 3..4,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 94,
                                             ),
@@ -830,16 +818,10 @@ Ok(
                                 5..6,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 146,
                                             ),
@@ -873,16 +855,10 @@ Ok(
                                 7..8,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 197,
                                             ),
@@ -916,16 +892,10 @@ Ok(
                                 9..10,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 249,
                                             ),
@@ -959,16 +929,10 @@ Ok(
                                 11..12,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 301,
                                             ),
@@ -1002,16 +966,10 @@ Ok(
                                 13..14,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 353,
                                             ),
@@ -1045,16 +1003,10 @@ Ok(
                                 15..16,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 405,
                                             ),
@@ -1088,16 +1040,10 @@ Ok(
                                 17..18,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 457,
                                             ),
@@ -1131,16 +1077,10 @@ Ok(
                                 19..20,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 509,
                                             ),
@@ -1174,16 +1114,10 @@ Ok(
                                 21..22,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 561,
                                             ),
@@ -1217,16 +1151,10 @@ Ok(
                                 23..24,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 613,
                                             ),
@@ -1260,16 +1188,10 @@ Ok(
                                 25..26,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 665,
                                             ),
@@ -1303,16 +1225,10 @@ Ok(
                                 27..28,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 35,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `Add`,
                                             token_idx: TokenIdx(
                                                 716,
                                             ),
@@ -3291,325 +3207,185 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
-                        ),
+                        ident: `i8`,
                         token_idx: TokenIdx(
                             31,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
-                        ),
+                        ident: `i16`,
                         token_idx: TokenIdx(
                             83,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
-                        ),
+                        ident: `i32`,
                         token_idx: TokenIdx(
                             135,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
-                        ),
+                        ident: `i64`,
                         token_idx: TokenIdx(
                             186,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
-                        ),
+                        ident: `i128`,
                         token_idx: TokenIdx(
                             238,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
-                        ),
+                        ident: `isize`,
                         token_idx: TokenIdx(
                             290,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
+                        ident: `u8`,
                         token_idx: TokenIdx(
                             342,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
-                        ),
+                        ident: `u16`,
                         token_idx: TokenIdx(
                             394,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
-                        ),
+                        ident: `u32`,
                         token_idx: TokenIdx(
                             446,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 55,
-                                },
-                            ),
-                        ),
+                        ident: `u64`,
                         token_idx: TokenIdx(
                             498,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 56,
-                                },
-                            ),
-                        ),
+                        ident: `u128`,
                         token_idx: TokenIdx(
                             550,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
-                        ),
+                        ident: `usize`,
                         token_idx: TokenIdx(
                             602,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 58,
-                                },
-                            ),
-                        ),
+                        ident: `f32`,
                         token_idx: TokenIdx(
                             654,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 59,
-                                },
-                            ),
-                        ),
+                        ident: `f64`,
                         token_idx: TokenIdx(
                             705,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 },

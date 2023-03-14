@@ -248,31 +248,19 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                Leaf {
+                UseExpr::Leaf {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
-                        ),
+                        ident: `Add`,
                         token_idx: TokenIdx(
                             5,
                         ),
                     },
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
+                                ident: `ops`,
                                 token_idx: TokenIdx(
                                     3,
                                 ),
@@ -286,23 +274,17 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 0,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
+                                ident: `core`,
                                 token_idx: TokenIdx(
                                     1,
                                 ),
@@ -316,7 +298,7 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 1,
                             },
                         ),
