@@ -13,13 +13,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "haha",
+                },
             ),
         ),
     ],
@@ -45,13 +43,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "\n",
+                },
             ),
         ),
     ],
@@ -77,13 +73,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "\t",
+                },
             ),
         ),
     ],
@@ -109,13 +103,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "\\",
+                },
             ),
         ),
     ],
@@ -141,13 +133,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "\"",
+                },
             ),
         ),
     ],
@@ -173,13 +163,11 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Literal(
-            String(
-                StringLiteral(
-                    Id {
-                        value: 1,
-                    },
-                ),
+        Token::Literal(
+            Literal::String(
+                StringLiteral {
+                    data: "\r",
+                },
             ),
         ),
     ],

@@ -13,8 +13,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Form(
+        Token::Keyword(
+            Keyword::Form(
                 Def,
             ),
         ),
@@ -41,8 +41,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Form(
+        Token::Keyword(
+            Keyword::Form(
                 Func,
             ),
         ),
@@ -69,8 +69,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Form(
+        Token::Keyword(
+            Keyword::Form(
                 Proc,
             ),
         ),
@@ -97,8 +97,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Trait,
+        Token::Keyword(
+            Keyword::Trait,
         ),
     ],
     group_starts: [

@@ -25,9 +25,7 @@ Ok(
                     TomlSection {
                         title: [
                             Word(
-                                Id {
-                                    value: 1,
-                                },
+                                "package",
                             ),
                         ],
                         kind: TomlSectionKind::Normal,
@@ -73,9 +71,7 @@ Ok(
                     TomlSection {
                         title: [
                             Word(
-                                Id {
-                                    value: 14,
-                                },
+                                "dependencies",
                             ),
                         ],
                         kind: TomlSectionKind::Normal,
@@ -99,9 +95,7 @@ Ok(
             TomlGroup::SectionTitle {
                 title: [
                     Word(
-                        Id {
-                            value: 1,
-                        },
+                        "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
@@ -141,9 +135,7 @@ Ok(
             TomlGroup::SectionTitle {
                 title: [
                     Word(
-                        Id {
-                            value: 14,
-                        },
+                        "dependencies",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,

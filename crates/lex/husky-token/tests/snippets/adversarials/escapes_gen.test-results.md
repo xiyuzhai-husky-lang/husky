@@ -13,8 +13,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Error(
-            UnexpectedCharAfterBackslash(
+        Token::Error(
+            TokenError::UnexpectedCharAfterBackslash(
                 'a',
             ),
         ),

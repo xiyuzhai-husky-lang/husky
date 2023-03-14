@@ -13,8 +13,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Closed(
                     Add,
                 ),
@@ -43,8 +43,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Minus,
+        Token::Punctuation(
+            Punctuation::Minus,
         ),
     ],
     group_starts: [
@@ -69,8 +69,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Star,
+        Token::Punctuation(
+            Punctuation::Star,
         ),
     ],
     group_starts: [
@@ -95,8 +95,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Closed(
                     Div,
                 ),
@@ -125,8 +125,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Closed(
                     Power,
                 ),
@@ -155,8 +155,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Vertical,
+        Token::Punctuation(
+            Punctuation::Vertical,
         ),
     ],
     group_starts: [
@@ -181,8 +181,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            DoubleVertical,
+        Token::Punctuation(
+            Punctuation::DoubleVertical,
         ),
     ],
     group_starts: [
@@ -207,8 +207,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 ShortCircuitLogic(
                     And,
                 ),
@@ -237,8 +237,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Comparison(
                     Eq,
                 ),
@@ -267,8 +267,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Comparison(
                     Neq,
                 ),
@@ -297,8 +297,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            RaOrGt,
+        Token::Punctuation(
+            Punctuation::RaOrGt,
         ),
     ],
     group_starts: [
@@ -323,8 +323,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Comparison(
                     Geq,
                 ),
@@ -353,8 +353,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            LaOrLt,
+        Token::Punctuation(
+            Punctuation::LaOrLt,
         ),
     ],
     group_starts: [
@@ -379,8 +379,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Punctuation(
-            Binary(
+        Token::Punctuation(
+            Punctuation::Binary(
                 Comparison(
                     Leq,
                 ),
