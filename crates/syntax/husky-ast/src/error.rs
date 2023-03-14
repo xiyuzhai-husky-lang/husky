@@ -94,6 +94,8 @@ pub enum OriginalAstError {
     UnexpectedTraitInsideForm,
     #[error("UnexpectedEndKeywordAsFirstNonCommentToken")]
     UnexpectedEndKeywordAsFirstNonCommentToken,
+    #[error("UnexpectedTypeDefnInsideTypeImplBlock")]
+    UnexpectedTypeDefnInsideTypeImplBlock,
 }
 
 impl OriginalError for OriginalAstError {
