@@ -164,8 +164,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 Punctuation::DoubleExclamation => todo!(),
                 Punctuation::Semicolon => return TokenResolveResult::Break(()),
-                Punctuation::XmlKet => todo!(),
-                Punctuation::At => todo!(),
+                Punctuation::XmlKet => return TokenResolveResult::Break(()),
+                Punctuation::At => return TokenResolveResult::Break(()),
+                Punctuation::AtEq => return TokenResolveResult::Break(()),
                 Punctuation::Question => match self.finished_expr() {
                     // only see `?` as Option when there obviously is no other way
                     Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
@@ -175,7 +176,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         ResolvedToken::SuffixOpr(token_idx, SuffixOpr::UnveilOrComposeWithOption)
                     }
                 },
-                Punctuation::PoundSign => todo!(),
+                Punctuation::PoundSign => return TokenResolveResult::Break(()),
                 Punctuation::Ambersand => match self.finished_expr() {
                     Some(Expr::List { .. }) | None => {
                         ResolvedToken::PrefixOpr(token_idx, PrefixOpr::Ref)

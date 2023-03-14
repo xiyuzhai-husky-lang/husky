@@ -177,7 +177,7 @@ Ok(
                 `Point2d`,
             ),
             Token::Punctuation(
-                Punctuation::DeriveAssign,
+                Punctuation::AtEq,
             ),
             Token::Ident(
                 `points`,
