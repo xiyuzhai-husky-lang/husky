@@ -2026,6 +2026,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
