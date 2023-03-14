@@ -34,8 +34,6 @@ pub enum OriginalAstError {
     UnexpectedEndOfTokenGroupAfterPubKeyword(TokenIdx),
     #[error("expected nothing")]
     ExpectNothing,
-    #[error("unexpected stmt inside module")]
-    UnexpectedStmtInsideModule,
     #[error("unexpected stmt inside impl")]
     UnexpectedStmtInsideImplBlock,
     #[error("unexpected punctuation `{1}` for trait item")]

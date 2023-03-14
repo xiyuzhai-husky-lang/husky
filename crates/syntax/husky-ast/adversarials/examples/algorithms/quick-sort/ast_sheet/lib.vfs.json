@@ -9,5 +9,10 @@
       "position": 536,
       "insertion": "k"
     }
+  },
+  {
+    "InsertNewLine": {
+      "position": 48
+    }
   }
 ]
