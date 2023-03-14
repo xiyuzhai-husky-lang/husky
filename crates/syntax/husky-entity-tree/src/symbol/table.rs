@@ -180,10 +180,19 @@ impl NativeEntitySymbolTable {
         EntitySymbolTable(self.0.iter().map(|entry| entry.into()).collect())
     }
 
-    pub(crate) fn insert(&mut self, new_entry: NativeEntitySymbolEntry) -> EntityTreeResult<()> {
+    pub(crate) fn insert(
+        &mut self,
+        db: &dyn EntityTreeDb,
+        new_entry: NativeEntitySymbolEntry,
+    ) -> EntityTreeResult<()> {
+        if let Some(old_entry) = self.0.iter().find(|entry| entry.ident == new_entry.ident) {
+            Err(OriginalEntityTreeError::EntitySymbolAlreadyDefined {
+                old: old_entry.symbol.ast_idx(db),
+                new: new_entry.symbol.ast_idx(db),
+            })?
+        }
         self.0.push(new_entry);
         Ok(())
-        // todo!()
     }
 }
 
