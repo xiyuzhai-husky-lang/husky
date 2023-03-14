@@ -1,298 +1,417 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Erroneous,
+                state: UseExprRuleState::Erroneous,
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
                     1,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
                     8,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 23,
+                            path: `mnist_classifier::major`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 18,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 6,
                 rule_idx: UseExprRuleIdx(
                     14,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 142,
-                            },
-                        ),
+                        ModuleItemSymbol {
+                            [salsa id]: 141,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 29,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
                     2,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     9,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 23,
+                            path: `mnist_classifier::major`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 18,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 9,
                 rule_idx: UseExprRuleIdx(
                     15,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 137,
-                            },
-                        ),
+                        ModuleItemSymbol {
+                            [salsa id]: 136,
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 24,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
-                state: Erroneous,
+                state: UseExprRuleState::Erroneous,
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 19,
                 rule_idx: UseExprRuleIdx(
                     4,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 18,
                 rule_idx: UseExprRuleIdx(
                     10,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 23,
+                            path: `mnist_classifier::major`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 18,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 22,
                 rule_idx: UseExprRuleIdx(
                     5,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 21,
                 rule_idx: UseExprRuleIdx(
                     11,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 21,
+                            path: `mnist_classifier::fermi`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 16,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 26,
                 rule_idx: UseExprRuleIdx(
                     6,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 25,
                 rule_idx: UseExprRuleIdx(
                     12,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 20,
+                            path: `mnist_classifier::line_segment_sketch`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 15,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 24,
                 rule_idx: UseExprRuleIdx(
                     16,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 24,
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 29,
                 rule_idx: UseExprRuleIdx(
                     7,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 28,
                 rule_idx: UseExprRuleIdx(
                     13,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 23,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 22,
+                            path: `mnist_classifier::digits`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 17,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                         ),
                     ),
                 ),
@@ -305,66 +424,50 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 70,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                         ),
                     ),
                 ),
@@ -377,126 +480,88 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 185,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 191,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 191,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 191,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 191,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                         ),
                     ),
                 ),
@@ -509,81 +574,61 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 70,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                         ),
                     ),
                 ),
@@ -596,161 +641,107 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 187,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 193,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 193,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 193,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 193,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 193,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                         ),
                     ),
                 ),
@@ -763,202 +754,136 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 188,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 228,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `cc`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 194,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 55,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                         ),
                     ),
                 ),
@@ -971,421 +896,321 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 29,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 27,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 10,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 195,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

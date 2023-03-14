@@ -1,17 +1,13 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 30,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::option::Option`, `Enum`),
                         ),
                     ),
                 ),
@@ -24,39 +20,29 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 97,
-                                    },
-                                ),
-                            ),
+                            ident: `T`,
                             token_idx: TokenIdx(
                                 4,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 93,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

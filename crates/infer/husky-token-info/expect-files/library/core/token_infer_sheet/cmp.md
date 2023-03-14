@@ -1,17 +1,13 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::cmp::PartialEq`),
                         ),
                     ),
                 ),
@@ -22,18 +18,14 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::cmp::Eq`),
                         ),
                     ),
                 ),
@@ -44,18 +36,14 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::cmp::PartialOrd`),
                         ),
                     ),
                 ),
@@ -66,18 +54,14 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::cmp::Ord`),
                         ),
                     ),
                 ),
@@ -88,7 +72,7 @@ Ok(
                     },
                 ),
             ),
-            None,
+            TokenInfo::None,
         ],
     },
 )

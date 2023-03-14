@@ -46,5 +46,5 @@ impl salsa::Database for DB {}
 
 #[test]
 fn token_infer_sheet_works() {
-    DB::default().ast_expect_test_debug("token_infer_sheet", TokenInfoDb::token_info_sheet)
+    DB::default().ast_expect_test_debug_with_db("token_infer_sheet", TokenInfoDb::token_info_sheet)
 }
