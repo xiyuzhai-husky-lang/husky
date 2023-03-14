@@ -19,7 +19,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PronounKeyword::Crate => todo!(),
                 PronounKeyword::SelfType => match self.allow_self_type() {
                     AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
-                    AllowSelfType::False => todo!(),
+                    AllowSelfType::False => ResolvedToken::AtomicExpr(Expr::Err(
+                        OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
+                    )),
                 },
                 PronounKeyword::SelfValue => match self.peek() {
                     Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution))) => {
@@ -29,7 +31,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         AllowSelfValue::True => {
                             ResolvedToken::AtomicExpr(Expr::SelfValue(token_idx))
                         }
-                        AllowSelfValue::False => todo!(),
+                        AllowSelfValue::False => ResolvedToken::AtomicExpr(Expr::Err(
+                            OriginalExprError::SelfValueNotAllowed(token_idx).into(),
+                        )),
                     },
                 },
 

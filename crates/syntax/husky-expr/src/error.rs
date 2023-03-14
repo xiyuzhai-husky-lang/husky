@@ -104,6 +104,10 @@ pub enum OriginalExprError {
     ExpectedFieldType(TokenIdx),
     #[error("expect parameter type")]
     ExpectParameterType(TokenIdx),
+    #[error("SelfTypeNotAllowed")]
+    SelfTypeNotAllowed(TokenIdx),
+    #[error("SelfValueNotAllowed")]
+    SelfValueNotAllowed(TokenIdx),
 }
 
 impl OriginalError for OriginalExprError {
