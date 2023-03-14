@@ -103,9 +103,9 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `top_k_row_right_mass_sum` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`))`",
                 severity: Error,
-                range: [42:17, 42:70),
+                range: [42:43, 42:67),
             },
             Diagnostic {
                 message: "Type Error: TodoScopeResolution",

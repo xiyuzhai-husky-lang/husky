@@ -84,24 +84,24 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `sqrt` for type `LocalTerm::Resolved(Term(`TypeOntology(core::num::f32)`))`",
                 severity: Error,
-                range: [64:13, 64:37),
+                range: [64:31, 64:35),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `sqrt` for type `LocalTerm::Resolved(Term(`TypeOntology(core::num::f32)`))`",
                 severity: Error,
-                range: [72:13, 72:37),
+                range: [72:31, 72:35),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [81:18, 81:49),
+                range: [81:21, 81:33),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [82:13, 82:29),
+                range: [82:23, 82:27),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -109,9 +109,9 @@ DiagnosticSheet {
                 range: [85:9, 85:14),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [86:14, 86:45),
+                range: [86:17, 86:29),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -119,19 +119,19 @@ DiagnosticSheet {
                 range: [107:9, 107:14),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [108:14, 108:45),
+                range: [108:17, 108:29),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [114:19, 114:50),
+                range: [114:22, 114:34),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [115:27, 115:43),
+                range: [115:37, 115:41),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -139,14 +139,14 @@ DiagnosticSheet {
                 range: [117:9, 117:16),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [118:15, 118:46),
+                range: [118:18, 118:30),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [125:18, 125:49),
+                range: [125:21, 125:33),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -154,19 +154,19 @@ DiagnosticSheet {
                 range: [145:13, 145:20),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [158:23, 158:39),
+                range: [158:33, 158:37),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [168:25, 168:41),
+                range: [168:35, 168:39),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [190:13, 190:29),
+                range: [190:23, 190:27),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo",
@@ -174,9 +174,9 @@ DiagnosticSheet {
                 range: [155:29, 155:31),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `cyclic_slice` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [23:27, 23:63),
+                range: [23:37, 23:49),
             },
         ],
     },

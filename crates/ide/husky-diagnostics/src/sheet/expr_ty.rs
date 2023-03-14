@@ -3,7 +3,7 @@ use husky_expr_ty::{
     ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
     OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
 };
-use salsa::DisplayWithDb;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 use super::*;
 
@@ -107,7 +107,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
 impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
-    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         // MOM
         match self.1 {
             OriginalExprTypeError::UnresolvedTerm => {
@@ -148,8 +148,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::NoSuchField => {
                 format!("Type Error: NoSuchField")
             }
-            OriginalExprTypeError::NoSuchMethod => {
-                format!("Type Error: NoSuchMethod")
+            OriginalExprTypeError::NoMethodForType {
+                self_expr_ty_unravelled,
+                ident_token,
+            } => {
+                format!(
+                    "Type Error: no method named `{}` for type `{:?}`",
+                    ident_token.ident().data(ctx.db()),
+                    self_expr_ty_unravelled.debug(ctx.db()) // ad hoc
+                )
             }
             OriginalExprTypeError::TodoIndexOrComposeWithList => {
                 format!("Type Error: TodoIndexOrComposeWithList")
@@ -162,7 +169,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     }
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
-        ctx.expr_text_range(self.0)
+        match self.1 {
+            OriginalExprTypeError::NoMethodForType { ident_token, .. } => ctx
+                .ranged_token_sheet()
+                .token_text_range(ident_token.token_idx()),
+            _ => ctx.expr_text_range(self.0),
+        }
     }
 }
 

@@ -2662,7 +2662,31 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 26,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 273,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    655,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3817,7 +3841,29 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Original(
-                        NoSuchMethod,
+                        NoMethodForType {
+                            self_expr_ty_unravelled: Resolved(
+                                Application(
+                                    TermApplication(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            ident_token: IdentToken {
+                                ident: Ident(
+                                    Word(
+                                        Id {
+                                            value: 195,
+                                        },
+                                    ),
+                                ),
+                                token_idx: TokenIdx(
+                                    940,
+                                ),
+                            },
+                        },
                     ),
                 ),
                 expectation_rule_idx: None,

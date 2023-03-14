@@ -64,14 +64,14 @@ DiagnosticSheet {
                 range: [127:22, 127:24),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [35:9, 35:71),
+                range: [35:17, 35:21),
             },
             Diagnostic {
-                message: "Type Error: NoSuchMethod",
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
                 severity: Error,
-                range: [36:9, 36:71),
+                range: [36:17, 36:21),
             },
             Diagnostic {
                 message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",

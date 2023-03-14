@@ -8,6 +8,7 @@ use crate::*;
 use husky_entity_path::EntityPathError;
 use husky_expr::ExprIdx;
 use husky_term::TermError;
+use husky_token::IdentToken;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -56,7 +57,10 @@ pub enum OriginalExprTypeError {
     #[error("no such field")]
     NoSuchField,
     #[error("no such method")]
-    NoSuchMethod,
+    NoMethodForType {
+        self_expr_ty_unravelled: LocalTerm,
+        ident_token: IdentToken,
+    },
     #[error("TodoIndexOrComposeWithList")]
     TodoIndexOrComposeWithList,
 }
