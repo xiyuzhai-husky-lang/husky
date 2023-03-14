@@ -108,7 +108,7 @@ Ok(
                                                 ImplicitParameterDecl {
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: Some(
-                                                            Covariant(
+                                                            VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
                                                                         4,
@@ -117,18 +117,9 @@ Ok(
                                                             ),
                                                         ),
                                                         symbol: 0,
-                                                        variant: Lifetime {
+                                                        variant: ImplicitParameterDeclPatternVariant::Lifetime {
                                                             label_token: LifetimeLabelToken {
-                                                                label: Label {
-                                                                    ident: Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 30,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    kind: AllNonGreek,
-                                                                },
+                                                                label: `'a`,
                                                                 token_idx: TokenIdx(
                                                                     5,
                                                                 ),
@@ -140,7 +131,7 @@ Ok(
                                                 ImplicitParameterDecl {
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: Some(
-                                                            Covariant(
+                                                            VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
                                                                         7,
@@ -149,15 +140,9 @@ Ok(
                                                             ),
                                                         ),
                                                         symbol: 1,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 31,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `E`,
                                                                 token_idx: TokenIdx(
                                                                     8,
                                                                 ),
@@ -299,7 +284,7 @@ Ok(
                                                 ImplicitParameterDecl {
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: Some(
-                                                            Covariant(
+                                                            VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
                                                                         15,
@@ -308,18 +293,9 @@ Ok(
                                                             ),
                                                         ),
                                                         symbol: 0,
-                                                        variant: Lifetime {
+                                                        variant: ImplicitParameterDeclPatternVariant::Lifetime {
                                                             label_token: LifetimeLabelToken {
-                                                                label: Label {
-                                                                    ident: Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 30,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                    kind: AllNonGreek,
-                                                                },
+                                                                label: `'a`,
                                                                 token_idx: TokenIdx(
                                                                     16,
                                                                 ),
@@ -331,7 +307,7 @@ Ok(
                                                 ImplicitParameterDecl {
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: Some(
-                                                            Invariant(
+                                                            VarianceToken::Invariant(
                                                                 InvariantToken {
                                                                     token_idx: TokenIdx(
                                                                         18,
@@ -340,15 +316,9 @@ Ok(
                                                             ),
                                                         ),
                                                         symbol: 1,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 31,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `E`,
                                                                 token_idx: TokenIdx(
                                                                     19,
                                                                 ),
@@ -473,7 +443,7 @@ Ok(
                                                 ImplicitParameterDecl {
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: Some(
-                                                            Covariant(
+                                                            VarianceToken::Covariant(
                                                                 CovariantToken {
                                                                     token_idx: TokenIdx(
                                                                         26,
@@ -482,15 +452,9 @@ Ok(
                                                             ),
                                                         ),
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 31,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `E`,
                                                                 token_idx: TokenIdx(
                                                                     27,
                                                                 ),

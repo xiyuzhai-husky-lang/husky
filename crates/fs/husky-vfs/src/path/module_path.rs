@@ -189,82 +189,15 @@ fn module_path_debug_with_db_works() {
         "`std`",
     );
     expect_test::expect![[r#"
-        ModulePath {
-            [display]: Root(
-                CratePath(
-                    Id {
-                        value: 1,
-                    },
-                ),
-            ),
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        }
+        `core`
     "#]]
     .assert_debug_eq(&path_menu.core().debug(&db));
     expect_test::expect![[r#"
-        ModulePath {
-            [display]: Child {
-                parent: ModulePath(
-                    Id {
-                        value: 1,
-                    },
-                ),
-                ident: Ident(
-                    Word(
-                        Id {
-                            value: 33,
-                        },
-                    ),
-                ),
-            },
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        }
+        `core::num`
     "#]]
     .assert_debug_eq(&path_menu.core_num().debug(&db));
     expect_test::expect![[r#"
-        ModulePath {
-            [display]: Root(
-                CratePath(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-            [crate]: CratePath {
-                package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/std",
-                            ),
-                        },
-                    },
-                },
-                crate_kind: Library,
-            },
-        }
+        `std`
     "#]]
     .assert_debug_eq(&path_menu.std().debug(&db));
 }
@@ -279,24 +212,6 @@ impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;
         let db = <Db as DbWithJar<VfsJar>>::as_jar_db(db);
-        if level.is_root() {
-            f.debug_struct("ModulePath")
-                .field(
-                    "[display]",
-                    &::salsa::debug::helper::SalsaDebug::<
-                        ModulePathData,
-                        <VfsJar as salsa::jar::Jar<'_>>::DynDb,
-                    >::salsa_debug(
-                        #[allow(clippy::needless_borrow)]
-                        &self.data(db),
-                        db,
-                        level.next(),
-                    ),
-                )
-                .field("[crate]", &self.crate_path(db).debug_with(db, level.next()))
-                .finish()
-        } else {
-            self.show(f, db)
-        }
+        self.show(f, db)
     }
 }

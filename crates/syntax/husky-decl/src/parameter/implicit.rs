@@ -42,6 +42,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub struct ImplicitParameterDeclList {
     langle: LeftAngleBracketOrLessThanToken,
     implicit_parameters: Vec<ImplicitParameterDecl>,
