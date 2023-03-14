@@ -1,5 +1,5 @@
-use salsa::DbWithJar;
-use std::panic::AssertUnwindSafe;
+
+
 use xrng::XRng;
 
 use super::*;
@@ -25,7 +25,7 @@ impl VfsAdversarialGenerator {
         mut self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &(impl Fn(&Db)),
+        f: &impl Fn(&Db),
     ) -> Result<(), VfsAdversarial>
     where
         Db: VfsDb + ?Sized,
@@ -33,7 +33,7 @@ impl VfsAdversarialGenerator {
         use indicatif::ProgressBar;
 
         let bar = ProgressBar::new(self.round as u64);
-        for i in 0..self.round {
+        for _i in 0..self.round {
             bar.inc(1);
             self.run_step(db, module_path, f)?
         }
@@ -44,7 +44,7 @@ impl VfsAdversarialGenerator {
         &mut self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &(impl Fn(&Db)),
+        f: &impl Fn(&Db),
     ) -> Result<(), VfsAdversarial>
     where
         Db: VfsDb + ?Sized,

@@ -14,7 +14,7 @@ pub fn decl_sheet<'a>(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<
 
 #[test]
 fn decl_sheet_works() {
-    use husky_vfs::VfsTestUtils;
+    
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db("decl_sheet", DeclDb::decl_sheet);

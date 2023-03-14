@@ -292,7 +292,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                             Expr::Err(_) => {
                                 Err(DerivedSignatureRawTermError::CannotInferArrayLength)?
                             }
-                            ref expr => {
+                            ref _expr => {
                                 Err(OriginalSignatureRawTermError::ExpectedLiteralForArrayLength)?
                             }
                         },

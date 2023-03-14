@@ -2,8 +2,8 @@ use super::*;
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn ty_as_trai_impl_decl(
-    db: &dyn DeclDb,
-    impl_block: TypeAsTraitImplBlock,
+    _db: &dyn DeclDb,
+    _impl_block: TypeAsTraitImplBlock,
 ) -> DeclResult<TypeAsTraitImplDecl> {
     todo!()
     // let parser = DeclParser::new(db, impl_block.module_path(db))?;

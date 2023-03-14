@@ -1,6 +1,6 @@
 use std::panic::AssertUnwindSafe;
 
-use husky_adversarial_utils::{new_rand_string, new_rand_string2};
+use husky_adversarial_utils::{new_rand_string2};
 
 use super::*;
 
@@ -34,7 +34,7 @@ impl VfsAdversarial {
         &self,
         db: &mut Db,
         module_path: ModulePath,
-        f: &(impl Fn(&Db)),
+        f: &impl Fn(&Db),
     ) -> Result<(), ()>
     where
         Db: VfsDb + ?Sized,
@@ -62,7 +62,7 @@ impl VfsAdversarial {
         self.to_edit(text).apply(text)
     }
 
-    fn to_edit(&self, text: &str) -> VfsEdit {
+    fn to_edit(&self, _text: &str) -> VfsEdit {
         match self {
             VfsAdversarial::InsertNewLine { position } => VfsEdit::InsertString {
                 position: *position,

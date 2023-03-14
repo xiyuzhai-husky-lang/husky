@@ -8,7 +8,7 @@ pub use logic::*;
 pub use pure_closed::*;
 pub use shift::*;
 
-use crate::*;
+
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {

@@ -1,9 +1,9 @@
 use super::*;
 use husky_opn_syntax::*;
-use husky_print_utils::p;
+
 use husky_text::{TextCharIter, TextRange};
 
-use husky_word::{is_valid_ident_first_char, Label, WordDb};
+use husky_word::{is_valid_ident_first_char, WordDb};
 use std::str::FromStr;
 
 pub(crate) struct RangedPretoken {

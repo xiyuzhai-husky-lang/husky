@@ -207,7 +207,7 @@ impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         #[allow(unused_imports)]
         use ::salsa::debug::helper::Fallback;

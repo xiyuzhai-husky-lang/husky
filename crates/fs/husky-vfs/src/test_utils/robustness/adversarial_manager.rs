@@ -23,7 +23,7 @@ impl VfsAdversarialManager {
         }
     }
 
-    pub(super) fn run<Db>(mut self, db: &mut Db, f: &(impl Fn(&Db)))
+    pub(super) fn run<Db>(mut self, db: &mut Db, f: &impl Fn(&Db))
     where
         Db: VfsDb + ?Sized,
     {

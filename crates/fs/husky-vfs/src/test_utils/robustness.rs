@@ -9,7 +9,7 @@ use self::adversarial_manager::*;
 use self::edit::*;
 use super::*;
 use serde::{Deserialize, Serialize};
-use std::panic::RefUnwindSafe;
+
 use xrng::XRng;
 
 pub(super) fn vfs_robustness_test<Db, U, R>(
@@ -17,7 +17,7 @@ pub(super) fn vfs_robustness_test<Db, U, R>(
     task_name: &str,
     package_adversarials_dir: &Path,
     unit: U,
-    f: &(impl Fn(&Db, U) -> R),
+    f: &impl Fn(&Db, U) -> R,
 ) where
     Db: VfsDb + ?Sized,
     U: VfsTestUnit,

@@ -15,7 +15,7 @@ use husky_signature::SignatureJar;
 use husky_term::TermJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
-use husky_vfs::*;
+
 use husky_word::WordJar;
 
 #[salsa::db(
