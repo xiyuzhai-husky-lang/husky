@@ -346,7 +346,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     associated_item_kind: AssociatedItemKind::TypeItem(type_item_kind),
                 }
             }
-            Keyword::Type(_) => todo!(),
+            Keyword::Type(_) => Err(OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock)?,
             Keyword::Stmt(_) => todo!(),
             Keyword::Pattern(_) => todo!(),
             Keyword::Main => todo!(),
