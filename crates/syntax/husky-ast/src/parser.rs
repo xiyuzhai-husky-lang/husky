@@ -70,11 +70,6 @@ impl<'a> AstParser<'a> {
         Some(match first_noncomment_token {
             Token::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
             Token::Keyword(kw) => match kw {
-                Keyword::Stmt(StmtKeyword::Let)
-                    if context.kind() == AstContextKind::InsideModule =>
-                {
-                    todo!("feature")
-                }
                 Keyword::Stmt(kw) => {
                     match context.kind().allow_stmt() {
                         Ok(_) => (),

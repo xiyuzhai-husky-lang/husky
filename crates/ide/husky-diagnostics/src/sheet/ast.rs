@@ -53,9 +53,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 format!("Syntax Error: unexpected end after `pub`")
             }
             OriginalAstError::ExpectNothing => format!("Syntax Error: expected nothing"),
-            OriginalAstError::UnexpectedStmtInsideModule => {
-                format!("Syntax Error: unexpected stmt inside module")
-            }
             OriginalAstError::UnexpectedStmtInsideImplBlock => {
                 format!("Syntax Error: unexpected stmt inside impl")
             }
@@ -171,7 +168,6 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::ExpectEntityKeyword
             | OriginalAstError::ExpectDecoratorOrEntityKeyword
             | OriginalAstError::ExpectNothing
-            | OriginalAstError::UnexpectedStmtInsideModule
             | OriginalAstError::UnexpectedStmtInsideImplBlock
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo

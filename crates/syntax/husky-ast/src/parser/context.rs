@@ -89,7 +89,7 @@ impl AstContextKind {
             AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTypeAsTraitImplBlock => {
                 Err(OriginalAstError::UnexpectedStmtInsideImplBlock)?
             }
-            AstContextKind::InsideModule => Err(OriginalAstError::UnexpectedStmtInsideModule)?,
+            AstContextKind::InsideModule => Ok(()),
             AstContextKind::InsideMatchStmt => Ok(()),
             AstContextKind::InsideNoChild => Err(OriginalAstError::ExpectNothing)?,
         }
