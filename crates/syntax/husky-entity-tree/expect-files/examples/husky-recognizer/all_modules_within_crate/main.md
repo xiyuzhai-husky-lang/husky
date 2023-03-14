@@ -1,5 +1,5 @@
 [
-    `MinimalToml(
+    `VfsError::MinimalToml(
         ExpectWordName,
     )`,
 ]
