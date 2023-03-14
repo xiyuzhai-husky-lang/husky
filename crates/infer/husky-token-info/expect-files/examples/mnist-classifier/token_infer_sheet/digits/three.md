@@ -75,27 +75,7 @@ Ok(
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath {
-                            [display]: Root(
-                                CratePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                            [crate]: CratePath {
-                                package_path: PackagePath {
-                                    data: Local {
-                                        path: DiffPath {
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
-                                },
-                                crate_kind: Main,
-                            },
-                        },
+                        `mnist_classifier`,
                     ),
                 },
             },
@@ -128,27 +108,7 @@ Ok(
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath {
-                            [display]: Root(
-                                CratePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                            [crate]: CratePath {
-                                package_path: PackagePath {
-                                    data: Local {
-                                        path: DiffPath {
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
-                                },
-                                crate_kind: Main,
-                            },
-                        },
+                        `mnist_classifier`,
                     ),
                 },
             },
@@ -181,27 +141,7 @@ Ok(
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath {
-                            [display]: Root(
-                                CratePath(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
-                            ),
-                            [crate]: CratePath {
-                                package_path: PackagePath {
-                                    data: Local {
-                                        path: DiffPath {
-                                            data: DiffPathBuf(
-                                                "../../../examples/mnist-classifier",
-                                            ),
-                                        },
-                                    },
-                                },
-                                crate_kind: Main,
-                            },
-                        },
+                        `mnist_classifier`,
                     ),
                 },
             },

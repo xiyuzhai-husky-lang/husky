@@ -93,15 +93,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     11,
                                                                 ),
@@ -222,15 +216,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     40,
                                                                 ),
@@ -351,15 +339,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     69,
                                                                 ),
@@ -480,15 +462,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     98,
                                                                 ),
@@ -609,15 +585,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     123,
                                                                 ),
@@ -738,15 +708,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     152,
                                                                 ),
@@ -867,15 +831,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     177,
                                                                 ),
@@ -996,15 +954,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     206,
                                                                 ),
@@ -1125,15 +1077,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     231,
                                                                 ),
@@ -1254,15 +1200,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     260,
                                                                 ),
@@ -1383,15 +1323,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     285,
                                                                 ),
@@ -1512,15 +1446,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     314,
                                                                 ),
@@ -1777,15 +1705,9 @@ Ok(
                                                     pattern: ImplicitParameterDeclPattern {
                                                         annotated_variance_token: None,
                                                         symbol: 0,
-                                                        variant: Type0 {
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                             ident_token: IdentToken {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 60,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                ident: `Rhs`,
                                                                 token_idx: TokenIdx(
                                                                     387,
                                                                 ),

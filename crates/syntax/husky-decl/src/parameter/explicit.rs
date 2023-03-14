@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
 pub struct ExplicitParameterDeclList {
     lpar: LeftParenthesisToken,
     parameters: Vec<ExplicitParameterDeclPattern>,

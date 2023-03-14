@@ -91,15 +91,9 @@ Ok(
                                                 pattern: ImplicitParameterDeclPattern {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
-                                                    variant: Type0 {
+                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                         ident_token: IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 110,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `B`,
                                                             token_idx: TokenIdx(
                                                                 9,
                                                             ),

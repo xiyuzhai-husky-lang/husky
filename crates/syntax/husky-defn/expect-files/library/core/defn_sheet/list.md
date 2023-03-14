@@ -93,7 +93,7 @@ Ok(
                                                     ImplicitParameterDecl {
                                                         pattern: ImplicitParameterDeclPattern {
                                                             annotated_variance_token: Some(
-                                                                Covariant(
+                                                                VarianceToken::Covariant(
                                                                     CovariantToken {
                                                                         token_idx: TokenIdx(
                                                                             4,
@@ -102,15 +102,9 @@ Ok(
                                                                 ),
                                                             ),
                                                             symbol: 0,
-                                                            variant: Type0 {
+                                                            variant: ImplicitParameterDeclPatternVariant::Type0 {
                                                                 ident_token: IdentToken {
-                                                                    ident: Ident(
-                                                                        Word(
-                                                                            Id {
-                                                                                value: 31,
-                                                                            },
-                                                                        ),
-                                                                    ),
+                                                                    ident: `E`,
                                                                     token_idx: TokenIdx(
                                                                         5,
                                                                     ),

@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 2;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            ModulePath {\n                [display]: Root(\n                    CratePath(\n                        Id {\n                            value: 1,\n                        },\n                    ),\n                ),\n                [crate]: CratePath {\n                    package_path: PackagePath {\n                        data: Local {\n                            path: DiffPath {\n                                data: DiffPathBuf(\n                                    \"../../../library/core\",\n                                ),\n                            },\n                        },\n                    },\n                    crate_kind: Library,\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 2;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 16;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 8,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            ModulePath {\n                [display]: Root(\n                    CratePath(\n                        Id {\n                            value: 1,\n                        },\n                    ),\n                ),\n                [crate]: CratePath {\n                    package_path: PackagePath {\n                        data: Local {\n                            path: DiffPath {\n                                data: DiffPathBuf(\n                                    \"../../../library/core\",\n                                ),\n                            },\n                        },\n                    },\n                    crate_kind: Library,\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 16;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 8,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 30;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: UseExprRuleIdx(\n        4,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            ModulePath {\n                [display]: Root(\n                    CratePath(\n                        Id {\n                            value: 1,\n                        },\n                    ),\n                ),\n                [crate]: CratePath {\n                    package_path: PackagePath {\n                        data: Local {\n                            path: DiffPath {\n                                data: DiffPathBuf(\n                                    \"../../../library/core\",\n                                ),\n                            },\n                        },\n                    },\n                    crate_kind: Library,\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 30;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: UseExprRuleIdx(\n        4,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 44;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 20,\n    rule_idx: UseExprRuleIdx(\n        6,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            ModulePath {\n                [display]: Root(\n                    CratePath(\n                        Id {\n                            value: 1,\n                        },\n                    ),\n                ),\n                [crate]: CratePath {\n                    package_path: PackagePath {\n                        data: Local {\n                            path: DiffPath {\n                                data: DiffPathBuf(\n                                    \"../../../library/core\",\n                                ),\n                            },\n                        },\n                    },\n                    crate_kind: Library,\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 44;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 20,\n    rule_idx: UseExprRuleIdx(\n        6,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
