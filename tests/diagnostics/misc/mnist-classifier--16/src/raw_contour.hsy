@@ -25,25 +25,25 @@ func get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction:
         case 0:
             match pixel_pair_below:
                 case 1 | 3:
-                    Direction::LEFT
+                    Direction::Left
                 case 2:
-                    Direction::UP
+                    Direction::Up
         case 1:
-            Direction::DOWN
+            Direction::Down
         case 2:
             match pixel_pair_below:
                 case 0:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1 | 3:
-                    Direction::LEFT
+                    Direction::Left
                 case 2:
-                    Direction::UP
+                    Direction::Up
         case 3:
             match pixel_pair_below:
                 case 0 | 1:
-                    Direction::RIGHT
+                    Direction::Right
                 case 2:
-                    Direction::UP
+                    Direction::Up
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
     raw_angle_change = (outward.to_i32() - inward.to_i32()).bitmod(2)
@@ -65,44 +65,44 @@ func get_outward_direction(
         case 0:
             match pixel_pair_below:
                 case 1:
-                    Direction::DOWN
+                    Direction::Down
                 case 2 | 3:
-                    Direction::LEFT
+                    Direction::Left
                 default:
                     panic
         case 1:
             match pixel_pair_below:
                 case 0:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1:
-                    Direction::DOWN
+                    Direction::Down
                 case 2:
                     match inward_direction:
-                        case Direction::DOWN:
-                            Direction::LEFT
-                        case Direction::UP:
-                            Direction::RIGHT
+                        case Direction::Down:
+                            Direction::Left
+                        case Direction::Up:
+                            Direction::Right
                         default:
                             panic
                 case 3:
-                    Direction::LEFT
+                    Direction::Left
         case 2:
             match pixel_pair_below:
                 case 0 | 2 | 3:
-                    Direction::UP
+                    Direction::Up
                 case 1:
                     match inward_direction:
-                        case Direction::LEFT:
-                            Direction::UP
-                        case Direction::RIGHT:
-                            Direction::DOWN
+                        case Direction::Left:
+                            Direction::Up
+                        case Direction::Right:
+                            Direction::Down
                         default:
                             assert false
         case 3:
             match pixel_pair_below:
                 case 0 | 2:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1:
-                    Direction::DOWN
+                    Direction::Down
                 default:
                     panic

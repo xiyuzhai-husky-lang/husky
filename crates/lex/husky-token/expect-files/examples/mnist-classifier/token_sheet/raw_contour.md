@@ -1504,25 +1504,25 @@ Ok(
                 Punctuation::Vertical,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Keyword(
                 Keyword::Form(
@@ -2008,7 +2008,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2031,7 +2031,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2069,7 +2069,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2122,7 +2122,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2153,7 +2153,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2176,7 +2176,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2252,7 +2252,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2275,7 +2275,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2756,7 +2756,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2787,7 +2787,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2855,7 +2855,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2878,7 +2878,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2920,7 +2920,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -2935,7 +2935,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -2947,7 +2947,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -2962,7 +2962,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3000,7 +3000,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3084,7 +3084,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3126,7 +3126,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -3141,7 +3141,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3153,7 +3153,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -3168,7 +3168,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3259,7 +3259,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -3282,7 +3282,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Vertical,
@@ -5339,7 +5339,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `UP`,
+                `Up`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -5430,7 +5430,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `DOWN`,
+                `Down`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -5509,7 +5509,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `LEFT`,
+                `Left`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
@@ -5548,7 +5548,7 @@ Ok(
                 Punctuation::ColonColon,
             ),
             Token::Ident(
-                `RIGHT`,
+                `Right`,
             ),
             Token::Punctuation(
                 Punctuation::Eq,
