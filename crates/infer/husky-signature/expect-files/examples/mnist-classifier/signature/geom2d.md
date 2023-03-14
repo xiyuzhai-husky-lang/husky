@@ -83,17 +83,8 @@
             ),
         ),
     ),
-    Ok(
-        Signature::Type(
-            TypeSignature::RegularStruct(
-                RegularStructTypeSignature {
-                    implicit_parameters: ImplicitParameterSignatures {
-                        data: [],
-                    },
-                    fields: [],
-                },
-            ),
-        ),
+    Err(
+        DeclExprError,
     ),
     Ok(
         Signature::Type(

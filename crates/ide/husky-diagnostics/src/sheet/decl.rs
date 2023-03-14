@@ -137,7 +137,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_regular_struct_decl(&mut self, decl: RegularStructTypeDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
-        } else if let Err(ExprError::Original(e)) = decl.fields(self.db()) {
+        } else if let Err(DeclExprError::Original(e)) = decl.fields(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.rcurl(self.db()) {
             self.visit_atom(e)

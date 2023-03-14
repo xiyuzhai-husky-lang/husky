@@ -108,11 +108,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [180:31, 180:33),
             },
-            Diagnostic {
-                message: "expected 0 argument, found 2",
-                severity: Error,
-                range: [27:16, 30:10),
-            },
         ],
     },
 }

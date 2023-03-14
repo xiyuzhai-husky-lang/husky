@@ -6589,8 +6589,14 @@
                     (
                         Trivial,
                         Err(
-                            Original(
-                                NoSuchField,
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -6657,8 +6663,14 @@
                     (
                         Trivial,
                         Err(
-                            Original(
-                                NoSuchField,
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),

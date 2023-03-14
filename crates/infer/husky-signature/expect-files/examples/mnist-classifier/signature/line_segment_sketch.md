@@ -1,8 +1,6 @@
 [
     Err(
-        FieldTypeRawTermError(
-            0,
-        ),
+        DeclExprError,
     ),
     Ok(
         Signature::Type(

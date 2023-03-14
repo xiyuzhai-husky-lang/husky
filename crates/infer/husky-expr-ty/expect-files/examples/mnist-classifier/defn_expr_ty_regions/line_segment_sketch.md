@@ -3964,7 +3964,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -4112,7 +4112,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -4871,7 +4871,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -5019,7 +5019,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -6248,7 +6248,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -6370,7 +6370,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -6870,7 +6870,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -6992,7 +6992,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8012,7 +8012,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8160,7 +8160,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8710,7 +8710,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8858,7 +8858,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -10526,7 +10526,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -10648,7 +10648,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -10996,7 +10996,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -11118,7 +11118,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -12132,7 +12132,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 14,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -13117,7 +13117,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -15682,7 +15682,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 14,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -16235,7 +16235,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -18384,6 +18384,28 @@
                         TypePath(
                             Constructor,
                         ),
+                        Err(
+                            Derived(
+                                TypeError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
@@ -18411,55 +18433,6 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    variant: Ritchie {
-                                        ritchie_kind: Fp,
-                                        parameter_liasoned_tys: [],
-                                    },
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Ok(
-                            Resolved(
-                                Ritchie(
-                                    TermRitchie(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    6,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsRitchieCallType(
-                                ExpectEqsFunctionTypeOutcome {
-                                    implicit_parameter_substitutions: [],
-                                    return_ty: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
                                                         value: 49,
                                                     },
                                                 ),
@@ -18542,114 +18515,8 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 11,
+                                            value: 10,
                                         },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    8,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsRitchieCallType(
-                                ExpectEqsFunctionTypeOutcome {
-                                    implicit_parameter_substitutions: [],
-                                    return_ty: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 49,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    variant: Ritchie {
-                                        ritchie_kind: Fp,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
-                                                ty: Resolved(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 24,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            LocalTermRitchieParameterLiasonedType {
-                                                ty: Resolved(
-                                                    EntityPath(
-                                                        TypeOntology(
-                                                            TypePath(
-                                                                Id {
-                                                                    value: 24,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        ExplicitApplicationOrRitchieCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 49,
-                                            },
-                                        ),
                                     ),
                                 ),
                             ),
@@ -18660,6 +18527,112 @@
                     7,
                 ),
                 resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 49,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: Fp,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 24,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 24,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 49,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
                     Unresolved,
                 ),
             },
@@ -18685,45 +18658,20 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    8,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        ExplicitApplicationOrRitchieCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    10,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -18745,7 +18693,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    9,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -18758,17 +18706,7 @@
                 ),
             },
         ],
-        extra_expr_errors: [
-            (
-                56,
-                Original(
-                    RitchieCallWrongNumberOfArguments {
-                        number_of_nonself_parameters: 0,
-                        number_of_nonself_arguments: 2,
-                    },
-                ),
-            ),
-        ],
+        extra_expr_errors: [],
         expr_local_terms: [],
         inherited_symbol_tys: [],
         current_symbol_tys: [],
@@ -19051,53 +18989,12 @@
                             ),
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 47,
-                            expectee: Resolved(
-                                Ritchie(
-                                    TermRitchie(
-                                        Id {
-                                            value: 10,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            expectation: EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsRitchieCallType(
-                                        ExpectEqsFunctionTypeOutcome {
-                                            implicit_parameter_substitutions: [],
-                                            return_ty: Resolved(
-                                                EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 50,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            variant: Ritchie {
-                                                ritchie_kind: Fp,
-                                                parameter_liasoned_tys: [],
-                                            },
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        LocalTermExpectationRule {
                             src_expr_idx: 48,
                             expectee: Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 11,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -19183,7 +19080,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 11,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -19262,42 +19159,6 @@
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
-                        },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 56,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 50,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    destination: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 50,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    ImplicitlyConvertible(
-                                        None,
-                                    ),
-                                ),
-                            ),
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 57,
