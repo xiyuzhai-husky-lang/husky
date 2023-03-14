@@ -101,20 +101,20 @@ Ok(
                         29,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
             ],

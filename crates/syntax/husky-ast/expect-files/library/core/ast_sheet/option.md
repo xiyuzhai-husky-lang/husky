@@ -35,20 +35,20 @@ Ok(
                         3,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
             ],

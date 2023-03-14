@@ -40,16 +40,6 @@ DiagnosticSheet {
                 range: [8:5, 8:45),
             },
             Diagnostic {
-                message: "Syntax Error: unexpected stmt inside module",
-                severity: Error,
-                range: [2:1, 2:7),
-            },
-            Diagnostic {
-                message: "Syntax Error: unexpected stmt inside module",
-                severity: Error,
-                range: [3:1, 3:12),
-            },
-            Diagnostic {
                 message: "Syntax Error: expected identifier",
                 severity: Error,
                 range: [10:8, 10:9),
