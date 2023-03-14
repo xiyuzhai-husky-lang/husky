@@ -17,6 +17,7 @@ use fermi::*;
 use raw_contour::find_raw_contours
 use line_segment_sketch::*
 use domains::ml::models::naive::naive_i32
+use mnist::*
 
 main:
     is_one?

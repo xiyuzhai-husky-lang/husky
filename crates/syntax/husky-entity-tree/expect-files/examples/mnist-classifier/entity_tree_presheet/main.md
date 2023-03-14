@@ -318,6 +318,30 @@ Ok(
                     parent: None,
                     state: UseExprRuleState::Unresolved,
                 },
+                UseExprRule {
+                    ast_idx: 27,
+                    use_expr_idx: 20,
+                    accessibility: AccessibilityProgress::Done {
+                        accessibility: Accessibility::PublicUnder(
+                            `mnist_classifier`,
+                        ),
+                    },
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: ParentNameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            19..20,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
             ],
         ),
         use_all_trackers: UseAllRules(
@@ -645,6 +669,37 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 17,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            63,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: ParentNameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    62,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 19,
                             },
                         ),
                     },

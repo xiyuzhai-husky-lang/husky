@@ -933,6 +933,30 @@ Ok(
                             state: UseExprRuleState::Erroneous,
                         },
                         UseExprRule {
+                            ast_idx: 27,
+                            use_expr_idx: 20,
+                            accessibility: AccessibilityProgress::Done {
+                                accessibility: Accessibility::PublicUnder(
+                                    `mnist_classifier`,
+                                ),
+                            },
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: ParentNameToken::Ident(
+                                    IdentToken {
+                                        ident: `mnist`,
+                                        token_idx: TokenIdx(
+                                            61,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    19..20,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Erroneous,
+                        },
+                        UseExprRule {
                             ast_idx: 24,
                             use_expr_idx: 10,
                             accessibility: AccessibilityProgress::Done {
@@ -1064,6 +1088,14 @@ Ok(
                             ident: `domains`,
                             token_idx: TokenIdx(
                                 51,
+                            ),
+                        },
+                    ),
+                    EntityTreeError::UnresolvedIdent(
+                        IdentToken {
+                            ident: `mnist`,
+                            token_idx: TokenIdx(
+                                61,
                             ),
                         },
                     ),
