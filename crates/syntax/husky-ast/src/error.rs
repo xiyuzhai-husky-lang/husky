@@ -37,7 +37,7 @@ pub enum OriginalAstError {
     #[error("unexpected stmt inside module")]
     UnexpectedStmtInsideModule,
     #[error("unexpected stmt inside impl")]
-    UnexpectedStmtInsideImpl,
+    UnexpectedStmtInsideImplBlock,
     #[error("unexpected punctuation `{1}` for trait item")]
     UnexpectedPunctuationForTraitItem(TokenIdx, Punctuation),
     #[error("unexpected token for trait item")]

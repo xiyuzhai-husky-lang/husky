@@ -187,7 +187,7 @@ pub(crate) fn impl_block_associated_items_aux(
                 Ast::Err { .. } => None,
                 _ => {
                     p!(impl_block.debug(db));
-                    p!(ast);
+                    p!(ast.debug(db));
                     unreachable!()
                 }
             }
