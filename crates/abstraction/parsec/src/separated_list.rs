@@ -28,6 +28,20 @@ where
     (elements, separators, result)
 }
 
+#[test]
+fn parse_separated_list_works() {
+    fn t(input: &str) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
+        parse_separated_list(&mut CharStream::new(input))
+    }
+    assert_eq!(t("a,a"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,ab"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,bab"), (vec![A {},], vec![Comma {}], Ok(())));
+    assert_eq!(
+        t("a,a,"),
+        (vec![A {}, A {}], vec![Comma {}, Comma {}], Ok(()))
+    );
+}
+
 pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalError>(
     ctx: &mut Context,
     nelem_min: usize,
@@ -51,7 +65,7 @@ where
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => {
                         if elements.len() < nelem_min {
-                            todo!()
+                            break Err(f(state).into());
                         } else {
                             break Ok(());
                         }
@@ -74,15 +88,35 @@ where
 }
 
 #[test]
-fn parse_separated_list_works() {
-    fn t(input: &str) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
-        parse_separated_list(&mut CharStream::new(input))
+fn parse_separated_list_expected_works() {
+    fn t(input: &str, nelem_min: usize) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {
+        parse_separated_list_expected(&mut CharStream::new(input), nelem_min, |_| ())
     }
-    assert_eq!(t("a,a"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
-    assert_eq!(t("a,ab"), (vec![A {}, A {}], vec![Comma {}], Ok(())));
-    assert_eq!(t("a,bab"), (vec![A {},], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,a", 0), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,a", 1,), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,a", 2), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,a", 3), (vec![A {}, A {}], vec![Comma {}], Err(())));
+    assert_eq!(t("a,ab", 0), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,ab", 1), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,ab", 2), (vec![A {}, A {}], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,ab", 3), (vec![A {}, A {}], vec![Comma {}], Err(())));
+    assert_eq!(t("a,bab", 0), (vec![A {},], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,bab", 1), (vec![A {},], vec![Comma {}], Ok(())));
+    assert_eq!(t("a,bab", 2), (vec![A {},], vec![Comma {}], Err(())));
     assert_eq!(
-        t("a,a,"),
+        t("a,a,", 0),
         (vec![A {}, A {}], vec![Comma {}, Comma {}], Ok(()))
+    );
+    assert_eq!(
+        t("a,a,", 1),
+        (vec![A {}, A {}], vec![Comma {}, Comma {}], Ok(()))
+    );
+    assert_eq!(
+        t("a,a,", 2),
+        (vec![A {}, A {}], vec![Comma {}, Comma {}], Ok(()))
+    );
+    assert_eq!(
+        t("a,a,", 3),
+        (vec![A {}, A {}], vec![Comma {}, Comma {}], Err(()))
     );
 }
