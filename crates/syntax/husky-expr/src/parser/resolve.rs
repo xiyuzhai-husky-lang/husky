@@ -119,10 +119,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         items,
                         ..
                     }) => {
-                        if items.len() == 0 {
+                        if items.len() == 0 && self.finished_expr().is_none() {
                             ResolvedToken::ColonRightAfterLBox(token_idx)
                         } else {
-                            todo!()
+                            match self.token_stream.is_empty() {
+                                true => return TokenResolveResult::Break(()),
+                                false => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Ins),
+                            }
                         }
                     }
                     _ => match self.peek() {

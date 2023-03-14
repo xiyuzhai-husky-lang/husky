@@ -252,6 +252,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     }
 
     fn accept_colon_right_after_lbox(&mut self, colon_token_idx: TokenIdx) {
+        #[cfg(test)]
         assert!(self.finished_expr().is_none());
         let unfinished_expr = self.take_last_unfinished_expr().unwrap();
         match unfinished_expr {
