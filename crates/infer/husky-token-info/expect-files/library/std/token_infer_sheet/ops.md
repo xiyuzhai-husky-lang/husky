@@ -1,22 +1,18 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`std::ops::Add`),
                         ),
                     ),
                 ),
@@ -27,48 +23,38 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 111,
-                                    },
-                                ),
-                            ),
+                            ident: `B`,
                             token_idx: TokenIdx(
                                 9,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 96,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

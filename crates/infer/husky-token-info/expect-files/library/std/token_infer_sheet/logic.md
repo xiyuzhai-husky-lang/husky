@@ -1,19 +1,19 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Erroneous,
+                state: UseExprRuleState::Erroneous,
             },
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

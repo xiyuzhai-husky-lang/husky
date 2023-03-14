@@ -1,187 +1,278 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
                     5,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 18,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 17,
+                            path: `mnist_classifier::connected_component`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 12,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
                     1,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
                     6,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 18,
+                            path: `mnist_classifier::raw_contour`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
                     2,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
                     7,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 20,
+                            path: `mnist_classifier::line_segment_sketch`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 15,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 12,
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
                     8,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 21,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 20,
+                            path: `mnist_classifier::line_segment_sketch`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 15,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     9,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 24,
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 14,
                 rule_idx: UseExprRuleIdx(
                     4,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
@@ -194,52 +285,40 @@ Ok(
                     },
                 ),
             ),
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
@@ -252,236 +331,168 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            CurrentSymbol {
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 353,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 66,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                         ),
                     ),
                 ),
@@ -494,150 +505,110 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 354,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     2,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 354,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 354,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     2,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 354,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 354,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 67,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                         ),
                     ),
                 ),
@@ -650,51 +621,39 @@ Ok(
                     },
                 ),
             ),
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 68,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                         ),
                     ),
                 ),
@@ -707,52 +666,40 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 69,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                         ),
                     ),
                 ),
@@ -765,49 +712,37 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 68,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 70,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                         ),
                     ),
                 ),
@@ -820,40 +755,32 @@ Ok(
                     },
                 ),
             ),
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 69,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            Field,
+            TokenInfo::None,
+            TokenInfo::Field,
         ],
     },
 )

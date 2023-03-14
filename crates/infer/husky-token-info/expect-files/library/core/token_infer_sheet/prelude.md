@@ -1,251 +1,384 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
                     7,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 0,
+                            path: `core::basic`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 0,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
                     1,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
                     8,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 4,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 3,
+                            path: `core::num`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 3,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
                     2,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
                     9,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 7,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 6,
+                            path: `core::raw_bits`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 6,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     10,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 7,
+                            path: `core::fmt`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 7,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 14,
                 rule_idx: UseExprRuleIdx(
                     4,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
                     11,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 10,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 9,
+                            path: `core::marker`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 9,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 17,
                 rule_idx: UseExprRuleIdx(
                     5,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
                     12,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 9,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 8,
+                            path: `core::clone`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 8,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 20,
                 rule_idx: UseExprRuleIdx(
                     6,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 1,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../library/core",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Library,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 19,
                 rule_idx: UseExprRuleIdx(
                     13,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 12,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 11,
+                            path: `core::cmp`,
+                            accessibility: Accessibility::PublicUnder(
+                                `core`,
+                            ),
+                            ast_idx: 11,
+                        },
                     ),
                 },
             },
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

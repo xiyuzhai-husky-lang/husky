@@ -1,49 +1,45 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Erroneous,
+                state: UseExprRuleState::Erroneous,
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 ),
@@ -56,34 +52,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::i8`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -95,72 +87,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 ),
@@ -173,34 +157,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::i16`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -212,72 +192,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
@@ -290,34 +262,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::i32`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -329,71 +297,63 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 ),
@@ -406,34 +366,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::i64`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -445,72 +401,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 ),
@@ -523,34 +471,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::i128`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -562,72 +506,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 ),
@@ -640,34 +576,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::isize`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -679,72 +611,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 ),
@@ -757,34 +681,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::u8`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -796,72 +716,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u8`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 ),
@@ -874,34 +786,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::u16`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -913,72 +821,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u16`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 ),
@@ -991,34 +891,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::u32`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1030,72 +926,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 ),
@@ -1108,34 +996,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::u64`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1147,72 +1031,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 ),
@@ -1225,34 +1101,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::u128`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1264,72 +1136,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u128`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 ),
@@ -1342,34 +1206,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::usize`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1381,72 +1241,64 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::usize`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
@@ -1459,34 +1311,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::f32`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1498,71 +1346,63 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 ),
@@ -1575,34 +1415,30 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`core::num::f64`, `Extern`),
+                                ident: `abs`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1614,41 +1450,37 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f64`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

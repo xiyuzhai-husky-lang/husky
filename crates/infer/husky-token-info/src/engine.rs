@@ -125,7 +125,7 @@ impl<'a> InferEngine<'a> {
             sheet: &mut self.sheet,
             expr_region_data: expr_region.data(self.db),
             expr_ty_region: self.db.expr_ty_region(expr_region),
-            expr_region,
+            expr_region: expr_region.into(),
         }
         .visit_all()
     }
@@ -231,7 +231,7 @@ struct InferContext<'a> {
     expr_region_data: &'a ExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
     sheet: &'a mut TokenInfoSheet,
-    expr_region: ExprRegion,
+    expr_region: ExprRegionLeash,
 }
 
 impl<'a> InferContext<'a> {

@@ -1,51 +1,66 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
                     1,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 19,
+                            path: `mnist_classifier::geom2d`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 14,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 56,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
                     ),
                 ),
@@ -58,68 +73,56 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 56,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 63,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                ident: `displacement`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -131,44 +134,40 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 64,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                ident: `dist_to_point`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -180,282 +179,202 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 325,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 391,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `pt`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 391,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `pt`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 327,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

@@ -1,17 +1,13 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::mem::Ref`, `Extern`),
                         ),
                     ),
                 ),
@@ -24,74 +20,47 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Lifetime {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Lifetime {
                         label_token: LifetimeLabelToken {
-                            label: Label {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                ),
-                                kind: AllNonGreek,
-                            },
+                            label: `'a`,
                             token_idx: TokenIdx(
                                 5,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 6,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
+                            ident: `E`,
                             token_idx: TokenIdx(
                                 8,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 6,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::mem::RefMut`, `Extern`),
                         ),
                     ),
                 ),
@@ -104,74 +73,47 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Lifetime {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Lifetime {
                         label_token: LifetimeLabelToken {
-                            label: Label {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 30,
-                                        },
-                                    ),
-                                ),
-                                kind: AllNonGreek,
-                            },
+                            label: `'a`,
                             token_idx: TokenIdx(
                                 16,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 20,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
+                            ident: `E`,
                             token_idx: TokenIdx(
                                 19,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 20,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::mem::Leash`, `Extern`),
                         ),
                     ),
                 ),
@@ -184,34 +126,24 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 31,
-                                    },
-                                ),
-                            ),
+                            ident: `E`,
                             token_idx: TokenIdx(
                                 27,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 21,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

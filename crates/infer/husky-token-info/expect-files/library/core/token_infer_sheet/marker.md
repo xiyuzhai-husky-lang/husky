@@ -1,17 +1,13 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
                         ),
                     ),
                 ),
@@ -22,18 +18,14 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Sized`),
                         ),
                     ),
                 ),
@@ -44,7 +36,7 @@ Ok(
                     },
                 ),
             ),
-            None,
+            TokenInfo::None,
         ],
     },
 )

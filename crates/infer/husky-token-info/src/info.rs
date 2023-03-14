@@ -14,12 +14,12 @@ pub enum TokenInfo {
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,
-        expr_region: ExprRegion,
+        expr_region: ExprRegionLeash,
     },
     CurrentSymbol {
         current_symbol_idx: CurrentSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
-        expr_region: ExprRegion,
+        expr_region: ExprRegionLeash,
     },
     SelfType,
     SelfValue,
@@ -33,6 +33,46 @@ pub enum TokenInfo {
         rule_idx: UseExprRuleIdx,
         state: UseExprRuleState,
     },
+}
+
+/// the purpose is to avoid extra debug with db in expr region
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+pub struct ExprRegionLeash(ExprRegion);
+
+impl From<ExprRegion> for ExprRegionLeash {
+    fn from(value: ExprRegion) -> Self {
+        ExprRegionLeash(value)
+    }
+}
+impl From<ExprRegionLeash> for ExprRegion {
+    fn from(value: ExprRegionLeash) -> Self {
+        value.0
+    }
+}
+
+impl std::ops::Deref for ExprRegionLeash {
+    type Target = ExprRegion;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::fmt::Debug for ExprRegionLeash {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("ExprRegionLeash(_)")
+    }
+}
+
+impl<Db: ?Sized> salsa::DebugWithDb<Db> for ExprRegionLeash {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        f.write_str("ExprRegionLeash(_)")
+    }
 }
 
 impl Default for TokenInfo {

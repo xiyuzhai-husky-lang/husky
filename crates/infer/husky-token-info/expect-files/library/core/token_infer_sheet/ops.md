@@ -1,24 +1,20 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 1,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
                         ),
                     ),
                 ),
@@ -29,66 +25,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 11,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 78,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::AddAssign`),
                         ),
                     ),
                 ),
@@ -99,66 +81,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 40,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 79,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 3,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitAnd`),
                         ),
                     ),
                 ),
@@ -169,66 +137,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 69,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 80,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 4,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitAndAssign`),
                         ),
                     ),
                 ),
@@ -239,62 +193,48 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 98,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 81,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitOr`),
                         ),
                     ),
                 ),
@@ -305,66 +245,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 123,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 82,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitOrAssign`),
                         ),
                     ),
                 ),
@@ -375,62 +301,48 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 152,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 83,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitXor`),
                         ),
                     ),
                 ),
@@ -441,66 +353,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 177,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 84,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 8,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::BitXorAssign`),
                         ),
                     ),
                 ),
@@ -511,62 +409,48 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 206,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 85,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Div`),
                         ),
                     ),
                 ),
@@ -577,66 +461,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 231,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 86,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::DivAssign`),
                         ),
                     ),
                 ),
@@ -647,62 +517,48 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 260,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 87,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Mul`),
                         ),
                     ),
                 ),
@@ -713,66 +569,52 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 285,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 88,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::MulAssign`),
                         ),
                     ),
                 ),
@@ -783,62 +625,48 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 314,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 89,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Neg`),
                         ),
                     ),
                 ),
@@ -849,38 +677,34 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Not`),
                         ),
                     ),
                 ),
@@ -891,38 +715,34 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Trait(
-                            TraitPath(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Sub`),
                         ),
                     ),
                 ),
@@ -933,48 +753,38 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: ImplicitParameter {
-                    implicit_parameter_kind: Type {
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
                         ident_token: IdentToken {
-                            ident: Ident(
-                                Word(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
+                            ident: `Rhs`,
                             token_idx: TokenIdx(
                                 387,
                             ),
                         },
                     },
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 92,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

@@ -1,12 +1,12 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

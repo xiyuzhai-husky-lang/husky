@@ -1,34 +1,46 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         ),
                     ),
                 ),
@@ -41,75 +53,63 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 25,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                ident: `norm`,
+                                ty_item_kind: Memo,
+                            },
                         ),
                     ),
                 ),
@@ -121,125 +121,97 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 231,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 26,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                ident: `rel_norm`,
+                                ty_item_kind: Memo,
+                            },
                         ),
                     ),
                 ),
@@ -251,125 +223,97 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 232,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 27,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                ident: `angle_change_norm`,
+                                ty_item_kind: Memo,
+                            },
                         ),
                     ),
                 ),
@@ -381,130 +325,98 @@ Ok(
                     },
                 ),
             ),
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     3,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 233,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                         ),
                     ),
                 ),
@@ -517,332 +429,230 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 145,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 145,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 335,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `concave_components`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     9,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 399,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `templates`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 399,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `templates`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: FrameVariable(
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
                     9,
                 ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 230,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
+            TokenInfo::None,
         ],
     },
 )

@@ -1,587 +1,231 @@
 Ok(
     TokenInfoSheet {
         token_infos: [
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
                     0,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 25,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 24,
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 3,
                 rule_idx: UseExprRuleIdx(
                     1,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 26,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 25,
+                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 160,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
                     2,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 27,
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
                     6,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 19,
+                            path: `mnist_classifier::geom2d`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 14,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
                     4,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot(
-                        ModulePath(
-                            Id {
-                                value: 23,
+                        ModulePath {
+                            [display]: Root(
+                                CratePath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                            ),
+                            [crate]: CratePath {
+                                package_path: PackagePath {
+                                    data: Local {
+                                        path: DiffPath {
+                                            data: DiffPathBuf(
+                                                "../../../examples/mnist-classifier",
+                                            ),
+                                        },
+                                    },
+                                },
+                                crate_kind: Main,
                             },
-                        ),
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     7,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 18,
+                            path: `mnist_classifier::raw_contour`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 9,
                 rule_idx: UseExprRuleIdx(
                     8,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 66,
-                            },
-                        ),
+                        ModuleItemSymbol {
+                            [salsa id]: 65,
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                            accessibility: Accessibility::Public,
+                            ast_idx: 199,
+                        },
                     ),
                 },
             },
-            None,
-            UseExpr {
+            TokenInfo::None,
+            TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
                     5,
                 ),
-                state: Resolved {
+                state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                        SubmoduleSymbol {
+                            [salsa id]: 27,
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
+                        },
                     ),
                 },
             },
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    ModuleItem {
-                        module_item_kind: Type(
-                            Struct,
-                        ),
-                        connection: Connected,
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            None,
-            BoxPrefix,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 334,
-                    },
-                ),
-            },
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 334,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: Parameter {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 334,
-                    },
-                ),
-            },
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 331,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 345,
-                    },
-                ),
-            },
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 252,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 345,
-                    },
-                ),
-            },
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 345,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 331,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 345,
-                    },
-                ),
-            },
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 252,
-                            },
-                        ),
-                    ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 345,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 66,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Method,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
@@ -594,603 +238,86 @@ Ok(
                     },
                 ),
             ),
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 67,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 54,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            SelfValue,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 68,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 0,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 5,
-                current_symbol_kind: FrameVariable(
-                    15,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            SelfValue,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 5,
-                current_symbol_kind: FrameVariable(
-                    15,
-                ),
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            None,
-            Field,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            Field,
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 1,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 2,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            CurrentSymbol {
-                current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
-                    pattern_symbol_idx: 4,
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 348,
-                    },
-                ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
-                Some(
-                    AssociatedItem(
-                        TypeItem(
-                            TypeItemPath(
-                                Id {
-                                    value: 69,
-                                },
-                            ),
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                ident: `new`,
+                                ty_item_kind: Method,
+                            },
                         ),
                     ),
                 ),
@@ -1202,178 +329,788 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 339,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 339,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            Entity(
-                Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
-                        ),
-                    ),
-                ),
-                None,
-            ),
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 349,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            InheritedSymbol {
-                inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 349,
-                    },
                 ),
-            },
-            None,
-            InheritedSymbol {
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `from`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 2,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `to`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `from`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 2,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `to`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                ident: `displacement`,
+                                ty_item_kind: Method,
                             },
                         ),
                     ),
-                },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 349,
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
                     },
                 ),
-            },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Entity(
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Type(
+                            Struct,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ident: `concave_components`,
+                                ty_item_kind: Memo,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ident: `bounding_box`,
+                                ty_item_kind: Memo,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Memo,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    15,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::SelfValue,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                    15,
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 6,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 4,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 4,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::AssociatedItem(
+                        AssociatedItemPath::TypeItem(
+                            TypeItemPath {
+                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ident: `new`,
+                                ty_item_kind: Method,
+                            },
+                        ),
+                    ),
+                ),
+                Some(
+                    AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            Method,
+                        ),
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                         ),
                     ),
                 ),
@@ -1386,515 +1123,311 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 328,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 328,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            Entity(
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 340,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                         ),
                     ),
                 ),
@@ -1907,515 +1440,311 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 329,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 329,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            Entity(
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 341,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `u`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 341,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                         ),
                     ),
                 ),
@@ -2428,1179 +1757,747 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 330,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 330,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 330,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            CurrentSymbol {
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 246,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 342,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                         ),
                     ),
                 ),
@@ -3613,1293 +2510,819 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 331,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 331,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 331,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 331,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `end`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `end`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `end`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `end`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 357,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start0`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 247,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `end`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 17,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 18,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 357,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start0`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 357,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start0`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 357,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `start0`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 343,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                         ),
                     ),
                 ),
@@ -4912,1591 +3335,1093 @@ Ok(
                     },
                 ),
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 332,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: Parameter {
+                current_symbol_kind: CurrentSymbolKind::Parameter {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 332,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            BoxPrefix,
-            BoxPrefix,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::BoxPrefix,
+            TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 19,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 7,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 8,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 5,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Form(
-                            FormPath(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 338,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `r`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 10,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 10,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 11,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 11,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 10,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 10,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 12,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 13,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 10,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 10,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 12,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 11,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 11,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 12,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 11,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 11,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 12,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 13,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 12,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 13,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 13,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 14,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 14,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 14,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 14,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            CurrentSymbol {
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 15,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 15,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 16,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 16,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 17,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 17,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 17,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 17,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 16,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 16,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 15,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 15,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 18,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 18,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Entity(
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
                 Some(
-                    ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 52,
-                                },
-                            ),
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 ),
                 None,
             ),
-            None,
-            None,
-            None,
-            InheritedSymbol {
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: RegularParameter {
-                    ident: Ident(
-                        Word(
-                            Id {
-                                value: 184,
-                            },
-                        ),
-                    ),
+                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                    ident: `ct`,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 18,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 18,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 15,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 15,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
-            None,
-            Method,
-            None,
-            None,
-            None,
-            Field,
-            None,
-            Field,
-            None,
-            None,
-            None,
-            None,
-            CurrentSymbol {
+            TokenInfo::None,
+            TokenInfo::Method,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: LetVariable {
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegion(
-                    Id {
-                        value: 344,
-                    },
-                ),
+                expr_region: ExprRegionLeash(_),
             },
         ],
     },

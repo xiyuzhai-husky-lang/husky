@@ -5,6 +5,7 @@ use salsa::DebugWithDb;
 use crate::*;
 
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct TokenIdx(pub(crate) usize);
 
 impl TokenIdx {

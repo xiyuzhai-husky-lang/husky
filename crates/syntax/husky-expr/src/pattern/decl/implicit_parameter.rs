@@ -23,6 +23,7 @@ impl ImplicitParameterDeclPattern {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ImplicitParameterDeclPatternVariant {
     Type0 { ident_token: IdentToken },
     Constant { ident_token: IdentToken },
