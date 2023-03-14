@@ -188,6 +188,18 @@ Ok(
                 `naive_i32`,
             ),
             Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `mnist`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Keyword(
                 Keyword::Main,
             ),
             Token::Punctuation(
@@ -276,7 +288,6 @@ Ok(
             46,
             50,
             60,
-            62,
             64,
             66,
             68,
@@ -286,10 +297,13 @@ Ok(
             76,
             78,
             80,
+            82,
+            84,
         ],
         indents: [
             0,
             4,
+            0,
             0,
             0,
             0,

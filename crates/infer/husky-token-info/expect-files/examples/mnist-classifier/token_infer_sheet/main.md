@@ -129,7 +129,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    8,
+                    9,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -181,6 +181,16 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 20,
+                rule_idx: UseExprRuleIdx(
+                    8,
+                ),
+                state: UseExprRuleState::Erroneous,
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
