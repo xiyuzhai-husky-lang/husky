@@ -10,7 +10,7 @@ pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
 
 use crate::*;
-
+#[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;
 
