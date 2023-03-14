@@ -172,25 +172,11 @@ pub struct TokenSheet {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct TokenSheetData {
     tokens: Vec<Token>,
     group_starts: Vec<usize>,
     indents: Vec<u32>,
-}
-
-impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for TokenSheetData {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        f.debug_struct("TokenSheetData")
-            .field("tokens", &self.tokens.debug(db))
-            .field("group_starts", &self.group_starts)
-            .field("indents", &self.indents)
-            .finish()
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

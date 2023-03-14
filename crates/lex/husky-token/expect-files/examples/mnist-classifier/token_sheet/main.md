@@ -1,470 +1,260 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Keyword(
-                Config(
+            Token::Keyword(
+                Keyword::Config(
                     Task,
                 ),
             ),
-            Punctuation(
-                Colon,
+            Token::Punctuation(
+                Punctuation::Colon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 143,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `mnist`,
             ),
-            Punctuation(
-                ColonColon,
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 144,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `new_binary_dataset`,
             ),
-            Punctuation(
-                Bra(
+            Token::Punctuation(
+                Punctuation::Bra(
                     Par,
                 ),
             ),
-            Punctuation(
-                Ket(
+            Token::Punctuation(
+                Punctuation::Ket(
                     Par,
                 ),
             ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 122,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 142,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 135,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 134,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 123,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Mod,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 141,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 143,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 145,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 143,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 146,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 141,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Punctuation(
-                Star,
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 123,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Punctuation(
-                Star,
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 134,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Punctuation(
-                Star,
-            ),
-            Punctuation(
-                Semicolon,
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 142,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 147,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 136,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Punctuation(
-                Star,
-            ),
-            Keyword(
-                Use,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 148,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 149,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 150,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 151,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 152,
-                        },
-                    ),
-                ),
-            ),
-            Keyword(
-                Main,
-            ),
-            Punctuation(
-                Colon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 153,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 154,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 155,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 156,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 157,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 158,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 159,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 160,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 161,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                Question,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 146,
-                        },
-                    ),
-                ),
-            ),
-            Punctuation(
-                ColonColon,
-            ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 162,
-                        },
-                    ),
-                ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `connected_component`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `raw_contour`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `geom2d`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `line_segment_sketch`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `fermi`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `digits`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `major`,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `mnist`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `mnist`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `major`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `digits`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `fermi`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Punctuation(
+                Punctuation::Semicolon,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `raw_contour`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `find_raw_contours`,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `line_segment_sketch`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Ident(
+                `domains`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `ml`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `models`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `naive`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `naive_i32`,
+            ),
+            Token::Keyword(
+                Keyword::Main,
+            ),
+            Token::Punctuation(
+                Punctuation::Colon,
+            ),
+            Token::Ident(
+                `is_one`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_six`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_zero`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_seven`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_eight`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_three`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_nine`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_five`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `is_two`,
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `Four`,
             ),
         ],
         group_starts: [

@@ -95,7 +95,7 @@ impl<'a> HoverResultCalculator<'a> {
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.data(self.db).symbol_region()[*current_symbol_idx]
+                    expr_region.data(self.db).symbol_region()[*current_symbol_idx].debug(self.db)
                 )
             }
             TokenInfo::InheritedSymbol {
@@ -105,7 +105,7 @@ impl<'a> HoverResultCalculator<'a> {
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
+                    expr_region.data(self.db).symbol_region()[*inherited_symbol_idx].debug(self.db)
                 )
             }
             TokenInfo::Field => format!(""),
@@ -128,8 +128,8 @@ token_info = {:#?};
 {additional_debug_content}
 "#,
             self.token_idx.raw(),
-            self.token,
-            self.token_info,
+            self.token.debug(self.db),
+            self.token_info.debug(self.db),
         )
     }
 }

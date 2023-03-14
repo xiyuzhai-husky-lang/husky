@@ -2,6 +2,7 @@ use crate::*;
 use std::ops::Deref;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub enum AttributeKeyword {
     Pub,
     Protected,

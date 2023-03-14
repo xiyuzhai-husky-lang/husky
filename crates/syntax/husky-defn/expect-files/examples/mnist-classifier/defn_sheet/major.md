@@ -762,13 +762,7 @@ Ok(
                                                             59,
                                                         ),
                                                         frame_var_expr_idx: 3,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 193,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `i`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: None,
@@ -1351,13 +1345,7 @@ Ok(
                                                             104,
                                                         ),
                                                         frame_var_expr_idx: 2,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 193,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `i`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: None,

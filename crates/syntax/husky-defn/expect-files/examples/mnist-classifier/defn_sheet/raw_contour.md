@@ -10459,13 +10459,7 @@ Ok(
                                                             1020,
                                                         ),
                                                         frame_var_expr_idx: 7,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 193,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `i`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: Some(
@@ -10509,13 +10503,7 @@ Ok(
                                                             1086,
                                                         ),
                                                         frame_var_expr_idx: 51,
-                                                        frame_var_ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 209,
-                                                                },
-                                                            ),
-                                                        ),
+                                                        frame_var_ident: `k`,
                                                         range: ForBetweenRange {
                                                             initial_boundary: LoopBoundary {
                                                                 bound_expr: Some(
@@ -13434,13 +13422,7 @@ Ok(
                                                                 101,
                                                             ),
                                                             frame_var_expr_idx: 14,
-                                                            frame_var_ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 193,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            frame_var_ident: `i`,
                                                             range: ForBetweenRange {
                                                                 initial_boundary: LoopBoundary {
                                                                     bound_expr: None,
@@ -15568,13 +15550,7 @@ Ok(
                                                                 213,
                                                             ),
                                                             frame_var_expr_idx: 2,
-                                                            frame_var_ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 193,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            frame_var_ident: `i`,
                                                             range: ForBetweenRange {
                                                                 initial_boundary: LoopBoundary {
                                                                     bound_expr: Some(

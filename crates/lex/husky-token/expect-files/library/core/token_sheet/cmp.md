@@ -1,77 +1,53 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 21,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `PartialEq`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 22,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Eq`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 23,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `PartialOrd`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 24,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Ord`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
         ],
         group_starts: [

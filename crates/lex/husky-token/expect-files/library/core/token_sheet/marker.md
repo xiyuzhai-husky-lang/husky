@@ -1,41 +1,29 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 37,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Copy`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
-            Attr(
-                Pub,
+            Token::Attr(
+                AttributeKeyword::Pub,
             ),
-            Keyword(
-                Trait,
+            Token::Keyword(
+                Keyword::Trait,
             ),
-            Ident(
-                Ident(
-                    Word(
-                        Id {
-                            value: 38,
-                        },
-                    ),
-                ),
+            Token::Ident(
+                `Sized`,
             ),
-            Punctuation(
-                Semicolon,
+            Token::Punctuation(
+                Punctuation::Semicolon,
             ),
         ],
         group_starts: [

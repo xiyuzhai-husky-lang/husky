@@ -706,14 +706,8 @@ Ok(
                                                             0,
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
-                                                            Type {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 97,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            InheritedImplicitParameterSymbol::Type {
+                                                                ident: `T`,
                                                             },
                                                         ),
                                                     },
@@ -1876,14 +1870,8 @@ Ok(
                                                             0,
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
-                                                            Type {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 97,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            InheritedImplicitParameterSymbol::Type {
+                                                                ident: `T`,
                                                             },
                                                         ),
                                                     },
@@ -3716,14 +3704,8 @@ Ok(
                                                             0,
                                                         ),
                                                         kind: InheritedSymbolKind::ImplicitParameter(
-                                                            Type {
-                                                                ident: Ident(
-                                                                    Word(
-                                                                        Id {
-                                                                            value: 97,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                            InheritedImplicitParameterSymbol::Type {
+                                                                ident: `T`,
                                                             },
                                                         ),
                                                     },

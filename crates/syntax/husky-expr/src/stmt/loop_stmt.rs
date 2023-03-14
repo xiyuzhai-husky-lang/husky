@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct ForBetweenParticulars {
     pub frame_var_token_idx: TokenIdx,
     pub frame_var_expr_idx: ExprIdx,
@@ -9,6 +10,7 @@ pub struct ForBetweenParticulars {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct ForBetweenRange {
     pub initial_boundary: LoopBoundary,
     pub final_boundary: LoopBoundary,

@@ -62,3 +62,19 @@ impl Label {
         self.kind == LabelKind::AllNonGreek
     }
 }
+
+impl<Db: WordDb + ?Sized> salsa::DebugWithDb<Db> for Label {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        if level.is_root() {
+            f.debug_tuple("Label").field(&self.ident.data(db)).finish()
+        } else {
+            f.write_fmt(format_args!("`'{}`", &self.ident.data(db)))
+        }
+    }
+}

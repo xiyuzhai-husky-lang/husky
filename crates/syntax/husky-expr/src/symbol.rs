@@ -50,6 +50,7 @@ pub enum InheritedSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedImplicitParameterSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },

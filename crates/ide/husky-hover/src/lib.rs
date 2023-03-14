@@ -13,6 +13,7 @@ pub use protocol::*;
 use calc::*;
 use husky_token::TokenIdx;
 use husky_vfs::*;
+use salsa::DebugWithDb;
 use serde::{Deserialize, Serialize};
 
 #[salsa::jar(db = HoverDb)]

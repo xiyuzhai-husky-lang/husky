@@ -17653,13 +17653,7 @@ Ok(
                                                                 234,
                                                             ),
                                                             frame_var_expr_idx: 15,
-                                                            frame_var_ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 193,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            frame_var_ident: `i`,
                                                             range: ForBetweenRange {
                                                                 initial_boundary: LoopBoundary {
                                                                     bound_expr: None,

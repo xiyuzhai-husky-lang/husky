@@ -135,15 +135,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 144,
-                                        },
-                                    ),
-                                ),
+                                ident: `mnist`,
                                 token_idx: TokenIdx(
                                     22,
                                 ),
@@ -165,15 +159,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 144,
-                                        },
-                                    ),
-                                ),
+                                ident: `mnist`,
                                 token_idx: TokenIdx(
                                     26,
                                 ),
@@ -195,15 +183,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 142,
-                                        },
-                                    ),
-                                ),
+                                ident: `major`,
                                 token_idx: TokenIdx(
                                     30,
                                 ),
@@ -225,15 +207,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 124,
-                                        },
-                                    ),
-                                ),
+                                ident: `digits`,
                                 token_idx: TokenIdx(
                                     34,
                                 ),
@@ -255,15 +231,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 135,
-                                        },
-                                    ),
-                                ),
+                                ident: `fermi`,
                                 token_idx: TokenIdx(
                                     38,
                                 ),
@@ -285,15 +255,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 143,
-                                        },
-                                    ),
-                                ),
+                                ident: `raw_contour`,
                                 token_idx: TokenIdx(
                                     43,
                                 ),
@@ -315,15 +279,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 137,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
                                     47,
                                 ),
@@ -345,15 +303,9 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 149,
-                                        },
-                                    ),
-                                ),
+                                ident: `domains`,
                                 token_idx: TokenIdx(
                                     51,
                                 ),

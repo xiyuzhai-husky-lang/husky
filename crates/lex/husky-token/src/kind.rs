@@ -12,6 +12,7 @@ pub use wordopr::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
 pub enum Token {
     Attr(AttributeKeyword),
     Keyword(Keyword),
@@ -21,20 +22,6 @@ pub enum Token {
     WordOpr(WordOpr),
     Literal(Literal),
     Error(TokenError),
-}
-
-impl<Db: TokenDb + ?Sized> salsa::DebugWithDb<Db> for Token {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let _db = <Db as salsa::DbWithJar<TokenJar>>::as_jar_db(db);
-        match self {
-            _ => <Self as std::fmt::Debug>::fmt(&self, f),
-        }
-    }
 }
 
 impl std::hash::Hash for Token {

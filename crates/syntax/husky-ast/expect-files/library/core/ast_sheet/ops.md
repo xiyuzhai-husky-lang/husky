@@ -11,7 +11,7 @@ Ok(
                             TokenIdx(
                                 16,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -52,7 +52,7 @@ Ok(
                             TokenIdx(
                                 45,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -93,7 +93,7 @@ Ok(
                             TokenIdx(
                                 74,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -162,7 +162,7 @@ Ok(
                             TokenIdx(
                                 128,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -231,7 +231,7 @@ Ok(
                             TokenIdx(
                                 182,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -300,7 +300,7 @@ Ok(
                             TokenIdx(
                                 236,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -369,7 +369,7 @@ Ok(
                             TokenIdx(
                                 290,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -438,7 +438,7 @@ Ok(
                             TokenIdx(
                                 341,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -479,7 +479,7 @@ Ok(
                             TokenIdx(
                                 365,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
@@ -520,7 +520,7 @@ Ok(
                             TokenIdx(
                                 392,
                             ),
-                            Semicolon,
+                            Punctuation::Semicolon,
                         ),
                     ),
                 },
