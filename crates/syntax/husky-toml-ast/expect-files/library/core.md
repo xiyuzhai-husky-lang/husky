@@ -2,34 +2,34 @@ Ok(
     TomlAst {
         exprs: Arena {
             data: [
-                String(
+                TomlExpr::String(
                     "core",
                 ),
-                String(
+                TomlExpr::String(
                     "0.0.0",
                 ),
-                String(
+                TomlExpr::String(
                     "MIT OR Apache-2.0",
                 ),
-                String(
+                TomlExpr::String(
                     "https://github.com/xiyuzhai-husky-lang/husky.git",
                 ),
-                String(
+                TomlExpr::String(
                     "The Husky Core Library",
                 ),
-                Boolean(
+                TomlExpr::Boolean(
                     false,
                 ),
-                Boolean(
+                TomlExpr::Boolean(
                     false,
                 ),
-                String(
+                TomlExpr::String(
                     "2021",
                 ),
-                Boolean(
+                TomlExpr::Boolean(
                     false,
                 ),
-                Boolean(
+                TomlExpr::Boolean(
                     false,
                 ),
             ],

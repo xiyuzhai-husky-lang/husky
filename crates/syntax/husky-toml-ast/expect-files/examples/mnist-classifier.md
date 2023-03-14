@@ -2,19 +2,19 @@ Ok(
     TomlAst {
         exprs: Arena {
             data: [
-                String(
+                TomlExpr::String(
                     "mnist-classifier",
                 ),
-                String(
+                TomlExpr::String(
                     "0.1.0",
                 ),
-                String(
+                TomlExpr::String(
                     "example mnist classifier",
                 ),
-                String(
+                TomlExpr::String(
                     "MIT OR Apache-2.0",
                 ),
-                String(
+                TomlExpr::String(
                     "0.1.0",
                 ),
             ],
