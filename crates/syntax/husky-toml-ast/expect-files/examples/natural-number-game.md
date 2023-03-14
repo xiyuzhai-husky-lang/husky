@@ -35,9 +35,7 @@ Ok(
                             (
                                 1,
                                 Word(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "name",
                                 ),
                                 Some(
                                     0,
@@ -46,9 +44,7 @@ Ok(
                             (
                                 2,
                                 Word(
-                                    Id {
-                                        value: 3,
-                                    },
+                                    "version",
                                 ),
                                 Some(
                                     1,
@@ -57,9 +53,7 @@ Ok(
                             (
                                 3,
                                 Word(
-                                    Id {
-                                        value: 6,
-                                    },
+                                    "description",
                                 ),
                                 Some(
                                     2,
@@ -68,9 +62,7 @@ Ok(
                             (
                                 4,
                                 Word(
-                                    Id {
-                                        value: 4,
-                                    },
+                                    "license",
                                 ),
                                 Some(
                                     3,
@@ -91,9 +83,7 @@ Ok(
                             (
                                 6,
                                 Word(
-                                    Id {
-                                        value: 15,
-                                    },
+                                    "mnist",
                                 ),
                                 Some(
                                     4,
@@ -106,7 +96,7 @@ Ok(
             errors: [],
         },
         line_groups: [
-            SectionTitle {
+            TomlGroup::SectionTitle {
                 title: [
                     Word(
                         Id {
@@ -114,49 +104,41 @@ Ok(
                         },
                     ),
                 ],
-                kind: Normal,
+                kind: TomlSectionKind::Normal,
             },
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 2,
-                    },
+                    "name",
                 ),
                 Some(
                     0,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 3,
-                    },
+                    "version",
                 ),
                 Some(
                     1,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 6,
-                    },
+                    "description",
                 ),
                 Some(
                     2,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 4,
-                    },
+                    "license",
                 ),
                 Some(
                     3,
                 ),
             ),
-            SectionTitle {
+            TomlGroup::SectionTitle {
                 title: [
                     Word(
                         Id {
@@ -164,13 +146,11 @@ Ok(
                         },
                     ),
                 ],
-                kind: Normal,
+                kind: TomlSectionKind::Normal,
             },
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 15,
-                    },
+                    "mnist",
                 ),
                 Some(
                     4,

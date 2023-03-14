@@ -69,36 +69,17 @@ where
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
-impl ::salsa::DebugWithDb<dyn WordDb + '_> for Word {
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        db: &dyn WordDb,
-        _level: salsa::DebugFormatLevel,
-    ) -> ::std::fmt::Result {
-        f.debug_tuple("Word").field(&self.data(db)).finish()
-    }
-}
-
-impl<Db: WordDb> ::salsa::DebugWithDb<Db> for Word {
+impl<Db: WordDb + ?Sized> ::salsa::DebugWithDb<Db> for Word {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
         db: &Db,
-        level: salsa::DebugFormatLevel,
+        _level: salsa::DebugFormatLevel,
     ) -> ::std::fmt::Result {
-        self.fmt(f, db as &dyn WordDb, level)
+        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        f.debug_tuple("Word").field(&self.data(db)).finish()
     }
 }
-
-// #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-// pub struct Word(salsa::Id);
-
-// #[doc = r" Internal struct used for interned item"]
-// #[derive(Eq, PartialEq, Hash, Clone)]
-// pub struct __WordData {
-//     data: String,
-// }
 
 impl std::borrow::Borrow<str> for __WordData {
     fn borrow(&self) -> &str {

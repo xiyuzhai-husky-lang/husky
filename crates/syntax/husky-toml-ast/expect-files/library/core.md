@@ -50,9 +50,7 @@ Ok(
                             (
                                 1,
                                 Word(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "name",
                                 ),
                                 Some(
                                     0,
@@ -61,9 +59,7 @@ Ok(
                             (
                                 2,
                                 Word(
-                                    Id {
-                                        value: 3,
-                                    },
+                                    "version",
                                 ),
                                 Some(
                                     1,
@@ -72,9 +68,7 @@ Ok(
                             (
                                 3,
                                 Word(
-                                    Id {
-                                        value: 4,
-                                    },
+                                    "license",
                                 ),
                                 Some(
                                     2,
@@ -83,9 +77,7 @@ Ok(
                             (
                                 4,
                                 Word(
-                                    Id {
-                                        value: 5,
-                                    },
+                                    "repository",
                                 ),
                                 Some(
                                     3,
@@ -94,9 +86,7 @@ Ok(
                             (
                                 5,
                                 Word(
-                                    Id {
-                                        value: 6,
-                                    },
+                                    "description",
                                 ),
                                 Some(
                                     4,
@@ -105,9 +95,7 @@ Ok(
                             (
                                 6,
                                 Word(
-                                    Id {
-                                        value: 7,
-                                    },
+                                    "autotests",
                                 ),
                                 Some(
                                     5,
@@ -116,9 +104,7 @@ Ok(
                             (
                                 7,
                                 Word(
-                                    Id {
-                                        value: 9,
-                                    },
+                                    "autobenches",
                                 ),
                                 Some(
                                     6,
@@ -127,9 +113,7 @@ Ok(
                             (
                                 10,
                                 Word(
-                                    Id {
-                                        value: 10,
-                                    },
+                                    "edition",
                                 ),
                                 Some(
                                     7,
@@ -150,9 +134,7 @@ Ok(
                             (
                                 12,
                                 Word(
-                                    Id {
-                                        value: 12,
-                                    },
+                                    "test",
                                 ),
                                 Some(
                                     8,
@@ -161,9 +143,7 @@ Ok(
                             (
                                 13,
                                 Word(
-                                    Id {
-                                        value: 13,
-                                    },
+                                    "bench",
                                 ),
                                 Some(
                                     9,
@@ -176,7 +156,7 @@ Ok(
             errors: [],
         },
         line_groups: [
-            SectionTitle {
+            TomlGroup::SectionTitle {
                 title: [
                     Word(
                         Id {
@@ -184,91 +164,75 @@ Ok(
                         },
                     ),
                 ],
-                kind: Normal,
+                kind: TomlSectionKind::Normal,
             },
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 2,
-                    },
+                    "name",
                 ),
                 Some(
                     0,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 3,
-                    },
+                    "version",
                 ),
                 Some(
                     1,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 4,
-                    },
+                    "license",
                 ),
                 Some(
                     2,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 5,
-                    },
+                    "repository",
                 ),
                 Some(
                     3,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 6,
-                    },
+                    "description",
                 ),
                 Some(
                     4,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 7,
-                    },
+                    "autotests",
                 ),
                 Some(
                     5,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 9,
-                    },
+                    "autobenches",
                 ),
                 Some(
                     6,
                 ),
             ),
-            Comment,
-            Comment,
-            KeyValue(
+            TomlGroup::Comment,
+            TomlGroup::Comment,
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 10,
-                    },
+                    "edition",
                 ),
                 Some(
                     7,
                 ),
             ),
-            SectionTitle {
+            TomlGroup::SectionTitle {
                 title: [
                     Word(
                         Id {
@@ -276,23 +240,19 @@ Ok(
                         },
                     ),
                 ],
-                kind: Normal,
+                kind: TomlSectionKind::Normal,
             },
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 12,
-                    },
+                    "test",
                 ),
                 Some(
                     8,
                 ),
             ),
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 13,
-                    },
+                    "bench",
                 ),
                 Some(
                     9,
