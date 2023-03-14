@@ -346,6 +346,10 @@ impl<'a> InferContext<'a> {
                     None | Some(Err(_)) => (),
                 }
             }
+            Expr::Unit {
+                lpar_token_idx,
+                rpar_token_idx,
+            } => todo!(),
         }
     }
 

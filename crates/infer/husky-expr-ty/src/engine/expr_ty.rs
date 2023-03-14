@@ -226,6 +226,10 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone(), local_term_region)
                     .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             )),
+            Expr::Unit { .. } => Ok((
+                ExprDisambiguation::Trivial,
+                Ok(self.term_menu.unit().into()),
+            )),
             Expr::NewTuple { items, .. } => todo!(),
             Expr::IndexOrCompositionWithList {
                 owner,

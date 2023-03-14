@@ -169,6 +169,10 @@ pub enum Expr {
         function: ExprIdx,
         argument: ExprIdx,
     },
+    Unit {
+        lpar_token_idx: TokenIdx,
+        rpar_token_idx: TokenIdx,
+    },
     Bracketed {
         lpar_token_idx: TokenIdx,
         item: ExprIdx,
@@ -176,6 +180,7 @@ pub enum Expr {
     },
     NewTuple {
         lpar_token_idx: TokenIdx,
+        /// guaranteed that items.len() > 0
         items: ExprIdxRange,
         commas: Vec<TokenIdx>,
         rpar_token_idx: TokenIdx,
