@@ -1773,36 +1773,36 @@ Ok(
                         395,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         41,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        34..34,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        34..34,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        34..34,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        34..34,
                     ),
                 },
                 Ast::Defn {

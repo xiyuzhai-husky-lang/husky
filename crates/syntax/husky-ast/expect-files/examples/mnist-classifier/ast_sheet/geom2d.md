@@ -1329,12 +1329,12 @@ Ok(
                         597,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         64,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedStmtInsideModule,
+                    body: ArenaIdxRange(
+                        60..60,
                     ),
                 },
                 Ast::Impl {
