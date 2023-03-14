@@ -7,6 +7,7 @@ use std::path::PathBuf;
 use thiserror::Error;
 
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = VfsDb)]
 pub enum VfsError {
     #[error("file {0:?} not found")]
     FileNotExists(PathBuf),
@@ -50,40 +51,11 @@ impl From<&FsSpecsError> for VfsError {
 
 pub type VfsResult<T> = Result<T, VfsError>;
 
-// impl From<std::io::Error> for VfsError {
-//     fn from(value: std::io::Error) -> Self {
-//         p!(value);
-//         todo!()
-//     }
-// }
-
 impl VfsError {
     pub(crate) fn new_io_error(path: PathBuf, e: std::io::Error) -> VfsError {
         VfsError::IO {
             path,
             error_message: e.to_string(),
         }
-    }
-}
-
-impl salsa::DebugWithDb<dyn VfsDb + '_> for VfsError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        _db: &dyn VfsDb,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(self, f)
-    }
-}
-
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for VfsError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn VfsDb, level)
     }
 }

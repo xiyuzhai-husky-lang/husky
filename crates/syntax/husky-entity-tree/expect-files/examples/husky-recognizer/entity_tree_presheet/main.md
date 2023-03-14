@@ -1,6 +1,6 @@
 Ok(
     EntityTreePresheet {
-        module_path: `MinimalToml(
+        module_path: `VfsError::MinimalToml(
             ExpectWordName,
         )`,
         native_symbol_entries: NativeEntitySymbolTable(

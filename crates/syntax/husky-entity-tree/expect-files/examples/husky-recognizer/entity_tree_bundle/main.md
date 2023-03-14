@@ -2,7 +2,7 @@ Ok(
     EntityTreeCrateBundle {
         sheets: [
             EntityTreeSheet {
-                module_path: `MinimalToml(
+                module_path: `VfsError::MinimalToml(
                     ExpectWordName,
                 )`,
                 symbols: EntitySymbolTable(
