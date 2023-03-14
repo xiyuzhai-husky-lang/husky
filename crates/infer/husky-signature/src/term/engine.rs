@@ -159,12 +159,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 .current_symbol_term(current_symbol_idx)
                 .expect("not none")
                 .into()),
-            Expr::FrameVarDecl {
-                token_idx: _,
-                ident: _,
-                frame_var_symbol_idx: _current_symbol_idx,
-                current_symbol_kind: _,
-            } => todo!(),
+            Expr::FrameVarDecl { .. } => unreachable!(),
             Expr::SelfType(_) => todo!(),
             Expr::SelfValue(_) => todo!(),
             Expr::Binary {
@@ -296,95 +291,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                         .into()),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),
-                            Expr::EntityPath {
-                                entity_path_expr: _,
-                                path: _entity_path,
-                            } => todo!(),
-                            Expr::InheritedSymbol {
-                                ident: _,
-                                token_idx: _,
-                                inherited_symbol_idx: _,
-                                inherited_symbol_kind: _,
-                            } => todo!(),
-                            Expr::CurrentSymbol {
-                                ident: _,
-                                token_idx: _,
-                                current_symbol_idx: _,
-                                current_symbol_kind: _,
-                            } => todo!(),
-                            Expr::FrameVarDecl {
-                                token_idx: _,
-                                ident: _,
-                                frame_var_symbol_idx: _current_symbol_idx,
-                                current_symbol_kind: _,
-                            } => todo!(),
-                            Expr::SelfType(_) => todo!(),
-                            Expr::SelfValue(_) => todo!(),
-                            Expr::Binary {
-                                lopd: _,
-                                opr: _,
-                                opr_token_idx: _,
-                                ropd: _,
-                            } => todo!(),
-                            Expr::Be {
-                                src: _,
-                                be_token_idx: _,
-                                target: _,
-                            } => todo!(),
-                            Expr::Prefix {
-                                opr: _,
-                                opr_token_idx: _,
-                                opd: _,
-                            } => todo!(),
-                            Expr::Suffix {
-                                opd: _,
-                                opr: _punctuation,
-                                opr_token_idx: _punctuation_token_idx,
-                            } => todo!(),
-                            Expr::ExplicitApplicationOrRitchieCall { .. } => todo!(),
-                            Expr::Field {
-                                owner: _self_expr,
-                                dot_token_idx: _,
-                                ident_token: _,
-                            } => todo!(),
-                            Expr::MethodCall {
-                                self_argument: _self_expr,
-                                dot_token_idx: _,
-                                ident_token: _,
-                                implicit_arguments: _,
-                                lpar_token_idx: _,
-                                nonself_arguments: _arguments,
-                                rpar_token_idx: _,
-                            } => todo!(),
-                            Expr::TemplateInstantiation {
-                                template: _,
-                                implicit_arguments: _,
-                            } => todo!(),
-                            Expr::ExplicitApplication {
-                                function: _,
-                                argument: _,
-                            } => {
-                                todo!()
-                            }
-                            Expr::Bracketed {
-                                lpar_token_idx: _,
-                                item: _,
-                                rpar_token_idx: _,
-                            } => todo!(),
-                            Expr::NewTuple {
-                                lpar_token_idx: _,
-                                items: _,
-                                commas: _,
-                                rpar_token_idx: _,
-                            } => todo!(),
-                            Expr::List { .. } => todo!(),
-                            Expr::BoxColonList { .. } => todo!(),
-                            Expr::Block { stmts: _ } => todo!(),
-                            Expr::Err(_) => Err(
-                                DerivedSignatureRawTermError::CannotInferArgumentRawTermInBoxList
-                                    .into(),
-                            ),
-                            Expr::IndexOrCompositionWithList { .. } => todo!(),
+                            _ => todo!(),
                         },
                         _ => todo!(),
                     },
