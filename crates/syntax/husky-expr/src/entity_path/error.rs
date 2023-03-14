@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum EntityPathExprError {
     #[error("original `{0}`")]
     Original(OriginalEntityPathExprError),
@@ -27,6 +28,7 @@ impl From<DerivedEntityPathExprError> for EntityPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalEntityPathExprError {
     #[error("entity tree")]
     EntityTree {
@@ -48,6 +50,7 @@ impl From<OriginalExprError> for OriginalEntityPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum DerivedEntityPathExprError {
     #[error("derived from expr error {0}")]
     AbortFromExprError(#[from] OriginalExprError),

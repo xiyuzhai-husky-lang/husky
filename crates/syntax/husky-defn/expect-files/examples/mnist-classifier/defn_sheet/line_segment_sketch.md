@@ -12162,25 +12162,19 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 230,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `new`,
                                                             token_idx: TokenIdx(
                                                                 1105,
                                                             ),
                                                         },
                                                     ),
                                                     path: Err(
-                                                        Original(
-                                                            EntityTree {
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
                                                                 token_idx: TokenIdx(
                                                                     1105,
                                                                 ),
-                                                                error: NoSubentity,
+                                                                error: EntityTreeError::NoSubentity,
                                                             },
                                                         ),
                                                     ),
@@ -12205,25 +12199,19 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 230,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `new`,
                                                             token_idx: TokenIdx(
                                                                 1188,
                                                             ),
                                                         },
                                                     ),
                                                     path: Err(
-                                                        Original(
-                                                            EntityTree {
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
                                                                 token_idx: TokenIdx(
                                                                     1188,
                                                                 ),
-                                                                error: NoSubentity,
+                                                                error: EntityTreeError::NoSubentity,
                                                             },
                                                         ),
                                                     ),
@@ -12259,25 +12247,19 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 230,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `new`,
                                                             token_idx: TokenIdx(
                                                                 1228,
                                                             ),
                                                         },
                                                     ),
                                                     path: Err(
-                                                        Original(
-                                                            EntityTree {
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
                                                                 token_idx: TokenIdx(
                                                                     1228,
                                                                 ),
-                                                                error: NoSubentity,
+                                                                error: EntityTreeError::NoSubentity,
                                                             },
                                                         ),
                                                     ),
@@ -12302,25 +12284,19 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 230,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `new`,
                                                             token_idx: TokenIdx(
                                                                 1339,
                                                             ),
                                                         },
                                                     ),
                                                     path: Err(
-                                                        Original(
-                                                            EntityTree {
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
                                                                 token_idx: TokenIdx(
                                                                     1339,
                                                                 ),
-                                                                error: NoSubentity,
+                                                                error: EntityTreeError::NoSubentity,
                                                             },
                                                         ),
                                                     ),
@@ -12345,25 +12321,19 @@ Ok(
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
-                                                            ident: Ident(
-                                                                Word(
-                                                                    Id {
-                                                                        value: 230,
-                                                                    },
-                                                                ),
-                                                            ),
+                                                            ident: `new`,
                                                             token_idx: TokenIdx(
                                                                 1439,
                                                             ),
                                                         },
                                                     ),
                                                     path: Err(
-                                                        Original(
-                                                            EntityTree {
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
                                                                 token_idx: TokenIdx(
                                                                     1439,
                                                                 ),
-                                                                error: NoSubentity,
+                                                                error: EntityTreeError::NoSubentity,
                                                             },
                                                         ),
                                                     ),
