@@ -207,7 +207,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -229,7 +229,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -251,7 +251,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -275,7 +275,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     24,
@@ -298,7 +298,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -321,7 +321,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -352,7 +352,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -383,7 +383,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `convex_component`,
                                 token_idx: TokenIdx(
@@ -414,7 +414,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(
@@ -445,7 +445,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
@@ -469,7 +469,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     24,
@@ -500,7 +500,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -524,7 +524,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -554,7 +554,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `line_segment`,
                                 token_idx: TokenIdx(

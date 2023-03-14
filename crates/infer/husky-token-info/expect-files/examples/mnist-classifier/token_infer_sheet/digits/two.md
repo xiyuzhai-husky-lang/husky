@@ -1,5 +1,7 @@
 Err(
-    EntityTreeError::InvalidModulePath(
-        `mnist_classifier::digits::two`,
+    EntityTreeError::Derived(
+        DerivedEntityTreeError::InvalidModulePath(
+            `mnist_classifier::digits::two`,
+        ),
     ),
 )

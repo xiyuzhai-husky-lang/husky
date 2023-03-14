@@ -114,7 +114,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `cv`,
                                 token_idx: TokenIdx(
@@ -138,7 +138,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -161,7 +161,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     15,
@@ -192,7 +192,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `mnist`,
                                 token_idx: TokenIdx(
@@ -216,7 +216,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `datasets`,
                                 token_idx: TokenIdx(
@@ -240,7 +240,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `cv`,
                                 token_idx: TokenIdx(
@@ -271,7 +271,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -295,7 +295,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -325,7 +325,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     15,

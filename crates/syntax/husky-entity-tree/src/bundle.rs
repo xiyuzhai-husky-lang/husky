@@ -1,34 +1,9 @@
 use crate::*;
 use thiserror::Error;
 use vec_like::VecMap;
+mod error;
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
-pub enum EntityTreeBundleError {
-    #[error("from toolchain error")]
-    Toolchain(#[from] ToolchainError),
-    #[error("from prelude error")]
-    Prelude(#[from] PreludeError),
-}
-
-impl From<&EntityTreeBundleError> for EntityTreeBundleError {
-    fn from(_value: &EntityTreeBundleError) -> Self {
-        todo!()
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntityTreeBundleError {
-    fn fmt(
-        &self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        todo!()
-    }
-}
-
-pub type EntityTreeBundleResult<T> = Result<T, EntityTreeBundleError>;
-pub type EntityTreeBundleResultRef<'a, T> = Result<T, &'a EntityTreeBundleError>;
+pub use self::error::*;
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(

@@ -184,7 +184,7 @@ Ok(
                         accessibility: Accessibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `one`,
                                 token_idx: TokenIdx(
@@ -208,7 +208,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -232,7 +232,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `zero`,
                                 token_idx: TokenIdx(
@@ -256,7 +256,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `two`,
                                 token_idx: TokenIdx(
@@ -280,7 +280,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `three`,
                                 token_idx: TokenIdx(
@@ -304,7 +304,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `five`,
                                 token_idx: TokenIdx(
@@ -328,7 +328,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -352,7 +352,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
@@ -376,7 +376,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
@@ -400,7 +400,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(
@@ -432,7 +432,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `one`,
                                 token_idx: TokenIdx(
@@ -464,7 +464,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -496,7 +496,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `zero`,
                                 token_idx: TokenIdx(
@@ -528,7 +528,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `two`,
                                 token_idx: TokenIdx(
@@ -560,7 +560,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `three`,
                                 token_idx: TokenIdx(
@@ -592,7 +592,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `five`,
                                 token_idx: TokenIdx(
@@ -624,7 +624,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `six`,
                                 token_idx: TokenIdx(
@@ -656,7 +656,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
@@ -688,7 +688,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
@@ -720,7 +720,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(

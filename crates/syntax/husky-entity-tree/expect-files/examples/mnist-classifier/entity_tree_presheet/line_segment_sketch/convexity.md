@@ -31,7 +31,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -54,7 +54,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     7,
@@ -77,7 +77,7 @@ Ok(
                         ),
                     },
                     variant: UseExprRuleVariant::Parent {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     13,
@@ -107,7 +107,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -161,7 +161,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `raw_contour`,
                                 token_idx: TokenIdx(
@@ -185,7 +185,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     7,
@@ -215,7 +215,7 @@ Ok(
                 },
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Ident(
+                        parent_name_token: NameToken::Ident(
                             IdentToken {
                                 ident: `geom2d`,
                                 token_idx: TokenIdx(
@@ -239,7 +239,7 @@ Ok(
                 ),
                 UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: ParentNameToken::Crate(
+                        parent_name_token: NameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     13,

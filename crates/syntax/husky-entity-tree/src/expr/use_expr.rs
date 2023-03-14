@@ -6,7 +6,7 @@ use thiserror::Error;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ParentUseExpr {
-    pub parent_name_token: ParentNameToken,
+    pub parent_name_token: NameToken,
     pub scope_resolution_token: UseExprResult<ScopeResolutionToken>,
     pub children: UseExprResult<UseExprChildren>,
 }
@@ -25,27 +25,33 @@ pub enum UseExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum ParentNameToken {
+#[enum_class::from_variants]
+pub enum NameToken {
     Ident(IdentToken),
     Crate(CrateToken),
     SelfValue(SelfValueToken),
     Super(SuperToken),
 }
-impl ParentNameToken {
-    pub fn token_idx(&self) -> TokenIdx {
+impl NameToken {
+    pub fn token_idx(self) -> TokenIdx {
         match self {
-            ParentNameToken::Ident(token) => token.token_idx(),
-            ParentNameToken::Crate(token) => token.token_idx(),
-            ParentNameToken::SelfValue(token) => token.token_idx(),
-            ParentNameToken::Super(_) => todo!(),
+            NameToken::Ident(token) => token.token_idx(),
+            NameToken::Crate(token) => token.token_idx(),
+            NameToken::SelfValue(token) => token.token_idx(),
+            NameToken::Super(_) => todo!(),
         }
     }
-    pub fn ident(&self) -> Option<Ident> {
+
+    pub fn ident_token(self) -> Option<IdentToken> {
         match self {
-            ParentNameToken::Ident(ident_token) => Some(ident_token.ident()),
-            ParentNameToken::Crate(_)
-            | ParentNameToken::SelfValue(_)
-            | ParentNameToken::Super(_) => None,
+            NameToken::Ident(ident_token) => Some(ident_token),
+            NameToken::Crate(_) | NameToken::SelfValue(_) | NameToken::Super(_) => None,
+        }
+    }
+    pub fn ident(self) -> Option<Ident> {
+        match self {
+            NameToken::Ident(ident_token) => Some(ident_token.ident()),
+            NameToken::Crate(_) | NameToken::SelfValue(_) | NameToken::Super(_) => None,
         }
     }
 }
@@ -281,7 +287,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
             return Ok( UseExpr::Leaf { ident_token })
         };
         Ok(UseExpr::Parent(ParentUseExpr {
-            parent_name_token: ParentNameToken::Ident(ident_token),
+            parent_name_token: NameToken::Ident(ident_token),
             scope_resolution_token: Ok(scope_resolution_token),
             children: self.parse_children(),
         }))
@@ -317,7 +323,7 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
         }
         if let Some(crate_token) = ctx.parse::<CrateToken>()? {
             return Ok(Some(UseExpr::Parent(ParentUseExpr {
-                parent_name_token: ParentNameToken::Crate(crate_token),
+                parent_name_token: NameToken::Crate(crate_token),
                 scope_resolution_token: ctx
                     .parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),

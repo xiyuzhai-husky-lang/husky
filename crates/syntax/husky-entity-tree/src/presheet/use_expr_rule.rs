@@ -67,7 +67,7 @@ pub struct UseExprRule {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprRuleVariant {
     Parent {
-        parent_name_token: ParentNameToken,
+        parent_name_token: NameToken,
         children: UseExprIdxRange,
     },
     Leaf {
@@ -196,7 +196,7 @@ impl UseExprRule {
     pub(crate) fn ident(&self) -> Option<Ident> {
         match self.variant {
             UseExprRuleVariant::Parent {
-                parent_name_token: ParentNameToken::Ident(ident_token),
+                parent_name_token: NameToken::Ident(ident_token),
                 ..
             }
             | UseExprRuleVariant::Leaf { ident_token } => Some(ident_token.ident()),
