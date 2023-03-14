@@ -357,7 +357,9 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::ExpectedLetVariablesType(token_idx)
                     | OriginalExprError::ExpectedFieldType(token_idx)
                     | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
-                    | OriginalExprError::ExpectParameterType(token_idx) => {
+                    | OriginalExprError::ExpectParameterType(token_idx)
+                    | OriginalExprError::SelfTypeNotAllowed(token_idx)
+                    | OriginalExprError::SelfValueNotAllowed(token_idx) => {
                         TokenIdxRange::new_single(*token_idx)
                     }
                     OriginalExprError::ExpectBlock(_) => todo!(),

@@ -163,6 +163,12 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectParameterType(_) => {
                 format!("Syntax Error: expected parameter type")
             }
+            OriginalExprError::SelfTypeNotAllowed(_) => {
+                format!("Syntax Error: SelfTypeNotAllowed")
+            }
+            OriginalExprError::SelfValueNotAllowed(_) => {
+                format!("Syntax Error: SelfValueNotAllowed")
+            }
         }
     }
 
@@ -171,6 +177,8 @@ impl Diagnose for OriginalExprError {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        // todo: duplicated
+        // see ExprRangeCalculator::calc_expr_range in crate `husky-expr`
         match self {
             OriginalExprError::MismatchingBracket {
                 ket_token_idx: token_idx,
@@ -225,7 +233,9 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::ExpectedLetVariablesType(token_idx)
             | OriginalExprError::ExpectedFieldType(token_idx)
             | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
-            | OriginalExprError::ExpectParameterType(token_idx) => {
+            | OriginalExprError::ExpectParameterType(token_idx)
+            | OriginalExprError::SelfTypeNotAllowed(token_idx)
+            | OriginalExprError::SelfValueNotAllowed(token_idx) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
             OriginalExprError::ExpectBlock(_) => todo!(),
