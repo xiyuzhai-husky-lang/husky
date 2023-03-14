@@ -2,7 +2,7 @@ Ok(
     TomlAst {
         exprs: Arena {
             data: [
-                String(
+                TomlExpr::String(
                     "quick-sort",
                 ),
             ],

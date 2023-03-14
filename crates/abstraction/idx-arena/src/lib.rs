@@ -38,7 +38,7 @@ impl<T, Db: ?Sized> salsa::DebugWithDb<Db> for ArenaIdx<T> {
         db: &Db,
         level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        self.raw.fmt(f)
+        Debug::fmt(&self.raw, f)
     }
 }
 
