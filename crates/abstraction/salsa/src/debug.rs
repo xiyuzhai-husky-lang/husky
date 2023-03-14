@@ -1,4 +1,5 @@
 use either::*;
+use smallvec::{Array, SmallVec};
 use std::{
     collections::{HashMap, HashSet},
     convert::Infallible,
@@ -228,6 +229,16 @@ where
 impl<Db: ?Sized, T> DebugWithDb<Db> for Vec<T>
 where
     T: DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        let elements = self.iter().map(|e| e.debug_with(db, level.parallel()));
+        f.debug_list().entries(elements).finish()
+    }
+}
+
+impl<Db: ?Sized, T: Array> DebugWithDb<Db> for SmallVec<T>
+where
+    <T as Array>::Item: DebugWithDb<Db>,
 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
         let elements = self.iter().map(|e| e.debug_with(db, level.parallel()));

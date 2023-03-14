@@ -40,9 +40,7 @@ Ok(
                     TomlSection {
                         title: [
                             Word(
-                                Id {
-                                    value: 1,
-                                },
+                                "package",
                             ),
                         ],
                         kind: TomlSectionKind::Normal,
@@ -124,9 +122,7 @@ Ok(
                     TomlSection {
                         title: [
                             Word(
-                                Id {
-                                    value: 11,
-                                },
+                                "lib",
                             ),
                         ],
                         kind: TomlSectionKind::Normal,
@@ -159,9 +155,7 @@ Ok(
             TomlGroup::SectionTitle {
                 title: [
                     Word(
-                        Id {
-                            value: 1,
-                        },
+                        "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
@@ -235,9 +229,7 @@ Ok(
             TomlGroup::SectionTitle {
                 title: [
                     Word(
-                        Id {
-                            value: 11,
-                        },
+                        "lib",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,

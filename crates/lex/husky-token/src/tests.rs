@@ -4,7 +4,7 @@ use crate::*;
 use husky_expect_test_snippets_utils::*;
 use husky_vfs::*;
 use husky_word::WordJar;
-use salsa::{Database, Storage};
+use salsa::{Database, DebugWithDb, Storage};
 
 #[salsa::db(WordJar, VfsJar, TokenJar)]
 #[derive(Default)]
@@ -17,7 +17,7 @@ impl Database for DB {}
 fn tokenize_snippet_debug(snippet: &str) -> String {
     let db = DB::default();
     let snippet = Snippet::new(&db, snippet.to_owned());
-    format!("{:#?}", db.snippet_token_sheet_data(snippet))
+    format!("{:#?}", db.snippet_token_sheet_data(snippet).debug(&db))
 }
 
 #[test]

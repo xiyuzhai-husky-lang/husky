@@ -13,8 +13,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Pronoun(
+        Token::Keyword(
+            Keyword::Pronoun(
                 SelfValue,
             ),
         ),
@@ -41,8 +41,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Keyword(
-            Pronoun(
+        Token::Keyword(
+            Keyword::Pronoun(
                 SelfType,
             ),
         ),
