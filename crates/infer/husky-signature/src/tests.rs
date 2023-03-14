@@ -8,7 +8,7 @@ use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
-use husky_vfs::*;
+
 use husky_word::WordJar;
 
 #[salsa::db(

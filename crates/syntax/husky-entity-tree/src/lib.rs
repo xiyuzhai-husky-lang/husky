@@ -42,7 +42,7 @@ use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::EntityKind;
 
-use husky_vfs::*;
+
 use husky_word::{Ident, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;

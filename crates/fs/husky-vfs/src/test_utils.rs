@@ -11,7 +11,7 @@ use self::domain::*;
 use crate::*;
 use husky_path_utils::*;
 use salsa::DebugWithDb;
-use std::panic::{RefUnwindSafe, UnwindSafe};
+
 use std::path::PathBuf;
 
 pub trait VfsTestUtils: VfsDb {

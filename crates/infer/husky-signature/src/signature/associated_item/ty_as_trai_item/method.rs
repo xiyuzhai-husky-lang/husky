@@ -5,7 +5,7 @@ pub(crate) fn ty_as_trai_method_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitMethodDecl,
 ) -> SignatureResult<TypeAsTraitMethodSignature> {
-    let impl_block = decl.associated_item(db).impl_block(db);
+    let _impl_block = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let _signature_term_region = signature_term_region(db, expr_region);
     let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();

@@ -11,7 +11,7 @@ pub enum EntityTreeBundleError {
 }
 
 impl From<&EntityTreeBundleError> for EntityTreeBundleError {
-    fn from(value: &EntityTreeBundleError) -> Self {
+    fn from(_value: &EntityTreeBundleError) -> Self {
         todo!()
     }
 }

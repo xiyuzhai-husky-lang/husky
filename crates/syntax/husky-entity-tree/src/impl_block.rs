@@ -107,7 +107,7 @@ impl ImplBlock {
         }
     }
 
-    pub fn module_path(&self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(&self, _db: &dyn EntityTreeDb) -> ModulePath {
         todo!()
         // self.id(db).module_path
     }
@@ -133,12 +133,12 @@ impl ImplBlockId {
 }
 
 fn new_impl(
-    db: &dyn EntityTreeDb,
-    registry: &mut ImplBlockRegistry,
-    module_path: ModulePath,
-    ast_idx: ArenaIdx<Ast>,
-    body: ArenaIdxRange<Ast>,
-    variant: (),
+    _db: &dyn EntityTreeDb,
+    _registry: &mut ImplBlockRegistry,
+    _module_path: ModulePath,
+    _ast_idx: ArenaIdx<Ast>,
+    _body: ArenaIdxRange<Ast>,
+    _variant: (),
 ) -> ImplBlock {
     // let impl_kind = variant.kind();
     todo!()

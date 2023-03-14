@@ -145,37 +145,37 @@ impl<D: ?Sized> fmt::Debug for DebugWith<'_, D> {
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for () {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         f.write_str("()")
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for u8 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for u16 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for u32 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for u64 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl<Db: ?Sized> DebugWithDb<Db> for usize {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db, _level: DebugFormatLevel) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }

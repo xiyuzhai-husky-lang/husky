@@ -96,7 +96,7 @@ pub struct DefnJar(
 
 #[test]
 fn defn_sheet_works() {
-    use husky_vfs::VfsTestUtils;
+    
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db("defn_sheet", DefnDb::collect_defns);

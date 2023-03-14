@@ -57,10 +57,10 @@ impl VfsTestUnit for PackagePath {
 
     fn determine_adversarial_path(
         self,
-        db: &dyn VfsDb,
-        adversarial_kind: AdversarialKind,
-        task_name: &str,
-        package_adversarials_dir: &Path,
+        _db: &dyn VfsDb,
+        _adversarial_kind: AdversarialKind,
+        _task_name: &str,
+        _package_adversarials_dir: &Path,
     ) -> Option<PathBuf> {
         None
     }
@@ -95,10 +95,10 @@ impl VfsTestUnit for CratePath {
 
     fn determine_adversarial_path(
         self,
-        db: &dyn VfsDb,
-        adversarial_kind: AdversarialKind,
-        task_name: &str,
-        package_adversarials_dir: &Path,
+        _db: &dyn VfsDb,
+        _adversarial_kind: AdversarialKind,
+        _task_name: &str,
+        _package_adversarials_dir: &Path,
     ) -> Option<PathBuf> {
         None
     }

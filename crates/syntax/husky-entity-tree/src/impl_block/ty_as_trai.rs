@@ -10,13 +10,13 @@ pub struct TypeAsTraitImplBlock {
 
 impl TypeAsTraitImplBlock {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
-        registry: &mut ImplBlockRegistry,
-        module_path: ModulePath,
-        ast_idx: AstIdx,
-        body: AstIdxRange,
-        ty: TypePath,
-        trai: TraitPath,
+        _db: &dyn EntityTreeDb,
+        _registry: &mut ImplBlockRegistry,
+        _module_path: ModulePath,
+        _ast_idx: AstIdx,
+        _body: AstIdxRange,
+        _ty: TypePath,
+        _trai: TraitPath,
     ) -> Self {
         todo!()
     }

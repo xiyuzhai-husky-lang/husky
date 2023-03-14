@@ -7,7 +7,7 @@ use husky_entity_taxonomy::EntityKind;
 use husky_manifest::ManifestDb;
 use husky_vfs::*;
 
-use husky_word::IdentPairMap;
+
 use salsa::DbWithJar;
 
 pub trait EntityTreeDb: DbWithJar<EntityTreeJar> + AstDb + EntityPathDb + ManifestDb {
