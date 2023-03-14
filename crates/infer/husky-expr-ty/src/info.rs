@@ -2,7 +2,8 @@ mod disambiguation;
 mod progress;
 
 pub use self::disambiguation::*;
-pub use self::progress::*;
+
+pub(crate) use self::progress::*;
 
 use crate::*;
 

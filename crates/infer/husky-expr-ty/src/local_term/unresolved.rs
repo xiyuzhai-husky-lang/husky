@@ -233,22 +233,6 @@ impl UnresolvedTerms {
             LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
             LocalTermPattern::Category(_) => todo!(),
         };
-        // match parameter_symbol.ty(db) {
-        //     Term::Literal(_) => todo!(),
-        //     Term::Symbol(_) => todo!(),
-        //     Term::EntityPath(_) => todo!(),
-        //     Term::Category(cat) if cat.universe().raw() == 0 => todo!(),
-        //     Term::Category(cat) if cat.universe().raw() == 1 => ImplicitSymbolVariant::ImplicitType,
-        //     Term::Category(_) => todo!(),
-        //     Term::Universe(_) => todo!(),
-        //     Term::Curry(_) => todo!(),
-        //     Term::Ritchie(_) => todo!(),
-        //     Term::Abstraction(_) => todo!(),
-        //     Term::Application(_) => todo!(),
-        //     Term::Subentity(_) => todo!(),
-        //     Term::AsTraitSubentity(_) => todo!(),
-        //     Term::TraitConstraint(_) => todo!(),
-        // };
         self.new_implicit_symbol(src_expr_idx, variant)
     }
 

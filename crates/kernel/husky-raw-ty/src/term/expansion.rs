@@ -1,7 +1,4 @@
 use super::*;
-pub(crate) fn application_expansion(db: &dyn RawTypeDb, raw_term: RawTerm) -> ApplicationExpansion {
-    application_expansion_aux(db, raw_term)
-}
 
 fn application_expansion_aux(db: &dyn RawTypeDb, raw_term: RawTerm) -> ApplicationExpansion {
     match raw_term {

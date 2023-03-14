@@ -50,8 +50,6 @@ pub enum LocalTermPatternError {
     EntityPathError(#[from] EntityPathError),
 }
 
-pub type LocalTermPatternResult<T> = Result<T, LocalTermPatternError>;
-
 impl LocalTermPattern {
     fn from_resolved(db: &dyn ExprTypeDb, term: Term) -> Self {
         match term {
