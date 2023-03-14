@@ -1,7 +1,6 @@
+use crate::*;
 use husky_entity_taxonomy::AssociatedItemKind;
 use vec_like::VecMapGetEntry;
-
-use crate::*;
 
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) fn module_subentity_path(
