@@ -23,9 +23,7 @@ Ok(
                             (
                                 1,
                                 Word(
-                                    Id {
-                                        value: 2,
-                                    },
+                                    "name",
                                 ),
                                 Some(
                                     0,
@@ -38,7 +36,7 @@ Ok(
             errors: [],
         },
         line_groups: [
-            SectionTitle {
+            TomlGroup::SectionTitle {
                 title: [
                     Word(
                         Id {
@@ -46,13 +44,11 @@ Ok(
                         },
                     ),
                 ],
-                kind: Normal,
+                kind: TomlSectionKind::Normal,
             },
-            KeyValue(
+            TomlGroup::KeyValue(
                 Word(
-                    Id {
-                        value: 2,
-                    },
+                    "name",
                 ),
                 Some(
                     0,
