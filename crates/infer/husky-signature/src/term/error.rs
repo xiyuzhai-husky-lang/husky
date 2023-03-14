@@ -17,7 +17,9 @@ impl From<DerivedSignatureRawTermError> for SignatureRawTermError {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalSignatureRawTermError {}
+pub enum OriginalSignatureRawTermError {
+    ExpectedLiteralForArrayLength,
+}
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum DerivedSignatureRawTermError {
@@ -28,6 +30,7 @@ pub enum DerivedSignatureRawTermError {
     ExprError,
     RawTermAbortion,
     CannotInferArgumentRawTermInBoxList,
+    CannotInferArrayLength,
 }
 
 pub type SignatureRawTermResult<T> = Result<T, SignatureRawTermError>;

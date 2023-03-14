@@ -24,12 +24,12 @@ exclude = ["crates/gui"]
 resolver = "2"
 
 [profile.dev]
-opt-level = 1
+opt-level = 0
 panic = "unwind"
 
 [profile.test]
-opt-level = 1
+opt-level = 0
 
 [profile.release]
-opt-level = 1
+opt-level = 0
 lto = false

@@ -74,6 +74,7 @@ impl Variance {
     }
 }
 
+#[cfg(test)]
 static ALL_VARIANCES: [Variance; 4] = [Invariant, Covariant, Contravariant, Independent];
 
 impl std::ops::BitOr for Variance {

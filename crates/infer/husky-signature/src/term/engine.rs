@@ -268,9 +268,7 @@ impl<'a> SignatureRawTermEngine<'a> {
             }
             Expr::ExplicitApplication { function, argument } => {
                 let Ok(argument) = self.infer_new(argument) else {
-                    return  Err(
-                        DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into()
-                    )
+                    Err(DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication)?
                 };
                 match self.expr_region_data.expr_arena()[function] {
                     Expr::BoxColonList { items, .. } => match items.len() {
@@ -291,7 +289,12 @@ impl<'a> SignatureRawTermEngine<'a> {
                         .into()),
                         1 => match self.expr_region_data.expr_arena()[items.start()] {
                             Expr::Literal(_) => todo!(),
-                            _ => todo!(),
+                            Expr::Err(_) => {
+                                Err(DerivedSignatureRawTermError::CannotInferArrayLength)?
+                            }
+                            ref expr => {
+                                Err(OriginalSignatureRawTermError::ExpectedLiteralForArrayLength)?
+                            }
                         },
                         _ => todo!(),
                     },
