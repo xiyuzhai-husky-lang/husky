@@ -41,25 +41,25 @@ func get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction:
         case 0r32:
             match pixel_pair_below:
                 case 1r32 | 3r32:
-                    Direction::LEFT
+                    Direction::Left
                 case 2r32:
-                    Direction::UP
+                    Direction::Up
         case 1r32:
-            Direction::DOWN
+            Direction::Down
         case 2r32: 
             match pixel_pair_below:
                 case 0r32:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1r32 | 3r32:
-                    Direction::LEFT
+                    Direction::Left
                 case 2r32:
-                    Direction::UP
+                    Direction::Up
         case 3r32:
             match pixel_pair_below:
                 case 0r32 | 1r32:
-                    Direction::RIGHT
+                    Direction::Right
                 case 2r32:
-                    Direction::UP
+                    Direction::Up
 
 func get_angle_change(inward: Direction, outward: Direction) -> i32:
     raw_angle_change = (((outward as i32) - (inward as i32)) as r32).last_bits(2)
@@ -81,39 +81,39 @@ func get_outward_direction(
         case 0r32:
             match pixel_pair_below:
                 case 1r32:
-                    Direction::DOWN
+                    Direction::Down
                 case 2r32 | 3r32:
-                    Direction::LEFT
+                    Direction::Left
         case 1r32:
             match pixel_pair_below:
                 case 0r32:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1r32:
-                    Direction::DOWN
+                    Direction::Down
                 case 2r32:
                     match inward_direction:
-                        case Direction::DOWN:
-                            Direction::LEFT
-                        case Direction::UP:
-                            Direction::RIGHT
+                        case Direction::Down:
+                            Direction::Left
+                        case Direction::Up:
+                            Direction::Right
                 case 3r32:
-                    Direction::LEFT
+                    Direction::Left
         case 2r32:
             match pixel_pair_below:
                 case 0r32 | 2r32 | 3r32:
-                    Direction::UP
+                    Direction::Up
                 case 1r32:
                     match inward_direction:
-                        case Direction::LEFT:
-                            Direction::UP
-                        case Direction::RIGHT:
-                            Direction::DOWN
+                        case Direction::Left:
+                            Direction::Up
+                        case Direction::Right:
+                            Direction::Down
         case 3r32:
             match pixel_pair_below:
                 case 0r32 | 2r32:
-                    Direction::RIGHT
+                    Direction::Right
                 case 1r32:
-                    Direction::DOWN
+                    Direction::Down
 
 
 struct StreakCache:
@@ -193,17 +193,17 @@ proc find_raw_contours(cc: BinaryImage28) -> []RawContour:
                 // move
                 // update i, j, row below and above
                 match outward_direction:
-                    case Direction::UP:
+                    case Direction::Up:
                         i = i - 1 
                         row_below = row_above
                         row_above = cc[i-1]
-                    case Direction::DOWN:
+                    case Direction::Down:
                         i = i + 1 
                         row_above = row_below
                         row_below = cc[i]
-                    case Direction::LEFT:
+                    case Direction::Left:
                         j = j + 1
-                    case Direction::RIGHT:
+                    case Direction::Right:
                         j = j - 1
                 // update inward_direction
                 inward_direction = outward_direction
