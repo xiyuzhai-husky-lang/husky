@@ -4,6 +4,7 @@ use parsec::{OriginalError, ParseContext, ParseFrom, StreamWrapper};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ParentUseExpr {
     pub parent_name_token: ParentNameToken,
     pub scope_resolution_token: UseExprResult<ScopeResolutionToken>,
@@ -13,6 +14,7 @@ pub struct ParentUseExpr {
 /// use tree expr is top-down
 /// because path is resolved top-down
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
@@ -58,6 +60,7 @@ impl From<UseExprResult<UseExpr>> for UseExpr {
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprChildren {
     Single {
         child: UseExprIdx,
@@ -88,12 +91,14 @@ pub type UseExprIdx = ArenaIdx<UseExpr>;
 pub type UseExprIdxRange = ArenaIdxRange<UseExpr>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct UseExprRoot {
     use_token: UseToken,
     parent_use_expr_idx: ParentUseExprIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct ParentUseExprIdx(UseExprIdx);
 
 impl ParentUseExprIdx {
@@ -141,6 +146,7 @@ pub(crate) fn parse_use_expr_root(
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprError {
     #[error("{0}")]
     Original(#[from] OriginalUseExprError),
@@ -149,6 +155,7 @@ pub enum UseExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum OriginalUseExprError {
     #[error("expect identifier")]
     ExpectIdent(TokenIdx),
@@ -182,6 +189,7 @@ impl OriginalError for OriginalUseExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum DerivedUseExprError {
     #[error("token error")]
     Token(#[from] TokenError),

@@ -93,26 +93,16 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 491,
-                                },
-                            ),
-                        ),
+                        ident: `Nat`,
                         token_idx: TokenIdx(
                             10,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`natural_number_game::Nat`, `Inductive`),
                         ),
                     ),
                 },

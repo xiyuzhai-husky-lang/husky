@@ -160,24 +160,18 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             6,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 1,
-                                        },
-                                    ),
-                                ),
+                                ident: `basic`,
                                 token_idx: TokenIdx(
                                     4,
                                 ),
@@ -191,15 +185,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 0,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     2,
@@ -214,30 +208,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 1,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             13,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 9,
-                                        },
-                                    ),
-                                ),
+                                ident: `num`,
                                 token_idx: TokenIdx(
                                     11,
                                 ),
@@ -251,15 +239,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 3,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -274,30 +262,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 4,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             20,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
+                                ident: `raw_bits`,
                                 token_idx: TokenIdx(
                                     18,
                                 ),
@@ -311,15 +293,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 6,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     16,
@@ -334,30 +316,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 7,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             27,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 4,
-                                        },
-                                    ),
-                                ),
+                                ident: `fmt`,
                                 token_idx: TokenIdx(
                                     25,
                                 ),
@@ -371,15 +347,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 9,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     23,
@@ -394,30 +370,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 10,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             34,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
+                                ident: `marker`,
                                 token_idx: TokenIdx(
                                     32,
                                 ),
@@ -431,15 +401,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 12,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     30,
@@ -454,30 +424,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 13,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             41,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
+                                ident: `clone`,
                                 token_idx: TokenIdx(
                                     39,
                                 ),
@@ -491,15 +455,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 15,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     37,
@@ -514,30 +478,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 16,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             48,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 3,
-                                        },
-                                    ),
-                                ),
+                                ident: `cmp`,
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -551,15 +509,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 18,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     44,
@@ -574,7 +532,7 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 19,
                             },
                         ),

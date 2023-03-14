@@ -35,24 +35,18 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             6,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ident: `logic`,
                                 token_idx: TokenIdx(
                                     4,
                                 ),
@@ -66,23 +60,17 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 0,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 15,
-                                        },
-                                    ),
-                                ),
+                                ident: `core`,
                                 token_idx: TokenIdx(
                                     2,
                                 ),
@@ -96,7 +84,7 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 1,
                             },
                         ),

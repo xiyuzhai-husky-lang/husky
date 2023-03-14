@@ -3592,16 +3592,10 @@ Ok(
                                 56..58,
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
-                                Original(
-                                    UnrecognizedIdent(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::UnrecognizedIdent(
                                         IdentToken {
-                                            ident: Ident(
-                                                Word(
-                                                    Id {
-                                                        value: 306,
-                                                    },
-                                                ),
-                                            ),
+                                            ident: `CloseRange`,
                                             token_idx: TokenIdx(
                                                 500,
                                             ),
@@ -20733,279 +20727,159 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 171,
-                                },
-                            ),
-                        ),
+                        ident: `ConnectedComponent`,
                         token_idx: TokenIdx(
                             86,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 33,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 167,
-                                },
-                            ),
-                        ),
+                        ident: `RawContour`,
                         token_idx: TokenIdx(
                             43,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 34,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 214,
-                                },
-                            ),
-                        ),
+                        ident: `Point2d`,
                         token_idx: TokenIdx(
                             14,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 37,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                        ),
+                        ident: `Vector2d`,
                         token_idx: TokenIdx(
                             169,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 39,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 218,
-                                },
-                            ),
-                        ),
+                        ident: `BoundingBox`,
                         token_idx: TokenIdx(
                             610,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 228,
-                                },
-                            ),
-                        ),
+                        ident: `RelativeBoundingBox`,
                         token_idx: TokenIdx(
                             744,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 317,
-                                },
-                            ),
-                        ),
+                        ident: `LineSegmentStroke`,
                         token_idx: TokenIdx(
                             82,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 215,
-                                },
-                            ),
-                        ),
+                        ident: `LineSegmentSketch`,
                         token_idx: TokenIdx(
                             176,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 325,
-                                },
-                            ),
-                        ),
+                        ident: `ConcaveComponent`,
                         token_idx: TokenIdx(
                             50,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 371,
-                                },
-                            ),
-                        ),
+                        ident: `ConvexComponent`,
                         token_idx: TokenIdx(
                             23,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 322,
-                                },
-                            ),
-                        ),
+                        ident: `LineSegment`,
                         token_idx: TokenIdx(
                             20,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
                     ),
                 },
-                Root {
+                MajorPathExpr::Root {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 384,
-                                },
-                            ),
-                        ),
+                        ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
                             24,
                         ),
                     },
-                    entity_path: ModuleItem(
-                        Type(
-                            TypePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         ),
                     ),
                 },

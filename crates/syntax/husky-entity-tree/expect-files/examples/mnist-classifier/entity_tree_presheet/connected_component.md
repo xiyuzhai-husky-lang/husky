@@ -182,31 +182,19 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                Leaf {
+                UseExpr::Leaf {
                     ident_token: IdentToken {
-                        ident: Ident(
-                            Word(
-                                Id {
-                                    value: 146,
-                                },
-                            ),
-                        ),
+                        ident: `BinaryImage28`,
                         token_idx: TokenIdx(
                             7,
                         ),
                     },
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 144,
-                                        },
-                                    ),
-                                ),
+                                ident: `mnist`,
                                 token_idx: TokenIdx(
                                     5,
                                 ),
@@ -220,23 +208,17 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 0,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 166,
-                                        },
-                                    ),
-                                ),
+                                ident: `datasets`,
                                 token_idx: TokenIdx(
                                     3,
                                 ),
@@ -250,23 +232,17 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 1,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 165,
-                                        },
-                                    ),
-                                ),
+                                ident: `cv`,
                                 token_idx: TokenIdx(
                                     1,
                                 ),
@@ -280,30 +256,24 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 2,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             13,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 143,
-                                        },
-                                    ),
-                                ),
+                                ident: `raw_contour`,
                                 token_idx: TokenIdx(
                                     11,
                                 ),
@@ -317,15 +287,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 4,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     9,
@@ -340,22 +310,22 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 5,
                             },
                         ),
                     },
                 ),
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             17,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     15,
@@ -370,7 +340,7 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 7,
                             },
                         ),

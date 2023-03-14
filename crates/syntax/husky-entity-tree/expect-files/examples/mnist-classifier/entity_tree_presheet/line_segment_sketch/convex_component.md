@@ -56,24 +56,18 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                All {
+                UseExpr::All {
                     star_token: StarToken(
                         TokenIdx(
                             5,
                         ),
                     ),
                 },
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Ident(
+                        parent_name_token: ParentNameToken::Ident(
                             IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 137,
-                                        },
-                                    ),
-                                ),
+                                ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
                                     3,
                                 ),
@@ -87,15 +81,15 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 0,
                             },
                         ),
                     },
                 ),
-                Parent(
+                UseExpr::Parent(
                     ParentUseExpr {
-                        parent_name_token: Crate(
+                        parent_name_token: ParentNameToken::Crate(
                             CrateToken {
                                 token_idx: TokenIdx(
                                     1,
@@ -110,7 +104,7 @@ Ok(
                             ),
                         ),
                         children: Ok(
-                            Single {
+                            UseExprChildren::Single {
                                 child: 1,
                             },
                         ),
