@@ -55,7 +55,9 @@ impl Diagnose for OriginalEntityTreeError {
                 .ranged_token_sheet()
                 .token_text_range(ident_token.token_idx()),
             OriginalEntityTreeError::NoSubentity => todo!(),
-            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => todo!(),
+            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => ctx
+                .ranged_token_sheet()
+                .token_text_range(new.ident_token(ctx.db()).token_idx()),
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
         }
     }

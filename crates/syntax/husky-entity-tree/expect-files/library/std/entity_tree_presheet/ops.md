@@ -19,6 +19,12 @@ Ok(
                                 `std::ops`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `Add`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },

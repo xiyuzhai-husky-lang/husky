@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 74,
+                            ident_token: IdentToken {
+                                ident: `ConcaveComponent`,
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 76,
+                            ident_token: IdentToken {
+                                ident: `find_concave_components`,
+                                token_idx: TokenIdx(
+                                    516,
+                                ),
+                            },
                         },
                     ),
                 },

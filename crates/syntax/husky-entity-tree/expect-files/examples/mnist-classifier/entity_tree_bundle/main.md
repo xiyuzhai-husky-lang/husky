@@ -12,14 +12,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 17,
                                     path: `mnist_classifier::connected_component`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `connected_component`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -30,14 +35,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 18,
                                     path: `mnist_classifier::raw_contour`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `raw_contour`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -48,14 +58,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 19,
                                     path: `mnist_classifier::geom2d`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `geom2d`,
+                                        token_idx: TokenIdx(
+                                            12,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -66,14 +81,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 20,
                                     path: `mnist_classifier::line_segment_sketch`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -84,14 +104,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 21,
                                     path: `mnist_classifier::fermi`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `fermi`,
+                                        token_idx: TokenIdx(
+                                            16,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -102,14 +127,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 22,
                                     path: `mnist_classifier::digits`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 17,
+                                    ident_token: IdentToken {
+                                        ident: `digits`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -120,14 +150,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 23,
                                     path: `mnist_classifier::major`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier`,
                                     ),
                                     ast_idx: 18,
+                                    ident_token: IdentToken {
+                                        ident: `major`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -138,12 +173,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 28,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 75,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                             ),
@@ -151,6 +184,12 @@ Ok(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             ast_idx: 214,
+                                            ident_token: IdentToken {
+                                                ident: `find_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    989,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -173,17 +212,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 29,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -206,17 +249,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 30,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -239,17 +286,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 31,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -272,17 +323,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 32,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -305,17 +360,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 33,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -338,17 +397,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 34,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -371,17 +434,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 35,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -404,17 +471,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 47,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -437,17 +508,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 52,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -470,17 +545,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 53,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -503,20 +582,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 155,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 118,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 100,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 69,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_one`,
+                                                        token_idx: TokenIdx(
+                                                            77,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -549,20 +631,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 179,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 77,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -595,20 +680,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 180,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -641,20 +729,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 181,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -756,14 +847,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -791,14 +887,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 22,
                                         path: `mnist_classifier::digits`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 17,
+                                        ident_token: IdentToken {
+                                            ident: `digits`,
+                                            token_idx: TokenIdx(
+                                                18,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -826,14 +927,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -861,14 +967,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -896,14 +1007,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -978,9 +1094,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 75,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                         ),
@@ -988,6 +1103,12 @@ Ok(
                                             `mnist_classifier::raw_contour`,
                                         ),
                                         ast_idx: 214,
+                                        ident_token: IdentToken {
+                                            ident: `find_raw_contours`,
+                                            token_idx: TokenIdx(
+                                                989,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -1028,7 +1149,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 17,
+                            progress: 16,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -1128,14 +1249,19 @@ Ok(
                                 "ConnectedComponentDistribution",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 59,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 121,
+                                    ident_token: IdentToken {
+                                        ident: `ConnectedComponentDistribution`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1144,14 +1270,19 @@ Ok(
                                 "EffHoles",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 60,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 122,
+                                    ident_token: IdentToken {
+                                        ident: `EffHoles`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1162,9 +1293,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 61,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
                                     ),
@@ -1172,6 +1302,12 @@ Ok(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     ast_idx: 123,
+                                    ident_token: IdentToken {
+                                        ident: `hole_tmpl`,
+                                        token_idx: TokenIdx(
+                                            53,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1180,14 +1316,19 @@ Ok(
                                 "ConnectedComponent",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 62,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 124,
+                                    ident_token: IdentToken {
+                                        ident: `ConnectedComponent`,
+                                        token_idx: TokenIdx(
+                                            79,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1198,9 +1339,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 63,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
                                     ),
@@ -1208,6 +1348,12 @@ Ok(
                                         `mnist_classifier::connected_component`,
                                     ),
                                     ast_idx: 126,
+                                    ident_token: IdentToken {
+                                        ident: `horizontal_extend`,
+                                        token_idx: TokenIdx(
+                                            560,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1216,14 +1362,19 @@ Ok(
                                 "find_connected_components",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 64,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 127,
+                                    ident_token: IdentToken {
+                                        ident: `find_connected_components`,
+                                        token_idx: TokenIdx(
+                                            646,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1234,17 +1385,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 59,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 17,
                                             path: `mnist_classifier::connected_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1265,17 +1420,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 60,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 18,
                                             path: `mnist_classifier::raw_contour`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1296,17 +1455,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 61,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 19,
                                             path: `mnist_classifier::geom2d`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1327,17 +1490,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 62,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 20,
                                             path: `mnist_classifier::line_segment_sketch`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1358,17 +1525,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 63,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 21,
                                             path: `mnist_classifier::fermi`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    16,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1389,17 +1560,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 64,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 22,
                                             path: `mnist_classifier::digits`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    18,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1420,17 +1595,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 65,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 23,
                                             path: `mnist_classifier::major`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -1451,15 +1630,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 66,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -1467,6 +1643,12 @@ Ok(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
                                                     ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            989,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1501,20 +1683,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 67,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1549,20 +1734,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 68,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1597,20 +1785,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 69,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1645,20 +1836,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 70,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 138,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1693,20 +1887,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 71,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 139,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1741,20 +1938,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 72,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 34,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 140,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1789,20 +1989,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 73,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 35,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 141,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1837,20 +2040,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 74,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 47,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 95,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1885,20 +2091,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 75,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 52,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1933,20 +2142,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 76,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 53,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -1981,17 +2193,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 182,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    28,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2014,23 +2230,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 782,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 155,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 118,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 100,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -2075,23 +2293,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 783,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 179,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 77,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 74,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -2136,23 +2356,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 784,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 180,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 78,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 76,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_concave_components`,
+                                                                token_idx: TokenIdx(
+                                                                    516,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -2197,23 +2419,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 785,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 181,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 80,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 93,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 16,
+                                                            ident_token: IdentToken {
+                                                                ident: `LineSegment`,
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -2316,7 +2540,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -2343,7 +2567,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -2375,14 +2599,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2449,14 +2678,19 @@ Ok(
                                 "RawContour",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 65,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 199,
+                                    ident_token: IdentToken {
+                                        ident: `RawContour`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2467,9 +2701,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 66,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                     ),
@@ -2477,6 +2710,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 201,
+                                    ident_token: IdentToken {
+                                        ident: `Direction`,
+                                        token_idx: TokenIdx(
+                                            394,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2487,9 +2726,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 67,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
                                     ),
@@ -2497,6 +2735,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 206,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_pair`,
+                                        token_idx: TokenIdx(
+                                            404,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2507,9 +2751,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 68,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
                                     ),
@@ -2517,6 +2760,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 207,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_to_the_left`,
+                                        token_idx: TokenIdx(
+                                            429,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2527,9 +2776,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 69,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
                                     ),
@@ -2537,6 +2785,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 208,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_to_the_right`,
+                                        token_idx: TokenIdx(
+                                            450,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2547,9 +2801,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 70,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
                                     ),
@@ -2557,6 +2810,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 209,
+                                    ident_token: IdentToken {
+                                        ident: `get_inward_direction`,
+                                        token_idx: TokenIdx(
+                                            475,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2567,9 +2826,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 71,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
                                     ),
@@ -2577,6 +2835,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 210,
+                                    ident_token: IdentToken {
+                                        ident: `get_angle_change`,
+                                        token_idx: TokenIdx(
+                                            621,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2587,9 +2851,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 72,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
                                     ),
@@ -2597,6 +2860,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 211,
+                                    ident_token: IdentToken {
+                                        ident: `get_outward_direction`,
+                                        token_idx: TokenIdx(
+                                            685,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2607,9 +2876,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 73,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                     ),
@@ -2617,6 +2885,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 212,
+                                    ident_token: IdentToken {
+                                        ident: `StreakCache`,
+                                        token_idx: TokenIdx(
+                                            912,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2627,9 +2901,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 74,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
                                     ),
@@ -2637,6 +2910,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 213,
+                                    ident_token: IdentToken {
+                                        ident: `get_concave_middle_point`,
+                                        token_idx: TokenIdx(
+                                            924,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2647,9 +2926,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 75,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                     ),
@@ -2657,6 +2935,12 @@ Ok(
                                         `mnist_classifier::raw_contour`,
                                     ),
                                     ast_idx: 214,
+                                    ident_token: IdentToken {
+                                        ident: `find_raw_contours`,
+                                        token_idx: TokenIdx(
+                                            989,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2667,17 +2951,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 193,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2700,17 +2988,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 194,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 82,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2733,17 +3025,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 195,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2766,17 +3062,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 196,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2799,17 +3099,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 197,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2832,17 +3136,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 198,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 90,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2865,17 +3173,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 199,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 121,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponentDistribution`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2898,17 +3210,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 200,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 60,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 122,
+                                            ident_token: IdentToken {
+                                                ident: `EffHoles`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2931,17 +3247,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 202,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 62,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 124,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponent`,
+                                                token_idx: TokenIdx(
+                                                    79,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2964,17 +3284,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 204,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 64,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 127,
+                                            ident_token: IdentToken {
+                                                ident: `find_connected_components`,
+                                                token_idx: TokenIdx(
+                                                    646,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2997,17 +3321,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 228,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -3030,17 +3358,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 229,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -3063,20 +3395,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 235,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 77,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -3109,20 +3444,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 236,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -3155,20 +3493,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 237,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -3235,7 +3576,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -3262,7 +3603,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -3289,7 +3630,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -3345,14 +3686,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 19,
                                         path: `mnist_classifier::geom2d`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                12,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -3384,14 +3730,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 17,
                                         path: `mnist_classifier::connected_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `connected_component`,
+                                            token_idx: TokenIdx(
+                                                8,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -3423,14 +3774,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -3514,14 +3870,19 @@ Ok(
                                 "Point2d",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 76,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 80,
+                                    ident_token: IdentToken {
+                                        ident: `Point2d`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3530,14 +3891,19 @@ Ok(
                                 "RelativePoint2d",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 77,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 82,
+                                    ident_token: IdentToken {
+                                        ident: `RelativePoint2d`,
+                                        token_idx: TokenIdx(
+                                            144,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3546,14 +3912,19 @@ Ok(
                                 "Vector2d",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 78,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 83,
+                                    ident_token: IdentToken {
+                                        ident: `Vector2d`,
+                                        token_idx: TokenIdx(
+                                            157,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3562,14 +3933,19 @@ Ok(
                                 "ClosedRange",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 79,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 85,
+                                    ident_token: IdentToken {
+                                        ident: `ClosedRange`,
+                                        token_idx: TokenIdx(
+                                            488,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3578,14 +3954,19 @@ Ok(
                                 "BoundingBox",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 80,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 87,
+                                    ident_token: IdentToken {
+                                        ident: `BoundingBox`,
+                                        token_idx: TokenIdx(
+                                            596,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3594,14 +3975,19 @@ Ok(
                                 "RelativeBoundingBox",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 81,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 90,
+                                    ident_token: IdentToken {
+                                        ident: `RelativeBoundingBox`,
+                                        token_idx: TokenIdx(
+                                            732,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3704,14 +4090,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 24,
                                     path: `mnist_classifier::line_segment_sketch::concave_component`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 159,
+                                    ident_token: IdentToken {
+                                        ident: `concave_component`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3722,14 +4113,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 25,
                                     path: `mnist_classifier::line_segment_sketch::convex_component`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 160,
+                                    ident_token: IdentToken {
+                                        ident: `convex_component`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3740,14 +4136,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 26,
                                     path: `mnist_classifier::line_segment_sketch::convexity`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 161,
+                                    ident_token: IdentToken {
+                                        ident: `convexity`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3758,14 +4159,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 27,
                                     path: `mnist_classifier::line_segment_sketch::line_segment`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 162,
+                                    ident_token: IdentToken {
+                                        ident: `line_segment`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3774,14 +4180,19 @@ Ok(
                                 "LineSegmentStroke",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 82,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 169,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegmentStroke`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3790,14 +4201,19 @@ Ok(
                                 "LineSegmentSketch",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 83,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 171,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegmentSketch`,
+                                        token_idx: TokenIdx(
+                                            161,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3808,9 +4224,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 84,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                     ),
@@ -3818,6 +4233,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 173,
+                                    ident_token: IdentToken {
+                                        ident: `go_right`,
+                                        token_idx: TokenIdx(
+                                            346,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3828,9 +4249,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 85,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                     ),
@@ -3838,6 +4258,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 174,
+                                    ident_token: IdentToken {
+                                        ident: `go_left`,
+                                        token_idx: TokenIdx(
+                                            443,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3848,9 +4274,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 86,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                     ),
@@ -3858,6 +4283,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 175,
+                                    ident_token: IdentToken {
+                                        ident: `extend_end`,
+                                        token_idx: TokenIdx(
+                                            540,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3868,9 +4299,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 87,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                     ),
@@ -3878,6 +4308,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 176,
+                                    ident_token: IdentToken {
+                                        ident: `extend_start`,
+                                        token_idx: TokenIdx(
+                                            773,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3888,9 +4324,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 88,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                     ),
@@ -3898,6 +4333,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 177,
+                                    ident_token: IdentToken {
+                                        ident: `find_line_segments`,
+                                        token_idx: TokenIdx(
+                                            1039,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3906,17 +4347,21 @@ Ok(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 77,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -3935,17 +4380,21 @@ Ok(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 78,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -3964,17 +4413,21 @@ Ok(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 80,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 93,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegment`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -3995,17 +4448,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 238,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    28,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4028,17 +4485,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 257,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4061,17 +4522,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 258,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 82,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4094,17 +4559,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 259,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4127,17 +4596,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 260,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4160,17 +4633,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 261,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4193,17 +4670,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 262,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 90,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4272,14 +4753,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4305,14 +4791,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 25,
                                         path: `mnist_classifier::line_segment_sketch::convex_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 160,
+                                        ident_token: IdentToken {
+                                            ident: `convex_component`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4338,14 +4829,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 27,
                                         path: `mnist_classifier::line_segment_sketch::line_segment`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4372,7 +4868,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -4399,7 +4895,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -4427,14 +4923,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 27,
                                         path: `mnist_classifier::line_segment_sketch::line_segment`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4466,14 +4967,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 19,
                                         path: `mnist_classifier::geom2d`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                12,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4505,14 +5011,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4539,14 +5050,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 65,
                                         path: ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 199,
+                                        ident_token: IdentToken {
+                                            ident: `RawContour`,
+                                            token_idx: TokenIdx(
+                                                28,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -4635,14 +5151,19 @@ Ok(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 89,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 74,
+                                    ident_token: IdentToken {
+                                        ident: `ConcaveComponent`,
+                                        token_idx: TokenIdx(
+                                            34,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -4651,14 +5172,19 @@ Ok(
                                 "find_concave_components",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 90,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 76,
+                                    ident_token: IdentToken {
+                                        ident: `find_concave_components`,
+                                        token_idx: TokenIdx(
+                                            516,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -4669,17 +5195,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 82,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 17,
                                             path: `mnist_classifier::connected_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4700,17 +5230,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 83,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 18,
                                             path: `mnist_classifier::raw_contour`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4731,17 +5265,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 84,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 19,
                                             path: `mnist_classifier::geom2d`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4762,17 +5300,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 85,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 20,
                                             path: `mnist_classifier::line_segment_sketch`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4793,17 +5335,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 86,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 21,
                                             path: `mnist_classifier::fermi`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    16,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4824,17 +5370,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 87,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 22,
                                             path: `mnist_classifier::digits`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    18,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4855,17 +5405,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 88,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 23,
                                             path: `mnist_classifier::major`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -4886,15 +5440,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 89,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -4902,6 +5453,12 @@ Ok(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
                                                     ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            989,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -4936,20 +5493,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 90,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -4984,20 +5544,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 91,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5032,20 +5595,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 92,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5080,20 +5646,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 93,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 138,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5128,20 +5697,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 94,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 139,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5176,20 +5748,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 95,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 34,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 140,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5224,20 +5799,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 96,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 35,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 141,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5272,20 +5850,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 97,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 47,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 95,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5320,20 +5901,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 98,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 52,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5368,20 +5952,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 99,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 53,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5416,17 +6003,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 263,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 24,
                                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -5447,17 +6038,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 264,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 25,
                                             path: `mnist_classifier::line_segment_sketch::convex_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -5478,17 +6073,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 265,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 26,
                                             path: `mnist_classifier::line_segment_sketch::convexity`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -5509,17 +6108,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 266,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 27,
                                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -5540,12 +6143,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 269,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -5553,6 +6154,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -5575,12 +6182,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 270,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -5588,6 +6193,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -5610,12 +6221,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 271,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -5623,6 +6232,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -5645,12 +6260,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 272,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 87,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -5658,6 +6271,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -5680,12 +6299,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 273,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 88,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -5693,6 +6310,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -5715,20 +6338,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 276,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5761,20 +6387,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 277,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 238,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            28,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5809,20 +6438,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 278,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5857,20 +6489,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 279,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 82,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5905,20 +6540,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 280,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -5953,20 +6591,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 281,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -6001,20 +6642,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 282,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 261,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -6049,20 +6693,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 283,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 262,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 81,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 90,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -6097,23 +6744,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 858,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 155,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 118,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 100,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -6158,17 +6807,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 869,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 92,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 22,
+                                            ident_token: IdentToken {
+                                                ident: `is_convex`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6225,7 +6878,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -6252,7 +6905,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -6279,7 +6932,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -6306,7 +6959,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -6333,7 +6986,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -6365,14 +7018,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6404,14 +7062,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6443,14 +7106,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6482,14 +7150,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 19,
                                         path: `mnist_classifier::geom2d`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                12,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6521,14 +7194,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 27,
                                         path: `mnist_classifier::line_segment_sketch::line_segment`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6560,14 +7238,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 26,
                                         path: `mnist_classifier::line_segment_sketch::convexity`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 161,
+                                        ident_token: IdentToken {
+                                            ident: `convexity`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -6676,9 +7359,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 91,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     ),
@@ -6686,6 +7368,12 @@ Ok(
                                         `mnist_classifier::line_segment_sketch::convex_component`,
                                     ),
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `ConvexComponent`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -6696,17 +7384,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 290,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 24,
                                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -6727,17 +7419,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 291,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 25,
                                             path: `mnist_classifier::line_segment_sketch::convex_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -6758,17 +7454,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 292,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 26,
                                             path: `mnist_classifier::line_segment_sketch::convexity`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -6789,17 +7489,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 293,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 27,
                                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -6820,17 +7524,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 294,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6853,17 +7561,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 295,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6886,12 +7598,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 296,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -6899,6 +7609,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6921,12 +7637,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 297,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -6934,6 +7648,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6956,12 +7676,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 298,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -6969,6 +7687,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -6991,12 +7715,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 299,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 87,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -7004,6 +7726,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7026,12 +7754,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 300,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 88,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -7039,6 +7765,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7061,20 +7793,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 301,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 77,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7107,20 +7842,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 302,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7153,20 +7891,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 303,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7199,20 +7940,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 304,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 238,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            28,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7247,20 +7991,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 305,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7295,20 +8042,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 306,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 82,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7343,20 +8093,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 307,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7391,20 +8144,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 308,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7439,20 +8195,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 309,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 261,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7487,20 +8246,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 310,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 262,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 81,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 90,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -7569,7 +8331,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -7601,14 +8363,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -7647,14 +8414,19 @@ Ok(
                                 "is_convex",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 92,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 22,
+                                    ident_token: IdentToken {
+                                        ident: `is_convex`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -7665,17 +8437,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 311,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 24,
                                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -7696,17 +8472,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 312,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 25,
                                             path: `mnist_classifier::line_segment_sketch::convex_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -7727,17 +8507,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 313,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 26,
                                             path: `mnist_classifier::line_segment_sketch::convexity`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -7758,17 +8542,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 314,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 27,
                                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -7789,17 +8577,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 315,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 82,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7822,17 +8614,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 316,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 83,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7855,12 +8651,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 317,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 84,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
                                             ),
@@ -7868,6 +8662,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7890,12 +8690,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 318,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 85,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
                                             ),
@@ -7903,6 +8701,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7925,12 +8729,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 319,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 86,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
                                             ),
@@ -7938,6 +8740,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7960,12 +8768,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 320,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 87,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
                                             ),
@@ -7973,6 +8779,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7995,12 +8807,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 321,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 88,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
                                             ),
@@ -8008,6 +8818,12 @@ Ok(
                                                 `mnist_classifier::line_segment_sketch`,
                                             ),
                                             ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8030,20 +8846,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 322,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 77,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8076,20 +8895,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 323,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8122,20 +8944,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 324,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8168,20 +8993,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 325,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 238,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 65,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            28,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8216,20 +9044,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 326,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 257,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 76,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8264,20 +9095,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 327,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 258,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 77,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 82,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8312,20 +9146,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 328,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 259,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 78,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8360,20 +9197,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 329,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 260,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 79,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8408,20 +9248,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 330,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 261,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 80,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8456,20 +9299,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 331,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 262,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 81,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 90,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -8524,7 +9370,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -8551,7 +9397,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -8578,7 +9424,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -8610,14 +9456,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -8649,14 +9500,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -8688,14 +9544,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 19,
                                         path: `mnist_classifier::geom2d`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                12,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -8768,14 +9629,19 @@ Ok(
                                 "LineSegment",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 93,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegment`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -8786,17 +9652,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 364,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 76,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8819,17 +9689,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 365,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 77,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 82,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8852,17 +9726,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 366,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 78,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8885,17 +9763,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 367,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 79,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8918,17 +9800,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 368,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 80,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -8951,17 +9837,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 369,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 81,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 90,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -9018,7 +9908,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -9050,14 +9940,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 19,
                                         path: `mnist_classifier::geom2d`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                12,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -9098,9 +9993,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 94,
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
@@ -9108,6 +10002,12 @@ Ok(
                                         `mnist_classifier::fermi`,
                                     ),
                                     ast_idx: 22,
+                                    ident_token: IdentToken {
+                                        ident: `FermiMatchResult`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -9116,14 +10016,19 @@ Ok(
                                 "fermi_match",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 95,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 24,
+                                    ident_token: IdentToken {
+                                        ident: `fermi_match`,
+                                        token_idx: TokenIdx(
+                                            146,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -9134,17 +10039,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 100,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 17,
                                             path: `mnist_classifier::connected_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9165,17 +10074,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 101,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 18,
                                             path: `mnist_classifier::raw_contour`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9196,17 +10109,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 102,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 19,
                                             path: `mnist_classifier::geom2d`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9227,17 +10144,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 103,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 20,
                                             path: `mnist_classifier::line_segment_sketch`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9258,17 +10179,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 104,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 21,
                                             path: `mnist_classifier::fermi`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    16,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9289,17 +10214,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 105,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 22,
                                             path: `mnist_classifier::digits`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    18,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9320,17 +10249,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 106,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 23,
                                             path: `mnist_classifier::major`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -9351,15 +10284,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 107,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -9367,6 +10297,12 @@ Ok(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
                                                     ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            989,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9401,20 +10337,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 108,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 29,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 135,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9449,20 +10388,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 109,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 30,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 136,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9497,20 +10439,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 110,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 31,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 137,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9545,20 +10490,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 111,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 32,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 138,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9593,20 +10541,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 112,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 33,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 139,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9641,20 +10592,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 113,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 34,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 140,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9689,20 +10643,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 114,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 35,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 141,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9737,20 +10694,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 116,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 52,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9785,20 +10745,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 117,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 53,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -9833,23 +10796,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 891,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 155,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 118,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 100,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -9894,23 +10859,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 892,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 179,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 77,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 89,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 74,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -9955,23 +10922,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 893,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 180,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 78,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 90,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 76,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_concave_components`,
+                                                                token_idx: TokenIdx(
+                                                                    516,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -10016,23 +10985,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 894,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 181,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 80,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 93,
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 16,
+                                                            ident_token: IdentToken {
+                                                                ident: `LineSegment`,
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -10111,7 +11082,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -10152,14 +11123,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 28,
                                     path: `mnist_classifier::digits::zero`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `zero`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10170,14 +11146,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 29,
                                     path: `mnist_classifier::digits::one`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `one`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10188,14 +11169,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 30,
                                     path: `mnist_classifier::digits::six`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `six`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10206,14 +11192,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 31,
                                     path: `mnist_classifier::digits::three`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `three`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10224,14 +11215,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 32,
                                     path: `mnist_classifier::digits::four`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `four`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10242,32 +11238,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 33,
                                     path: `mnist_classifier::digits::five`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 5,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: Ident(
-                                "six",
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Submodule(
-                                SubmoduleSymbol {
-                                    [salsa id]: 34,
-                                    path: `mnist_classifier::digits::six`,
-                                    accessibility: Accessibility::PublicUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `five`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10278,14 +11261,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 35,
                                     path: `mnist_classifier::digits::seven`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 7,
+                                    ident_token: IdentToken {
+                                        ident: `seven`,
+                                        token_idx: TokenIdx(
+                                            15,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10296,14 +11284,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 36,
                                     path: `mnist_classifier::digits::eight`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `eight`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10314,14 +11307,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 37,
                                     path: `mnist_classifier::digits::nine`,
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `nine`,
+                                        token_idx: TokenIdx(
+                                            19,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -10330,17 +11328,21 @@ Ok(
                                 "is_one",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 118,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 100,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 69,
+                                            ident_token: IdentToken {
+                                                ident: `is_one`,
+                                                token_idx: TokenIdx(
+                                                    77,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10361,12 +11363,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 119,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 106,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                             ),
@@ -10374,6 +11374,12 @@ Ok(
                                                 `mnist_classifier::digits::six`,
                                             ),
                                             ast_idx: 59,
+                                            ident_token: IdentToken {
+                                                ident: `is_six`,
+                                                token_idx: TokenIdx(
+                                                    93,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10396,12 +11402,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 120,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 98,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                             ),
@@ -10409,6 +11413,12 @@ Ok(
                                                 `mnist_classifier::digits::zero`,
                                             ),
                                             ast_idx: 35,
+                                            ident_token: IdentToken {
+                                                ident: `is_zero`,
+                                                token_idx: TokenIdx(
+                                                    105,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10431,12 +11441,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 121,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 110,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                             ),
@@ -10444,6 +11452,12 @@ Ok(
                                                 `mnist_classifier::digits::three`,
                                             ),
                                             ast_idx: 35,
+                                            ident_token: IdentToken {
+                                                ident: `is_three`,
+                                                token_idx: TokenIdx(
+                                                    80,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10466,12 +11480,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 123,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 126,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                             ),
@@ -10479,6 +11491,12 @@ Ok(
                                                 `mnist_classifier::digits::seven`,
                                             ),
                                             ast_idx: 52,
+                                            ident_token: IdentToken {
+                                                ident: `is_seven`,
+                                                token_idx: TokenIdx(
+                                                    216,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10501,12 +11519,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 124,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 128,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                             ),
@@ -10514,6 +11530,12 @@ Ok(
                                                 `mnist_classifier::digits::eight`,
                                             ),
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `is_eight`,
+                                                token_idx: TokenIdx(
+                                                    92,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10536,12 +11558,10 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 125,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 132,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                             ),
@@ -10549,6 +11569,12 @@ Ok(
                                                 `mnist_classifier::digits::nine`,
                                             ),
                                             ast_idx: 46,
+                                            ident_token: IdentToken {
+                                                ident: `is_nine`,
+                                                token_idx: TokenIdx(
+                                                    101,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -10590,14 +11616,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 29,
                                         path: `mnist_classifier::digits::one`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 1,
+                                        ident_token: IdentToken {
+                                            ident: `one`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10625,14 +11656,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 30,
                                         path: `mnist_classifier::digits::six`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 2,
+                                        ident_token: IdentToken {
+                                            ident: `six`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10660,14 +11696,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 28,
                                         path: `mnist_classifier::digits::zero`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 0,
+                                        ident_token: IdentToken {
+                                            ident: `zero`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10719,14 +11760,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 31,
                                         path: `mnist_classifier::digits::three`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 3,
+                                        ident_token: IdentToken {
+                                            ident: `three`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10754,14 +11800,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 33,
                                         path: `mnist_classifier::digits::five`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 5,
+                                        ident_token: IdentToken {
+                                            ident: `five`,
+                                            token_idx: TokenIdx(
+                                                11,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10789,14 +11840,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 30,
                                         path: `mnist_classifier::digits::six`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 2,
+                                        ident_token: IdentToken {
+                                            ident: `six`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10824,14 +11880,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 35,
                                         path: `mnist_classifier::digits::seven`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 7,
+                                        ident_token: IdentToken {
+                                            ident: `seven`,
+                                            token_idx: TokenIdx(
+                                                15,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10859,14 +11920,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 36,
                                         path: `mnist_classifier::digits::eight`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 8,
+                                        ident_token: IdentToken {
+                                            ident: `eight`,
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10894,14 +11960,19 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 37,
                                         path: `mnist_classifier::digits::nine`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::digits`,
                                         ),
                                         ast_idx: 9,
+                                        ident_token: IdentToken {
+                                            ident: `nine`,
+                                            token_idx: TokenIdx(
+                                                19,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10926,14 +11997,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 100,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 69,
+                                        ident_token: IdentToken {
+                                            ident: `is_one`,
+                                            token_idx: TokenIdx(
+                                                77,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10960,9 +12036,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 106,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -10970,6 +12045,12 @@ Ok(
                                             `mnist_classifier::digits::six`,
                                         ),
                                         ast_idx: 59,
+                                        ident_token: IdentToken {
+                                            ident: `is_six`,
+                                            token_idx: TokenIdx(
+                                                93,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -10996,9 +12077,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 98,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                         ),
@@ -11006,6 +12086,12 @@ Ok(
                                             `mnist_classifier::digits::zero`,
                                         ),
                                         ast_idx: 35,
+                                        ident_token: IdentToken {
+                                            ident: `is_zero`,
+                                            token_idx: TokenIdx(
+                                                105,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11032,9 +12118,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 110,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                         ),
@@ -11042,6 +12127,12 @@ Ok(
                                             `mnist_classifier::digits::three`,
                                         ),
                                         ast_idx: 35,
+                                        ident_token: IdentToken {
+                                            ident: `is_three`,
+                                            token_idx: TokenIdx(
+                                                80,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11091,9 +12182,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 106,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                         ),
@@ -11101,6 +12191,12 @@ Ok(
                                             `mnist_classifier::digits::six`,
                                         ),
                                         ast_idx: 59,
+                                        ident_token: IdentToken {
+                                            ident: `is_six`,
+                                            token_idx: TokenIdx(
+                                                93,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11127,9 +12223,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 126,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                         ),
@@ -11137,6 +12232,12 @@ Ok(
                                             `mnist_classifier::digits::seven`,
                                         ),
                                         ast_idx: 52,
+                                        ident_token: IdentToken {
+                                            ident: `is_seven`,
+                                            token_idx: TokenIdx(
+                                                216,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11163,9 +12264,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 128,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                         ),
@@ -11173,6 +12273,12 @@ Ok(
                                             `mnist_classifier::digits::eight`,
                                         ),
                                         ast_idx: 29,
+                                        ident_token: IdentToken {
+                                            ident: `is_eight`,
+                                            token_idx: TokenIdx(
+                                                92,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11199,9 +12305,8 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 132,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                         ),
@@ -11209,6 +12314,12 @@ Ok(
                                             `mnist_classifier::digits::nine`,
                                         ),
                                         ast_idx: 46,
+                                        ident_token: IdentToken {
+                                            ident: `is_nine`,
+                                            token_idx: TokenIdx(
+                                                101,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11219,6 +12330,40 @@ Ok(
                     [],
                 ),
                 errors: [
+                    EntityTreeError::Original(
+                        OriginalEntityTreeError::EntitySymbolAlreadyDefined {
+                            old: NativeEntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::six`,
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `six`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
+                                },
+                            ),
+                            new: NativeEntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::six`,
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `six`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                    ),
                     EntityTreeError::Original(
                         OriginalEntityTreeError::UnresolvedIdent(
                             IdentToken {
@@ -11322,9 +12467,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 96,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
                                     ),
@@ -11332,6 +12476,12 @@ Ok(
                                         `mnist_classifier::digits::zero`,
                                     ),
                                     ast_idx: 33,
+                                    ident_token: IdentToken {
+                                        ident: `open_one_match`,
+                                        token_idx: TokenIdx(
+                                            65,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -11342,9 +12492,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 97,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::almost_closed`, `Function`),
                                     ),
@@ -11352,6 +12501,12 @@ Ok(
                                         `mnist_classifier::digits::zero`,
                                     ),
                                     ast_idx: 34,
+                                    ident_token: IdentToken {
+                                        ident: `almost_closed`,
+                                        token_idx: TokenIdx(
+                                            78,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -11362,9 +12517,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 98,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                     ),
@@ -11372,6 +12526,12 @@ Ok(
                                         `mnist_classifier::digits::zero`,
                                     ),
                                     ast_idx: 35,
+                                    ident_token: IdentToken {
+                                        ident: `is_zero`,
+                                        token_idx: TokenIdx(
+                                            105,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -11382,17 +12542,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 370,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11415,17 +12579,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 371,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11448,17 +12616,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 372,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11481,17 +12653,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 373,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11514,17 +12690,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 374,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11547,17 +12727,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 375,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11580,17 +12764,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 376,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11613,17 +12801,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 389,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11646,17 +12838,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 903,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11679,17 +12875,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 904,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11828,7 +13028,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -11855,7 +13055,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -11882,7 +13082,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -11909,7 +13109,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -11941,14 +13141,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -11980,14 +13185,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12019,14 +13229,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12086,14 +13301,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12229,9 +13449,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 99,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
                                     ),
@@ -12239,6 +13458,12 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 68,
+                                    ident_token: IdentToken {
+                                        ident: `one_fermi_match`,
+                                        token_idx: TokenIdx(
+                                            59,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -12247,14 +13472,19 @@ Ok(
                                 "is_one",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 100,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 69,
+                                    ident_token: IdentToken {
+                                        ident: `is_one`,
+                                        token_idx: TokenIdx(
+                                            77,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -12265,9 +13495,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 101,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
                                     ),
@@ -12275,6 +13504,12 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 70,
+                                    ident_token: IdentToken {
+                                        ident: `upmost`,
+                                        token_idx: TokenIdx(
+                                            554,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -12285,9 +13520,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 102,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
                                     ),
@@ -12295,6 +13529,12 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 71,
+                                    ident_token: IdentToken {
+                                        ident: `downmost`,
+                                        token_idx: TokenIdx(
+                                            583,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -12305,9 +13545,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 103,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::one::hat`, `Function`),
                                     ),
@@ -12315,6 +13554,12 @@ Ok(
                                         `mnist_classifier::digits::one`,
                                     ),
                                     ast_idx: 72,
+                                    ident_token: IdentToken {
+                                        ident: `hat`,
+                                        token_idx: TokenIdx(
+                                            617,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -12325,17 +13570,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 407,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12358,17 +13607,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 408,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12391,17 +13644,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 409,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12424,17 +13681,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 410,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12457,17 +13718,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 411,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12490,17 +13755,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 412,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12523,17 +13792,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 413,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12556,17 +13829,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 426,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12589,17 +13866,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 950,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12622,17 +13903,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 951,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -12771,7 +14056,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -12798,7 +14083,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -12825,7 +14110,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -12857,14 +14142,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12896,14 +14186,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12935,14 +14230,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -12974,14 +14274,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -13107,9 +14412,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 104,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
                                     ),
@@ -13117,6 +14421,12 @@ Ok(
                                         `mnist_classifier::digits::six`,
                                     ),
                                     ast_idx: 57,
+                                    ident_token: IdentToken {
+                                        ident: `six_match`,
+                                        token_idx: TokenIdx(
+                                            65,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -13127,9 +14437,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 105,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
                                     ),
@@ -13137,6 +14446,12 @@ Ok(
                                         `mnist_classifier::digits::six`,
                                     ),
                                     ast_idx: 58,
+                                    ident_token: IdentToken {
+                                        ident: `six_match_refined1`,
+                                        token_idx: TokenIdx(
+                                            78,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -13147,9 +14462,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 106,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                     ),
@@ -13157,6 +14471,12 @@ Ok(
                                         `mnist_classifier::digits::six`,
                                     ),
                                     ast_idx: 59,
+                                    ident_token: IdentToken {
+                                        ident: `is_six`,
+                                        token_idx: TokenIdx(
+                                            93,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -13167,9 +14487,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 107,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
                                     ),
@@ -13177,6 +14496,12 @@ Ok(
                                         `mnist_classifier::digits::six`,
                                     ),
                                     ast_idx: 60,
+                                    ident_token: IdentToken {
+                                        ident: `upmost`,
+                                        token_idx: TokenIdx(
+                                            356,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -13187,9 +14512,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 108,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
                                     ),
@@ -13197,6 +14521,12 @@ Ok(
                                         `mnist_classifier::digits::six`,
                                     ),
                                     ast_idx: 61,
+                                    ident_token: IdentToken {
+                                        ident: `bottom1`,
+                                        token_idx: TokenIdx(
+                                            385,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -13207,17 +14537,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 444,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13240,17 +14574,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 445,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13273,17 +14611,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 446,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13306,17 +14648,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 447,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13339,17 +14685,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 448,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13372,17 +14722,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 449,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13405,17 +14759,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 450,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13438,17 +14796,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 463,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13471,17 +14833,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 997,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13504,17 +14870,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 998,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13653,7 +15023,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -13680,7 +15050,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -13707,7 +15077,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -13734,7 +15104,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -13766,14 +15136,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -13805,14 +15180,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -13844,14 +15224,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -13911,14 +15296,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -14054,9 +15444,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 109,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
                                     ),
@@ -14064,6 +15453,12 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 34,
+                                    ident_token: IdentToken {
+                                        ident: `three_fermi_match`,
+                                        token_idx: TokenIdx(
+                                            63,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14074,9 +15469,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 110,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                     ),
@@ -14084,6 +15478,12 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 35,
+                                    ident_token: IdentToken {
+                                        ident: `is_three`,
+                                        token_idx: TokenIdx(
+                                            80,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14094,9 +15494,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 111,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
                                     ),
@@ -14104,6 +15503,12 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `uparc`,
+                                        token_idx: TokenIdx(
+                                            210,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14114,9 +15519,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 112,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
                                     ),
@@ -14124,6 +15528,12 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 37,
+                                    ident_token: IdentToken {
+                                        ident: `downarc`,
+                                        token_idx: TokenIdx(
+                                            244,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14134,9 +15544,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 113,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::three::back`, `Function`),
                                     ),
@@ -14144,6 +15553,12 @@ Ok(
                                         `mnist_classifier::digits::three`,
                                     ),
                                     ast_idx: 38,
+                                    ident_token: IdentToken {
+                                        ident: `back`,
+                                        token_idx: TokenIdx(
+                                            278,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14154,17 +15569,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 481,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14187,17 +15606,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 482,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14220,17 +15643,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 483,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14253,17 +15680,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 484,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14286,17 +15717,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 485,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14319,17 +15754,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 486,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14352,17 +15791,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 487,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14385,17 +15828,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 500,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14418,17 +15865,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1044,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14451,17 +15902,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1045,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -14600,7 +16055,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -14627,7 +16082,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -14654,7 +16109,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -14686,14 +16141,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -14725,14 +16185,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -14764,14 +16229,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -14803,14 +16273,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -14936,9 +16411,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 114,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                                     ),
@@ -14946,6 +16420,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `left_components`,
+                                        token_idx: TokenIdx(
+                                            63,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14956,9 +16436,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 115,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
                                     ),
@@ -14966,6 +16445,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 45,
+                                    ident_token: IdentToken {
+                                        ident: `left_coordinate_max`,
+                                        token_idx: TokenIdx(
+                                            78,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14976,9 +16461,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 116,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                                     ),
@@ -14986,6 +16470,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `components_max_downwards`,
+                                        token_idx: TokenIdx(
+                                            97,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -14996,9 +16486,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 117,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                                     ),
@@ -15006,6 +16495,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 47,
+                                    ident_token: IdentToken {
+                                        ident: `components_max_heights`,
+                                        token_idx: TokenIdx(
+                                            110,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15016,9 +16511,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 118,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                                     ),
@@ -15026,6 +16520,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `is_four`,
+                                        token_idx: TokenIdx(
+                                            123,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15036,9 +16536,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 119,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
                                     ),
@@ -15046,6 +16545,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 49,
+                                    ident_token: IdentToken {
+                                        ident: `displacement_downwards`,
+                                        token_idx: TokenIdx(
+                                            305,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15056,9 +16561,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 120,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
                                     ),
@@ -15066,6 +16570,12 @@ Ok(
                                         `mnist_classifier::digits::four`,
                                     ),
                                     ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `cc_box_heights`,
+                                        token_idx: TokenIdx(
+                                            334,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15076,17 +16586,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 518,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15109,17 +16623,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 519,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15142,17 +16660,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 520,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15175,17 +16697,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 521,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15208,17 +16734,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 522,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15241,17 +16771,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 523,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15274,17 +16808,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 524,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15307,17 +16845,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 537,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15340,17 +16882,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1091,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15373,17 +16919,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1092,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -15522,7 +17072,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -15549,7 +17099,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -15576,7 +17126,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -15608,14 +17158,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -15647,14 +17202,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -15686,14 +17246,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -15725,14 +17290,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -15872,9 +17442,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 121,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
                                     ),
@@ -15882,6 +17451,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 47,
+                                    ident_token: IdentToken {
+                                        ident: `simple_seven_match`,
+                                        token_idx: TokenIdx(
+                                            61,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15892,9 +17467,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 122,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
                                     ),
@@ -15902,6 +17476,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `simple_leftdown_pattern`,
+                                        token_idx: TokenIdx(
+                                            74,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15912,9 +17492,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 123,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
                                     ),
@@ -15922,6 +17501,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 49,
+                                    ident_token: IdentToken {
+                                        ident: `special_seven_match`,
+                                        token_idx: TokenIdx(
+                                            104,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15932,9 +17517,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 124,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
                                     ),
@@ -15942,6 +17526,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `leftupcc_pattern`,
+                                        token_idx: TokenIdx(
+                                            119,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15952,9 +17542,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 125,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
                                     ),
@@ -15962,6 +17551,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 51,
+                                    ident_token: IdentToken {
+                                        ident: `leftdowncc_pattern`,
+                                        token_idx: TokenIdx(
+                                            162,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15972,9 +17567,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 126,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                                     ),
@@ -15982,6 +17576,12 @@ Ok(
                                         `mnist_classifier::digits::seven`,
                                     ),
                                     ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `is_seven`,
+                                        token_idx: TokenIdx(
+                                            216,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -15992,17 +17592,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 555,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16025,17 +17629,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 556,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16058,17 +17666,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 557,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16091,17 +17703,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 559,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16124,17 +17740,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 560,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16157,17 +17777,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 561,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16190,17 +17814,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 562,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16223,17 +17851,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 576,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16256,17 +17888,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 594,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 28,
                                             path: `mnist_classifier::digits::zero`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `zero`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16287,17 +17923,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 595,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 29,
                                             path: `mnist_classifier::digits::one`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `one`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16318,17 +17958,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 596,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 30,
                                             path: `mnist_classifier::digits::six`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 2,
+                                            ident_token: IdentToken {
+                                                ident: `six`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16349,17 +17993,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 597,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 31,
                                             path: `mnist_classifier::digits::three`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 3,
+                                            ident_token: IdentToken {
+                                                ident: `three`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16380,17 +18028,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 598,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 32,
                                             path: `mnist_classifier::digits::four`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 4,
+                                            ident_token: IdentToken {
+                                                ident: `four`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16411,17 +18063,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 599,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 33,
                                             path: `mnist_classifier::digits::five`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 5,
+                                            ident_token: IdentToken {
+                                                ident: `five`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16442,17 +18098,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 601,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 35,
                                             path: `mnist_classifier::digits::seven`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 7,
+                                            ident_token: IdentToken {
+                                                ident: `seven`,
+                                                token_idx: TokenIdx(
+                                                    15,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16473,17 +18133,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 602,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 36,
                                             path: `mnist_classifier::digits::eight`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 8,
+                                            ident_token: IdentToken {
+                                                ident: `eight`,
+                                                token_idx: TokenIdx(
+                                                    17,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16504,17 +18168,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 603,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 37,
                                             path: `mnist_classifier::digits::nine`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 9,
+                                            ident_token: IdentToken {
+                                                ident: `nine`,
+                                                token_idx: TokenIdx(
+                                                    19,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -16535,20 +18203,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 604,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 118,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 100,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 69,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_one`,
+                                                        token_idx: TokenIdx(
+                                                            77,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16581,15 +18252,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 605,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 119,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 106,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                                                     ),
@@ -16597,6 +18265,12 @@ Ok(
                                                         `mnist_classifier::digits::six`,
                                                     ),
                                                     ast_idx: 59,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_six`,
+                                                        token_idx: TokenIdx(
+                                                            93,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16631,15 +18305,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 606,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 120,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 98,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                                                     ),
@@ -16647,6 +18318,12 @@ Ok(
                                                         `mnist_classifier::digits::zero`,
                                                     ),
                                                     ast_idx: 35,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_zero`,
+                                                        token_idx: TokenIdx(
+                                                            105,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16681,15 +18358,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 607,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 121,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 110,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                                                     ),
@@ -16697,6 +18371,12 @@ Ok(
                                                         `mnist_classifier::digits::three`,
                                                     ),
                                                     ast_idx: 35,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_three`,
+                                                        token_idx: TokenIdx(
+                                                            80,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16731,15 +18411,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 609,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 124,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 128,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                                     ),
@@ -16747,6 +18424,12 @@ Ok(
                                                         `mnist_classifier::digits::eight`,
                                                     ),
                                                     ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_eight`,
+                                                        token_idx: TokenIdx(
+                                                            92,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16781,15 +18464,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 610,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 125,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 132,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                                     ),
@@ -16797,6 +18477,12 @@ Ok(
                                                         `mnist_classifier::digits::nine`,
                                                     ),
                                                     ast_idx: 46,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_nine`,
+                                                        token_idx: TokenIdx(
+                                                            101,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16831,17 +18517,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1138,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16864,17 +18554,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1139,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -16941,7 +18635,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -16968,7 +18662,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17019,7 +18713,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17046,7 +18740,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17073,7 +18767,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17100,7 +18794,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17132,14 +18826,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17171,14 +18870,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17210,14 +18914,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17249,14 +18958,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17288,14 +19002,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17327,14 +19046,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 22,
                                         path: `mnist_classifier::digits`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 17,
+                                        ident_token: IdentToken {
+                                            ident: `digits`,
+                                            token_idx: TokenIdx(
+                                                18,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17361,14 +19085,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 141,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 29,
+                                        ident_token: IdentToken {
+                                            ident: `major_concave_components`,
+                                            token_idx: TokenIdx(
+                                                160,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17395,14 +19124,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 136,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 24,
+                                        ident_token: IdentToken {
+                                            ident: `major_connected_component`,
+                                            token_idx: TokenIdx(
+                                                44,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17434,14 +19168,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -17499,7 +19238,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 17,
+                            progress: 16,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -17564,9 +19303,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 127,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
                                     ),
@@ -17574,6 +19312,12 @@ Ok(
                                         `mnist_classifier::digits::eight`,
                                     ),
                                     ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `upper_mouth_match`,
+                                        token_idx: TokenIdx(
+                                            79,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -17584,9 +19328,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 128,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                                     ),
@@ -17594,6 +19337,12 @@ Ok(
                                         `mnist_classifier::digits::eight`,
                                     ),
                                     ast_idx: 29,
+                                    ident_token: IdentToken {
+                                        ident: `is_eight`,
+                                        token_idx: TokenIdx(
+                                            92,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -17604,9 +19353,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 129,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
                                     ),
@@ -17614,6 +19362,12 @@ Ok(
                                         `mnist_classifier::digits::eight`,
                                     ),
                                     ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `big_mouth`,
+                                        token_idx: TokenIdx(
+                                            155,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -17624,17 +19378,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 611,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17657,17 +19415,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 612,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17690,17 +19452,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 614,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17723,17 +19489,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 632,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    28,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17756,17 +19526,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1177,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17789,17 +19563,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1178,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -17866,7 +19644,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17893,7 +19671,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17944,7 +19722,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17971,7 +19749,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -17998,7 +19776,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -18025,7 +19803,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -18052,7 +19830,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -18079,7 +19857,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -18106,7 +19884,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -18138,14 +19916,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18177,14 +19960,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18328,14 +20116,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18367,14 +20160,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18406,14 +20204,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18440,14 +20243,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 141,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 29,
+                                        ident_token: IdentToken {
+                                            ident: `major_concave_components`,
+                                            token_idx: TokenIdx(
+                                                160,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18474,14 +20282,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
+                                original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
-                                        [salsa id]: 136,
                                         path: ModuleItemPath::Form(
                                             FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                         ),
                                         accessibility: Accessibility::Public,
                                         ast_idx: 24,
+                                        ident_token: IdentToken {
+                                            ident: `major_connected_component`,
+                                            token_idx: TokenIdx(
+                                                44,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18513,14 +20326,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -18666,9 +20484,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 130,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                                     ),
@@ -18676,6 +20493,12 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `nine_match`,
+                                        token_idx: TokenIdx(
+                                            75,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -18686,9 +20509,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 131,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                                     ),
@@ -18696,6 +20518,12 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 45,
+                                    ident_token: IdentToken {
+                                        ident: `nine_match_refine`,
+                                        token_idx: TokenIdx(
+                                            88,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -18706,9 +20534,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 132,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                     ),
@@ -18716,6 +20543,12 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `is_nine`,
+                                        token_idx: TokenIdx(
+                                            101,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -18726,9 +20559,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 133,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
                                     ),
@@ -18736,6 +20568,12 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 47,
+                                    ident_token: IdentToken {
+                                        ident: `downmost`,
+                                        token_idx: TokenIdx(
+                                            273,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -18746,9 +20584,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 134,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
                                     ),
@@ -18756,6 +20593,12 @@ Ok(
                                         `mnist_classifier::digits::nine`,
                                     ),
                                     ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `big_cc`,
+                                        token_idx: TokenIdx(
+                                            302,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -18766,17 +20609,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 658,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 135,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18799,17 +20646,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 659,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 136,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18832,17 +20683,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 660,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 137,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18865,17 +20720,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 661,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 138,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18898,17 +20757,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 662,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 139,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18931,17 +20794,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 663,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 140,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18964,17 +20831,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 664,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 141,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -18997,17 +20868,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 677,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 95,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -19030,17 +20905,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1224,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 89,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -19063,17 +20942,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1225,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 90,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -19212,7 +21095,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -19239,7 +21122,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -19266,7 +21149,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -19293,7 +21176,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -19320,7 +21203,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -19352,14 +21235,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 23,
                                         path: `mnist_classifier::major`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 18,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                20,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -19391,14 +21279,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 21,
                                         path: `mnist_classifier::fermi`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                16,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -19430,14 +21323,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -19525,14 +21423,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -19676,14 +21579,19 @@ Ok(
                                 "connected_components",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 135,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 23,
+                                    ident_token: IdentToken {
+                                        ident: `connected_components`,
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19692,14 +21600,19 @@ Ok(
                                 "major_connected_component",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 136,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 24,
+                                    ident_token: IdentToken {
+                                        ident: `major_connected_component`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19708,14 +21621,19 @@ Ok(
                                 "ignored_connected_components_row_span_sum_sum",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 137,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 25,
+                                    ident_token: IdentToken {
+                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                        token_idx: TokenIdx(
+                                            94,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19724,14 +21642,19 @@ Ok(
                                 "major_raw_contours",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 138,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 26,
+                                    ident_token: IdentToken {
+                                        ident: `major_raw_contours`,
+                                        token_idx: TokenIdx(
+                                            128,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19740,14 +21663,19 @@ Ok(
                                 "major_raw_contour",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 139,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 27,
+                                    ident_token: IdentToken {
+                                        ident: `major_raw_contour`,
+                                        token_idx: TokenIdx(
+                                            139,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19756,14 +21684,19 @@ Ok(
                                 "major_line_segment_sketch",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 140,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `major_line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            151,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19772,14 +21705,19 @@ Ok(
                                 "major_concave_components",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 141,
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 29,
+                                    ident_token: IdentToken {
+                                        ident: `major_concave_components`,
+                                        token_idx: TokenIdx(
+                                            160,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -19790,17 +21728,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 126,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 17,
                                             path: `mnist_classifier::connected_component`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19821,17 +21763,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 127,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 18,
                                             path: `mnist_classifier::raw_contour`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19852,17 +21798,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 128,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 19,
                                             path: `mnist_classifier::geom2d`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19883,17 +21833,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 129,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 20,
                                             path: `mnist_classifier::line_segment_sketch`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19914,17 +21868,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 130,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 21,
                                             path: `mnist_classifier::fermi`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    16,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19945,17 +21903,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 131,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 22,
                                             path: `mnist_classifier::digits`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    18,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -19976,17 +21938,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 132,
-                                    original_symbol: Submodule(
+                                    original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
-                                            [salsa id]: 23,
                                             path: `mnist_classifier::major`,
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::Module(
@@ -20007,15 +21973,12 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 133,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 28,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 75,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                                                     ),
@@ -20023,6 +21986,12 @@ Ok(
                                                         `mnist_classifier::raw_contour`,
                                                     ),
                                                     ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            989,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20057,20 +22026,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 141,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 47,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 95,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20105,20 +22077,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 142,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 52,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 82,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20153,20 +22128,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 143,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 53,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 83,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20201,17 +22179,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 695,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 59,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 121,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponentDistribution`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -20234,17 +22216,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 696,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 60,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 122,
+                                            ident_token: IdentToken {
+                                                ident: `EffHoles`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -20267,17 +22253,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 698,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 62,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 124,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponent`,
+                                                token_idx: TokenIdx(
+                                                    79,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -20300,17 +22290,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 700,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 64,
                                             path: ModuleItemPath::Form(
                                                 FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 127,
+                                            ident_token: IdentToken {
+                                                ident: `find_connected_components`,
+                                                token_idx: TokenIdx(
+                                                    646,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -20333,17 +22327,21 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 720,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 65,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    28,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -20366,20 +22364,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 757,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 77,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 89,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20412,20 +22413,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 758,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 78,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 90,
                                                     path: ModuleItemPath::Form(
                                                         FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20458,20 +22462,23 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 759,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 80,
-                                            original_symbol: ModuleItem(
+                                            original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
-                                                    [salsa id]: 93,
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ),
                                                     accessibility: Accessibility::Public,
                                                     ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20504,23 +22511,25 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1263,
-                                    original_symbol: Use(
+                                    original_symbol: EntitySymbol::Use(
                                         UseSymbol {
-                                            [salsa id]: 155,
-                                            original_symbol: Use(
+                                            original_symbol: EntitySymbol::Use(
                                                 UseSymbol {
-                                                    [salsa id]: 118,
-                                                    original_symbol: ModuleItem(
+                                                    original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
-                                                            [salsa id]: 100,
                                                             path: ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                                                             ),
                                                             accessibility: Accessibility::Public,
                                                             ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
@@ -20585,7 +22594,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -20612,7 +22621,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -20639,7 +22648,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -20666,7 +22675,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -20693,7 +22702,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `mnist_classifier`,
                                 ),
                             },
@@ -20725,14 +22734,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 17,
                                         path: `mnist_classifier::connected_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `connected_component`,
+                                            token_idx: TokenIdx(
+                                                8,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -20764,14 +22778,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 18,
                                         path: `mnist_classifier::raw_contour`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                10,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -20803,14 +22822,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -20842,14 +22866,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 20,
                                         path: `mnist_classifier::line_segment_sketch`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier`,
                                         ),
                                         ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -20881,14 +22910,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 24,
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },

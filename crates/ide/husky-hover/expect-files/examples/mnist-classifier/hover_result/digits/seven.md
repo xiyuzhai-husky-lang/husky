@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 17;\n\ntoken = Token::Ident(\n    `major_concave_components`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol {\n                [salsa id]: 141,\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),\n                ),\n                accessibility: Accessibility::Public,\n                ast_idx: 29,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 17;\n\ntoken = Token::Ident(\n    `major_concave_components`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::ModuleItem(\n            ModuleItemSymbol {\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),\n                ),\n                accessibility: Accessibility::Public,\n                ast_idx: 29,\n                ident_token: IdentToken {\n                    ident: `major_concave_components`,\n                    token_idx: TokenIdx(\n                        160,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 51;\n\ntoken = Token::Ident(\n    `concave_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 24,\n    rule_idx: UseExprRuleIdx(\n        16,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 24,\n                path: `mnist_classifier::line_segment_sketch::concave_component`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::line_segment_sketch`,\n                ),\n                ast_idx: 159,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 51;\n\ntoken = Token::Ident(\n    `concave_component`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 24,\n    rule_idx: UseExprRuleIdx(\n        16,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::line_segment_sketch::concave_component`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::line_segment_sketch`,\n                ),\n                ast_idx: 159,\n                ident_token: IdentToken {\n                    ident: `concave_component`,\n                    token_idx: TokenIdx(\n                        1,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

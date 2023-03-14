@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `bool`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `never`,
+                                token_idx: TokenIdx(
+                                    6,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `unit`,
+                                token_idx: TokenIdx(
+                                    10,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -60,6 +78,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `Trait`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -75,6 +99,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 4,
+                            ident_token: IdentToken {
+                                ident: `Module`,
+                                token_idx: TokenIdx(
+                                    18,
+                                ),
+                            },
                         },
                     ),
                 },

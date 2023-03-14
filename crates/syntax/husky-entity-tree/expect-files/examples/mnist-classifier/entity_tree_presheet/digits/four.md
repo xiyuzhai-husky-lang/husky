@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 44,
+                            ident_token: IdentToken {
+                                ident: `left_components`,
+                                token_idx: TokenIdx(
+                                    63,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 45,
+                            ident_token: IdentToken {
+                                ident: `left_coordinate_max`,
+                                token_idx: TokenIdx(
+                                    78,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 46,
+                            ident_token: IdentToken {
+                                ident: `components_max_downwards`,
+                                token_idx: TokenIdx(
+                                    97,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 47,
+                            ident_token: IdentToken {
+                                ident: `components_max_heights`,
+                                token_idx: TokenIdx(
+                                    110,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 48,
+                            ident_token: IdentToken {
+                                ident: `is_four`,
+                                token_idx: TokenIdx(
+                                    123,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -114,6 +144,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 49,
+                            ident_token: IdentToken {
+                                ident: `displacement_downwards`,
+                                token_idx: TokenIdx(
+                                    305,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -133,6 +169,12 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 50,
+                            ident_token: IdentToken {
+                                ident: `cc_box_heights`,
+                                token_idx: TokenIdx(
+                                    334,
+                                ),
+                            },
                         },
                     ),
                 },

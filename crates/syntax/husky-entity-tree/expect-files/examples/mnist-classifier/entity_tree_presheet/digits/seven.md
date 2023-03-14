@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 47,
+                            ident_token: IdentToken {
+                                ident: `simple_seven_match`,
+                                token_idx: TokenIdx(
+                                    61,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 48,
+                            ident_token: IdentToken {
+                                ident: `simple_leftdown_pattern`,
+                                token_idx: TokenIdx(
+                                    74,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 49,
+                            ident_token: IdentToken {
+                                ident: `special_seven_match`,
+                                token_idx: TokenIdx(
+                                    104,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 50,
+                            ident_token: IdentToken {
+                                ident: `leftupcc_pattern`,
+                                token_idx: TokenIdx(
+                                    119,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 51,
+                            ident_token: IdentToken {
+                                ident: `leftdowncc_pattern`,
+                                token_idx: TokenIdx(
+                                    162,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -114,6 +144,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 52,
+                            ident_token: IdentToken {
+                                ident: `is_seven`,
+                                token_idx: TokenIdx(
+                                    216,
+                                ),
+                            },
                         },
                     ),
                 },

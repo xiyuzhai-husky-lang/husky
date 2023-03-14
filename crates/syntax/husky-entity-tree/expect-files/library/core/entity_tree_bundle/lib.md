@@ -12,14 +12,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 0,
                                     path: `core::basic`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `basic`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -30,14 +35,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 1,
                                     path: `core::logic`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `logic`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -48,14 +58,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 2,
                                     path: `core::mem`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `mem`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -66,14 +81,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 3,
                                     path: `core::num`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `num`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -84,14 +104,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 4,
                                     path: `core::ops`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -102,14 +127,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 5,
                                     path: `core::prelude`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `prelude`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -120,14 +150,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 6,
                                     path: `core::raw_bits`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `raw_bits`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -138,14 +173,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 7,
                                     path: `core::fmt`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 7,
+                                    ident_token: IdentToken {
+                                        ident: `fmt`,
+                                        token_idx: TokenIdx(
+                                            15,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -156,14 +196,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 8,
                                     path: `core::clone`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `clone`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -174,14 +219,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 9,
                                     path: `core::marker`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `marker`,
+                                        token_idx: TokenIdx(
+                                            19,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -192,14 +242,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 10,
                                     path: `core::list`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `list`,
+                                        token_idx: TokenIdx(
+                                            21,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -210,14 +265,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 11,
                                     path: `core::cmp`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 11,
+                                    ident_token: IdentToken {
+                                        ident: `cmp`,
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -228,14 +288,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 12,
                                     path: `core::str`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `str`,
+                                        token_idx: TokenIdx(
+                                            25,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -246,14 +311,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `core`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 13,
                                     path: `core::option`,
                                     accessibility: Accessibility::PublicUnder(
                                         `core`,
                                     ),
                                     ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `option`,
+                                        token_idx: TokenIdx(
+                                            27,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -277,14 +347,19 @@ Ok(
                                 "bool",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 0,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::bool`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `bool`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -293,14 +368,19 @@ Ok(
                                 "never",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 1,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::never`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `never`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -309,14 +389,19 @@ Ok(
                                 "unit",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 2,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::unit`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `unit`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -325,14 +410,19 @@ Ok(
                                 "Trait",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 3,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::Trait`, `Structure`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Trait`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -341,14 +431,19 @@ Ok(
                                 "Module",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 4,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::Module`, `Structure`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `Module`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -372,14 +467,19 @@ Ok(
                                 "Prop",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 5,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::logic::Prop`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Prop`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -388,14 +488,19 @@ Ok(
                                 "LogicAnd",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 6,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::logic::LogicAnd`, `Structure`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `LogicAnd`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -404,14 +509,19 @@ Ok(
                                 "LogicOr",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 7,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::logic::LogicOr`, `Inductive`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `LogicOr`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -435,14 +545,19 @@ Ok(
                                 "Ref",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 8,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::mem::Ref`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Ref`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -451,14 +566,19 @@ Ok(
                                 "RefMut",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 9,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::mem::RefMut`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `RefMut`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -467,14 +587,19 @@ Ok(
                                 "Leash",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 10,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::mem::Leash`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `Leash`,
+                                        token_idx: TokenIdx(
+                                            24,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -498,14 +623,19 @@ Ok(
                                 "i8",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 11,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 31,
+                                    ident_token: IdentToken {
+                                        ident: `i8`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -514,14 +644,19 @@ Ok(
                                 "i16",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 12,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `i16`,
+                                        token_idx: TokenIdx(
+                                            80,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -530,14 +665,19 @@ Ok(
                                 "i32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 13,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 41,
+                                    ident_token: IdentToken {
+                                        ident: `i32`,
+                                        token_idx: TokenIdx(
+                                            132,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -546,14 +686,19 @@ Ok(
                                 "i64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 14,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `i64`,
+                                        token_idx: TokenIdx(
+                                            183,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -562,14 +707,19 @@ Ok(
                                 "i128",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 15,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i128`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 51,
+                                    ident_token: IdentToken {
+                                        ident: `i128`,
+                                        token_idx: TokenIdx(
+                                            235,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -578,14 +728,19 @@ Ok(
                                 "isize",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 16,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::isize`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 56,
+                                    ident_token: IdentToken {
+                                        ident: `isize`,
+                                        token_idx: TokenIdx(
+                                            287,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -594,14 +749,19 @@ Ok(
                                 "u8",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 17,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u8`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 61,
+                                    ident_token: IdentToken {
+                                        ident: `u8`,
+                                        token_idx: TokenIdx(
+                                            339,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -610,14 +770,19 @@ Ok(
                                 "u16",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 18,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u16`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 66,
+                                    ident_token: IdentToken {
+                                        ident: `u16`,
+                                        token_idx: TokenIdx(
+                                            391,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -626,14 +791,19 @@ Ok(
                                 "u32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 19,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 71,
+                                    ident_token: IdentToken {
+                                        ident: `u32`,
+                                        token_idx: TokenIdx(
+                                            443,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -642,14 +812,19 @@ Ok(
                                 "u64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 20,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 76,
+                                    ident_token: IdentToken {
+                                        ident: `u64`,
+                                        token_idx: TokenIdx(
+                                            495,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -658,14 +833,19 @@ Ok(
                                 "u128",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 21,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u128`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 81,
+                                    ident_token: IdentToken {
+                                        ident: `u128`,
+                                        token_idx: TokenIdx(
+                                            547,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -674,14 +854,19 @@ Ok(
                                 "usize",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 22,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::usize`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 86,
+                                    ident_token: IdentToken {
+                                        ident: `usize`,
+                                        token_idx: TokenIdx(
+                                            599,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -690,14 +875,19 @@ Ok(
                                 "f32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 23,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 91,
+                                    ident_token: IdentToken {
+                                        ident: `f32`,
+                                        token_idx: TokenIdx(
+                                            651,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -706,14 +896,19 @@ Ok(
                                 "f64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 24,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 96,
+                                    ident_token: IdentToken {
+                                        ident: `f64`,
+                                        token_idx: TokenIdx(
+                                            702,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1292,14 +1487,19 @@ Ok(
                                 "Add",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 25,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Add`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 26,
+                                    ident_token: IdentToken {
+                                        ident: `Add`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1308,14 +1508,19 @@ Ok(
                                 "AddAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 26,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::AddAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `AddAssign`,
+                                        token_idx: TokenIdx(
+                                            38,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1324,14 +1529,19 @@ Ok(
                                 "BitAnd",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 27,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitAnd`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `BitAnd`,
+                                        token_idx: TokenIdx(
+                                            67,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1340,14 +1550,19 @@ Ok(
                                 "BitAndAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 28,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitAndAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 32,
+                                    ident_token: IdentToken {
+                                        ident: `BitAndAssign`,
+                                        token_idx: TokenIdx(
+                                            96,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1356,14 +1571,19 @@ Ok(
                                 "BitOr",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 29,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitOr`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 34,
+                                    ident_token: IdentToken {
+                                        ident: `BitOr`,
+                                        token_idx: TokenIdx(
+                                            121,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1372,14 +1592,19 @@ Ok(
                                 "BitOrAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 30,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitOrAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `BitOrAssign`,
+                                        token_idx: TokenIdx(
+                                            150,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1388,14 +1613,19 @@ Ok(
                                 "BitXor",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 31,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitXor`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 38,
+                                    ident_token: IdentToken {
+                                        ident: `BitXor`,
+                                        token_idx: TokenIdx(
+                                            175,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1404,14 +1634,19 @@ Ok(
                                 "BitXorAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 32,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::BitXorAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 40,
+                                    ident_token: IdentToken {
+                                        ident: `BitXorAssign`,
+                                        token_idx: TokenIdx(
+                                            204,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1420,14 +1655,19 @@ Ok(
                                 "Div",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 33,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Div`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 42,
+                                    ident_token: IdentToken {
+                                        ident: `Div`,
+                                        token_idx: TokenIdx(
+                                            229,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1436,14 +1676,19 @@ Ok(
                                 "DivAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 34,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::DivAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `DivAssign`,
+                                        token_idx: TokenIdx(
+                                            258,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1452,14 +1697,19 @@ Ok(
                                 "Mul",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 35,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Mul`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `Mul`,
+                                        token_idx: TokenIdx(
+                                            283,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1468,14 +1718,19 @@ Ok(
                                 "MulAssign",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 36,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::MulAssign`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `MulAssign`,
+                                        token_idx: TokenIdx(
+                                            312,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1484,14 +1739,19 @@ Ok(
                                 "Neg",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 37,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Neg`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `Neg`,
+                                        token_idx: TokenIdx(
+                                            337,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1500,14 +1760,19 @@ Ok(
                                 "Not",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 38,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Not`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `Not`,
+                                        token_idx: TokenIdx(
+                                            361,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1516,14 +1781,19 @@ Ok(
                                 "Sub",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 39,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::ops::Sub`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 54,
+                                    ident_token: IdentToken {
+                                        ident: `Sub`,
+                                        token_idx: TokenIdx(
+                                            385,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -1547,17 +1817,21 @@ Ok(
                                 "bool",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 0,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 0,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::basic::bool`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `bool`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1576,17 +1850,21 @@ Ok(
                                 "never",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 1,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 1,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::basic::never`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `never`,
+                                                token_idx: TokenIdx(
+                                                    6,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1605,17 +1883,21 @@ Ok(
                                 "unit",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 2,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 2,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::basic::unit`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 2,
+                                            ident_token: IdentToken {
+                                                ident: `unit`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1634,17 +1916,21 @@ Ok(
                                 "Trait",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 3,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 3,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::basic::Trait`, `Structure`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 3,
+                                            ident_token: IdentToken {
+                                                ident: `Trait`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1663,17 +1949,21 @@ Ok(
                                 "Module",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 4,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 4,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::basic::Module`, `Structure`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 4,
+                                            ident_token: IdentToken {
+                                                ident: `Module`,
+                                                token_idx: TokenIdx(
+                                                    18,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1692,17 +1982,21 @@ Ok(
                                 "i8",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 5,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 11,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i8`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 31,
+                                            ident_token: IdentToken {
+                                                ident: `i8`,
+                                                token_idx: TokenIdx(
+                                                    28,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1721,17 +2015,21 @@ Ok(
                                 "i16",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 6,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 12,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i16`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 36,
+                                            ident_token: IdentToken {
+                                                ident: `i16`,
+                                                token_idx: TokenIdx(
+                                                    80,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1750,17 +2048,21 @@ Ok(
                                 "i32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 7,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 13,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 41,
+                                            ident_token: IdentToken {
+                                                ident: `i32`,
+                                                token_idx: TokenIdx(
+                                                    132,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1779,17 +2081,21 @@ Ok(
                                 "i64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 8,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 14,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 46,
+                                            ident_token: IdentToken {
+                                                ident: `i64`,
+                                                token_idx: TokenIdx(
+                                                    183,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1808,17 +2114,21 @@ Ok(
                                 "i128",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 9,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 15,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::i128`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 51,
+                                            ident_token: IdentToken {
+                                                ident: `i128`,
+                                                token_idx: TokenIdx(
+                                                    235,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1837,17 +2147,21 @@ Ok(
                                 "isize",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 10,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 16,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::isize`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 56,
+                                            ident_token: IdentToken {
+                                                ident: `isize`,
+                                                token_idx: TokenIdx(
+                                                    287,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1866,17 +2180,21 @@ Ok(
                                 "u8",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 11,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 17,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u8`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 61,
+                                            ident_token: IdentToken {
+                                                ident: `u8`,
+                                                token_idx: TokenIdx(
+                                                    339,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1895,17 +2213,21 @@ Ok(
                                 "u16",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 12,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 18,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u16`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 66,
+                                            ident_token: IdentToken {
+                                                ident: `u16`,
+                                                token_idx: TokenIdx(
+                                                    391,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1924,17 +2246,21 @@ Ok(
                                 "u32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 13,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 19,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 71,
+                                            ident_token: IdentToken {
+                                                ident: `u32`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1953,17 +2279,21 @@ Ok(
                                 "u64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 14,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 20,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `u64`,
+                                                token_idx: TokenIdx(
+                                                    495,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -1982,17 +2312,21 @@ Ok(
                                 "u128",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 15,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 21,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::u128`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 81,
+                                            ident_token: IdentToken {
+                                                ident: `u128`,
+                                                token_idx: TokenIdx(
+                                                    547,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2011,17 +2345,21 @@ Ok(
                                 "usize",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 16,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 22,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::usize`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 86,
+                                            ident_token: IdentToken {
+                                                ident: `usize`,
+                                                token_idx: TokenIdx(
+                                                    599,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2040,17 +2378,21 @@ Ok(
                                 "f32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 17,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 23,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::f32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 91,
+                                            ident_token: IdentToken {
+                                                ident: `f32`,
+                                                token_idx: TokenIdx(
+                                                    651,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2069,17 +2411,21 @@ Ok(
                                 "f64",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 18,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 24,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::num::f64`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 96,
+                                            ident_token: IdentToken {
+                                                ident: `f64`,
+                                                token_idx: TokenIdx(
+                                                    702,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2098,17 +2444,21 @@ Ok(
                                 "r32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 19,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 40,
                                             path: ModuleItemPath::Type(
                                                 TypePath(`core::raw_bits::r32`, `Extern`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 2,
+                                            ident_token: IdentToken {
+                                                ident: `r32`,
+                                                token_idx: TokenIdx(
+                                                    22,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2127,17 +2477,21 @@ Ok(
                                 "Debug",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 20,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 41,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::fmt::Debug`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `Debug`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2156,17 +2510,21 @@ Ok(
                                 "Copy",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 21,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 43,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Copy`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `Copy`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2185,17 +2543,21 @@ Ok(
                                 "Sized",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 22,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 44,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::marker::Sized`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `Sized`,
+                                                token_idx: TokenIdx(
+                                                    6,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2214,17 +2576,21 @@ Ok(
                                 "Clone",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 23,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 42,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::clone::Clone`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `Clone`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2243,17 +2609,21 @@ Ok(
                                 "PartialEq",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 24,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 46,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialEq`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `PartialEq`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2272,17 +2642,21 @@ Ok(
                                 "Eq",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 25,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 47,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Eq`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `Eq`,
+                                                token_idx: TokenIdx(
+                                                    6,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2301,17 +2675,21 @@ Ok(
                                 "PartialOrd",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 26,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 48,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::PartialOrd`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 2,
+                                            ident_token: IdentToken {
+                                                ident: `PartialOrd`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2330,17 +2708,21 @@ Ok(
                                 "Ord",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: Use(
+                            symbol: EntitySymbol::Use(
                                 UseSymbol {
-                                    [salsa id]: 27,
-                                    original_symbol: ModuleItem(
+                                    original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
-                                            [salsa id]: 49,
                                             path: ModuleItemPath::Trait(
                                                 TraitPath(`core::cmp::Ord`),
                                             ),
                                             accessibility: Accessibility::Public,
                                             ast_idx: 3,
+                                            ident_token: IdentToken {
+                                                ident: `Ord`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2379,7 +2761,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2404,7 +2786,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2429,7 +2811,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2454,7 +2836,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2479,7 +2861,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2504,7 +2886,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2529,7 +2911,7 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot(
+                                original_symbol: EntitySymbol::CrateRoot(
                                     `core`,
                                 ),
                             },
@@ -2559,14 +2941,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 0,
                                         path: `core::basic`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 0,
+                                        ident_token: IdentToken {
+                                            ident: `basic`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2596,14 +2983,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 3,
                                         path: `core::num`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 3,
+                                        ident_token: IdentToken {
+                                            ident: `num`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2633,14 +3025,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 6,
                                         path: `core::raw_bits`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 6,
+                                        ident_token: IdentToken {
+                                            ident: `raw_bits`,
+                                            token_idx: TokenIdx(
+                                                13,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2670,14 +3067,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 7,
                                         path: `core::fmt`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 7,
+                                        ident_token: IdentToken {
+                                            ident: `fmt`,
+                                            token_idx: TokenIdx(
+                                                15,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2707,14 +3109,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 9,
                                         path: `core::marker`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 9,
+                                        ident_token: IdentToken {
+                                            ident: `marker`,
+                                            token_idx: TokenIdx(
+                                                19,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2744,14 +3151,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 8,
                                         path: `core::clone`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 8,
+                                        ident_token: IdentToken {
+                                            ident: `clone`,
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2781,14 +3193,19 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
+                                original_symbol: EntitySymbol::Submodule(
                                     SubmoduleSymbol {
-                                        [salsa id]: 11,
                                         path: `core::cmp`,
                                         accessibility: Accessibility::PublicUnder(
                                             `core`,
                                         ),
                                         ast_idx: 11,
+                                        ident_token: IdentToken {
+                                            ident: `cmp`,
+                                            token_idx: TokenIdx(
+                                                23,
+                                            ),
+                                        },
                                     },
                                 ),
                             },
@@ -2887,14 +3304,19 @@ Ok(
                                 "r32",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 40,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `r32`,
+                                        token_idx: TokenIdx(
+                                            22,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2918,14 +3340,19 @@ Ok(
                                 "Debug",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 41,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::fmt::Debug`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Debug`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2949,14 +3376,19 @@ Ok(
                                 "Clone",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 42,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::clone::Clone`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Clone`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2980,14 +3412,19 @@ Ok(
                                 "Copy",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 43,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Copy`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Copy`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -2996,14 +3433,19 @@ Ok(
                                 "Sized",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 44,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Sized`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Sized`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3027,14 +3469,19 @@ Ok(
                                 "List",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 45,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::list::List`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `List`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3058,14 +3505,19 @@ Ok(
                                 "PartialEq",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 46,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `PartialEq`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3074,14 +3526,19 @@ Ok(
                                 "Eq",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 47,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `Eq`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3090,14 +3547,19 @@ Ok(
                                 "PartialOrd",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 48,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `PartialOrd`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3106,14 +3568,19 @@ Ok(
                                 "Ord",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 49,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Ord`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Ord`,
+                                        token_idx: TokenIdx(
+                                            14,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3137,14 +3604,19 @@ Ok(
                                 "str",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 50,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::str::str`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `str`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3153,14 +3625,19 @@ Ok(
                                 "StringLiteral",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 51,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::str::StringLiteral`, `Extern`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `StringLiteral`,
+                                        token_idx: TokenIdx(
+                                            6,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -3184,14 +3661,19 @@ Ok(
                                 "Option",
                             ),
                             accessibility: Accessibility::Public,
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 52,
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::option::Option`, `Enum`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `Option`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
                                 },
                             ),
                         },

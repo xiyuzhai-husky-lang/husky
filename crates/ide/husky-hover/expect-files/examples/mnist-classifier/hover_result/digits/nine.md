@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 51;\n\ntoken = Token::Ident(\n    `fermi`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 21,\n                path: `mnist_classifier::fermi`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 16,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 51;\n\ntoken = Token::Ident(\n    `fermi`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 25,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::fermi`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 16,\n                ident_token: IdentToken {\n                    ident: `fermi`,\n                    token_idx: TokenIdx(\n                        16,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

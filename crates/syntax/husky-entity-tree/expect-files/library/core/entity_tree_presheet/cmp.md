@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `PartialEq`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `Eq`,
+                                token_idx: TokenIdx(
+                                    6,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -45,6 +57,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `PartialOrd`,
+                                token_idx: TokenIdx(
+                                    10,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -60,6 +78,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `Ord`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
                         },
                     ),
                 },

@@ -29,14 +29,19 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 29,
                             path: `mnist_classifier::digits::one`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -48,14 +53,19 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 100,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 69,
+                            ident_token: IdentToken {
+                                ident: `is_one`,
+                                token_idx: TokenIdx(
+                                    77,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -67,14 +77,19 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 30,
                             path: `mnist_classifier::digits::six`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -86,9 +101,8 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 106,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                             ),
@@ -96,6 +110,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 59,
+                            ident_token: IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    93,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -107,14 +127,19 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 28,
                             path: `mnist_classifier::digits::zero`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `zero`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -126,9 +151,8 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 98,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
                             ),
@@ -136,6 +160,12 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             ast_idx: 35,
+                            ident_token: IdentToken {
+                                ident: `is_zero`,
+                                token_idx: TokenIdx(
+                                    105,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -157,14 +187,19 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 31,
                             path: `mnist_classifier::digits::three`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `three`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -176,9 +211,8 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 110,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                             ),
@@ -186,6 +220,12 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 35,
+                            ident_token: IdentToken {
+                                ident: `is_three`,
+                                token_idx: TokenIdx(
+                                    80,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -197,14 +237,19 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 33,
                             path: `mnist_classifier::digits::five`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 5,
+                            ident_token: IdentToken {
+                                ident: `five`,
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -224,14 +269,19 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 30,
                             path: `mnist_classifier::digits::six`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -243,9 +293,8 @@ Ok(
                     15,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 106,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                             ),
@@ -253,6 +302,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 59,
+                            ident_token: IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    93,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -264,14 +319,19 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 35,
                             path: `mnist_classifier::digits::seven`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `seven`,
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -283,9 +343,8 @@ Ok(
                     16,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 126,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                             ),
@@ -293,6 +352,12 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 52,
+                            ident_token: IdentToken {
+                                ident: `is_seven`,
+                                token_idx: TokenIdx(
+                                    216,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -304,14 +369,19 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 36,
                             path: `mnist_classifier::digits::eight`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `eight`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -323,9 +393,8 @@ Ok(
                     17,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 128,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
                             ),
@@ -333,6 +402,12 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 29,
+                            ident_token: IdentToken {
+                                ident: `is_eight`,
+                                token_idx: TokenIdx(
+                                    92,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -344,14 +419,19 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 37,
                             path: `mnist_classifier::digits::nine`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `nine`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -363,9 +443,8 @@ Ok(
                     18,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 132,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                             ),
@@ -373,6 +452,12 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             ast_idx: 46,
+                            ident_token: IdentToken {
+                                ident: `is_nine`,
+                                token_idx: TokenIdx(
+                                    101,
+                                ),
+                            },
                         },
                     ),
                 },

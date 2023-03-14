@@ -17,6 +17,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 159,
+                            ident_token: IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 160,
+                            ident_token: IdentToken {
+                                ident: `convex_component`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -51,6 +63,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 161,
+                            ident_token: IdentToken {
+                                ident: `convexity`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -68,6 +86,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 162,
+                            ident_token: IdentToken {
+                                ident: `line_segment`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -83,6 +107,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 169,
+                            ident_token: IdentToken {
+                                ident: `LineSegmentStroke`,
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -98,6 +128,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 171,
+                            ident_token: IdentToken {
+                                ident: `LineSegmentSketch`,
+                                token_idx: TokenIdx(
+                                    161,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -117,6 +153,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 173,
+                            ident_token: IdentToken {
+                                ident: `go_right`,
+                                token_idx: TokenIdx(
+                                    346,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -136,6 +178,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 174,
+                            ident_token: IdentToken {
+                                ident: `go_left`,
+                                token_idx: TokenIdx(
+                                    443,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -155,6 +203,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 175,
+                            ident_token: IdentToken {
+                                ident: `extend_end`,
+                                token_idx: TokenIdx(
+                                    540,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -174,6 +228,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 176,
+                            ident_token: IdentToken {
+                                ident: `extend_start`,
+                                token_idx: TokenIdx(
+                                    773,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -193,6 +253,12 @@ Ok(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 177,
+                            ident_token: IdentToken {
+                                ident: `find_line_segments`,
+                                token_idx: TokenIdx(
+                                    1039,
+                                ),
+                            },
                         },
                     ),
                 },

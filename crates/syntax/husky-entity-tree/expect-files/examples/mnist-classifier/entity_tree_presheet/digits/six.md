@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 57,
+                            ident_token: IdentToken {
+                                ident: `six_match`,
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 58,
+                            ident_token: IdentToken {
+                                ident: `six_match_refined1`,
+                                token_idx: TokenIdx(
+                                    78,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 59,
+                            ident_token: IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    93,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -76,6 +94,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 60,
+                            ident_token: IdentToken {
+                                ident: `upmost`,
+                                token_idx: TokenIdx(
+                                    356,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -95,6 +119,12 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             ast_idx: 61,
+                            ident_token: IdentToken {
+                                ident: `bottom1`,
+                                token_idx: TokenIdx(
+                                    385,
+                                ),
+                            },
                         },
                     ),
                 },

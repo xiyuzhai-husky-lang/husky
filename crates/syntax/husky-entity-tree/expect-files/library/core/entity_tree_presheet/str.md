@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `str`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -30,6 +36,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `StringLiteral`,
+                                token_idx: TokenIdx(
+                                    6,
+                                ),
+                            },
                         },
                     ),
                 },

@@ -201,15 +201,20 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                         ident,
                         accessibility,
                         match entity_path {
-                            EntityPath::Module(module_path) => {
-                                SubmoduleSymbol::new(self.db, *module_path, accessibility, ast_idx)
-                                    .into()
-                            }
+                            EntityPath::Module(module_path) => SubmoduleSymbol::new(
+                                self.db,
+                                *module_path,
+                                accessibility,
+                                ast_idx,
+                                *ident_token,
+                            )
+                            .into(),
                             EntityPath::ModuleItem(module_item_path) => ModuleItemSymbol::new(
                                 self.db,
                                 *module_item_path,
                                 accessibility,
                                 ast_idx,
+                                *ident_token,
                             )
                             .into(),
                             EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,

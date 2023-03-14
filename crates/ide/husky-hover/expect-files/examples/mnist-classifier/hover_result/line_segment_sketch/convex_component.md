@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 1;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `mnist_classifier`,\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 1;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::CrateRoot(\n            `mnist_classifier`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken = Token::Ident(\n    `line_segment_sketch`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 20,\n                path: `mnist_classifier::line_segment_sketch`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 15,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 3;\n\ntoken = Token::Ident(\n    `line_segment_sketch`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        1,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::line_segment_sketch`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier`,\n                ),\n                ast_idx: 15,\n                ident_token: IdentToken {\n                    ident: `line_segment_sketch`,\n                    token_idx: TokenIdx(\n                        14,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

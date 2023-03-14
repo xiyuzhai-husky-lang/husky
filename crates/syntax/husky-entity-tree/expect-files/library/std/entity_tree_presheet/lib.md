@@ -17,6 +17,12 @@ Ok(
                                 `std`,
                             ),
                             ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `prelude`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `std`,
                             ),
                             ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `logic`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -51,6 +63,12 @@ Ok(
                                 `std`,
                             ),
                             ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `ops`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
                         },
                     ),
                 },

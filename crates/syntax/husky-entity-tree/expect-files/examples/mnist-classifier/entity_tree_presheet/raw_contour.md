@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 199,
+                            ident_token: IdentToken {
+                                ident: `RawContour`,
+                                token_idx: TokenIdx(
+                                    28,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -34,6 +40,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 201,
+                            ident_token: IdentToken {
+                                ident: `Direction`,
+                                token_idx: TokenIdx(
+                                    394,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -53,6 +65,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 206,
+                            ident_token: IdentToken {
+                                ident: `get_pixel_pair`,
+                                token_idx: TokenIdx(
+                                    404,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -72,6 +90,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 207,
+                            ident_token: IdentToken {
+                                ident: `get_pixel_to_the_left`,
+                                token_idx: TokenIdx(
+                                    429,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -91,6 +115,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 208,
+                            ident_token: IdentToken {
+                                ident: `get_pixel_to_the_right`,
+                                token_idx: TokenIdx(
+                                    450,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -110,6 +140,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 209,
+                            ident_token: IdentToken {
+                                ident: `get_inward_direction`,
+                                token_idx: TokenIdx(
+                                    475,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -129,6 +165,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 210,
+                            ident_token: IdentToken {
+                                ident: `get_angle_change`,
+                                token_idx: TokenIdx(
+                                    621,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -148,6 +190,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 211,
+                            ident_token: IdentToken {
+                                ident: `get_outward_direction`,
+                                token_idx: TokenIdx(
+                                    685,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -167,6 +215,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 212,
+                            ident_token: IdentToken {
+                                ident: `StreakCache`,
+                                token_idx: TokenIdx(
+                                    912,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -186,6 +240,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 213,
+                            ident_token: IdentToken {
+                                ident: `get_concave_middle_point`,
+                                token_idx: TokenIdx(
+                                    924,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -205,6 +265,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 214,
+                            ident_token: IdentToken {
+                                ident: `find_raw_contours`,
+                                token_idx: TokenIdx(
+                                    989,
+                                ),
+                            },
                         },
                     ),
                 },

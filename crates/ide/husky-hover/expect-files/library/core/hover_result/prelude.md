@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 2;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 2;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        0,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 4;\n\ntoken = Token::Ident(\n    `basic`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 0,\n                path: `core::basic`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 0,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 4;\n\ntoken = Token::Ident(\n    `basic`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::basic`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 0,\n                ident_token: IdentToken {\n                    ident: `basic`,\n                    token_idx: TokenIdx(\n                        1,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 16;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 8,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 16;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 8,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 18;\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: UseExprRuleIdx(\n        9,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 6,\n                path: `core::raw_bits`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 6,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 18;\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: UseExprRuleIdx(\n        9,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::raw_bits`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 6,\n                ident_token: IdentToken {\n                    ident: `raw_bits`,\n                    token_idx: TokenIdx(\n                        13,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 30;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: UseExprRuleIdx(\n        4,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 30;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 14,\n    rule_idx: UseExprRuleIdx(\n        4,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        11,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 9,\n                path: `core::marker`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 9,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 32;\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        11,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::marker`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 9,\n                ident_token: IdentToken {\n                    ident: `marker`,\n                    token_idx: TokenIdx(\n                        19,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -670,7 +670,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 44;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 20,\n    rule_idx: UseExprRuleIdx(\n        6,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
+                                value: "Other\ntoken_idx = 44;\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 20,\n    rule_idx: UseExprRuleIdx(\n        6,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::CrateRoot(\n            `core`,\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -700,7 +700,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 46;\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: UseExprRuleIdx(\n        13,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 11,\n                path: `core::cmp`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 11,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 46;\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: UseExprRuleIdx(\n        13,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::cmp`,\n                accessibility: Accessibility::PublicUnder(\n                    `core`,\n                ),\n                ast_idx: 11,\n                ident_token: IdentToken {\n                    ident: `cmp`,\n                    token_idx: TokenIdx(\n                        23,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

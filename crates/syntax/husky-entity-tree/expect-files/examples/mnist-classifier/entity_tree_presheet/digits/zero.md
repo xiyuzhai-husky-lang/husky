@@ -19,6 +19,12 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             ast_idx: 33,
+                            ident_token: IdentToken {
+                                ident: `open_one_match`,
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             ast_idx: 34,
+                            ident_token: IdentToken {
+                                ident: `almost_closed`,
+                                token_idx: TokenIdx(
+                                    78,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             ast_idx: 35,
+                            ident_token: IdentToken {
+                                ident: `is_zero`,
+                                token_idx: TokenIdx(
+                                    105,
+                                ),
+                            },
                         },
                     ),
                 },

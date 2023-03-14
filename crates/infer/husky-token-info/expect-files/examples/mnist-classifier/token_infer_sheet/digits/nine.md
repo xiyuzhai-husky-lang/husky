@@ -74,7 +74,7 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },
@@ -86,14 +86,19 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 23,
                             path: `mnist_classifier::major`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 18,
+                            ident_token: IdentToken {
+                                ident: `major`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -107,7 +112,7 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },
@@ -119,14 +124,19 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 21,
                             path: `mnist_classifier::fermi`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 16,
+                            ident_token: IdentToken {
+                                ident: `fermi`,
+                                token_idx: TokenIdx(
+                                    16,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -140,7 +150,7 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },
@@ -152,14 +162,19 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 20,
                             path: `mnist_classifier::line_segment_sketch`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 15,
+                            ident_token: IdentToken {
+                                ident: `line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -171,14 +186,19 @@ Ok(
                     14,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 24,
                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 159,
+                            ident_token: IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -192,7 +212,7 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },
@@ -214,7 +234,7 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot(
+                    original_symbol: EntitySymbol::CrateRoot(
                         `mnist_classifier`,
                     ),
                 },

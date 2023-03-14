@@ -49,14 +49,19 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 23,
                             path: `mnist_classifier::major`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 18,
+                            ident_token: IdentToken {
+                                ident: `major`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -70,14 +75,19 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 22,
                             path: `mnist_classifier::digits`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 17,
+                            ident_token: IdentToken {
+                                ident: `digits`,
+                                token_idx: TokenIdx(
+                                    18,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -91,14 +101,19 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 21,
                             path: `mnist_classifier::fermi`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 16,
+                            ident_token: IdentToken {
+                                ident: `fermi`,
+                                token_idx: TokenIdx(
+                                    16,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -113,14 +128,19 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 18,
                             path: `mnist_classifier::raw_contour`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `raw_contour`,
+                                token_idx: TokenIdx(
+                                    10,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -132,9 +152,8 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
+                    original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
-                            [salsa id]: 75,
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
                             ),
@@ -142,6 +161,12 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 214,
+                            ident_token: IdentToken {
+                                ident: `find_raw_contours`,
+                                token_idx: TokenIdx(
+                                    989,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -153,14 +178,19 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
+                    original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
-                            [salsa id]: 20,
                             path: `mnist_classifier::line_segment_sketch`,
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 15,
+                            ident_token: IdentToken {
+                                ident: `line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
                         },
                     ),
                 },

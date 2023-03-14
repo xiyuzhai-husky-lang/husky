@@ -12,14 +12,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 14,
                                     path: `std::prelude`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `prelude`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -30,14 +35,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 15,
                                     path: `std::logic`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `logic`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -48,14 +58,19 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
+                            symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
-                                    [salsa id]: 16,
                                     path: `std::ops`,
                                     accessibility: Accessibility::PublicUnder(
                                         `std`,
                                     ),
                                     ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
+                                    },
                                 },
                             ),
                         },
@@ -143,9 +158,8 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `std::ops`,
                             ),
-                            symbol: ModuleItem(
+                            symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
-                                    [salsa id]: 53,
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`std::ops::Add`),
                                     ),
@@ -153,6 +167,12 @@ Ok(
                                         `std::ops`,
                                     ),
                                     ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Add`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
                                 },
                             ),
                         },

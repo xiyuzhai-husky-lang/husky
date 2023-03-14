@@ -1,11 +1,10 @@
+use crate::{EntityTreeBundleError, EntityTreeDb, NativeEntitySymbol, PreludeError};
 use husky_ast::AstIdx;
 use husky_entity_path::EntityPathError;
 use husky_manifest::ManifestError;
 use husky_token::{IdentToken, TokenIdx};
 use husky_vfs::{ModulePath, ToolchainError, VfsError};
 use thiserror::Error;
-
-use crate::{EntityTreeBundleError, EntityTreeDb, PreludeError};
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -43,8 +42,11 @@ pub enum OriginalEntityTreeError {
     SymbolNotAccessible(IdentToken),
     #[error("no subentity")]
     NoSubentity,
-    #[error("entity symbol already defined, old = {old}, new = {new}")]
-    EntitySymbolAlreadyDefined { old: AstIdx, new: AstIdx },
+    #[error("entity symbol already defined")]
+    EntitySymbolAlreadyDefined {
+        old: NativeEntitySymbol,
+        new: NativeEntitySymbol,
+    },
     #[error("expect identifier after keyword")]
     ExpectIdentAfterKeyword,
 }

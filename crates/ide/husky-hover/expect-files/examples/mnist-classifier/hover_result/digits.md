@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 24;\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol {\n                [salsa id]: 100,\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),\n                ),\n                accessibility: Accessibility::Public,\n                ast_idx: 69,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 24;\n\ntoken = Token::Ident(\n    `is_one`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 0,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::ModuleItem(\n            ModuleItemSymbol {\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),\n                ),\n                accessibility: Accessibility::Public,\n                ast_idx: 69,\n                ident_token: IdentToken {\n                    ident: `is_one`,\n                    token_idx: TokenIdx(\n                        77,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 28,\n                path: `mnist_classifier::digits::zero`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 0,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 30;\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::digits::zero`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 0,\n                ident_token: IdentToken {\n                    ident: `zero`,\n                    token_idx: TokenIdx(\n                        1,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 42;\n\ntoken = Token::Ident(\n    `five`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: UseExprRuleIdx(\n        5,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 33,\n                path: `mnist_classifier::digits::five`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 5,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 42;\n\ntoken = Token::Ident(\n    `five`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: UseExprRuleIdx(\n        5,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::digits::five`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 5,\n                ident_token: IdentToken {\n                    ident: `five`,\n                    token_idx: TokenIdx(\n                        11,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken = Token::Ident(\n    `is_six`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        15,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol {\n                [salsa id]: 106,\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),\n                ),\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits::six`,\n                ),\n                ast_idx: 59,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 48;\n\ntoken = Token::Ident(\n    `is_six`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        15,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::ModuleItem(\n            ModuleItemSymbol {\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),\n                ),\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits::six`,\n                ),\n                ast_idx: 59,\n                ident_token: IdentToken {\n                    ident: `is_six`,\n                    token_idx: TokenIdx(\n                        93,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 54;\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol {\n                [salsa id]: 36,\n                path: `mnist_classifier::digits::eight`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 8,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 54;\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::digits::eight`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 8,\n                ident_token: IdentToken {\n                    ident: `eight`,\n                    token_idx: TokenIdx(\n                        17,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        18,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: ModuleItem(\n            ModuleItemSymbol {\n                [salsa id]: 132,\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),\n                ),\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits::nine`,\n                ),\n                ast_idx: 46,\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 60;\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        18,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::ModuleItem(\n            ModuleItemSymbol {\n                path: ModuleItemPath::Form(\n                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),\n                ),\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits::nine`,\n                ),\n                ast_idx: 46,\n                ident_token: IdentToken {\n                    ident: `is_nine`,\n                    token_idx: TokenIdx(\n                        101,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

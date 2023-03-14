@@ -187,8 +187,8 @@ impl NativeEntitySymbolTable {
     ) -> EntityTreeResult<()> {
         if let Some(old_entry) = self.0.iter().find(|entry| entry.ident == new_entry.ident) {
             Err(OriginalEntityTreeError::EntitySymbolAlreadyDefined {
-                old: old_entry.symbol.ast_idx(db),
-                new: new_entry.symbol.ast_idx(db),
+                old: old_entry.symbol,
+                new: new_entry.symbol,
             })?
         }
         self.0.push(new_entry);

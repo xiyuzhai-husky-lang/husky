@@ -1,4 +1,5 @@
 use crate::*;
+use husky_ast::AstTokenIdxRangeSheet;
 use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
 use husky_token::TokenIdxRange;
@@ -7,6 +8,7 @@ pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
+    ast_token_idx_range_sheet: &'a AstTokenIdxRangeSheet,
 }
 
 impl<'a> SheetDiagnosticsContext<'a> {
@@ -17,6 +19,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
             db,
             token_sheet_data,
             ranged_token_sheet,
+            ast_token_idx_range_sheet: db.ast_token_idx_range_sheet(module_path).unwrap(),
         }
     }
 

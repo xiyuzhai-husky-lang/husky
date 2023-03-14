@@ -19,6 +19,12 @@ Ok(
                                 `natural_number_game`,
                             ),
                             ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `Nat`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -38,6 +44,12 @@ Ok(
                                 `natural_number_game`,
                             ),
                             ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `OddNat`,
+                                token_idx: TokenIdx(
+                                    85,
+                                ),
+                            },
                         },
                     ),
                 },
@@ -57,6 +69,12 @@ Ok(
                                 `natural_number_game`,
                             ),
                             ast_idx: 10,
+                            ident_token: IdentToken {
+                                ident: `EvenNat`,
+                                token_idx: TokenIdx(
+                                    114,
+                                ),
+                            },
                         },
                     ),
                 },

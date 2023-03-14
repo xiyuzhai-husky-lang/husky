@@ -15,6 +15,12 @@ Ok(
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 22,
+                            ident_token: IdentToken {
+                                ident: `is_convex`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
                         },
                     ),
                 },
