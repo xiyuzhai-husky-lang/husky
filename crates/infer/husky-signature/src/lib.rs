@@ -44,7 +44,7 @@ pub struct SignatureJar(
     union_ty_signature,
     UnionTypeSignature,
     // trait
-    trai_signature,
+    trai_signature_from_decl,
     TraitSignature,
     // form
     // form_signature,
@@ -59,7 +59,7 @@ pub struct SignatureJar(
     type_alias_signature,
     TypeAliasSignature,
     // impl block
-    // im_signature,
+    // impl_block_signature_from_decl,
     ty_impl_block_signature,
     TypeImplSignature,
     ty_as_trai_im_signature,
@@ -69,13 +69,13 @@ pub struct SignatureJar(
     PropsVariantSignature,
     TupleVariantSignature,
     // associated items
-    // associated_item_signature,
+    // associated_item_signature_from_decl,
     // type item
-    ty_associated_function_signature,
-    TypeAssociatedFunctionSignature,
+    ty_associated_fn_signature,
+    TypeAssociatedFnSignature,
     ty_method_signature,
     TypeMethodSignature,
-    ty_associated_ty_signature,
+    ty_associated_ty_signature_from_decl,
     TypeAssociatedTypeSignature,
     ty_associated_value_signature,
     TypeAssociatedValueSignature,
@@ -92,7 +92,7 @@ pub struct SignatureJar(
     TraitAssociatedValueSignature,
     // type as trait item
     ty_as_trai_associated_function_signature,
-    TypeAsTraitAssociatedFunctionSignature,
+    TypeAsTraitAssociatedFnSignature,
     ty_as_trai_method_signature,
     TypeAsTraitMethodSignature,
     ty_as_trai_associated_ty_signature,

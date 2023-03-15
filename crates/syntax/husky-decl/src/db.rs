@@ -4,6 +4,7 @@ use husky_print_utils::p;
 use husky_vfs::ModulePath;
 use husky_word::Ident;
 use salsa::DbWithJar;
+use vec_like::VecMapGetEntry;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn module_item_decl(&self, module_path: ModuleItemPath) -> DeclResultRef<Decl>;
@@ -20,6 +21,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
         &self,
         path: TypePath,
     ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]>;
+    fn ty_item_decl(&self, path: TypeItemPath) -> Option<TypeItemDecl>;
 }
 
 impl<Db> DeclDb for Db
@@ -67,5 +69,13 @@ where
             Ok(ty_item_decls) => Ok(ty_item_decls),
             Err(e) => Err(e),
         }
+    }
+
+    fn ty_item_decl(&self, path: TypeItemPath) -> Option<TypeItemDecl> {
+        self.ty_item_decls(path.ty(self))
+            .ok()?
+            .get_entry(path.ident(self))
+            .map(|(_, decl)| decl.ok())
+            .flatten()
     }
 }

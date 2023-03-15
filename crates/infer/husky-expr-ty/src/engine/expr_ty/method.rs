@@ -59,7 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_ty_method_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
-        ty_method_card: TypeMethodCard,
+        ty_method_card: TypeMethodFnCard,
         self_argument: ExprIdx,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,

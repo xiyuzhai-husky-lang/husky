@@ -1,7 +1,17 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
+pub struct TypeAssociatedTypeSignature {}
+
 pub(crate) fn ty_associated_ty_signature(
+    db: &dyn SignatureDb,
+    decl: TypeAssociatedTypeDecl,
+) -> SignatureResult<TypeAssociatedTypeSignature> {
+    todo!()
+}
+
+#[salsa::tracked(jar = SignatureJar)]
+pub(crate) fn ty_associated_ty_signature_from_decl(
     db: &dyn SignatureDb,
     decl: TypeAssociatedTypeDecl,
 ) -> SignatureResult<TypeAssociatedTypeSignature> {
@@ -10,6 +20,3 @@ pub(crate) fn ty_associated_ty_signature(
     let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(TypeAssociatedTypeSignature::new(db))
 }
-
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TypeAssociatedTypeSignature {}

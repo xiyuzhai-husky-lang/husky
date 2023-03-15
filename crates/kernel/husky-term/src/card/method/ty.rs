@@ -8,7 +8,7 @@ pub(crate) fn ty_method_card(
     db: &dyn TermDb,
     owner_ty: Term,
     ident: Ident,
-) -> TermResult<Option<TypeMethodCard>> {
+) -> TermResult<Option<TypeMethodFnCard>> {
     assert!(owner_ty.is_reduced(db));
     // using the fact that owner_ty is reduced
     match owner_ty {
@@ -24,7 +24,7 @@ pub(crate) fn ty_ontology_path_ty_method_card(
     db: &dyn TermDb,
     path: TypePath,
     ident: Ident,
-) -> TermResult<Option<TypeMethodCard>> {
+) -> TermResult<Option<TypeMethodFnCard>> {
     let ty_method_cards = ty_path_ty_method_cards(db, path)?;
     let Some(entry) = ty_method_cards.get_entry(ident) else {
         return Ok(None)
@@ -40,7 +40,7 @@ pub(crate) fn term_application_ty_method_card(
     db: &dyn TermDb,
     raw_ty: TermApplication,
     ident: Ident,
-) -> TermResult<Option<TypeMethodCard>> {
+) -> TermResult<Option<TypeMethodFnCard>> {
     let application_expansion = application_expansion_salsa(db, raw_ty);
     let function = application_expansion.function();
     match function {
@@ -58,7 +58,7 @@ fn ty_ontology_path_application_ty_method_card(
     path: TypePath,
     _arguments: &[Term],
     ident: Ident,
-) -> TermResult<Option<TypeMethodCard>> {
+) -> TermResult<Option<TypeMethodFnCard>> {
     let ty_method_cards = ty_path_ty_method_cards(db, path)?;
     let Some(entry) = ty_method_cards.get_entry(ident) else {
         return Ok(None)
@@ -72,7 +72,7 @@ fn ty_ontology_path_application_ty_method_card(
 pub(crate) fn ty_path_ty_method_cards(
     db: &dyn TermDb,
     path: TypePath,
-) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeMethodCard, ()>)]> {
+) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeMethodFnCard, ()>)]> {
     match ty_path_ty_method_cards_aux(db, path) {
         Ok(ty_method_cards) => Ok(ty_method_cards),
         Err(e) => Err(e),
@@ -83,7 +83,7 @@ pub(crate) fn ty_path_ty_method_cards(
 pub(crate) fn ty_path_ty_method_cards_aux(
     db: &dyn TermDb,
     path: TypePath,
-) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodCard, ()>>> {
+) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodFnCard, ()>>> {
     let ty_item_decls = db.ty_item_decls(path)?;
     Ok(ty_item_decls
         .iter()
@@ -92,7 +92,7 @@ pub(crate) fn ty_path_ty_method_cards_aux(
             Some((
                 ident,
                 match decl {
-                    Ok(TypeItemDecl::MethodFn(decl)) => Ok(TypeMethodCard::new(db, decl)),
+                    Ok(TypeItemDecl::MethodFn(decl)) => Ok(TypeMethodFnCard::new(db, decl)),
                     Ok(_) => return None,
                     Err(_) => Err(()),
                 },
@@ -102,17 +102,15 @@ pub(crate) fn ty_path_ty_method_cards_aux(
 }
 
 #[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
-pub struct TypeMethodCard {
+pub struct TypeMethodFnCard {
     #[id]
-    id: AssociatedItemId,
-    pub decl: TypeMethodFnDecl,
-    pub signature: SignatureResult<TypeMethodSignature>,
+    pub id: AssociatedItemId,
     #[return_ref]
     pub method_ty_info_inner: TermResult<MethodTypeInfo>,
     pub method_ty: TermResult<Term>,
 }
 
-impl TypeMethodCard {
+impl TypeMethodFnCard {
     fn new(db: &dyn TermDb, decl: TypeMethodFnDecl) -> Self {
         let id = decl.associated_item(db).id(db);
         let signature = ty_method_signature(db, decl);
@@ -123,7 +121,7 @@ impl TypeMethodCard {
             .map_err(|e| *e)
             .map(|ty_info| ty_info.ty(db))
             .flatten();
-        Self::new_inner(db, id, decl, signature, method_ty_info, method_ty)
+        Self::new_inner(db, id, method_ty_info, method_ty)
     }
 
     pub fn method_ty_info<'a>(self, db: &'a dyn TermDb) -> TermResult<&'a MethodTypeInfo> {

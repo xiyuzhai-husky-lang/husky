@@ -10,7 +10,17 @@ pub use method::*;
 
 use super::*;
 
-pub(crate) fn trai_associated_item_signature(
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
+#[enum_class::from_variants]
+pub enum TraitItemSignature {
+    Function(TraitAssociatedFunctionSignature),
+    Method(TraitMethodSignature),
+    ExternType(TraitAssociatedTypeSignature),
+    Value(TraitAssociatedValueSignature),
+}
+
+pub(crate) fn trai_associated_item_signature_from_decl(
     db: &dyn SignatureDb,
     decl: TraitItemDecl,
 ) -> SignatureResult<TraitItemSignature> {
@@ -26,15 +36,6 @@ pub(crate) fn trai_associated_item_signature(
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb)]
-pub enum TraitItemSignature {
-    Function(TraitAssociatedFunctionSignature),
-    Method(TraitMethodSignature),
-    ExternType(TraitAssociatedTypeSignature),
-    Value(TraitAssociatedValueSignature),
-}
-
 impl TraitItemSignature {
     pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
@@ -43,29 +44,5 @@ impl TraitItemSignature {
             TraitItemSignature::ExternType(_) => todo!(),
             TraitItemSignature::Value(_) => todo!(),
         }
-    }
-}
-
-impl From<TraitAssociatedFunctionSignature> for TraitItemSignature {
-    fn from(v: TraitAssociatedFunctionSignature) -> Self {
-        Self::Function(v)
-    }
-}
-
-impl From<TraitMethodSignature> for TraitItemSignature {
-    fn from(v: TraitMethodSignature) -> Self {
-        Self::Method(v)
-    }
-}
-
-impl From<TraitAssociatedValueSignature> for TraitItemSignature {
-    fn from(v: TraitAssociatedValueSignature) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<TraitAssociatedTypeSignature> for TraitItemSignature {
-    fn from(v: TraitAssociatedTypeSignature) -> Self {
-        Self::ExternType(v)
     }
 }

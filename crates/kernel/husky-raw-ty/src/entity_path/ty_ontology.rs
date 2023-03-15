@@ -7,7 +7,7 @@ pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawType
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypeConstructorDeclError.into()),
     };
-    let signature = match db.ty_signature(decl) {
+    let signature = match db.ty_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };

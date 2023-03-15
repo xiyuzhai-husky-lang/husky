@@ -16,15 +16,14 @@ use husky_word::IdentPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum MethodCard {
-    Type(TypeMethodCard),
-    TypeAsTrait(TypeAsTraitMethodCard),
+    TypeMethodFn(TypeMethodFnCard),
+    TypeAsTraitMethodFn(TypeAsTraitMethodFnCard),
 }
 
 #[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
-pub struct TypeAsTraitMethodCard {
+pub struct TypeAsTraitMethodFnCard {
     #[id]
     id: AssociatedItemId,
-    signature: SignatureResult<TypeMethodSignature>,
     method_ty: TermResult<Term>,
 }
 
