@@ -1,10 +1,10 @@
 # The Husky Programming Language
 
-(Work In Progress, 3\~4 years away from version 0.1, 10\~15 from stable version; however, it will be good enough to do research in a few month)
+(Work In Progress, 3\~4 years away from version 0.1, 10\~15 years from stable version. However, it will be good enough to be used for research in a few month)
 
-Husky is a programming language designed for **next generation computing**, which vastly generalizes nowadays AI and software. It **combines good designs from various current languages and promises killer applications beyond people's imagination**.
+Husky is primarily a research language, which doesn't mean language for programming language research, but language for computer science research in general. So it's born with ergonomics in mind. It's going to be easy to use and polished like any industrial language, and even better than that.
 
-It's primarily a research language, which doesn't mean language for programming language research, but language for computer science research in general. So it's born with ergonomics in mind. It's going to be easy to use and polished like any industrial language, and even better than that.
+Husky is designed for **next generation computing**, which vastly generalizes nowadays AI and software. It **combines good designs from various current languages and promises killer applications beyond people's imagination**.
 
 ## New Sheriff in Town
 
