@@ -12,8 +12,8 @@ use husky_token::ImplToken;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum ImplDecl {
-    Type(TypeImplDecl),
-    TypeAsTrait(TypeAsTraitImplDecl),
+    Type(TypeImplBlockDecl),
+    TypeAsTrait(TypeAsTraitImplBlockDecl),
 }
 
 impl ImplDecl {

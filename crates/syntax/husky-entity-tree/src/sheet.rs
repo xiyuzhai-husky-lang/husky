@@ -30,15 +30,15 @@ impl EntityTreeSheet {
     pub(crate) fn new(
         module_path: ModulePath,
         symbols: EntitySymbolTable,
-        impls: Vec<ImplBlock>,
         use_expr_rules: UseExprRules,
         use_all_rules: UseAllRules,
         errors: Vec<EntityTreeError>,
+        impl_blocks: Vec<ImplBlock>,
     ) -> Self {
         Self {
             module_path,
             symbols,
-            impl_blocks: impls,
+            impl_blocks,
             use_expr_rules,
             use_all_rules,
             errors,
@@ -76,8 +76,32 @@ impl EntityTreeSheet {
         self.module_path
     }
 
-    pub fn impl_blocks(&self) -> &[ImplBlock] {
+    pub fn impl_blocks(&self) -> &Vec<ImplBlock> {
         &self.impl_blocks
+    }
+
+    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlock> + 'a {
+        self.impl_blocks
+            .iter()
+            .copied()
+            .filter_map(|impl_block| match impl_block {
+                ImplBlock::Type(impl_block) => Some(impl_block),
+                ImplBlock::TypeAsTrait(_) => None,
+                ImplBlock::IllFormed(_) => None,
+            })
+    }
+
+    pub fn all_ty_as_trai_impl_blocks<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = TypeAsTraitImplBlock> + 'a {
+        self.impl_blocks
+            .iter()
+            .copied()
+            .filter_map(|impl_block| match impl_block {
+                ImplBlock::Type(_) => None,
+                ImplBlock::TypeAsTrait(impl_block) => Some(impl_block),
+                ImplBlock::IllFormed(_) => None,
+            })
     }
 }
 

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_as_trai_im_signature(
     db: &dyn SignatureDb,
-    decl: TypeAsTraitImplDecl,
+    decl: TypeAsTraitImplBlockDecl,
 ) -> SignatureResult<TypeAsTraitImplSignature> {
     let expr_region = decl.expr_region(db);
     let _signature_term_region = signature_term_region(db, expr_region);

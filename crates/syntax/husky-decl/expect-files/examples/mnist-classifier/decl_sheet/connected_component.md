@@ -1276,7 +1276,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 125,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -3713,7 +3713,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 1,
                                         },
@@ -4058,7 +4058,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 1,
                                         },

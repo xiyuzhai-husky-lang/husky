@@ -39,7 +39,7 @@ impl TermRitchie {
 
     //// this constructor guarantees that the result is reduced, not necessarily valid
     /// returns Term instead of TermApplication because it might reduce to a non application term
-    fn new_unchecked(
+    pub(crate) fn new_unchecked(
         db: &dyn TermDb,
         ritchie_kind: TermRitchieKind,
         parameter_tys: impl IntoIterator<Item = TermRitchieParameterLiasonedType>,

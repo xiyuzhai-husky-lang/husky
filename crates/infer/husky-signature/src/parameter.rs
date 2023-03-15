@@ -96,7 +96,7 @@ impl ImplicitParameterSignatures {
 }
 
 impl std::ops::Deref for ImplicitParameterSignatures {
-    type Target = Vec<ImplicitParameterSignature>;
+    type Target = [ImplicitParameterSignature];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -104,12 +104,12 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ParameterSignature {
+pub struct RegularParameterSignature {
     pattern: ParameterSignaturePattern,
     ty: RawTerm,
 }
 
-impl ParameterSignature {
+impl RegularParameterSignature {
     pub fn ty(&self) -> RawTerm {
         self.ty
     }
@@ -120,11 +120,11 @@ pub struct ParameterSignaturePattern {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct RegularParameterSignatures {
-    parameters: Vec<ParameterSignature>,
+    parameters: Vec<RegularParameterSignature>,
 }
 
 impl std::ops::Deref for RegularParameterSignatures {
-    type Target = Vec<ParameterSignature>;
+    type Target = [RegularParameterSignature];
 
     fn deref(&self) -> &Self::Target {
         &self.parameters
@@ -150,12 +150,12 @@ impl RegularParameterSignatures {
                             ))
                         }
                     };
-                    Ok(ParameterSignature {
+                    Ok(RegularParameterSignature {
                         pattern: ParameterSignaturePattern {},
                         ty,
                     })
                 })
-                .collect::<Result<Vec<ParameterSignature>, SignatureError>>()?,
+                .collect::<Result<Vec<RegularParameterSignature>, SignatureError>>()?,
         })
     }
 }

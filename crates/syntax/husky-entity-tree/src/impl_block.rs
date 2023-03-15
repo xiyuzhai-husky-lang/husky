@@ -9,6 +9,7 @@ pub use self::ty::*;
 pub use self::ty_as_trai::*;
 
 use crate::*;
+use husky_print_utils::p;
 use husky_token::*;
 use husky_word::IdentPairMap;
 use parsec::ParseContext;
@@ -22,28 +23,6 @@ pub enum ImplBlock {
     Type(TypeImplBlock),
     TypeAsTrait(TypeAsTraitImplBlock),
     IllFormed(IllFormedImplBlock),
-}
-
-#[derive(Debug, Default, PartialEq, Eq)]
-// #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct ImplBlockBundle {
-    all_ty_impl_blocks: Vec<TypeImplBlock>,
-    all_ty_as_trai_impl_blocks: Vec<TypeAsTraitImplBlock>,
-    all_ill_formed_impl_blocks: Vec<IllFormedImplBlock>,
-}
-
-impl ImplBlockBundle {
-    pub fn all_ty_impl_blocks(&self) -> &[TypeImplBlock] {
-        self.all_ty_impl_blocks.as_ref()
-    }
-
-    pub fn all_ty_as_trai_impl_blocks(&self) -> &[TypeAsTraitImplBlock] {
-        self.all_ty_as_trai_impl_blocks.as_ref()
-    }
-
-    pub fn all_ill_formed_impl_blocks(&self) -> &[IllFormedImplBlock] {
-        self.all_ill_formed_impl_blocks.as_ref()
-    }
 }
 
 impl ImplBlock {
@@ -191,10 +170,7 @@ pub(crate) fn ty_impl_blocks(
     let crate_path = ty.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .impl_blocks()
-        .all_ty_impl_blocks
-        .iter()
-        .copied()
+        .all_ty_impl_blocks()
         .filter_map(|impl_block| (impl_block.ty(db) == ty).then_some(impl_block))
         .collect())
 }
@@ -206,15 +182,20 @@ pub(crate) fn ty_items(
 ) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+    if path.ident(db).data(db) == "RawContour" {
+        p!(entity_tree_crate_bundle.all_ty_impl_blocks().count());
+        todo!()
+    }
     Ok(entity_tree_crate_bundle
-        .impl_blocks()
         .all_ty_impl_blocks()
-        .iter()
-        .copied()
-        .map(|impl_block| {
-            ty_impl_block_items(db, impl_block)
-                .iter()
-                .map(|(ident, associated_item)| (*ident, *associated_item))
+        .filter_map(|impl_block| {
+            // ad hoc
+            // todo: guard against two methods with the same ident
+            (impl_block.ty(db) == path).then(|| {
+                ty_impl_block_items(db, impl_block)
+                    .iter()
+                    .map(|(ident, associated_item)| (*ident, *associated_item))
+            })
         })
         .flatten()
         .collect())

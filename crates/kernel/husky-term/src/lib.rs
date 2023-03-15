@@ -1,3 +1,4 @@
+#![feature(result_flattening)]
 #![doc = include_str!("../README.md")]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]

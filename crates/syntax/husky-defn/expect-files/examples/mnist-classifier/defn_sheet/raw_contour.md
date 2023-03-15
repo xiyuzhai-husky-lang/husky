@@ -8077,7 +8077,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 7,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -8313,7 +8323,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 9,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -8588,7 +8608,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 11,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -8730,7 +8760,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 13,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `i`,
@@ -9329,16 +9369,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1301,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -9368,16 +9407,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1338,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -9407,16 +9445,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1376,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -9446,16 +9483,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1398,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    ident: `from_i_shift28`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -11436,7 +11472,7 @@ Ok(
                 Ok(
                     Defn::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 200,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -11974,7 +12010,17 @@ Ok(
                                                 data: [
                                                     Expr::EntityPath {
                                                         entity_path_expr: 1,
-                                                        path: None,
+                                                        path: Some(
+                                                            EntityPath::AssociatedItem(
+                                                                AssociatedItemPath::TypeItem(
+                                                                    TypeItemPath {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        ident: `new`,
+                                                                        ty_item_kind: Method,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
                                                     },
                                                     Expr::SelfValue(
                                                         TokenIdx(
@@ -12039,16 +12085,15 @@ Ok(
                                                                 ),
                                                             },
                                                         ),
-                                                        path: Err(
-                                                            EntityPathExprError::Original(
-                                                                OriginalEntityPathExprError::EntityTree {
-                                                                    token_idx: TokenIdx(
-                                                                        52,
-                                                                    ),
-                                                                    error: EntityTreeError::Original(
-                                                                        OriginalEntityTreeError::NoSubentity,
-                                                                    ),
-                                                                },
+                                                        path: Ok(
+                                                            EntityPath::AssociatedItem(
+                                                                AssociatedItemPath::TypeItem(
+                                                                    TypeItemPath {
+                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        ident: `new`,
+                                                                        ty_item_kind: Method,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     },
@@ -16279,7 +16324,7 @@ Ok(
                                                 ),
                                             ),
                                         ),
-                                        return_ty: Ok(
+                                        return_ty_inner: Ok(
                                             OutputTypeExpr {
                                                 expr: 2,
                                             },

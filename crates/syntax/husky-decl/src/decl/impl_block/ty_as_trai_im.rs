@@ -1,17 +1,26 @@
 use super::*;
 
+pub fn ty_as_trai_impl_block_decl(
+    db: &dyn DeclDb,
+    impl_block: TypeAsTraitImplBlock,
+) -> DeclResultRef<TypeAsTraitImplBlockDecl> {
+    ty_as_trai_impl_block_decl_aux(db, impl_block)
+        .as_ref()
+        .copied()
+}
+
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_as_trai_impl_decl(
+pub(crate) fn ty_as_trai_impl_block_decl_aux(
     _db: &dyn DeclDb,
     _impl_block: TypeAsTraitImplBlock,
-) -> DeclResult<TypeAsTraitImplDecl> {
+) -> DeclResult<TypeAsTraitImplBlockDecl> {
     todo!()
     // let parser = DeclParser::new(db, impl_block.module_path(db))?;
-    // Ok(parser.parse_ty_as_trai_impl_decl(impl_block)?.into())
+    // Ok(parser.parse_ty_as_trai_impl_block_decl(impl_block)?.into())
 }
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeAsTraitImplDecl {
+pub struct TypeAsTraitImplBlockDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
@@ -19,7 +28,7 @@ pub struct TypeAsTraitImplDecl {
     pub expr_region: ExprRegion,
 }
 
-impl TypeAsTraitImplDecl {
+impl TypeAsTraitImplBlockDecl {
     pub fn implicit_parameters<'a>(
         self,
         db: &'a dyn DeclDb,

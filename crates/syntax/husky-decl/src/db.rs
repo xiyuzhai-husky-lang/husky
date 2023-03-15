@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_tree::{AssociatedItem, EntityTreeResult, ImplBlock};
+use husky_print_utils::p;
 use husky_vfs::ModulePath;
 use husky_word::Ident;
 use salsa::DbWithJar;
@@ -63,7 +64,13 @@ where
         path: TypePath,
     ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]> {
         match ty_item_decls(self, path) {
-            Ok(ty_item_decls) => Ok(ty_item_decls),
+            Ok(ty_item_decls) => {
+                if path.ident(self).data(self) == "RawContour" {
+                    p!(ty_item_decls.len());
+                    todo!()
+                }
+                Ok(ty_item_decls)
+            }
             Err(e) => Err(e),
         }
     }
