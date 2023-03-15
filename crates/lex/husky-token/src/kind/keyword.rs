@@ -82,7 +82,7 @@ impl Keyword {
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
             Keyword::Pub => "pub",
-            Keyword::Static => "pub",
+            Keyword::Static => "static",
             Keyword::Async => "async",
         }
     }
