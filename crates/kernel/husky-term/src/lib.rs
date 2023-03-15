@@ -3,20 +3,20 @@
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
+mod card;
 mod context;
 mod db;
 mod error;
-mod infer;
 mod menu;
 mod rewrite;
 mod term;
 #[cfg(test)]
 mod tests;
 
+pub use self::card::*;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
-pub use self::infer::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
@@ -84,9 +84,12 @@ pub struct TermJar(
     term_from_raw_term_list_unchecked,
     // only use this inside crate::context::entry
     is_ty_path_lifetime_ty,
+    // card
     // method ty
     term_application_ty_method_card,
     ty_path_ty_method_cards_aux,
-    TypeMethodCard,
-    TypeAsTraitMethodCard,
+    TypeMethodFnCard,
+    TypeAsTraitMethodFnCard,
+    TypeAssociatedFnCard,
+    ty_item_card,
 );

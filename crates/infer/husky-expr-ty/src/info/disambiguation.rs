@@ -1,4 +1,4 @@
-use husky_term::{MethodCard, TypeAsTraitMethodCard, TypeMethodCard};
+use husky_term::{MethodCard, TypeAsTraitMethodFnCard, TypeMethodFnCard};
 use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -81,14 +81,14 @@ impl From<MethodCard> for MethodCallDisambiguation {
     }
 }
 
-impl From<TypeMethodCard> for MethodCallDisambiguation {
-    fn from(value: TypeMethodCard) -> Self {
+impl From<TypeMethodFnCard> for MethodCallDisambiguation {
+    fn from(value: TypeMethodFnCard) -> Self {
         MethodCallDisambiguation(value.into())
     }
 }
 
-impl From<TypeAsTraitMethodCard> for MethodCallDisambiguation {
-    fn from(value: TypeAsTraitMethodCard) -> Self {
+impl From<TypeAsTraitMethodFnCard> for MethodCallDisambiguation {
+    fn from(value: TypeAsTraitMethodFnCard) -> Self {
         MethodCallDisambiguation(value.into())
     }
 }

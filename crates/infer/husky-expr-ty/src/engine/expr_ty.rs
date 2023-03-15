@@ -370,6 +370,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 EntityPath::AssociatedItem(path) => match path {
                     AssociatedItemPath::TypeItem(path) => {
+                        let card = ty_item_card(self.db, path);
                         p!(path.debug(self.db));
                         todo!()
                     }

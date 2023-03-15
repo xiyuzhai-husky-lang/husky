@@ -39,7 +39,13 @@ fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<SignatureResult<Si
     decl_sheet
         .decls()
         .iter()
-        .filter_map(|decl| decl.1.as_ref().ok().copied().map(|decl| db.signature(decl)))
+        .filter_map(|decl| {
+            decl.1
+                .as_ref()
+                .ok()
+                .copied()
+                .map(|decl| signature_from_decl(db, decl))
+        })
         .collect()
 }
 
@@ -54,34 +60,34 @@ fn menu_ty_signatures_works() {
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.i16_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.i16_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.i32_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.i32_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.i64_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.i64_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.u8_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.u8_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.u16_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.u16_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.u32_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.u32_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.u64_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.u64_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.f32_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.f32_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.f64_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.f64_ty_path()).unwrap())
         .is_ok());
     assert!(db
-        .ty_signature(db.ty_decl(entity_path_menu.trai_ty_path()).unwrap())
+        .ty_signature_from_decl(db.ty_decl(entity_path_menu.trai_ty_path()).unwrap())
         .is_ok());
     // todo: uncomment
     // assert!(db

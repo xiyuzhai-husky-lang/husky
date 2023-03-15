@@ -211,7 +211,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
             return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
         }
     };
-    let signature = match db.ty_signature(decl) {
+    let signature = match db.ty_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };

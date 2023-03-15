@@ -8,7 +8,7 @@ pub use unit::*;
 
 use super::*;
 
-pub(crate) fn variant_signature(
+pub(crate) fn variant_signature_from_decl(
     _db: &dyn SignatureDb,
     decl: VariantDecl,
 ) -> SignatureResult<VariantSignature> {

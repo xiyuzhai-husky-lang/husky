@@ -6,7 +6,10 @@ pub use ty_as_trai::*;
 
 use super::*;
 
-pub(crate) fn im_signature(db: &dyn SignatureDb, decl: ImplDecl) -> SignatureResult<ImplSignature> {
+pub(crate) fn impl_block_signature_from_decl(
+    db: &dyn SignatureDb,
+    decl: ImplDecl,
+) -> SignatureResult<ImplSignature> {
     match decl {
         ImplDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
         ImplDecl::TypeAsTrait(decl) => ty_as_trai_im_signature(db, decl).map(Into::into),

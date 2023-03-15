@@ -10,7 +10,17 @@ pub use method::*;
 
 use super::*;
 
-pub(crate) fn ty_as_trai_associated_item_signature(
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
+#[enum_class::from_variants]
+pub enum TypeAsTraitItemSignature {
+    AssociatedFn(TypeAsTraitAssociatedFnSignature),
+    MethodFn(TypeAsTraitMethodSignature),
+    AssociatedType(TypeAsTraitAssociatedTypeSignature),
+    AssociatedValue(TypeAsTraitAssociatedValueSignature),
+}
+
+pub(crate) fn ty_as_trai_associated_item_signature_from_decl(
     db: &dyn SignatureDb,
     decl: TypeAsTraitItemDecl,
 ) -> SignatureResult<TypeAsTraitItemSignature> {
@@ -28,46 +38,13 @@ pub(crate) fn ty_as_trai_associated_item_signature(
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb)]
-pub enum TypeAsTraitItemSignature {
-    Function(TypeAsTraitAssociatedFunctionSignature),
-    Method(TypeAsTraitMethodSignature),
-    ExternType(TypeAsTraitAssociatedTypeSignature),
-    Value(TypeAsTraitAssociatedValueSignature),
-}
-
-impl From<TypeAsTraitAssociatedValueSignature> for TypeAsTraitItemSignature {
-    fn from(v: TypeAsTraitAssociatedValueSignature) -> Self {
-        Self::Value(v)
-    }
-}
-
-impl From<TypeAsTraitAssociatedTypeSignature> for TypeAsTraitItemSignature {
-    fn from(v: TypeAsTraitAssociatedTypeSignature) -> Self {
-        Self::ExternType(v)
-    }
-}
-
-impl From<TypeAsTraitMethodSignature> for TypeAsTraitItemSignature {
-    fn from(v: TypeAsTraitMethodSignature) -> Self {
-        Self::Method(v)
-    }
-}
-
-impl From<TypeAsTraitAssociatedFunctionSignature> for TypeAsTraitItemSignature {
-    fn from(v: TypeAsTraitAssociatedFunctionSignature) -> Self {
-        Self::Function(v)
-    }
-}
-
 impl TypeAsTraitItemSignature {
     pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
-            TypeAsTraitItemSignature::Function(_) => todo!(),
-            TypeAsTraitItemSignature::Method(_) => todo!(),
-            TypeAsTraitItemSignature::ExternType(_) => todo!(),
-            TypeAsTraitItemSignature::Value(_) => todo!(),
+            TypeAsTraitItemSignature::AssociatedFn(_) => todo!(),
+            TypeAsTraitItemSignature::MethodFn(_) => todo!(),
+            TypeAsTraitItemSignature::AssociatedType(_) => todo!(),
+            TypeAsTraitItemSignature::AssociatedValue(_) => todo!(),
         }
     }
 }

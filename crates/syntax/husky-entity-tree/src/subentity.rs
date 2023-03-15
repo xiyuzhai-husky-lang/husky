@@ -32,11 +32,11 @@ pub(crate) fn subentity_path(
             let _entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(ty) => {
-                    let ty_associated_items = match ty_items(db, ty) {
-                        Ok(ty_associated_items) => ty_associated_items,
+                    let ty_items = match ty_items(db, ty) {
+                        Ok(ty_items) => ty_items,
                         Err(_) => todo!(),
                     };
-                    if let Some((_, associated_item)) = ty_associated_items.get_entry(ident) {
+                    if let Some((_, associated_item)) = ty_items.get_entry(ident) {
                         Ok(match associated_item.associated_item_kind(db) {
                             AssociatedItemKind::TypeItem(ty_item_kind) => {
                                 TypeItemPath::new(db, ty, ident, ty_item_kind).into()

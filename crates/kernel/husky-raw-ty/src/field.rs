@@ -10,7 +10,7 @@ pub fn ty_path_field_raw_ty(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypePathFieldDeclError.into()),
     };
-    let signature = match db.ty_signature(decl) {
+    let signature = match db.ty_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };

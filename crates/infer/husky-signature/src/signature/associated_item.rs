@@ -8,19 +8,19 @@ pub use ty_item::*;
 
 use super::*;
 
-pub(crate) fn associated_item_signature(
+pub(crate) fn associated_item_signature_from_decl(
     db: &dyn SignatureDb,
     decl: AssociatedItemDecl,
 ) -> SignatureResult<AssociatedItemSignature> {
     match decl {
         AssociatedItemDecl::TypeItem(decl) => {
-            ty_associated_item_signature(db, decl).map(|s| s.into())
+            ty_item_signature_from_decl(db, decl).map(|s| s.into())
         }
         AssociatedItemDecl::TraitItem(decl) => {
-            trai_associated_item_signature(db, decl).map(|s| s.into())
+            trai_associated_item_signature_from_decl(db, decl).map(|s| s.into())
         }
         AssociatedItemDecl::TypeAsTraitItem(decl) => {
-            ty_as_trai_associated_item_signature(db, decl).map(|s| s.into())
+            ty_as_trai_associated_item_signature_from_decl(db, decl).map(|s| s.into())
         } // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }
