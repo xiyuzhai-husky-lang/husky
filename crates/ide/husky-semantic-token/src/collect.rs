@@ -29,7 +29,6 @@ fn token_to_semantic_token(
 ) -> Option<RangedSemanticToken> {
     let semantic_token = match info {
         TokenInfo::None => match token {
-            Token::Attr(_) => SemanticToken::Attribute,
             Token::Keyword(kw) => SemanticToken::Keyword(*kw),
             Token::Ident(_) | Token::Label(_) => return None,
             Token::Punctuation(_) => SemanticToken::Special,
