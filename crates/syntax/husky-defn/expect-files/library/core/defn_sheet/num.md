@@ -1122,15 +1122,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i8`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -1147,7 +1160,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::i8`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -1167,18 +1180,11 @@ Ok(
                                             ast_idx: 0,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::i8`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 0,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -1752,15 +1758,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i16`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -1777,7 +1796,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::i16`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -1797,18 +1816,11 @@ Ok(
                                             ast_idx: 2,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::i16`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 2,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -2382,15 +2394,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i32`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -2407,7 +2432,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::i32`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -2427,18 +2452,11 @@ Ok(
                                             ast_idx: 4,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::i32`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 4,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -3012,15 +3030,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i64`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::i64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -3037,7 +3068,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::i64`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -3057,18 +3088,11 @@ Ok(
                                             ast_idx: 6,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::i64`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 6,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -3642,15 +3666,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::i128`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::i128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -3667,7 +3704,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::i128`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -3687,18 +3724,11 @@ Ok(
                                             ast_idx: 8,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::i128`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 8,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -4272,15 +4302,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::isize`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::isize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -4297,7 +4340,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::isize`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -4317,18 +4360,11 @@ Ok(
                                             ast_idx: 10,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::isize`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 10,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -4902,15 +4938,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::u8`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::u8`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -4927,7 +4976,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::u8`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -4947,18 +4996,11 @@ Ok(
                                             ast_idx: 12,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::u8`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 12,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -5532,15 +5574,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::u16`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::u16`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -5557,7 +5612,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::u16`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -5577,18 +5632,11 @@ Ok(
                                             ast_idx: 14,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::u16`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 14,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -6162,15 +6210,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::u32`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::u32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -6187,7 +6248,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::u32`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -6207,18 +6268,11 @@ Ok(
                                             ast_idx: 16,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::u32`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 16,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -6792,15 +6846,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::u64`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::u64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -6817,7 +6884,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::u64`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -6837,18 +6904,11 @@ Ok(
                                             ast_idx: 18,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::u64`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 18,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -7422,15 +7482,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::u128`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::u128`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -7447,7 +7520,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::u128`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -7467,18 +7540,11 @@ Ok(
                                             ast_idx: 20,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::u128`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 20,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -8052,15 +8118,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::usize`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::usize`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -8077,7 +8156,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::usize`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -8097,18 +8176,11 @@ Ok(
                                             ast_idx: 22,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::usize`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 22,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -8682,15 +8754,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f32`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -8707,7 +8792,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::f32`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -8727,18 +8812,11 @@ Ok(
                                             ast_idx: 24,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::f32`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 24,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -9312,15 +9390,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`core::num::f64`, `Extern`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `core::num`,
+                                                ty: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `core::num`,
+                                                    ty: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -9337,7 +9428,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`core::num::f64`, `Extern`),
                                                         ident: `abs`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -9357,18 +9448,11 @@ Ok(
                                             ast_idx: 26,
                                             ident: `abs`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::Public,
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`core::num::f64`, `Extern`),
-                                                ident: `abs`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 26,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {

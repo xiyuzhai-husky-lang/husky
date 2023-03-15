@@ -3402,8 +3402,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::connected_component`,
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `top_k_row_span_sum`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3447,13 +3457,6 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `top_k_row_span_sum`,
-                                            ty_item_kind: MethodFn,
-                                        },
-                                    ),
                                     ast_idx: 75,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3747,8 +3750,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::connected_component`,
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `top_k_row_right_mass_sum`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3792,13 +3805,6 @@ Ok(
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                            ident: `top_k_row_right_mass_sum`,
-                                            ty_item_kind: MethodFn,
-                                        },
-                                    ),
                                     ast_idx: 76,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {

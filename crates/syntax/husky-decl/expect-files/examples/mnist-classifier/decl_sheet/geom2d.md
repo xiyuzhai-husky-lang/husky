@@ -1124,54 +1124,23 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
-                                    associated_item: AssociatedItem {
-                                        id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId::Type(
-                                                TypeImplBlockId {
-                                                    module: `mnist_classifier::geom2d`,
-                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            ident: `from_i_shift28`,
-                                        },
-                                        path: Some(
-                                            AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                    ident: `from_i_shift28`,
-                                                    ty_item_kind: Method,
-                                                },
-                                            ),
-                                        ),
-                                        impl_block: ImplBlock::Type(
-                                            TypeImplBlock {
-                                                id: TypeImplBlockId {
-                                                    module: `mnist_classifier::geom2d`,
-                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ast_idx: 81,
-                                                body: ArenaIdxRange(
-                                                    5..10,
-                                                ),
+                            TypeItemDecl::AssociatedFn(
+                                TypeAssociatedFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
                                             },
                                         ),
-                                        ast_idx: 5,
                                         ident: `from_i_shift28`,
-                                        associated_item_kind: TypeItem(
-                                            Method,
-                                        ),
-                                        accessibility: Accessibility::Public,
-                                        is_generic: false,
                                     },
                                     path: Some(
                                         TypeItemPath {
                                             ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ident: `from_i_shift28`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: AssociatedFn,
                                         },
                                     ),
                                     ast_idx: 5,
@@ -1505,7 +1474,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty_inner: Ok(
+                                    return_ty: Ok(
                                         OutputTypeExpr {
                                             expr: 2,
                                         },
@@ -1539,8 +1508,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `vector`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -1557,7 +1536,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ident: `vector`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1577,20 +1556,13 @@ Ok(
                                         ast_idx: 6,
                                         ident: `vector`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `vector`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 6,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1811,8 +1783,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `to`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -1829,7 +1811,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ident: `to`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1849,20 +1831,13 @@ Ok(
                                         ast_idx: 7,
                                         ident: `to`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `to`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 7,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -2156,8 +2131,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `norm`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -2174,7 +2159,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ident: `norm`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2194,20 +2179,13 @@ Ok(
                                         ast_idx: 8,
                                         ident: `norm`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 8,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -2428,8 +2406,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `dist`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -2446,7 +2434,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     ident: `dist`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2466,20 +2454,13 @@ Ok(
                                         ast_idx: 9,
                                         ident: `dist`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                            ident: `dist`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 9,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -2897,8 +2878,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `point`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -2915,7 +2906,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `point`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2935,18 +2926,11 @@ Ok(
                                         ast_idx: 41,
                                         ident: `point`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `point`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 41,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3167,8 +3151,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `to`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3185,7 +3179,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `to`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3205,18 +3199,11 @@ Ok(
                                         ast_idx: 42,
                                         ident: `to`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `to`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 42,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3510,8 +3497,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `norm`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3528,7 +3525,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `norm`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3548,20 +3545,13 @@ Ok(
                                         ast_idx: 43,
                                         ident: `norm`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `norm`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 43,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3782,8 +3772,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `dot`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3800,7 +3800,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `dot`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3820,20 +3820,13 @@ Ok(
                                         ast_idx: 44,
                                         ident: `dot`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `dot`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 44,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -4127,8 +4120,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `cross`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -4145,7 +4148,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `cross`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4165,20 +4168,13 @@ Ok(
                                         ast_idx: 45,
                                         ident: `cross`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `cross`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 45,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -4472,8 +4468,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `angle`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -4490,7 +4496,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `angle`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4510,20 +4516,13 @@ Ok(
                                         ast_idx: 46,
                                         ident: `angle`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `angle`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 46,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -4817,8 +4816,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `rotation_direction_to`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -4835,7 +4844,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `rotation_direction_to`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4855,20 +4864,13 @@ Ok(
                                         ast_idx: 47,
                                         ident: `rotation_direction_to`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `rotation_direction_to`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 47,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -5162,8 +5164,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `angle_to`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -5180,7 +5192,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     ident: `angle_to`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5200,20 +5212,13 @@ Ok(
                                         ast_idx: 48,
                                         ident: `angle_to`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                            ident: `angle_to`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 48,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -5718,8 +5723,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `relative_bounding_box`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -5736,7 +5751,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `relative_bounding_box`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5756,20 +5771,13 @@ Ok(
                                         ast_idx: 66,
                                         ident: `relative_bounding_box`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `relative_bounding_box`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 66,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -6063,8 +6071,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `relative_point`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -6081,7 +6099,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `relative_point`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6101,20 +6119,13 @@ Ok(
                                         ast_idx: 67,
                                         ident: `relative_point`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `relative_point`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 67,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -6408,8 +6419,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `xmin`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -6426,7 +6447,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `xmin`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6446,20 +6467,13 @@ Ok(
                                         ast_idx: 68,
                                         ident: `xmin`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `xmin`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 68,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -6680,8 +6694,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `xmax`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -6698,7 +6722,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `xmax`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6718,20 +6742,13 @@ Ok(
                                         ast_idx: 69,
                                         ident: `xmax`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `xmax`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 69,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -6952,8 +6969,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `ymin`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -6970,7 +6997,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `ymin`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6990,20 +7017,13 @@ Ok(
                                         ast_idx: 70,
                                         ident: `ymin`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `ymin`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 70,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -7224,8 +7244,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `ymax`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -7242,7 +7272,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     ident: `ymax`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -7262,20 +7292,13 @@ Ok(
                                         ast_idx: 71,
                                         ident: `ymax`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                            ident: `ymax`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 71,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -7620,8 +7643,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `xmin`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -7638,7 +7671,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ident: `xmin`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -7658,20 +7691,13 @@ Ok(
                                         ast_idx: 76,
                                         ident: `xmin`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `xmin`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 76,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -7892,8 +7918,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `xmax`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -7910,7 +7946,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ident: `xmax`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -7930,20 +7966,13 @@ Ok(
                                         ast_idx: 77,
                                         ident: `xmax`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `xmax`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 77,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -8164,8 +8193,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `ymin`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -8182,7 +8221,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ident: `ymin`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -8202,20 +8241,13 @@ Ok(
                                         ast_idx: 78,
                                         ident: `ymin`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `ymin`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 78,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -8436,8 +8468,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::geom2d`,
+                                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `ymax`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -8454,7 +8496,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     ident: `ymax`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -8474,20 +8516,13 @@ Ok(
                                         ast_idx: 79,
                                         ident: `ymax`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::geom2d`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                            ident: `ymax`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 79,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {

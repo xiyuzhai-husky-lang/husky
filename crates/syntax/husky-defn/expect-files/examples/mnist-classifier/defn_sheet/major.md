@@ -144,7 +144,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -189,7 +189,7 @@ Ok(
                                                     ident: `find_connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                         ),
                                                     ),
                                                 },

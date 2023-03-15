@@ -61,8 +61,8 @@ pub struct DeclJar(
     associated_item_decl,
     // type item
     ty_item_decls,
-    TypeAssociatedFunctionDecl,
-    TypeMethodDecl,
+    TypeAssociatedFnDecl,
+    TypeMethodFnDecl,
     TypeAssociatedTypeDecl,
     TypeAssociatedValueDecl,
     TypeMemoDecl,

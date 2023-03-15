@@ -92,7 +92,7 @@ pub(crate) fn ty_path_ty_method_cards_aux(
             Some((
                 ident,
                 match decl {
-                    Ok(TypeItemDecl::Method(decl)) => Ok(TypeMethodCard::new(db, decl)),
+                    Ok(TypeItemDecl::MethodFn(decl)) => Ok(TypeMethodCard::new(db, decl)),
                     Ok(_) => return None,
                     Err(_) => Err(()),
                 },
@@ -105,7 +105,7 @@ pub(crate) fn ty_path_ty_method_cards_aux(
 pub struct TypeMethodCard {
     #[id]
     id: AssociatedItemId,
-    pub decl: TypeMethodDecl,
+    pub decl: TypeMethodFnDecl,
     pub signature: SignatureResult<TypeMethodSignature>,
     #[return_ref]
     pub method_ty_info_inner: TermResult<MethodTypeInfo>,
@@ -113,7 +113,7 @@ pub struct TypeMethodCard {
 }
 
 impl TypeMethodCard {
-    fn new(db: &dyn TermDb, decl: TypeMethodDecl) -> Self {
+    fn new(db: &dyn TermDb, decl: TypeMethodFnDecl) -> Self {
         let id = decl.associated_item(db).id(db);
         let signature = ty_method_signature(db, decl);
         let method_ty_info: TermResult<MethodTypeInfo> =

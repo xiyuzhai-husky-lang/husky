@@ -103,10 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::EntityPath {
                 entity_path_expr,
                 path,
-            } => {
-                print_debug_expr!(self, expr_idx);
-                self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region)
-            }
+            } => self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region),
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,

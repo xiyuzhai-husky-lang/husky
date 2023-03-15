@@ -1,15 +1,15 @@
-mod assoc_ty;
-mod assoc_val;
-mod function;
+mod associated_fn;
+mod associated_ty;
+mod associated_value;
 mod memo;
-mod method;
+mod method_fn;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
-pub use function::*;
+pub use associated_fn::*;
+pub use associated_ty::*;
+pub use associated_value::*;
 use husky_word::{Ident, IdentPairMap};
 pub use memo::*;
-pub use method::*;
+pub use method_fn::*;
 
 use crate::*;
 use husky_ast::*;
@@ -18,10 +18,10 @@ use husky_ast::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDecl {
-    Function(TypeAssociatedFunctionDecl),
-    Method(TypeMethodDecl),
-    ExternType(TypeAssociatedTypeDecl),
-    Value(TypeAssociatedValueDecl),
+    AssociatedFn(TypeAssociatedFnDecl),
+    MethodFn(TypeMethodFnDecl),
+    AssociatedType(TypeAssociatedTypeDecl),
+    AssociatedValue(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
 }
 
@@ -50,10 +50,10 @@ pub(crate) fn ty_item_decls<'a>(
 impl TypeItemDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeItemDecl::Function(decl) => decl.ast_idx(db),
-            TypeItemDecl::Method(decl) => decl.ast_idx(db),
-            TypeItemDecl::ExternType(decl) => decl.ast_idx(db),
-            TypeItemDecl::Value(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedValue(decl) => decl.ast_idx(db),
             TypeItemDecl::Memo(decl) => decl.ast_idx(db),
         }
     }
@@ -63,30 +63,31 @@ impl TypeItemDecl {
         _db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
-            TypeItemDecl::Function(_) => todo!(),
-            TypeItemDecl::Method(_) => todo!(),
-            TypeItemDecl::ExternType(_) => todo!(),
-            TypeItemDecl::Value(_) => todo!(),
+            TypeItemDecl::AssociatedFn(_) => todo!(),
+            TypeItemDecl::MethodFn(_) => todo!(),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedValue(_) => todo!(),
             TypeItemDecl::Memo(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeItemDecl::Function(defn) => defn.expr_region(db),
-            TypeItemDecl::Method(defn) => defn.expr_region(db),
-            TypeItemDecl::ExternType(defn) => defn.expr_region(db),
-            TypeItemDecl::Value(defn) => defn.expr_region(db),
+            TypeItemDecl::AssociatedFn(defn) => defn.expr_region(db),
+            TypeItemDecl::MethodFn(defn) => defn.expr_region(db),
+            TypeItemDecl::AssociatedType(defn) => defn.expr_region(db),
+            TypeItemDecl::AssociatedValue(defn) => defn.expr_region(db),
             TypeItemDecl::Memo(defn) => defn.expr_region(db),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> Option<TypeItemPath> {
         match self {
-            TypeItemDecl::Function(_) => todo!(),
-            TypeItemDecl::Method(defn) => defn.path(db),
-            TypeItemDecl::ExternType(_) => todo!(),
-            TypeItemDecl::Value(_) => todo!(),
+            TypeItemDecl::AssociatedFn(_) => todo!(),
+            TypeItemDecl::MethodFn(defn) => todo!(),
+            // defn.path(db),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedValue(_) => todo!(),
             TypeItemDecl::Memo(defn) => defn.path(db),
         }
     }

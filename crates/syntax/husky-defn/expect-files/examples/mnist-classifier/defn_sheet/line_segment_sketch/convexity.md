@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                    path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                     ast_idx: 22,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -24,7 +24,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -289,7 +289,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                                    FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -474,7 +474,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                     ),
                                                 ),
                                             ),

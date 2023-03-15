@@ -17,10 +17,14 @@ pub(crate) fn ty_associated_item_signature(
     decl: TypeItemDecl,
 ) -> SignatureResult<TypeItemSignature> {
     match decl {
-        TypeItemDecl::Function(decl) => ty_associated_function_signature(db, decl).map(Into::into),
-        TypeItemDecl::Method(decl) => ty_method_signature(db, decl).map(Into::into),
-        TypeItemDecl::ExternType(decl) => ty_associated_ty_signature(db, decl).map(Into::into),
-        TypeItemDecl::Value(decl) => ty_associated_value_signature(db, decl).map(Into::into),
+        TypeItemDecl::AssociatedFn(decl) => {
+            ty_associated_function_signature(db, decl).map(Into::into)
+        }
+        TypeItemDecl::MethodFn(decl) => ty_method_signature(db, decl).map(Into::into),
+        TypeItemDecl::AssociatedType(decl) => ty_associated_ty_signature(db, decl).map(Into::into),
+        TypeItemDecl::AssociatedValue(decl) => {
+            ty_associated_value_signature(db, decl).map(Into::into)
+        }
         TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).map(Into::into),
     }
 }

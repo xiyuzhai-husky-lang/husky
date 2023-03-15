@@ -40,22 +40,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [10:27, 10:43),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [23:18, 23:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [44:5, 44:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [44:17, 44:22),
+                range: [10:25, 10:41),
             },
         ],
     },
@@ -66,12 +51,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [44:5, 44:22),
-            },
-        ],
+        diagnostics: [],
     },
 }

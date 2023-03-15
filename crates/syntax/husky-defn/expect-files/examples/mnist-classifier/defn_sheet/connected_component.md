@@ -442,7 +442,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
@@ -450,9 +450,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                    path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                     ast_idx: 123,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -461,7 +461,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -668,7 +668,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -813,7 +813,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1158,7 +1158,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),
@@ -1166,9 +1166,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                    path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                     ast_idx: 126,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1177,7 +1177,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -1442,7 +1442,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1627,7 +1627,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2344,7 +2344,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                         ),
                     ),
                 ),
@@ -2352,9 +2352,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                    path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                     ast_idx: 127,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -2363,7 +2363,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -2560,7 +2560,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2695,7 +2695,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2940,7 +2940,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -3125,7 +3125,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -3419,7 +3419,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -3882,7 +3882,7 @@ Ok(
                                                     ident: `horizontal_extend`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -3893,7 +3893,7 @@ Ok(
                                                     ident: `horizontal_extend`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -3904,7 +3904,7 @@ Ok(
                                                     ident: `horizontal_extend`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -5602,7 +5602,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -5642,7 +5642,7 @@ Ok(
                                                         ident: `find_raw_contours`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                             ),
                                                         ),
                                                     },
@@ -6222,7 +6222,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -6274,7 +6274,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -6348,7 +6348,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -6458,7 +6458,7 @@ Ok(
                                                         ident: `hole_tmpl`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                             ),
                                                         ),
                                                     },
@@ -6469,7 +6469,7 @@ Ok(
                                                         ident: `hole_tmpl`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                             ),
                                                         ),
                                                     },
@@ -6480,7 +6480,7 @@ Ok(
                                                         ident: `hole_tmpl`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                             ),
                                                         ),
                                                     },
@@ -12115,15 +12115,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::connected_component`,
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `top_k_row_span_sum`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::connected_component`,
+                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `top_k_row_span_sum`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -12140,7 +12153,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ident: `top_k_row_span_sum`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -12160,20 +12173,13 @@ Ok(
                                             ast_idx: 75,
                                             ident: `top_k_row_span_sum`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::connected_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                ident: `top_k_row_span_sum`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 75,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -13295,15 +13301,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::connected_component`,
+                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `top_k_row_right_mass_sum`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::connected_component`,
+                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `top_k_row_right_mass_sum`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -13320,7 +13339,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ident: `top_k_row_right_mass_sum`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -13340,20 +13359,13 @@ Ok(
                                             ast_idx: 76,
                                             ident: `top_k_row_right_mass_sum`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::connected_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                ident: `top_k_row_right_mass_sum`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 76,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {

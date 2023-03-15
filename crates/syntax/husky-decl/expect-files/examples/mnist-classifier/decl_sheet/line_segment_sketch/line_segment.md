@@ -320,8 +320,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -338,7 +348,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ident: `displacement`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -358,20 +368,13 @@ Ok(
                                         ast_idx: 13,
                                         ident: `displacement`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch::line_segment`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 13,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -592,8 +595,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `dist_to_point`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -610,7 +623,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ident: `dist_to_point`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -630,20 +643,13 @@ Ok(
                                         ast_idx: 14,
                                         ident: `dist_to_point`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch::line_segment`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            ident: `dist_to_point`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 14,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {

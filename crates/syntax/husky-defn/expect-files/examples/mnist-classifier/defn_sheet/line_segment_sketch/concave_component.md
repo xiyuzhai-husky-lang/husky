@@ -231,7 +231,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                         ),
                     ),
                 ),
@@ -239,9 +239,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                    path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                     ast_idx: 76,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -250,7 +250,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -465,7 +465,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -618,7 +618,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -747,7 +747,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -939,7 +939,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1313,7 +1313,7 @@ Ok(
                                                     ident: `is_convex`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -1324,7 +1324,7 @@ Ok(
                                                     ident: `is_convex`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -7709,15 +7709,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `line_segment`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `line_segment`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -7734,7 +7747,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `line_segment`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -7754,20 +7767,13 @@ Ok(
                                             ast_idx: 45,
                                             ident: `line_segment`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `line_segment`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 45,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -8399,15 +8405,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `start`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `start`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -8424,7 +8443,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `start`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -8444,20 +8463,13 @@ Ok(
                                             ast_idx: 46,
                                             ident: `start`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `start`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 46,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -8976,15 +8988,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `end`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `end`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -9001,7 +9026,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `end`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -9021,20 +9046,13 @@ Ok(
                                             ast_idx: 47,
                                             ident: `end`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `end`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 47,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -9553,15 +9571,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `displacement`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -9578,7 +9609,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `displacement`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -9598,20 +9629,13 @@ Ok(
                                             ast_idx: 48,
                                             ident: `displacement`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `displacement`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 48,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -10106,15 +10130,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `start_tangent`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `start_tangent`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -10131,7 +10168,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `start_tangent`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -10151,20 +10188,13 @@ Ok(
                                             ast_idx: 49,
                                             ident: `start_tangent`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `start_tangent`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 49,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
@@ -10671,15 +10701,28 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
                             TypeItemDefn::Method(
-                                TypeMethodDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                TypeMethodFnDefn {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `end_tangent`,
+                                    },
+                                    decl: TypeMethodFnDecl {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             ident: `end_tangent`,
-                                            ty_item_kind: Method,
                                         },
-                                    ),
-                                    decl: TypeMethodDecl {
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -10696,7 +10739,7 @@ Ok(
                                                     TypeItemPath {
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `end_tangent`,
-                                                        ty_item_kind: Method,
+                                                        ty_item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -10716,20 +10759,13 @@ Ok(
                                             ast_idx: 50,
                                             ident: `end_tangent`,
                                             associated_item_kind: TypeItem(
-                                                Method,
+                                                MethodFn,
                                             ),
                                             accessibility: Accessibility::PublicUnder(
                                                 `mnist_classifier::line_segment_sketch::concave_component`,
                                             ),
                                             is_generic: false,
                                         },
-                                        path: Some(
-                                            TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ident: `end_tangent`,
-                                                ty_item_kind: Method,
-                                            },
-                                        ),
                                         ast_idx: 50,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
