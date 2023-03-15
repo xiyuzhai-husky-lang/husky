@@ -49,12 +49,6 @@ impl Deref for StmtKeyword {
     }
 }
 
-impl const From<StmtKeyword> for Keyword {
-    fn from(stmt: StmtKeyword) -> Self {
-        Keyword::Stmt(stmt)
-    }
-}
-
 impl const From<StmtKeyword> for Token {
     fn from(val: StmtKeyword) -> Self {
         Token::Keyword(val.into())

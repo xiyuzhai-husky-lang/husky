@@ -68,7 +68,6 @@ impl<'a> AstParser<'a> {
             });
         }
         Some(match first_noncomment_token {
-            Token::Attr(_) => self.parse_defn_or_use(token_group_idx, context),
             Token::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => {
                     match context.kind().allow_stmt() {
@@ -139,6 +138,9 @@ impl<'a> AstParser<'a> {
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
                 },
                 Keyword::Connection(_) => todo!(),
+                Keyword::Pub => self.parse_defn_or_use(token_group_idx, context),
+                Keyword::Static => todo!(),
+                Keyword::Async => todo!(),
             },
             Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },
             Token::Punctuation(Punctuation::At) => Ast::Decr { token_group_idx },
@@ -251,7 +253,7 @@ impl<'a> AstParser<'a> {
     fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         for token in &self.token_sheet[token_group_idx] {
             match token {
-                Token::Attr(_) => (),
+                Token::Keyword(Keyword::Pub) => (),
                 Token::Keyword(Keyword::Use) => {
                     return self.parse_use_ast(token_group_idx, context)
                 }

@@ -420,7 +420,6 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                         Token::Keyword(Keyword::End(_))
                         | Token::Punctuation(Punctuation::Colon) => Break,
                         _ => match line_start_token {
-                            Token::Attr(_) => Break,
                             Token::Keyword(Keyword::Pronoun(_)) => Continue,
                             Token::Keyword(kw) => match kw {
                                 Keyword::Pattern(_) | Keyword::End(_) => Continue,

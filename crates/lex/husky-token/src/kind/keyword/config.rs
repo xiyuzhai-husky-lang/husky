@@ -7,12 +7,6 @@ pub enum ConfigKeyword {
     Task,
 }
 
-impl const From<ConfigKeyword> for Keyword {
-    fn from(val: ConfigKeyword) -> Self {
-        Keyword::Config(val)
-    }
-}
-
 impl ConfigKeyword {
     pub const fn code(&self) -> &'static str {
         match self {

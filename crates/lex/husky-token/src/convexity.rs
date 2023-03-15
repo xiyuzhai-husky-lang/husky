@@ -39,7 +39,6 @@ impl Token {
 
     pub fn right_convexity(&self) -> Convexity {
         match self {
-            Token::Attr(_) => todo!(),
             Token::Keyword(_) => Convexity::Concave,
             Token::Ident(_) | Token::Label(_) => Convexity::Convex,
             Token::Punctuation(punctuation) => match punctuation {

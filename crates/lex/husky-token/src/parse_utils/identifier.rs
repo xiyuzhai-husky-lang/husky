@@ -32,7 +32,6 @@ where
                 | Token::Punctuation(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
