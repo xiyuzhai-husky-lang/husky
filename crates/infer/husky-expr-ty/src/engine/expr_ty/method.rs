@@ -65,13 +65,27 @@ impl<'a> ExprTypeEngine<'a> {
         nonself_arguments: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
-        // self.calc_ritchie_call_arguments_expr_ty(
-        //     expr_idx,
-        //     method_ty,
-        //     todo!(),
-        //     nonself_arguments,
-        //     local_term_region,
-        // );
-        Ok(todo!())
+        let method_ty_info = ty_method_card.method_ty_info(self.db)?;
+        let mut nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType> =
+            method_ty_info
+                .nonself_parameter_liasoned_tys()
+                .iter()
+                .map(Into::into)
+                .collect();
+        let mut return_ty: LocalTerm = method_ty_info.return_ty().into();
+        if method_ty_info.implicit_parameters().len() > 0 {
+            todo!()
+        } else {
+            if implicit_arguments.is_some() {
+                todo!()
+            }
+        }
+        self.calc_ritchie_call_nonself_arguments_expr_ty(
+            expr_idx,
+            &nonself_parameter_liasoned_tys,
+            nonself_arguments,
+            local_term_region,
+        );
+        Ok(return_ty)
     }
 }

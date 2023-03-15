@@ -77,13 +77,9 @@ impl LocalTermPattern {
             Term::Ritchie(term) => LocalTermPattern::Ritchie {
                 ritchie_kind: term.ritchie_kind(db),
                 parameter_liasoned_tys: term
-                    .parameter_tys(db)
+                    .parameter_liasoned_tys(db)
                     .iter()
-                    .map(
-                        |parameter_liasoned_ty| LocalTermRitchieParameterLiasonedType {
-                            ty: parameter_liasoned_ty.ty().into(),
-                        },
-                    )
+                    .map(Into::into)
                     .collect(),
                 return_ty: term.return_ty(db).into(),
             },

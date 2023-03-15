@@ -10,7 +10,9 @@ pub fn ty_method_signature(
     let impl_block = decl.associated_item(db).impl_block(db);
     let self_parameter = match impl_block {
         ImplBlock::Type(impl_block) => {
-            ty_impl_block_signature(db, ty_impl_block_decl(db, impl_block)?)?
+            let ty_impl_block_signature =
+                ty_impl_block_signature(db, ty_impl_block_decl(db, impl_block)?)?;
+            RegularParameterSignature::new_self_parameter(ty_impl_block_signature.ty(db))
         }
         ImplBlock::TypeAsTrait(_) | ImplBlock::IllFormed(_) => unreachable!(),
     };
@@ -34,17 +36,18 @@ pub fn ty_method_signature(
     Ok(TypeMethodSignature::new(
         db,
         implicit_parameters,
-        todo!(),
+        self_parameter,
         parameters,
         return_ty,
     ))
 }
 
-#[salsa::tracked(db = SignatureDb, jar = SignatureJar)]
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeMethodSignature {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
+    #[return_ref]
     pub self_parameter: RegularParameterSignature,
     #[return_ref]
     pub nonself_regular_parameters: RegularParameterSignatures,

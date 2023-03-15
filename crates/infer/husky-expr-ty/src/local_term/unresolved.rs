@@ -25,7 +25,28 @@ pub(crate) enum UnresolvedTerm {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct LocalTermRitchieParameterLiasonedType {
-    pub(crate) ty: LocalTerm,
+    ty: LocalTerm,
+}
+
+impl LocalTermRitchieParameterLiasonedType {
+    pub(crate) fn ty(self) -> LocalTerm {
+        self.ty
+    }
+}
+
+impl From<TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
+    fn from(liasoned_ty: TermRitchieParameterLiasonedType) -> Self {
+        Self {
+            ty: liasoned_ty.ty().into(),
+        }
+    }
+}
+impl From<&TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
+    fn from(liasoned_ty: &TermRitchieParameterLiasonedType) -> Self {
+        Self {
+            ty: liasoned_ty.ty().into(),
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

@@ -64,13 +64,7 @@ where
         path: TypePath,
     ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeItemDecl, ()>)]> {
         match ty_item_decls(self, path) {
-            Ok(ty_item_decls) => {
-                if path.ident(self).data(self) == "RawContour" {
-                    p!(ty_item_decls.len());
-                    todo!()
-                }
-                Ok(ty_item_decls)
-            }
+            Ok(ty_item_decls) => Ok(ty_item_decls),
             Err(e) => Err(e),
         }
     }

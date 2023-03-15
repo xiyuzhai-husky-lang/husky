@@ -368,7 +368,11 @@ impl<'a> ExprTypeEngine<'a> {
                             .map_err(Into::into),
                     )),
                 },
-                EntityPath::AssociatedItem(_) => todo!(),
+                EntityPath::AssociatedItem(path) => match path {
+                    AssociatedItemPath::TypeItem(_) => todo!(),
+                    AssociatedItemPath::TraitItem(_) => todo!(),
+                    AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+                },
                 EntityPath::Variant(_) => todo!(),
             },
         }
@@ -422,10 +426,9 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_liasoned_tys,
             } => {
-                self.calc_ritchie_call_arguments_expr_ty(
+                self.calc_ritchie_call_nonself_arguments_expr_ty(
                     expr_idx,
-                    ritchie_kind,
-                    parameter_liasoned_tys.to_vec(),
+                    &parameter_liasoned_tys,
                     *items,
                     local_term_region,
                 );

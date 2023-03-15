@@ -182,10 +182,6 @@ pub(crate) fn ty_items(
 ) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
-    if path.ident(db).data(db) == "RawContour" {
-        p!(entity_tree_crate_bundle.all_ty_impl_blocks().count());
-        todo!()
-    }
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
         .filter_map(|impl_block| {
