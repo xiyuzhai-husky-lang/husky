@@ -19,17 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [15:60, 15:72),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [21:60, 21:72),
-            },
-        ],
+        diagnostics: [],
     },
 }

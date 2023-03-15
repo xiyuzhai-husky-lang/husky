@@ -36,12 +36,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `norm` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::geom2d::Vector2d)`))`",
-                severity: Error,
-                range: [68:32, 68:36),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -76,7 +76,7 @@ pub(crate) fn term_curry_symbols(db: &dyn TermDb, term: TermCurry) -> Option<Ter
 #[salsa::tracked(jar = TermJar)]
 pub(crate) fn term_ritchie_symbols(db: &dyn TermDb, term: TermRitchie) -> Option<TermSymbols> {
     let mut symbols: Option<TermSymbols> = None;
-    for parameter_ty in term.parameter_tys(db) {
+    for parameter_ty in term.parameter_liasoned_tys(db) {
         symbols = TermSymbols::merge(symbols, calc_term_symbols(db, parameter_ty.ty()))
     }
     TermSymbols::merge(symbols, calc_term_symbols(db, term.return_ty(db)))

@@ -1,11 +1,10 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_ritchie_call_arguments_expr_ty(
+    pub(super) fn calc_ritchie_call_nonself_arguments_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
-        ritchie_kind: TermRitchieKind,
-        nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
+        nonself_parameter_liasoned_tys: &[LocalTermRitchieParameterLiasonedType],
         nonself_arguments: ExprIdxRange,
         local_term_region: &mut LocalTermRegion,
     ) {
@@ -24,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty_discarded(
                     nonself_argument,
                     ExpectImplicitlyConvertible {
-                        destination: nonself_parameter_liasoned_ty.ty,
+                        destination: nonself_parameter_liasoned_ty.ty(),
                     },
                     local_term_region,
                 );

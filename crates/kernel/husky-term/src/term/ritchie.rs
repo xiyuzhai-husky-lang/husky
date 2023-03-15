@@ -7,7 +7,7 @@ use super::*;
 pub struct TermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<TermRitchieParameterLiasonedType>,
+    pub parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
     pub return_ty: Term,
 }
 
@@ -82,7 +82,7 @@ impl TermRitchie {
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        for parameter_liasoned_ty in self.parameter_tys(db) {
+        for parameter_liasoned_ty in self.parameter_liasoned_tys(db) {
             parameter_liasoned_ty.check(db)?
         }
         self.return_ty(db).check_is_ins_ty0(db)
@@ -107,11 +107,11 @@ impl TermRitchie {
             TermRitchieKind::Fn => f.write_str("Fn(")?,
             TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
-        for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
+        for (i, parameter_liasoned_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_ty.show_with_db_fmt(f, db, ctx)?
+            parameter_liasoned_ty.show_with_db_fmt(f, db, ctx)?
         }
         f.write_str(") -> ")?;
         self.return_ty(db).show_with_db_fmt(f, db, ctx)
@@ -165,7 +165,7 @@ where
             TermRitchieKind::Fn => f.write_str("Fn(")?,
             TermRitchieKind::FnMut => f.write_str("FnMut(")?,
         }
-        for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
+        for (i, parameter_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }

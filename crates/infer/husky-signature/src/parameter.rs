@@ -113,6 +113,13 @@ impl RegularParameterSignature {
     pub fn ty(&self) -> RawTerm {
         self.ty
     }
+
+    pub(crate) fn new_self_parameter(ty: RawTerm) -> Self {
+        Self {
+            pattern: ParameterSignaturePattern {},
+            ty,
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

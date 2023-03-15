@@ -29,20 +29,18 @@ pub struct TypeAsTraitMethodCard {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum MethodTypeInfo {
-    Ritchie {
-        implicit_parameters: Vec<TermSymbol>,
-        self_liasoned_ty: TermRitchieParameterLiasonedType,
-        nonself_parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
-        return_ty: Term,
-        where_clause: (),
-    },
+pub struct MethodTypeInfo {
+    implicit_parameters: Vec<TermSymbol>,
+    self_liasoned_ty: TermRitchieParameterLiasonedType,
+    nonself_parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
+    return_ty: Term,
+    where_clause: (),
 }
 
 impl MethodTypeInfo {
     fn ty(&self, db: &dyn TermDb) -> TermResult<Term> {
         match self {
-            MethodTypeInfo::Ritchie {
+            MethodTypeInfo {
                 implicit_parameters,
                 self_liasoned_ty,
                 nonself_parameter_liasoned_tys,
@@ -59,5 +57,25 @@ impl MethodTypeInfo {
                 method_ty.checked(db)
             }
         }
+    }
+
+    pub fn implicit_parameters(&self) -> &[TermSymbol] {
+        self.implicit_parameters.as_ref()
+    }
+
+    pub fn self_liasoned_ty(&self) -> TermRitchieParameterLiasonedType {
+        self.self_liasoned_ty
+    }
+
+    pub fn nonself_parameter_liasoned_tys(&self) -> &[TermRitchieParameterLiasonedType] {
+        self.nonself_parameter_liasoned_tys.as_ref()
+    }
+
+    pub fn return_ty(&self) -> Term {
+        self.return_ty
+    }
+
+    pub fn where_clause(&self) -> () {
+        self.where_clause
     }
 }

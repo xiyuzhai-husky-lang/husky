@@ -1,5 +1,5 @@
 use husky_entity_tree::EntityTreeBundleResultRef;
-use husky_signature::ty_method_signature;
+use husky_signature::{ty_method_signature, RegularParameterSignature};
 use vec_like::VecMapGetEntry;
 
 use super::*;
@@ -26,10 +26,6 @@ pub(crate) fn ty_ontology_path_ty_method_card(
     ident: Ident,
 ) -> TermResult<Option<TypeMethodCard>> {
     let ty_method_cards = ty_path_ty_method_cards(db, path)?;
-    if path.ident(db).data(db) == "RawContour" {
-        p!(ty_method_cards.len());
-        todo!()
-    }
     let Some(entry) = ty_method_cards.get_entry(ident) else {
         return Ok(None)
     };
@@ -112,7 +108,7 @@ pub struct TypeMethodCard {
     pub decl: TypeMethodDecl,
     pub signature: SignatureResult<TypeMethodSignature>,
     #[return_ref]
-    pub method_ty_info: TermResult<MethodTypeInfo>,
+    pub method_ty_info_inner: TermResult<MethodTypeInfo>,
     pub method_ty: TermResult<Term>,
 }
 
@@ -129,6 +125,13 @@ impl TypeMethodCard {
             .flatten();
         Self::new_inner(db, id, decl, signature, method_ty_info, method_ty)
     }
+
+    pub fn method_ty_info<'a>(self, db: &'a dyn TermDb) -> TermResult<&'a MethodTypeInfo> {
+        match self.method_ty_info_inner(db) {
+            Ok(ty_info) => Ok(ty_info),
+            Err(e) => Err(*e),
+        }
+    }
 }
 
 impl MethodTypeInfo {
@@ -138,28 +141,35 @@ impl MethodTypeInfo {
     ) -> TermResult<Self> {
         // todo: formal method, method that is not a function pointer
         let signature = signature?;
+        let t = |parameter_sig:& RegularParameterSignature| -> TermResult<TermRitchieParameterLiasonedType>{
+            Ok(TermRitchieParameterLiasonedType::new(
+                Term::from_raw_unchecked(
+                    db,
+                    parameter_sig.ty(),
+                    TermTypeExpectation::FinalDestinationEqsSort,
+                )?,
+            ))
+        };
+        let self_liasoned_ty = t(signature.self_parameter(db))?;
         let nonself_parameter_liasoned_tys = signature
             .nonself_regular_parameters(db)
             .iter()
-            .map(|parameter_sig| {
-                Ok(TermRitchieParameterLiasonedType::new(
-                    Term::from_raw_unchecked(
-                        db,
-                        parameter_sig.ty(),
-                        TermTypeExpectation::FinalDestinationEqsSort,
-                    )?,
-                ))
-            })
+            .map(t)
             .collect::<TermResult<Vec<_>>>()?;
         let return_ty = Term::from_raw(
             db,
             signature.return_ty(db),
             TermTypeExpectation::FinalDestinationEqsSort,
         )?;
-        Ok(Self::Ritchie {
-            implicit_parameters: todo!(),
-            self_liasoned_ty: todo!(),
-            nonself_parameter_liasoned_tys: todo!(),
+        let implicit_parameters = signature
+            .implicit_parameters(db)
+            .iter()
+            .map(|_| todo!())
+            .collect();
+        Ok(Self {
+            implicit_parameters,
+            self_liasoned_ty,
+            nonself_parameter_liasoned_tys,
             return_ty,
             where_clause: (),
         })

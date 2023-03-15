@@ -88,11 +88,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `top_k_row_right_mass_sum` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`))`",
-                severity: Error,
-                range: [88:43, 88:67),
-            },
-            Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [92:9, 92:25),
