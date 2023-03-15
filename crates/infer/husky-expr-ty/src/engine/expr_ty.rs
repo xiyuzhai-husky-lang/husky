@@ -103,7 +103,10 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::EntityPath {
                 entity_path_expr,
                 path,
-            } => self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region),
+            } => {
+                print_debug_expr!(self, expr_idx);
+                self.calc_entity_path_expr_ty(path, expr_ty_expectation, local_term_region)
+            }
             Expr::InheritedSymbol {
                 ident,
                 inherited_symbol_idx,
@@ -369,7 +372,9 @@ impl<'a> ExprTypeEngine<'a> {
                     )),
                 },
                 EntityPath::AssociatedItem(path) => match path {
-                    AssociatedItemPath::TypeItem(_) => todo!(),
+                    AssociatedItemPath::TypeItem(path) => {
+                        todo!()
+                    }
                     AssociatedItemPath::TraitItem(_) => todo!(),
                     AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
                 },
