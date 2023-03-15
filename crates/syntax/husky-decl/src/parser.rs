@@ -432,7 +432,7 @@ impl<'a> DeclParser<'a> {
             FormKind::Feature => {
                 self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
-            FormKind::Function => {
+            FormKind::Fn => {
                 self.parse_function_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
             FormKind::Value => todo!(),
@@ -536,7 +536,7 @@ impl<'a> DeclParser<'a> {
                 AssociatedItemKind::TraitItem(_) => todo!(),
                 AssociatedItemKind::TypeItem(ty_item_kind) => {
                     AssociatedItemDecl::TypeItem(match ty_item_kind {
-                        TypeItemKind::Method => self
+                        TypeItemKind::MethodFn => self
                             .parse_ty_method_decl(
                                 ast_idx,
                                 token_group_idx,
@@ -544,7 +544,7 @@ impl<'a> DeclParser<'a> {
                                 saved_stream_state,
                             )?
                             .into(),
-                        TypeItemKind::AssociatedFunction => todo!(),
+                        TypeItemKind::AssociatedFn => todo!(),
                         TypeItemKind::Memo => self
                             .parse_ty_memo_decl(
                                 ast_idx,
@@ -557,7 +557,7 @@ impl<'a> DeclParser<'a> {
                 }
                 AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => {
                     AssociatedItemDecl::TypeAsTraitItem(match ty_as_trai_item_kind {
-                        TraitItemKind::Method => self
+                        TraitItemKind::MethodFn => self
                             .parse_ty_as_trai_method_decl(
                                 ast_idx,
                                 token_group_idx,

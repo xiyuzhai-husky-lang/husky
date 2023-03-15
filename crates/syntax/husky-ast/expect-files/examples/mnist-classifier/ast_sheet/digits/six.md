@@ -498,39 +498,12 @@ Ok(
                         79,
                     ),
                 },
-                Ast::Defn {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
                     body: ArenaIdxRange(
                         26..38,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::six`,
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-                            ),
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `is_six`,
-                        token_idx: TokenIdx(
-                            93,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        94,
                     ),
                 },
                 Ast::Defn {
@@ -545,14 +518,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::upmost`, `Function`),
+                                FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
                             ),
                         ),
                     ),
@@ -580,14 +553,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::bottom1`, `Function`),
+                                FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                             ),
                         ),
                     ),

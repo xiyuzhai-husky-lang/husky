@@ -35,7 +35,7 @@ use std::ops::Deref;
 pub enum Keyword {
     Config(ConfigKeyword),
     Form(FormKeyword),
-    Type(TypeKeyword),
+    TypeEntity(TypeEntityKeyword),
     Stmt(StmtKeyword),
     Pattern(PatternKeyword),
     Pronoun(PronounKeyword),
@@ -69,7 +69,7 @@ impl Keyword {
         match self {
             Keyword::Config(keyword) => keyword.code(),
             Keyword::Form(keyword) => keyword.code(),
-            Keyword::Type(keyword) => keyword.code(),
+            Keyword::TypeEntity(keyword) => keyword.code(),
             Keyword::Stmt(keyword) => keyword.code(),
             Keyword::Use => "use",
             Keyword::Mod => "mod",

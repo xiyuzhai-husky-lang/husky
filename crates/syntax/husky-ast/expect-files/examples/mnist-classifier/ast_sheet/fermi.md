@@ -288,14 +288,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                             ),
                         ),
                     ),

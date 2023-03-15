@@ -7,13 +7,13 @@ use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 use crate::one::is_one
 
-func six_match -> FermiMatchResult:
+fn six_match -> FermiMatchResult:
     fermi_match(major_concave_components, [upmost])
 
-func six_match_refined1 -> FermiMatchResult:
+fn six_match_refined1 -> FermiMatchResult:
     fermi_match(major_concave_components, [upmost, bottom1])
 
-def is_six -> ?MnistLabel:
+mm is_six -> ?MnistLabel:
     require is_one be none
     let upmost_match = six_match.matches[0]
     require upmost_match be some
@@ -68,12 +68,12 @@ def is_six -> ?MnistLabel:
     require lower_excess > 15.0
     MnistLabel::Six
 
-func upmost(cc: ~ConcaveComponent) -> ?f32:
+fn upmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
-func bottom1(cc: ~ConcaveComponent) -> ?f32:
+fn bottom1(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     if dp.y < -3.0:
         require (dp.x / dp.y).abs() > 1.4

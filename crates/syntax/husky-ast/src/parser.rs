@@ -122,7 +122,7 @@ impl<'a> AstParser<'a> {
                 | Keyword::Form(_)
                 | Keyword::Visual
                 | Keyword::Trait
-                | Keyword::Type(_) => self.parse_defn(context, token_group_idx),
+                | Keyword::TypeEntity(_) => self.parse_defn(context, token_group_idx),
                 Keyword::Impl => Ast::Impl {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(
@@ -138,8 +138,7 @@ impl<'a> AstParser<'a> {
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
                 },
                 Keyword::Connection(_) => todo!(),
-                Keyword::Pub => self.parse_defn_or_use(token_group_idx, context),
-                Keyword::Static => todo!(),
+                Keyword::Pub | Keyword::Static => self.parse_defn_or_use(token_group_idx, context),
                 Keyword::Async => todo!(),
             },
             Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },
@@ -265,7 +264,7 @@ impl<'a> AstParser<'a> {
                 | Token::Literal(_) => {
                     return Ast::Err {
                         token_group_idx,
-                        error: OriginalAstError::ExpectDecoratorOrEntityKeyword.into(),
+                        error: OriginalAstError::ExpectedDecoratorOrEntityKeyword.into(),
                     }
                 }
                 Token::Error(_) => todo!(),

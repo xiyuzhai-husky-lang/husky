@@ -14,7 +14,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

@@ -25,11 +25,13 @@ pub enum OriginalAstError {
     #[error("standalone else")]
     StandaloneElse,
     #[error("expected entity keyword")]
-    ExpectEntityKeyword,
+    ExpectedEntityKeyword,
     #[error("expected decorator or entity keyword")]
-    ExpectDecoratorOrEntityKeyword,
+    ExpectedDecoratorOrEntityKeyword,
+    #[error("expected entity keyword group")]
+    ExpectedEntityKeywordGroup(TokenIdx),
     #[error("expected identifier")]
-    ExpectIdent(TokenIdx),
+    ExpectedIdent(TokenIdx),
     #[error("unexpected end after `pub`")]
     UnexpectedEndOfTokenGroupAfterPubKeyword(TokenIdx),
     #[error("expected nothing")]

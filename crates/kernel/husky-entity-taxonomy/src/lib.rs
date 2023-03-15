@@ -13,7 +13,7 @@ pub enum TypeKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum FormKind {
     Feature,
-    Function,
+    Fn,
     Value,
     TypeAlias,
 }
@@ -32,6 +32,7 @@ pub enum EntityKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[enum_class::from_variants]
 pub enum ModuleItemKind {
     Type(TypeKind),
     Form(FormKind),
@@ -47,14 +48,14 @@ pub enum AssociatedItemKind {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TypeItemKind {
-    Method,
-    AssociatedFunction,
+    MethodFn,
+    AssociatedFn,
     Memo,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitItemKind {
-    Method,
+    MethodFn,
     AssociatedType,
 }
 

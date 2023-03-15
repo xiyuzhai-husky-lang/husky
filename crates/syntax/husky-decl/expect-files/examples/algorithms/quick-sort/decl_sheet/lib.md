@@ -5,7 +5,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort`, `Function`),
+                            FormPath(`quick_sort::quick_sort`, `Fn`),
                         ),
                     ),
                 ),
@@ -13,7 +13,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`quick_sort::quick_sort`, `Function`),
+                                path: FormPath(`quick_sort::quick_sort`, `Fn`),
                                 ast_idx: 30,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -22,7 +22,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                                        FormPath(`quick_sort::quick_sort`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -292,7 +292,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
@@ -300,7 +300,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                 ast_idx: 31,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -309,7 +309,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -722,7 +722,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::partition`, `Function`),
+                            FormPath(`quick_sort::partition`, `Fn`),
                         ),
                     ),
                 ),
@@ -730,7 +730,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`quick_sort::partition`, `Function`),
+                                path: FormPath(`quick_sort::partition`, `Fn`),
                                 ast_idx: 32,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -739,7 +739,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::partition`, `Function`),
+                                                        FormPath(`quick_sort::partition`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1172,16 +1172,73 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                        FormDecl::Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 ast_idx: 34,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [],
+                                    },
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                parameter_decl_list: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectParameterDeclList(
+                                            TokenIdx(
+                                                228,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 curry_token: Err(
                                     DeclExprError::Original(
                                         OriginalDeclExprError::ExpectCurry(
@@ -1207,6 +1264,25 @@ Ok(
                                         ),
                                     ),
                                 ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Form(
+                        FormDecl::Function(
+                            FunctionDecl {
+                                path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                ast_idx: 36,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -1214,7 +1290,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1252,25 +1328,18 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                                ast_idx: 36,
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                parameter_decl_list: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectParameterDeclList(
+                                            TokenIdx(
+                                                288,
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 curry_token: Err(
                                     DeclExprError::Original(
                                         OriginalDeclExprError::ExpectCurry(
@@ -1296,51 +1365,6 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [],
-                                    },
-                                },
                             },
                         ),
                     ),

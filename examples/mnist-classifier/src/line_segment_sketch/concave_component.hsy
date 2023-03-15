@@ -10,14 +10,14 @@ pub struct ConcaveComponent {
 }
 
 impl ConcaveComponent:
-    func norm -> f32:
+    fn norm -> f32:
         // needs improvement
         self.hausdorff_norm
     
-    func rel_norm -> f32:
+    fn rel_norm -> f32:
         self.norm / self.displacement().norm()
 
-    proc hausdorff_norm -> f32:
+    fn hausdorff_norm -> f32:
         let mut hausdorff_norm = 0.0
         let curve_start = self.strokes.firstx().start
         let curve_ls = self.line_segment()
@@ -30,7 +30,7 @@ impl ConcaveComponent:
                 hausdorff_norm = point_dist
         return hausdorff_norm
 
-    proc angle_change -> f32:
+    fn angle_change -> f32:
         let mut angle_change = 0.0
         let mut dp0 = self.strokes[self.strokes.start].displacement()
         // todo: change self for .. in ..[1..]
@@ -40,7 +40,7 @@ impl ConcaveComponent:
             dp0 = dp
         return angle_change
     
-    proc bounding_box -> BoundingBox:
+    fn bounding_box -> BoundingBox:
         let start_point = self.strokes.firstx().start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
@@ -57,34 +57,34 @@ impl ConcaveComponent:
             ClosedRange(ymin, ymax),
         )
     
-    func relative_bounding_box -> RelativeBoundingBox:
+    fn relative_bounding_box -> RelativeBoundingBox:
         self.line_segment_sketch.bounding_box.relative_bounding_box(self.bounding_box)
 
-    func line_segment() -> LineSegment:
+    fn line_segment() -> LineSegment:
         LineSegment(
             self.strokes.firstx().start.clone(),
             self.strokes.lastx().end.clone()
         )
 
-    func start() -> Point2d:
+    fn start() -> Point2d:
         self.strokes.firstx().start.clone()
     
-    func end() -> Point2d:
+    fn end() -> Point2d:
         self.strokes.lastx().end.clone()
     
-    func displacement() -> Vector2d:
+    fn displacement() -> Vector2d:
         self.line_segment().displacement()
 
-    func start_tangent() -> Vector2d:
+    fn start_tangent() -> Vector2d:
         self.strokes.firstx().displacement()        
 
-    func end_tangent() -> Vector2d:
+    fn end_tangent() -> Vector2d:
         self.strokes.lastx().displacement()
 
     visual:
         strokes
 
-pub proc find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
+pub fn find_concave_components(line_segment_sketch: &LineSegmentSketch) -> []ConcaveComponent:
     let mut concave_components: []ConcaveComponent = []
     let L = line_segment_sketch.strokes.ilen()
     let mut start = 0

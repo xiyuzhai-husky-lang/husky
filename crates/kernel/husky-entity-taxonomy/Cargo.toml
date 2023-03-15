@@ -8,3 +8,4 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 serde = { version = "1.0.106", features = ["derive"] }
+enum-class = { path = "../../abstraction/enum-class" }

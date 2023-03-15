@@ -252,14 +252,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`quick_sort::quick_sort`, `Function`),
+                                FormPath(`quick_sort::quick_sort`, `Fn`),
                             ),
                         ),
                     ),
@@ -287,14 +287,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                             ),
                         ),
                     ),
@@ -322,14 +322,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`quick_sort::partition`, `Function`),
+                                FormPath(`quick_sort::partition`, `Fn`),
                             ),
                         ),
                     ),
@@ -362,14 +362,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                             ),
                         ),
                     ),
@@ -402,14 +402,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                             ),
                         ),
                     ),

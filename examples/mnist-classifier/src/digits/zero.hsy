@@ -7,14 +7,14 @@ use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 use crate::one::is_one
 
-func open_one_match -> FermiMatchResult:
+fn open_one_match -> FermiMatchResult:
     fermi_match(major_concave_components, [almost_closed])
 
-func almost_closed(cc: ~ConcaveComponent) -> ?f32:
+fn almost_closed(cc: ~ConcaveComponent) -> ?f32:
     require cc.angle_change + 0.0 < -140.0
     -cc.angle_change + 0.0
 
-def is_zero -> ?MnistLabel:
+mm is_zero -> ?MnistLabel:
     require is_one be none
     if major_connected_component.raw_contours.ilen() == 1:
         n = open_one_match.norm

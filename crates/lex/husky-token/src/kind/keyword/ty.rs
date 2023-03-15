@@ -3,7 +3,7 @@ use std::ops::Deref;
 use crate::{Keyword, Token};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TypeKeyword {
+pub enum TypeEntityKeyword {
     Extern,
     Struct,
     Enum,
@@ -12,20 +12,20 @@ pub enum TypeKeyword {
     Inductive,
 }
 
-impl TypeKeyword {
+impl TypeEntityKeyword {
     pub const fn code(self) -> &'static str {
         match self {
-            TypeKeyword::Extern => "extern",
-            TypeKeyword::Struct => "struct",
-            TypeKeyword::Enum => "enum",
-            TypeKeyword::Record => "record",
-            TypeKeyword::Structure => "structure",
-            TypeKeyword::Inductive => "inductive",
+            TypeEntityKeyword::Extern => "extern",
+            TypeEntityKeyword::Struct => "struct",
+            TypeEntityKeyword::Enum => "enum",
+            TypeEntityKeyword::Record => "record",
+            TypeEntityKeyword::Structure => "structure",
+            TypeEntityKeyword::Inductive => "inductive",
         }
     }
 }
 
-impl Deref for TypeKeyword {
+impl Deref for TypeEntityKeyword {
     type Target = str;
 
     fn deref(&self) -> &Self::Target {
@@ -33,8 +33,8 @@ impl Deref for TypeKeyword {
     }
 }
 
-impl const From<TypeKeyword> for Token {
-    fn from(val: TypeKeyword) -> Self {
+impl const From<TypeEntityKeyword> for Token {
+    fn from(val: TypeEntityKeyword) -> Self {
         Token::Keyword(val.into())
     }
 }

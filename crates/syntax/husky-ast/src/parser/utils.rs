@@ -27,16 +27,16 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
         })
     }
 
-    fn take_entity_kind_keyword(&mut self) -> AstResult<Keyword> {
+    fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKeywordGroup> {
         let (idx, token) = self
             .borrow_mut()
             .next_indexed()
-            .ok_or(OriginalAstError::ExpectEntityKeyword)?;
+            .ok_or(OriginalAstError::ExpectedEntityKeyword)?;
         Ok(match token {
             // self.take_entity_kind_keyword()?,
             Token::Keyword(kw) => todo!(),
             // kw,
-            _ => return Err(OriginalAstError::ExpectEntityKeyword.into()),
+            _ => return Err(OriginalAstError::ExpectedEntityKeyword.into()),
         })
     }
 

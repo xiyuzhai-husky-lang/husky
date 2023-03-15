@@ -12,7 +12,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -38,7 +38,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -64,7 +64,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -90,7 +90,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -116,7 +116,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -144,7 +144,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -170,7 +170,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -196,7 +196,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -222,7 +222,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -248,7 +248,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -274,7 +274,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -300,7 +300,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -326,7 +326,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -352,7 +352,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -378,7 +378,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -404,7 +404,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -430,7 +430,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -456,7 +456,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -482,7 +482,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -508,7 +508,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -534,7 +534,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -560,7 +560,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -586,7 +586,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -612,7 +612,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -638,7 +638,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -666,7 +666,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -692,7 +692,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -718,7 +718,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

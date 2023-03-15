@@ -2,32 +2,12 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Defn {
+                Ast::Err {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `natural_number_game`,
-                    ),
-                    entity_kind: AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                    entity_path: None,
-                    ident_token: IdentToken {
-                        ident: `add`,
-                        token_idx: TokenIdx(
-                            13,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: EnumVariants,
-                    saved_stream_state: TokenIdx(
-                        14,
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Err {
@@ -110,7 +90,7 @@ Ok(
                         7,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 46,
                             ),

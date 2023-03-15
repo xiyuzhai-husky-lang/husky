@@ -14,7 +14,7 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
-                                ast_idx: 68,
+                                ast_idx: 18,
                                 curry_token: Ok(
                                     CurryToken(
                                         TokenIdx(
@@ -104,113 +104,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                                ast_idx: 69,
-                                curry_token: Ok(
-                                    CurryToken(
-                                        TokenIdx(
-                                            78,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
-                                        expr: 1,
-                                    },
-                                ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            81,
-                                        ),
-                                    ),
-                                ),
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                80,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        79,
-                                                    ),
-                                                    opd: 0,
-                                                },
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: ReturnType,
-                                                expr: 1,
-                                            },
-                                        ],
-                                    },
-                                },
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                            FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
                         ),
                     ),
                 ),
@@ -218,8 +112,8 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
-                                ast_idx: 70,
+                                path: FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                ast_idx: 65,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -227,7 +121,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -432,7 +326,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                            FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
                         ),
                     ),
                 ),
@@ -440,8 +334,8 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
-                                ast_idx: 71,
+                                path: FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                ast_idx: 66,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -449,7 +343,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -654,7 +548,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                            FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
                         ),
                     ),
                 ),
@@ -662,8 +556,8 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::one::hat`, `Function`),
-                                ast_idx: 72,
+                                path: FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                ast_idx: 67,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -671,7 +565,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
                                                     ),
                                                 ),
                                             ),
