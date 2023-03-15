@@ -373,6 +373,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 EntityPath::AssociatedItem(path) => match path {
                     AssociatedItemPath::TypeItem(path) => {
+                        p!(path.debug(self.db));
                         todo!()
                     }
                     AssociatedItemPath::TraitItem(_) => todo!(),

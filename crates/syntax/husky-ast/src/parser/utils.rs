@@ -12,23 +12,17 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
         let token_stream = self.borrow_mut();
         Ok(match token_stream.peek().unwrap() {
-            Token::Attr(decor) => match decor {
-                AttributeKeyword::Pub => {
-                    token_stream.next();
-                    match token_stream.peek().ok_or(
-                        OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(
-                            token_stream.state(),
-                        ),
-                    )? {
-                        Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
-                        _ => Accessibility::Public,
-                    }
+            Token::Keyword(Keyword::Pub) => {
+                token_stream.next();
+                match token_stream.peek().ok_or(
+                    OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(
+                        token_stream.state(),
+                    ),
+                )? {
+                    Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
+                    _ => Accessibility::Public,
                 }
-                AttributeKeyword::Protected => todo!(),
-                AttributeKeyword::Private => todo!(),
-                AttributeKeyword::Async => todo!(),
-                AttributeKeyword::Static => Accessibility::Public,
-            },
+            }
             _ => Accessibility::PublicUnder(self.module_path()),
         })
     }
@@ -39,8 +33,9 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
             .next_indexed()
             .ok_or(OriginalAstError::ExpectEntityKeyword)?;
         Ok(match token {
-            Token::Attr(_) => self.take_entity_kind_keyword()?,
-            Token::Keyword(kw) => kw,
+            // self.take_entity_kind_keyword()?,
+            Token::Keyword(kw) => todo!(),
+            // kw,
             _ => return Err(OriginalAstError::ExpectEntityKeyword.into()),
         })
     }

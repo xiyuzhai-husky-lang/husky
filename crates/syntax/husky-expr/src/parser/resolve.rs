@@ -14,7 +14,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         token: Token,
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(match token {
-            Token::Attr(_) => todo!(),
             Token::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
                 PronounKeyword::Crate => todo!(),
                 PronounKeyword::SelfType => match self.allow_self_type() {

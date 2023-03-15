@@ -143,7 +143,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -194,8 +193,7 @@ where
                 | Token::Punctuation(_)
                 | Token::Ident(_)
                 | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Attr(_) => Ok(None),
+                | Token::Literal(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -264,7 +262,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -301,7 +298,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -340,7 +336,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -379,7 +374,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -418,7 +412,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -450,14 +443,13 @@ where
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Attr(AttributeKeyword::Pub) => Ok(Some(PubToken { token_idx })),
+                Token::Keyword(Keyword::Pub) => Ok(Some(PubToken { token_idx })),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -496,7 +488,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -552,7 +543,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -608,7 +598,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -663,7 +652,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -718,7 +706,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {
@@ -776,7 +763,6 @@ where
                 | Token::Ident(_)
                 | Token::WordOpr(_)
                 | Token::Literal(_)
-                | Token::Attr(_)
                 | Token::Keyword(_) => Ok(None),
             }
         } else {

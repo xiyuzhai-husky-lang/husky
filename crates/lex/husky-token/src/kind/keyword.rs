@@ -31,6 +31,7 @@ use std::ops::Deref;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
+#[enum_class::const_from_variants]
 pub enum Keyword {
     Config(ConfigKeyword),
     Form(FormKeyword),
@@ -46,12 +47,9 @@ pub enum Keyword {
     Trait,
     Connection(ConnectionKeyword),
     End(EndKeyword),
-}
-
-impl From<ConnectionKeyword> for Keyword {
-    fn from(v: ConnectionKeyword) -> Self {
-        Self::Connection(v)
-    }
+    Pub,
+    Static,
+    Async,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -83,6 +81,9 @@ impl Keyword {
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
+            Keyword::Pub => "pub",
+            Keyword::Static => "pub",
+            Keyword::Async => "async",
         }
     }
 }

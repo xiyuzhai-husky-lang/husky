@@ -12,6 +12,7 @@ pub enum FormKeyword {
     Proposition,
     Type,
     Const,
+    Mm,
 }
 
 impl FormKeyword {
@@ -27,6 +28,7 @@ impl FormKeyword {
             FormKeyword::Proposition => "proposition",
             FormKeyword::Type => "type",
             FormKeyword::Const => "const",
+            FormKeyword::Mm => "mm",
         }
     }
 
@@ -43,12 +45,6 @@ impl Deref for FormKeyword {
 
     fn deref(&self) -> &Self::Target {
         self.code()
-    }
-}
-
-impl const From<FormKeyword> for Keyword {
-    fn from(kw: FormKeyword) -> Self {
-        Keyword::Form(kw)
     }
 }
 

@@ -19,12 +19,6 @@ impl PronounKeyword {
     }
 }
 
-impl From<PronounKeyword> for Keyword {
-    fn from(v: PronounKeyword) -> Self {
-        Self::Pronoun(v)
-    }
-}
-
 impl From<PronounKeyword> for Token {
     fn from(val: PronounKeyword) -> Self {
         Token::Keyword(val.into())

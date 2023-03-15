@@ -8,12 +8,6 @@ pub enum PatternKeyword {
     Invariant,
 }
 
-impl const From<PatternKeyword> for Keyword {
-    fn from(val: PatternKeyword) -> Self {
-        Keyword::Pattern(val)
-    }
-}
-
 // Into<TokenKind> for LiasonKeyword
 
 // #[derive(Debug, PartialEq, Eq, Clone, Copy)]

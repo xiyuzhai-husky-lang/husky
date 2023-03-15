@@ -126,7 +126,6 @@ impl<'a> AstParser<'a> {
     fn parse_enum_variant(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let ident = match self.token_sheet[token_group_idx].get(1) {
             Some(token) => match token {
-                Token::Attr(_) => todo!(),
                 Token::Keyword(_) => todo!(),
                 Token::Ident(_) => todo!(),
                 Token::Label(_) => todo!(),
@@ -181,6 +180,7 @@ impl<'a> BasicAuxAstParser<'a> {
                                 FormKeyword::Proposition => todo!(),
                                 FormKeyword::Type => todo!(),
                                 FormKeyword::Const => todo!(),
+                                FormKeyword::Mm => todo!(),
                             },
                             Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                                 todo!()
@@ -220,6 +220,9 @@ impl<'a> BasicAuxAstParser<'a> {
                 Keyword::End(_) => todo!(),
                 Keyword::Connection(_) => todo!(),
                 Keyword::Pronoun(_) => todo!(),
+                Keyword::Pub => todo!(),
+                Keyword::Static => todo!(),
+                Keyword::Async => todo!(),
             },
             AstContextKind::InsideModule => self.parse_module_item_entity_kind(kw)?,
             AstContextKind::InsideMatchStmt => todo!(),
@@ -254,6 +257,7 @@ impl<'a> BasicAuxAstParser<'a> {
                             FormKeyword::Proposition => todo!(),
                             FormKeyword::Type => FormKind::TypeAlias,
                             FormKeyword::Const => FormKind::Value,
+                            FormKeyword::Mm => todo!(),
                         },
                         Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                             FormKind::Feature
@@ -304,6 +308,9 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
+            Keyword::Pub => todo!(),
+            Keyword::Static => todo!(),
+            Keyword::Async => todo!(),
         })
     }
 
@@ -327,6 +334,7 @@ impl<'a> BasicAuxAstParser<'a> {
                             FormKeyword::Proposition => todo!(),
                             FormKeyword::Type => todo!(),
                             FormKeyword::Const => todo!(),
+                            FormKeyword::Mm => todo!(),
                         },
                         Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                             TypeItemKind::Memo
@@ -358,6 +366,9 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
+            Keyword::Pub => todo!(),
+            Keyword::Static => todo!(),
+            Keyword::Async => todo!(),
         })
     }
 
@@ -381,6 +392,7 @@ impl<'a> BasicAuxAstParser<'a> {
                             FormKeyword::Proposition => todo!(),
                             FormKeyword::Type => todo!(),
                             FormKeyword::Const => todo!(),
+                            FormKeyword::Mm => todo!(),
                         },
                         Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                             todo!()
@@ -415,6 +427,9 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
+            Keyword::Pub => todo!(),
+            Keyword::Static => todo!(),
+            Keyword::Async => todo!(),
         })
     }
 
@@ -438,6 +453,7 @@ impl<'a> BasicAuxAstParser<'a> {
                             FormKeyword::Proposition => todo!(),
                             FormKeyword::Type => todo!(),
                             FormKeyword::Const => todo!(),
+                            FormKeyword::Mm => todo!(),
                         },
                         Punctuation::Binary(BinaryOpr::Curry) | Punctuation::Colon => {
                             FormKind::Feature
@@ -485,6 +501,9 @@ impl<'a> BasicAuxAstParser<'a> {
             Keyword::End(_) => todo!(),
             Keyword::Connection(_) => todo!(),
             Keyword::Pronoun(_) => todo!(),
+            Keyword::Pub => todo!(),
+            Keyword::Static => todo!(),
+            Keyword::Async => todo!(),
         })
     }
 }
