@@ -379,14 +379,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             ),
                         ),
                     ),
@@ -472,39 +472,12 @@ Ok(
                         111,
                     ),
                 },
-                Ast::Defn {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
                     body: ArenaIdxRange(
                         19..30,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-                            ),
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `is_four`,
-                        token_idx: TokenIdx(
-                            123,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        124,
                     ),
                 },
                 Ast::Defn {
@@ -519,14 +492,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             ),
                         ),
                     ),
@@ -554,14 +527,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             ),
                         ),
                     ),

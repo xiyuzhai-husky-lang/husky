@@ -2,17 +2,32 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                14,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `std::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        14,
                     ),
                 },
                 Ast::Defn {
@@ -27,7 +42,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

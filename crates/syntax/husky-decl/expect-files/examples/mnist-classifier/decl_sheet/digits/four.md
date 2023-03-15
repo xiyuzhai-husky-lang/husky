@@ -104,7 +104,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                            FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                         ),
                     ),
                 ),
@@ -112,7 +112,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 ast_idx: 45,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -121,7 +121,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -524,113 +524,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-                                ast_idx: 48,
-                                curry_token: Ok(
-                                    CurryToken(
-                                        TokenIdx(
-                                            124,
-                                        ),
-                                    ),
-                                ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
-                                        expr: 1,
-                                    },
-                                ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            127,
-                                        ),
-                                    ),
-                                ),
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                126,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        125,
-                                                    ),
-                                                    opd: 0,
-                                                },
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: ReturnType,
-                                                expr: 1,
-                                            },
-                                        ],
-                                    },
-                                },
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                DeclRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                            FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                         ),
                     ),
                 ),
@@ -638,7 +532,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 ast_idx: 49,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -647,7 +541,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -852,7 +746,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                            FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                         ),
                     ),
                 ),
@@ -860,7 +754,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 ast_idx: 50,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -869,7 +763,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                                     ),
                                                 ),
                                             ),

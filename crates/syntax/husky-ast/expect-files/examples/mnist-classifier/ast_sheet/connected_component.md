@@ -769,7 +769,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -797,7 +797,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -818,7 +818,7 @@ Ok(
                         80,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 557,
                             ),
@@ -1235,14 +1235,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             ),
                         ),
                     ),
@@ -1311,14 +1311,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             ),
                         ),
                     ),
@@ -1344,14 +1344,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             ),
                         ),
                     ),

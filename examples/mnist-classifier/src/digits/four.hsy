@@ -6,20 +6,20 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
-func left_components -> FermiMatchResult:
+fn left_components -> FermiMatchResult:
     fermi_match(major_concave_components, [left_coordinate_max, left_coordinate_max])
 
-func left_coordinate_max(cc: ~ConcaveComponent) -> ?f32:
+fn left_coordinate_max(cc: ~ConcaveComponent) -> ?f32:
     cc.relative_bounding_box.xmax()
 
 
-func components_max_downwards -> FermiMatchResult:
+fn components_max_downwards -> FermiMatchResult:
     fermi_match(major_concave_components, [displacement_downwards])
 
-func components_max_heights -> FermiMatchResult:    
+fn components_max_heights -> FermiMatchResult:    
     fermi_match(major_concave_components, [cc_box_heights])
 
-def is_four -> ?MnistLabel:
+mm is_four -> ?MnistLabel:
 
     // Type I four, the horizontal line is long
     // Take two left components and decide which one is the upper and lower.
@@ -103,12 +103,12 @@ def is_four -> ?MnistLabel:
 
     MnistLabel::Four
 
-func displacement_downwards(cc: ~ConcaveComponent) -> ?f32:
+fn displacement_downwards(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
-func cc_box_heights(cc: ~ConcaveComponent)-> ?f32:
+fn cc_box_heights(cc: ~ConcaveComponent)-> ?f32:
     let dp = cc.displacement()
     require dp.y >0.0
     require cc.relative_bounding_box.ymin()>0.4

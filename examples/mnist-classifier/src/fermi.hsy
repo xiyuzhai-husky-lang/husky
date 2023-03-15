@@ -7,25 +7,25 @@ struct FermiMatchResult {
 
 impl FermiMatchResult:
     // todo: change this to func
-    proc norm -> f32:
+    fn norm -> f32:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].norm)
         return norm
     
-    proc rel_norm -> f32:
+    fn rel_norm -> f32:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].rel_norm)
         return norm
 
-    proc angle_change_norm -> f32:
+    fn angle_change_norm -> f32:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].angle_change.abs())
         return norm
 
-pub proc fermi_match(
+pub fn fermi_match(
     concave_components: ~[]ConcaveComponent,
     templates: []((~ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:

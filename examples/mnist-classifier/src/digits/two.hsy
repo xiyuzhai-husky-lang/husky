@@ -13,27 +13,27 @@ use crate::seven::is_seven
 use crate::nine::is_nine
 use crate::six::is_six
 
-func two_match -> FermiMatchResult:
+fn two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
 
 
-func left_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
+fn left_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y < 0.0
     dp.y
 
-func right_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
+fn right_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
-func down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
+fn down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp = cc.displacement()
     require dp.x > 0.0
     // require cc.relative_bounding_box.ymin()<0.2
     dp.x
 
-def is_two -> ?MnistLabel:
+mm is_two -> ?MnistLabel:
 
     require is_zero be none
     require is_three be none

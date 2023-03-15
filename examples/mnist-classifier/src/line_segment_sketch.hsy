@@ -18,11 +18,11 @@ pub struct LineSegmentStroke {
 }
 
 impl LineSegmentStroke:
-    static func new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
+    static fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
         assert from <= to
         LineSegmentStroke(ct.points.cyclic_slice(from, to + 1))
 
-    func displacement() -> Vector2d:
+    fn displacement() -> Vector2d:
         self.start.to(self.end)
 
     visual:
@@ -34,10 +34,10 @@ pub struct LineSegmentSketch {
 }
 
 impl LineSegmentSketch:
-    func concave_components -> []ConcaveComponent:
+    fn concave_components -> []ConcaveComponent:
         find_concave_components(self)
     
-    proc bounding_box -> BoundingBox:
+    fn bounding_box -> BoundingBox:
         let start_point = self.strokes[0].start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
@@ -54,13 +54,13 @@ impl LineSegmentSketch:
             ClosedRange(ymin, ymax),
         )
 
-    static func new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
+    static fn new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
 
     visual:
         this.strokes
 
-func go_right(u: Vector2d, r: f32) -> Vector2d:
+fn go_right(u: Vector2d, r: f32) -> Vector2d:
     let L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
     let dr = r*L/(L*L-r*r).sqrt()
@@ -68,7 +68,7 @@ func go_right(u: Vector2d, r: f32) -> Vector2d:
     let dy = -dr*u.x/L
     Vector2d(u.x+dx, u.y+dy)
 
-func go_left(u: Vector2d, r: f32) -> Vector2d:
+fn go_left(u: Vector2d, r: f32) -> Vector2d:
     let L = (u.x*u.x+u.y*u.y).sqrt()
     assert L > r
     let dr = r*L/(L*L-r*r).sqrt()
@@ -76,7 +76,7 @@ func go_left(u: Vector2d, r: f32) -> Vector2d:
     let dy = dr*u.x/L
     Vector2d(u.x+dx, u.y+dy)
 
-proc extend_end(ct: ~RawContour, start: i32, r: f32) -> i32:
+fn extend_end(ct: ~RawContour, start: i32, r: f32) -> i32:
     let mut end = start
     let mut dp = ct.displacement(start, end + 1)
     let N = ct.points.ilen()
@@ -109,7 +109,7 @@ proc extend_end(ct: ~RawContour, start: i32, r: f32) -> i32:
     assert end > start
     return end
 
-proc extend_start(ct: ~RawContour, start0: i32, end: i32, r: f32) -> i32:
+fn extend_start(ct: ~RawContour, start0: i32, end: i32, r: f32) -> i32:
     let mut start = end
     let mut dp0 = ct.displacement(end, start - 1)
     let min_start = end - ct.points.ilen()
@@ -151,7 +151,7 @@ proc extend_start(ct: ~RawContour, start0: i32, end: i32, r: f32) -> i32:
     else:
         return start0
 
-proc find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
+fn find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
     let mut line_segments = []LineSegmentStroke()
     let mut start = 0
     let mut end = 1

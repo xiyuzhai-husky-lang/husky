@@ -225,39 +225,12 @@ Ok(
                         80,
                     ),
                 },
-                Ast::Defn {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
                     body: ArenaIdxRange(
                         6..13,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::eight`,
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
-                            ),
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `is_eight`,
-                        token_idx: TokenIdx(
-                            92,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        93,
                     ),
                 },
                 Ast::Defn {
@@ -272,14 +245,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Function`),
+                                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             ),
                         ),
                     ),

@@ -9,10 +9,10 @@ pub struct RawContour {
 }
 
 impl RawContour:
-    func line_segment_sketch -> LineSegmentSketch:
+    fn line_segment_sketch -> LineSegmentSketch:
         LineSegmentSketch::new(self, 1.4)
 
-    proc bounding_box -> BoundingBox:
+    fn bounding_box -> BoundingBox:
         let start_point = self.points[0]
         let mut xmin = start_point.x
         let mut xmax = start_point.x
@@ -29,10 +29,10 @@ impl RawContour:
             ClosedRange(ymin, ymax),
         )
     
-    func relative_bounding_box -> RelativeBoundingBox:
+    fn relative_bounding_box -> RelativeBoundingBox:
         self.cc.raw_contours[0].bounding_box.relative_bounding_box(self.bounding_box)
     
-    proc contour_len -> f32:
+    fn contour_len -> f32:
         let mut contour_len = 0.0
         for 0 < i < self.points.ilen():
             let a = self.points[i-1]
@@ -43,7 +43,7 @@ impl RawContour:
         contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         return contour_len
 
-    func displacement(start: i32, end: i32) -> Vector2d:
+    fn displacement(start: i32, end: i32) -> Vector2d:
         let N = self.points.ilen()
         let ct_start = self.points[start%N]
         let ct_end = self.points[end%N]
@@ -58,16 +58,16 @@ enum Direction
 | Down
 | Right
 
-func get_pixel_pair(row: r32, j: i32) -> r32:
+fn get_pixel_pair(row: r32, j: i32) -> r32:
     (row >> (j - 1)) & 3r32
 
-func get_pixel_to_the_left(row: r32, j: i32) -> r32:
+fn get_pixel_to_the_left(row: r32, j: i32) -> r32:
     (row >> j) & 1r32
 
-func get_pixel_to_the_right(row: r32, j: i32) -> r32:
+fn get_pixel_to_the_right(row: r32, j: i32) -> r32:
     (row >> (j - 1)) & 1r32
 
-func get_inward_direction(
+fn get_inward_direction(
     row_above: r32,
     row_below: r32,
     j: i32,
@@ -97,7 +97,7 @@ func get_inward_direction(
         | _ => unreachable
     | _ => unreachable
 
-func get_angle_change(inward: Direction, outward: Direction) -> i32:
+fn get_angle_change(inward: Direction, outward: Direction) -> i32:
     let raw_angle_change = (((outward as i32) - (inward as i32)) as r32).last_bits(2)
     match raw_angle_change with
     | 0
@@ -106,7 +106,7 @@ func get_angle_change(inward: Direction, outward: Direction) -> i32:
     | 3 => -1
     | _ => unreachable
 
-func get_outward_direction(
+fn get_outward_direction(
     row_above: r32,
     row_below: r32,
     j: i32,
@@ -157,7 +157,7 @@ struct StreakCache {
     prev2: i32,
 }
 
-func get_concave_middle_point(points: []Point2d) -> Point2d:
+fn get_concave_middle_point(points: []Point2d) -> Point2d:
     let N = points.ilen()
     let p0 = points[N-2]
     let p2 = points[N-1]
@@ -166,7 +166,7 @@ func get_concave_middle_point(points: []Point2d) -> Point2d:
         (p0.y + p2.y) / 2.0,
     )
 
-proc find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
+fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
     let mut result = []RawContour()
     let mut boundary_unsearched = BinaryGrid28()
     for 1 <= i <= 29:

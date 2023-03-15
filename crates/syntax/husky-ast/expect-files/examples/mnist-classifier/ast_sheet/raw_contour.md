@@ -342,7 +342,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -363,7 +363,7 @@ Ok(
                         38,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 382,
                             ),
@@ -1817,14 +1817,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                             ),
                         ),
                     ),
@@ -1852,14 +1852,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                             ),
                         ),
                     ),
@@ -1887,14 +1887,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                             ),
                         ),
                     ),
@@ -1922,14 +1922,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                             ),
                         ),
                     ),
@@ -1957,14 +1957,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                             ),
                         ),
                     ),
@@ -1992,14 +1992,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                             ),
                         ),
                     ),
@@ -2062,14 +2062,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                             ),
                         ),
                     ),
@@ -2097,14 +2097,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
                         ),
                     ),

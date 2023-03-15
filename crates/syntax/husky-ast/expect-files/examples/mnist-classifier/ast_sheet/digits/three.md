@@ -288,39 +288,12 @@ Ok(
                         64,
                     ),
                 },
-                Ast::Defn {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
                     body: ArenaIdxRange(
                         1..18,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
-                            ),
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `is_three`,
-                        token_idx: TokenIdx(
-                            80,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        81,
                     ),
                 },
                 Ast::Defn {
@@ -335,14 +308,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
                             ),
                         ),
                     ),
@@ -370,14 +343,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
                             ),
                         ),
                     ),
@@ -405,14 +378,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::back`, `Fn`),
                             ),
                         ),
                     ),

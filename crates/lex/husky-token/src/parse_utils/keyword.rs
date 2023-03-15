@@ -1,3 +1,5 @@
+use husky_entity_taxonomy::TypeKind;
+
 use super::*;
 
 // let
@@ -824,4 +826,184 @@ impl InvariantToken {
     pub fn token_idx(self) -> TokenIdx {
         self.token_idx
     }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum EntityKeywordGroup {
+    // todo: remove mod
+    Mod(ModToken),
+    // `fn`
+    Fn(FormFnToken),
+    // `const fn`
+    ConstFn(ConstToken, FormFnToken),
+    // `static fn`
+    StaticFn(StaticToken, FormFnToken),
+    // `static const fn`
+    StaticConstFn(StaticToken, ConstToken, FormFnToken),
+    // `mm`
+    Mm(MmToken),
+    //
+    GeneralDef(GeneralDefToken),
+    // Type
+    TypeEntity(TypeEntityToken),
+    // Type
+    Type(TypeToken),
+    Trait(TraitToken),
+    Visual(VisualToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ModToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct MmToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VisualToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for EntityKeywordGroup
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
+        if let Some((token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Keyword(kw) => match kw {
+                    Keyword::Form(kw) => match kw {
+                        FormKeyword::Def => todo!(),
+                        FormKeyword::Fn => {
+                            Ok(Some(EntityKeywordGroup::Fn(FormFnToken { token_idx })))
+                        }
+                        FormKeyword::Theorem => Ok(Some(EntityKeywordGroup::GeneralDef(
+                            GeneralDefToken::Theorem(TheoremToken { token_idx }),
+                        ))),
+                        FormKeyword::Lemma => todo!(),
+                        FormKeyword::Proposition => todo!(),
+                        FormKeyword::TypeAlias => {
+                            Ok(Some(EntityKeywordGroup::Type(TypeToken { token_idx })))
+                        }
+                        FormKeyword::Const => todo!(),
+                        FormKeyword::Mm => todo!(),
+                    },
+                    Keyword::TypeEntity(keyword) => {
+                        Ok(Some(EntityKeywordGroup::TypeEntity(TypeEntityToken {
+                            keyword,
+                            token_idx,
+                        })))
+                    }
+                    Keyword::Stmt(_) => todo!(),
+                    Keyword::Main => Ok(None),
+                    Keyword::Mod => Ok(Some(EntityKeywordGroup::Mod(ModToken { token_idx }))),
+                    Keyword::Visual => {
+                        Ok(Some(EntityKeywordGroup::Visual(VisualToken { token_idx })))
+                    }
+                    Keyword::Trait => Ok(Some(EntityKeywordGroup::Trait(TraitToken { token_idx }))),
+                    Keyword::Static => match token_stream.peek() {
+                        Some(Token::Keyword(Keyword::Form(FormKeyword::Fn))) => {
+                            token_stream.next();
+                            Ok(Some(EntityKeywordGroup::StaticFn(
+                                StaticToken { token_idx },
+                                FormFnToken {
+                                    token_idx: token_idx + 1,
+                                },
+                            )))
+                        }
+                        Some(Token::Keyword(Keyword::Form(FormKeyword::Const))) => todo!(),
+                        _ => Ok(None),
+                    },
+                    _ => Ok(None),
+                },
+                Token::Error(error) => Err(error),
+                _ => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FormFnToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ConstToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct StaticToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum GeneralDefToken {
+    Def(DefToken),
+    Lemma(LemmaToken),
+    Theorem(TheoremToken),
+    Function(FunctionToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DefToken {
+    token_idx: TokenIdx,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LemmaToken {
+    token_idx: TokenIdx,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TheoremToken {
+    token_idx: TokenIdx,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct FunctionToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TypeEntityToken {
+    keyword: TypeEntityKeyword,
+    token_idx: TokenIdx,
+}
+impl TypeEntityToken {
+    pub fn type_kind(self) -> TypeKind {
+        // MOM
+        match self.keyword {
+            TypeEntityKeyword::Extern => TypeKind::Extern,
+            TypeEntityKeyword::Struct => TypeKind::Struct,
+            TypeEntityKeyword::Enum => TypeKind::Enum,
+            TypeEntityKeyword::Record => TypeKind::Record,
+            TypeEntityKeyword::Structure => TypeKind::Structure,
+            TypeEntityKeyword::Inductive => TypeKind::Inductive,
+        }
+    }
+
+    pub fn keyword(self) -> TypeEntityKeyword {
+        self.keyword
+    }
+
+    pub fn token_idx(self) -> TokenIdx {
+        self.token_idx
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TypeToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct TraitToken {
+    token_idx: TokenIdx,
 }

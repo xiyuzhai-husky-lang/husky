@@ -2,17 +2,32 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                16,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        16,
                     ),
                 },
                 Ast::Defn {
@@ -27,7 +42,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -43,17 +58,32 @@ Ok(
                         19,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                45,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            44,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        45,
                     ),
                 },
                 Ast::Defn {
@@ -68,7 +98,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -84,17 +114,32 @@ Ok(
                         48,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                74,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            73,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        74,
                     ),
                 },
                 Ast::Defn {
@@ -109,7 +154,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -137,7 +182,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -153,17 +198,32 @@ Ok(
                         103,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                128,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            127,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        128,
                     ),
                 },
                 Ast::Defn {
@@ -178,7 +238,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -206,7 +266,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -222,17 +282,32 @@ Ok(
                         157,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                182,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            181,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        182,
                     ),
                 },
                 Ast::Defn {
@@ -247,7 +322,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -275,7 +350,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -291,17 +366,32 @@ Ok(
                         211,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                236,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            235,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        236,
                     ),
                 },
                 Ast::Defn {
@@ -316,7 +406,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -344,7 +434,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -360,17 +450,32 @@ Ok(
                         265,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                290,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            289,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        290,
                     ),
                 },
                 Ast::Defn {
@@ -385,7 +490,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -413,7 +518,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -429,17 +534,32 @@ Ok(
                         319,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                341,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            340,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        341,
                     ),
                 },
                 Ast::Defn {
@@ -454,7 +574,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -470,17 +590,32 @@ Ok(
                         344,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         49,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                365,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            364,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        365,
                     ),
                 },
                 Ast::Defn {
@@ -495,7 +630,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -511,17 +646,32 @@ Ok(
                         368,
                     ),
                 },
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         53,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::UnexpectedPunctuationForTraitItem(
-                            TokenIdx(
-                                392,
-                            ),
-                            Punctuation::Semicolon,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `core::ops`,
+                    ),
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitItem(
+                            AssociatedType,
                         ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            391,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        392,
                     ),
                 },
                 Ast::Defn {
@@ -536,7 +686,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

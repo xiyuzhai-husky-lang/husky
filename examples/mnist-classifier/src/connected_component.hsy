@@ -13,7 +13,7 @@ pub struct EffHoles {
     matches: []?~RawContour,
 }
 
-func hole_tmpl(ct: ~RawContour) -> ?f32:
+fn hole_tmpl(ct: ~RawContour) -> ?f32:
     let len = ct.contour_len
     require len > 4.0
     // ad hoc
@@ -24,10 +24,10 @@ pub struct ConnectedComponent {
 }
 
 impl ConnectedComponent:
-    func raw_contours -> []RawContour:
+    fn raw_contours -> []RawContour:
         find_raw_contours(self)
     
-    proc eff_holes -> EffHoles:
+    fn eff_holes -> EffHoles:
         let mut raw_contours = self.raw_contours.collect_refs()
         let mut matches: []?~RawContour = []
         // ad hoc, should replace self with pop_first
@@ -36,7 +36,7 @@ impl ConnectedComponent:
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
         return EffHoles(matches)
 
-    proc max_hole_ilen -> f32:
+    fn max_hole_ilen -> f32:
         // todo: change self to iter
         let mut max_hole_ilen = 0
         let raw_contours = self.raw_contours
@@ -46,21 +46,21 @@ impl ConnectedComponent:
                 max_hole_ilen = hole_ilen
         return max_hole_ilen as f32
     
-    proc max_row_span -> f32:
+    fn max_row_span -> f32:
         // todo: change self to func
         let mut max_row = 0
         for 0 < i < 29:
             max_row = max_row.max(self.mask[i].span())
         return max_row as f32
 
-    proc row_span_sum -> f32:
+    fn row_span_sum -> f32:
         // todo: change self to func
         let mut row_span_sum = 0
         for 0 < i < 29:
             row_span_sum += self.mask[i].span()
         return row_span_sum as f32
 
-    proc distribution -> ConnectedComponentDistribution:
+    fn distribution -> ConnectedComponentDistribution:
         let mut row_start = 1
         forext row_start < 29:
             if self.mask[row_start]:
@@ -84,13 +84,13 @@ impl ConnectedComponent:
             lower_mass,
         )
     
-    func upper_mass -> f32:
+    fn upper_mass -> f32:
         self.distribution.upper_mass as f32
     
-    func lower_mass -> f32:
+    fn lower_mass -> f32:
         self.distribution.lower_mass as f32
     
-    proc top_k_row_span_sum(k : i32) -> f32:
+    fn top_k_row_span_sum(k : i32) -> f32:
         let mut top_k_row_span_sum = 0
         assert k > 0
         let mut i = 1
@@ -101,7 +101,7 @@ impl ConnectedComponent:
             top_k_row_span_sum += self.mask[j].span()
         return top_k_row_span_sum as f32
 
-    proc top_k_row_right_mass_sum(k : i32) -> f32:
+    fn top_k_row_right_mass_sum(k : i32) -> f32:
         let mut top_k_row_span_sum = 0
         assert k > 0
         let mut i = 1
@@ -115,7 +115,7 @@ impl ConnectedComponent:
     visual:
         mask
 
-proc horizontal_extend(a: r32, x: r32) -> r32:
+fn horizontal_extend(a: r32, x: r32) -> r32:
     let mut y = a & (x | (x << 1) | (x >> 1))
     let mut z = a & (y | (y << 1) | (y >> 1))
     while z != y:
@@ -123,7 +123,7 @@ proc horizontal_extend(a: r32, x: r32) -> r32:
         z = a & (y | (y << 1) | (y >> 1))
     return y
 
-pub proc find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
+pub fn find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
     let mut result: []ConnectedComponent = []
     let mut unsearched = img.clone()
     for j < 30:

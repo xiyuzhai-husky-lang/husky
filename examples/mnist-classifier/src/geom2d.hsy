@@ -4,19 +4,19 @@ pub struct Point2d {
 }
 
 impl Point2d:
-    static func from_i_shift28(i: i32, shift: i32) -> Point2d:
+    static fn from_i_shift28(i: i32, shift: i32) -> Point2d:
         Point2d((29 - shift) as f32, (29 - i) as f32)
 
-    func vector() -> Vector2d:
+    fn vector() -> Vector2d:
         Vector2d(self.x, self.y)
 
-    func to(other: Point2d) -> Vector2d:
+    fn to(other: Point2d) -> Vector2d:
         Vector2d(other.x - self.x, other.y - self.y)
 
-    func norm() -> f32:
+    fn norm() -> f32:
         (self.x * self.x + self.y * self.y).sqrt()
 
-    func dist(other: Point2d) -> f32:
+    fn dist(other: Point2d) -> f32:
         self.to(other).norm()
 
 pub struct RelativePoint2d {
@@ -30,22 +30,22 @@ pub struct Vector2d {
 }
 
 impl Vector2d:
-    pub func point() -> Point2d:
+    pub fn point() -> Point2d:
         Point2d(self.x, self.y)
 
-    pub func to(other: Vector2d) -> Vector2d:
+    pub fn to(other: Vector2d) -> Vector2d:
         Vector2d(other.x - self.x, other.y - self.y)
 
-    func norm() -> f32:
+    fn norm() -> f32:
         (self.x * self.x + self.y * self.y).sqrt()
 
-    func dot(other: Vector2d) -> f32:
+    fn dot(other: Vector2d) -> f32:
         self.x * other.x + self.y * other.y
 
-    func cross(other: Vector2d) -> f32:
+    fn cross(other: Vector2d) -> f32:
         self.x * other.y - self.y * other.x
 
-    func angle(is_branch_cut_positive: bool) -> f32:
+    fn angle(is_branch_cut_positive: bool) -> f32:
         let cos_value = (self.x / self.norm()).min(1.)
         if cos_value + 1.0 < 0.001:
             if is_branch_cut_positive:
@@ -56,13 +56,13 @@ impl Vector2d:
             (self.y.sgnx() as f32) * self.cos_value.acos() * 180.0 / 3.1415926
 
     // rotation direction from self to other with minimal angle
-    func rotation_direction_to(other: Vector2d) -> i32:
+    fn rotation_direction_to(other: Vector2d) -> i32:
         // +1: counterclockwise
         // -1: clockwise
         // 0: no moving or 180 degree turn
         self.cross(other).sgnx()
 
-    func angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
+    fn angle_to(other: Vector2d, is_branch_cut_positive: bool) -> f32:
         let self_norm = self.norm()
         assert self_norm > 0.0
         let other_norm = other.norm()
@@ -83,7 +83,7 @@ pub struct ClosedRange {
 }
 
 impl CloseRange:
-    func relative_range(other: ClosedRange) -> ClosedRange:
+    fn relative_range(other: ClosedRange) -> ClosedRange:
         assert self.max > self.min
         let span = self.max - self.min
         let rel_min = (other.min - self.min) / span
@@ -93,7 +93,7 @@ impl CloseRange:
             rel_max,
         )
     
-    func relative_point(v: f32) -> f32:
+    fn relative_point(v: f32) -> f32:
         let span = self.max - self.min
         (v - self.min) / span
 
@@ -103,28 +103,28 @@ pub struct BoundingBox {
 }
 
 impl BoundingBox:
-    func relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
+    fn relative_bounding_box(other: BoundingBox) -> RelativeBoundingBox:
         RelativeBoundingBox(
             self.xrange.relative_range(other.xrange),
             self.yrange.relative_range(other.yrange),
         )
     
-    func relative_point(point: Point2d) -> RelativePoint2d:
+    fn relative_point(point: Point2d) -> RelativePoint2d:
         RelativePoint2d(
             self.xrange.relative_point(point.x),
             self.yrange.relative_point(point.x),
         )
     
-    func xmin() -> f32:
+    fn xmin() -> f32:
         self.xrange.min
     
-    func xmax() -> f32:
+    fn xmax() -> f32:
         self.xrange.max
     
-    func ymin() -> f32:
+    fn ymin() -> f32:
         self.yrange.min
     
-    func ymax() -> f32:
+    fn ymax() -> f32:
         self.yrange.max
 
 pub struct RelativeBoundingBox {
@@ -133,14 +133,14 @@ pub struct RelativeBoundingBox {
 }
 
 impl RelativeBoundingBox:
-    func xmin() -> f32:
+    fn xmin() -> f32:
         self.xrange.min
     
-    func xmax() -> f32:
+    fn xmax() -> f32:
         self.xrange.max
     
-    func ymin() -> f32:
+    fn ymin() -> f32:
         self.yrange.min
     
-    func ymax() -> f32:
+    fn ymax() -> f32:
         self.yrange.max

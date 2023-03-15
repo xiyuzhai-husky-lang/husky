@@ -398,14 +398,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                             ),
                         ),
                     ),
@@ -468,14 +468,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                             ),
                         ),
                     ),
@@ -503,14 +503,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                             ),
                         ),
                     ),
@@ -526,39 +526,12 @@ Ok(
                         163,
                     ),
                 },
-                Ast::Defn {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
                     body: ArenaIdxRange(
                         28..39,
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                    entity_kind: ModuleItem {
-                        module_item_kind: Form(
-                            Feature,
-                        ),
-                        connection: Connected,
-                    },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                            ),
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `is_seven`,
-                        token_idx: TokenIdx(
-                            216,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: Block,
-                    saved_stream_state: TokenIdx(
-                        217,
                     ),
                 },
             ],

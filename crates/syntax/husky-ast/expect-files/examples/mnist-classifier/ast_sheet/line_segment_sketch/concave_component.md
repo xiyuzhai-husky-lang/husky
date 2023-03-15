@@ -493,7 +493,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -521,7 +521,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -549,7 +549,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -577,7 +577,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -605,7 +605,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -633,7 +633,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -654,7 +654,7 @@ Ok(
                         57,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 512,
                             ),
@@ -872,14 +872,14 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             ),
                         ),
                     ),

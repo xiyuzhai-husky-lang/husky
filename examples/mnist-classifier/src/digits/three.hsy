@@ -7,7 +7,7 @@ use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
 
-func three_fermi_match -> FermiMatchResult:
+fn three_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downarc, uparc, back])
 
     // tried:
@@ -20,7 +20,7 @@ func three_fermi_match -> FermiMatchResult:
     // a = uparc.norm 
     // require a > 2.0 and a < 10.0
 
-def is_three -> ?MnistLabel:
+mm is_three -> ?MnistLabel:
     require major_concave_components.ilen() >= 2
     require major_concave_components.ilen() <= 4
     let downarc = three_fermi_match.matches[0]
@@ -44,17 +44,17 @@ def is_three -> ?MnistLabel:
     MnistLabel::Three
 
 
-func uparc(cc: ~ConcaveComponent) -> ?f32:
+fn uparc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
     
-func downarc(cc: ~ConcaveComponent) -> ?f32:
+fn downarc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.bounding_box.ymin()
 
-func back(cc: ~ConcaveComponent) -> ?f32:
+fn back(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y >= 0.0
     -cc.bounding_box.ymin()

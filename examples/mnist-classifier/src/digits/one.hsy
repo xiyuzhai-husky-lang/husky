@@ -6,10 +6,10 @@ use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
 
-func one_fermi_match -> FermiMatchResult:
+fn one_fermi_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost, upmost, hat])
 
-pub def is_one -> ?MnistLabel:
+pub mm is_one -> ?MnistLabel:
     narrow_down(
         MnistLabel::One,
         5,
@@ -105,17 +105,17 @@ pub def is_one -> ?MnistLabel:
         require c <= 20.0
         MnistLabel::One
 
-func upmost(cc: ~ConcaveComponent) -> ?f32:
+fn upmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y > 0.0
     dp.y
 
-func downmost(cc: ~ConcaveComponent) -> ?f32:
+fn downmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
     -cc.end().y
 
-func hat(cc: ~ConcaveComponent) -> ?f32:
+fn hat(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y < 0.0
     require dp.x < 0.0

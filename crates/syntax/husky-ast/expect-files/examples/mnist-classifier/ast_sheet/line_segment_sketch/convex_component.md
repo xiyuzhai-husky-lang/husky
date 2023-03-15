@@ -7,7 +7,7 @@ Ok(
                         3,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 26,
                             ),

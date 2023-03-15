@@ -49,10 +49,12 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::geom2d`,
+                    ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            AssociatedFn,
                         ),
                     },
                     entity_path: None,
@@ -80,7 +82,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -108,7 +110,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -136,7 +138,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -164,7 +166,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -442,7 +444,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -468,7 +470,7 @@ Ok(
                     accessibility: Accessibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -496,7 +498,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -524,7 +526,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -552,7 +554,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -580,7 +582,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -608,7 +610,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -636,7 +638,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -720,7 +722,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -748,7 +750,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -769,7 +771,7 @@ Ok(
                         62,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectDecoratorOrEntityKeyword,
+                        OriginalAstError::ExpectedDecoratorOrEntityKeyword,
                     ),
                 },
                 Ast::Err {
@@ -777,7 +779,7 @@ Ok(
                         63,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectDecoratorOrEntityKeyword,
+                        OriginalAstError::ExpectedDecoratorOrEntityKeyword,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -840,7 +842,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -868,7 +870,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -896,7 +898,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -924,7 +926,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -952,7 +954,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -980,7 +982,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -1040,7 +1042,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -1068,7 +1070,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -1096,7 +1098,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -1124,7 +1126,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

@@ -42,13 +42,13 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExcessiveIndent => format!("Syntax Error: excessive indent"),
             OriginalAstError::StandaloneElif => format!("Syntax Error: standalone elif"),
             OriginalAstError::StandaloneElse => format!("Syntax Error: standalone else"),
-            OriginalAstError::ExpectEntityKeyword => {
+            OriginalAstError::ExpectedEntityKeyword => {
                 format!("Syntax Error: expected entity keyword")
             }
-            OriginalAstError::ExpectDecoratorOrEntityKeyword => {
+            OriginalAstError::ExpectedDecoratorOrEntityKeyword => {
                 format!("Syntax Error: expected decorator or entity keyword")
             }
-            OriginalAstError::ExpectIdent(_) => format!("Syntax Error: expected identifier"),
+            OriginalAstError::ExpectedIdent(_) => format!("Syntax Error: expected identifier"),
             OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(_) => {
                 format!("Syntax Error: unexpected end after `pub`")
             }
@@ -155,6 +155,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock => {
                 format!("Syntax Error: UnexpectedTypeDefnInsideTypeImplBlock")
             }
+            OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
         }
     }
 
@@ -168,8 +169,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExcessiveIndent
             | OriginalAstError::StandaloneElif
             | OriginalAstError::StandaloneElse
-            | OriginalAstError::ExpectEntityKeyword
-            | OriginalAstError::ExpectDecoratorOrEntityKeyword
+            | OriginalAstError::ExpectedEntityKeyword
+            | OriginalAstError::ExpectedDecoratorOrEntityKeyword
             | OriginalAstError::ExpectNothing
             | OriginalAstError::UnexpectedStmtInsideImplBlock
             | OriginalAstError::InvalidAstForDefinitionOrUse
@@ -195,7 +196,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 let token_idx_range = ctx.token_sheet_data().token_group_token_idx_range(self.0);
                 ctx.ranged_token_sheet().tokens_text_range(token_idx_range)
             }
-            OriginalAstError::ExpectIdent(token_idx)
+            OriginalAstError::ExpectedIdent(token_idx)
             | OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(token_idx)
             | OriginalAstError::UnexpectedTokenForTraitItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTraitItem(token_idx, _)
@@ -209,6 +210,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
+            OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
         }
     }
 }

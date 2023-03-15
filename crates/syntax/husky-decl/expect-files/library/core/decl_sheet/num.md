@@ -1097,7 +1097,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::i8`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1117,7 +1117,7 @@ Ok(
                                         ast_idx: 0,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -1126,7 +1126,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::i8`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 0,
@@ -1508,7 +1508,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::i16`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1528,7 +1528,7 @@ Ok(
                                         ast_idx: 2,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -1537,7 +1537,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::i16`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 2,
@@ -1919,7 +1919,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::i32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1939,7 +1939,7 @@ Ok(
                                         ast_idx: 4,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -1948,7 +1948,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::i32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 4,
@@ -2330,7 +2330,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::i64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2350,7 +2350,7 @@ Ok(
                                         ast_idx: 6,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -2359,7 +2359,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::i64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 6,
@@ -2741,7 +2741,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::i128`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2761,7 +2761,7 @@ Ok(
                                         ast_idx: 8,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -2770,7 +2770,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::i128`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 8,
@@ -3152,7 +3152,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::isize`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3172,7 +3172,7 @@ Ok(
                                         ast_idx: 10,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -3181,7 +3181,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::isize`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 10,
@@ -3563,7 +3563,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::u8`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3583,7 +3583,7 @@ Ok(
                                         ast_idx: 12,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -3592,7 +3592,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::u8`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 12,
@@ -3974,7 +3974,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::u16`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3994,7 +3994,7 @@ Ok(
                                         ast_idx: 14,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -4003,7 +4003,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::u16`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 14,
@@ -4385,7 +4385,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::u32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4405,7 +4405,7 @@ Ok(
                                         ast_idx: 16,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -4414,7 +4414,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::u32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 16,
@@ -4796,7 +4796,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::u64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4816,7 +4816,7 @@ Ok(
                                         ast_idx: 18,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -4825,7 +4825,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::u64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 18,
@@ -5207,7 +5207,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::u128`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5227,7 +5227,7 @@ Ok(
                                         ast_idx: 20,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -5236,7 +5236,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::u128`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 20,
@@ -5618,7 +5618,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::usize`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5638,7 +5638,7 @@ Ok(
                                         ast_idx: 22,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -5647,7 +5647,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::usize`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 22,
@@ -6029,7 +6029,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::f32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6049,7 +6049,7 @@ Ok(
                                         ast_idx: 24,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -6058,7 +6058,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::f32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 24,
@@ -6440,7 +6440,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`core::num::f64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6460,7 +6460,7 @@ Ok(
                                         ast_idx: 26,
                                         ident: `abs`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::Public,
                                         is_generic: false,
@@ -6469,7 +6469,7 @@ Ok(
                                         TypeItemPath {
                                             ty: TypePath(`core::num::f64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: MethodFn,
                                         },
                                     ),
                                     ast_idx: 26,

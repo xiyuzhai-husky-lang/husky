@@ -33,10 +33,12 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            AssociatedFn,
                         ),
                     },
                     entity_path: None,
@@ -64,7 +66,7 @@ Ok(
                     ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -85,7 +87,7 @@ Ok(
                         17,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 141,
                             ),
@@ -275,10 +277,12 @@ Ok(
                     body: ArenaIdxRange(
                         20..21,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Method,
+                            AssociatedFn,
                         ),
                     },
                     entity_path: None,
@@ -299,7 +303,7 @@ Ok(
                         38,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectIdent(
+                        OriginalAstError::ExpectedIdent(
                             TokenIdx(
                                 341,
                             ),
@@ -1601,14 +1605,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                             ),
                         ),
                     ),
@@ -1636,14 +1640,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                             ),
                         ),
                     ),
@@ -1671,14 +1675,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                             ),
                         ),
                     ),
@@ -1706,14 +1710,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                             ),
                         ),
                     ),
@@ -1741,14 +1745,14 @@ Ok(
                     ),
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                             ),
                         ),
                     ),
