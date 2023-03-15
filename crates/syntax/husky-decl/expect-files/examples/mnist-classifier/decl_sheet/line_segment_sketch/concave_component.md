@@ -467,7 +467,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 75,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -2320,7 +2320,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -2592,7 +2592,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -2864,7 +2864,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3136,7 +3136,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3408,7 +3408,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3680,7 +3680,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },

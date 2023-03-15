@@ -623,7 +623,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 23,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {

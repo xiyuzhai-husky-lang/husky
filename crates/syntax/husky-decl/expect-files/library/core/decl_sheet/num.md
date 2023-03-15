@@ -952,7 +952,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 32,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -1315,7 +1315,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -1363,7 +1363,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 37,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -1726,7 +1726,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -1774,7 +1774,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 42,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -2137,7 +2137,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -2185,7 +2185,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 47,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -2548,7 +2548,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -2596,7 +2596,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 52,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -2959,7 +2959,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3007,7 +3007,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 57,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -3370,7 +3370,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3418,7 +3418,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 62,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -3781,7 +3781,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -3829,7 +3829,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 67,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -4192,7 +4192,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -4240,7 +4240,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 72,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -4603,7 +4603,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -4651,7 +4651,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 77,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -5014,7 +5014,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -5062,7 +5062,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 82,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -5425,7 +5425,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -5473,7 +5473,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 87,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -5836,7 +5836,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -5884,7 +5884,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 92,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -6247,7 +6247,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },
@@ -6295,7 +6295,7 @@ Ok(
                 Ok(
                     Decl::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 97,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -6658,7 +6658,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
+                                    return_ty_inner: Ok(
                                         OutputTypeExpr {
                                             expr: 0,
                                         },

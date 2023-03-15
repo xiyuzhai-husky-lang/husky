@@ -44,14 +44,10 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDec
 
 pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
     match impl_block {
-        ImplBlock::Type(impl_block) => ty_impl_decl(db, impl_block)
-            .as_ref()
-            .copied()
-            .map(Into::into),
-        ImplBlock::TypeAsTrait(impl_block) => ty_as_trai_impl_decl(db, impl_block)
-            .as_ref()
-            .copied()
-            .map(Into::into),
+        ImplBlock::Type(impl_block) => ty_impl_block_decl(db, impl_block).map(Into::into),
+        ImplBlock::TypeAsTrait(impl_block) => {
+            ty_as_trai_impl_block_decl(db, impl_block).map(Into::into)
+        }
         ImplBlock::IllFormed(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
     }
 }

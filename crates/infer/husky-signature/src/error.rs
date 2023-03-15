@@ -1,16 +1,24 @@
 use husky_expr::ExprError;
+use thiserror::Error;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum SignatureError {
+    #[error("todo")]
     RawTermError,
+    #[error("todo")]
     ParameterTypeRawTermError(u8),
+    #[error("todo")]
     FieldTypeRawTermError(u8),
+    #[error("todo")]
     OutputTypeRawTermError,
     // derived
+    #[error("todo")]
     DeclError,
+    #[error("todo")]
     DeclExprError,
+    #[error("todo")]
     ExprError,
 }
 

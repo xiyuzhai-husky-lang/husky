@@ -10102,7 +10102,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 3,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -10495,7 +10505,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 5,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `line_segments`,
@@ -10751,7 +10771,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 8,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::InheritedSymbol {
                                                     ident: `ct`,
@@ -11349,7 +11379,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 10,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `ls_last`,
@@ -11913,7 +11953,17 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 12,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `last_line_segment`,
@@ -12168,16 +12218,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1105,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -12207,16 +12256,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1188,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -12257,16 +12305,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1228,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -12296,16 +12343,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1339,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -12335,16 +12381,15 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    1439,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
-                                                            },
+                                                    path: Ok(
+                                                        EntityPath::AssociatedItem(
+                                                            AssociatedItemPath::TypeItem(
+                                                                TypeItemPath {
+                                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    ident: `new`,
+                                                                    ty_item_kind: Method,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -13880,7 +13925,7 @@ Ok(
                 Ok(
                     Defn::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 170,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -14474,7 +14519,7 @@ Ok(
                                                 ),
                                             ),
                                         ),
-                                        return_ty: Ok(
+                                        return_ty_inner: Ok(
                                             OutputTypeExpr {
                                                 expr: 4,
                                             },
@@ -15333,7 +15378,7 @@ Ok(
                                                 ),
                                             ),
                                         ),
-                                        return_ty: Ok(
+                                        return_ty_inner: Ok(
                                             OutputTypeExpr {
                                                 expr: 0,
                                             },
@@ -15644,7 +15689,7 @@ Ok(
                 Ok(
                     Defn::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 172,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
@@ -18359,7 +18404,7 @@ Ok(
                                                 ),
                                             ),
                                         ),
-                                        return_ty: Ok(
+                                        return_ty_inner: Ok(
                                             OutputTypeExpr {
                                                 expr: 3,
                                             },

@@ -240,7 +240,7 @@ Ok(
                 Ok(
                     Defn::Impl(
                         ImplDecl::Type(
-                            TypeImplDecl {
+                            TypeImplBlockDecl {
                                 ast_idx: 4,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {

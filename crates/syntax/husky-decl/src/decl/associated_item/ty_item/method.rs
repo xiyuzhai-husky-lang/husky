@@ -15,13 +15,13 @@ pub struct TypeMethodDecl {
     #[return_ref]
     pub curry_token: DeclExprResult<CurryToken>,
     #[return_ref]
-    pub return_ty: DeclExprResult<OutputTypeExpr>,
+    pub return_ty_inner: DeclExprResult<OutputTypeExpr>,
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
 }
 
 impl TypeMethodDecl {
-    pub fn parameters<'a>(
+    pub fn regular_parameters<'a>(
         self,
         db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ExplicitParameterDeclPattern]> {
@@ -36,5 +36,9 @@ impl TypeMethodDecl {
             Some(list) => list.implicit_parameters(),
             None => Ok(&[]),
         }
+    }
+
+    pub fn return_ty<'a>(self, db: &'a dyn DeclDb) -> DeclExprResultRef<'a, OutputTypeExpr> {
+        self.return_ty_inner(db).as_ref().copied()
     }
 }

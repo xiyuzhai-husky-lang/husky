@@ -253,12 +253,12 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
 
     fn visit_impl_decl(&mut self, decl: ImplDecl) {
         match decl {
-            ImplDecl::Type(decl) => self.visit_ty_impl_decl(decl),
-            ImplDecl::TypeAsTrait(decl) => self.visit_ty_as_trai_impl_decl(decl),
+            ImplDecl::Type(decl) => self.visit_ty_impl_block_decl(decl),
+            ImplDecl::TypeAsTrait(decl) => self.visit_ty_as_trai_impl_block_decl(decl),
         }
     }
 
-    fn visit_ty_impl_decl(&mut self, decl: TypeImplDecl) {
+    fn visit_ty_impl_block_decl(&mut self, decl: TypeImplBlockDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.eol_colon(self.db()) {
@@ -266,7 +266,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         }
     }
 
-    fn visit_ty_as_trai_impl_decl(&mut self, _decl: TypeAsTraitImplDecl) {
+    fn visit_ty_as_trai_impl_block_decl(&mut self, _decl: TypeAsTraitImplBlockDecl) {
         // todo!()
     }
 

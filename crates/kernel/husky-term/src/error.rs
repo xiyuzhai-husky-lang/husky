@@ -1,7 +1,9 @@
 use crate::*;
+use husky_decl::DeclExprError;
 use husky_entity_path::{EntityPath, EntityPathError};
 use husky_entity_tree::EntityTreeBundleError;
 use husky_raw_ty::RawTypeError;
+use husky_signature::SignatureError;
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -41,7 +43,7 @@ pub enum TermError {
     #[error("TypePathApplicationMethodDeclError")]
     TypePathApplicationMethodDeclError,
     #[error("SignatureError")]
-    SignatureError,
+    SignatureError(#[from] SignatureError),
 }
 
 impl From<EntityPathError> for TermError {
@@ -58,6 +60,12 @@ impl From<&EntityPathError> for TermError {
 
 impl From<&EntityTreeBundleError> for TermError {
     fn from(value: &EntityTreeBundleError) -> Self {
+        todo!()
+    }
+}
+
+impl From<&DeclExprError> for TermError {
+    fn from(value: &DeclExprError) -> Self {
         todo!()
     }
 }

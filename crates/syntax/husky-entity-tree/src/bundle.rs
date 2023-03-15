@@ -30,19 +30,16 @@ fn entity_tree_crate_bundle_works() {
 pub struct EntityTreeCrateBundle {
     sheets: VecMap<EntityTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
-    impl_blocks: ImplBlockBundle,
 }
 
 impl EntityTreeCrateBundle {
     pub(crate) fn new(
         sheets: VecMap<EntityTreeSheet>,
         principal_entity_path_expr_arena: MajorPathExprArena,
-        impl_blocks: ImplBlockBundle,
     ) -> Self {
         Self {
             sheets,
             principal_entity_path_expr_arena,
-            impl_blocks,
         }
     }
 
@@ -50,8 +47,20 @@ impl EntityTreeCrateBundle {
         &self.sheets
     }
 
-    pub fn impl_blocks(&self) -> &ImplBlockBundle {
-        &self.impl_blocks
+    pub fn all_ty_impl_blocks<'a>(&'a self) -> impl Iterator<Item = TypeImplBlock> + 'a {
+        self.sheets
+            .iter()
+            .map(|sheet| sheet.all_ty_impl_blocks())
+            .flatten()
+    }
+
+    pub fn all_ty_as_trai_impl_blocks<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = TypeAsTraitImplBlock> + 'a {
+        self.sheets
+            .iter()
+            .map(|sheet| sheet.all_ty_as_trai_impl_blocks())
+            .flatten()
     }
 
     pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
