@@ -419,7 +419,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                         ),
                     ),
                 ),
@@ -427,7 +427,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 ast_idx: 173,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -436,7 +436,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -699,7 +699,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                         ),
                     ),
                 ),
@@ -707,7 +707,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 ast_idx: 174,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -716,7 +716,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -979,7 +979,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                         ),
                     ),
                 ),
@@ -987,7 +987,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 ast_idx: 175,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -996,7 +996,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1337,7 +1337,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                         ),
                     ),
                 ),
@@ -1345,7 +1345,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 ast_idx: 176,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1354,7 +1354,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1766,7 +1766,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                         ),
                     ),
                 ),
@@ -1774,7 +1774,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 ast_idx: 177,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1783,7 +1783,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Function`),
+                                                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2204,54 +2204,23 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
-                                    associated_item: AssociatedItem {
-                                        id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId::Type(
-                                                TypeImplBlockId {
-                                                    module: `mnist_classifier::line_segment_sketch`,
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            ident: `new`,
-                                        },
-                                        path: Some(
-                                            AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    ident: `new`,
-                                                    ty_item_kind: Method,
-                                                },
-                                            ),
-                                        ),
-                                        impl_block: ImplBlock::Type(
-                                            TypeImplBlock {
-                                                id: TypeImplBlockId {
-                                                    module: `mnist_classifier::line_segment_sketch`,
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ast_idx: 170,
-                                                body: ArenaIdxRange(
-                                                    3..7,
-                                                ),
+                            TypeItemDecl::AssociatedFn(
+                                TypeAssociatedFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
                                             },
                                         ),
-                                        ast_idx: 3,
                                         ident: `new`,
-                                        associated_item_kind: TypeItem(
-                                            Method,
-                                        ),
-                                        accessibility: Accessibility::Public,
-                                        is_generic: false,
                                     },
                                     path: Some(
                                         TypeItemPath {
                                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             ident: `new`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: AssociatedFn,
                                         },
                                     ),
                                     ast_idx: 3,
@@ -2663,7 +2632,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty_inner: Ok(
+                                    return_ty: Ok(
                                         OutputTypeExpr {
                                             expr: 4,
                                         },
@@ -2697,8 +2666,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -2715,7 +2694,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ident: `displacement`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2735,20 +2714,13 @@ Ok(
                                         ast_idx: 4,
                                         ident: `displacement`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::line_segment_sketch`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 4,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3604,54 +3576,23 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
-                                    associated_item: AssociatedItem {
-                                        id: AssociatedItemId {
-                                            impl_block_id: ImplBlockId::Type(
-                                                TypeImplBlockId {
-                                                    module: `mnist_classifier::line_segment_sketch`,
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                            ident: `new`,
-                                        },
-                                        path: Some(
-                                            AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    ident: `new`,
-                                                    ty_item_kind: Method,
-                                                },
-                                            ),
-                                        ),
-                                        impl_block: ImplBlock::Type(
-                                            TypeImplBlock {
-                                                id: TypeImplBlockId {
-                                                    module: `mnist_classifier::line_segment_sketch`,
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ast_idx: 172,
-                                                body: ArenaIdxRange(
-                                                    21..26,
-                                                ),
+                            TypeItemDecl::AssociatedFn(
+                                TypeAssociatedFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::line_segment_sketch`,
+                                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                disambiguator: 0,
                                             },
                                         ),
-                                        ast_idx: 23,
                                         ident: `new`,
-                                        associated_item_kind: TypeItem(
-                                            Method,
-                                        ),
-                                        accessibility: Accessibility::Public,
-                                        is_generic: false,
                                     },
                                     path: Some(
                                         TypeItemPath {
                                             ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ident: `new`,
-                                            ty_item_kind: Method,
+                                            ty_item_kind: AssociatedFn,
                                         },
                                     ),
                                     ast_idx: 23,
@@ -3992,7 +3933,7 @@ Ok(
                                             ),
                                         ),
                                     ),
-                                    return_ty_inner: Ok(
+                                    return_ty: Ok(
                                         OutputTypeExpr {
                                             expr: 3,
                                         },

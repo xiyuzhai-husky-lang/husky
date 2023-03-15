@@ -7,13 +7,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unexpected punctuation `;` for trait item",
-                severity: Error,
-                range: [3:16, 3:17),
-            },
-        ],
+        diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],

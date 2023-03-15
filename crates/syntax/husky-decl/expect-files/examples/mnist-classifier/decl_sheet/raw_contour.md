@@ -273,7 +273,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
@@ -281,7 +281,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 ast_idx: 206,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -290,7 +290,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -553,7 +553,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                         ),
                     ),
                 ),
@@ -561,7 +561,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 ast_idx: 207,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -570,7 +570,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -833,7 +833,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                         ),
                     ),
                 ),
@@ -841,7 +841,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 ast_idx: 208,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -850,7 +850,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1113,7 +1113,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                         ),
                     ),
                 ),
@@ -1121,7 +1121,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 ast_idx: 209,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1130,7 +1130,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1469,7 +1469,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                         ),
                     ),
                 ),
@@ -1477,7 +1477,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 ast_idx: 210,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1486,7 +1486,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1749,7 +1749,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                         ),
                     ),
                 ),
@@ -1757,7 +1757,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 ast_idx: 211,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1766,7 +1766,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2355,7 +2355,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                         ),
                     ),
                 ),
@@ -2363,7 +2363,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 ast_idx: 213,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -2372,7 +2372,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2578,7 +2578,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                         ),
                     ),
                 ),
@@ -2586,7 +2586,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Function(
                             FunctionDecl {
-                                path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ast_idx: 214,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -2595,7 +2595,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -3936,8 +3936,18 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Method(
-                                TypeMethodDecl {
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module: `mnist_classifier::raw_contour`,
+                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                    },
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
@@ -3954,7 +3964,7 @@ Ok(
                                                 TypeItemPath {
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `displacement`,
-                                                    ty_item_kind: Method,
+                                                    ty_item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3974,20 +3984,13 @@ Ok(
                                         ast_idx: 31,
                                         ident: `displacement`,
                                         associated_item_kind: TypeItem(
-                                            Method,
+                                            MethodFn,
                                         ),
                                         accessibility: Accessibility::PublicUnder(
                                             `mnist_classifier::raw_contour`,
                                         ),
                                         is_generic: false,
                                     },
-                                    path: Some(
-                                        TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                            ident: `displacement`,
-                                            ty_item_kind: Method,
-                                        },
-                                    ),
                                     ast_idx: 31,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {

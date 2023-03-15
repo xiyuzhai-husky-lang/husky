@@ -80,7 +80,9 @@ impl Diagnose for OriginalDeclExprError {
             } => {
                 format!("Syntax Error: expect `>` for implicit parameter declaration list",)
             }
-            OriginalDeclExprError::ExpectParameterDeclList(_) => todo!(),
+            OriginalDeclExprError::ExpectParameterDeclList(_) => {
+                format!("Syntax Error: ExpectParameterDeclList",)
+            }
             OriginalDeclExprError::ExpectImplicitParameterDecl(_) => {
                 format!("Syntax Error: expect implicit parameter declaration",)
             }

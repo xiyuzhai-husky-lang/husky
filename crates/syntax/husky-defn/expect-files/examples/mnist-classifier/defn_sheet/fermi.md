@@ -238,7 +238,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
@@ -246,9 +246,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                     ast_idx: 24,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -257,7 +257,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -621,7 +621,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -905,7 +905,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
                                                 ),
                                             ),

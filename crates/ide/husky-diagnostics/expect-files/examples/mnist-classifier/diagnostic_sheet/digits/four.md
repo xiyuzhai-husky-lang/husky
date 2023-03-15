@@ -40,42 +40,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [9:25, 9:41),
+                range: [9:23, 9:39),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [16:34, 16:50),
+                range: [16:32, 16:48),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [19:32, 19:48),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [22:17, 22:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [92:9, 92:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [92:21, 92:25),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [104:5, 104:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [104:17, 104:21),
+                range: [19:30, 19:46),
             },
         ],
     },
@@ -86,17 +61,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [92:9, 92:25),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [104:5, 104:21),
-            },
-        ],
+        diagnostics: [],
     },
 }

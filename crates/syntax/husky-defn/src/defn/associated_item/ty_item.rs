@@ -1,14 +1,14 @@
-mod assoc_ty;
-mod assoc_val;
-mod function;
+mod associated_fn;
+mod associated_ty;
+mod associated_value;
 mod memo;
-mod method;
+mod method_fn;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
-pub use function::*;
+pub use associated_fn::*;
+pub use associated_ty::*;
+pub use associated_value::*;
 pub use memo::*;
-pub use method::*;
+pub use method_fn::*;
 
 use crate::*;
 use husky_entity_path::AssociatedItemPath;
@@ -17,8 +17,8 @@ use husky_entity_path::AssociatedItemPath;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDefn {
-    Function(TypeAssociatedFunctionDefn),
-    Method(TypeMethodDefn),
+    Function(TypeAssociatedFnDefn),
+    Method(TypeMethodFnDefn),
     ExternType(TypeAssociatedTypeDefn),
     Value(TypeAssociatedValueDefn),
     Memo(TypeMemoDefn),

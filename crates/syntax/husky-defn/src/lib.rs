@@ -13,6 +13,7 @@ pub use error::*;
 pub use sheet::*;
 
 use collector::*;
+use husky_ast::*;
 use husky_decl::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;
@@ -64,10 +65,10 @@ pub struct DefnJar(
     PropsVariantDefn,
     props_variant_defn,
     // type item
-    TypeAssociatedFunctionDefn,
-    ty_associated_function_defn,
-    TypeMethodDefn,
-    ty_method_defn,
+    TypeAssociatedFnDefn,
+    ty_associated_fn_defn,
+    TypeMethodFnDefn,
+    ty_method_fn_defn,
     TypeAssociatedTypeDefn,
     ty_associated_ty_defn,
     TypeAssociatedValueDefn,
@@ -96,7 +97,6 @@ pub struct DefnJar(
 
 #[test]
 fn defn_sheet_works() {
-    
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db("defn_sheet", DefnDb::collect_defns);

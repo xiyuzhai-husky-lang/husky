@@ -117,7 +117,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -127,7 +127,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -187,7 +187,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -209,7 +209,7 @@ Ok(
                                                     ident: `simple_leftdown_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -263,7 +263,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -271,9 +271,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                    path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                     ast_idx: 48,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -282,7 +282,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -489,7 +489,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                                                    FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -634,7 +634,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -997,7 +997,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1007,7 +1007,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1017,7 +1017,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -1077,7 +1077,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -1099,7 +1099,7 @@ Ok(
                                                     ident: `leftupcc_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -1110,7 +1110,7 @@ Ok(
                                                     ident: `leftdowncc_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -1164,7 +1164,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -1172,9 +1172,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                    path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                     ast_idx: 50,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1183,7 +1183,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -1390,7 +1390,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                                                    FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1535,7 +1535,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1870,7 +1870,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -1878,9 +1878,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Function(
                             FunctionDefn {
-                                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 decl: FunctionDecl {
-                                    path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                    path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                     ast_idx: 51,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1889,7 +1889,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -2096,7 +2096,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                                                    FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2241,7 +2241,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2690,1636 +2690,6 @@ Ok(
                                 },
                                 body: Ok(
                                     19,
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-            ),
-            (
-                DefnRegionPath::Entity(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                        ),
-                    ),
-                ),
-                Ok(
-                    Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                                decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                                    ast_idx: 52,
-                                    curry_token: Ok(
-                                        CurryToken(
-                                            TokenIdx(
-                                                217,
-                                            ),
-                                        ),
-                                    ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
-                                            expr: 1,
-                                        },
-                                    ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                220,
-                                            ),
-                                        ),
-                                    ),
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: None,
-                                            path: RegionPath::Decl(
-                                                DeclRegionPath::Entity(
-                                                    EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    219,
-                                                                ),
-                                                                ident: `MnistLabel`,
-                                                            },
-                                                        ),
-                                                    ),
-                                                    Expr::Prefix {
-                                                        opr: Option,
-                                                        opr_token_idx: TokenIdx(
-                                                            218,
-                                                        ),
-                                                        opd: 0,
-                                                    },
-                                                ],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: False,
-                                                allow_self_value: False,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                ExprRoot {
-                                                    kind: ReturnType,
-                                                    expr: 1,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                },
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Defn(
-                                            DefnRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Be {
-                                                    src: 0,
-                                                    be_token_idx: TokenIdx(
-                                                        223,
-                                                    ),
-                                                    target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 0,
-                                                        },
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Be {
-                                                    src: 2,
-                                                    be_token_idx: TokenIdx(
-                                                        227,
-                                                    ),
-                                                    target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 1,
-                                                        },
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 2,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Be {
-                                                    src: 4,
-                                                    be_token_idx: TokenIdx(
-                                                        231,
-                                                    ),
-                                                    target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 2,
-                                                        },
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 3,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 6,
-                                                    dot_token_idx: TokenIdx(
-                                                        235,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `max_hole_ilen`,
-                                                        token_idx: TokenIdx(
-                                                            236,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        238,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 7,
-                                                    opr: Comparison(
-                                                        Eq,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        237,
-                                                    ),
-                                                    ropd: 8,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 4,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 10,
-                                                    dot_token_idx: TokenIdx(
-                                                        243,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `norm`,
-                                                        token_idx: TokenIdx(
-                                                            244,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::CurrentSymbol {
-                                                    ident: `simple_match_norm`,
-                                                    token_idx: TokenIdx(
-                                                        246,
-                                                    ),
-                                                    current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 3,
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        248,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 12,
-                                                    opr: Comparison(
-                                                        Less,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        247,
-                                                    ),
-                                                    ropd: 13,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 5,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 15,
-                                                    dot_token_idx: TokenIdx(
-                                                        252,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `matches`,
-                                                        token_idx: TokenIdx(
-                                                            253,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        255,
-                                                    ),
-                                                ),
-                                                Expr::IndexOrCompositionWithList {
-                                                    owner: 16,
-                                                    lbox_token_idx: TokenIdx(
-                                                        254,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        17..18,
-                                                    ),
-                                                    rbox_token_idx: TokenIdx(
-                                                        256,
-                                                    ),
-                                                },
-                                                Expr::Be {
-                                                    src: 18,
-                                                    be_token_idx: TokenIdx(
-                                                        257,
-                                                    ),
-                                                    target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 4,
-                                                        },
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 6,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 7,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 20,
-                                                    dot_token_idx: TokenIdx(
-                                                        263,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `upper_mass`,
-                                                        token_idx: TokenIdx(
-                                                            264,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Field {
-                                                    owner: 21,
-                                                    dot_token_idx: TokenIdx(
-                                                        267,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `lower_mass`,
-                                                        token_idx: TokenIdx(
-                                                            268,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 22,
-                                                    opr: Closed(
-                                                        Sub,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        265,
-                                                    ),
-                                                    ropd: 23,
-                                                },
-                                                Expr::CurrentSymbol {
-                                                    ident: `upper_excess`,
-                                                    token_idx: TokenIdx(
-                                                        270,
-                                                    ),
-                                                    current_symbol_idx: 1,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 5,
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        272,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 25,
-                                                    opr: Comparison(
-                                                        Less,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        271,
-                                                    ),
-                                                    ropd: 26,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 8,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 28,
-                                                    dot_token_idx: TokenIdx(
-                                                        278,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `matches`,
-                                                        token_idx: TokenIdx(
-                                                            279,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        281,
-                                                    ),
-                                                ),
-                                                Expr::IndexOrCompositionWithList {
-                                                    owner: 29,
-                                                    lbox_token_idx: TokenIdx(
-                                                        280,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        30..31,
-                                                    ),
-                                                    rbox_token_idx: TokenIdx(
-                                                        282,
-                                                    ),
-                                                },
-                                                Expr::MethodCall {
-                                                    self_argument: 31,
-                                                    dot_token_idx: TokenIdx(
-                                                        283,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `end_tangent`,
-                                                        token_idx: TokenIdx(
-                                                            284,
-                                                        ),
-                                                    },
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        285,
-                                                    ),
-                                                    nonself_arguments: ArenaIdxRange(
-                                                        32..32,
-                                                    ),
-                                                    rpar_token_idx: TokenIdx(
-                                                        286,
-                                                    ),
-                                                },
-                                                Expr::CurrentSymbol {
-                                                    ident: `end_tangent`,
-                                                    token_idx: TokenIdx(
-                                                        290,
-                                                    ),
-                                                    current_symbol_idx: 2,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 6,
-                                                    },
-                                                },
-                                                Expr::Field {
-                                                    owner: 33,
-                                                    dot_token_idx: TokenIdx(
-                                                        291,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `y`,
-                                                        token_idx: TokenIdx(
-                                                            292,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        297,
-                                                    ),
-                                                ),
-                                                Expr::CurrentSymbol {
-                                                    ident: `a`,
-                                                    token_idx: TokenIdx(
-                                                        294,
-                                                    ),
-                                                    current_symbol_idx: 3,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 7,
-                                                    },
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Minus,
-                                                    opr_token_idx: TokenIdx(
-                                                        296,
-                                                    ),
-                                                    opd: 35,
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 36,
-                                                    opr: Comparison(
-                                                        Less,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        295,
-                                                    ),
-                                                    ropd: 37,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                298,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                300,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 39,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        299,
-                                                    ),
-                                                    ropd: 40,
-                                                },
-                                                Expr::CurrentSymbol {
-                                                    ident: `simple_match_norm`,
-                                                    token_idx: TokenIdx(
-                                                        302,
-                                                    ),
-                                                    current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 3,
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        304,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 42,
-                                                    opr: Comparison(
-                                                        Less,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        303,
-                                                    ),
-                                                    ropd: 43,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 9,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 10,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 45,
-                                                    dot_token_idx: TokenIdx(
-                                                        310,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `upper_mass`,
-                                                        token_idx: TokenIdx(
-                                                            311,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Field {
-                                                    owner: 46,
-                                                    dot_token_idx: TokenIdx(
-                                                        314,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `lower_mass`,
-                                                        token_idx: TokenIdx(
-                                                            315,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Binary {
-                                                    lopd: 47,
-                                                    opr: Closed(
-                                                        Sub,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        312,
-                                                    ),
-                                                    ropd: 48,
-                                                },
-                                                Expr::CurrentSymbol {
-                                                    ident: `upper_excess`,
-                                                    token_idx: TokenIdx(
-                                                        317,
-                                                    ),
-                                                    current_symbol_idx: 4,
-                                                    current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                        pattern_symbol_idx: 8,
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        319,
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 50,
-                                                    opr: Comparison(
-                                                        Greater,
-                                                    ),
-                                                    opr_token_idx: TokenIdx(
-                                                        318,
-                                                    ),
-                                                    ropd: 51,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                320,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                322,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 53,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        321,
-                                                    ),
-                                                    ropd: 54,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 11,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 56,
-                                                    dot_token_idx: TokenIdx(
-                                                        325,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `matches`,
-                                                        token_idx: TokenIdx(
-                                                            326,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        328,
-                                                    ),
-                                                ),
-                                                Expr::IndexOrCompositionWithList {
-                                                    owner: 57,
-                                                    lbox_token_idx: TokenIdx(
-                                                        327,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        58..59,
-                                                    ),
-                                                    rbox_token_idx: TokenIdx(
-                                                        329,
-                                                    ),
-                                                },
-                                                Expr::Be {
-                                                    src: 59,
-                                                    be_token_idx: TokenIdx(
-                                                        330,
-                                                    ),
-                                                    target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 9,
-                                                        },
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 12,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Field {
-                                                    owner: 61,
-                                                    dot_token_idx: TokenIdx(
-                                                        336,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `others`,
-                                                        token_idx: TokenIdx(
-                                                            337,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Literal(
-                                                    TokenIdx(
-                                                        339,
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                340,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                342,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 64,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        341,
-                                                    ),
-                                                    ropd: 65,
-                                                },
-                                                Expr::Block {
-                                                    stmts: ArenaIdxRange(
-                                                        10..21,
-                                                    ),
-                                                },
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        222,
-                                                    ),
-                                                    ident: `is_one`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        226,
-                                                    ),
-                                                    ident: `is_six`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        230,
-                                                    ),
-                                                    ident: `is_zero`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        234,
-                                                    ),
-                                                    ident: `major_connected_component`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        242,
-                                                    ),
-                                                    ident: `simple_seven_match`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        251,
-                                                    ),
-                                                    ident: `simple_seven_match`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        262,
-                                                    ),
-                                                    ident: `major_connected_component`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        266,
-                                                    ),
-                                                    ident: `major_connected_component`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        277,
-                                                    ),
-                                                    ident: `simple_seven_match`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        309,
-                                                    ),
-                                                    ident: `major_connected_component`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        313,
-                                                    ),
-                                                    ident: `major_connected_component`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        324,
-                                                    ),
-                                                    ident: `special_seven_match`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        335,
-                                                    ),
-                                                    ident: `special_seven_match`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            274,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 6,
-                                                            variables: ArenaIdxRange(
-                                                                2..3,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                276,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        32,
-                                                    ),
-                                                },
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            287,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 7,
-                                                            variables: ArenaIdxRange(
-                                                                3..4,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                289,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        34,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            293,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        38,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            250,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        19,
-                                                    ),
-                                                },
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            259,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 5,
-                                                            variables: ArenaIdxRange(
-                                                                1..2,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                261,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        24,
-                                                    ),
-                                                },
-                                                Stmt::IfElse {
-                                                    if_branch: IfBranch {
-                                                        if_token: IfToken {
-                                                            token_idx: TokenIdx(
-                                                                269,
-                                                            ),
-                                                        },
-                                                        condition: Ok(
-                                                            27,
-                                                        ),
-                                                        eol_colon: Ok(
-                                                            EolColonToken(
-                                                                TokenIdx(
-                                                                    273,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        block: Ok(
-                                                            ArenaIdxRange(
-                                                                0..3,
-                                                            ),
-                                                        ),
-                                                    },
-                                                    elif_branches: [],
-                                                    else_branch: None,
-                                                },
-                                                Stmt::Eval {
-                                                    expr_idx: 41,
-                                                },
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            306,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 8,
-                                                            variables: ArenaIdxRange(
-                                                                4..5,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                308,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        49,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            316,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        52,
-                                                    ),
-                                                },
-                                                Stmt::Eval {
-                                                    expr_idx: 55,
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            221,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        1,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            225,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        3,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            229,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        5,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            233,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        9,
-                                                    ),
-                                                },
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            239,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 3,
-                                                            variables: ArenaIdxRange(
-                                                                0..1,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                241,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        11,
-                                                    ),
-                                                },
-                                                Stmt::IfElse {
-                                                    if_branch: IfBranch {
-                                                        if_token: IfToken {
-                                                            token_idx: TokenIdx(
-                                                                245,
-                                                            ),
-                                                        },
-                                                        condition: Ok(
-                                                            14,
-                                                        ),
-                                                        eol_colon: Ok(
-                                                            EolColonToken(
-                                                                TokenIdx(
-                                                                    249,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        block: Ok(
-                                                            ArenaIdxRange(
-                                                                3..7,
-                                                            ),
-                                                        ),
-                                                    },
-                                                    elif_branches: [],
-                                                    else_branch: None,
-                                                },
-                                                Stmt::IfElse {
-                                                    if_branch: IfBranch {
-                                                        if_token: IfToken {
-                                                            token_idx: TokenIdx(
-                                                                301,
-                                                            ),
-                                                        },
-                                                        condition: Ok(
-                                                            44,
-                                                        ),
-                                                        eol_colon: Ok(
-                                                            EolColonToken(
-                                                                TokenIdx(
-                                                                    305,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        block: Ok(
-                                                            ArenaIdxRange(
-                                                                7..10,
-                                                            ),
-                                                        ),
-                                                    },
-                                                    elif_branches: [],
-                                                    else_branch: None,
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            323,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        60,
-                                                    ),
-                                                },
-                                                Stmt::Let {
-                                                    let_token: LetToken {
-                                                        token_idx: TokenIdx(
-                                                            332,
-                                                        ),
-                                                    },
-                                                    let_variable_pattern: Ok(
-                                                        LetVariablesPattern {
-                                                            pattern: 10,
-                                                            variables: ArenaIdxRange(
-                                                                5..6,
-                                                            ),
-                                                            colon_token: Ok(
-                                                                None,
-                                                            ),
-                                                            ty: None,
-                                                        },
-                                                    ),
-                                                    assign_token: Ok(
-                                                        AssignToken(
-                                                            TokenIdx(
-                                                                334,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    initial_value: Ok(
-                                                        62,
-                                                    ),
-                                                },
-                                                Stmt::Require {
-                                                    require_token: RequireToken {
-                                                        token_idx: TokenIdx(
-                                                            338,
-                                                        ),
-                                                    },
-                                                    condition: Ok(
-                                                        63,
-                                                    ),
-                                                },
-                                                Stmt::Eval {
-                                                    expr_idx: 66,
-                                                },
-                                            ],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `none`,
-                                                            token_idx: TokenIdx(
-                                                                224,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `none`,
-                                                            token_idx: TokenIdx(
-                                                                228,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `none`,
-                                                            token_idx: TokenIdx(
-                                                                232,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `simple_match_norm`,
-                                                            token_idx: TokenIdx(
-                                                                240,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `some`,
-                                                            token_idx: TokenIdx(
-                                                                258,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `upper_excess`,
-                                                            token_idx: TokenIdx(
-                                                                260,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `end_tangent`,
-                                                            token_idx: TokenIdx(
-                                                                275,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `a`,
-                                                            token_idx: TokenIdx(
-                                                                288,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `upper_excess`,
-                                                            token_idx: TokenIdx(
-                                                                307,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `some`,
-                                                            token_idx: TokenIdx(
-                                                                331,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        ident_token: IdentToken {
-                                                            ident: `others`,
-                                                            token_idx: TokenIdx(
-                                                                333,
-                                                            ),
-                                                        },
-                                                        liason: None,
-                                                    },
-                                                ],
-                                            },
-                                            pattern_infos: [
-                                                Be,
-                                                Be,
-                                                Be,
-                                                Let,
-                                                Be,
-                                                Let,
-                                                Let,
-                                                Let,
-                                                Let,
-                                                Be,
-                                                Let,
-                                            ],
-                                            pattern_symbol_maps: [
-                                                [
-                                                    (
-                                                        `none`,
-                                                        0,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `none`,
-                                                        1,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `none`,
-                                                        2,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `simple_match_norm`,
-                                                        3,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `some`,
-                                                        4,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `upper_excess`,
-                                                        5,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `end_tangent`,
-                                                        6,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `a`,
-                                                        7,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `upper_excess`,
-                                                        8,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `some`,
-                                                        9,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `others`,
-                                                        10,
-                                                    ),
-                                                ],
-                                            ],
-                                            pattern_symbol_arena: Arena {
-                                                data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        2,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        3,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        4,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        5,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        6,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        7,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        8,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        9,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        10,
-                                                    ),
-                                                ],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            241,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    343,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `simple_match_norm`,
-                                                            pattern_symbol_idx: 3,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            261,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    301,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `upper_excess`,
-                                                            pattern_symbol_idx: 5,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            276,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    298,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `end_tangent`,
-                                                            pattern_symbol_idx: 6,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            289,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    298,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `a`,
-                                                            pattern_symbol_idx: 7,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            308,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    323,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `upper_excess`,
-                                                            pattern_symbol_idx: 8,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        access_start: TokenIdx(
-                                                            334,
-                                                        ),
-                                                        access_end: Some(
-                                                            TokenIdxRangeEnd(
-                                                                TokenIdx(
-                                                                    343,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        variant: CurrentSymbolVariant::LetVariable {
-                                                            ident: `others`,
-                                                            pattern_symbol_idx: 10,
-                                                        },
-                                                    },
-                                                ],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: BlockExpr,
-                                                expr: 67,
-                                            },
-                                        ],
-                                    },
-                                },
-                                body: Ok(
-                                    67,
                                 ),
                             },
                         ),

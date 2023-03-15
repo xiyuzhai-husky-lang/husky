@@ -206,41 +206,12 @@ fn associated_item_defn(db: &dyn DefnDb, decl: AssociatedItemDecl) -> Associated
 
 fn ty_item_defn(db: &dyn DefnDb, decl: TypeItemDecl) -> TypeItemDefn {
     match decl {
-        TypeItemDecl::Function(_) => todo!(),
-        TypeItemDecl::Method(decl) => ty_method_defn(db, decl).into(),
-        TypeItemDecl::ExternType(_) => todo!(),
-        TypeItemDecl::Value(_) => todo!(),
+        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_defn(db, decl).into(),
+        TypeItemDecl::MethodFn(decl) => ty_method_fn_defn(db, decl).into(),
+        TypeItemDecl::AssociatedType(_) => todo!(),
+        TypeItemDecl::AssociatedValue(_) => todo!(),
         TypeItemDecl::Memo(decl) => ty_memo_defn(db, decl).into(),
     }
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_associated_function_defn(
-    _db: &dyn DefnDb,
-    _decl: TypeAssociatedFunctionDecl,
-) -> TypeAssociatedFunctionDefn {
-    todo!()
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_method_defn(db: &dyn DefnDb, decl: TypeMethodDecl) -> TypeMethodDefn {
-    let path = decl.path(db);
-    let mut parser = expr_parser(
-        db,
-        DefnRegionPath::AssociatedItem(decl.associated_item(db).id(db)),
-        Some(decl.expr_region(db)),
-        AllowSelfType::True,
-        AllowSelfValue::True,
-    );
-    let ast_idx = decl.ast_idx(db);
-    let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser
-            .parse_block_expr(body)
-            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
-        _ => unreachable!(),
-    };
-    let expr_region = parser.finish();
-    TypeMethodDefn::new(db, path, decl, expr_region, body)
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -377,26 +348,7 @@ pub(crate) fn ty_as_trai_associated_value_defn(
     todo!()
 }
 
-// fn expr_parser(
-//     db:&dyn DefnDb,
-//     expr_path: DefnRegionPath,
-//     decl_expr_region: Option<ExprRegion>,
-//     allow_self_type: AllowSelfType,
-//     allow_self_value: AllowSelfValue,
-// ) -> BlockExprParser<'a> {
-//     let parser = ExprParser::new(
-//         self.db,
-//         expr_path.into(),
-//         self.token_sheet_data,
-//         self.module_symbol_context,
-//         decl_expr_region,
-//         allow_self_type,
-//         allow_self_value,
-//     );
-//     BlockExprParser::new(parser, self.ast_sheet, self.ast_range_sheet)
-// }
-
-fn expr_parser<'a>(
+pub(crate) fn expr_parser<'a>(
     db: &'a dyn DefnDb,
     expr_path: DefnRegionPath,
     decl_expr_region: Option<ExprRegion>,

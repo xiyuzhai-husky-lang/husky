@@ -17,22 +17,22 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: expect `->`",
                 severity: Error,
-                range: [1:43, 1:44),
+                range: [1:41, 1:42),
             },
             Diagnostic {
                 message: "Syntax Error: expect `->`",
                 severity: Error,
-                range: [5:68, 5:69),
+                range: [5:66, 5:67),
             },
             Diagnostic {
-                message: "Syntax Error: expect `->`",
+                message: "Syntax Error: ExpectParameterDeclList",
                 severity: Error,
-                range: [31:35, 31:36),
+                range: [31:33, 31:34),
             },
             Diagnostic {
-                message: "Syntax Error: expect `->`",
+                message: "Syntax Error: ExpectParameterDeclList",
                 severity: Error,
-                range: [37:31, 37:32),
+                range: [37:29, 37:30),
             },
         ],
     },
