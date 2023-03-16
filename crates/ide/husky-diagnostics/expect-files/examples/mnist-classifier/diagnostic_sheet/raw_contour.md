@@ -64,24 +64,44 @@ DiagnosticSheet {
                 range: [163:14, 163:25),
             },
             Diagnostic {
+                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                severity: Error,
+                range: [218:33, 218:38),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                severity: Error,
+                range: [219:33, 219:37),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                severity: Error,
+                range: [225:33, 225:38),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                severity: Error,
+                range: [232:33, 232:38),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                severity: Error,
+                range: [236:33, 236:37),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [261:21, 261:37),
             },
             Diagnostic {
-                message: "expected 2 argument, found 0",
+                message: "Type Error: no method named `popx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
-                range: [180:33, 180:42),
+                range: [263:25, 263:29),
             },
             Diagnostic {
                 message: "OriginalLocalTermExpectationError::Todo",
                 severity: Error,
                 range: [170:22, 170:24),
-            },
-            Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo",
-                severity: Error,
-                range: [180:31, 180:33),
             },
         ],
     },

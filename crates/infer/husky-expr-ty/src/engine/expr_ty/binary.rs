@@ -68,7 +68,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.expect_implicitly_convertible_to_bool(),
             local_term_region,
         );
-        Ok(self.term_menu.bool().into())
+        Ok(self.term_menu.bool_ty_ontology().into())
     }
 
     fn calc_ins_expr_ty(

@@ -51,7 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
                 // here we differs from Rust, but agrees with C
                 Ok((
                     ExprDisambiguation::Trivial,
-                    Ok(self.term_menu.bool().into()),
+                    Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
             PrefixOpr::Tilde => match final_destination {

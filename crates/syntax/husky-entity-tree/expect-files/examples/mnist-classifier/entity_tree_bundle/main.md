@@ -1180,7 +1180,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
@@ -12765,7 +12765,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -13707,7 +13707,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -14714,7 +14714,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -15656,7 +15656,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -16648,7 +16648,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -18184,7 +18184,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -19340,7 +19340,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -20412,7 +20412,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(
@@ -21810,7 +21810,7 @@ Ok(
                 ),
                 errors: [
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolNotAccessible(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `concave_component`,
                                 token_idx: TokenIdx(

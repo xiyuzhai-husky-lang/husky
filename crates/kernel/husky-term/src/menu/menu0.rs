@@ -40,23 +40,34 @@ pub struct TermMenu0 {
     core_ops_not: Term,
     option_ty_path: Term,
     slice_ty_path: Term,
-    str_ty_path: Term,
+    str_ty_ontology: Term,
     ref_ty_path: Term,
     list_ty_ontology: Term,
     leash_ty_ontology: Term,
-    i8: Term,
-    i16: Term,
-    i32: Term,
-    i64: Term,
-    isize: Term,
-    f32: Term,
-    f64: Term,
-    r32: Term,
-    r64: Term,
-    bool: Term,
-    lifetime_ty: Term,
-    trai_ty: Term,
-    module: Term,
+    i8_ty_ontology: Term,
+    i16_ty_ontology: Term,
+    i32_ty_ontology: Term,
+    i64_ty_ontology: Term,
+    i128_ty_ontology: Term,
+    isize_ty_ontology: Term,
+    r8_ty_ontology: Term,
+    r16_ty_ontology: Term,
+    r32_ty_ontology: Term,
+    r64_ty_ontology: Term,
+    r128_ty_ontology: Term,
+    rsize_ty_ontology: Term,
+    u8_ty_ontology: Term,
+    u16_ty_ontology: Term,
+    u32_ty_ontology: Term,
+    u64_ty_ontology: Term,
+    u128_ty_ontology: Term,
+    usize_ty_ontology: Term,
+    f32_ty_ontology: Term,
+    f64_ty_ontology: Term,
+    bool_ty_ontology: Term,
+    lifetime_ty_ontology: Term,
+    trai_ty_ontology: Term,
+    module_ty_ontology: Term,
 }
 
 impl TermMenu0 {
@@ -98,26 +109,42 @@ impl TermMenu0 {
             core_ops_not: Term::EntityPath(entity_path_menu.core_ops_not().into()),
             option_ty_path: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path()).into(),
             slice_ty_path: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path()).into(),
-            str_ty_path: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
+            str_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
             ref_ty_path: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
             list_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
             leash_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.leash_ty_path())
                 .into(),
             unit: TermEntityPath::TypeOntology(entity_path_menu.unit_ty_path()).into(),
             never: TermEntityPath::TypeOntology(entity_path_menu.never_ty_path()).into(),
-            bool: TermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
-            trai_ty: TermEntityPath::TypeOntology(entity_path_menu.trai_ty_path()).into(),
-            lifetime_ty: TermEntityPath::TypeOntology(entity_path_menu.lifetime_ty_path()).into(),
-            module: TermEntityPath::TypeOntology(entity_path_menu.module_ty_path()).into(),
-            i8: TermEntityPath::TypeOntology(entity_path_menu.i8_ty_path()).into(),
-            i16: TermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
-            i32: TermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
-            i64: TermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
-            isize: TermEntityPath::TypeOntology(entity_path_menu.isize_ty_path()).into(),
-            f32: TermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
-            f64: TermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
-            r32: TermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
-            r64: TermEntityPath::TypeOntology(entity_path_menu.r64_ty_path()).into(),
+            bool_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
+            trai_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.trai_ty_path()).into(),
+            lifetime_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.lifetime_ty_path())
+                .into(),
+            module_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.module_ty_path())
+                .into(),
+            i8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i8_ty_path()).into(),
+            i16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
+            i32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
+            i64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
+            i128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i128_ty_path()).into(),
+            isize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.isize_ty_path())
+                .into(),
+            u8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u8_ty_path()).into(),
+            u16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u16_ty_path()).into(),
+            u32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u32_ty_path()).into(),
+            u64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u64_ty_path()).into(),
+            u128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u128_ty_path()).into(),
+            usize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.usize_ty_path())
+                .into(),
+            f32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
+            f64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
+            r8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r8_ty_path()).into(),
+            r16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r16_ty_path()).into(),
+            r32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
+            r64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r64_ty_path()).into(),
+            r128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r128_ty_path()).into(),
+            rsize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.rsize_ty_path())
+                .into(),
         }
     }
 
@@ -240,52 +267,96 @@ impl TermMenu0 {
         self.never
     }
 
-    pub fn trai_ty(&self) -> Term {
-        self.trai_ty
+    pub fn trai_ty_ontology(&self) -> Term {
+        self.trai_ty_ontology
     }
 
-    pub fn module(&self) -> Term {
-        self.module
+    pub fn module_ty_ontology(&self) -> Term {
+        self.module_ty_ontology
     }
 
-    pub fn bool(&self) -> Term {
-        self.bool
+    pub fn bool_ty_ontology(&self) -> Term {
+        self.bool_ty_ontology
     }
 
-    pub fn i8(&self) -> Term {
-        self.i8
+    pub fn i8_ty_ontology(&self) -> Term {
+        self.i8_ty_ontology
     }
 
-    pub fn i16(&self) -> Term {
-        self.i16
+    pub fn i16_ty_ontology(&self) -> Term {
+        self.i16_ty_ontology
     }
 
-    pub fn i32(&self) -> Term {
-        self.i32
+    pub fn i32_ty_ontology(&self) -> Term {
+        self.i32_ty_ontology
     }
 
-    pub fn i64(&self) -> Term {
-        self.i64
+    pub fn i64_ty_ontology(&self) -> Term {
+        self.i64_ty_ontology
     }
 
-    pub fn isize(&self) -> Term {
-        self.isize
+    pub fn i128_ty_ontology(&self) -> Term {
+        self.i128_ty_ontology
     }
 
-    pub fn f32(&self) -> Term {
-        self.f32
+    pub fn isize_ty_ontology(&self) -> Term {
+        self.isize_ty_ontology
     }
 
-    pub fn f64(&self) -> Term {
-        self.f64
+    pub fn u8_ty_ontology(&self) -> Term {
+        self.u8_ty_ontology
     }
 
-    pub fn r32(&self) -> Term {
-        self.r32
+    pub fn u16_ty_ontology(&self) -> Term {
+        self.u16_ty_ontology
     }
 
-    pub fn r64(&self) -> Term {
-        self.r64
+    pub fn u32_ty_ontology(&self) -> Term {
+        self.u32_ty_ontology
+    }
+
+    pub fn u64_ty_ontology(&self) -> Term {
+        self.u64_ty_ontology
+    }
+
+    pub fn u128_ty_ontology(&self) -> Term {
+        self.u128_ty_ontology
+    }
+
+    pub fn usize_ty_ontology(&self) -> Term {
+        self.usize_ty_ontology
+    }
+
+    pub fn r8_ty_ontology(&self) -> Term {
+        self.r8_ty_ontology
+    }
+
+    pub fn r16_ty_ontology(&self) -> Term {
+        self.r16_ty_ontology
+    }
+
+    pub fn r128_ty_ontology(&self) -> Term {
+        self.r128_ty_ontology
+    }
+
+    pub fn rsize_ty_ontology(&self) -> Term {
+        self.rsize_ty_ontology
+    }
+
+    pub fn f32_ty_ontology(&self) -> Term {
+        self.f32_ty_ontology
+    }
+
+    pub fn f64_ty_ontology(&self) -> Term {
+        self.f64_ty_ontology
+    }
+
+    pub fn r32_ty_ontology(&self) -> Term {
+        self.r32_ty_ontology
+    }
+
+    pub fn r64_ty_ontology(&self) -> Term {
+        self.r64_ty_ontology
     }
 
     pub fn eval_lifetime(&self) -> Term {
@@ -298,11 +369,11 @@ impl TermMenu0 {
 
     /// Lifetime
     pub fn lifetime_ty(&self) -> Term {
-        self.lifetime_ty
+        self.lifetime_ty_ontology
     }
 
-    pub fn str_ty_path(&self) -> Term {
-        self.str_ty_path
+    pub fn str_ty_ontology(&self) -> Term {
+        self.str_ty_ontology
     }
 
     pub fn leash_ty_ontology(&self) -> Term {

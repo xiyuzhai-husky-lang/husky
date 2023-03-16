@@ -16,6 +16,6 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             None => self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region),
         };
-        Ok(self.term_menu.bool().into())
+        Ok(self.term_menu.bool_ty_ontology().into())
     }
 }

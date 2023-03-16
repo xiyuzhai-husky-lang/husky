@@ -138,8 +138,10 @@ impl<'a> EntityTreePresheetMut<'a> {
         rule.mark_as_resolved(original_symbol);
         if !original_symbol.is_accessible_from(db, self.module_path) {
             self.errors.push(
-                OriginalEntityTreeError::SymbolNotAccessible(name_token.ident_token().unwrap())
-                    .into(),
+                OriginalEntityTreeError::SymbolExistsButNotAccessible(
+                    name_token.ident_token().unwrap(),
+                )
+                .into(),
             );
         }
         let path = original_symbol.path(db);
