@@ -772,8 +772,10 @@ Ok(
             Token::Ident(
                 `ang`,
             ),
-            Token::Ident(
-                `mm`,
+            Token::Keyword(
+                Keyword::Form(
+                    Gn,
+                ),
             ),
             Token::Ident(
                 `is_seven`,

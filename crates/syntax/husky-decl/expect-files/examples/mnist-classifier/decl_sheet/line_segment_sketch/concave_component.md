@@ -234,8 +234,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ast_idx: 76,
                                 expr_region: ExprRegion {

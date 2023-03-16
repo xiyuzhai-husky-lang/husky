@@ -201,14 +201,14 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
 
     fn visit_form_decl(&mut self, decl: FormDecl) {
         match decl {
-            FormDecl::Function(decl) => self.visit_function_decl(decl),
+            FormDecl::Fn(decl) => self.visit_function_decl(decl),
             FormDecl::Feature(decl) => self.visit_feature_decl(decl),
-            FormDecl::Morphism(decl) => self.visit_morphism_decl(decl),
+            FormDecl::Gn(decl) => self.visit_morphism_decl(decl),
             FormDecl::Value(decl) => self.visit_value_decl(decl),
         }
     }
 
-    fn visit_function_decl(&mut self, decl: FormFnDecl) {
+    fn visit_function_decl(&mut self, decl: FnDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.parameters(self.db()) {
@@ -232,7 +232,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         }
     }
 
-    fn visit_morphism_decl(&mut self, decl: MorphismDecl) {
+    fn visit_morphism_decl(&mut self, decl: GnDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         }

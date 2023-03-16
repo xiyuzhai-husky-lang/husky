@@ -53,6 +53,31 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
+                        "is_zero",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::zero`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 35,
+                            ident_token: IdentToken {
+                                ident: `is_zero`,
+                                token_idx: TokenIdx(
+                                    105,
+                                ),
+                            },
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(

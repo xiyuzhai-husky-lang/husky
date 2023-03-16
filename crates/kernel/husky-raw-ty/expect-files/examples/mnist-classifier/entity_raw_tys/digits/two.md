@@ -41,4 +41,16 @@
             RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+            ),
+        ),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
+        ),
+    ),
 ]

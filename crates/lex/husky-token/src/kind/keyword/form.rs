@@ -7,9 +7,9 @@ pub enum FormKeyword {
     Theorem,
     Lemma,
     Proposition,
-    TypeAlias,
+    Type,
     Const,
-    Mm,
+    Gn,
 }
 
 impl FormKeyword {
@@ -20,9 +20,9 @@ impl FormKeyword {
             FormKeyword::Theorem => "theorem",
             FormKeyword::Lemma => "lemma",
             FormKeyword::Proposition => "proposition",
-            FormKeyword::TypeAlias => "type",
+            FormKeyword::Type => "type",
             FormKeyword::Const => "const",
-            FormKeyword::Mm => "mm",
+            FormKeyword::Gn => "gn",
         }
     }
 }

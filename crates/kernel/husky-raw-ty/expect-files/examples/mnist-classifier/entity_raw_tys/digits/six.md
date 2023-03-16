@@ -26,6 +26,18 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+            ),
+        ),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
                 FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
             ),
         ),

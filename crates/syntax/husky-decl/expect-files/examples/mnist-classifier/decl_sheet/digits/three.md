@@ -104,14 +104,120 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                ast_idx: 35,
+                                curry_token: Ok(
+                                    CurryToken(
+                                        TokenIdx(
+                                            81,
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            84,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                83,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        82,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: ReturnType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
                             FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 ast_idx: 36,
                                 expr_region: ExprRegion {
@@ -332,8 +438,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 ast_idx: 37,
                                 expr_region: ExprRegion {
@@ -554,8 +660,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
                                 ast_idx: 38,
                                 expr_region: ExprRegion {

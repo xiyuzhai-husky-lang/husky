@@ -14,6 +14,18 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+            ),
+        ),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
                 FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
             ),
         ),

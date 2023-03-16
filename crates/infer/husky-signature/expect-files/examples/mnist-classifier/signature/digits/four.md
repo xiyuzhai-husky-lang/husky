@@ -34,6 +34,9 @@
     Err(
         OutputTypeRawTermError,
     ),
+    Err(
+        OutputTypeRawTermError,
+    ),
     Ok(
         Signature::Form(
             FormSignature::Function(

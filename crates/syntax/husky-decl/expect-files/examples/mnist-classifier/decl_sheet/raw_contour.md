@@ -279,8 +279,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 ast_idx: 206,
                                 expr_region: ExprRegion {
@@ -559,8 +559,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 ast_idx: 207,
                                 expr_region: ExprRegion {
@@ -839,8 +839,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 ast_idx: 208,
                                 expr_region: ExprRegion {
@@ -1119,8 +1119,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 ast_idx: 209,
                                 expr_region: ExprRegion {
@@ -1475,8 +1475,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 ast_idx: 210,
                                 expr_region: ExprRegion {
@@ -1755,8 +1755,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 ast_idx: 211,
                                 expr_region: ExprRegion {
@@ -2361,8 +2361,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 ast_idx: 213,
                                 expr_region: ExprRegion {
@@ -2584,8 +2584,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ast_idx: 214,
                                 expr_region: ExprRegion {

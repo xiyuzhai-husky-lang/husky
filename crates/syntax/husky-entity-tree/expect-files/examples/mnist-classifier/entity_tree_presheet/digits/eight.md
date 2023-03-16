@@ -30,6 +30,31 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Ident(
+                        "is_eight",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::eight`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            ast_idx: 29,
+                            ident_token: IdentToken {
+                                ident: `is_eight`,
+                                token_idx: TokenIdx(
+                                    92,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
                         "big_mouth",
                     ),
                     accessibility: Accessibility::PublicUnder(

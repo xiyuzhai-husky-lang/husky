@@ -48,6 +48,18 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+            ),
+        ),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
                 FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
             ),
         ),

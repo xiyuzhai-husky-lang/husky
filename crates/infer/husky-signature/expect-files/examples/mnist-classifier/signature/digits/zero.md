@@ -28,4 +28,7 @@
             ),
         ),
     ),
+    Err(
+        OutputTypeRawTermError,
+    ),
 ]

@@ -128,6 +128,31 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
+                        "is_seven",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::seven`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            ast_idx: 52,
+                            ident_token: IdentToken {
+                                ident: `is_seven`,
+                                token_idx: TokenIdx(
+                                    216,
+                                ),
+                            },
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(
