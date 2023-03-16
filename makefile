@@ -13,8 +13,8 @@ install-toolchain:
 	rsync -a library ~/.huskyup/toolchains/nightly/lib/rustlib/src/husky/
 
 vscode: install-toolchain
-	scripts/vscode_prepublish.sh
-	rsync -a extensions/husky-analyzer ~/.vscode/extensions/
+	# scripts/vscode_prepublish.sh
+	# rsync -a extensions/husky-analyzer ~/.vscode/extensions/
 	cargo install --path crates/apps/husky-analyzer --bin husky-analyzer-server
 
 install-compiler:
