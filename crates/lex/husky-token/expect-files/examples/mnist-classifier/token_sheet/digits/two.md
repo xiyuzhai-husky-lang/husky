@@ -138,180 +138,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::ColonColon,
             ),
-            Token::Ident(
-                `major`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
             Token::Punctuation(
                 Punctuation::Star,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `fermi`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Punctuation(
-                Punctuation::Star,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `line_segment_sketch`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `concave_component`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Punctuation(
-                Punctuation::Star,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `zero`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_zero`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `one`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_one`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `three`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_three`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `seven`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_seven`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `nine`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_nine`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `six`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_six`,
             ),
             Token::Keyword(
                 Keyword::Form(
@@ -420,6 +248,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `dp`,
             ),
@@ -520,6 +353,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `dp`,
             ),
@@ -619,6 +457,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation::Colon,
+            ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
             ),
             Token::Ident(
                 `dp`,
@@ -1648,76 +1491,60 @@ Ok(
             22,
             32,
             42,
-            48,
-            54,
-            62,
-            68,
-            74,
-            80,
-            86,
+            46,
+            51,
+            63,
+            75,
+            83,
+            89,
             92,
-            98,
-            103,
-            115,
-            127,
-            134,
-            140,
-            143,
-            155,
-            162,
+            104,
+            112,
+            118,
+            121,
+            133,
+            141,
+            147,
+            150,
+            156,
+            160,
+            164,
             168,
-            171,
-            183,
-            190,
-            196,
-            199,
-            205,
-            209,
-            213,
-            217,
+            172,
+            176,
+            180,
+            188,
+            194,
+            203,
+            212,
             221,
-            225,
-            229,
-            237,
-            243,
-            252,
+            230,
+            234,
+            244,
+            248,
+            253,
+            257,
             261,
-            270,
-            279,
-            283,
-            293,
-            297,
-            302,
-            306,
-            310,
-            316,
-            321,
-            334,
-            344,
-            354,
-            364,
+            267,
+            272,
+            285,
+            295,
+            305,
+            315,
+            325,
+            335,
+            345,
+            355,
+            365,
+            369,
             374,
-            384,
-            394,
-            404,
-            414,
-            418,
-            423,
-            427,
-            431,
-            435,
-            445,
-            451,
+            378,
+            382,
+            386,
+            396,
+            402,
         ],
         indents: [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,

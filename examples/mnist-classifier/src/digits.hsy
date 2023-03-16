@@ -4,10 +4,10 @@ mod six
 mod three
 mod four
 mod five
-mod six
 mod seven
 mod eight
 mod nine
+mod two
 
 pub use one::is_one
 use six::is_six

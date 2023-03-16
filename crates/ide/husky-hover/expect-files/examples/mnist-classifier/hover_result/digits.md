@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken = Token::Ident(\n    `seven`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 15;\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken = Token::Ident(\n    `is_two`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 36;\n\ntoken = Token::Ident(\n    `is_two`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 6,\n    rule_idx: UseExprRuleIdx(\n        13,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken = Token::Ident(\n    `is_six`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        15,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
+                                value: "\ntoken_idx = 48;\n\ntoken = Token::Ident(\n    `is_six`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 12,\n    rule_idx: UseExprRuleIdx(\n        16,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 54;\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::digits::eight`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 8,\n                ident_token: IdentToken {\n                    ident: `eight`,\n                    token_idx: TokenIdx(\n                        17,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 54;\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `mnist_classifier::digits::eight`,\n                accessibility: Accessibility::PublicUnder(\n                    `mnist_classifier::digits`,\n                ),\n                ast_idx: 7,\n                ident_token: IdentToken {\n                    ident: `eight`,\n                    token_idx: TokenIdx(\n                        15,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        18,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
+                                value: "\ntoken_idx = 60;\n\ntoken = Token::Ident(\n    `is_nine`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 18,\n    rule_idx: UseExprRuleIdx(\n        19,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
