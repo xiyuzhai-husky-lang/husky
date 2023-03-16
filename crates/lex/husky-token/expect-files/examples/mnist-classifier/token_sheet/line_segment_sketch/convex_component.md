@@ -22,7 +22,7 @@ Ok(
                 Punctuation::Star,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),

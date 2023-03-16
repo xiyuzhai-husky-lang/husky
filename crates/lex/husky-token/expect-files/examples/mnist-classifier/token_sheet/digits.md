@@ -61,8 +61,8 @@ Ok(
             Token::Ident(
                 `nine`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,

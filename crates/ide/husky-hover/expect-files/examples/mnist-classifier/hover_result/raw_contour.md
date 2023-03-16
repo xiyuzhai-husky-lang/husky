@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 66,
-                                    character: 38,
+                                    character: 36,
                                 },
                                 end: Position {
                                     line: 66,
-                                    character: 39,
+                                    character: 37,
                                 },
                             },
                         ),
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 684;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Func,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 684;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -291,7 +291,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 108,
-                                    character: 4,
+                                    character: 2,
                                 },
                             },
                         ),
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 988;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Proc,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 988;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -411,7 +411,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 168,
-                                    character: 4,
+                                    character: 2,
                                 },
                             },
                         ),

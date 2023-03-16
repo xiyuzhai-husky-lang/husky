@@ -5,19 +5,16 @@
     Err(
         OutputTypeRawTermError,
     ),
-    Err(
-        OutputTypeRawTermError,
-    ),
     Ok(
         Signature::Form(
             FormSignature::Function(
-                FunctionSignature {
+                FormFnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
                     parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -37,13 +34,13 @@
     Ok(
         Signature::Form(
             FormSignature::Function(
-                FunctionSignature {
+                FormFnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
                     parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(

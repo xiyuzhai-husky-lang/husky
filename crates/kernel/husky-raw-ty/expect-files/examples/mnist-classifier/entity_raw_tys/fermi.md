@@ -12,7 +12,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
             ),
         ),
         Ok(

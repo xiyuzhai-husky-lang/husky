@@ -47,9 +47,13 @@ impl MethodTypeInfo {
                 where_clause,
             } => {
                 let mut parameter_tys = vec![];
-                let mut method_ty: Term =
-                    TermRitchie::new_unchecked(db, TermRitchieKind::Fp, parameter_tys, *return_ty)
-                        .into();
+                let mut method_ty: Term = TermRitchie::new_unchecked(
+                    db,
+                    TermRitchieKind::FnType,
+                    parameter_tys,
+                    *return_ty,
+                )
+                .into();
                 for implicit_signature in implicit_parameters.iter().copied() {
                     todo!()
                 }

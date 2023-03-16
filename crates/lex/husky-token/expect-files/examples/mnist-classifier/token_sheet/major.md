@@ -101,12 +101,12 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -149,12 +149,12 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -335,12 +335,12 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -467,12 +467,12 @@ Ok(
             Token::Ident(
                 `row_span_sum`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -508,12 +508,12 @@ Ok(
             Token::Ident(
                 `raw_contours`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -554,12 +554,12 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -585,12 +585,12 @@ Ok(
             Token::Ident(
                 `line_segment_sketch`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(

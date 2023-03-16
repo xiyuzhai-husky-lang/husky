@@ -77,6 +77,14 @@ impl Term {
         Ok(term)
     }
 
+    pub fn ty_from_raw(db: &dyn TermDb, raw_term: RawTerm) -> TermResult<Self> {
+        Self::from_raw(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+    }
+
+    pub fn ty_from_raw_unchecked(db: &dyn TermDb, raw_term: RawTerm) -> TermResult<Self> {
+        Self::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+    }
+
     pub fn checked(self, db: &dyn TermDb) -> TermResult<Self> {
         self.check(db)?;
         Ok(self)

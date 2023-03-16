@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`quick_sort::quick_sort`, `Function`),
+                FormPath(`quick_sort::quick_sort`, `Fn`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                FormPath(`quick_sort::quick_sort_aux`, `Fn`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`quick_sort::partition`, `Function`),
+                FormPath(`quick_sort::partition`, `Fn`),
             ),
         ),
         Ok(
@@ -36,7 +36,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
             ),
         ),
         Err(
@@ -48,7 +48,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
             ),
         ),
         Err(

@@ -4,7 +4,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                     ),
                 ),
             ),
@@ -580,7 +580,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                     ),
                 ),
             ),
@@ -1000,7 +1000,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                     ),
                 ),
             ),
@@ -1576,7 +1576,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                     ),
                 ),
             ),
@@ -1585,13 +1585,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -1620,7 +1622,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -1751,13 +1753,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -1786,7 +1790,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -1954,7 +1958,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -1981,7 +1985,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -2112,7 +2116,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -2139,7 +2143,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -2279,7 +2283,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                     ),
                 ),
             ),
@@ -3104,7 +3108,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                     ),
                 ),
             ),
@@ -3113,13 +3117,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -3148,7 +3154,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -3279,13 +3285,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -3314,7 +3322,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -3483,7 +3491,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -3510,7 +3518,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -3641,7 +3649,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 15,
+                                            value: 20,
                                         },
                                     ),
                                 ),
@@ -3668,7 +3676,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -3808,7 +3816,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                     ),
                 ),
             ),
@@ -3975,7 +3983,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -4316,7 +4324,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -4438,35 +4446,28 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    ExpectFinalDestinationEqsNonSortTypePath {
-                                        path_expected: TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                        path: TypePath(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected: TypePath(
+                                    Id {
+                                        value: 36,
                                     },
                                 ),
-                            ),
+                                path: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -5094,7 +5095,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -5393,13 +5394,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 16,
+                                            value: 21,
                                         },
                                     ),
                                 ),
@@ -5428,7 +5431,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -6080,13 +6083,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 17,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -6115,7 +6120,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -6264,13 +6269,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 18,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -6299,7 +6306,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -7060,13 +7067,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 19,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -7095,7 +7104,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -7214,13 +7223,80 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    60,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: FnType,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -7251,13 +7327,32 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                ty_result: Ok(
+                    (
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    61,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Err(
@@ -7282,7 +7377,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    60,
+                    62,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7316,7 +7411,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    61,
+                    63,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7342,7 +7437,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    62,
+                    64,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7368,7 +7463,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    63,
+                    65,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7396,58 +7491,6 @@
                             Unresolved(
                                 UnresolvedTermIdx(
                                     23,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    64,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    65,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    24,
                                 ),
                             ),
                         ),
@@ -7464,6 +7507,58 @@
                 ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    67,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    24,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    68,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 CurrentSymbolTypeError,
@@ -7488,7 +7583,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    67,
+                    69,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7522,7 +7617,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    69,
+                    71,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7548,7 +7643,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    68,
+                    70,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7580,7 +7675,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    70,
+                    72,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7620,42 +7715,10 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    72,
+                    74,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    71,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
                 ),
             },
             ExprTypeInfo {
@@ -7710,7 +7773,39 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    74,
+                    75,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    76,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7737,13 +7832,80 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    77,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: FnType,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -7783,13 +7945,32 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                ty_result: Ok(
+                    (
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    78,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -7811,7 +7992,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    75,
+                    79,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7871,7 +8052,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    76,
+                    80,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7931,7 +8112,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    77,
+                    81,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -7957,7 +8138,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    78,
+                    82,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -7991,7 +8172,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    79,
+                    83,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -8025,7 +8206,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    81,
+                    85,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -8051,7 +8232,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    80,
+                    84,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -8083,7 +8264,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    82,
+                    86,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -8123,7 +8304,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    84,
+                    88,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -8143,78 +8324,6 @@
                                             },
                                         ),
                                     ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    83,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    85,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    33,
                                 ),
                             ),
                         ),
@@ -8222,64 +8331,6 @@
                 ),
                 expectation_rule_idx: Some(
                     87,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    86,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    88,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -8338,13 +8389,210 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    33,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    91,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    90,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    92,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    93,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
                 resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    94,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: FnType,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -8384,174 +8632,21 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
                         Ok(
                             Resolved(
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 3,
+                                                value: 46,
                                             },
                                         ),
                                     ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    90,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    36,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    91,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    36,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    92,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    93,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    38,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    94,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    38,
                                 ),
                             ),
                         ),
@@ -8600,113 +8695,10 @@
                 ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    36,
                                 ),
                             ),
                         ),
@@ -8716,73 +8708,7 @@
                     97,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    98,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -8806,14 +8732,14 @@
                         Ok(
                             Unresolved(
                                 UnresolvedTermIdx(
-                                    42,
+                                    36,
                                 ),
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    99,
+                    98,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -8839,7 +8765,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    100,
+                    99,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -8855,15 +8781,21 @@
                 ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    38,
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    100,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -8884,15 +8816,9 @@
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    38,
                                 ),
                             ),
                         ),
@@ -8902,42 +8828,8 @@
                     101,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -8988,6 +8880,161 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    103,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 46,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: FnType,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    104,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
                         Trivial,
                         Err(
                             Derived(
@@ -9019,7 +9066,313 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    103,
+                    105,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    106,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    42,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    107,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    108,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    109,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    110,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    111,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9045,7 +9398,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    104,
+                    112,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9079,7 +9432,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    105,
+                    113,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9105,7 +9458,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    106,
+                    114,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9145,7 +9498,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    107,
+                    115,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9179,7 +9532,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    108,
+                    116,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9213,7 +9566,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    110,
+                    118,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9239,7 +9592,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    109,
+                    117,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9271,7 +9624,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    111,
+                    119,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9311,7 +9664,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    113,
+                    121,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -9337,7 +9690,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    112,
+                    120,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9369,7 +9722,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    114,
+                    122,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9401,7 +9754,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    115,
+                    123,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -9451,28 +9804,21 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    ExpectFinalDestinationEqsNonSortTypePath {
-                                        path_expected: TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                        path: TypePath(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected: TypePath(
+                                    Id {
+                                        value: 36,
                                     },
                                 ),
-                            ),
+                                path: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -9559,7 +9905,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    116,
+                    124,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -10992,7 +11338,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -11075,7 +11421,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 16,
+                                            value: 21,
                                         },
                                     ),
                                 ),
@@ -11102,7 +11448,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -11534,7 +11880,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 17,
+                                            value: 22,
                                         },
                                     ),
                                 ),
@@ -11561,7 +11907,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -11646,7 +11992,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 18,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -11673,7 +12019,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -12188,7 +12534,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 19,
+                                            value: 24,
                                         },
                                     ),
                                 ),
@@ -12215,7 +12561,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -12288,6 +12634,92 @@
                                     ),
                                 ),
                             ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 161,
+                            expectee: Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: AnyDerived,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Resolved(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 46,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_liasoned_tys: [
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 164,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 166,
@@ -12636,6 +13068,92 @@
                                     ),
                                 ),
                             ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 187,
+                            expectee: Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: AnyDerived,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Resolved(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 46,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_liasoned_tys: [
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 191,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 192,
@@ -13058,6 +13576,92 @@
                             ),
                         },
                         LocalTermExpectationRule {
+                            src_expr_idx: 216,
+                            expectee: Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: AnyDerived,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Resolved(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 46,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_liasoned_tys: [
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 220,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
                             src_expr_idx: 221,
                             expectee: Resolved(
                                 EntityPath(
@@ -13212,6 +13816,92 @@
                                     ),
                                 ),
                             ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 231,
+                            expectee: Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: AnyDerived,
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Resolved(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 46,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_liasoned_tys: [
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 14,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 234,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 238,
@@ -13790,13 +14480,78 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsRitchieCallType(
+                                ExpectEqsFunctionTypeOutcome {
+                                    implicit_parameter_substitutions: [],
+                                    return_ty: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    variant: Ritchie {
+                                        ritchie_kind: FnType,
+                                        parameter_liasoned_tys: [
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    Application(
+                                                        TermApplication(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            LocalTermRitchieParameterLiasonedType {
+                                                ty: Resolved(
+                                                    EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 24,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                },
+                            ),
+                        ),
+                    ),
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -13817,43 +14572,98 @@
                     (
                         Trivial,
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
                 ),
                 resolve_progress: Expected(
-                    Unresolved,
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
                 ),
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                ty_result: Ok(
+                    (
+                        ExplicitApplicationOrRitchieCall(
+                            RitchieCall,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 53,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                BlockTypeError,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 53,
+                                            },
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -13863,48 +14673,187 @@
         local_term_region: LocalTermRegion {
             unresolved_terms: UnresolvedTerms {
                 implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 1,
+                    next: 0,
                 },
-                data: [
-                    UnresolvedTermEntry {
-                        src_expr_idx: 2,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    0,
-                                ),
-                                src_expr_idx: 2,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    },
-                ],
+                data: [],
                 first_unresolved_term: 0,
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
                     data: [
                         LocalTermExpectationRule {
-                            src_expr_idx: 2,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                Ritchie(
+                                    TermRitchie(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
                                 ),
                             ),
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: TypeOntology,
+                                },
                             ),
-                            resolve_progress: Unresolved,
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsRitchieCallType(
+                                        ExpectEqsFunctionTypeOutcome {
+                                            implicit_parameter_substitutions: [],
+                                            return_ty: Resolved(
+                                                EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 53,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                            variant: Ritchie {
+                                                ritchie_kind: FnType,
+                                                parameter_liasoned_tys: [
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            Application(
+                                                                TermApplication(
+                                                                    Id {
+                                                                        value: 5,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    LocalTermRitchieParameterLiasonedType {
+                                                        ty: Resolved(
+                                                            EntityPath(
+                                                                TypeOntology(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 24,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 2,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 24,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        None,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 3,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 53,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        None,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 4,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 53,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    destination: Resolved(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 53,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    ImplicitlyConvertible(
+                                        None,
+                                    ),
+                                ),
+                            ),
                         },
                     ],
                 },
@@ -14578,19 +15527,12 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -14610,7 +15552,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -14639,7 +15581,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -14714,7 +15656,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -14743,7 +15685,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -15193,7 +16135,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -15220,7 +16162,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -15279,7 +16221,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -15306,7 +16248,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(

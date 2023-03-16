@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                     ),
                 ),
             ),

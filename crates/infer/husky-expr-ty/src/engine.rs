@@ -56,7 +56,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::from_raw(db, term, TermTypeExpectation::FinalDestinationEqsSort).ok())
+            .map(|term| Term::ty_from_raw(db, term).ok())
             .flatten();
         // todo: improve this
         let self_ty = expr_region_data
@@ -67,7 +67,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::from_raw(db, term, TermTypeExpectation::FinalDestinationEqsSort).ok())
+            .map(|term| Term::ty_from_raw(db, term).ok())
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();

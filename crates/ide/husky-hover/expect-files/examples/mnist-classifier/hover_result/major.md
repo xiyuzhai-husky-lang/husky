@@ -137,11 +137,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 9,
+                                    character: 7,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 29,
+                                    character: 27,
                                 },
                             },
                         ),
@@ -377,11 +377,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 19,
-                                    character: 58,
+                                    character: 56,
                                 },
                                 end: Position {
                                     line: 19,
-                                    character: 61,
+                                    character: 59,
                                 },
                             },
                         ),
@@ -497,11 +497,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 25,
-                                    character: 9,
+                                    character: 7,
                                 },
                                 end: Position {
                                     line: 25,
-                                    character: 27,
+                                    character: 25,
                                 },
                             },
                         ),
@@ -587,11 +587,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 32,
-                                    character: 35,
+                                    character: 33,
                                 },
                                 end: Position {
                                     line: 32,
-                                    character: 37,
+                                    character: 35,
                                 },
                             },
                         ),
@@ -617,11 +617,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 35,
-                                    character: 9,
+                                    character: 7,
                                 },
                                 end: Position {
                                     line: 35,
-                                    character: 33,
+                                    character: 31,
                                 },
                             },
                         ),

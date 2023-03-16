@@ -4,7 +4,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Function`),
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                     ),
                 ),
             ),
@@ -75,19 +75,12 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -267,13 +260,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 9,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -302,7 +297,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -643,13 +638,15 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 9,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -678,7 +675,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -975,19 +972,12 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -1275,20 +1265,14 @@
                     Term(`TypeOntology(core::list::List)`),
                 ),
             ),
-            Ok(
-                LocalTerm::Resolved(
-                    Term(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::AmbiguousTypePath,
                 ),
             ),
             Err(
                 ExprTermError::Derived(
-                    DerivedExprTermError::ExplicitApplicationTerm(
-                        TermError::RawTypeError(
-                            RawTypeError::Derived(
-                                DerivedRawTypeError::SignatureError,
-                            ),
-                        ),
-                    ),
+                    DerivedExprTermError::Todo,
                 ),
             ),
         ],
@@ -1609,7 +1593,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 9,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -1636,7 +1620,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -1857,7 +1841,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 9,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -1884,7 +1868,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -4457,19 +4441,12 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -4489,7 +4466,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -4518,7 +4495,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -4593,7 +4570,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -4622,7 +4599,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -5038,7 +5015,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -5065,7 +5042,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -5124,7 +5101,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -5151,7 +5128,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -5411,7 +5388,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 11,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5440,7 +5417,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -5684,7 +5661,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 11,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5711,7 +5688,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(

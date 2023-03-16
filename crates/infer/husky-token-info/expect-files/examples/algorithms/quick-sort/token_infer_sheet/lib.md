@@ -7,14 +7,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort`, `Function`),
+                            FormPath(`quick_sort::quick_sort`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
@@ -100,7 +100,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
@@ -145,14 +145,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
@@ -282,7 +282,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::partition`, `Function`),
+                            FormPath(`quick_sort::partition`, `Fn`),
                         ),
                     ),
                 ),
@@ -317,7 +317,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
@@ -354,7 +354,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
@@ -392,14 +392,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::partition`, `Function`),
+                            FormPath(`quick_sort::partition`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },
@@ -844,14 +844,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
@@ -894,7 +894,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort`, `Function`),
+                            FormPath(`quick_sort::quick_sort`, `Fn`),
                         ),
                     ),
                 ),
@@ -947,14 +947,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
@@ -988,7 +988,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort`, `Function`),
+                            FormPath(`quick_sort::quick_sort`, `Fn`),
                         ),
                     ),
                 ),

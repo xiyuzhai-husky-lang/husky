@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 6;\n\ntoken = Token::Attr(\n    AttributeKeyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 6;\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -137,11 +137,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 8,
-                                    character: 21,
+                                    character: 19,
                                 },
                                 end: Position {
                                     line: 8,
-                                    character: 22,
+                                    character: 20,
                                 },
                             },
                         ),
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 11,
-                                    character: 23,
+                                    character: 21,
                                 },
                                 end: Position {
                                     line: 11,
-                                    character: 25,
+                                    character: 23,
                                 },
                             },
                         ),
@@ -257,11 +257,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 11,
-                                    character: 42,
+                                    character: 40,
                                 },
                                 end: Position {
                                     line: 11,
-                                    character: 43,
+                                    character: 41,
                                 },
                             },
                         ),

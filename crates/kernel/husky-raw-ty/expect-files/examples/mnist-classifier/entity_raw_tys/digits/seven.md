@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
             ),
         ),
         Ok(
@@ -36,7 +36,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
             ),
         ),
         Ok(
@@ -46,23 +46,11 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
             ),
         ),
         Ok(
             RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
-        ),
-    ),
-    (
-        EntityPath::ModuleItem(
-            ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-            ),
-        ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
         ),
     ),
 ]

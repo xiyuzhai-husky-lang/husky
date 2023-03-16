@@ -1,9 +1,11 @@
+mod associated_item;
 mod form;
 mod trai;
 mod ty_constructor;
 mod ty_ontology;
 mod utils;
 
+pub use self::associated_item::*;
 pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty_constructor::*;
@@ -49,7 +51,7 @@ pub fn entity_path_raw_ty(
 }
 
 #[test]
-fn entity_path_path_raw_term_raw_ty_works() {
+fn entity_path_raw_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
@@ -215,7 +217,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
-    let Ok(variances) = raw_ty_entity_variances(db, path) else {
+    let Ok(variances) =  ty_entity_variances(db, path) else {
         todo!()
     };
     Ok(curry_from_implicit_parameters(

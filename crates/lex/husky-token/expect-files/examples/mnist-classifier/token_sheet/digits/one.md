@@ -183,7 +183,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -244,13 +244,11 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
-            ),
             Token::Keyword(
-                Keyword::Form(
-                    Def,
-                ),
+                Keyword::Pub,
+            ),
+            Token::Ident(
+                `mm`,
             ),
             Token::Ident(
                 `is_one`,
@@ -2008,7 +2006,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2113,7 +2111,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2241,7 +2239,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(

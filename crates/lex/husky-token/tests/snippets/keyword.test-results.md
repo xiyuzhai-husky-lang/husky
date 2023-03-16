@@ -41,10 +41,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
-            Keyword::Form(
-                Func,
-            ),
+        Token::Ident(
+            `func`,
         ),
     ],
     group_starts: [
@@ -69,10 +67,8 @@ output
 ```husky
 TokenSheetData {
     tokens: [
-        Token::Keyword(
-            Keyword::Form(
-                Proc,
-            ),
+        Token::Ident(
+            `proc`,
         ),
     ],
     group_starts: [

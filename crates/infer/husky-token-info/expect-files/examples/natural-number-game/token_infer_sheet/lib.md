@@ -39,48 +39,11 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::AssociatedItem(
-                        AssociatedItemPath::TypeItem(
-                            TypeItemPath {
-                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                ident: `add`,
-                                ty_item_kind: Memo,
-                            },
-                        ),
-                    ),
-                ),
-                Some(
-                    AssociatedItem {
-                        associated_item_kind: TypeItem(
-                            Memo,
-                        ),
-                    },
-                ),
-            ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::Nat`, `Inductive`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`natural_number_game::Nat`, `Inductive`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

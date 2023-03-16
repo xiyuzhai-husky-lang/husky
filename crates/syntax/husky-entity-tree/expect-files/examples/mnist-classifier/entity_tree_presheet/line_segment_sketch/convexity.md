@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 22,

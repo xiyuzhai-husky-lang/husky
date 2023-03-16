@@ -155,7 +155,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::raw_contour`,

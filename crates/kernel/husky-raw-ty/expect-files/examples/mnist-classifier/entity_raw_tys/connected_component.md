@@ -22,7 +22,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
             ),
         ),
         Ok(
@@ -44,7 +44,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
             ),
         ),
         Ok(
@@ -54,7 +54,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
             ),
         ),
         Err(

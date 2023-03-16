@@ -34,8 +34,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -57,7 +57,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -145,8 +145,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -168,7 +168,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -256,8 +256,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -279,7 +279,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -367,8 +367,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -464,8 +464,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -487,7 +487,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -575,8 +575,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -672,8 +672,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -695,7 +695,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -783,8 +783,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -880,8 +880,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -903,7 +903,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -991,8 +991,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1088,8 +1088,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1111,7 +1111,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -1199,8 +1199,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1296,8 +1296,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1310,7 +1310,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -1394,8 +1394,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1408,7 +1408,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(
@@ -1492,8 +1492,8 @@ Ok(
                     Box,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -1515,7 +1515,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(

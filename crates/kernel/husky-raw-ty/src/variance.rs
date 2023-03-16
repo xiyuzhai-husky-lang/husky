@@ -32,12 +32,17 @@ pub type VarianceResult<T> = Result<T, VarianceError>;
 pub type VarianceResultRef<'a, T> = Result<T, &'a VarianceError>;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalVarianceError {}
+#[salsa::derive_debug_with_db(db = RawTypeDb)]
+pub enum OriginalVarianceError {
+    Todo,
+}
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = RawTypeDb)]
 pub enum DerivedVarianceError {
     DeclError,
     SignatureError,
+    TypeItemNotFound,
 }
 
 pub(crate) fn entity_variances(
@@ -47,9 +52,7 @@ pub(crate) fn entity_variances(
     match path {
         EntityPath::Module(_) => Ok(&[]),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => {
-                raw_ty_entity_variances(db, path).as_ref().map(Vec::as_ref)
-            }
+            ModuleItemPath::Type(path) => ty_entity_variances(db, path).as_ref().map(Vec::as_ref),
             ModuleItemPath::Trait(path) => {
                 trai_entity_variances(db, path).as_ref().map(Vec::as_ref)
             }
@@ -61,7 +64,7 @@ pub(crate) fn entity_variances(
 }
 
 #[salsa::tracked(jar = RawTypeJar, return_ref)]
-pub(crate) fn raw_ty_entity_variances(
+pub(crate) fn ty_entity_variances(
     db: &dyn RawTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<Variance>> {
@@ -80,6 +83,14 @@ pub(crate) fn trai_entity_variances(
 pub(crate) fn form_entity_variances(
     db: &dyn RawTypeDb,
     path: FormPath,
+) -> VarianceResult<Vec<Variance>> {
+    calc_entity_variances(db, path)
+}
+
+#[salsa::tracked(jar = RawTypeJar, return_ref)]
+pub(crate) fn ty_item_entity_variances(
+    db: &dyn RawTypeDb,
+    path: TypeItemPath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_entity_variances(db, path)
 }

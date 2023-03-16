@@ -346,6 +346,13 @@ Ok(
                                             ),
                                             ident: `displacement`,
                                         },
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ident: `displacement`,
+                                                ty_item_kind: MethodFn,
+                                            },
+                                        ),
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -912,6 +919,13 @@ Ok(
                                             ),
                                             ident: `dist_to_point`,
                                         },
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ident: `dist_to_point`,
+                                                ty_item_kind: MethodFn,
+                                            },
+                                        ),
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(

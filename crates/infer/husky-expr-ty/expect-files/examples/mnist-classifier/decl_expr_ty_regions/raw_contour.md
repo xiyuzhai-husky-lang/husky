@@ -11,19 +11,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -398,7 +391,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                     ),
                 ),
             ),
@@ -502,7 +495,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                     ),
                 ),
             ),
@@ -606,7 +599,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                     ),
                 ),
             ),
@@ -710,7 +703,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                     ),
                 ),
             ),
@@ -817,7 +810,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                     ),
                 ),
             ),
@@ -921,7 +914,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                     ),
                 ),
             ),
@@ -1190,7 +1183,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                     ),
                 ),
             ),
@@ -1291,7 +1284,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                     ),
                 ),
             ),
@@ -1785,19 +1778,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),

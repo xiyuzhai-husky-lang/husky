@@ -89,11 +89,11 @@ Ok(
                     Curl,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -158,7 +158,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -209,7 +209,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -645,7 +645,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -729,7 +729,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1254,7 +1254,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1493,7 +1493,7 @@ Ok(
                 Punctuation::XmlKet,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Enum,
                 ),
             ),
@@ -1526,7 +1526,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1627,7 +1627,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1706,7 +1706,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1807,7 +1807,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2309,7 +2309,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2551,7 +2551,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -3315,7 +3315,7 @@ Ok(
                 `unreachable`,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -3358,7 +3358,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -3627,7 +3627,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(

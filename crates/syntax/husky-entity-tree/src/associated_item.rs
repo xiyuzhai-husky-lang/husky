@@ -36,6 +36,14 @@ impl AssociatedItemId {
     pub fn module_path(self) -> ModulePath {
         self.impl_block_id.module()
     }
+
+    pub fn impl_block_id(&self) -> ImplBlockId {
+        self.impl_block_id
+    }
+
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
 }
 
 impl AssociatedItem {

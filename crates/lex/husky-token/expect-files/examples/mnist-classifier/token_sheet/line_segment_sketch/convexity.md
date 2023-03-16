@@ -61,12 +61,12 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(

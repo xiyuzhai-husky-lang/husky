@@ -5,6 +5,7 @@ use husky_entity_tree::AssociatedItem;
 pub struct TypeMethodFnDecl {
     #[id]
     pub id: AssociatedItemId,
+    pub path: Option<TypeItemPath>,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,

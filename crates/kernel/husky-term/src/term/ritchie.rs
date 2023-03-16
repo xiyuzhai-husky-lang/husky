@@ -103,9 +103,9 @@ impl TermRitchie {
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
         match self.ritchie_kind(db) {
-            TermRitchieKind::Fp => f.write_str("Fp(")?,
-            TermRitchieKind::Fn => f.write_str("Fn(")?,
-            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::FnType => f.write_str("Fp(")?,
+            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
+            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_liasoned_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
             if i > 0 {
@@ -161,9 +161,9 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<TermJar>>::as_jar_db(db);
         match self.ritchie_kind(db) {
-            TermRitchieKind::Fp => f.write_str("Fp(")?,
-            TermRitchieKind::Fn => f.write_str("Fn(")?,
-            TermRitchieKind::FnMut => f.write_str("FnMut(")?,
+            TermRitchieKind::FnType => f.write_str("Fp(")?,
+            TermRitchieKind::FnTrait => f.write_str("Fn(")?,
+            TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
         for (i, parameter_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
             if i > 0 {

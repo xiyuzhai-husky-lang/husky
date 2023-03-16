@@ -38,7 +38,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
@@ -105,31 +105,6 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Ident(
-                        "is_four",
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::four`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            ast_idx: 48,
-                            ident_token: IdentToken {
-                                ident: `is_four`,
-                                token_idx: TokenIdx(
-                                    123,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
                         "displacement_downwards",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -138,7 +113,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,
@@ -163,7 +138,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::four`,

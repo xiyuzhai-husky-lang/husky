@@ -1,8 +1,8 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,
@@ -13,8 +13,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Semicolon,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Trait,

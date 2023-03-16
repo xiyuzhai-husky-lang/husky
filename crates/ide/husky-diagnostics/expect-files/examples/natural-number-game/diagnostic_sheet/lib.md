@@ -32,6 +32,11 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
+                range: [6:5, 6:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: unexpected stmt inside impl",
+                severity: Error,
                 range: [7:5, 7:24),
             },
             Diagnostic {
@@ -52,13 +57,7 @@ DiagnosticSheet {
         ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
-                severity: Error,
-                range: [6:17, 6:18),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],

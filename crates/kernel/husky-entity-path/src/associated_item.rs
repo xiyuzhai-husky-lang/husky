@@ -10,6 +10,7 @@ use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[enum_class::from_variants]
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
@@ -25,6 +26,14 @@ impl AssociatedItemPath {
         }
     }
 
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
+        match self {
+            AssociatedItemPath::TypeItem(path) => path.module_path(db),
+            AssociatedItemPath::TraitItem(_) => todo!(),
+            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+        }
+    }
+
     pub(crate) fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
         match self {
             AssociatedItemPath::TypeItem(path) => EntityKind::AssociatedItem {
@@ -33,24 +42,6 @@ impl AssociatedItemPath {
             AssociatedItemPath::TraitItem(_) => todo!(),
             AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
         }
-    }
-}
-
-impl From<TypeAsTraitItemPath> for AssociatedItemPath {
-    fn from(v: TypeAsTraitItemPath) -> Self {
-        Self::TypeAsTraitItem(v)
-    }
-}
-
-impl From<TraitItemPath> for AssociatedItemPath {
-    fn from(v: TraitItemPath) -> Self {
-        Self::TraitItem(v)
-    }
-}
-
-impl From<TypeItemPath> for AssociatedItemPath {
-    fn from(v: TypeItemPath) -> Self {
-        Self::TypeItem(v)
     }
 }
 

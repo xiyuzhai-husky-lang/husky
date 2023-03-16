@@ -121,14 +121,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Function`),
+                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },

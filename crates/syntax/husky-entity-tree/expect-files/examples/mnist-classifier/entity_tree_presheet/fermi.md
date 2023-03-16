@@ -36,7 +36,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 24,

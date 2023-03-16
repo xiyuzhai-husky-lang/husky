@@ -86,7 +86,7 @@ Ok(
                     EntityPath::AssociatedItem(
                         AssociatedItemPath::TypeItem(
                             TypeItemPath {
-                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `norm`,
                                 ty_item_kind: Memo,
                             },
@@ -188,7 +188,7 @@ Ok(
                     EntityPath::AssociatedItem(
                         AssociatedItemPath::TypeItem(
                             TypeItemPath {
-                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `rel_norm`,
                                 ty_item_kind: Memo,
                             },
@@ -290,7 +290,7 @@ Ok(
                     EntityPath::AssociatedItem(
                         AssociatedItemPath::TypeItem(
                             TypeItemPath {
-                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `angle_change_norm`,
                                 ty_item_kind: Memo,
                             },
@@ -396,14 +396,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Function,
+                            Fn,
                         ),
                         connection: Connected,
                     },

@@ -77,11 +77,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 16,
-                                    character: 18,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 16,
-                                    character: 20,
+                                    character: 18,
                                 },
                             },
                         ),
@@ -467,11 +467,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 74,
-                                    character: 35,
+                                    character: 33,
                                 },
                                 end: Position {
                                     line: 74,
-                                    character: 36,
+                                    character: 34,
                                 },
                             },
                         ),
@@ -497,11 +497,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 80,
-                                    character: 21,
+                                    character: 19,
                                 },
                                 end: Position {
                                     line: 80,
-                                    character: 22,
+                                    character: 20,
                                 },
                             },
                         ),
@@ -527,11 +527,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 86,
-                                    character: 95,
+                                    character: 93,
                                 },
                                 end: Position {
                                     line: 86,
-                                    character: 96,
+                                    character: 94,
                                 },
                             },
                         ),

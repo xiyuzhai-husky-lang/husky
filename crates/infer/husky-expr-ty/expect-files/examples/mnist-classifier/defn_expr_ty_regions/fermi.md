@@ -4,7 +4,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::fermi::fermi_match`, `Function`),
+                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                     ),
                 ),
             ),
@@ -34,19 +34,12 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -356,19 +349,12 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -449,20 +435,14 @@
         ],
         extra_expr_errors: [],
         expr_local_terms: [
-            Ok(
-                LocalTerm::Resolved(
-                    Term(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::AmbiguousTypePath,
                 ),
             ),
             Err(
                 ExprTermError::Derived(
-                    DerivedExprTermError::TildeApplicationTerm(
-                        TermError::RawTypeError(
-                            RawTypeError::Derived(
-                                DerivedRawTypeError::SignatureError,
-                            ),
-                        ),
-                    ),
+                    DerivedExprTermError::PrefixOprTermNotInferred,
                 ),
             ),
             Ok(

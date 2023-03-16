@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`quick_sort::quick_sort`, `Function`),
+                        FormPath(`quick_sort::quick_sort`, `Fn`),
                     ),
                 ),
             ),
@@ -41,7 +41,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                     ),
                 ),
             ),
@@ -84,7 +84,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`quick_sort::partition`, `Function`),
+                        FormPath(`quick_sort::partition`, `Fn`),
                     ),
                 ),
             ),
@@ -191,7 +191,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                     ),
                 ),
             ),
@@ -224,7 +224,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                     ),
                 ),
             ),

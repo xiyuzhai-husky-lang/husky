@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),
+                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
             ),
         ),
         Ok(
@@ -48,19 +48,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
-            ),
-        ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
-        ),
-    ),
-    (
-        EntityPath::ModuleItem(
-            ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Function`),
+                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
             ),
         ),
         Ok(
@@ -70,7 +58,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Function`),
+                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
             ),
         ),
         Ok(

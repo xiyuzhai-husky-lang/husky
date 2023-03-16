@@ -55,7 +55,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
@@ -101,7 +101,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
@@ -124,7 +124,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             ),
                             accessibility: Accessibility::Public,
                             ast_idx: 127,

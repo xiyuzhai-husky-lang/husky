@@ -41,11 +41,6 @@ pub struct TermJar(
     term_curry_symbols,
     term_ritchie_symbols,
     term_application_symbols,
-    // entity path
-    ty_ontology_path_ty_unchecked,
-    ty_constructor_path_ty_unchecked,
-    trai_path_ty_unchecked,
-    form_path_ty_unchecked,
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
@@ -92,5 +87,4 @@ pub struct TermJar(
     TypeMethodFnCard,
     TypeAsTraitMethodFnCard,
     TypeAssociatedFnCard,
-    ty_item_path_ty_unchecked,
 );

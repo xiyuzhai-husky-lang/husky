@@ -35,12 +35,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -52,14 +64,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 56,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
