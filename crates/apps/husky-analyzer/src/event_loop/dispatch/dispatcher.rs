@@ -109,7 +109,18 @@ impl<'a> RequestDispatcher<'a> {
                     f(snapshot, params)
                 });
                 // ad hoc
-                assert!(result.is_ok());
+                match result {
+                    Ok(_) => (),
+                    Err(ref e) => {
+                        if let Some(s) = e.downcast_ref::<&str>() {
+                            panic!("result is Err({s})")
+                        } else if let Some(s) = e.downcast_ref::<String>() {
+                            panic!("result is Err({s})")
+                        } else {
+                            panic!("result is Err(unknown)")
+                        }
+                    }
+                }
                 let response = thread_result_to_response::<R>(id, result);
                 sender.send(TaskSet::Respond(response)).expect("ok");
             }

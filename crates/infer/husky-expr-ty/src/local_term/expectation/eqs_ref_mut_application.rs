@@ -25,7 +25,7 @@ impl ExpectLocalTerm for ExpectEqsRefMutApplication {
         db: &dyn ExprTypeDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        todo!()
+        FinalDestination::TypeOntology
     }
 
     fn destination(&self) -> Option<LocalTerm> {
