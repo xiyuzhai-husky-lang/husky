@@ -8,10 +8,6 @@ pub(crate) fn handle_semantic_tokens_full(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensParams,
 ) -> Result<Option<SemanticTokensResult>> {
-    eprintln!(
-        "start handle_semantic_tokens_full for {:?}",
-        params.text_document.uri
-    );
     let _p = husky_profile_utils::span("handle_semantic_tokens_full");
     let semantic_tokens = semantic_tokens(&snapshot, &params.text_document.uri, None)?;
     // Unconditionally cache the tokens
@@ -23,14 +19,7 @@ pub(crate) fn handle_semantic_tokens_full_delta(
     snapshot: AnalyzerDBSnapshot,
     params: SemanticTokensDeltaParams,
 ) -> Result<Option<SemanticTokensFullDeltaResult>> {
-    const DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA: bool = true;
     let current = semantic_tokens(&snapshot, &params.text_document.uri, None)?;
-    if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
-        eprintln!("start handle_semantic_tokens_full_delta");
-    }
-    let _p = husky_profile_utils::span("handle_semantic_tokens_full_delta");
-    // ad hoc
-    let now = Instant::now();
     match snapshot.cached_semantic_tokens_entry(params.text_document.uri) {
         Entry::Occupied(mut entry) => {
             let cached_tokens = entry.get();
@@ -38,10 +27,6 @@ pub(crate) fn handle_semantic_tokens_full_delta(
                 if prev_id == &params.previous_result_id {
                     let delta = semantic_token_delta(&cached_tokens, &current);
                     entry.insert(current);
-                    if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
-                        eprintln!("end handle_semantic_tokens_full_delta by delta");
-                        eprintln!("time elapsed: {}", now.elapsed().as_secs());
-                    }
                     return Ok(Some(delta.into()));
                 }
             }
@@ -50,10 +35,6 @@ pub(crate) fn handle_semantic_tokens_full_delta(
         Entry::Vacant(entry) => {
             entry.insert(current.clone());
         }
-    }
-    if DEBUG_HANDLE_SEMANTIC_TOKENS_FULL_DELTA {
-        eprintln!("end handle_semantic_tokens_full_delta by full");
-        eprintln!("time elapsed: {}", now.elapsed().as_secs());
     }
     Ok(Some(SemanticTokensFullDeltaResult::Tokens(current)))
 }

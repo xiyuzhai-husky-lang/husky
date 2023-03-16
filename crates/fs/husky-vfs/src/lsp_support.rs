@@ -1,9 +1,7 @@
 use crate::*;
 
 pub fn set_live_file<Db: VfsDb>(db: &mut Db, path: &Path, text: String) -> VfsResult<()> {
-    eprintln!("set live file for path {:?}", path);
     update_live_packages(db, path);
-    eprintln!("finish update live packages");
     db.set_content(path, FileContent::LiveDoc(text))
 }
 

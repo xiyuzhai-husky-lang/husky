@@ -177,7 +177,7 @@ fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
         boundary_unsearched[i] = (r_ur|r_dr|r_ul|r_dl) & (~(r_ur&r_dr&r_ul&r_dl))
     for 1 <= k <= 29:
         while boundary_unsearched[k]:
-            let mut contour = []Point2d()
+            let mut contour: []Point2d = []
             let mut i = k
             let mut j = boundary_unsearched[k].ctz()
             // prepare rows
