@@ -18,32 +18,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            ast_idx: 68,
+                            ast_idx: 18,
                             ident_token: IdentToken {
                                 ident: `one_fermi_match`,
                                 token_idx: TokenIdx(
                                     59,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
-                        "is_one",
-                    ),
-                    accessibility: Accessibility::Public,
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                            ),
-                            accessibility: Accessibility::Public,
-                            ast_idx: 69,
-                            ident_token: IdentToken {
-                                ident: `is_one`,
-                                token_idx: TokenIdx(
-                                    77,
                                 ),
                             },
                         },
@@ -59,12 +38,12 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::upmost`, `Function`),
+                                FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            ast_idx: 70,
+                            ast_idx: 65,
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
@@ -84,12 +63,12 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::downmost`, `Function`),
+                                FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            ast_idx: 71,
+                            ast_idx: 66,
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
@@ -109,12 +88,12 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::hat`, `Function`),
+                                FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            ast_idx: 72,
+                            ast_idx: 67,
                             ident_token: IdentToken {
                                 ident: `hat`,
                                 token_idx: TokenIdx(
@@ -129,7 +108,7 @@ Ok(
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {
-                    ast_idx: 61,
+                    ast_idx: 11,
                     use_expr_idx: 3,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -153,7 +132,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 62,
+                    ast_idx: 12,
                     use_expr_idx: 8,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -177,7 +156,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 63,
+                    ast_idx: 13,
                     use_expr_idx: 13,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -201,7 +180,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 64,
+                    ast_idx: 14,
                     use_expr_idx: 18,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -225,7 +204,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 65,
+                    ast_idx: 15,
                     use_expr_idx: 21,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -248,7 +227,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 66,
+                    ast_idx: 16,
                     use_expr_idx: 24,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(
@@ -271,7 +250,7 @@ Ok(
                     state: UseExprRuleState::Unresolved,
                 },
                 UseExprRule {
-                    ast_idx: 67,
+                    ast_idx: 17,
                     use_expr_idx: 28,
                     accessibility: AccessibilityProgress::Done {
                         accessibility: Accessibility::PublicUnder(

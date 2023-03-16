@@ -122,14 +122,14 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
-                    TypeMethodSignature {
+                TypeItemSignature::AssociatedFn(
+                    TypeAssociatedFnSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
                         parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -141,7 +141,7 @@
                                         ),
                                     ),
                                 },
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -164,12 +164,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -181,14 +193,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -211,12 +235,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -228,14 +264,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 46,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -270,12 +318,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
@@ -287,14 +347,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -317,12 +389,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -334,14 +418,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -364,14 +460,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -394,14 +502,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -424,14 +544,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -454,14 +586,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 48,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -473,7 +617,7 @@
                                         ),
                                     ),
                                 },
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -508,14 +652,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -538,14 +694,26 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [
-                                ParameterSignature {
+                                RegularParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -568,12 +736,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -585,12 +765,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -602,12 +794,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -619,12 +823,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 50,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -648,12 +864,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -665,12 +893,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -682,12 +922,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),
@@ -699,12 +951,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`core::num::f32`),

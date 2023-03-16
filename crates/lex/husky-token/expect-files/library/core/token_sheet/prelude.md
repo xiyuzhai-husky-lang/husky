@@ -1,8 +1,8 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -24,8 +24,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -47,8 +47,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -70,8 +70,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -93,8 +93,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -116,8 +116,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -139,8 +139,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,

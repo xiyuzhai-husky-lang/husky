@@ -12137,6 +12137,13 @@ Ok(
                                             ),
                                             ident: `top_k_row_span_sum`,
                                         },
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `top_k_row_span_sum`,
+                                                ty_item_kind: MethodFn,
+                                            },
+                                        ),
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(
@@ -13323,6 +13330,13 @@ Ok(
                                             ),
                                             ident: `top_k_row_right_mass_sum`,
                                         },
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ident: `top_k_row_right_mass_sum`,
+                                                ty_item_kind: MethodFn,
+                                            },
+                                        ),
                                         associated_item: AssociatedItem {
                                             id: AssociatedItemId {
                                                 impl_block_id: ImplBlockId::Type(

@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 72;\n\ntoken = Token::Ident(\n    `left_coordinate_max`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Function`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 72;\n\ntoken = Token::Ident(\n    `left_coordinate_max`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 21,
-                                    character: 16,
+                                    character: 15,
                                 },
                                 end: Position {
                                     line: 21,
-                                    character: 26,
+                                    character: 25,
                                 },
                             },
                         ),
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 162;\n\ntoken = Token::Ident(\n    `down_match`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 4,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        163,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                304,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `down_match`,\n        pattern_symbol_idx: 4,\n    },\n}\n",
+                                value: "\ntoken_idx = 162;\n\ntoken = Token::Ident(\n    `down_match`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -527,11 +527,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 105,
-                                    character: 27,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 105,
-                                    character: 28,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -587,11 +587,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 110,
-                                    character: 45,
+                                    character: 43,
                                 },
                                 end: Position {
                                     line: 110,
-                                    character: 46,
+                                    character: 44,
                                 },
                             },
                         ),

@@ -14,19 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
-            ),
-        ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
-        ),
-    ),
-    (
-        EntityPath::ModuleItem(
-            ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
             ),
         ),
         Ok(
@@ -36,7 +24,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
             ),
         ),
         Ok(
@@ -46,7 +34,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                FormPath(`mnist_classifier::digits::three::back`, `Fn`),
             ),
         ),
         Ok(

@@ -5,13 +5,13 @@
     Ok(
         Signature::Form(
             FormSignature::Function(
-                FunctionSignature {
+                FormFnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
                     parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -27,8 +27,5 @@
                 },
             ),
         ),
-    ),
-    Err(
-        OutputTypeRawTermError,
     ),
 ]

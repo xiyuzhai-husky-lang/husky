@@ -614,6 +614,7 @@ impl<'a> DeclParser<'a> {
         Ok(TypeMethodFnDecl::new(
             self.db,
             associated_item.id(self.db),
+            path,
             associated_item,
             ast_idx,
             parser.finish(),

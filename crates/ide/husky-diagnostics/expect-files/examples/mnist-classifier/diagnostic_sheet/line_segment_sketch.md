@@ -42,31 +42,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [15:14, 15:15),
             },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [161:48, 161:51),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [169:60, 169:63),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [173:45, 173:48),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [184:45, 184:48),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [195:53, 195:56),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
@@ -94,11 +69,6 @@ DiagnosticSheet {
                 range: [72:31, 72:35),
             },
             Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [81:21, 81:33),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
                 severity: Error,
                 range: [82:23, 82:27),
@@ -109,24 +79,9 @@ DiagnosticSheet {
                 range: [85:9, 85:14),
             },
             Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [86:17, 86:29),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [107:9, 107:14),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [108:17, 108:29),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [114:22, 114:34),
             },
             Diagnostic {
                 message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
@@ -137,16 +92,6 @@ DiagnosticSheet {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [117:9, 117:16),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [118:18, 118:30),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `LocalTerm::Resolved(Term(`TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
-                severity: Error,
-                range: [125:21, 125:33),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

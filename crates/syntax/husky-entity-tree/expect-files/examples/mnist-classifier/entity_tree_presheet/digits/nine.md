@@ -55,31 +55,6 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Ident(
-                        "is_nine",
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::nine`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            ast_idx: 46,
-                            ident_token: IdentToken {
-                                ident: `is_nine`,
-                                token_idx: TokenIdx(
-                                    101,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
                         "downmost",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -88,7 +63,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::downmost`, `Function`),
+                                FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,
@@ -113,7 +88,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::big_cc`, `Function`),
+                                FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::nine`,

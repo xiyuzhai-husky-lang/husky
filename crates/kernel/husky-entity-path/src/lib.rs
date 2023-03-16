@@ -19,10 +19,10 @@ pub use menu::*;
 pub use module_item::*;
 pub use variant::*;
 
+use either::*;
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
 use husky_word::Ident;
-use either::*;
 use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]
 use tests::*;
@@ -86,7 +86,7 @@ impl EntityPath {
         match self {
             EntityPath::Module(path) => path,
             EntityPath::ModuleItem(path) => path.module_path(db),
-            EntityPath::AssociatedItem(_) => todo!(),
+            EntityPath::AssociatedItem(path) => path.module_path(db),
             EntityPath::Variant(_) => todo!(),
         }
     }

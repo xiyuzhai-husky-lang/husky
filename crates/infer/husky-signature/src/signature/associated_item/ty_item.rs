@@ -16,10 +16,10 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSignature {
-    Function(TypeAssociatedFnSignature),
-    Method(TypeMethodSignature),
-    ExternType(TypeAssociatedTypeSignature),
-    Value(TypeAssociatedValueSignature),
+    AssociatedFn(TypeAssociatedFnSignature),
+    MethodFn(TypeMethodSignature),
+    AssociatedType(TypeAssociatedTypeSignature),
+    AssociatedValue(TypeAssociatedValueSignature),
     Memo(TypeMemoSignature),
 }
 
@@ -49,12 +49,12 @@ pub(crate) fn ty_item_signature_from_decl(
 }
 
 impl TypeItemSignature {
-    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
         match self {
-            TypeItemSignature::Function(_) => todo!(),
-            TypeItemSignature::Method(_) => todo!(),
-            TypeItemSignature::ExternType(_) => todo!(),
-            TypeItemSignature::Value(_) => todo!(),
+            TypeItemSignature::AssociatedFn(signature) => signature.implicit_parameters(db),
+            TypeItemSignature::MethodFn(_) => todo!(),
+            TypeItemSignature::AssociatedType(_) => todo!(),
+            TypeItemSignature::AssociatedValue(_) => todo!(),
             TypeItemSignature::Memo(_) => todo!(),
         }
     }

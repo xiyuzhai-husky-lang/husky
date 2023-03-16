@@ -154,11 +154,7 @@ impl MethodTypeInfo {
             .iter()
             .map(t)
             .collect::<TermResult<Vec<_>>>()?;
-        let return_ty = Term::from_raw(
-            db,
-            signature.return_ty(db),
-            TermTypeExpectation::FinalDestinationEqsSort,
-        )?;
+        let return_ty = Term::ty_from_raw(db, signature.return_ty(db))?;
         let implicit_parameters = signature
             .implicit_parameters(db)
             .iter()

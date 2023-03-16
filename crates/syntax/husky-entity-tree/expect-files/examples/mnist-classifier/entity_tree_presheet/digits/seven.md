@@ -38,7 +38,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
@@ -88,7 +88,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
@@ -113,7 +113,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Function`),
+                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::seven`,
@@ -123,31 +123,6 @@ Ok(
                                 ident: `leftdowncc_pattern`,
                                 token_idx: TokenIdx(
                                     162,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
-                        "is_seven",
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::seven`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            ast_idx: 52,
-                            ident_token: IdentToken {
-                                ident: `is_seven`,
-                                token_idx: TokenIdx(
-                                    216,
                                 ),
                             },
                         },

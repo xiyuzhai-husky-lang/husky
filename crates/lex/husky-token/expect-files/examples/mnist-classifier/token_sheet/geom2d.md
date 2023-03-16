@@ -1,11 +1,11 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -55,12 +55,12 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
-            Token::Attr(
-                AttributeKeyword::Static,
+            Token::Keyword(
+                Keyword::Static,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -188,7 +188,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -255,7 +255,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -363,7 +363,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -475,7 +475,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -551,11 +551,11 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -596,11 +596,11 @@ Ok(
                     Curl,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -650,12 +650,12 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -720,12 +720,12 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -833,7 +833,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -945,7 +945,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1036,7 +1036,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1127,7 +1127,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1410,7 +1410,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1488,7 +1488,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1889,11 +1889,11 @@ Ok(
                     Unspecified,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -1945,7 +1945,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2194,7 +2194,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2311,11 +2311,11 @@ Ok(
             Token::Ident(
                 `span`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -2327,8 +2327,8 @@ Ok(
                     Curl,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Ident(
                 `xrange`,
@@ -2342,8 +2342,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Comma,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Ident(
                 `yrange`,
@@ -2373,7 +2373,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2502,7 +2502,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2631,7 +2631,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2677,7 +2677,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2723,7 +2723,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2769,7 +2769,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2813,11 +2813,11 @@ Ok(
             Token::Ident(
                 `max`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -2869,7 +2869,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2915,7 +2915,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2961,7 +2961,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -3007,7 +3007,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(

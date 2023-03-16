@@ -22,7 +22,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
             ),
         ),
         Ok(
@@ -32,7 +32,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
             ),
         ),
         Ok(
@@ -42,7 +42,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
             ),
         ),
         Ok(
@@ -52,7 +52,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
             ),
         ),
         Ok(
@@ -62,7 +62,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
             ),
         ),
         Ok(
@@ -72,7 +72,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
             ),
         ),
         Ok(
@@ -92,7 +92,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
             ),
         ),
         Ok(
@@ -102,7 +102,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Function`),
+                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
             ),
         ),
         Ok(

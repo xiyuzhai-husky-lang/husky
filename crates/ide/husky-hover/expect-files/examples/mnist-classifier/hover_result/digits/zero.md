@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 12,
-                                    character: 40,
+                                    character: 38,
                                 },
                                 end: Position {
                                     line: 12,
-                                    character: 41,
+                                    character: 39,
                                 },
                             },
                         ),
@@ -580,7 +580,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 266;\n\ntoken = Token::Ident(\n    `ymax`,\n);\n\ntoken_info = TokenInfo::Method;\n\n\n",
+                                value: "\ntoken_idx = 266;\n\ntoken = Token::Ident(\n    `ymax`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

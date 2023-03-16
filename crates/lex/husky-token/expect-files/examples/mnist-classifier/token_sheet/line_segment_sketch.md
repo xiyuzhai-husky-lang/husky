@@ -25,8 +25,8 @@ Ok(
             Token::Ident(
                 `line_segment`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -40,8 +40,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -55,8 +55,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Use,
@@ -122,11 +122,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::Star,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -287,12 +287,12 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
-            Token::Attr(
-                AttributeKeyword::Static,
+            Token::Keyword(
+                Keyword::Static,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -434,7 +434,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -564,11 +564,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::XmlKet,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -633,7 +633,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -680,7 +680,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1126,12 +1126,12 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Attr(
-                AttributeKeyword::Static,
+            Token::Keyword(
+                Keyword::Static,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1240,7 +1240,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1597,7 +1597,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1954,7 +1954,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -2831,7 +2831,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -3847,7 +3847,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(

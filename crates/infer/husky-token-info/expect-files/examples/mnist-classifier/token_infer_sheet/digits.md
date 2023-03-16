@@ -52,23 +52,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     10,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                            ),
-                            accessibility: Accessibility::Public,
-                            ast_idx: 69,
-                            ident_token: IdentToken {
-                                ident: `is_one`,
-                                token_idx: TokenIdx(
-                                    77,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -100,25 +84,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     11,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            ast_idx: 59,
-                            ident_token: IdentToken {
-                                ident: `is_six`,
-                                token_idx: TokenIdx(
-                                    93,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -150,25 +116,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     12,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            ast_idx: 35,
-                            ident_token: IdentToken {
-                                ident: `is_zero`,
-                                token_idx: TokenIdx(
-                                    105,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -210,25 +158,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     13,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            ast_idx: 35,
-                            ident_token: IdentToken {
-                                ident: `is_three`,
-                                token_idx: TokenIdx(
-                                    80,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -292,25 +222,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     15,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            ast_idx: 59,
-                            ident_token: IdentToken {
-                                ident: `is_six`,
-                                token_idx: TokenIdx(
-                                    93,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -342,25 +254,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     16,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            ast_idx: 52,
-                            ident_token: IdentToken {
-                                ident: `is_seven`,
-                                token_idx: TokenIdx(
-                                    216,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -392,25 +286,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     17,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            ast_idx: 29,
-                            ident_token: IdentToken {
-                                ident: `is_eight`,
-                                token_idx: TokenIdx(
-                                    92,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
@@ -442,25 +318,7 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     18,
                 ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            ast_idx: 46,
-                            ident_token: IdentToken {
-                                ident: `is_nine`,
-                                token_idx: TokenIdx(
-                                    101,
-                                ),
-                            },
-                        },
-                    ),
-                },
+                state: UseExprRuleState::Erroneous,
             },
         ],
     },

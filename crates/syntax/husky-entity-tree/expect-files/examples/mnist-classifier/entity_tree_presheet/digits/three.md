@@ -30,31 +30,6 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Ident(
-                        "is_three",
-                    ),
-                    accessibility: Accessibility::PublicUnder(
-                        `mnist_classifier::digits::three`,
-                    ),
-                    symbol: NativeEntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
-                            ),
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            ast_idx: 35,
-                            ident_token: IdentToken {
-                                ident: `is_three`,
-                                token_idx: TokenIdx(
-                                    80,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                NativeEntitySymbolEntry {
-                    ident: Ident(
                         "uparc",
                     ),
                     accessibility: Accessibility::PublicUnder(
@@ -63,7 +38,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::uparc`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
@@ -88,7 +63,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::downarc`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
@@ -113,7 +88,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::back`, `Function`),
+                                FormPath(`mnist_classifier::digits::three::back`, `Fn`),
                             ),
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits::three`,

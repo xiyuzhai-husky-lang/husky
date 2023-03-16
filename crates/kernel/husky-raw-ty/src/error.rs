@@ -44,4 +44,6 @@ pub enum DerivedRawTypeError {
     TypePathMethodDeclError,
     #[error("type path application method declaration error")]
     TypePathApplicationMethodDeclError,
+    #[error("TypeItemNotFound")]
+    TypeItemNotFound,
 }

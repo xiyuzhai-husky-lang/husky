@@ -47,7 +47,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Type,
+                    TypeAlias,
                 ),
             ),
             Token::Ident(

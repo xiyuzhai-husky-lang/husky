@@ -15,20 +15,17 @@ pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<Raw
     };
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        FormSignature::Function(signature) => {
-            function_entity_raw_ty(db, variances, signature, raw_term_menu)
-        }
+        FormSignature::Function(signature) => form_fn_entity_raw_ty(db, variances, signature),
         FormSignature::Feature(signature) => feature_entity_raw_ty(db, signature, raw_term_menu),
         FormSignature::Morphism(_) => todo!(),
         FormSignature::Value(_) => todo!(),
     }
 }
 
-pub(crate) fn function_entity_raw_ty(
+pub(crate) fn form_fn_entity_raw_ty(
     db: &dyn RawTypeDb,
     variances: &[Variance],
     signature: FormFnSignature,
-    _raw_term_menu: &RawTermMenu,
 ) -> RawTypeResult<RawTerm> {
     let param_raw_tys = signature
         .parameters(db)
@@ -41,7 +38,7 @@ pub(crate) fn function_entity_raw_ty(
         CurryKind::Implicit,
         variances,
         signature.implicit_parameters(db),
-        RawTermRitchie::new(db, TermRitchieKind::Fp, param_raw_tys, return_raw_ty),
+        RawTermRitchie::new(db, TermRitchieKind::FnType, param_raw_tys, return_raw_ty),
     ))
 }
 

@@ -44,7 +44,4 @@
             ),
         ),
     ),
-    Err(
-        OutputTypeRawTermError,
-    ),
 ]

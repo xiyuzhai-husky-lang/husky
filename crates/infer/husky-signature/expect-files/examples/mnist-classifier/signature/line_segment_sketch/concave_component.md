@@ -7,13 +7,13 @@
     Ok(
         Signature::Form(
             FormSignature::Function(
-                FunctionSignature {
+                FormFnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
                     parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -111,12 +111,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -128,12 +140,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
@@ -145,12 +169,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
@@ -162,12 +198,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -179,12 +227,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -196,12 +256,24 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Method(
+                TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        self_parameter: RegularParameterSignature {
+                            pattern: ParameterSignaturePattern,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: RegularParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),

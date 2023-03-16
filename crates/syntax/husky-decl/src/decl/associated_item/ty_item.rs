@@ -73,22 +73,22 @@ impl TypeItemDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeItemDecl::AssociatedFn(defn) => defn.expr_region(db),
-            TypeItemDecl::MethodFn(defn) => defn.expr_region(db),
-            TypeItemDecl::AssociatedType(defn) => defn.expr_region(db),
-            TypeItemDecl::AssociatedValue(defn) => defn.expr_region(db),
-            TypeItemDecl::Memo(defn) => defn.expr_region(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TypeItemDecl::MethodFn(decl) => decl.expr_region(db),
+            TypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
+            TypeItemDecl::AssociatedValue(decl) => decl.expr_region(db),
+            TypeItemDecl::Memo(decl) => decl.expr_region(db),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> Option<TypeItemPath> {
         match self {
-            TypeItemDecl::AssociatedFn(_) => todo!(),
-            TypeItemDecl::MethodFn(defn) => todo!(),
-            // defn.path(db),
+            TypeItemDecl::AssociatedFn(decl) => decl.path(db),
+            TypeItemDecl::MethodFn(decl) => decl.path(db),
+            // decl.path(db),
             TypeItemDecl::AssociatedType(_) => todo!(),
             TypeItemDecl::AssociatedValue(_) => todo!(),
-            TypeItemDecl::Memo(defn) => defn.path(db),
+            TypeItemDecl::Memo(decl) => decl.path(db),
         }
     }
 }

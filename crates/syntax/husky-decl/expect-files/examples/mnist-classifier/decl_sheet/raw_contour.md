@@ -3948,6 +3948,13 @@ Ok(
                                         ),
                                         ident: `displacement`,
                                     },
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            ident: `displacement`,
+                                            ty_item_kind: MethodFn,
+                                        },
+                                    ),
                                     associated_item: AssociatedItem {
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(

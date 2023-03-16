@@ -32,23 +32,23 @@ pub(crate) fn entity_variance_reprs(
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
-            ModuleItemPath::Type(path) => raw_ty_entity_variance_reprs(db, path)
-                .as_ref()
-                .map(|t| t.as_ref()),
-            ModuleItemPath::Trait(path) => trai_entity_variance_reprs(db, path)
-                .as_ref()
-                .map(|t| t.as_ref()),
-            ModuleItemPath::Form(path) => form_entity_variance_reprs(db, path)
-                .as_ref()
-                .map(|t| t.as_ref()),
+            ModuleItemPath::Type(path) => ty_entity_variance_reprs(db, path),
+            ModuleItemPath::Trait(path) => trai_entity_variance_reprs(db, path),
+            ModuleItemPath::Form(path) => form_entity_variance_reprs(db, path),
         },
-        EntityPath::AssociatedItem(_) => todo!(),
+        EntityPath::AssociatedItem(path) => match path {
+            AssociatedItemPath::TypeItem(path) => ty_item_entity_variance_reprs(db, path),
+            AssociatedItemPath::TraitItem(_) => todo!(),
+            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+        },
         EntityPath::Variant(_) => todo!(),
     }
+    .as_ref()
+    .map(|t| t.as_ref())
 }
 
 #[salsa::tracked(jar = RawTypeJar, return_ref)]
-pub(crate) fn raw_ty_entity_variance_reprs(
+pub(crate) fn ty_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
@@ -146,6 +146,32 @@ pub(crate) fn form_entity_variance_reprs(
             base: parameter
                 .annotated_variance()
                 .unwrap_or(FORM_VARIANCE_DEFAULT),
+            dependency_exprs: vec![],
+            dependencies: vec![],
+        })
+        .collect::<Vec<_>>();
+    if reprs.len() > 0 {
+        // todo!()
+    }
+    Ok(reprs)
+}
+
+#[salsa::tracked(jar = RawTypeJar, return_ref)]
+pub(crate) fn ty_item_entity_variance_reprs(
+    db: &dyn RawTypeDb,
+    path: TypeItemPath,
+) -> VarianceResult<Vec<VarianceRepr>> {
+    let signature = match db.ty_item_signature(path) {
+        Ok(signature) => signature,
+        Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
+    };
+    let implicit_parameters = signature.implicit_parameters(db);
+    let reprs = implicit_parameters
+        .iter()
+        .map(|parameter| VarianceRepr {
+            base: parameter
+                .annotated_variance()
+                .unwrap_or(TY_ITEM_VARIANCE_DEFAULT),
             dependency_exprs: vec![],
             dependencies: vec![],
         })

@@ -4,7 +4,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Function`),
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                     ),
                 ),
             ),
@@ -276,7 +276,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Function`),
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                     ),
                 ),
             ),
@@ -1785,7 +1785,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Function`),
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                     ),
                 ),
             ),
@@ -1856,19 +1856,12 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Ontology,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -2138,7 +2131,9 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
@@ -2173,7 +2168,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -3371,19 +3366,12 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        TypePath(
-                            Constructor,
-                        ),
-                        Err(
-                            Derived(
-                                TypeError(
-                                    RawTypeError(
-                                        Derived(
-                                            SignatureError,
-                                        ),
-                                    ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
@@ -3472,20 +3460,14 @@
                     Term(`TypeOntology(core::list::List)`),
                 ),
             ),
-            Ok(
-                LocalTerm::Resolved(
-                    Term(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            Err(
+                ExprTermError::Derived(
+                    DerivedExprTermError::AmbiguousTypePath,
                 ),
             ),
             Err(
                 ExprTermError::Derived(
-                    DerivedExprTermError::ExplicitApplicationTerm(
-                        TermError::RawTypeError(
-                            RawTypeError::Derived(
-                                DerivedRawTypeError::SignatureError,
-                            ),
-                        ),
-                    ),
+                    DerivedExprTermError::Todo,
                 ),
             ),
         ],
@@ -3920,7 +3902,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -4610,26 +4592,21 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                TypeError(
-                                    ExpectFinalDestinationEqsNonSortTypePath {
-                                        path_expected: TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                        path: TypePath(
-                                            Id {
-                                                value: 42,
-                                            },
-                                        ),
+                ty_result: Err(
+                    Derived(
+                        TypeError(
+                            ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected: TypePath(
+                                    Id {
+                                        value: 36,
                                     },
                                 ),
-                            ),
+                                path: TypePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -4990,7 +4967,9 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
                             Resolved(
                                 Ritchie(
@@ -5170,7 +5149,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -5626,7 +5605,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(
@@ -8388,7 +8367,7 @@
                                         ),
                                     ),
                                     variant: Ritchie {
-                                        ritchie_kind: Fp,
+                                        ritchie_kind: FnType,
                                         parameter_liasoned_tys: [
                                             LocalTermRitchieParameterLiasonedType {
                                                 ty: Resolved(
@@ -8876,7 +8855,7 @@
                                                 ),
                                             ),
                                             variant: Ritchie {
-                                                ritchie_kind: Fp,
+                                                ritchie_kind: FnType,
                                                 parameter_liasoned_tys: [
                                                     LocalTermRitchieParameterLiasonedType {
                                                         ty: Resolved(

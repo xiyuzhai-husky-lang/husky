@@ -77,11 +77,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 4,
-                                    character: 19,
+                                    character: 17,
                                 },
                                 end: Position {
                                     line: 4,
-                                    character: 38,
+                                    character: 36,
                                 },
                             },
                         ),

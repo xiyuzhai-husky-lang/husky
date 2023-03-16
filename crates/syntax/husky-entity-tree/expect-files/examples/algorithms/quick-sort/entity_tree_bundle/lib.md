@@ -13,7 +13,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort`, `Function`),
+                                        FormPath(`quick_sort::quick_sort`, `Fn`),
                                     ),
                                     accessibility: Accessibility::Public,
                                     ast_idx: 30,
@@ -36,7 +36,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_aux`, `Function`),
+                                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                     ),
                                     accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
@@ -61,7 +61,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::partition`, `Function`),
+                                        FormPath(`quick_sort::partition`, `Fn`),
                                     ),
                                     accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
@@ -86,7 +86,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Feature`),
+                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                     ),
                                     accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
@@ -111,7 +111,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Feature`),
+                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                     ),
                                     accessibility: Accessibility::PublicUnder(
                                         `quick_sort`,
@@ -140,11 +140,6 @@ Ok(
         ],
         principal_entity_path_expr_arena: Arena {
             data: [],
-        },
-        impl_blocks: ImplBlockBundle {
-            all_ty_impl_blocks: [],
-            all_ty_as_trai_impl_blocks: [],
-            all_ill_formed_impl_blocks: [],
         },
     },
 )

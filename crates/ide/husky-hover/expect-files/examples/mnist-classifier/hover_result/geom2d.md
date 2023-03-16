@@ -10,7 +10,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 0;\n\ntoken = Token::Attr(\n    AttributeKeyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 0;\n\ntoken = Token::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 156;\n\ntoken = Token::Keyword(\n    Keyword::Type(\n        Struct,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 156;\n\ntoken = Token::Keyword(\n    Keyword::TypeEntity(\n        Struct,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -167,11 +167,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 35,
-                                    character: 23,
+                                    character: 21,
                                 },
                                 end: Position {
                                     line: 35,
-                                    character: 31,
+                                    character: 29,
                                 },
                             },
                         ),
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 44,
-                                    character: 14,
+                                    character: 12,
                                 },
                                 end: Position {
                                     line: 44,
-                                    character: 15,
+                                    character: 13,
                                 },
                             },
                         ),
@@ -317,11 +317,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 64,
-                                    character: 25,
+                                    character: 23,
                                 },
                                 end: Position {
                                     line: 64,
-                                    character: 33,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -407,11 +407,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 85,
-                                    character: 31,
+                                    character: 29,
                                 },
                                 end: Position {
                                     line: 85,
-                                    character: 42,
+                                    character: 40,
                                 },
                             },
                         ),

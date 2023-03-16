@@ -16,7 +16,7 @@ Ok(
                 Punctuation::Star,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Struct,
                 ),
             ),
@@ -97,7 +97,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -241,7 +241,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -385,7 +385,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -543,12 +543,12 @@ Ok(
             Token::Ident(
                 `norm`,
             ),
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Proc,
+                    Fn,
                 ),
             ),
             Token::Ident(

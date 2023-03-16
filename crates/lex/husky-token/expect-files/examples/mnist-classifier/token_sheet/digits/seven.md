@@ -195,7 +195,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -246,7 +246,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -354,7 +354,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -411,7 +411,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -570,7 +570,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -772,10 +772,8 @@ Ok(
             Token::Ident(
                 `ang`,
             ),
-            Token::Keyword(
-                Keyword::Form(
-                    Def,
-                ),
+            Token::Ident(
+                `mm`,
             ),
             Token::Ident(
                 `is_seven`,

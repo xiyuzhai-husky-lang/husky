@@ -8,7 +8,7 @@
     Ok(
         Signature::Form(
             FormSignature::Function(
-                FunctionSignature {
+                FormFnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [
                             ImplicitParameterSignature {
@@ -31,7 +31,7 @@
                     },
                     parameters: RegularParameterSignatures {
                         parameters: [
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -41,7 +41,7 @@
                                     ),
                                 ),
                             },
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -53,7 +53,7 @@
                                     ),
                                 ),
                             },
-                            ParameterSignature {
+                            RegularParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -73,9 +73,9 @@
         ),
     ),
     Err(
-        ExprError,
+        DeclExprError,
     ),
     Err(
-        ExprError,
+        DeclExprError,
     ),
 ]

@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 15,
-                                    character: 18,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 15,
-                                    character: 20,
+                                    character: 18,
                                 },
                             },
                         ),

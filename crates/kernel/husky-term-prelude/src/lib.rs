@@ -41,7 +41,7 @@ pub struct TermPreludeJar(
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermRitchieKind {
-    Fp,
-    Fn,
-    FnMut,
+    FnType,
+    FnTrait,
+    FnMutTrait,
 }

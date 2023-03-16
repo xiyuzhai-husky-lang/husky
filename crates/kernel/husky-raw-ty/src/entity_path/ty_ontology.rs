@@ -11,7 +11,7 @@ pub fn ty_constructor_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawType
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
-    let Ok(variances) = raw_ty_entity_variances(db, path) else {
+    let Ok(variances) =  ty_entity_variances(db, path) else {
         todo!()
     };
     match signature {
@@ -42,7 +42,7 @@ fn regular_struct_ty_constructor_path_raw_ty(
     let parameter_tys = signature
         .fields(db)
         .map(|field| RawTermRitchieParameter::new(field.ty()));
-    let constructor_ty = RawTermRitchie::new(db, TermRitchieKind::Fp, parameter_tys, self_ty);
+    let constructor_ty = RawTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
     curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,

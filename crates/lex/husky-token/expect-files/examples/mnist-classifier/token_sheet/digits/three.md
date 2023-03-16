@@ -195,7 +195,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -256,10 +256,8 @@ Ok(
                     Par,
                 ),
             ),
-            Token::Keyword(
-                Keyword::Form(
-                    Def,
-                ),
+            Token::Ident(
+                `mm`,
             ),
             Token::Ident(
                 `is_three`,
@@ -756,7 +754,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -884,7 +882,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(
@@ -1012,7 +1010,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Func,
+                    Fn,
                 ),
             ),
             Token::Ident(

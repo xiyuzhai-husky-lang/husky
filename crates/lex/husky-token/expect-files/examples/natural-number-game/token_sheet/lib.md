@@ -2,7 +2,7 @@ Ok(
     TokenSheetData {
         tokens: [
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Inductive,
                 ),
             ),
@@ -43,10 +43,8 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
-            Token::Keyword(
-                Keyword::Form(
-                    Function,
-                ),
+            Token::Ident(
+                `function`,
             ),
             Token::Ident(
                 `add`,
@@ -306,7 +304,7 @@ Ok(
                 `rw`,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Structure,
                 ),
             ),
@@ -409,7 +407,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Structure,
                 ),
             ),

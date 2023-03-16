@@ -3875,10 +3875,5 @@ Ok(
                 },
             ],
         },
-        impl_blocks: ImplBlockBundle {
-            all_ty_impl_blocks: [],
-            all_ty_as_trai_impl_blocks: [],
-            all_ill_formed_impl_blocks: [],
-        },
     },
 )

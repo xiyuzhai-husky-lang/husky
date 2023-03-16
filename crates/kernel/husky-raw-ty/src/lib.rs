@@ -5,6 +5,7 @@ mod db;
 mod entity_path;
 mod error;
 mod field;
+mod has_raw_ty;
 mod method;
 mod term;
 #[cfg(test)]
@@ -15,6 +16,7 @@ pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::field::*;
+pub use self::has_raw_ty::*;
 pub use self::method::*;
 pub use self::term::*;
 
@@ -37,8 +39,9 @@ pub struct RawTypeJar(
     ty_constructor_path_raw_ty,
     trai_path_raw_ty,
     form_path_raw_ty,
-    raw_ty_entity_variances,
-    raw_ty_entity_variance_reprs,
+    ty_item_path_raw_ty,
+    ty_entity_variances,
+    ty_entity_variance_reprs,
     raw_ty_entity_variance_crate_dependencies,
     trai_entity_variances,
     trai_entity_variance_reprs,
@@ -46,6 +49,8 @@ pub struct RawTypeJar(
     form_entity_variances,
     form_entity_variance_reprs,
     form_entity_variance_crate_dependencies,
+    ty_item_entity_variances,
+    ty_item_entity_variance_reprs,
     application_expansion_salsa,
     ApplicationArguments,
     ty_path_ty_method_raw_ty,

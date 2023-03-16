@@ -167,11 +167,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 48,
-                                    character: 22,
+                                    character: 20,
                                 },
                                 end: Position {
                                     line: 48,
-                                    character: 24,
+                                    character: 22,
                                 },
                             },
                         ),
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 430;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Proc,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 430;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -321,7 +321,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 92,
-                                    character: 8,
+                                    character: 6,
                                 },
                             },
                         ),
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 559;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Proc,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 559;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -411,7 +411,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 117,
-                                    character: 4,
+                                    character: 2,
                                 },
                             },
                         ),
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 645;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Proc,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 645;\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -471,7 +471,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 125,
-                                    character: 8,
+                                    character: 6,
                                 },
                             },
                         ),

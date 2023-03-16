@@ -1,11 +1,11 @@
 Ok(
     TokenSheetData {
         tokens: [
-            Token::Attr(
-                AttributeKeyword::Pub,
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
-                Keyword::Type(
+                Keyword::TypeEntity(
                     Extern,
                 ),
             ),
