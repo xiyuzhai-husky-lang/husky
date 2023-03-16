@@ -38,8 +38,8 @@ impl From<VfsError> for EntityTreeError {
 pub enum OriginalEntityTreeError {
     #[error("unresolved identifier")]
     UnresolvedIdent(IdentToken),
-    #[error("SymbolNotAccessible")]
-    SymbolNotAccessible(IdentToken),
+    #[error("symbol exists but not accessible")]
+    SymbolExistsButNotAccessible(IdentToken),
     #[error("no subentity")]
     NoSubentity,
     #[error("entity symbol already defined")]

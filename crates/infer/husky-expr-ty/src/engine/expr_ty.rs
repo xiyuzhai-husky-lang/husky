@@ -164,7 +164,7 @@ impl<'a> ExprTypeEngine<'a> {
                 };
                 Ok((
                     ExprDisambiguation::Trivial,
-                    Ok(self.term_menu.bool().into()),
+                    Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
             Expr::Prefix { opr, opd, .. } => self.calc_prefix_expr_ty(

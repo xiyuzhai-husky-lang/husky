@@ -39,7 +39,7 @@ impl TermMenu1 {
                 Variance::Invariant,
                 None,
                 menu0.ty0().into(),
-                menu0.trai_ty().into(),
+                menu0.trai_ty_ontology().into(),
             ),
             explicit_covariant_ty0_to_ty0: TermCurry::new(
                 db,

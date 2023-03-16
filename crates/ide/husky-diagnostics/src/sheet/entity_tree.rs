@@ -33,7 +33,9 @@ impl Diagnose for OriginalEntityTreeError {
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self {
             OriginalEntityTreeError::UnresolvedIdent(_) => format!("unresolved identifier"),
-            OriginalEntityTreeError::SymbolNotAccessible(_) => format!("SymbolNotAccessible"),
+            OriginalEntityTreeError::SymbolExistsButNotAccessible(_) => {
+                format!("SymbolNotAccessible")
+            }
             OriginalEntityTreeError::NoSubentity => format!("NoSubentity"),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
                 format!("EntitySymbolAlreadyDefined")
@@ -51,7 +53,7 @@ impl Diagnose for OriginalEntityTreeError {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
             OriginalEntityTreeError::UnresolvedIdent(ident_token)
-            | OriginalEntityTreeError::SymbolNotAccessible(ident_token) => ctx
+            | OriginalEntityTreeError::SymbolExistsButNotAccessible(ident_token) => ctx
                 .ranged_token_sheet()
                 .token_text_range(ident_token.token_idx()),
             OriginalEntityTreeError::NoSubentity => todo!(),
