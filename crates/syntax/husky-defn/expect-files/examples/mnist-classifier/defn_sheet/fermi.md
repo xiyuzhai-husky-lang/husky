@@ -247,7 +247,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                     ast_idx: 24,
                                     expr_region: ExprRegion {

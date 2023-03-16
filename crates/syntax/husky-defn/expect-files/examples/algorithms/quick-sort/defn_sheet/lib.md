@@ -14,7 +14,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`quick_sort::quick_sort`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort`, `Fn`),
                                     ast_idx: 30,
                                     expr_region: ExprRegion {
@@ -768,7 +768,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                     ast_idx: 31,
                                     expr_region: ExprRegion {
@@ -1942,7 +1942,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`quick_sort::partition`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`quick_sort::partition`, `Fn`),
                                     ast_idx: 32,
                                     expr_region: ExprRegion {
@@ -3802,7 +3802,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                     ast_idx: 34,
                                     expr_region: ExprRegion {
@@ -4296,7 +4296,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                     ast_idx: 36,
                                     expr_region: ExprRegion {

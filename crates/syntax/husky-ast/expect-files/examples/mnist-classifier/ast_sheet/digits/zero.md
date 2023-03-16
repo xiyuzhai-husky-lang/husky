@@ -311,12 +311,39 @@ Ok(
                         79,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
                     body: ArenaIdxRange(
                         11..25,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::zero`,
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `is_zero`,
+                        token_idx: TokenIdx(
+                            105,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        106,
                     ),
                 },
             ],

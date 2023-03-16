@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`quick_sort::quick_sort`, `Fn`),
                                 ast_idx: 30,
                                 expr_region: ExprRegion {
@@ -298,8 +298,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                 ast_idx: 31,
                                 expr_region: ExprRegion {
@@ -728,8 +728,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`quick_sort::partition`, `Fn`),
                                 ast_idx: 32,
                                 expr_region: ExprRegion {
@@ -1178,8 +1178,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 ast_idx: 34,
                                 expr_region: ExprRegion {
@@ -1279,8 +1279,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                 ast_idx: 36,
                                 expr_region: ExprRegion {

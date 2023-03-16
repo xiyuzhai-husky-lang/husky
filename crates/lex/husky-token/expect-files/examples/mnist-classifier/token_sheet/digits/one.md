@@ -247,8 +247,10 @@ Ok(
             Token::Keyword(
                 Keyword::Pub,
             ),
-            Token::Ident(
-                `mm`,
+            Token::Keyword(
+                Keyword::Form(
+                    Gn,
+                ),
             ),
             Token::Ident(
                 `is_one`,

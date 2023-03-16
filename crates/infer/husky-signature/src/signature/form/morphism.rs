@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(jar = SignatureJar)]
 pub fn morphism_signature(
     db: &dyn SignatureDb,
-    decl: MorphismDecl,
+    decl: GnDecl,
 ) -> SignatureResult<MorphismSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);

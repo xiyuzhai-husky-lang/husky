@@ -840,8 +840,8 @@ pub enum EntityKeywordGroup {
     StaticFn(StaticToken, FormFnToken),
     // `static const fn`
     StaticConstFn(StaticToken, ConstToken, FormFnToken),
-    // `mm`
-    Mm(MmToken),
+    // `gn`
+    Gn(GnToken),
     //
     GeneralDef(GeneralDefToken),
     // Type
@@ -858,7 +858,7 @@ pub struct ModToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct MmToken {
+pub struct GnToken {
     token_idx: TokenIdx,
 }
 
@@ -888,11 +888,11 @@ where
                         ))),
                         FormKeyword::Lemma => todo!(),
                         FormKeyword::Proposition => todo!(),
-                        FormKeyword::TypeAlias => {
+                        FormKeyword::Type => {
                             Ok(Some(EntityKeywordGroup::Type(TypeToken { token_idx })))
                         }
                         FormKeyword::Const => todo!(),
-                        FormKeyword::Mm => todo!(),
+                        FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
                     },
                     Keyword::TypeEntity(keyword) => {
                         Ok(Some(EntityKeywordGroup::TypeEntity(TypeEntityToken {

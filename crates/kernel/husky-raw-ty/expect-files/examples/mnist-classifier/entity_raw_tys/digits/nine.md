@@ -26,6 +26,18 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
+                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+            ),
+        ),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
                 FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
             ),
         ),

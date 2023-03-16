@@ -132,15 +132,15 @@ pub(crate) fn trai_defn(db: &dyn DefnDb, decl: TraitDecl) -> TraitDefn {
 
 fn form_defn(db: &dyn DefnDb, decl: FormDecl) -> FormDefn {
     match decl {
-        FormDecl::Function(decl) => function_defn(db, decl).into(),
+        FormDecl::Fn(decl) => function_defn(db, decl).into(),
         FormDecl::Feature(decl) => feature_defn(db, decl).into(),
-        FormDecl::Morphism(_) => todo!(),
+        FormDecl::Gn(_) => todo!(),
         FormDecl::Value(_) => todo!(),
     }
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn function_defn(db: &dyn DefnDb, decl: FormFnDecl) -> FunctionDefn {
+pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FunctionDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,

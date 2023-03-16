@@ -110,8 +110,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 ast_idx: 48,
                                 expr_region: ExprRegion {
@@ -431,8 +431,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 ast_idx: 50,
                                 expr_region: ExprRegion {
@@ -653,8 +653,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 ast_idx: 51,
                                 expr_region: ExprRegion {
@@ -860,6 +860,112 @@ Ok(
                                         ),
                                     ),
                                 ),
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::Entity(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                        ),
+                    ),
+                ),
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                ast_idx: 52,
+                                curry_token: Ok(
+                                    CurryToken(
+                                        TokenIdx(
+                                            217,
+                                        ),
+                                    ),
+                                ),
+                                return_ty: Ok(
+                                    OutputTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            220,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                219,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        218,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: ReturnType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
                             },
                         ),
                     ),

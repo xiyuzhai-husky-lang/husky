@@ -83,4 +83,7 @@
             ),
         ),
     ),
+    Err(
+        OutputTypeRawTermError,
+    ),
 ]

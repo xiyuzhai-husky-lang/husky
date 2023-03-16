@@ -432,13 +432,12 @@ impl<'a> DeclParser<'a> {
             FormKind::Feature => {
                 self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
-            FormKind::Fn => {
-                self.parse_function_decl(ast_idx, token_group_idx, saved_stream_state, path)
-            }
+            FormKind::Fn => self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, path),
             FormKind::Value => todo!(),
             FormKind::TypeAlias => {
                 todo!()
             }
+            FormKind::Gn => self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, path),
         }
     }
 
@@ -475,7 +474,7 @@ impl<'a> DeclParser<'a> {
         .into())
     }
 
-    fn parse_function_decl(
+    fn parse_fn_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -499,7 +498,45 @@ impl<'a> DeclParser<'a> {
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(FormFnDecl::new(
+        Ok(FnDecl::new(
+            self.db,
+            path,
+            ast_idx,
+            parser.finish(),
+            implicit_parameter_decl_list,
+            parameter_decl_list,
+            curry_token,
+            return_ty,
+            eol_colon,
+        )
+        .into())
+    }
+
+    fn parse_gn_decl(
+        &self,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        saved_stream_state: TokenIdx,
+        path: FormPath,
+    ) -> Result<FormDecl, DeclError> {
+        let mut parser = self.expr_parser(
+            DeclRegionPath::Entity(path.into()),
+            None,
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
+        let mut ctx = parser.ctx(
+            None,
+            self.token_sheet_data
+                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
+        );
+        let implicit_parameter_decl_list = ctx.parse();
+        let parameter_decl_list =
+            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
+        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
+        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
+        Ok(GnDecl::new(
             self.db,
             path,
             ast_idx,

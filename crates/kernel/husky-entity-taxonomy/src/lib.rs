@@ -14,6 +14,7 @@ pub enum TypeKind {
 pub enum FormKind {
     Feature,
     Fn,
+    Gn,
     Value,
     TypeAlias,
 }

@@ -442,8 +442,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                 ast_idx: 123,
                                 expr_region: ExprRegion {
@@ -781,8 +781,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                 ast_idx: 126,
                                 expr_region: ExprRegion {
@@ -1061,8 +1061,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Function(
-                            FormFnDecl {
+                        FormDecl::Fn(
+                            FnDecl {
                                 path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ast_idx: 127,
                                 expr_region: ExprRegion {

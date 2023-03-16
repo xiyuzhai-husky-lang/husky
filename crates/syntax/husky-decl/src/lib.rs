@@ -45,8 +45,8 @@ pub struct DeclJar(
     form_decl,
     ValueDecl,
     FeatureDecl,
-    FormFnDecl,
-    MorphismDecl,
+    FnDecl,
+    GnDecl,
     TypeAliasDecl,
     // impl block
     ty_impl_block_decl_aux,

@@ -103,6 +103,31 @@ Ok(
                         },
                     ),
                 },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
+                        "is_two",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::two`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            ast_idx: 58,
+                            ident_token: IdentToken {
+                                ident: `is_two`,
+                                token_idx: TokenIdx(
+                                    151,
+                                ),
+                            },
+                        },
+                    ),
+                },
             ],
         ),
         use_one_trackers: UseExprRules(

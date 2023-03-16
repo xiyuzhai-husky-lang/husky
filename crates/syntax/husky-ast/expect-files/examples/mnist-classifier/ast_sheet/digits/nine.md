@@ -396,12 +396,39 @@ Ok(
                         89,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
                     body: ArenaIdxRange(
                         17..28,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::nine`,
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `is_nine`,
+                        token_idx: TokenIdx(
+                            101,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        102,
                     ),
                 },
                 Ast::Defn {

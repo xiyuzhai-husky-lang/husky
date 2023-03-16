@@ -57,7 +57,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -168,7 +168,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -279,7 +279,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -487,7 +487,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -695,7 +695,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -903,7 +903,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -1111,7 +1111,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -1310,7 +1310,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -1408,7 +1408,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(
@@ -1515,7 +1515,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    TypeAlias,
+                    Type,
                 ),
             ),
             Token::Ident(

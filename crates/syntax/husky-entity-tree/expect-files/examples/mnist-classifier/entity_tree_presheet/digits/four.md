@@ -105,6 +105,31 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: Ident(
+                        "is_four",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            ast_idx: 48,
+                            ident_token: IdentToken {
+                                ident: `is_four`,
+                                token_idx: TokenIdx(
+                                    123,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
                         "displacement_downwards",
                     ),
                     accessibility: Accessibility::PublicUnder(

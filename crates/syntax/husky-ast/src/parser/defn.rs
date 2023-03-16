@@ -166,35 +166,21 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTypeAsTraitImplBlock => match entity_keyword_group {
                 EntityKeywordGroup::Mod(_) => todo!(),
                 EntityKeywordGroup::Fn(_) => {
-                    let Some(trait_item_kind_token) = self.token_stream_mut().peek() else {
-                       Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock)?
-                    };
-                    let ty_as_trai_impl_block_item_kind: TraitItemKind = match trait_item_kind_token
-                    {
-                        Token::Punctuation(special_token) => match special_token {
-                            Punctuation::Binary(BinaryOpr::Curry) => {
-                                todo!()
-                                // TraitItemKind::Memo
-                            }
-                            _ => TraitItemKind::MethodFn,
-                        },
-                        ref unexpected_token => {
-                            return Err(OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(
-                                self.token_stream().state(),
-                            )
-                            .into())
-                        }
-                    };
                     EntityKind::AssociatedItem {
                         associated_item_kind: AssociatedItemKind::TypeAsTraitItem(
-                            ty_as_trai_impl_block_item_kind,
+                            match self.token_stream_mut().peek() {
+                                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                                    todo!()
+                                } // TraitItemKind::Memo
+                                _ => TraitItemKind::MethodFn,
+                            },
                         ),
                     }
                 }
                 EntityKeywordGroup::ConstFn(_, _) => todo!(),
                 EntityKeywordGroup::StaticFn(_, _) => todo!(),
                 EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-                EntityKeywordGroup::Mm(_) => todo!(),
+                EntityKeywordGroup::Gn(_) => todo!(),
                 EntityKeywordGroup::GeneralDef(_) => todo!(),
                 EntityKeywordGroup::TypeEntity(_) => todo!(),
                 EntityKeywordGroup::Type(_) => todo!(),
@@ -222,27 +208,23 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let module_item_kind: ModuleItemKind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
-            EntityKeywordGroup::Fn(_) => {
-                let Some(form_kind_token) = self.token_stream().peek() else {
-                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule)?
-                };
-                match *form_kind_token {
-                    Token::Punctuation(punctuation) => match punctuation {
-                        Punctuation::Binary(BinaryOpr::Curry) => FormKind::Feature,
-                        _ => FormKind::Fn,
-                    },
-                    unexpected_token => {
-                        Err(OriginalAstError::UnexpectedTokenForConnectedModuleItem(
-                            self.token_stream().state(),
-                        ))?
-                    }
+            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
+                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                    FormKind::Feature
                 }
-                .into()
+                _ => FormKind::Fn,
             }
+            .into(),
+            EntityKeywordGroup::Gn(_) => match self.token_stream().peek() {
+                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                    FormKind::Feature
+                }
+                _ => FormKind::Fn,
+            }
+            .into(),
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Mm(_) => todo!(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
             EntityKeywordGroup::Type(_) => FormKind::TypeAlias.into(),
@@ -261,24 +243,16 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let ty_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
-            EntityKeywordGroup::Fn(_) => {
-                let Some(type_item_kind_token) = self.token_stream().peek() else {
-                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock)?
-                };
-                match *type_item_kind_token {
-                    Token::Punctuation(punctuation) => match punctuation {
-                        Punctuation::Binary(BinaryOpr::Curry) => TypeItemKind::Memo,
-                        _ => TypeItemKind::MethodFn,
-                    },
-                    ref unexpected_token => Err(OriginalAstError::UnexpectedTokenForTypeImplItem(
-                        self.token_stream().state(),
-                    ))?,
+            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
+                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                    TypeItemKind::Memo
                 }
-            }
+                _ => TypeItemKind::MethodFn,
+            },
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFn,
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Mm(_) => todo!(),
+            EntityKeywordGroup::Gn(_) => todo!(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(_) => {
                 Err(OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock)?
@@ -298,26 +272,14 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let trai_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
-            EntityKeywordGroup::Fn(_) => {
-                let Some(trai_item_kind_token) = self.token_stream().peek() else {
-                    return  Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait.into());
-                };
-                match trai_item_kind_token {
-                    Token::Punctuation(punctuation) => match punctuation {
-                        Punctuation::Binary(BinaryOpr::Curry) => {
-                            todo!()
-                        }
-                        _ => TraitItemKind::MethodFn,
-                    },
-                    unexpected_token => Err(OriginalAstError::UnexpectedTokenForTraitItem(
-                        self.token_stream().state(),
-                    ))?,
-                }
-            }
+            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
+                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => todo!(),
+                _ => TraitItemKind::MethodFn,
+            },
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Mm(_) => todo!(),
+            EntityKeywordGroup::Gn(_) => todo!(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(_) => todo!(),
             EntityKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
@@ -335,20 +297,17 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let module_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
-            EntityKeywordGroup::Fn(_) => {
-                let Some(form_kind_token) = self.token_stream().peek() else {
-                    Err(OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule)?
-                };
-                match form_kind_token {
-                    Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry)) => FormKind::Feature,
-                    _ => FormKind::Fn,
+            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
+                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                    FormKind::Feature
                 }
-                .into()
+                _ => FormKind::Fn,
             }
+            .into(),
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Mm(_) => todo!(),
+            EntityKeywordGroup::Gn(_) => todo!(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
             EntityKeywordGroup::Type(_) => todo!(),

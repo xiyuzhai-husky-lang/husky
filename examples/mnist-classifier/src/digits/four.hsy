@@ -19,7 +19,7 @@ fn components_max_downwards -> FermiMatchResult:
 fn components_max_heights -> FermiMatchResult:    
     fermi_match(major_concave_components, [cc_box_heights])
 
-mm is_four -> ?MnistLabel:
+gn is_four -> ?MnistLabel:
 
     // Type I four, the horizontal line is long
     // Take two left components and decide which one is the upper and lower.

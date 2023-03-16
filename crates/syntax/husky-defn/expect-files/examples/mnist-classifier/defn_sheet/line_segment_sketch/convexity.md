@@ -14,7 +14,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
-                                decl: FormFnDecl {
+                                decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                     ast_idx: 22,
                                     expr_region: ExprRegion {

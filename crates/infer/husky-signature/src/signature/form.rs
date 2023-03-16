@@ -17,9 +17,9 @@ pub(crate) fn form_signature_from_decl(
     decl: FormDecl,
 ) -> SignatureResult<FormSignature> {
     match decl {
-        FormDecl::Function(decl) => form_fn_signature(db, decl).map(Into::into),
+        FormDecl::Fn(decl) => form_fn_signature(db, decl).map(Into::into),
         FormDecl::Feature(decl) => feature_signature(db, decl).map(Into::into),
-        FormDecl::Morphism(decl) => morphism_signature(db, decl).map(Into::into),
+        FormDecl::Gn(decl) => morphism_signature(db, decl).map(Into::into),
         FormDecl::Value(decl) => value_signature(db, decl).map(Into::into),
     }
 }

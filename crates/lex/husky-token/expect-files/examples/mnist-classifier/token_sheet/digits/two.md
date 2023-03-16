@@ -519,8 +519,10 @@ Ok(
             Token::Ident(
                 `x`,
             ),
-            Token::Ident(
-                `mm`,
+            Token::Keyword(
+                Keyword::Form(
+                    Gn,
+                ),
             ),
             Token::Ident(
                 `is_two`,

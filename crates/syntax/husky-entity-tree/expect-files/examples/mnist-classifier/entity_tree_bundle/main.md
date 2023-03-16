@@ -577,6 +577,55 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 69,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_one`,
+                                                        token_idx: TokenIdx(
+                                                            77,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::Public,
+                                            ast_idx: 10,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -1083,7 +1132,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -1100,7 +1149,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 10,
+                            progress: 18,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -1117,7 +1166,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -2176,6 +2225,69 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            accessibility: Accessibility::Public,
+                                                            ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 120,
+                                    use_expr_idx: 7,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -2523,7 +2635,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 21,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -3715,7 +3827,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -4968,7 +5080,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             accessibility: Public,
-                            progress: 38,
+                            progress: 39,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -6627,6 +6739,69 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            accessibility: Accessibility::Public,
+                                                            ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
                                 "is_convex",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -7099,7 +7274,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 21,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -10616,6 +10791,69 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            accessibility: Accessibility::Public,
+                                                            ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -10868,7 +11106,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 21,
+                            progress: 22,
                         },
                     ],
                 ),
@@ -11105,6 +11343,312 @@ Ok(
                                             19,
                                         ),
                                     },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::Public,
+                                            ast_idx: 69,
+                                            ident_token: IdentToken {
+                                                ident: `is_one`,
+                                                token_idx: TokenIdx(
+                                                    77,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 10,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_six",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::six`,
+                                            ),
+                                            ast_idx: 59,
+                                            ident_token: IdentToken {
+                                                ident: `is_six`,
+                                                token_idx: TokenIdx(
+                                                    93,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 11,
+                                    use_expr_idx: 2,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_zero",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::zero`,
+                                            ),
+                                            ast_idx: 35,
+                                            ident_token: IdentToken {
+                                                ident: `is_zero`,
+                                                token_idx: TokenIdx(
+                                                    105,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 12,
+                                    use_expr_idx: 4,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_two",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::two`,
+                                            ),
+                                            ast_idx: 58,
+                                            ident_token: IdentToken {
+                                                ident: `is_two`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 13,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_three",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::three`,
+                                            ),
+                                            ast_idx: 35,
+                                            ident_token: IdentToken {
+                                                ident: `is_three`,
+                                                token_idx: TokenIdx(
+                                                    80,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 14,
+                                    use_expr_idx: 8,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_seven",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::seven`,
+                                            ),
+                                            ast_idx: 52,
+                                            ident_token: IdentToken {
+                                                ident: `is_seven`,
+                                                token_idx: TokenIdx(
+                                                    216,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_eight",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::eight`,
+                                            ),
+                                            ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `is_eight`,
+                                                token_idx: TokenIdx(
+                                                    92,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 16,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_nine",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits::nine`,
+                                            ),
+                                            ast_idx: 46,
+                                            ident_token: IdentToken {
+                                                ident: `is_nine`,
+                                                token_idx: TokenIdx(
+                                                    101,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
                                 },
                             ),
                         },
@@ -11530,7 +12074,23 @@ Ok(
                                     `mnist_classifier::digits::one`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::Public,
+                                        ast_idx: 69,
+                                        ident_token: IdentToken {
+                                            ident: `is_one`,
+                                            token_idx: TokenIdx(
+                                                77,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 11,
@@ -11553,7 +12113,25 @@ Ok(
                                     `mnist_classifier::digits::six`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::six`,
+                                        ),
+                                        ast_idx: 59,
+                                        ident_token: IdentToken {
+                                            ident: `is_six`,
+                                            token_idx: TokenIdx(
+                                                93,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 12,
@@ -11576,7 +12154,25 @@ Ok(
                                     `mnist_classifier::digits::zero`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::zero`,
+                                        ),
+                                        ast_idx: 35,
+                                        ident_token: IdentToken {
+                                            ident: `is_zero`,
+                                            token_idx: TokenIdx(
+                                                105,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 13,
@@ -11599,7 +12195,25 @@ Ok(
                                     `mnist_classifier::digits::two`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::two`,
+                                        ),
+                                        ast_idx: 58,
+                                        ident_token: IdentToken {
+                                            ident: `is_two`,
+                                            token_idx: TokenIdx(
+                                                151,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 14,
@@ -11622,7 +12236,25 @@ Ok(
                                     `mnist_classifier::digits::three`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::three`,
+                                        ),
+                                        ast_idx: 35,
+                                        ident_token: IdentToken {
+                                            ident: `is_three`,
+                                            token_idx: TokenIdx(
+                                                80,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 15,
@@ -11668,7 +12300,25 @@ Ok(
                                     `mnist_classifier::digits::six`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::six`,
+                                        ),
+                                        ast_idx: 59,
+                                        ident_token: IdentToken {
+                                            ident: `is_six`,
+                                            token_idx: TokenIdx(
+                                                93,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 17,
@@ -11691,7 +12341,25 @@ Ok(
                                     `mnist_classifier::digits::seven`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::seven`,
+                                        ),
+                                        ast_idx: 52,
+                                        ident_token: IdentToken {
+                                            ident: `is_seven`,
+                                            token_idx: TokenIdx(
+                                                216,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 18,
@@ -11714,7 +12382,25 @@ Ok(
                                     `mnist_classifier::digits::eight`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::eight`,
+                                        ),
+                                        ast_idx: 29,
+                                        ident_token: IdentToken {
+                                            ident: `is_eight`,
+                                            token_idx: TokenIdx(
+                                                92,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 19,
@@ -11737,7 +12423,25 @@ Ok(
                                     `mnist_classifier::digits::nine`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                        accessibility: Accessibility::PublicUnder(
+                                            `mnist_classifier::digits::nine`,
+                                        ),
+                                        ast_idx: 46,
+                                        ident_token: IdentToken {
+                                            ident: `is_nine`,
+                                            token_idx: TokenIdx(
+                                                101,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
                         },
                     ],
                 ),
@@ -11746,17 +12450,7 @@ Ok(
                 ),
                 errors: [
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `is_one`,
-                                token_idx: TokenIdx(
-                                    24,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
@@ -11766,7 +12460,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_zero`,
                                 token_idx: TokenIdx(
@@ -11776,7 +12470,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_two`,
                                 token_idx: TokenIdx(
@@ -11786,7 +12480,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
@@ -11806,7 +12500,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
@@ -11816,7 +12510,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
@@ -11826,7 +12520,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
@@ -11836,7 +12530,7 @@ Ok(
                         ),
                     ),
                     EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
+                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
@@ -11896,6 +12590,31 @@ Ok(
                                         ident: `almost_closed`,
                                         token_idx: TokenIdx(
                                             78,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_zero",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 35,
+                                    ident_token: IdentToken {
+                                        ident: `is_zero`,
+                                        token_idx: TokenIdx(
+                                            105,
                                         ),
                                     },
                                 },
@@ -12703,7 +13422,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -12720,7 +13439,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -12737,7 +13456,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -12823,11 +13542,32 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 18,
+                                    ast_idx: 68,
                                     ident_token: IdentToken {
                                         ident: `one_fermi_match`,
                                         token_idx: TokenIdx(
                                             59,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::Public,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::Public,
+                                    ast_idx: 69,
+                                    ident_token: IdentToken {
+                                        ident: `is_one`,
+                                        token_idx: TokenIdx(
+                                            77,
                                         ),
                                     },
                                 },
@@ -12848,7 +13588,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 65,
+                                    ast_idx: 70,
                                     ident_token: IdentToken {
                                         ident: `upmost`,
                                         token_idx: TokenIdx(
@@ -12873,7 +13613,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 66,
+                                    ast_idx: 71,
                                     ident_token: IdentToken {
                                         ident: `downmost`,
                                         token_idx: TokenIdx(
@@ -12898,7 +13638,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 67,
+                                    ast_idx: 72,
                                     ident_token: IdentToken {
                                         ident: `hat`,
                                         token_idx: TokenIdx(
@@ -12940,7 +13680,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -12977,7 +13717,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13014,7 +13754,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13051,7 +13791,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13088,7 +13828,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13125,7 +13865,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13162,7 +13902,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 15,
+                                    ast_idx: 65,
                                     use_expr_idx: 19,
                                 },
                             ),
@@ -13199,7 +13939,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 16,
+                                    ast_idx: 66,
                                     use_expr_idx: 22,
                                 },
                             ),
@@ -13236,7 +13976,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 17,
+                                    ast_idx: 67,
                                     use_expr_idx: 25,
                                 },
                             ),
@@ -13273,7 +14013,7 @@ Ok(
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::one`,
                                     ),
-                                    ast_idx: 17,
+                                    ast_idx: 67,
                                     use_expr_idx: 25,
                                 },
                             ),
@@ -13284,7 +14024,7 @@ Ok(
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
-                            ast_idx: 11,
+                            ast_idx: 61,
                             use_expr_idx: 3,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13308,7 +14048,7 @@ Ok(
                             state: UseExprRuleState::Erroneous,
                         },
                         UseExprRule {
-                            ast_idx: 12,
+                            ast_idx: 62,
                             use_expr_idx: 8,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13332,7 +14072,7 @@ Ok(
                             state: UseExprRuleState::Erroneous,
                         },
                         UseExprRule {
-                            ast_idx: 13,
+                            ast_idx: 63,
                             use_expr_idx: 13,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13356,7 +14096,7 @@ Ok(
                             state: UseExprRuleState::Erroneous,
                         },
                         UseExprRule {
-                            ast_idx: 14,
+                            ast_idx: 64,
                             use_expr_idx: 18,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13380,7 +14120,7 @@ Ok(
                             state: UseExprRuleState::Erroneous,
                         },
                         UseExprRule {
-                            ast_idx: 15,
+                            ast_idx: 65,
                             use_expr_idx: 21,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13407,7 +14147,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 16,
+                            ast_idx: 66,
                             use_expr_idx: 24,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13434,7 +14174,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 17,
+                            ast_idx: 67,
                             use_expr_idx: 28,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13461,7 +14201,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 15,
+                            ast_idx: 65,
                             use_expr_idx: 20,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13505,7 +14245,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 16,
+                            ast_idx: 66,
                             use_expr_idx: 23,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13549,7 +14289,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 17,
+                            ast_idx: 67,
                             use_expr_idx: 27,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13593,7 +14333,7 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 17,
+                            ast_idx: 67,
                             use_expr_idx: 26,
                             accessibility: AccessibilityProgress::Done {
                                 accessibility: Accessibility::PublicUnder(
@@ -13646,7 +14386,7 @@ Ok(
                                     value: 30,
                                 },
                             ),
-                            ast_idx: 15,
+                            ast_idx: 65,
                             use_expr_idx: 19,
                             accessibility: PublicUnder(
                                 ModulePath(
@@ -13655,7 +14395,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -13663,7 +14403,7 @@ Ok(
                                     value: 28,
                                 },
                             ),
-                            ast_idx: 16,
+                            ast_idx: 66,
                             use_expr_idx: 22,
                             accessibility: PublicUnder(
                                 ModulePath(
@@ -13672,7 +14412,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -13680,7 +14420,7 @@ Ok(
                                     value: 31,
                                 },
                             ),
-                            ast_idx: 17,
+                            ast_idx: 67,
                             use_expr_idx: 25,
                             accessibility: PublicUnder(
                                 ModulePath(
@@ -13689,7 +14429,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -13795,6 +14535,31 @@ Ok(
                                         ident: `six_match_refined1`,
                                         token_idx: TokenIdx(
                                             78,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_six",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 59,
+                                    ident_token: IdentToken {
+                                        ident: `is_six`,
+                                        token_idx: TokenIdx(
+                                            93,
                                         ),
                                     },
                                 },
@@ -14652,7 +15417,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -14669,7 +15434,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -14686,7 +15451,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -14777,6 +15542,31 @@ Ok(
                                         ident: `three_fermi_match`,
                                         token_idx: TokenIdx(
                                             63,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_three",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 35,
+                                    ident_token: IdentToken {
+                                        ident: `is_three`,
+                                        token_idx: TokenIdx(
+                                            80,
                                         ),
                                     },
                                 },
@@ -15604,7 +16394,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -15621,7 +16411,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -15638,7 +16428,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -15794,6 +16584,31 @@ Ok(
                                         ident: `components_max_heights`,
                                         token_idx: TokenIdx(
                                             110,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_four",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 48,
+                                    ident_token: IdentToken {
+                                        ident: `is_four`,
+                                        token_idx: TokenIdx(
+                                            123,
                                         ),
                                     },
                                 },
@@ -16596,7 +17411,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -16613,7 +17428,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -16630,7 +17445,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -16825,6 +17640,31 @@ Ok(
                                         ident: `leftdowncc_pattern`,
                                         token_idx: TokenIdx(
                                             162,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_seven",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `is_seven`,
+                                        token_idx: TokenIdx(
+                                            216,
                                         ),
                                     },
                                 },
@@ -17467,6 +18307,373 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::digits::two`,
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 69,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_one`,
+                                                        token_idx: TokenIdx(
+                                                            77,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::Public,
+                                            ast_idx: 10,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_six",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                    ast_idx: 59,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_six`,
+                                                        token_idx: TokenIdx(
+                                                            93,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 11,
+                                            use_expr_idx: 2,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_zero",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                    ast_idx: 35,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_zero`,
+                                                        token_idx: TokenIdx(
+                                                            105,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 12,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_two",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                    ast_idx: 58,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_two`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 13,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_three",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                    ast_idx: 35,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_three`,
+                                                        token_idx: TokenIdx(
+                                                            80,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 14,
+                                            use_expr_idx: 8,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_eight",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_eight`,
+                                                        token_idx: TokenIdx(
+                                                            92,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 16,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 46,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_nine",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                                    ),
+                                                    accessibility: Accessibility::PublicUnder(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                    ast_idx: 46,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_nine`,
+                                                        token_idx: TokenIdx(
+                                                            101,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
                                     ),
                                     accessibility: Accessibility::PublicUnder(
                                         `mnist_classifier::digits::seven`,
@@ -18170,7 +19377,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -18187,7 +19394,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -18204,7 +19411,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 10,
+                            progress: 18,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -18221,7 +19428,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -18282,6 +19489,31 @@ Ok(
                                         ident: `upper_mouth_match`,
                                         token_idx: TokenIdx(
                                             79,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_eight",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 29,
+                                    ident_token: IdentToken {
+                                        ident: `is_eight`,
+                                        token_idx: TokenIdx(
+                                            92,
                                         ),
                                     },
                                 },
@@ -19303,7 +20535,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -19337,7 +20569,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -19463,6 +20695,31 @@ Ok(
                                         ident: `nine_match_refine`,
                                         token_idx: TokenIdx(
                                             88,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_nine",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 46,
+                                    ident_token: IdentToken {
+                                        ident: `is_nine`,
+                                        token_idx: TokenIdx(
+                                            101,
                                         ),
                                     },
                                 },
@@ -20375,7 +21632,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -20392,7 +21649,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -20409,7 +21666,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -20585,6 +21842,31 @@ Ok(
                                         ident: `down_cc_pattern`,
                                         token_idx: TokenIdx(
                                             122,
+                                        ),
+                                    },
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_two",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 58,
+                                    ident_token: IdentToken {
+                                        ident: `is_two`,
+                                        token_idx: TokenIdx(
+                                            151,
                                         ),
                                     },
                                 },
@@ -21400,6 +22682,69 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            accessibility: Accessibility::Public,
+                                                            ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 53,
+                                    use_expr_idx: 21,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: Ident(
                                 "ConcaveComponent",
                             ),
                             accessibility: Accessibility::PublicUnder(
@@ -21734,7 +23079,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 21,
+                            progress: 22,
                         },
                     ],
                 ),
@@ -22715,6 +24060,69 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: Ident(
+                                "is_one",
+                            ),
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            accessibility: Accessibility::Public,
+                                                            ast_idx: 69,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    77,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    accessibility: Accessibility::Public,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            accessibility: Accessibility::PublicUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    accessibility: Accessibility::PublicUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -23094,7 +24502,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 21,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -23111,7 +24519,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -23162,7 +24570,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),

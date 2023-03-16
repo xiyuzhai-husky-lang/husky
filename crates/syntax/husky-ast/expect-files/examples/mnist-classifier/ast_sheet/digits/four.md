@@ -472,12 +472,39 @@ Ok(
                         111,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
                     body: ArenaIdxRange(
                         19..30,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `is_four`,
+                        token_idx: TokenIdx(
+                            123,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        124,
                     ),
                 },
                 Ast::Defn {

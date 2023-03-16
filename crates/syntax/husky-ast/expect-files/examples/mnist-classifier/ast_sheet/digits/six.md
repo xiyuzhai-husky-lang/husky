@@ -498,12 +498,39 @@ Ok(
                         79,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
                     body: ArenaIdxRange(
                         26..38,
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    entity_kind: ModuleItem {
+                        module_item_kind: Form(
+                            Feature,
+                        ),
+                        connection: Connected,
+                    },
+                    entity_path: Some(
+                        EntityPath::ModuleItem(
+                            ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                            ),
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `is_six`,
+                        token_idx: TokenIdx(
+                            93,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: Block,
+                    saved_stream_state: TokenIdx(
+                        94,
                     ),
                 },
                 Ast::Defn {
