@@ -314,7 +314,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                     ast_idx: 36,
                                     expr_region: ExprRegion {
@@ -958,7 +958,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                     ast_idx: 37,
                                     expr_region: ExprRegion {
@@ -1602,7 +1602,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
                                     ast_idx: 38,
                                     expr_region: ExprRegion {

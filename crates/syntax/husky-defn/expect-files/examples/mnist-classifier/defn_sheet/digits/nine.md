@@ -530,7 +530,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                                     ast_idx: 47,
                                     expr_region: ExprRegion {
@@ -1145,7 +1145,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                                     ast_idx: 48,
                                     expr_region: ExprRegion {

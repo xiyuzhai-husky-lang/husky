@@ -111,7 +111,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 ast_idx: 45,
                                 expr_region: ExprRegion {
@@ -531,7 +531,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 ast_idx: 49,
                                 expr_region: ExprRegion {
@@ -753,7 +753,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 ast_idx: 50,
                                 expr_region: ExprRegion {

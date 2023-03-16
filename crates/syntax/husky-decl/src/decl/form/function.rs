@@ -3,7 +3,7 @@ use husky_token::{CurryToken, EolColonToken};
 use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct FunctionDecl {
+pub struct FormFnDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
@@ -20,7 +20,7 @@ pub struct FunctionDecl {
     pub eol_colon: DeclExprResult<EolColonToken>,
 }
 
-impl FunctionDecl {
+impl FormFnDecl {
     pub fn implicit_parameters<'a>(
         self,
         db: &'a dyn DeclDb,

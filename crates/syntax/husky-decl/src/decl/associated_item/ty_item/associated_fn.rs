@@ -20,3 +20,23 @@ pub struct TypeAssociatedFnDecl {
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
 }
+
+impl TypeAssociatedFnDecl {
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(Ok(&[]))
+    }
+
+    pub fn parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ExplicitParameterDeclPattern]> {
+        self.parameter_decl_list(db).as_ref()?.parameters()
+    }
+}

@@ -14,7 +14,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSignature {
-    Function(TraitAssociatedFunctionSignature),
+    Function(TraitAssociatedFormFnSignature),
     Method(TraitMethodSignature),
     ExternType(TraitAssociatedTypeSignature),
     Value(TraitAssociatedValueSignature),
@@ -26,7 +26,7 @@ pub(crate) fn trai_associated_item_signature_from_decl(
 ) -> SignatureResult<TraitItemSignature> {
     match decl {
         TraitItemDecl::AssociatedFunction(decl) => {
-            trai_associated_function_signature(db, decl).map(Into::into)
+            trai_associated_form_fn_signature(db, decl).map(Into::into)
         }
         TraitItemDecl::Method(decl) => trai_method_signature(db, decl).map(Into::into),
         TraitItemDecl::AssociatedType(decl) => {

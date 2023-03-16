@@ -140,7 +140,7 @@ fn form_defn(db: &dyn DefnDb, decl: FormDecl) -> FormDefn {
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn function_defn(db: &dyn DefnDb, decl: FunctionDecl) -> FunctionDefn {
+pub(crate) fn function_defn(db: &dyn DefnDb, decl: FormFnDecl) -> FunctionDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,

@@ -1,11 +1,11 @@
 mod feature;
-mod function;
+mod form_fn;
 mod morphism;
 mod type_alias;
 mod value;
 
 pub use feature::*;
-pub use function::*;
+pub use form_fn::*;
 pub use morphism::*;
 pub use type_alias::*;
 pub use value::*;
@@ -17,7 +17,7 @@ pub(crate) fn form_signature_from_decl(
     decl: FormDecl,
 ) -> SignatureResult<FormSignature> {
     match decl {
-        FormDecl::Function(decl) => function_signature(db, decl).map(Into::into),
+        FormDecl::Function(decl) => form_fn_signature(db, decl).map(Into::into),
         FormDecl::Feature(decl) => feature_signature(db, decl).map(Into::into),
         FormDecl::Morphism(decl) => morphism_signature(db, decl).map(Into::into),
         FormDecl::Value(decl) => value_signature(db, decl).map(Into::into),
@@ -27,7 +27,7 @@ pub(crate) fn form_signature_from_decl(
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum FormSignature {
-    Function(FunctionSignature),
+    Function(FormFnSignature),
     Feature(FeatureSignature),
     Morphism(MorphismSignature),
     Value(ValueSignature),
@@ -62,8 +62,8 @@ impl From<FeatureSignature> for FormSignature {
     }
 }
 
-impl From<FunctionSignature> for FormSignature {
-    fn from(v: FunctionSignature) -> Self {
+impl From<FormFnSignature> for FormSignature {
+    fn from(v: FormFnSignature) -> Self {
         Self::Function(v)
     }
 }

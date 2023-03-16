@@ -272,7 +272,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                                     ast_idx: 30,
                                     expr_region: ExprRegion {

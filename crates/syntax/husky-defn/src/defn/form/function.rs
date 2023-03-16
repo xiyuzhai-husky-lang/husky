@@ -4,7 +4,7 @@ use crate::*;
 pub struct FunctionDefn {
     #[id]
     pub path: FormPath,
-    pub decl: FunctionDecl,
+    pub decl: FormFnDecl,
     pub expr_region: ExprRegion,
     pub body: DefnResult<ExprIdx>,
 }

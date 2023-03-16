@@ -272,7 +272,7 @@ Ok(
                         FormDefn::Function(
                             FunctionDefn {
                                 path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                                decl: FunctionDecl {
+                                decl: FormFnDecl {
                                     path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                     ast_idx: 34,
                                     expr_region: ExprRegion {

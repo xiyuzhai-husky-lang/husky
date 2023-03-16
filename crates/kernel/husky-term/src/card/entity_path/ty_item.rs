@@ -5,9 +5,6 @@ pub use self::method::*;
 use super::*;
 use husky_decl::{TypeAssociatedFnDecl, TypeItemDecl};
 use husky_entity_tree::AssociatedItemId;
-use husky_signature::{
-    HasSignature, SignatureResult, TypeAssociatedFnSignature, TypeItemSignature,
-};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityPathDb)]
@@ -44,6 +41,5 @@ pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TermDb, path: TypeItemPath) -> 
 }
 
 fn ty_associated_fn_ty_unchecked(db: &dyn TermDb, decl: TypeAssociatedFnDecl) -> TermResult<Term> {
-    let signature = decl.signature(db)?;
     Ok(todo!())
 }

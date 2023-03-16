@@ -111,7 +111,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                 ast_idx: 65,
                                 expr_region: ExprRegion {
@@ -333,7 +333,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                 ast_idx: 66,
                                 expr_region: ExprRegion {
@@ -555,7 +555,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
                                 ast_idx: 67,
                                 expr_region: ExprRegion {
