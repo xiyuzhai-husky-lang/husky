@@ -183,11 +183,11 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::digits::six`,
+                            `mnist_classifier::digits::seven`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `six`,
+                        ident: `seven`,
                         token_idx: TokenIdx(
                             13,
                         ),
@@ -211,11 +211,11 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::digits::seven`,
+                            `mnist_classifier::digits::eight`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `seven`,
+                        ident: `eight`,
                         token_idx: TokenIdx(
                             15,
                         ),
@@ -239,11 +239,11 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::digits::eight`,
+                            `mnist_classifier::digits::nine`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `eight`,
+                        ident: `nine`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -267,11 +267,11 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::digits::nine`,
+                            `mnist_classifier::digits::two`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `nine`,
+                        ident: `two`,
                         token_idx: TokenIdx(
                             19,
                         ),

@@ -19,5 +19,6 @@
     `mnist_classifier::digits::seven`,
     `mnist_classifier::digits::eight`,
     `mnist_classifier::digits::nine`,
+    `mnist_classifier::digits::two`,
     `mnist_classifier::major`,
 ]

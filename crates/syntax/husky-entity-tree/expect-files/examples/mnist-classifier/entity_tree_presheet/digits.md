@@ -154,11 +154,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 7,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    13,
                                 ),
                             },
                         },
@@ -177,11 +177,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 8,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
-                                    17,
+                                    15,
                                 ),
                             },
                         },
@@ -200,9 +200,32 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `nine`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: Ident(
+                        "two",
+                    ),
+                    accessibility: Accessibility::PublicUnder(
+                        `mnist_classifier::digits`,
+                    ),
+                    symbol: NativeEntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::two`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `two`,
                                 token_idx: TokenIdx(
                                     19,
                                 ),
@@ -784,41 +807,6 @@ Ok(
         mod_path_arena: Arena {
             data: [],
         },
-        errors: [
-            EntityTreeError::Original(
-                OriginalEntityTreeError::EntitySymbolAlreadyDefined {
-                    old: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::six`,
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            ast_idx: 2,
-                            ident_token: IdentToken {
-                                ident: `six`,
-                                token_idx: TokenIdx(
-                                    5,
-                                ),
-                            },
-                        },
-                    ),
-                    new: NativeEntitySymbol::Submodule(
-                        SubmoduleSymbol {
-                            path: `mnist_classifier::digits::six`,
-                            accessibility: Accessibility::PublicUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            ast_idx: 6,
-                            ident_token: IdentToken {
-                                ident: `six`,
-                                token_idx: TokenIdx(
-                                    13,
-                                ),
-                            },
-                        },
-                    ),
-                },
-            ),
-        ],
+        errors: [],
     },
 )

@@ -41,12 +41,6 @@ Ok(
                 Keyword::Mod,
             ),
             Token::Ident(
-                `six`,
-            ),
-            Token::Keyword(
-                Keyword::Mod,
-            ),
-            Token::Ident(
                 `seven`,
             ),
             Token::Keyword(
@@ -60,6 +54,12 @@ Ok(
             ),
             Token::Ident(
                 `nine`,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `two`,
             ),
             Token::Keyword(
                 Keyword::Pub,

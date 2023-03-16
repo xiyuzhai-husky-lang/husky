@@ -124,10 +124,32 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
-                state: UseExprRuleState::Erroneous,
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::two`,
+                            accessibility: Accessibility::PublicUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `two`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
+                        },
+                    ),
+                },
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 6,
+                rule_idx: UseExprRuleIdx(
+                    13,
+                ),
+                state: UseExprRuleState::Erroneous,
+            },
             TokenInfo::None,
             TokenInfo::UseExpr {
                 use_expr_idx: 9,
@@ -156,7 +178,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
-                    13,
+                    14,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -188,7 +210,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    14,
+                    15,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -220,7 +242,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 12,
                 rule_idx: UseExprRuleIdx(
-                    15,
+                    16,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -237,11 +259,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 7,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `seven`,
                                 token_idx: TokenIdx(
-                                    15,
+                                    13,
                                 ),
                             },
                         },
@@ -252,7 +274,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 14,
                 rule_idx: UseExprRuleIdx(
-                    16,
+                    17,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -269,11 +291,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 8,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `eight`,
                                 token_idx: TokenIdx(
-                                    17,
+                                    15,
                                 ),
                             },
                         },
@@ -284,7 +306,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
-                    17,
+                    18,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -301,11 +323,11 @@ Ok(
                             accessibility: Accessibility::PublicUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `nine`,
                                 token_idx: TokenIdx(
-                                    19,
+                                    17,
                                 ),
                             },
                         },
@@ -316,7 +338,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 18,
                 rule_idx: UseExprRuleIdx(
-                    18,
+                    19,
                 ),
                 state: UseExprRuleState::Erroneous,
             },

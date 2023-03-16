@@ -3,16 +3,6 @@ DiagnosticSheet {
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "EntitySymbolAlreadyDefined",
-                severity: Error,
-                range: [7:5, 7:8),
-            },
-            Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [15:5, 15:8),
-            },
-            Diagnostic {
                 message: "unresolved identifier",
                 severity: Error,
                 range: [12:14, 12:20),
@@ -26,6 +16,11 @@ DiagnosticSheet {
                 message: "unresolved identifier",
                 severity: Error,
                 range: [14:11, 14:18),
+            },
+            Diagnostic {
+                message: "unresolved identifier",
+                severity: Error,
+                range: [15:10, 15:16),
             },
             Diagnostic {
                 message: "unresolved identifier",
