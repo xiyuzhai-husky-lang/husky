@@ -346,7 +346,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ident: `displacement`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -621,7 +621,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     ident: `dist_to_point`,
                                                     ty_item_kind: MethodFn,
                                                 },

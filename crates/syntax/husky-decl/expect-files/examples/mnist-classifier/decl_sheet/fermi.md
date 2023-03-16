@@ -754,7 +754,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -773,7 +773,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `norm`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -1002,7 +1002,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `rel_norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -1021,7 +1021,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `rel_norm`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -1250,7 +1250,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `angle_change_norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -1269,7 +1269,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `angle_change_norm`,
                                                     ty_item_kind: Memo,
                                                 },

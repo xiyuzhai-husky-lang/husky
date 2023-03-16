@@ -8081,7 +8081,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -8327,7 +8327,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -8612,7 +8612,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -8764,7 +8764,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -9373,7 +9373,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -9411,7 +9411,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -9449,7 +9449,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -9487,7 +9487,7 @@ Ok(
                                                         EntityPath::AssociatedItem(
                                                             AssociatedItemPath::TypeItem(
                                                                 TypeItemPath {
-                                                                    ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                    parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                                     ident: `from_i_shift28`,
                                                                     ty_item_kind: AssociatedFn,
                                                                 },
@@ -11603,7 +11603,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `line_segment_sketch`,
                                             ty_item_kind: Memo,
                                         },
@@ -11611,7 +11611,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ident: `line_segment_sketch`,
                                                 ty_item_kind: Memo,
                                             },
@@ -11630,7 +11630,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ident: `line_segment_sketch`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -12014,7 +12014,7 @@ Ok(
                                                             EntityPath::AssociatedItem(
                                                                 AssociatedItemPath::TypeItem(
                                                                     TypeItemPath {
-                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                                         ident: `new`,
                                                                         ty_item_kind: AssociatedFn,
                                                                     },
@@ -12089,7 +12089,7 @@ Ok(
                                                             EntityPath::AssociatedItem(
                                                                 AssociatedItemPath::TypeItem(
                                                                     TypeItemPath {
-                                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                                         ident: `new`,
                                                                         ty_item_kind: AssociatedFn,
                                                                     },
@@ -12164,7 +12164,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -12172,7 +12172,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ident: `bounding_box`,
                                                 ty_item_kind: Memo,
                                             },
@@ -12191,7 +12191,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ident: `bounding_box`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -13781,7 +13781,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `relative_bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -13789,7 +13789,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ident: `relative_bounding_box`,
                                                 ty_item_kind: Memo,
                                             },
@@ -13808,7 +13808,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ident: `relative_bounding_box`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -14358,7 +14358,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `contour_len`,
                                             ty_item_kind: Memo,
                                         },
@@ -14366,7 +14366,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ident: `contour_len`,
                                                 ty_item_kind: Memo,
                                             },
@@ -14385,7 +14385,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ident: `contour_len`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -15970,7 +15970,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ident: `displacement`,
                                                         ty_item_kind: MethodFn,
                                                     },

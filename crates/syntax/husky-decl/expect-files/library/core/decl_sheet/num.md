@@ -1105,7 +1105,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::i8`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::i8`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -1519,7 +1519,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::i16`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::i16`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -1933,7 +1933,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::i32`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::i32`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -2347,7 +2347,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::i64`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::i64`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -2761,7 +2761,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::i128`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::i128`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -3175,7 +3175,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::isize`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::isize`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -3589,7 +3589,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::u8`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::u8`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -4003,7 +4003,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::u16`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::u16`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -4417,7 +4417,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::u32`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::u32`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -4831,7 +4831,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::u64`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::u64`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -5245,7 +5245,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::u128`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::u128`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -5659,7 +5659,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::usize`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::usize`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -6073,7 +6073,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::f32`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::f32`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -6487,7 +6487,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`core::num::f64`, `Extern`),
+                                                    parent_ty: TypePath(`core::num::f64`, `Extern`),
                                                     ident: `abs`,
                                                     ty_item_kind: MethodFn,
                                                 },
