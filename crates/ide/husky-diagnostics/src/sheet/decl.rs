@@ -208,7 +208,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         }
     }
 
-    fn visit_function_decl(&mut self, decl: FunctionDecl) {
+    fn visit_function_decl(&mut self, decl: FormFnDecl) {
         if let Err(DeclExprError::Original(e)) = decl.implicit_parameters(self.db()) {
             self.visit_atom(e)
         } else if let Err(DeclExprError::Original(e)) = decl.parameters(self.db()) {

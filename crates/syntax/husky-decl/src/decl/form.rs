@@ -17,7 +17,7 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum FormDecl {
-    Function(FunctionDecl),
+    Function(FormFnDecl),
     Feature(FeatureDecl),
     Morphism(MorphismDecl),
     Value(ValueDecl),

@@ -499,7 +499,7 @@ impl<'a> DeclParser<'a> {
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(FunctionDecl::new(
+        Ok(FormFnDecl::new(
             self.db,
             path,
             ast_idx,

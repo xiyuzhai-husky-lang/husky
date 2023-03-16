@@ -111,7 +111,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                                 ast_idx: 30,
                                 expr_region: ExprRegion {

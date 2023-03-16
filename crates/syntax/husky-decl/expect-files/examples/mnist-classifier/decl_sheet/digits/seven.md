@@ -111,7 +111,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 ast_idx: 48,
                                 expr_region: ExprRegion {
@@ -432,7 +432,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 ast_idx: 50,
                                 expr_region: ExprRegion {
@@ -654,7 +654,7 @@ Ok(
                 Ok(
                     Decl::Form(
                         FormDecl::Function(
-                            FunctionDecl {
+                            FormFnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 ast_idx: 51,
                                 expr_region: ExprRegion {

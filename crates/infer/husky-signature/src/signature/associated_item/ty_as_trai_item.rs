@@ -26,7 +26,7 @@ pub(crate) fn ty_as_trai_associated_item_signature_from_decl(
 ) -> SignatureResult<TypeAsTraitItemSignature> {
     match decl {
         TypeAsTraitItemDecl::AssociatedFunction(decl) => {
-            ty_as_trai_associated_function_signature(db, decl).map(Into::into)
+            ty_as_trai_associated_form_fn_signature(db, decl).map(Into::into)
         }
         TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_signature(db, decl).map(Into::into),
         TypeAsTraitItemDecl::AssociatedType(decl) => {

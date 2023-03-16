@@ -27,7 +27,7 @@ pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<Raw
 pub(crate) fn function_entity_raw_ty(
     db: &dyn RawTypeDb,
     variances: &[Variance],
-    signature: FunctionSignature,
+    signature: FormFnSignature,
     _raw_term_menu: &RawTermMenu,
 ) -> RawTypeResult<RawTerm> {
     let param_raw_tys = signature
