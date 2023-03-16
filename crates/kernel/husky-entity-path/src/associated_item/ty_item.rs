@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
 pub struct TypeItemPath {
-    pub ty: TypePath,
+    pub parent_ty: TypePath,
     pub ident: Ident,
     pub ty_item_kind: TypeItemKind,
 }

@@ -5,7 +5,9 @@ pub use self::method::*;
 use super::*;
 use husky_decl::{TypeAssociatedFnDecl, TypeItemDecl};
 use husky_entity_tree::AssociatedItemId;
-use husky_signature::{SignatureResult, TypeAssociatedFnSignature, TypeItemSignature};
+use husky_signature::{
+    HasSignature, SignatureResult, TypeAssociatedFnSignature, TypeItemSignature,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityPathDb)]
@@ -21,15 +23,19 @@ pub struct TypeAssociatedFnCard {
     pub id: AssociatedItemId,
 }
 
+pub(crate) fn ty_item_path_ty(db: &dyn TermDb, path: TypeItemPath) -> TermResult<Term> {
+    ty_item_path_ty_unchecked(db, path)?.checked(db)
+}
+
 #[salsa::tracked(jar = TermJar)]
-pub fn ty_item_card(db: &dyn TermDb, path: TypeItemPath) -> TermResult<TypeItemCard> {
+pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TermDb, path: TypeItemPath) -> TermResult<Term> {
     let decl = db
         .ty_item_decl(path)
         .ok_or(TermError::NoDeclForEntityPath {
             entity_path: path.into(),
         })?;
     Ok(match decl {
-        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_card(db, decl)?.into(),
+        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_ty_unchecked(db, decl)?.into(),
         TypeItemDecl::MethodFn(_) => todo!(),
         TypeItemDecl::AssociatedType(_) => todo!(),
         TypeItemDecl::AssociatedValue(_) => todo!(),
@@ -37,10 +43,7 @@ pub fn ty_item_card(db: &dyn TermDb, path: TypeItemPath) -> TermResult<TypeItemC
     })
 }
 
-fn ty_associated_fn_card(
-    db: &dyn TermDb,
-    decl: TypeAssociatedFnDecl,
-) -> TermResult<TypeAssociatedFnCard> {
-    let signature = todo!();
-    Ok(TypeAssociatedFnCard::new(db, decl.id(db)))
+fn ty_associated_fn_ty_unchecked(db: &dyn TermDb, decl: TypeAssociatedFnDecl) -> TermResult<Term> {
+    let signature = decl.signature(db)?;
+    Ok(todo!())
 }

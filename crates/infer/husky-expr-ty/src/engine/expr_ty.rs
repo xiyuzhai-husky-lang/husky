@@ -10,6 +10,7 @@ mod suffix;
 
 use super::*;
 use husky_opn_syntax::*;
+use husky_term::has_ty::HasTypeGivenDisambiguation;
 use husky_ty_expectation::TypePathDisambiguation;
 
 pub(crate) enum ExprTypeResolveProgress<E: ExpectLocalTerm> {
@@ -345,57 +346,14 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectLocalTerm,
         local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
-        match path {
-            None => Err(DerivedExprTypeError::EntityPathError.into()),
-            Some(path) => match path {
-                EntityPath::Module(_) => todo!(),
-                EntityPath::ModuleItem(path) => match path {
-                    ModuleItemPath::Type(ty_path) => {
-                        self.calc_ty_path_expr_ty(expr_ty_expectation, ty_path, local_term_region)
-                    }
-                    ModuleItemPath::Trait(trai_path) => Ok((
-                        ExprDisambiguation::Trivial,
-                        self.db
-                            .trai_path_ty(trai_path)
-                            .map(Into::into)
-                            .map_err(|e| todo!()),
-                    )),
-                    ModuleItemPath::Form(form_path) => Ok((
-                        ExprDisambiguation::Trivial,
-                        self.db
-                            .form_path_ty(form_path)
-                            .map(Into::into)
-                            .map_err(Into::into),
-                    )),
-                },
-                EntityPath::AssociatedItem(path) => match path {
-                    AssociatedItemPath::TypeItem(path) => {
-                        let card = ty_item_card(self.db, path);
-                        p!(path.debug(self.db));
-                        todo!()
-                    }
-                    AssociatedItemPath::TraitItem(_) => todo!(),
-                    AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
-                },
-                EntityPath::Variant(_) => todo!(),
-            },
-        }
-    }
-
-    fn calc_ty_path_expr_ty(
-        &mut self,
-        expr_ty_expectation: &impl ExpectLocalTerm,
-        ty_path: TypePath,
-        local_term_region: &mut LocalTermRegion,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         let disambiguation = expr_ty_expectation
             .disambiguate_ty_path(self.db(), local_term_region.unresolved_terms());
         Ok((
             disambiguation.into(),
-            self.db
-                .ty_path_ty(ty_path, disambiguation)
-                .map(Into::into)
-                .map_err(|e| e.into()),
+            Ok(path
+                .ok_or(DerivedExprTypeError::EntityPathError)?
+                .ty(self.db, disambiguation)?
+                .into()),
         ))
     }
 

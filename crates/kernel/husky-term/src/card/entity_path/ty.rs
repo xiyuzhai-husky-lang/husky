@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn ty_path_ty(
+pub(crate) fn ty_path_ty(
     db: &dyn TermDb,
     path: TypePath,
     disambiguation: TypePathDisambiguation,

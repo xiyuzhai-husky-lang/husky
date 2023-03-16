@@ -1407,7 +1407,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `raw_contours`,
                                             ty_item_kind: Memo,
                                         },
@@ -1426,7 +1426,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `raw_contours`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -1670,7 +1670,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `eff_holes`,
                                             ty_item_kind: Memo,
                                         },
@@ -1689,7 +1689,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `eff_holes`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -1918,7 +1918,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_hole_ilen`,
                                             ty_item_kind: Memo,
                                         },
@@ -1937,7 +1937,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_hole_ilen`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -2166,7 +2166,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_row_span`,
                                             ty_item_kind: Memo,
                                         },
@@ -2185,7 +2185,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_row_span`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -2414,7 +2414,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `row_span_sum`,
                                             ty_item_kind: Memo,
                                         },
@@ -2433,7 +2433,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `row_span_sum`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -2662,7 +2662,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `distribution`,
                                             ty_item_kind: Memo,
                                         },
@@ -2681,7 +2681,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `distribution`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -2910,7 +2910,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `upper_mass`,
                                             ty_item_kind: Memo,
                                         },
@@ -2929,7 +2929,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `upper_mass`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3158,7 +3158,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `lower_mass`,
                                             ty_item_kind: Memo,
                                         },
@@ -3177,7 +3177,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `lower_mass`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3428,7 +3428,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `top_k_row_span_sum`,
                                                     ty_item_kind: MethodFn,
                                                 },
@@ -3776,7 +3776,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `top_k_row_right_mass_sum`,
                                                     ty_item_kind: MethodFn,
                                                 },

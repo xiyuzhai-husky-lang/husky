@@ -1990,7 +1990,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -1998,7 +1998,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `norm`,
                                                 ty_item_kind: Memo,
                                             },
@@ -2017,7 +2017,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `norm`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -2487,7 +2487,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `rel_norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -2495,7 +2495,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `rel_norm`,
                                                 ty_item_kind: Memo,
                                             },
@@ -2514,7 +2514,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `rel_norm`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -3043,7 +3043,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `hausdorff_norm`,
                                             ty_item_kind: Memo,
                                         },
@@ -3051,7 +3051,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `hausdorff_norm`,
                                                 ty_item_kind: Memo,
                                             },
@@ -3070,7 +3070,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `hausdorff_norm`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -4396,7 +4396,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `angle_change`,
                                             ty_item_kind: Memo,
                                         },
@@ -4404,7 +4404,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `angle_change`,
                                                 ty_item_kind: Memo,
                                             },
@@ -4423,7 +4423,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `angle_change`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -5487,7 +5487,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -5495,7 +5495,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `bounding_box`,
                                                 ty_item_kind: Memo,
                                             },
@@ -5514,7 +5514,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `bounding_box`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -7164,7 +7164,7 @@ Ok(
                                 TypeMemoDefn {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `relative_bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -7172,7 +7172,7 @@ Ok(
                                     decl: TypeMemoDecl {
                                         path: Some(
                                             TypeItemPath {
-                                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ident: `relative_bounding_box`,
                                                 ty_item_kind: Memo,
                                             },
@@ -7191,7 +7191,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `relative_bounding_box`,
                                                         ty_item_kind: Memo,
                                                     },
@@ -7745,7 +7745,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `line_segment`,
                                                         ty_item_kind: MethodFn,
                                                     },
@@ -8441,7 +8441,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `start`,
                                                         ty_item_kind: MethodFn,
                                                     },
@@ -9024,7 +9024,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `end`,
                                                         ty_item_kind: MethodFn,
                                                     },
@@ -9607,7 +9607,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `displacement`,
                                                         ty_item_kind: MethodFn,
                                                     },
@@ -10166,7 +10166,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `start_tangent`,
                                                         ty_item_kind: MethodFn,
                                                     },
@@ -10737,7 +10737,7 @@ Ok(
                                             path: Some(
                                                 AssociatedItemPath::TypeItem(
                                                     TypeItemPath {
-                                                        ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ident: `end_tangent`,
                                                         ty_item_kind: MethodFn,
                                                     },

@@ -72,7 +72,7 @@ where
     }
 
     fn ty_item_decl(&self, path: TypeItemPath) -> Option<TypeItemDecl> {
-        self.ty_item_decls(path.ty(self))
+        self.ty_item_decls(path.parent_ty(self))
             .ok()?
             .get_entry(path.ident(self))
             .map(|(_, decl)| decl.ok())

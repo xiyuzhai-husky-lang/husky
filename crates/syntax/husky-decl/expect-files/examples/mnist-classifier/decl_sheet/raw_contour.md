@@ -2948,7 +2948,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `line_segment_sketch`,
                                             ty_item_kind: Memo,
                                         },
@@ -2967,7 +2967,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `line_segment_sketch`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3196,7 +3196,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -3215,7 +3215,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `bounding_box`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3444,7 +3444,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `relative_bounding_box`,
                                             ty_item_kind: Memo,
                                         },
@@ -3463,7 +3463,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `relative_bounding_box`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3692,7 +3692,7 @@ Ok(
                                 TypeMemoDecl {
                                     path: Some(
                                         TypeItemPath {
-                                            ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ident: `contour_len`,
                                             ty_item_kind: Memo,
                                         },
@@ -3711,7 +3711,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `contour_len`,
                                                     ty_item_kind: Memo,
                                                 },
@@ -3962,7 +3962,7 @@ Ok(
                                         path: Some(
                                             AssociatedItemPath::TypeItem(
                                                 TypeItemPath {
-                                                    ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ident: `displacement`,
                                                     ty_item_kind: MethodFn,
                                                 },

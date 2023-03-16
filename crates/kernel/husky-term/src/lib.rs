@@ -7,6 +7,7 @@ mod card;
 mod context;
 mod db;
 mod error;
+pub mod has_ty;
 mod menu;
 mod rewrite;
 mod term;
@@ -91,5 +92,5 @@ pub struct TermJar(
     TypeMethodFnCard,
     TypeAsTraitMethodFnCard,
     TypeAssociatedFnCard,
-    ty_item_card,
+    ty_item_path_ty_unchecked,
 );
