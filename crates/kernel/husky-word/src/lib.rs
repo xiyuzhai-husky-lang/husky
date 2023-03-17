@@ -94,13 +94,13 @@ impl<'a> From<&'a str> for __WordData {
 }
 
 impl Word {
-    fn from_owned(db: &<WordJar as salsa::jar::Jar<'_>>::DynDb, data: String) -> Self {
+    pub fn from_owned(db: &<WordJar as salsa::jar::Jar<'_>>::DynDb, data: String) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<WordJar>>::jar(db);
         let ingredients = <WordJar as salsa::storage::HasIngredientsFor<Word>>::ingredient(jar);
         ingredients.intern(runtime, __WordData { data })
     }
 
-    fn from_ref(db: &<WordJar as salsa::jar::Jar<'_>>::DynDb, data: &str) -> Self {
+    pub fn from_ref(db: &<WordJar as salsa::jar::Jar<'_>>::DynDb, data: &str) -> Self {
         let (jar, runtime) = <_ as salsa::storage::HasJar<WordJar>>::jar(db);
         let ingredients = <WordJar as salsa::storage::HasIngredientsFor<Word>>::ingredient(jar);
         ingredients.intern_borrowed(runtime, data)

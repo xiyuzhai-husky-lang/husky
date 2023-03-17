@@ -12,12 +12,12 @@ pub struct TomlTable {
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlTableValue {
     Table(TomlTable),
-    Section(TomlSectionIdx),
+    Section(TomlSectionAstIdx),
     List(Vec<TomlTableValue>),
 }
 
 impl TomlTable {
-    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionAstArena) -> Self {
+    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionAstSheet) -> Self {
         let mut table = TomlTable {
             data: Default::default(),
         };
@@ -30,7 +30,7 @@ impl TomlTable {
     fn insert_section<'a>(
         &mut self,
         db: &dyn TomlAstDb,
-        idx: TomlSectionIdx,
+        idx: TomlSectionAstIdx,
         section: &TomlSectionAst,
     ) {
         match section.kind() {

@@ -10,7 +10,6 @@ mod section;
 mod table;
 #[cfg(test)]
 mod tests;
-mod visitor;
 
 pub use self::ast::*;
 pub use self::db::*;
@@ -19,7 +18,6 @@ pub use self::expr::*;
 pub use self::line_group::*;
 pub use self::section::*;
 pub use self::table::*;
-pub use self::visitor::*;
 
 use husky_toml_token::*;
 use husky_vfs::*;
@@ -34,7 +32,7 @@ pub struct TomlAstJar(package_manifest_toml_ast, TomlSectionTitle);
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
-    section_arena: TomlSectionAstArena,
+    section_arena: TomlSectionAstSheet,
     line_groups: Vec<TomlGroup>,
     table: TomlTable,
 }
@@ -54,7 +52,7 @@ impl TomlAstSheet {
             .line_groups()
             .map(|tokens| TomlAstParser::new(db, tokens, &mut exprs).parse_line_group())
             .collect();
-        let sections = TomlSectionAstArena::parse_collect(db, &toml_token_text, &line_groups);
+        let sections = TomlSectionAstSheet::parse_collect(db, &toml_token_text, &line_groups);
         let table = TomlTable::new(db, &sections);
         TomlAstSheet {
             section_arena: sections,

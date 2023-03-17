@@ -1,12 +1,15 @@
+#![feature(trait_upcasting)]
 mod builder;
 mod db;
 mod dependency;
 mod error;
+mod menu;
 mod sections;
 
 pub use self::db::*;
 pub use self::dependency::*;
 pub use self::error::*;
+pub use self::menu::*;
 pub use self::sections::*;
 
 use self::builder::ManifestAstBuilder;
@@ -15,7 +18,12 @@ use husky_toml_ast::*;
 use husky_vfs::*;
 
 #[salsa::jar(db = ManifestAstDb)]
-pub struct ManifestAstJar(ManifestAst, manifest_ast, ManifestDependenyAst);
+pub struct ManifestAstJar(
+    ManifestAst,
+    manifest_ast,
+    ManifestDependencyAst,
+    manifest_ast_menu,
+);
 
 #[salsa::tracked(db = ManifestAstDb, jar = ManifestAstJar)]
 pub struct ManifestAst {
@@ -23,9 +31,9 @@ pub struct ManifestAst {
     #[return_ref]
     pub package_section: ManifestAstResult<ManifestPackageSectionAst>,
     #[return_ref]
-    pub dependencies_section: Option<ManifestDependenciesSectionAst>,
+    pub dependencies_section: ManifestAstResult<Option<ManifestDependenciesSectionAst>>,
     #[return_ref]
-    pub dev_dependencies_section: Option<ManifestDevDependenciesSectionAst>,
+    pub dev_dependencies_section: ManifestAstResult<Option<ManifestDevDependenciesSectionAst>>,
     #[return_ref]
     pub errors: Vec<ManifestAstError>,
 }

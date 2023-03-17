@@ -1,8 +1,10 @@
 mod parse_iter;
 mod title;
+mod visitor;
 
 pub use self::parse_iter::*;
 pub use self::title::*;
+pub use self::visitor::*;
 
 use crate::*;
 use husky_word::Word;
@@ -11,13 +13,13 @@ use smallvec::SmallVec;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlSectionAstArena {
+pub struct TomlSectionAstSheet {
     arena: Arena<TomlSectionAst>,
     errors: Vec<TomlAstError>,
 }
 
-pub type TomlSectionArena = Arena<TomlSectionAst>;
-pub type TomlSectionIdx = ArenaIdx<TomlSectionAst>;
+pub type TomlSectionAstArena = Arena<TomlSectionAst>;
+pub type TomlSectionAstIdx = ArenaIdx<TomlSectionAst>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
@@ -44,7 +46,7 @@ impl TomlSectionAst {
     }
 }
 
-impl TomlSectionAstArena {
+impl TomlSectionAstSheet {
     pub(crate) fn parse_collect(
         db: &dyn TomlAstDb,
         toml_token_text: &TomlTokenSheet,
@@ -62,7 +64,9 @@ impl TomlSectionAstArena {
         &self.errors
     }
 
-    pub fn indexed_section_iter(&self) -> impl Iterator<Item = (TomlSectionIdx, &TomlSectionAst)> {
+    pub fn indexed_section_iter(
+        &self,
+    ) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSectionAst)> {
         self.arena.indexed_iter()
     }
 }

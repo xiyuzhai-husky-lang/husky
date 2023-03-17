@@ -23,11 +23,11 @@ where
         toolchain: Toolchain,
         ident: Ident,
     ) -> PackagePathResult<PackagePath> {
-        let word_menu = self.word_menu();
+        let ident_menu = self.ident_menu();
         let package_path_menu = self.package_path_menu(toolchain).as_ref()?;
-        Ok(if ident == word_menu.core() {
+        Ok(if ident == ident_menu.core() {
             package_path_menu.core()
-        } else if ident == word_menu.std() {
+        } else if ident == ident_menu.std() {
             package_path_menu.std()
         } else {
             todo!()
@@ -51,9 +51,9 @@ where
 //     toolchain: Toolchain,
 //     ident: Ident,
 // ) -> Option<PackagePath> {
-//     let word_menu = db.word_menu();
+//     let ident_menu = db.ident_menu();
 //     let word = ident.word();
-//     if word == word_menu.core() || word == word_menu.std() {
+//     if word == ident_menu.core() || word == ident_menu.std() {
 //         Some(PackagePath::new(
 //             db,
 //             ident,

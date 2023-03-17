@@ -1,8 +1,19 @@
 use crate::*;
 
-pub trait TomlAst {}
+pub trait TomlAst: Sized {
+    type Key: Copy;
+    type Visitor<'a>: VisitTomlAst<'a, Ast = Self>;
+}
 
-impl TomlAst for TomlSectionAst {}
+pub trait VisitTomlAst<'a>: Sized {
+    type Ast;
+}
+
+impl TomlAst for TomlSectionAst {
+    type Key = TomlSectionTitle;
+
+    type Visitor<'a> = TomlSectionAstVisitor<'a>;
+}
 
 pub trait TomlSubAst<A>
 where
@@ -10,8 +21,4 @@ where
 {
 }
 
-impl TomlAstSheet {
-    pub fn section_visitor<'a>(&'a self) -> TomlAstVisitor<'a, TomlSectionAst> {
-        todo!()
-    }
-}
+pub type TomlAstVisitor<'a, A: TomlAst> = <A as TomlAst>::Visitor<'a>;

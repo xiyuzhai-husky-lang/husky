@@ -1,6 +1,6 @@
 use crate::*;
 
-pub struct WordMenu {
+pub struct IdentMenu {
     std: Ident,
     core: Ident,
     unit: Ident,
@@ -32,7 +32,7 @@ pub struct WordMenu {
     crate_word: Ident,
 }
 
-impl WordMenu {
+impl IdentMenu {
     pub(crate) fn new(db: &dyn WordDb) -> Self {
         Self {
             core: db.it_ident_borrowed("core").unwrap(),
