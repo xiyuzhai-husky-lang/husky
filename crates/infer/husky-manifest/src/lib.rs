@@ -1,15 +1,18 @@
+#![feature(trait_upcasting)]
 mod db;
 mod dependency;
 mod error;
+mod has_manifest;
+mod manifest;
 
-pub use db::*;
-pub use error::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::has_manifest::*;
+pub use self::manifest::*;
 
-use dependency::*;
+use self::dependency::*;
 use husky_vfs::*;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]
-pub struct ManifestJar(unchecked_package_dependencies, package_dependencies);
-
-pub struct PackageManifest {}
+pub struct ManifestJar(manifest_dependencies, PackageManifest);

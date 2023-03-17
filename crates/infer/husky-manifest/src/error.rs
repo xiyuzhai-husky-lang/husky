@@ -1,3 +1,4 @@
+use husky_vfs::VfsError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -7,6 +8,12 @@ pub type ManifestResult<T> = Result<T, ManifestError>;
 
 impl From<&ManifestError> for ManifestError {
     fn from(_value: &ManifestError) -> Self {
+        todo!()
+    }
+}
+
+impl From<&VfsError> for ManifestError {
+    fn from(_value: &VfsError) -> Self {
         todo!()
     }
 }

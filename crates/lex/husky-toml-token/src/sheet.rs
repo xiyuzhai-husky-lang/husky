@@ -28,3 +28,6 @@ impl TomlTokenSheet {
         &self.tokens[start..end]
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TomlTokenIdx(usize);

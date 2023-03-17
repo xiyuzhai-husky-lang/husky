@@ -1,21 +1,6 @@
 use crate::*;
-use husky_vfs::VfsDb;
+use husky_manifest_ast::ManifestAstDb;
 
-pub trait ManifestDb: DbWithJar<ManifestJar> + VfsDb {
-    fn package_dependencies(
-        &self,
-        package_path: PackagePath,
-    ) -> ManifestResult<&[PackageDependency]>;
-}
+pub trait ManifestDb: DbWithJar<ManifestJar> + ManifestAstDb {}
 
-impl<DB> ManifestDb for DB
-where
-    DB: DbWithJar<ManifestJar> + VfsDb,
-{
-    fn package_dependencies(
-        &self,
-        package_path: PackagePath,
-    ) -> ManifestResult<&[PackageDependency]> {
-        Ok(package_dependencies(self, package_path).as_ref()?)
-    }
-}
+impl<DB> ManifestDb for DB where DB: DbWithJar<ManifestJar> + ManifestAstDb {}

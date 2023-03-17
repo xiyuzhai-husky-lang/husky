@@ -13,6 +13,7 @@ use husky_folding_range::FoldingRangeJar;
 use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
+use husky_manifest_ast::ManifestAstJar;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::RawTypeJar;
 use husky_rust_code_gen::RustTranspileJar;
@@ -23,6 +24,8 @@ use husky_term::TermJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_token_info::TokenInfoJar;
+use husky_toml_ast::TomlAstJar;
+use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -37,6 +40,7 @@ use husky_word::WordJar;
     DiagnosticsJar,
     RustTranspileJar,
     LayoutJar,
+    TomlTokenJar,TomlAstJar,ManifestAstJar,
     ManifestJar,
     // kernel
     TermPreludeJar,
