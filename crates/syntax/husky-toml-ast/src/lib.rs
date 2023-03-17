@@ -24,7 +24,7 @@ use parser::TomlAstParser;
 use section::{TomlSection, TomlSectionIdx, TomlSectionKind, TomlSectionSheet};
 
 #[salsa::jar(db = TomlAstDb)]
-pub struct TomlAstJar(package_manifest_ast);
+pub struct TomlAstJar(package_manifest_toml_ast);
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
@@ -36,7 +36,7 @@ pub struct TomlAst {
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn package_manifest_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAst> {
+fn package_manifest_toml_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAst> {
     Ok(TomlAst::new(
         db,
         db.package_manifest_toml_token_sheet(package).as_ref()?,

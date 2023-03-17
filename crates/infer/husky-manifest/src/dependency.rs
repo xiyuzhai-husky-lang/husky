@@ -1,28 +1,21 @@
 use crate::*;
+use husky_manifest_ast::HasManifestAst;
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
-pub(crate) fn unchecked_package_dependencies(
-    _db: &dyn ManifestDb,
-    _package_path: PackagePath,
-) -> VfsResult<Vec<PackageDependency>> {
+pub(crate) fn manifest_dependencies(
+    db: &dyn ManifestDb,
+    package_path: PackagePath,
+) -> VfsResult<Vec<ManifestDependency>> {
+    let manifest_ast = package_path.manifest_ast(db);
     todo!()
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
-pub(crate) fn package_dependencies(
-    _db: &dyn ManifestDb,
-    _package_path: PackagePath,
-) -> ManifestResult<Vec<PackageDependency>> {
-    // ad hoc
-    Ok(Default::default())
-}
-
 #[derive(Debug, PartialEq, Eq)]
-pub struct PackageDependency {
+pub struct ManifestDependency {
     package_path: PackagePath,
 }
 
-impl PackageDependency {
+impl ManifestDependency {
     pub fn package_path(&self) -> PackagePath {
         self.package_path
     }

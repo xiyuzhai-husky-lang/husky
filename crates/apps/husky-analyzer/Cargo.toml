@@ -51,8 +51,11 @@ husky-term = { path = "../../kernel/husky-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
+husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
+husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
+husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
