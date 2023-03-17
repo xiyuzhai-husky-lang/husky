@@ -6,6 +6,8 @@ Husky is primarily a research language, which doesn't mean language for programm
 
 Husky is designed for **next generation computing**, which vastly generalizes nowadays AI and software. It **combines good designs from various current languages and promises killer applications beyond people's imagination**.
 
+Husky is **true open software**. It will be the core building block of open source AGI owned by all humanity alike.
+
 ## New Sheriff in Town
 
 It serves as a 🚀blazingly fast🚀 language with a **uniformed** and much more **ergonomic** developing experience for all the following tasks
