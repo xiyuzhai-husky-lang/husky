@@ -9,20 +9,23 @@ pub use self::dependency::*;
 pub use self::error::*;
 pub use self::sections::*;
 
+use self::builder::ManifestAstBuilder;
 use husky_text::TextRange;
+use husky_toml_ast::*;
 use husky_vfs::*;
 
 #[salsa::jar(db = ManifestAstDb)]
-pub struct ManifestAstJar(ManifestAst, manifest_ast);
+pub struct ManifestAstJar(ManifestAst, manifest_ast, ManifestDependenyAst);
 
 #[salsa::tracked(db = ManifestAstDb, jar = ManifestAstJar)]
 pub struct ManifestAst {
+    /// required
     #[return_ref]
-    pub package_options: ManifestPackageSectionAst,
+    pub package_section: ManifestAstResult<ManifestPackageSectionAst>,
     #[return_ref]
-    pub dependencies: Vec<ManifestDependenyAst>,
+    pub dependencies_section: Option<ManifestDependenciesSectionAst>,
     #[return_ref]
-    pub dev_dependencies: Vec<ManifestDependenyAst>,
+    pub dev_dependencies_section: Option<ManifestDevDependenciesSectionAst>,
     #[return_ref]
     pub errors: Vec<ManifestAstError>,
 }
@@ -45,5 +48,19 @@ impl HasManifestAst for PackagePath {
 #[salsa::tracked(jar = ManifestAstJar)]
 fn manifest_ast(db: &dyn ManifestAstDb, path: PackagePath) -> VfsResult<ManifestAst> {
     let toml_ast = db.package_manifest_toml_ast(path)?;
-    todo!()
+    Ok(build_manifest_ast(db, toml_ast))
+}
+
+fn build_manifest_ast(db: &dyn ManifestAstDb, toml_ast: &TomlAstSheet) -> ManifestAst {
+    let mut builder = ManifestAstBuilder::new(db, toml_ast, toml_ast.section_visitor());
+    let package_section = builder.build_package_section();
+    let dependencies_section = builder.build_dependencies_section();
+    let dev_dependencies_section = builder.build_dev_dependencies_section();
+    ManifestAst::new(
+        db,
+        package_section,
+        dependencies_section,
+        dev_dependencies_section,
+        builder.finish(),
+    )
 }

@@ -1,5 +1,6 @@
 #![feature(const_trait_impl)]
 #![feature(try_trait_v2)]
+mod ast;
 mod db;
 mod error;
 mod expr;
@@ -9,52 +10,55 @@ mod section;
 mod table;
 #[cfg(test)]
 mod tests;
+mod visitor;
 
-pub use db::*;
-pub use error::*;
-pub use expr::*;
-pub use line_group::*;
-pub use table::*;
+pub use self::ast::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::expr::*;
+pub use self::line_group::*;
+pub use self::section::*;
+pub use self::table::*;
+pub use self::visitor::*;
 
 use husky_toml_token::*;
 use husky_vfs::*;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
-use section::{TomlSection, TomlSectionIdx, TomlSectionKind, TomlSectionSheet};
 
 #[salsa::jar(db = TomlAstDb)]
-pub struct TomlAstJar(package_manifest_toml_ast);
+pub struct TomlAstJar(package_manifest_toml_ast, TomlSectionTitle);
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlAst {
-    exprs: TomlExprArena,
-    sections: TomlSectionSheet,
+pub struct TomlAstSheet {
+    expr_arena: TomlExprArena,
+    section_arena: TomlSectionAstArena,
     line_groups: Vec<TomlGroup>,
     table: TomlTable,
 }
 
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn package_manifest_toml_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAst> {
-    Ok(TomlAst::new(
+fn package_manifest_toml_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAstSheet> {
+    Ok(TomlAstSheet::new(
         db,
         db.package_manifest_toml_token_sheet(package).as_ref()?,
     ))
 }
 
-impl TomlAst {
+impl TomlAstSheet {
     fn new(db: &dyn TomlAstDb, toml_token_text: &TomlTokenSheet) -> Self {
         let mut exprs = TomlExprArena::default();
         let line_groups: Vec<_> = toml_token_text
             .line_groups()
             .map(|tokens| TomlAstParser::new(db, tokens, &mut exprs).parse_line_group())
             .collect();
-        let sections = TomlSectionSheet::new(&toml_token_text, &line_groups);
-        let table = TomlTable::new(&sections);
-        TomlAst {
-            sections,
-            exprs,
+        let sections = TomlSectionAstArena::parse_collect(db, &toml_token_text, &line_groups);
+        let table = TomlTable::new(db, &sections);
+        TomlAstSheet {
+            section_arena: sections,
+            expr_arena: exprs,
             line_groups,
             table,
         }

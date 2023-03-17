@@ -17,22 +17,27 @@ pub enum TomlTableValue {
 }
 
 impl TomlTable {
-    pub(crate) fn new(sections: &TomlSectionSheet) -> Self {
+    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionAstArena) -> Self {
         let mut table = TomlTable {
             data: Default::default(),
         };
         for (idx, section) in sections.indexed_section_iter() {
-            table.insert_section(idx, section)
+            table.insert_section(db, idx, section)
         }
         table
     }
 
-    fn insert_section<'a>(&mut self, idx: TomlSectionIdx, section: &TomlSection) {
+    fn insert_section<'a>(
+        &mut self,
+        db: &dyn TomlAstDb,
+        idx: TomlSectionIdx,
+        section: &TomlSectionAst,
+    ) {
         match section.kind() {
             TomlSectionKind::Normal => {
-                let title = section.title();
-                if title.len() == 1 {
-                    let key = title[0];
+                let title_words = section.title().words(db);
+                if title_words.len() == 1 {
+                    let key = title_words[0];
                     if self.data.contains_key(&key) {
                         todo!()
                     }
