@@ -1,21 +1,23 @@
 Ok(
-    TomlAst {
-        exprs: Arena {
+    TomlAstSheet {
+        expr_arena: Arena {
             data: [
                 TomlExpr::String(
                     "quick-sort",
                 ),
             ],
         },
-        sections: TomlSectionSheet {
+        section_arena: TomlSectionAstSheet {
             arena: Arena {
                 data: [
-                    TomlSection {
-                        title: [
-                            Word(
-                                "package",
-                            ),
-                        ],
+                    TomlSectionAst {
+                        title: TomlSectionTitle {
+                            words: [
+                                Word(
+                                    "package",
+                                ),
+                            ],
+                        },
                         kind: TomlSectionKind::Normal,
                         key_value_pairs: [
                             (

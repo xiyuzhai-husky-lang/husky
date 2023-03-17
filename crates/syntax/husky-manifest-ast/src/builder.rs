@@ -4,6 +4,7 @@ pub(crate) struct ManifestAstBuilder<'a, A: TomlAst> {
     db: &'a dyn ManifestAstDb,
     toml_ast: &'a TomlAstSheet,
     toml_ast_visitor: TomlAstVisitor<'a, A>,
+    menu: &'a ManifestAstMenu,
     errors: Vec<ManifestAstError>,
 }
 
@@ -17,6 +18,7 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
             db,
             toml_ast,
             toml_ast_visitor,
+            menu: manifest_ast_menu(db),
             errors: vec![],
         }
     }
@@ -32,15 +34,31 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
             db: self.db,
             toml_ast: self.toml_ast,
             toml_ast_visitor,
+            menu: self.menu,
             errors: vec![],
         }
     }
 
-    fn build_all(mut self) -> ManifestAst {
-        todo!()
-    }
-
     pub(crate) fn finish(self) -> Vec<ManifestAstError> {
         self.errors
+    }
+
+    pub(crate) fn menu(&self) -> &ManifestAstMenu {
+        self.menu
+    }
+}
+
+impl<'a> ManifestAstBuilder<'a, TomlSectionAst> {
+    pub(crate) fn visit_new_normal_section_ast(
+        &mut self,
+        title: TomlSectionTitle,
+    ) -> ManifestAstResult<Option<(TomlSectionAstIdx, &TomlSectionAst)>> {
+        let Some((idx, section_ast)) = self.toml_ast_visitor.find_by_title(title) else {
+            return Ok(None)
+        };
+        if section_ast.kind() != TomlSectionKind::Normal {
+            return Err(todo!("report error"));
+        }
+        Ok(Some((idx, section_ast)))
     }
 }

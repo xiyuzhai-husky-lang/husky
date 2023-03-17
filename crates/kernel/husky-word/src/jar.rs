@@ -4,7 +4,7 @@ use std::sync::Arc;
 
 pub struct WordJar(
     <Word as salsa::storage::IngredientsFor>::Ingredients,
-    Arc<OnceCell<WordMenu>>,
+    Arc<OnceCell<IdentMenu>>,
 );
 
 impl salsa::storage::HasIngredientsFor<Word> for WordJar {
@@ -27,7 +27,7 @@ impl<'salsa_db> salsa::jar::Jar<'salsa_db> for WordJar {
 }
 
 impl WordJar {
-    pub(crate) fn word_menu_cell(&self) -> &OnceCell<WordMenu> {
+    pub(crate) fn word_menu_cell(&self) -> &OnceCell<IdentMenu> {
         &self.1
     }
 }

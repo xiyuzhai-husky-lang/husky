@@ -92,7 +92,7 @@ impl EntitySymbolEntry {
     pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
         let root = ModulePath::new_root(db, crate_path);
         Self {
-            ident: db.word_menu().crate_word(),
+            ident: db.ident_menu().crate_word(),
             accessibility: Accessibility::PublicUnder(root),
             symbol: EntitySymbol::CrateRoot(root),
         }

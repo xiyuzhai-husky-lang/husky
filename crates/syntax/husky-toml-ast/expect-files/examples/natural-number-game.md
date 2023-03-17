@@ -1,6 +1,6 @@
 Ok(
-    TomlAst {
-        exprs: Arena {
+    TomlAstSheet {
+        expr_arena: Arena {
             data: [
                 TomlExpr::String(
                     "natural-number-game",
@@ -19,15 +19,17 @@ Ok(
                 ),
             ],
         },
-        sections: TomlSectionSheet {
+        section_arena: TomlSectionAstSheet {
             arena: Arena {
                 data: [
-                    TomlSection {
-                        title: [
-                            Word(
-                                "package",
-                            ),
-                        ],
+                    TomlSectionAst {
+                        title: TomlSectionTitle {
+                            words: [
+                                Word(
+                                    "package",
+                                ),
+                            ],
+                        },
                         kind: TomlSectionKind::Normal,
                         key_value_pairs: [
                             (
@@ -68,12 +70,14 @@ Ok(
                             ),
                         ],
                     },
-                    TomlSection {
-                        title: [
-                            Word(
-                                "dependencies",
-                            ),
-                        ],
+                    TomlSectionAst {
+                        title: TomlSectionTitle {
+                            words: [
+                                Word(
+                                    "dependencies",
+                                ),
+                            ],
+                        },
                         kind: TomlSectionKind::Normal,
                         key_value_pairs: [
                             (

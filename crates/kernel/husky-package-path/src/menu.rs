@@ -11,7 +11,7 @@ pub struct PackagePathMenu {
 
 impl PackagePathMenu {
     fn new(db: &dyn VfsDb, toolchain: Toolchain) -> AbsolutePathResult<Self> {
-        let word_menu = db.word_menu();
+        let ident_menu = db.ident_menu();
         let f = |ident| match toolchain.data(db) {
             ToolchainData::Published(toolchain) => Ok(PackagePath::new(
                 db,
@@ -24,8 +24,8 @@ impl PackagePathMenu {
                 PackagePath::new_local(db, &library_path.join(ident.data(db)))
             }
         };
-        let core = f(word_menu.core())?;
-        let std = f(word_menu.std())?;
+        let core = f(ident_menu.core())?;
+        let std = f(ident_menu.std())?;
         let core_library = CratePath::new(db, core, CrateKind::Library);
         Ok(Self {
             core,

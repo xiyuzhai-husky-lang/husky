@@ -1,9 +1,9 @@
 Ok(
-    TomlAst {
-        exprs: Arena {
+    TomlAstSheet {
+        expr_arena: Arena {
             data: [],
         },
-        sections: TomlSectionSheet {
+        section_arena: TomlSectionAstSheet {
             arena: Arena {
                 data: [],
             },
