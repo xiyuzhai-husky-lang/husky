@@ -14,13 +14,15 @@ impl PackageDependency {
     pub(crate) fn from_ast(
         db: &dyn ManifestDb,
         toolchain: Toolchain,
+        registry_path: RegistryPath,
         ast: &ManifestDependencyAst,
         errors: &mut Vec<ManifestError>,
     ) -> Option<Self> {
         // ad hoc ;
-        let data = PackagePathData::Global {
+        let data = PackagePathSource::Registry {
             name: ast.name(),
             version: semver::Version::new(0, 1, 0), // ad hoc
+            registry_path,
         };
         let package_path = PackagePath::new(db, toolchain, data);
         check_package_path_validity(db, package_path, errors);

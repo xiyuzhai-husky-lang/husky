@@ -47,7 +47,9 @@ husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-decl = { path = "../../syntax/husky-decl" }
 husky-defn = { path = "../../syntax/husky-defn" }
+husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 # infer
 husky-manifest = { path = "../../infer/husky-manifest" }
 husky-signature = { path = "../../infer/husky-signature" }
 husky-expr-ty = { path = "../../infer/husky-expr-ty" }
+husky-corgi-config = { path = "../../infer/husky-corgi-config" }

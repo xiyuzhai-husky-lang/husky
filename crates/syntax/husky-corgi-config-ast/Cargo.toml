@@ -1,24 +1,19 @@
 [package]
-name = "husky-manifest"
+name = "husky-corgi-config-ast"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-thiserror = "1.0.37"
-semver = "1.0.17"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-# infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-package-path = { path = "../../kernel/husky-package-path" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }

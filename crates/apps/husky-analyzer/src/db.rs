@@ -2,6 +2,8 @@ use std::sync::Arc;
 
 use dashmap::DashMap;
 use husky_ast::AstJar;
+use husky_corgi_config::CorgiConfigJar;
+use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::DeclJar;
 use husky_defn::DefnJar;
 use husky_diagnostics::DiagnosticsJar;
@@ -41,7 +43,7 @@ use husky_word::WordJar;
     RustTranspileJar,
     LayoutJar,
     TomlTokenJar,TomlAstJar,ManifestAstJar,
-    ManifestJar,
+    CorgiConfigJar,CorgiConfigAstJar, ManifestJar,
     // kernel
     TermPreludeJar,
     RawTermJar,

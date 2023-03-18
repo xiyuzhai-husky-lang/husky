@@ -13,6 +13,7 @@ pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsRes
     Ident::from_owned(db, husky_word::dash_to_snake(name)).ok_or(VfsError::PackageIdent)
 }
 
+/// deprecated
 #[test]
 fn package_ident_works() {
     let db = DB::default();
@@ -31,11 +32,12 @@ fn package_ident_works() {
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 #[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
-pub enum PackagePathData {
+pub enum PackagePathSource {
     Toolchain {
         name: Name,
     },
-    Global {
+    Registry {
+        registry_path: RegistryPath,
         name: Name,
         version: semver::Version,
     },
@@ -51,7 +53,7 @@ pub enum PackagePathData {
 pub struct PackagePath {
     pub toolchain: Toolchain,
     #[return_ref]
-    pub data: PackagePathData,
+    pub data: PackagePathSource,
 }
 
 impl PackagePath {
@@ -59,14 +61,14 @@ impl PackagePath {
         Ok(PackagePath::new(
             db,
             toolchain,
-            PackagePathData::Local {
+            PackagePathSource::Local {
                 path: DiffPath::try_new(db, path)?,
             },
         ))
     }
 
     pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Name) -> Self {
-        PackagePath::new(db, toolchain, PackagePathData::Toolchain { name })
+        PackagePath::new(db, toolchain, PackagePathSource::Toolchain { name })
     }
 
     pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
@@ -78,15 +80,18 @@ impl PackagePath {
     }
 }
 
-#[salsa::tracked(jar = VfsJar )]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct RegistryPath(DiffPath);
+
+#[salsa::tracked(jar = VfsJar)]
 pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
     match package.data(db) {
-        PackagePathData::Toolchain { name } => DiffPath::try_new(
+        PackagePathSource::Toolchain { name } => DiffPath::try_new(
             db,
             &package.toolchain(db).library_path(db).join(name.data(db)),
         ),
-        PackagePathData::Global { name, version } => todo!(),
-        PackagePathData::Local { path } => Ok(path.clone()),
-        PackagePathData::Git { .. } => todo!(),
+        PackagePathSource::Registry { name, version, .. } => todo!(),
+        PackagePathSource::Local { path } => Ok(path.clone()),
+        PackagePathSource::Git { .. } => todo!(),
     }
 }

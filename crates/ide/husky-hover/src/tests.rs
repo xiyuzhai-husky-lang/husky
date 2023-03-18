@@ -2,6 +2,8 @@ pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
 use husky_ast::AstJar;
+use husky_corgi_config::CorgiConfigJar;
+use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::DeclJar;
 use husky_defn::DefnJar;
 use husky_entity_path::EntityPathJar;
@@ -31,6 +33,8 @@ use husky_word::WordJar;
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,
+    CorgiConfigJar,
+    CorgiConfigAstJar,
     ManifestJar,
     AstJar,
     EntityTreeJar,
