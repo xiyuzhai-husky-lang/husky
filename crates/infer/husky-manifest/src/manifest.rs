@@ -3,6 +3,7 @@ mod dependency;
 pub use self::dependency::*;
 
 use crate::*;
+use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAst, PackageManifestAst};
 use husky_word::Word;
 
@@ -53,6 +54,7 @@ pub(crate) fn package_manifest(
     Ok(PackageManifest::from_ast(
         db,
         package_path.toolchain(db),
+        package_path.registry_path(db)?,
         package_path.manifest_ast(db)?,
     ))
 }
@@ -61,6 +63,7 @@ impl PackageManifest {
     fn from_ast(
         db: &dyn ManifestDb,
         toolchain: Toolchain,
+        registry_path: RegistryPath,
         manifest_ast: PackageManifestAst,
     ) -> Self {
         let mut errors = vec![];
@@ -77,7 +80,13 @@ impl PackageManifest {
                         .dependencies()
                         .iter()
                         .filter_map(|dependency_ast| {
-                            PackageDependency::from_ast(db, toolchain, dependency_ast, &mut errors)
+                            PackageDependency::from_ast(
+                                db,
+                                toolchain,
+                                registry_path,
+                                dependency_ast,
+                                &mut errors,
+                            )
                         })
                         .collect()
                 })

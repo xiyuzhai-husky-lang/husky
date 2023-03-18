@@ -1,5 +1,5 @@
 [package]
-name = "husky-manifest"
+name = "husky-corgi-config"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,8 +12,6 @@ salsa = { path = "../../abstraction/salsa" }
 # lex
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
-# infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
@@ -21,4 +19,4 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
+husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
