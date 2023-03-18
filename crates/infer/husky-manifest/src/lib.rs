@@ -18,8 +18,8 @@ use salsa::DbWithJar;
 pub struct ManifestJar(
     package_manifest,
     PackageManifest,
-    PackageDependencies,
+    PackageDependenciesSection,
     package_dependencies,
-    PackageDevDependencies,
+    PackageDevDependenciesSection,
     package_dev_dependencies,
 );

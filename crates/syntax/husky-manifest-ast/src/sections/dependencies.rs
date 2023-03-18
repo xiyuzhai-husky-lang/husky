@@ -1,4 +1,4 @@
-use husky_toml_ast::TomlSection;
+use husky_toml_ast::TomlSectionAst;
 use vec_like::VecMap;
 
 use super::*;
@@ -15,9 +15,10 @@ impl ManifestDependenciesSectionAst {
     }
 }
 
-impl<'a> ManifestAstBuilder<'a, TomlSection> {
+impl<'a> ManifestAstBuilder<'a, TomlSectionAst> {
     pub(crate) fn build_dependencies_section(
         &mut self,
+        db: &dyn ManifestAstDb,
         errors: &mut Vec<ManifestAstError>,
     ) -> ManifestAstResult<Option<ManifestDependenciesSectionAst>> {
         let Some((idx, dependencies_section_ast)) = self
@@ -29,7 +30,9 @@ impl<'a> ManifestAstBuilder<'a, TomlSection> {
             dependencies: dependencies_section_ast
                 .entries()
                 .iter()
-                .map(|entry| ManifestDependencyAst::from_toml_section_entry(entry, self, errors))
+                .filter_map(|entry| {
+                    ManifestDependencyAst::from_toml_section_entry(db, entry, self, errors)
+                })
                 .collect(), // ad hoc
         }))
     }

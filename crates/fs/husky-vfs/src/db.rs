@@ -13,7 +13,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath>;
     fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
-    fn package_dir(&self, package_path: PackagePath) -> &VfsResult<DiffPath>;
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
@@ -22,7 +21,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>>;
     fn collect_probable_modules(&self, package_path: PackagePath) -> Vec<ModulePath>;
     fn resolve_module_path(&self, toolchain: Toolchain, path: &Path) -> VfsResult<ModulePath>;
-    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path;
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path;
 }
 
@@ -186,10 +184,6 @@ where
         self.file_from_diff_path(diff_path)?.text(self)
     }
 
-    fn package_dir(&self, package: PackagePath) -> &VfsResult<DiffPath> {
-        package_dir(self, package)
-    }
-
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
@@ -203,7 +197,7 @@ where
 
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
-        let package_dir = self.package_dir(package_path).as_ref()?.path(self);
+        let package_dir = package_path.dir(self).as_ref()?.path(self);
         if package_dir.join("src/lib.hsy").exists() {
             crates.push(CratePath::new(self, package_path, CrateKind::Library));
         }
@@ -272,7 +266,7 @@ where
         }
 
         let mut modules = vec![];
-        let Ok(diff_path) = &self.package_dir(package).as_ref() else {
+        let Ok(diff_path) = package.dir(self) else {
             return vec![]
         };
         let package_dir = diff_path.data(self);
@@ -304,13 +298,6 @@ where
         let package_path = module_path.package_path(self);
         self.vfs_cache().add_live_package(package_path);
         Ok(module_path)
-    }
-
-    fn toolchain_library_path(&self, toolchain: Toolchain) -> &Path {
-        match toolchain.data(self) {
-            ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path } => library_path.data(self),
-        }
     }
 
     fn published_toolchain_library_path(&self, toolchain: PublishedToolchain) -> &Path {

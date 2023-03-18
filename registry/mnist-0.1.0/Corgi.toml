@@ -1,0 +1,10 @@
+[package]
+name = "mnist"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/xiyuzhai-husky-lang/husky.git"
+description = "The Husky Mnist Library"
+
+[lib]
+test = false
+bench = false

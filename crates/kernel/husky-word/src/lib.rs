@@ -1,6 +1,7 @@
 mod db;
 mod ident;
 mod label;
+mod menu;
 mod name;
 mod style;
 #[cfg(test)]
@@ -9,11 +10,12 @@ mod tests;
 pub use self::db::*;
 pub use self::ident::*;
 pub use self::label::*;
+pub use self::menu::*;
 pub use self::name::*;
 pub use self::style::*;
 
 #[salsa::jar(db = WordDb)]
-pub struct WordJar(Word, ident_menu);
+pub struct WordJar(Word, ident_menu, is_word_valid_name);
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Word(salsa::Id);
@@ -52,7 +54,7 @@ impl salsa::AsId for Word {
     }
 }
 impl Word {
-    fn data<'db>(self, db: &'db <WordJar as salsa::jar::Jar<'_>>::DynDb) -> &'db String {
+    fn data<'db>(self, db: &'db <WordJar as salsa::jar::Jar<'_>>::DynDb) -> &'db str {
         let (jar, runtime) = <_ as salsa::storage::HasJar<WordJar>>::jar(db);
         let ingredients = <WordJar as salsa::storage::HasIngredientsFor<Word>>::ingredient(jar);
         &ingredients.data(runtime, self).data

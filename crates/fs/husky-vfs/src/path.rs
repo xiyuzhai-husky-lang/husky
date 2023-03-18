@@ -22,22 +22,6 @@ pub(crate) fn package_manifest_path(db: &dyn VfsDb, package: PackagePath) -> Vfs
     )
 }
 
-#[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
-    match package.data(db) {
-        PackagePathData::Toolchain { toolchain, ident } => {
-            let toolchain_library_path = db.toolchain_library_path(*toolchain);
-            DiffPath::try_new(db, &toolchain_library_path.join(ident.data(db)))
-        }
-        PackagePathData::Global {
-            name: _,
-            version: _,
-        } => todo!(),
-        PackagePathData::Local { path } => Ok(path.clone()),
-        PackagePathData::Git { .. } => todo!(),
-    }
-}
-
 #[salsa::tracked(jar = VfsJar)]
 pub(crate) fn module_diff_path(db: &dyn VfsDb, module_path: ModulePath) -> VfsResult<DiffPath> {
     match module_path.data(db) {

@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestPackageSectionAst {}
 
-impl<'a> ManifestAstBuilder<'a, husky_toml_ast::TomlSection> {
+impl<'a> ManifestAstBuilder<'a, husky_toml_ast::TomlSectionAst> {
     pub(crate) fn build_package_section(
         &mut self,
         errors: &mut Vec<ManifestAstError>,

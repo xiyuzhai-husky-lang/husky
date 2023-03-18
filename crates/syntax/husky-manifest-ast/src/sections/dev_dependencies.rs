@@ -5,7 +5,7 @@ pub struct ManifestDevDependenciesSectionAst {
     dependencies: Vec<ManifestDependencyAst>,
 }
 
-impl<'a> ManifestAstBuilder<'a, husky_toml_ast::TomlSection> {
+impl<'a> ManifestAstBuilder<'a, husky_toml_ast::TomlSectionAst> {
     pub(crate) fn build_dev_dependencies_section(
         &mut self,
         errors: &mut Vec<ManifestAstError>,
