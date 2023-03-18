@@ -5,13 +5,14 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-toml_datetime = "0.5.0"
+toml_datetime = "0.6.1"
 thiserror = "1.0.37"
 ordered-float = "3.0.0"
 smallvec = "1.10.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
+vec-like = { path = "../../abstraction/vec-like" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel

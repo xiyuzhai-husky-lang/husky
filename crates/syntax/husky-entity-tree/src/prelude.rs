@@ -1,5 +1,5 @@
 use crate::*;
-use husky_manifest::{HasManifest, ManifestError};
+use husky_manifest::{HasPackageManifest, ManifestError};
 use husky_vfs::*;
 use thiserror::Error;
 
@@ -11,6 +11,8 @@ pub enum PreludeError {
     CorePreludeEntityTreeSheet(Box<EntityTreeError>),
     #[error("manifest error {0}")]
     ManifestError(#[from] ManifestError),
+    #[error("vfs error {0}")]
+    VfsError(#[from] VfsError),
 }
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
@@ -31,7 +33,7 @@ pub(crate) fn crate_specific_prelude(
     crate_path: CratePath,
 ) -> PreludeResult<EntitySymbolTable> {
     let package_path = crate_path.package_path(db);
-    let package_dependencies = package_path.manifest_dependencies(db)?;
+    let package_dependencies = package_path.package_dependencies(db)?;
     let mut entries: EntitySymbolTable = Default::default();
     entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
     entries.extend(

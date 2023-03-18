@@ -19,14 +19,13 @@ use husky_vfs::*;
 
 #[salsa::jar(db = ManifestAstDb)]
 pub struct ManifestAstJar(
-    ManifestAst,
-    manifest_ast,
-    ManifestDependencyAst,
+    PackageManifestAstSheet,
+    package_manifest_ast,
     manifest_ast_menu,
 );
 
 #[salsa::tracked(db = ManifestAstDb, jar = ManifestAstJar)]
-pub struct ManifestAst {
+pub struct PackageManifestAstSheet {
     /// required
     #[return_ref]
     pub package_section: ManifestAstResult<ManifestPackageSectionAst>,
@@ -43,32 +42,36 @@ pub enum ManifestExprVariant {
     Equals { name: String },
 }
 
-pub trait HasManifestAst: Copy {
-    fn manifest_ast(self, db: &dyn ManifestAstDb) -> VfsResult<ManifestAst>;
+pub trait HasPackageManifestAst: Copy {
+    fn package_manifest_ast(self, db: &dyn ManifestAstDb) -> VfsResult<PackageManifestAstSheet>;
 }
 
-impl HasManifestAst for PackagePath {
-    fn manifest_ast(self, db: &dyn ManifestAstDb) -> VfsResult<ManifestAst> {
-        manifest_ast(db, self)
+impl HasPackageManifestAst for PackagePath {
+    fn package_manifest_ast(self, db: &dyn ManifestAstDb) -> VfsResult<PackageManifestAstSheet> {
+        package_manifest_ast(db, self)
     }
 }
 
 #[salsa::tracked(jar = ManifestAstJar)]
-fn manifest_ast(db: &dyn ManifestAstDb, path: PackagePath) -> VfsResult<ManifestAst> {
+fn package_manifest_ast(
+    db: &dyn ManifestAstDb,
+    path: PackagePath,
+) -> VfsResult<PackageManifestAstSheet> {
     let toml_ast = db.package_manifest_toml_ast(path)?;
     Ok(build_manifest_ast(db, toml_ast))
 }
 
-fn build_manifest_ast(db: &dyn ManifestAstDb, toml_ast: &TomlAstSheet) -> ManifestAst {
+fn build_manifest_ast(db: &dyn ManifestAstDb, toml_ast: &TomlAstSheet) -> PackageManifestAstSheet {
+    let mut errors = vec![];
     let mut builder = ManifestAstBuilder::new(db, toml_ast, toml_ast.section_visitor());
-    let package_section = builder.build_package_section();
-    let dependencies_section = builder.build_dependencies_section();
-    let dev_dependencies_section = builder.build_dev_dependencies_section();
-    ManifestAst::new(
+    let package_section = builder.build_package_section(&mut errors);
+    let dependencies_section = builder.build_dependencies_section(&mut errors);
+    let dev_dependencies_section = builder.build_dev_dependencies_section(&mut errors);
+    PackageManifestAstSheet::new(
         db,
         package_section,
         dependencies_section,
         dev_dependencies_section,
-        builder.finish(),
+        errors,
     )
 }

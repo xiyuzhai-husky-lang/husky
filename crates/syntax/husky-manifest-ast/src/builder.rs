@@ -5,7 +5,6 @@ pub(crate) struct ManifestAstBuilder<'a, A: TomlAst> {
     toml_ast: &'a TomlAstSheet,
     toml_ast_visitor: TomlAstVisitor<'a, A>,
     menu: &'a ManifestAstMenu,
-    errors: Vec<ManifestAstError>,
 }
 
 impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
@@ -19,7 +18,6 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
             toml_ast,
             toml_ast_visitor,
             menu: manifest_ast_menu(db),
-            errors: vec![],
         }
     }
 
@@ -35,12 +33,7 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
             toml_ast: self.toml_ast,
             toml_ast_visitor,
             menu: self.menu,
-            errors: vec![],
         }
-    }
-
-    pub(crate) fn finish(self) -> Vec<ManifestAstError> {
-        self.errors
     }
 
     pub(crate) fn menu(&self) -> &ManifestAstMenu {
@@ -48,11 +41,11 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
     }
 }
 
-impl<'a> ManifestAstBuilder<'a, TomlSectionAst> {
+impl<'a> ManifestAstBuilder<'a, TomlSection> {
     pub(crate) fn visit_new_normal_section_ast(
         &mut self,
         title: TomlSectionTitle,
-    ) -> ManifestAstResult<Option<(TomlSectionAstIdx, &TomlSectionAst)>> {
+    ) -> ManifestAstResult<Option<(TomlSectionAstIdx, &'a TomlSection)>> {
         let Some((idx, section_ast)) = self.toml_ast_visitor.find_by_title(title) else {
             return Ok(None)
         };

@@ -1,18 +1,19 @@
 mod db;
 mod ident;
-mod jar;
 mod label;
-mod menu;
+mod name;
 mod style;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use ident::*;
-pub use jar::*;
-pub use label::*;
-pub use menu::*;
-pub use style::*;
+pub use self::db::*;
+pub use self::ident::*;
+pub use self::label::*;
+pub use self::name::*;
+pub use self::style::*;
+
+#[salsa::jar(db = WordDb)]
+pub struct WordJar(Word, ident_menu);
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Word(salsa::Id);

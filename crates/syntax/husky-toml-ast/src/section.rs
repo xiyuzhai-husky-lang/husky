@@ -10,23 +10,60 @@ use crate::*;
 use husky_word::Word;
 use idx_arena::{Arena, ArenaIdx};
 use smallvec::SmallVec;
+use vec_like::{AsVecMapEntry, VecMap};
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlSectionAstSheet {
-    arena: Arena<TomlSectionAst>,
+    arena: Arena<TomlSection>,
     errors: Vec<TomlAstError>,
 }
 
-pub type TomlSectionAstArena = Arena<TomlSectionAst>;
-pub type TomlSectionAstIdx = ArenaIdx<TomlSectionAst>;
+pub type TomlSectionArena = Arena<TomlSection>;
+pub type TomlSectionAstIdx = ArenaIdx<TomlSection>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlSectionAst {
+pub struct TomlSection {
     title: TomlSectionTitle,
     kind: TomlSectionKind,
-    key_value_pairs: Vec<(usize, Word, Option<TomlExprIdx>)>,
+    entries: VecMap<TomlSectionEntry>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TomlSectionEntry {
+    line_group_idx: TomlLineGroupIdx,
+    key: Word,
+    value: Option<TomlExprIdx>,
+}
+
+impl AsVecMapEntry for TomlSectionEntry {
+    type K = Word;
+
+    fn key(&self) -> Self::K
+    where
+        Self::K: Copy,
+    {
+        self.key
+    }
+
+    fn key_ref(&self) -> &Self::K {
+        &self.key
+    }
+}
+
+impl TomlSectionEntry {
+    pub fn line_group_idx(&self) -> TomlLineGroupIdx {
+        self.line_group_idx
+    }
+
+    pub fn key(&self) -> Word {
+        self.key
+    }
+
+    pub fn value(&self) -> Option<TomlExprIdx> {
+        self.value
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -36,7 +73,7 @@ pub enum TomlSectionKind {
     Scattered,
 }
 
-impl TomlSectionAst {
+impl TomlSection {
     pub fn kind(&self) -> TomlSectionKind {
         self.kind
     }
@@ -44,13 +81,17 @@ impl TomlSectionAst {
     pub fn title(&self) -> TomlSectionTitle {
         self.title
     }
+
+    pub fn entries(&self) -> &[TomlSectionEntry] {
+        &self.entries
+    }
 }
 
 impl TomlSectionAstSheet {
     pub(crate) fn parse_collect(
         db: &dyn TomlAstDb,
         toml_token_text: &TomlTokenSheet,
-        line_groups: &[TomlGroup],
+        line_groups: &[TomlLineGroup],
     ) -> Self {
         let mut errors = vec![];
         Self {
@@ -64,9 +105,7 @@ impl TomlSectionAstSheet {
         &self.errors
     }
 
-    pub fn indexed_section_iter(
-        &self,
-    ) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSectionAst)> {
+    pub fn indexed_section_iter(&self) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSection)> {
         self.arena.indexed_iter()
     }
 }

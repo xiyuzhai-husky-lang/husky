@@ -3,27 +3,30 @@ use super::*;
 pub(super) struct TomlSectionParseIter<'a> {
     db: &'a dyn TomlAstDb,
     toml_token_text: &'a TomlTokenSheet,
-    line_groups: &'a [TomlGroup],
+    line_groups: &'a [TomlLineGroup],
     current: usize,
-    section_errors: &'a mut Vec<TomlAstError>,
+    errors: &'a mut Vec<TomlAstError>,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct TomlLineGroupIdx(usize);
+
 impl<'a> Iterator for TomlSectionParseIter<'a> {
-    type Item = TomlSectionAst;
+    type Item = TomlSection;
 
     fn next(&mut self) -> Option<Self::Item> {
         let (line_group_index, line_group) = self.next_indexed_line_group()?;
         match line_group {
-            TomlGroup::SectionTitle { title, kind } => {
+            TomlLineGroup::SectionTitle { title, kind } => {
                 Some(self.next_section(title.clone(), *kind))
             }
-            TomlGroup::KeyValue(_, _) => {
-                self.section_errors
+            TomlLineGroup::KeyValue(_, _) => {
+                self.errors
                     .push(TomlAstError::MisplacedKeyValue(line_group_index));
                 self.next()
             }
-            TomlGroup::Comment => self.next(),
-            TomlGroup::Err => self.ignore_until_new_section(),
+            TomlLineGroup::Comment => self.next(),
+            TomlLineGroup::Err => self.ignore_until_new_section(),
         }
     }
 }
@@ -38,7 +41,7 @@ impl<'a> TomlSectionParseIter<'a> {
     pub(super) fn new(
         db: &'a dyn TomlAstDb,
         toml_token_text: &'a TomlTokenSheet,
-        line_groups: &'a [TomlGroup],
+        line_groups: &'a [TomlLineGroup],
         section_errors: &'a mut Vec<TomlAstError>,
     ) -> Self {
         Self {
@@ -46,13 +49,13 @@ impl<'a> TomlSectionParseIter<'a> {
             toml_token_text,
             line_groups,
             current: 0,
-            section_errors,
+            errors: section_errors,
         }
     }
 }
 
 impl<'a> TomlSectionParseIter<'a> {
-    fn next_indexed_line_group(&mut self) -> Option<(usize, &'a TomlGroup)> {
+    fn next_indexed_line_group(&mut self) -> Option<(usize, &'a TomlLineGroup)> {
         if self.current < self.line_groups.len() {
             let index = self.current;
             self.current += 1;
@@ -62,15 +65,18 @@ impl<'a> TomlSectionParseIter<'a> {
         }
     }
 
-    fn peek_indexed_line_group(&mut self) -> Option<(usize, &'a TomlGroup)> {
+    fn peek_indexed_line_group(&mut self) -> Option<(TomlLineGroupIdx, &'a TomlLineGroup)> {
         if self.current < self.line_groups.len() {
-            Some((self.current, &self.line_groups[self.current]))
+            Some((
+                TomlLineGroupIdx(self.current),
+                &self.line_groups[self.current],
+            ))
         } else {
             None
         }
     }
 
-    fn peek_line_group(&mut self) -> Option<&'a TomlGroup> {
+    fn peek_line_group(&mut self) -> Option<&'a TomlLineGroup> {
         if self.current < self.line_groups.len() {
             Some(&self.line_groups[self.current])
         } else {
@@ -86,28 +92,37 @@ impl<'a> TomlSectionParseIter<'a> {
         &mut self,
         title_words: SmallVec<[Word; 2]>,
         kind: TomlSectionKind,
-    ) -> TomlSectionAst {
-        let mut key_value_pairs = vec![];
+    ) -> TomlSection {
+        let mut entries = VecMap::default();
         while let Some((i, line_group)) = self.peek_indexed_line_group() {
             match line_group {
-                TomlGroup::SectionTitle { .. } => break,
-                TomlGroup::KeyValue(key, value) => key_value_pairs.push((i, *key, *value)),
-                TomlGroup::Comment | TomlGroup::Err => (),
+                TomlLineGroup::SectionTitle { .. } => break,
+                TomlLineGroup::KeyValue(key, value) => {
+                    let new_entry = TomlSectionEntry {
+                        line_group_idx: i,
+                        key: *key,
+                        value: *value,
+                    };
+                    if let Err(e) = entries.insert_new(new_entry) {
+                        todo!()
+                    }
+                }
+                TomlLineGroup::Comment | TomlLineGroup::Err => (),
             }
             self.pass()
         }
-        TomlSectionAst {
+        TomlSection {
             title: TomlSectionTitle::new(self.db, title_words),
             kind,
-            key_value_pairs,
+            entries,
         }
     }
 
-    fn ignore_until_new_section(&mut self) -> Option<TomlSectionAst> {
+    fn ignore_until_new_section(&mut self) -> Option<TomlSection> {
         while let Some(line_group) = self.peek_line_group() {
             match line_group {
-                TomlGroup::SectionTitle { .. } => break,
-                TomlGroup::KeyValue(_, _) | TomlGroup::Comment | TomlGroup::Err => {
+                TomlLineGroup::SectionTitle { .. } => break,
+                TomlLineGroup::KeyValue(_, _) | TomlLineGroup::Comment | TomlLineGroup::Err => {
                     self.pass();
                 }
             }

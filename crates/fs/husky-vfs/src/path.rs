@@ -30,7 +30,7 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
             DiffPath::try_new(db, &toolchain_library_path.join(ident.data(db)))
         }
         PackagePathData::Global {
-            ident: _,
+            name: _,
             version: _,
         } => todo!(),
         PackagePathData::Local { path } => Ok(path.clone()),
