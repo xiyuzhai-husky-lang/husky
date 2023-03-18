@@ -1,33 +1,27 @@
 use crate::*;
-use husky_manifest_ast::{HasManifestAst, ManifestDependencyAst};
-
-#[salsa::tracked(jar = ManifestJar, return_ref)]
-pub(crate) fn manifest_dependencies(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
-) -> ManifestResult<Vec<ManifestDependency>> {
-    let manifest_ast = package_path.manifest_ast(db)?;
-    let Some(dependencies_section) = manifest_ast.dependencies_section(db).as_ref()? else {
-        return Ok(vec![])
-    };
-    let dependencies = dependencies_section.dependencies();
-    Ok(dependencies
-        .iter()
-        .map(|ast| ManifestDependency::from_ast(db, ast))
-        .collect())
-}
+use husky_manifest_ast::{HasPackageManifestAst, ManifestDependencyAst};
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ManifestDependency {
+pub struct PackageDependency {
     package_path: PackagePath,
 }
 
-impl ManifestDependency {
+impl PackageDependency {
     pub fn package_path(&self) -> PackagePath {
         self.package_path
     }
 
-    fn from_ast(db: &dyn ManifestDb, ast: &ManifestDependencyAst) -> Self {
+    fn from_ast(
+        db: &dyn ManifestDb,
+        package_path: PackagePath,
+        ast: &ManifestDependencyAst,
+    ) -> ManifestResult<Self> {
+        // let toolchain = package_path.toolchain(db);
+        // let data = PackagePathData::Global {
+        //     name: ast.name(),
+        //     version: todo!(),
+        // };
+        // ad hoc
         todo!()
     }
 }

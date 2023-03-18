@@ -6,6 +6,7 @@ use std::path::PathBuf;
 
 use thiserror::Error;
 
+// todo: make this copyable
 #[derive(Debug, Error, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = VfsDb)]
 pub enum VfsError {

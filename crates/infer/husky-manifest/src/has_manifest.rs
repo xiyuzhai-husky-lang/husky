@@ -1,11 +1,18 @@
 use crate::*;
 
-pub trait HasManifest {
-    fn manifest_dependencies(self, db: &dyn ManifestDb) -> ManifestResult<&[ManifestDependency]>;
+pub trait HasPackageManifest: Copy {
+    fn package_manifest(self, db: &dyn ManifestDb) -> VfsResult<PackageManifest>;
+
+    fn package_dependencies(self, db: &dyn ManifestDb) -> VfsResult<&[PackageDependency]>;
 }
 
-impl HasManifest for PackagePath {
-    fn manifest_dependencies(self, db: &dyn ManifestDb) -> ManifestResult<&[ManifestDependency]> {
-        Ok(manifest_dependencies(db, self).as_ref()?)
+impl HasPackageManifest for PackagePath {
+    fn package_manifest(self, db: &dyn ManifestDb) -> VfsResult<PackageManifest> {
+        package_manifest(db, self)
+    }
+
+    fn package_dependencies(self, db: &dyn ManifestDb) -> VfsResult<&[PackageDependency]> {
+        // is this necessary for keeping things as lazy as possible?
+        Ok(package_dependencies(db, self)?.data(db))
     }
 }

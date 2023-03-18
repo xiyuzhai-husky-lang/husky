@@ -33,7 +33,7 @@ pub struct TomlAstJar(package_manifest_toml_ast, TomlSectionTitle);
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
     section_arena: TomlSectionAstSheet,
-    line_groups: Vec<TomlGroup>,
+    line_groups: Vec<TomlLineGroup>,
     table: TomlTable,
 }
 

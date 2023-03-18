@@ -1,7 +1,10 @@
+mod menu;
+
+pub(crate) use menu::*;
+
 use crate::*;
 
 use salsa::DebugWithDb;
-use std::sync::Arc;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
@@ -65,7 +68,6 @@ pub enum IdentCase {
 }
 
 pub type IdentMap<T> = VecMap<T>;
-pub type IdentArcDict<T> = VecMap<Arc<T>>;
 pub type IdentPairMap<T> = VecPairMap<Ident, T>;
 #[test]
 fn test_is_valid_ident() {

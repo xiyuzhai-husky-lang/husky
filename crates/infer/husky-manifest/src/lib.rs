@@ -15,4 +15,11 @@ use husky_vfs::*;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]
-pub struct ManifestJar(manifest_dependencies, PackageManifest);
+pub struct ManifestJar(
+    package_manifest,
+    PackageManifest,
+    PackageDependencies,
+    package_dependencies,
+    PackageDevDependencies,
+    package_dev_dependencies,
+);

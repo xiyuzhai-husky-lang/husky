@@ -51,9 +51,7 @@ where
     }
 
     fn ident_menu(&self) -> &IdentMenu {
-        self.word_jar()
-            .word_menu_cell()
-            .get_or_init(|| IdentMenu::new(self))
+        ident_menu(self)
     }
 
     fn it_ident_owned(&self, data: String) -> Option<Ident> {

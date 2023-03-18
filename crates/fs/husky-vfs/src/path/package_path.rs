@@ -24,13 +24,14 @@ fn package_ident_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
+#[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum PackagePathData {
     Toolchain {
         ident: Ident,
         toolchain: Toolchain,
     },
     Global {
-        ident: Ident,
+        name: Name,
         version: semver::Version,
     },
     Local {
@@ -89,33 +90,5 @@ impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePath {
         f.debug_struct("PackagePath")
             .field("data", &self.data(db).debug(db))
             .finish()
-    }
-}
-
-impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePathData {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> ::std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-        match self {
-            PackagePathData::Toolchain { ident, toolchain } => f
-                .debug_struct("Builtin")
-                .field("ident", &ident.data(db))
-                .field("toolchain", &toolchain.debug_with(db, level.next()))
-                .finish(),
-            PackagePathData::Global { ident, ref version } => f
-                .debug_struct("Glocal")
-                .field("ident", &ident.data(db))
-                .field("version", version)
-                .finish(),
-            PackagePathData::Local { path } => f
-                .debug_struct("Local")
-                .field("path", &path.debug_with(db, level.next()))
-                .finish(),
-            PackagePathData::Git { url } => f.debug_struct("Git").field("url", url).finish(),
-        }
     }
 }

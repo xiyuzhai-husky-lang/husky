@@ -31,7 +31,7 @@ impl TomlTable {
         &mut self,
         db: &dyn TomlAstDb,
         idx: TomlSectionAstIdx,
-        section: &TomlSectionAst,
+        section: &TomlSection,
     ) {
         match section.kind() {
             TomlSectionKind::Normal => {

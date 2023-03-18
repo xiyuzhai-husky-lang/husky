@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct IdentMenu {
     std: Ident,
     core: Ident,
@@ -182,4 +183,9 @@ impl IdentMenu {
     pub fn never(&self) -> Ident {
         self.never
     }
+}
+
+#[salsa::tracked(jar = WordJar, return_ref)]
+pub(crate) fn ident_menu(db: &dyn WordDb) -> IdentMenu {
+    IdentMenu::new(db)
 }
