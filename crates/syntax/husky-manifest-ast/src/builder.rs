@@ -41,11 +41,11 @@ impl<'a, A: TomlAst> ManifestAstBuilder<'a, A> {
     }
 }
 
-impl<'a> ManifestAstBuilder<'a, TomlSection> {
+impl<'a> ManifestAstBuilder<'a, TomlSectionAst> {
     pub(crate) fn visit_new_normal_section_ast(
         &mut self,
         title: TomlSectionTitle,
-    ) -> ManifestAstResult<Option<(TomlSectionAstIdx, &'a TomlSection)>> {
+    ) -> ManifestAstResult<Option<(TomlSectionAstIdx, &'a TomlSectionAst)>> {
         let Some((idx, section_ast)) = self.toml_ast_visitor.find_by_title(title) else {
             return Ok(None)
         };

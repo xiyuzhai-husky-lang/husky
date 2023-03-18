@@ -8,7 +8,7 @@ impl<'a> TomlSectionAstVisitor<'a> {
     pub fn find_by_title(
         &mut self,
         title: TomlSectionTitle,
-    ) -> Option<(TomlSectionAstIdx, &'a TomlSection)> {
+    ) -> Option<(TomlSectionAstIdx, &'a TomlSectionAst)> {
         self.section_arena
             .arena
             .indexed_iter()
@@ -17,11 +17,11 @@ impl<'a> TomlSectionAstVisitor<'a> {
 }
 
 impl<'a> VisitTomlAst<'a> for TomlSectionAstVisitor<'a> {
-    type Ast = TomlSection;
+    type Ast = TomlSectionAst;
 }
 
 impl TomlAstSheet {
-    pub fn section_visitor(&self) -> TomlAstVisitor<TomlSection> {
+    pub fn section_visitor(&self) -> TomlAstVisitor<TomlSectionAst> {
         TomlSectionAstVisitor {
             section_arena: &self.section_arena,
         }

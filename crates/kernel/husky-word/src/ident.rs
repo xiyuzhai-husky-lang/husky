@@ -1,9 +1,4 @@
-mod menu;
-
-pub(crate) use menu::*;
-
 use crate::*;
-
 use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
@@ -16,7 +11,7 @@ impl Ident {
     }
 
     pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
-        if is_valid_ident(&data) {
+        if is_str_valid_ident(&data) {
             Some(Self(db.it_word_owned(data)))
         } else {
             None
@@ -24,7 +19,7 @@ impl Ident {
     }
 
     pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
-        if is_valid_ident(data) {
+        if is_str_valid_ident(data) {
             Some(Self(db.it_word_borrowed(data)))
         } else {
             None
@@ -71,52 +66,52 @@ pub type IdentMap<T> = VecMap<T>;
 pub type IdentPairMap<T> = VecPairMap<Ident, T>;
 #[test]
 fn test_is_valid_ident() {
-    assert_eq!(is_valid_ident("a"), true);
-    assert_eq!(is_valid_ident("b"), true);
-    assert_eq!(is_valid_ident("c"), true);
-    assert_eq!(is_valid_ident("d"), true);
-    assert_eq!(is_valid_ident("e"), true);
-    assert_eq!(is_valid_ident("g"), true);
-    assert_eq!(is_valid_ident("h"), true);
-    assert_eq!(is_valid_ident("i"), true);
-    assert_eq!(is_valid_ident("j"), true);
-    assert_eq!(is_valid_ident("a1"), true);
-    assert_eq!(is_valid_ident("a2"), true);
-    assert_eq!(is_valid_ident("a3"), true);
-    assert_eq!(is_valid_ident("_a1"), true);
-    assert_eq!(is_valid_ident("_1"), true);
-    assert_eq!(is_valid_ident("_"), true);
-    assert_eq!(is_valid_ident("9"), false);
-    assert_eq!(is_valid_ident("9a"), false);
-    assert_eq!(is_valid_ident(" "), false);
-    assert_eq!(is_valid_ident("*"), false);
-    assert_eq!(is_valid_ident("&"), false);
-    assert_eq!(is_valid_ident(":"), false);
-    assert_eq!(is_valid_ident("{"), false);
-    assert_eq!(is_valid_ident("}"), false);
+    assert_eq!(is_str_valid_ident("a"), true);
+    assert_eq!(is_str_valid_ident("b"), true);
+    assert_eq!(is_str_valid_ident("c"), true);
+    assert_eq!(is_str_valid_ident("d"), true);
+    assert_eq!(is_str_valid_ident("e"), true);
+    assert_eq!(is_str_valid_ident("g"), true);
+    assert_eq!(is_str_valid_ident("h"), true);
+    assert_eq!(is_str_valid_ident("i"), true);
+    assert_eq!(is_str_valid_ident("j"), true);
+    assert_eq!(is_str_valid_ident("a1"), true);
+    assert_eq!(is_str_valid_ident("a2"), true);
+    assert_eq!(is_str_valid_ident("a3"), true);
+    assert_eq!(is_str_valid_ident("_a1"), true);
+    assert_eq!(is_str_valid_ident("_1"), true);
+    assert_eq!(is_str_valid_ident("_"), true);
+    assert_eq!(is_str_valid_ident("9"), false);
+    assert_eq!(is_str_valid_ident("9a"), false);
+    assert_eq!(is_str_valid_ident(" "), false);
+    assert_eq!(is_str_valid_ident("*"), false);
+    assert_eq!(is_str_valid_ident("&"), false);
+    assert_eq!(is_str_valid_ident(":"), false);
+    assert_eq!(is_str_valid_ident("{"), false);
+    assert_eq!(is_str_valid_ident("}"), false);
 }
 
-pub fn is_valid_ident(word: &str) -> bool {
+pub fn is_str_valid_ident(word: &str) -> bool {
     let mut chars = word.chars();
     if let Some(start) = chars.next() {
-        if !is_valid_ident_first_char(start) {
+        if !is_char_valid_ident_first_char(start) {
             return false;
         }
     }
     for c in chars {
-        if !is_valid_ident_nonfirst_char(c) {
+        if !is_char_valid_ident_nonfirst_char(c) {
             return false;
         }
     }
     true
 }
 
-pub fn is_valid_ident_first_char(c: char) -> bool {
+pub fn is_char_valid_ident_first_char(c: char) -> bool {
     // ad hoc
     c.is_alphabetic() || c == '_'
 }
 
-pub fn is_valid_ident_nonfirst_char(c: char) -> bool {
+pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
     // ad hoc
     c.is_alphanumeric() || c == '_'
 }

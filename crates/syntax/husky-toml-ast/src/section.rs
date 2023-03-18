@@ -15,16 +15,16 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlSectionAstSheet {
-    arena: Arena<TomlSection>,
+    arena: Arena<TomlSectionAst>,
     errors: Vec<TomlAstError>,
 }
 
-pub type TomlSectionArena = Arena<TomlSection>;
-pub type TomlSectionAstIdx = ArenaIdx<TomlSection>;
+pub type TomlSectionArena = Arena<TomlSectionAst>;
+pub type TomlSectionAstIdx = ArenaIdx<TomlSectionAst>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlSection {
+pub struct TomlSectionAst {
     title: TomlSectionTitle,
     kind: TomlSectionKind,
     entries: VecMap<TomlSectionEntry>,
@@ -73,7 +73,7 @@ pub enum TomlSectionKind {
     Scattered,
 }
 
-impl TomlSection {
+impl TomlSectionAst {
     pub fn kind(&self) -> TomlSectionKind {
         self.kind
     }
@@ -105,7 +105,9 @@ impl TomlSectionAstSheet {
         &self.errors
     }
 
-    pub fn indexed_section_iter(&self) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSection)> {
+    pub fn indexed_section_iter(
+        &self,
+    ) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSectionAst)> {
         self.arena.indexed_iter()
     }
 }

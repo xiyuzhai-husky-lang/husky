@@ -9,7 +9,7 @@ pub trait VisitTomlAst<'a>: Sized {
     type Ast;
 }
 
-impl TomlAst for TomlSection {
+impl TomlAst for TomlSectionAst {
     type Key = TomlSectionTitle;
 
     type Visitor<'a> = TomlSectionAstVisitor<'a>;

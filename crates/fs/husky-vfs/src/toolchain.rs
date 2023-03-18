@@ -18,41 +18,26 @@ pub struct Toolchain {
     pub data: ToolchainData,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum ToolchainData {
-    Published(PublishedToolchain),
-    Local { library_path: DiffPath },
-}
-
-impl salsa::DebugWithDb<dyn VfsDb + '_> for ToolchainData {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &dyn VfsDb,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        match self {
-            Self::Published(published_toolchain) => f
-                .debug_tuple("Published")
-                .field(&published_toolchain.debug_with(db, level.next()))
-                .finish(),
-            Self::Local { library_path } => f
-                .debug_struct("Local")
-                .field("library_path", &library_path.debug_with(db, level.next()))
-                .finish(),
+impl Toolchain {
+    pub fn library_path(self, db: &dyn VfsDb) -> &Path {
+        match self.data(db) {
+            ToolchainData::Published(_) => todo!(),
+            ToolchainData::Local { library_path } => library_path.data(db),
+        }
+    }
+    pub fn registry_path(self, db: &dyn VfsDb) -> &Path {
+        match self.data(db) {
+            ToolchainData::Published(_) => todo!(),
+            ToolchainData::Local { library_path } => todo!(),
         }
     }
 }
 
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for ToolchainData {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        self.fmt(f, db as &dyn VfsDb, level)
-    }
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::derive_debug_with_db(db = VfsDb)]
+pub enum ToolchainData {
+    Published(PublishedToolchain),
+    Local { library_path: DiffPath },
 }
 
 #[salsa::interned(db = VfsDb, jar = VfsJar)]

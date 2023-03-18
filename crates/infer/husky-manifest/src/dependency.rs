@@ -11,17 +11,29 @@ impl PackageDependency {
         self.package_path
     }
 
-    fn from_ast(
+    pub(crate) fn from_ast(
         db: &dyn ManifestDb,
-        package_path: PackagePath,
+        toolchain: Toolchain,
         ast: &ManifestDependencyAst,
-    ) -> ManifestResult<Self> {
-        // let toolchain = package_path.toolchain(db);
-        // let data = PackagePathData::Global {
-        //     name: ast.name(),
-        //     version: todo!(),
-        // };
-        // ad hoc
-        todo!()
+        errors: &mut Vec<ManifestError>,
+    ) -> Option<Self> {
+        // ad hoc ;
+        let data = PackagePathData::Global {
+            name: ast.name(),
+            version: semver::Version::new(0, 1, 0), // ad hoc
+        };
+        let package_path = PackagePath::new(db, toolchain, data);
+        check_package_path_validity(db, package_path, errors);
+        Some(Self { package_path })
+    }
+}
+fn check_package_path_validity(
+    db: &dyn ManifestDb,
+    package_path: PackagePath,
+    errors: &mut Vec<ManifestError>,
+) {
+    match package_path.dir(db) {
+        Ok(_) => todo!(),
+        Err(_) => todo!(),
     }
 }

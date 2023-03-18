@@ -17,18 +17,23 @@ pub(crate) fn package_ident(db: &dyn VfsDb, package_path: PackagePath) -> VfsRes
 fn package_ident_works() {
     let db = DB::default();
     let _toolchain = db.dev_toolchain().unwrap();
-    let ident_menu = db.ident_menu();
+    let ident_menu = db.word_menu();
     let path_menu = db.dev_path_menu().unwrap();
-    assert_eq!(path_menu.core_package().ident(&db), Ok(ident_menu.core()));
-    assert_eq!(path_menu.std_package().ident(&db), Ok(ident_menu.std()));
+    assert_eq!(
+        path_menu.core_package().ident(&db),
+        Ok(ident_menu.core_ident())
+    );
+    assert_eq!(
+        path_menu.std_package().ident(&db),
+        Ok(ident_menu.std_ident())
+    );
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 #[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
 pub enum PackagePathData {
     Toolchain {
-        ident: Ident,
-        toolchain: Toolchain,
+        name: Name,
     },
     Global {
         name: Name,
@@ -42,7 +47,7 @@ pub enum PackagePathData {
     },
 }
 
-#[salsa::interned(jar = VfsJar, db = VfsDb, override_debug)]
+#[salsa::interned(jar = VfsJar, db = VfsDb)]
 pub struct PackagePath {
     pub toolchain: Toolchain,
     #[return_ref]
@@ -60,35 +65,28 @@ impl PackagePath {
         ))
     }
 
-    pub fn new_toolchain_package(
-        db: &dyn VfsDb,
-        toolchain: Toolchain,
-        ident: Ident,
-    ) -> ToolchainResult<Self> {
-        match toolchain.data(db) {
-            ToolchainData::Published(_) => todo!(),
-            ToolchainData::Local { library_path } => {
-                PackagePath::new_local(db, toolchain, &library_path.data(db).join(ident.data(db)))
-                    .map_err(|e| e.into())
-            }
-        }
+    pub fn new_toolchain_package(db: &dyn VfsDb, toolchain: Toolchain, name: Name) -> Self {
+        PackagePath::new(db, toolchain, PackagePathData::Toolchain { name })
     }
 
     pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
         package_ident(db, self)
     }
+
+    pub fn dir(self, db: &dyn VfsDb) -> VfsResult<DiffPath> {
+        package_dir(db, self)
+    }
 }
 
-impl<Db: VfsDb + ?Sized> DebugWithDb<Db> for PackagePath {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> ::std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-        f.debug_struct("PackagePath")
-            .field("data", &self.data(db).debug(db))
-            .finish()
+#[salsa::tracked(jar = VfsJar )]
+pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<DiffPath> {
+    match package.data(db) {
+        PackagePathData::Toolchain { name } => DiffPath::try_new(
+            db,
+            &package.toolchain(db).library_path(db).join(name.data(db)),
+        ),
+        PackagePathData::Global { name, version } => todo!(),
+        PackagePathData::Local { path } => Ok(path.clone()),
+        PackagePathData::Git { .. } => todo!(),
     }
 }

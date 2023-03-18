@@ -3,7 +3,7 @@ use husky_opn_syntax::*;
 
 use husky_text::{TextCharIter, TextRange};
 
-use husky_word::{is_valid_ident_first_char, WordDb};
+use husky_word::{is_char_valid_ident_first_char, WordDb};
 use std::str::FromStr;
 
 pub(crate) struct RangedPretoken {
@@ -204,7 +204,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             };
         match fst {
             '\\' => todo!(),
-            fst if is_valid_ident_first_char(fst) => match snd {
+            fst if is_char_valid_ident_first_char(fst) => match snd {
                 Some('\'') => {
                     self.char_iter.next();
                     self.char_iter.next();

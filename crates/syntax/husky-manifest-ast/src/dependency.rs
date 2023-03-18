@@ -1,35 +1,40 @@
 use crate::*;
-use husky_word::Word;
+use husky_word::{Name, Word};
 use vec_like::AsVecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestDependencyAst {
     line_group_idx: TomlLineGroupIdx,
-    name: Word,
+    name: Name,
 }
 impl ManifestDependencyAst {
     pub(crate) fn from_toml_section_entry<'a>(
+        db: &dyn ManifestAstDb,
         entry: &'a TomlSectionEntry,
-        builder: &mut ManifestAstBuilder<'a, TomlSection>,
+        builder: &mut ManifestAstBuilder<'a, TomlSectionAst>,
         errors: &mut Vec<ManifestAstError>,
-    ) -> ManifestDependencyAst {
-        ManifestDependencyAst {
+    ) -> Option<ManifestDependencyAst> {
+        let Some(name) = Name::from_word(db, entry.key()) else {
+            errors.push(todo!());
+            return None
+        };
+        Some(ManifestDependencyAst {
             line_group_idx: entry.line_group_idx(),
-            name: entry.key(),
-        }
+            name,
+        })
     }
 
     pub fn line_group_idx(&self) -> TomlLineGroupIdx {
         self.line_group_idx
     }
 
-    pub fn name(&self) -> Word {
+    pub fn name(&self) -> Name {
         self.name
     }
 }
 
 impl AsVecMapEntry for ManifestDependencyAst {
-    type K = Word;
+    type K = Name;
 
     fn key(&self) -> Self::K
     where

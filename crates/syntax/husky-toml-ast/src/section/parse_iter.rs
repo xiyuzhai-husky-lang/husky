@@ -12,7 +12,7 @@ pub(super) struct TomlSectionParseIter<'a> {
 pub struct TomlLineGroupIdx(usize);
 
 impl<'a> Iterator for TomlSectionParseIter<'a> {
-    type Item = TomlSection;
+    type Item = TomlSectionAst;
 
     fn next(&mut self) -> Option<Self::Item> {
         let (line_group_index, line_group) = self.next_indexed_line_group()?;
@@ -92,7 +92,7 @@ impl<'a> TomlSectionParseIter<'a> {
         &mut self,
         title_words: SmallVec<[Word; 2]>,
         kind: TomlSectionKind,
-    ) -> TomlSection {
+    ) -> TomlSectionAst {
         let mut entries = VecMap::default();
         while let Some((i, line_group)) = self.peek_indexed_line_group() {
             match line_group {
@@ -111,14 +111,14 @@ impl<'a> TomlSectionParseIter<'a> {
             }
             self.pass()
         }
-        TomlSection {
+        TomlSectionAst {
             title: TomlSectionTitle::new(self.db, title_words),
             kind,
             entries,
         }
     }
 
-    fn ignore_until_new_section(&mut self) -> Option<TomlSection> {
+    fn ignore_until_new_section(&mut self) -> Option<TomlSectionAst> {
         while let Some(line_group) = self.peek_line_group() {
             match line_group {
                 TomlLineGroup::SectionTitle { .. } => break,

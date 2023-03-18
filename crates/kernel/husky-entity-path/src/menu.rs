@@ -77,7 +77,7 @@ pub struct EntityPathMenu {
 
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
-        let ident_menu = db.ident_menu();
+        let ident_menu = db.word_menu();
         let path_menu = db.vfs_path_menu(toolchain)?;
         let core_ops = path_menu.core_ops();
         let core_option = path_menu.core_option_ty_path();
@@ -98,182 +98,182 @@ impl EntityPathMenu {
         let unit_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.unit(),
+            ident_menu.unit_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let never_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.never(),
+            ident_menu.never_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let bool_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.bool(),
+            ident_menu.bool_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let i8_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.i8(),
+            ident_menu.i8_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let i16_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.i16(),
+            ident_menu.i16_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let i32_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.i32(),
+            ident_menu.i32_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let i64_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.i64(),
+            ident_menu.i64_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let i128_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.i128(),
+            ident_menu.i128_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let isize_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.isize(),
+            ident_menu.isize_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let u8_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.u8(),
+            ident_menu.u8_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let u16_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.u16(),
+            ident_menu.u16_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let u32_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.u32(),
+            ident_menu.u32_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let u64_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.u64(),
+            ident_menu.u64_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let u128_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.u128(),
+            ident_menu.u128_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let usize_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.usize(),
+            ident_menu.usize_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let r8_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.r8(),
+            ident_menu.r8_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let r16_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.r16(),
+            ident_menu.r16_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let r32_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.r32(),
+            ident_menu.r32_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let r64_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.r64(),
+            ident_menu.r64_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let r128_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.r128(),
+            ident_menu.r128_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let rsize_ty_path = TypePath::new(
             db,
             core_raw_bits,
-            ident_menu.rsize(),
+            ident_menu.rsize_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let f32_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.f32(),
+            ident_menu.f32_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let f64_ty_path = TypePath::new(
             db,
             core_num,
-            ident_menu.f64(),
+            ident_menu.f64_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let lifetime_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.lifetime_ty(),
+            ident_menu.lifetime_ty_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let module_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.module(),
+            ident_menu.module_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
         let trai_ty_path = TypePath::new(
             db,
             core_basic,
-            ident_menu.trai_ty(),
+            ident_menu.trai_ty_ident(),
             ModuleItemConnection::Connected,
             TypeKind::Extern,
         );
