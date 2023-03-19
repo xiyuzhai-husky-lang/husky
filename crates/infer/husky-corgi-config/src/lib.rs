@@ -2,9 +2,11 @@
 mod builder;
 mod db;
 mod error;
+mod sections;
 
 pub use self::db::*;
 pub use self::error::*;
+pub use self::sections::*;
 
 use self::builder::*;
 use husky_corgi_config_ast::*;
@@ -19,7 +21,10 @@ pub struct CorgiConfigJar(
 );
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct CorgiConfig {}
+pub struct CorgiConfig {
+    registry_section: RegistrySection,
+    errors: Vec<CorgiConfigError>,
+}
 
 #[salsa::tracked(jar = CorgiConfigJar)]
 pub(crate) fn package_registry_path(
@@ -54,7 +59,10 @@ fn package_corgi_config(
     package_path: PackagePath,
 ) -> VfsResult<CorgiConfig> {
     let corgi_config_paths = package_corgi_config_paths(db, package_path)?;
-    let mut builder = CorgiConfigBuilder::default();
+    let mut builder = CorgiConfigBuilder::new(db);
+    for path in corgi_config_paths {
+        builder.read(*path)?
+    }
     Ok(builder.finish())
 }
 
