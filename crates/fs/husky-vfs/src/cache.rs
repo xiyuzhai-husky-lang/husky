@@ -1,7 +1,7 @@
 use std::sync::RwLock;
 
 use crate::*;
-use husky_fs_specs::{corgi_install_path, huskyup_install_path, FsSpecsError, FsSpecsResult};
+use husky_fs_specs::{huskyup_install_path, root_corgi_path, FsSpecsError, FsSpecsResult};
 use vec_like::VecSet;
 
 pub struct VfsCache {
@@ -15,7 +15,7 @@ pub struct VfsCache {
 
 impl Default for VfsCache {
     fn default() -> Self {
-        let corgi_install_path = corgi_install_path();
+        let corgi_install_path = root_corgi_path();
         assert!(corgi_install_path
             .as_ref()
             .map(|path| path.is_absolute())

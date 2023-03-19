@@ -6,3 +6,6 @@ use husky_toml_ast::*;
 
 #[salsa::jar(db = CorgiConfigAstDb)]
 pub struct CorgiConfigAstJar();
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct CorgiConfigAstSheet {}

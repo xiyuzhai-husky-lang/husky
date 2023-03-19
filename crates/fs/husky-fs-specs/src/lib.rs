@@ -10,8 +10,12 @@ pub fn library_path() -> Result<PathBuf, FsSpecsError> {
     Ok(get_home_dir()?.join(".huskyup/toolchains/nightly/lib/rustlib/src/husky/library"))
 }
 
-pub fn corgi_install_path() -> Result<PathBuf, FsSpecsError> {
+pub fn root_corgi_path() -> Result<PathBuf, FsSpecsError> {
     Ok(get_home_dir()?.join(".corgi"))
+}
+
+pub fn root_corgi_config_path() -> Result<PathBuf, FsSpecsError> {
+    Ok(root_corgi_path()?.join(".config.toml"))
 }
 
 pub fn huskyup_install_path() -> Result<PathBuf, FsSpecsError> {
