@@ -1,6 +1,5 @@
 #![feature(const_trait_impl)]
 #![feature(try_trait_v2)]
-mod ast;
 mod db;
 mod error;
 mod expr;
@@ -10,14 +9,15 @@ mod section;
 mod table;
 #[cfg(test)]
 mod tests;
+mod transformer;
 
-pub use self::ast::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::line_group::*;
 pub use self::section::*;
 pub use self::table::*;
+pub use self::transformer::*;
 
 use husky_toml_token::*;
 use husky_vfs::*;
@@ -32,7 +32,7 @@ pub struct TomlAstJar(toml_ast_sheet_aux);
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
-    section_arena: TomlSectionSheet,
+    section_sheet: TomlSectionSheet,
     line_groups: Vec<TomlLineGroup>,
     table: TomlTable,
 }
@@ -63,7 +63,7 @@ impl TomlAstSheet {
         let sections = TomlSectionSheet::parse_collect(db, &toml_token_text, &line_groups);
         let table = TomlTable::new(db, &sections);
         TomlAstSheet {
-            section_arena: sections,
+            section_sheet: sections,
             expr_arena: exprs,
             line_groups,
             table,

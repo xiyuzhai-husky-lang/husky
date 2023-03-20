@@ -15,8 +15,16 @@ use vec_like::{AsVecMapEntry, VecMap};
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlSectionSheet {
-    arena: Arena<TomlSection>,
+    arena: TomlSectionArena,
     errors: Vec<TomlAstError>,
+}
+
+impl std::ops::Deref for TomlSectionSheet {
+    type Target = TomlSectionArena;
+
+    fn deref(&self) -> &Self::Target {
+        &self.arena
+    }
 }
 
 pub type TomlSectionArena = Arena<TomlSection>;
@@ -84,6 +92,10 @@ impl TomlSection {
 
     pub fn entries(&self) -> &[TomlSectionEntry] {
         &self.entries
+    }
+
+    pub fn get_entry(&self, key: Word) -> Option<&TomlSectionEntry> {
+        self.entries.get_entry(key)
     }
 }
 

@@ -97,6 +97,10 @@ impl PackagePath {
 pub struct RegistryPath(DiffPath);
 
 impl RegistryPath {
+    pub fn new(path: DiffPath) -> Self {
+        Self(path)
+    }
+
     pub fn path(self) -> DiffPath {
         self.0
     }

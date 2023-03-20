@@ -2,7 +2,7 @@ use crate::*;
 
 pub(crate) struct CorgiConfigBuilder<'a> {
     db: &'a dyn CorgiConfigDb,
-    registry_path: Option<DiffPath>,
+    registry_path: Option<RegistryPath>,
     errors: Vec<CorgiConfigError>,
 }
 
@@ -20,10 +20,8 @@ impl<'a> CorgiConfigBuilder<'a> {
             return Ok(())
         };
         if let Some(registry_section) = corgi_config_ast_sheet.registry_section() {
-            let registry_section = registry_section?;
-            if self.registry_path.is_none() && let Some(path) = registry_section.path() {
-                let path = path?;
-                todo!()
+            if self.registry_path.is_none() && let Some(path) = registry_section?.path() {
+                self.registry_path = Some(RegistryPath::new(path?))
             }
         }
         Ok(())
@@ -34,7 +32,7 @@ impl<'a> CorgiConfigBuilder<'a> {
             registry_section: RegistrySection {
                 path: self.registry_path.unwrap_or_else(|| todo!()),
             },
-            errors: todo!(),
+            errors: self.errors,
         }
     }
 }

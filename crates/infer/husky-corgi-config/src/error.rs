@@ -11,6 +11,12 @@ pub enum CorgiConfigError {
 pub type CorgiConfigResult<T> = Result<T, CorgiConfigError>;
 pub type CorgiConfigResultRef<'a, T> = Result<T, &'a CorgiConfigError>;
 
+impl From<&CorgiConfigError> for CorgiConfigError {
+    fn from(value: &CorgiConfigError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalCorgiConfigError {}
 

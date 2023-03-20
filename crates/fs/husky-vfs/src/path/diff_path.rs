@@ -8,8 +8,9 @@ pub struct DiffPath {
 }
 
 impl DiffPath {
-    pub fn path<'a>(self, db: &'a dyn VfsDb) -> &'a Path {
-        self.data(db)
+    #[inline(always)]
+    pub fn path<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> &'a Path {
+        self.data(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db))
     }
 
     pub fn abs_path(self, db: &dyn VfsDb) -> VfsResult<PathBuf> {

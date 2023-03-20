@@ -2,15 +2,19 @@
 mod db;
 mod error;
 mod menu;
-mod parser;
 mod sections;
+#[cfg(test)]
+mod tests;
+mod transformer;
 
 pub use self::db::*;
 pub use self::error::*;
 pub use self::sections::*;
 
 use self::menu::*;
-use self::parser::*;
+#[cfg(test)]
+use self::tests::*;
+use self::transformer::*;
 use husky_toml_ast::*;
 use husky_vfs::{DiffPath, VfsResult};
 
@@ -35,20 +39,23 @@ pub(crate) fn corgi_config_ast_sheet(
     db: &dyn CorgiConfigAstDb,
     path: DiffPath,
 ) -> VfsResult<Option<CorgiConfigAstSheet>> {
-    let Some(toml_ast_sheet) = db.toml_ast_sheet(path)? else {
+    let mut errors = vec![];
+    let Some(transformer) = CorgiConfigAstTransformer::new_root(
+        db,
+        path,
+        corgi_config_ast_menu(db),
+        &mut errors,
+    )? else {
         return Ok(None)
     };
-    Ok(Some(build_corgi_config_ast_sheet(db, toml_ast_sheet)))
+    Ok(Some(transform_corgi_config_ast_sheet(transformer)))
 }
 
-fn build_corgi_config_ast_sheet<'a>(
-    db: &'a dyn CorgiConfigAstDb,
-    toml_ast_sheet: &'a TomlAstSheet,
+// todo: change this to trait implementation??
+fn transform_corgi_config_ast_sheet<'a, 'b>(
+    mut transformer: CorgiConfigAstTransformer<'a, 'b, TomlTable>,
 ) -> CorgiConfigAstSheet {
-    let mut errors = vec![];
-    let mut parser =
-        CorgiConfigAstParser::new_root(db, toml_ast_sheet, corgi_config_ast_menu(db), &mut errors);
     CorgiConfigAstSheet {
-        registry_section: parser.parse_normal_section(),
+        registry_section: transformer.transform_normal_section(),
     }
 }

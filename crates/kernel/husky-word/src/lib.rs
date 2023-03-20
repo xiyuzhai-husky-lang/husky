@@ -60,7 +60,7 @@ impl salsa::AsId for Word {
     }
 }
 impl Word {
-    fn data<'db>(self, db: &'db <WordJar as salsa::jar::Jar<'_>>::DynDb) -> &'db str {
+    pub fn data<'db>(self, db: &'db <WordJar as salsa::jar::Jar<'_>>::DynDb) -> &'db str {
         let (jar, runtime) = <_ as salsa::storage::HasJar<WordJar>>::jar(db);
         let ingredients = <WordJar as salsa::storage::HasIngredientsFor<Word>>::ingredient(jar);
         &ingredients.data(runtime, self).data
