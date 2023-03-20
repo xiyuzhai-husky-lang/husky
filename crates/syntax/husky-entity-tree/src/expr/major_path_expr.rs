@@ -94,7 +94,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
             };
         let module_item_symbol = match entity_symbol {
             EntitySymbol::CrateRoot { .. } => todo!(),
-            EntitySymbol::PackageDependency { lib_module } => todo!(),
+            EntitySymbol::PackageDependency { entity_path } => todo!(),
             EntitySymbol::Submodule(_) => todo!(),
             EntitySymbol::ModuleItem(module_item_symbol) => module_item_symbol,
             EntitySymbol::Use(_) => todo!(),

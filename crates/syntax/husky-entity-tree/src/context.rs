@@ -48,6 +48,10 @@ impl<'a> EntityTreeSymbolContext<'a> {
         ident: Ident,
     ) -> Option<EntitySymbol> {
         let query_crate_path = parent.crate_path(self.db);
+        // here we divide into two cases
+        // - query_crate_path is self. We have to use self.sheets
+        // - query_crate_path is package dependency.
+        //      This is easy, we just use db, because it's guaranteed that there will be no cycle.
         if query_crate_path == self.crate_path {
             match parent {
                 EntityPath::Module(module_path) => {
@@ -61,7 +65,10 @@ impl<'a> EntityTreeSymbolContext<'a> {
                 EntityPath::Variant(_) => todo!(),
             }
         } else {
-            todo!()
+            self.db
+                .subentity_path(parent, ident)
+                .ok()
+                .map(|entity_path| EntitySymbol::PackageDependency { entity_path })
         }
     }
 

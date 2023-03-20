@@ -1,2 +1,2 @@
 [registry]
-path = "registry"
+path = "../registry"

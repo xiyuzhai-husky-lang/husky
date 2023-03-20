@@ -138,7 +138,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved(original_symbol);
-        if !original_symbol.is_accessible_from(db, self.module_path) {
+        if !original_symbol.is_visible_from(db, self.module_path) {
             self.errors.push(
                 OriginalEntityTreeError::SymbolExistsButNotAccessible(
                     name_token.ident_token().unwrap(),

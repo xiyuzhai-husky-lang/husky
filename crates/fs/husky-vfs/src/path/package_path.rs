@@ -133,7 +133,20 @@ pub(crate) fn package_dir(db: &dyn VfsDb, package: PackagePath) -> VfsResult<Dif
                 .library_path(db)
                 .join(package.name(db).data(db)),
         ),
-        PackagePathSource::Registry { version, .. } => todo!(),
+        PackagePathSource::Registry {
+            registry_path,
+            version,
+            ..
+        } => DiffPath::try_new(
+            db,
+            registry_path.path().path(db).join(format!(
+                "{}-{}.{}.{}",
+                package.name(db).data(db),
+                version.major,
+                version.minor,
+                version.patch
+            )),
+        ),
         PackagePathSource::Local { path } => Ok(path.clone()),
         PackagePathSource::Git { .. } => todo!(),
     }
