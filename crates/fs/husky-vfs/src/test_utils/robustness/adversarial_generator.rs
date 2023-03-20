@@ -1,5 +1,3 @@
-
-
 use xrng::XRng;
 
 use super::*;
@@ -49,8 +47,9 @@ impl VfsAdversarialGenerator {
     where
         Db: VfsDb + ?Sized,
     {
+        let text = module_path.text(db).unwrap();
         let Some(adversarial) =
-            self.generate_adversarial(db.module_content(module_path).unwrap()) else {
+            self.generate_adversarial(text) else {
                 return Ok(())
             };
         match adversarial.test(db, module_path, f) {

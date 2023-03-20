@@ -10,9 +10,7 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-    fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str>;
     fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath>;
-    fn module_content(&self, module_path: ModulePath) -> VfsResult<&str>;
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
@@ -48,9 +46,9 @@ pub trait VfsDbInner {
     fn calc_durability(&self, path: &Path) -> VfsResult<salsa::Durability>;
 }
 
-impl<T> VfsDbInner for T
+impl<Db> VfsDbInner for Db
 where
-    T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
+    Db: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
     fn file_from_diff_path(&self, abs_path: DiffPath) -> VfsResult<File> {
         Ok(
@@ -101,7 +99,7 @@ where
     // todo: test this
     fn refresh_file_from_disk(&mut self, path: &Path) -> VfsResult<()>
     where
-        T: 'static,
+        Db: 'static,
     {
         let content = read_file_content(&path);
         self.set_content(path, content)
@@ -155,18 +153,14 @@ where
     }
 }
 
-impl<T> VfsDb for T
+impl<Db> VfsDb for Db
 where
-    T: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
+    Db: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu> {
         Ok(vfs_path_menu(self, toolchain)
             .as_ref()
             .map_err(|e| e.clone())?)
-    }
-
-    fn package_manifest_content(&self, package_path: PackagePath) -> VfsResult<&str> {
-        package_manifest_file(self, package_path)?.text(self)
     }
 
     fn live_packages(
@@ -179,19 +173,16 @@ where
         module_diff_path(self, module_path)
     }
 
-    fn module_content(&self, module_path: ModulePath) -> VfsResult<&str> {
-        let diff_path = module_diff_path(self, module_path)?;
-        self.file_from_diff_path(diff_path)?.text(self)
-    }
-
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
         dir: &Path,
     ) -> VfsResult<Vec<PackagePath>> {
-        collect_husky_package_dirs(dir)
+        collect_husky_package_dirs(self, dir)
             .into_iter()
-            .map(|path| PackagePath::new_local(self, toolchain, &path).map_err(|e| e.into()))
+            .map(|(path, name)| {
+                PackagePath::new_local_package(self, toolchain, name, &path).map_err(|e| e.into())
+            })
             .collect()
     }
 

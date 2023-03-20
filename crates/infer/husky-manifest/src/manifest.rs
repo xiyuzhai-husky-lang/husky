@@ -4,7 +4,7 @@ pub use self::dependency::*;
 
 use crate::*;
 use husky_corgi_config::HasCorgiConfig;
-use husky_manifest_ast::{HasPackageManifestAst, PackageManifestAst};
+use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 use husky_word::Word;
 
 #[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
@@ -13,7 +13,6 @@ pub struct PackageManifest {
     dependencies: PackageDependenciesSection,
     // intentially private
     dev_dependencies: PackageDevDependenciesSection,
-    pub errors: Vec<ManifestError>,
 }
 
 #[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
@@ -22,12 +21,19 @@ pub struct PackageDependenciesSection {
     pub data: Vec<PackageDependency>,
 }
 
-// is this necessary for keeping things as lazy as possible?
-#[salsa::tracked(jar = ManifestJar)]
 pub(crate) fn package_dependencies(
     db: &dyn ManifestDb,
     package_path: PackagePath,
-) -> VfsResult<PackageDependenciesSection> {
+) -> ManifestResultRef<PackageDependenciesSection> {
+    package_dependencies_aux(db, package_path).as_ref().copied()
+}
+
+// is this necessary for keeping things as lazy as possible?
+#[salsa::tracked(jar = ManifestJar, return_ref)]
+pub(crate) fn package_dependencies_aux(
+    db: &dyn ManifestDb,
+    package_path: PackagePath,
+) -> ManifestResult<PackageDependenciesSection> {
     Ok(package_path.package_manifest(db)?.dependencies(db))
 }
 
@@ -38,24 +44,31 @@ pub struct PackageDevDependenciesSection {
 }
 
 // is this necessary for keeping things as lazy as possible?
-#[salsa::tracked(jar = ManifestJar)]
+#[salsa::tracked(jar = ManifestJar, return_ref)]
 pub(crate) fn package_dev_dependencies(
     db: &dyn ManifestDb,
     package_path: PackagePath,
-) -> VfsResult<PackageDevDependenciesSection> {
+) -> ManifestResult<PackageDevDependenciesSection> {
     Ok(package_path.package_manifest(db)?.dev_dependencies(db))
 }
 
-#[salsa::tracked(jar = ManifestJar)]
 pub(crate) fn package_manifest(
     db: &dyn ManifestDb,
     package_path: PackagePath,
-) -> VfsResult<PackageManifest> {
+) -> ManifestResultRef<PackageManifest> {
+    package_manifest_aux(db, package_path).as_ref().copied()
+}
+
+#[salsa::tracked(jar = ManifestJar, return_ref)]
+pub(crate) fn package_manifest_aux(
+    db: &dyn ManifestDb,
+    package_path: PackagePath,
+) -> ManifestResult<PackageManifest> {
     Ok(PackageManifest::from_ast(
         db,
         package_path.toolchain(db),
         package_path.registry_path(db)?,
-        package_path.manifest_ast(db)?,
+        package_path.manifest_ast_sheet(db)?,
     ))
 }
 
@@ -64,9 +77,8 @@ impl PackageManifest {
         db: &dyn ManifestDb,
         toolchain: Toolchain,
         registry_path: RegistryPath,
-        manifest_ast: PackageManifestAst,
+        manifest_ast: PackageManifestAstSheet,
     ) -> Self {
-        let mut errors = vec![];
         let dependencies_section = PackageDependenciesSection::new(
             db,
             manifest_ast
@@ -79,13 +91,12 @@ impl PackageManifest {
                     dependencies_section_ast
                         .dependencies()
                         .iter()
-                        .filter_map(|dependency_ast| {
+                        .map(|dependency_ast| {
                             PackageDependency::from_ast(
                                 db,
                                 toolchain,
                                 registry_path,
                                 dependency_ast,
-                                &mut errors,
                             )
                         })
                         .collect()
@@ -103,6 +114,6 @@ impl PackageManifest {
                 .map(|ast| todo!())
                 .unwrap_or_default(),
         );
-        Self::new(db, dependencies_section, dev_dependencies_section, errors)
+        Self::new(db, dependencies_section, dev_dependencies_section)
     }
 }

@@ -36,7 +36,7 @@ fn update_content<T: VfsDb>(db: &mut T, path: &Path, f: impl FnOnce(&mut String)
         Entry::Occupied(entry) => *entry.get(),
         Entry::Vacant(_entry) => return Ok(()),
     };
-    let mut text = file.text(db).unwrap_or("").to_string();
+    let mut text = file.text(db)?.unwrap_or("").to_string();
     f(&mut text);
     file.set_content(db).to(FileContent::LiveDoc(text));
     Ok(())

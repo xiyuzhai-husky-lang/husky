@@ -26,23 +26,31 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
 
 #[salsa::jar(db = TomlAstDb)]
-pub struct TomlAstJar(package_manifest_toml_ast, TomlSectionTitle);
+pub struct TomlAstJar(toml_ast_sheet_aux);
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub struct TomlAstSheet {
     expr_arena: TomlExprArena,
-    section_arena: TomlSectionAstSheet,
+    section_arena: TomlSectionSheet,
     line_groups: Vec<TomlLineGroup>,
     table: TomlTable,
 }
 
+fn toml_ast_sheet(db: &dyn TomlAstDb, path: DiffPath) -> VfsResult<Option<&TomlAstSheet>> {
+    match toml_ast_sheet_aux(db, path) {
+        Ok(Some(ast_sheet)) => Ok(Some(ast_sheet)),
+        Ok(None) => Ok(None),
+        Err(e) => Err(e.clone()),
+    }
+}
+
 #[salsa::tracked(jar = TomlAstJar, return_ref)]
-fn package_manifest_toml_ast(db: &dyn TomlAstDb, package: PackagePath) -> VfsResult<TomlAstSheet> {
-    Ok(TomlAstSheet::new(
-        db,
-        db.package_manifest_toml_token_sheet(package).as_ref()?,
-    ))
+fn toml_ast_sheet_aux(db: &dyn TomlAstDb, path: DiffPath) -> VfsResult<Option<TomlAstSheet>> {
+    Ok(db
+        .toml_token_sheet(path)
+        .as_ref()?
+        .map(|token_sheet| TomlAstSheet::new(db, token_sheet)))
 }
 
 impl TomlAstSheet {
@@ -52,7 +60,7 @@ impl TomlAstSheet {
             .line_groups()
             .map(|tokens| TomlAstParser::new(db, tokens, &mut exprs).parse_line_group())
             .collect();
-        let sections = TomlSectionAstSheet::parse_collect(db, &toml_token_text, &line_groups);
+        let sections = TomlSectionSheet::parse_collect(db, &toml_token_text, &line_groups);
         let table = TomlTable::new(db, &sections);
         TomlAstSheet {
             section_arena: sections,

@@ -1,5 +1,0 @@
-Ok(
-    DefnSheet {
-        defns: [],
-    },
-)

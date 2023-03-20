@@ -1,3 +1,7 @@
+mod visitor;
+
+pub use self::visitor::*;
+
 use std::collections::BTreeMap;
 
 use crate::*;
@@ -12,12 +16,12 @@ pub struct TomlTable {
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlTableValue {
     Table(TomlTable),
-    Section(TomlSectionAstIdx),
+    Section(TomlSectionIdx),
     List(Vec<TomlTableValue>),
 }
 
 impl TomlTable {
-    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionAstSheet) -> Self {
+    pub(crate) fn new(db: &dyn TomlAstDb, sections: &TomlSectionSheet) -> Self {
         let mut table = TomlTable {
             data: Default::default(),
         };
@@ -27,17 +31,21 @@ impl TomlTable {
         table
     }
 
+    pub(crate) fn get(&self, key: Word) -> Option<&TomlTableValue> {
+        self.data.get(&key)
+    }
+
     fn insert_section<'a>(
         &mut self,
         db: &dyn TomlAstDb,
-        idx: TomlSectionAstIdx,
-        section: &TomlSectionAst,
+        idx: TomlSectionIdx,
+        section: &TomlSection,
     ) {
         match section.kind() {
             TomlSectionKind::Normal => {
-                let title_words = section.title().words(db);
-                if title_words.len() == 1 {
-                    let key = title_words[0];
+                let title = section.title();
+                if title.len() == 1 {
+                    let key = title[0];
                     if self.data.contains_key(&key) {
                         todo!()
                     }

@@ -70,15 +70,16 @@ pub(crate) fn resolve_module_path(
                 .join("Corgi.toml")
                 .exists()
         {
+            let package_name = todo!();
             match file_stem {
                 "lib" =>  ModulePath::new_root(
                     db,
-                    CratePath::new(db,   PackagePath::new_local(db, toolchain,parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
+                    CratePath::new(db,   PackagePath::new_local_package(db, toolchain,package_name,parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
                     CrateKind::Library,)
                 ) ,
                 "main" => ModulePath::new_root(
                     db,
-                    CratePath::new(db, PackagePath::new_local(db, toolchain,
+                    CratePath::new(db, PackagePath::new_local_package(db, toolchain,package_name,
                         parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
                     )?  ,  CrateKind::Main,)
                  ),

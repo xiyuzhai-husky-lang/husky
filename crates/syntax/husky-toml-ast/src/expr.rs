@@ -1,3 +1,5 @@
+mod visitor;
+
 use crate::*;
 use ordered_float::OrderedFloat;
 use std::sync::Arc;

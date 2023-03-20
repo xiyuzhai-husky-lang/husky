@@ -1,29 +1,15 @@
 use super::*;
 
-pub struct TomlSectionAstVisitor<'a> {
-    section_arena: &'a TomlSectionAstSheet,
+pub struct TomlSectionVisitor<'a> {
+    toml_ast_sheet: &'a TomlAstSheet,
+    section_idx: TomlSectionIdx,
 }
 
-impl<'a> TomlSectionAstVisitor<'a> {
-    pub fn find_by_title(
-        &mut self,
-        title: TomlSectionTitle,
-    ) -> Option<(TomlSectionAstIdx, &'a TomlSectionAst)> {
-        self.section_arena
-            .arena
-            .indexed_iter()
-            .find(|(_, toml_section_ast)| toml_section_ast.title == title)
-    }
-}
-
-impl<'a> VisitTomlAst<'a> for TomlSectionAstVisitor<'a> {
-    type Ast = TomlSectionAst;
-}
-
-impl TomlAstSheet {
-    pub fn section_visitor(&self) -> TomlAstVisitor<TomlSectionAst> {
-        TomlSectionAstVisitor {
-            section_arena: &self.section_arena,
+impl<'a> TomlSectionVisitor<'a> {
+    pub(crate) fn new(toml_ast_sheet: &'a TomlAstSheet, section_idx: TomlSectionIdx) -> Self {
+        Self {
+            toml_ast_sheet,
+            section_idx,
         }
     }
 }

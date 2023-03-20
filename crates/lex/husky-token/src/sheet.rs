@@ -1,5 +1,6 @@
 use husky_text::TextPosition;
 
+use husky_vfs::VfsError;
 use salsa::DebugWithDb;
 
 use crate::*;
@@ -285,7 +286,7 @@ pub(crate) fn ranged_token_sheet(
     db: &dyn TokenDb,
     module_path: ModulePath,
 ) -> VfsResult<RangedTokenSheet> {
-    Ok(tokenize::tokenize(db, db.module_content(module_path)?))
+    Ok(tokenize::tokenize(db, module_path.text(db)?))
 }
 
 #[salsa::tracked(jar = TokenJar)]

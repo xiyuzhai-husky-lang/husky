@@ -39,11 +39,19 @@ impl ModulePath {
         self.crate_path(db).toolchain(db)
     }
 
-    pub fn ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
+    pub fn ident(self, db: &dyn VfsDb) -> Ident {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
-            ModulePathData::Child { parent: _, ident } => Ok(ident),
+            ModulePathData::Child { parent: _, ident } => ident,
         }
+    }
+
+    pub fn text<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<&str> {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        let diff_path = module_diff_path(db, self)?;
+        db.file_from_diff_path(diff_path)?
+            .text(db)?
+            .ok_or(VfsError::FileNotExists(diff_path))
     }
 }
 
@@ -132,10 +140,7 @@ impl ModulePath {
         db: &<VfsJar as salsa::jar::Jar<'_>>::DynDb,
     ) -> ::std::fmt::Result {
         match self.data(db) {
-            ModulePathData::Root(crate_path) => match crate_path.package_ident(db) {
-                Ok(ident) => f.write_str(ident.data(db)),
-                Err(e) => e.fmt(f, db, salsa::DebugFormatLevel::root()),
-            },
+            ModulePathData::Root(crate_path) => f.write_str(crate_path.package_ident(db).data(db)),
             ModulePathData::Child { parent, ident } => {
                 parent.show_aux(f, db)?;
                 f.write_str("::")?;

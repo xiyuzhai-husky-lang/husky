@@ -20,7 +20,7 @@ impl CratePath {
         self.package_path(db).toolchain(db)
     }
 
-    pub fn package_ident(self, db: &dyn VfsDb) -> VfsResult<Ident> {
+    pub fn package_ident(self, db: &dyn VfsDb) -> Ident {
         self.package_path(db).ident(db)
     }
 }

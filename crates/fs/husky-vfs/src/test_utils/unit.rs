@@ -49,10 +49,12 @@ impl VfsTestUnit for PackagePath {
     fn determine_expect_file_path(
         &self,
         _db: &dyn VfsDb,
-        _task_name: &str,
+        task_name: &str,
         package_expect_files_dir: &Path,
     ) -> PathBuf {
-        package_expect_files_dir.with_extension(EXPECT_FILE_EXTENSION)
+        package_expect_files_dir
+            .with_extension(task_name)
+            .with_extension(EXPECT_FILE_EXTENSION)
     }
 
     fn determine_adversarial_path(

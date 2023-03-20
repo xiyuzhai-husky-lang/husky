@@ -1,5 +1,5 @@
 use crate::*;
-use husky_manifest_ast::{HasPackageManifestAst, ManifestDependencyAst};
+use husky_manifest_ast::{HasPackageManifestAstSheet, ManifestDependencyAst};
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct PackageDependency {
@@ -16,26 +16,15 @@ impl PackageDependency {
         toolchain: Toolchain,
         registry_path: RegistryPath,
         ast: &ManifestDependencyAst,
-        errors: &mut Vec<ManifestError>,
-    ) -> Option<Self> {
-        // ad hoc ;
-        let data = PackagePathSource::Registry {
-            name: ast.name(),
-            version: semver::Version::new(0, 1, 0), // ad hoc
-            registry_path,
-        };
-        let package_path = PackagePath::new(db, toolchain, data);
-        check_package_path_validity(db, package_path, errors);
-        Some(Self { package_path })
-    }
-}
-fn check_package_path_validity(
-    db: &dyn ManifestDb,
-    package_path: PackagePath,
-    errors: &mut Vec<ManifestError>,
-) {
-    match package_path.dir(db) {
-        Ok(_) => todo!(),
-        Err(_) => todo!(),
+    ) -> Self {
+        PackageDependency {
+            package_path: PackagePath::new_registry_package(
+                db,
+                toolchain,
+                ast.name(),
+                registry_path,
+                /* ad hoc */ semver::Version::new(0, 1, 0),
+            ),
+        }
     }
 }

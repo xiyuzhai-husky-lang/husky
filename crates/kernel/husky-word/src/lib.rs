@@ -15,7 +15,13 @@ pub use self::name::*;
 pub use self::style::*;
 
 #[salsa::jar(db = WordDb)]
-pub struct WordJar(Word, ident_menu, is_word_valid_name);
+pub struct WordJar(
+    Word,
+    ident_menu,
+    word_to_ident,
+    name_to_ident,
+    is_word_valid_name,
+);
 
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Word(salsa::Id);

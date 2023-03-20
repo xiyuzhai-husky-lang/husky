@@ -7,11 +7,17 @@ where
 {
     let toolchain = db.dev_toolchain().unwrap();
     for domain in vfs_test_domains() {
-        for path in collect_package_relative_dirs(&domain.src_base()).into_iter() {
+        for (path, package_name) in collect_package_relative_dirs(
+            <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db),
+            &domain.src_base(),
+        )
+        .into_iter()
+        {
             let vfs_db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
-            let package_path = PackagePath::new_local(
+            let package_path = PackagePath::new_local_package(
                 vfs_db,
                 toolchain,
+                package_name,
                 &path.to_logical_path(&domain.src_base()),
             )
             .unwrap();

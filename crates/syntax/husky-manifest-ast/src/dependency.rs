@@ -11,7 +11,7 @@ impl ManifestDependencyAst {
     pub(crate) fn from_toml_section_entry<'a>(
         db: &dyn ManifestAstDb,
         entry: &'a TomlSectionEntry,
-        builder: &mut ManifestAstBuilder<'a, TomlSectionAst>,
+        builder: &mut ManifestAstParser<'a, TomlExpr>,
         errors: &mut Vec<ManifestAstError>,
     ) -> Option<ManifestDependencyAst> {
         let Some(name) = Name::from_word(db, entry.key()) else {
