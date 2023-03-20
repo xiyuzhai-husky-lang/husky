@@ -79,7 +79,7 @@ pub enum UseExprRuleVariant {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum AccessibilityProgress {
-    Done { accessibility: Accessibility },
+    Done { accessibility: Visibility },
     Todo,
 }
 
@@ -88,12 +88,12 @@ impl AccessibilityProgress {
         match expr {
             Some(expr) => match expr {
                 AccessibilityExpr::Public { .. } => AccessibilityProgress::Done {
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                 },
                 AccessibilityExpr::PublicUnder { .. } => todo!(),
             },
             None => AccessibilityProgress::Done {
-                accessibility: Accessibility::PublicUnder(module_path),
+                accessibility: Visibility::PublicUnder(module_path),
             },
         }
     }
@@ -173,7 +173,7 @@ impl UseExprRule {
         &self.variant
     }
 
-    pub(crate) fn accessibility(&self) -> Accessibility {
+    pub(crate) fn accessibility(&self) -> Visibility {
         match self.accessibility {
             AccessibilityProgress::Done { accessibility } => accessibility,
             AccessibilityProgress::Todo => todo!(),

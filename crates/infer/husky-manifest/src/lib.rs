@@ -6,6 +6,7 @@ mod has_manifest;
 mod manifest;
 
 pub use self::db::*;
+pub use self::dependency::*;
 pub use self::error::*;
 pub use self::has_manifest::*;
 pub use self::manifest::*;

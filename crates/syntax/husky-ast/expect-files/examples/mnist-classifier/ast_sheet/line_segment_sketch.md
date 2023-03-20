@@ -33,7 +33,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -61,7 +61,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -221,7 +221,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..8,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -249,7 +249,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..20,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -277,7 +277,7 @@ Ok(
                     body: ArenaIdxRange(
                         20..21,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1376,7 +1376,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
@@ -1404,7 +1404,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
@@ -1432,7 +1432,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
@@ -1460,7 +1460,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: Module,
@@ -1518,7 +1518,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1559,7 +1559,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1600,7 +1600,7 @@ Ok(
                     body: ArenaIdxRange(
                         26..32,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1635,7 +1635,7 @@ Ok(
                     body: ArenaIdxRange(
                         32..38,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1670,7 +1670,7 @@ Ok(
                     body: ArenaIdxRange(
                         60..72,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1705,7 +1705,7 @@ Ok(
                     body: ArenaIdxRange(
                         105..115,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {
@@ -1740,7 +1740,7 @@ Ok(
                     body: ArenaIdxRange(
                         149..159,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     entity_kind: ModuleItem {

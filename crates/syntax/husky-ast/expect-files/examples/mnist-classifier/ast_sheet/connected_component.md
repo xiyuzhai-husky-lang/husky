@@ -540,7 +540,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -568,7 +568,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..10,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -596,7 +596,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..18,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -624,7 +624,7 @@ Ok(
                     body: ArenaIdxRange(
                         19..22,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -652,7 +652,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..26,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -680,7 +680,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..45,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -708,7 +708,7 @@ Ok(
                     body: ArenaIdxRange(
                         45..46,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -736,7 +736,7 @@ Ok(
                     body: ArenaIdxRange(
                         46..47,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -764,7 +764,7 @@ Ok(
                     body: ArenaIdxRange(
                         51..57,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -792,7 +792,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..67,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1164,7 +1164,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1197,7 +1197,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1230,7 +1230,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..3,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
@@ -1265,7 +1265,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1306,7 +1306,7 @@ Ok(
                     body: ArenaIdxRange(
                         81..85,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     entity_kind: ModuleItem {
@@ -1341,7 +1341,7 @@ Ok(
                     body: ArenaIdxRange(
                         114..118,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,

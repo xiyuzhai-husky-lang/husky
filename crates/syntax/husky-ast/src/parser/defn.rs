@@ -146,7 +146,7 @@ impl<'a> AstParser<'a> {
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    fn parse_head(mut self) -> AstResult<(Accessibility, EntityKind, IdentToken, bool, TokenIdx)> {
+    fn parse_head(mut self) -> AstResult<(Visibility, EntityKind, IdentToken, bool, TokenIdx)> {
         let accessibility = self.parse_accessibility()?;
         let entity_keyword_group =
             self.parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;

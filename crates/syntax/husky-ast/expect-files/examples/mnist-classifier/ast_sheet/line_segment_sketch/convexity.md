@@ -177,7 +177,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..19,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,

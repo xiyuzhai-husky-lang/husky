@@ -74,6 +74,10 @@ impl TomlSectionEntry {
     }
 }
 
+impl TomlAst for TomlSectionEntry {
+    type Visitor<'a> = TomlSectionEntryVisitor<'a>;
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlSectionKind {

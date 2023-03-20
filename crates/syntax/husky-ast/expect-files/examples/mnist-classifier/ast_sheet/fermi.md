@@ -105,7 +105,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
@@ -133,7 +133,7 @@ Ok(
                     body: ArenaIdxRange(
                         5..8,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
@@ -161,7 +161,7 @@ Ok(
                     body: ArenaIdxRange(
                         9..12,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::fermi`,
                     ),
                     entity_kind: AssociatedItem {
@@ -242,7 +242,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::fermi`,
                     ),
                     entity_kind: ModuleItem {
@@ -285,7 +285,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..21,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,

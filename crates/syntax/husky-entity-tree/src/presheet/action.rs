@@ -96,7 +96,9 @@ impl<'a> EntityTreePresheetMut<'a> {
                             children: _,
                         } => (
                             (*crate_token).into(),
-                            Ok(EntitySymbol::CrateRoot(ctx.crate_root())),
+                            Ok(EntitySymbol::CrateRoot {
+                                root_module: ctx.crate_root(),
+                            }),
                         ),
                     },
                 };

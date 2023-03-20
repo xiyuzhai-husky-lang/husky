@@ -4,7 +4,7 @@ use smallvec::smallvec;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct ManifestAstMenu {
+pub struct ManifestAstMenu {
     package_word: Word,
     dependencies_word: Word,
     dev_dependencies_word: Word,

@@ -177,7 +177,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -210,7 +210,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..10,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -243,7 +243,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..14,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -276,7 +276,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -309,7 +309,7 @@ Ok(
                     body: ArenaIdxRange(
                         15..16,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -342,7 +342,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..17,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -375,7 +375,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..18,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,

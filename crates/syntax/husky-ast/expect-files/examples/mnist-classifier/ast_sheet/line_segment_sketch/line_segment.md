@@ -115,7 +115,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     entity_kind: AssociatedItem {
@@ -143,7 +143,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..13,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     entity_kind: AssociatedItem {
@@ -176,7 +176,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,

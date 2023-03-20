@@ -16,7 +16,7 @@ impl Database for DB {}
 
 #[test]
 fn accessibility_partial_ord_works() {
-    use Accessibility::*;
+    use Visibility::*;
 
     let db = DB::default();
     let path_menu = db.dev_path_menu().unwrap();

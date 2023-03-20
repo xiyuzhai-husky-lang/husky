@@ -15,7 +15,7 @@ pub use crate::error::*;
 pub use specs::*;
 
 use self::parser::*;
-use husky_accessibility::Accessibility;
+use husky_accessibility::Visibility;
 use husky_entity_path::{EntityPath, VariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_token::{IdentToken, TokenGroupIdx, TokenIdx};
@@ -64,7 +64,7 @@ pub enum Ast {
     Defn {
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
-        accessibility: Accessibility,
+        accessibility: Visibility,
         entity_kind: EntityKind,
         /// None only when this is under impl block
         entity_path: Option<EntityPath>,
