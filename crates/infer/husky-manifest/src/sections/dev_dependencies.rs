@@ -1,0 +1,15 @@
+use super::*;
+
+#[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
+pub struct PackageDevDependenciesSection {
+    #[return_ref]
+    pub data: Vec<PackageDependency>,
+}
+
+#[salsa::tracked(jar = ManifestJar, return_ref)]
+pub(crate) fn package_dev_dependencies_unchecked(
+    db: &dyn ManifestDb,
+    package_path: PackagePath,
+) -> ManifestResult<PackageDevDependenciesSection> {
+    Ok(package_path.package_manifest(db)?.dev_dependencies(db))
+}

@@ -98,7 +98,7 @@ impl EntitySymbolEntry {
             ident: package_path.ident(db),
             visibility: Visibility::Public,
             symbol: EntitySymbol::PackageDependency {
-                lib_module: package_path.lib_module(db),
+                entity_path: package_path.lib_module(db).into(),
             },
         }
     }
@@ -132,7 +132,7 @@ impl EntitySymbolEntry {
         rule: &UseAllRule,
     ) -> Option<Self> {
         self.symbol
-            .is_accessible_from(db, target_module_path)
+            .is_visible_from(db, target_module_path)
             .then_some(EntitySymbolEntry {
                 ident: self.ident,
                 visibility: rule.accessibility(),

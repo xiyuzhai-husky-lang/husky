@@ -11,7 +11,7 @@ use husky_token::{IdentToken, TokenIdx};
 pub struct ModuleItemSymbol {
     #[id]
     pub path: ModuleItemPath,
-    pub accessibility: Visibility,
+    pub visibility: Visibility,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -20,7 +20,7 @@ pub struct ModuleItemSymbol {
 pub struct SubmoduleSymbol {
     #[id]
     pub path: ModulePath,
-    pub accessibility: Visibility,
+    pub visibility: Visibility,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -30,7 +30,7 @@ pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
     pub path: EntityPath,
-    pub accessibility: Visibility,
+    pub visibility: Visibility,
     pub ast_idx: AstIdx,
     pub use_expr_idx: UseExprIdx,
 }
@@ -42,35 +42,35 @@ impl ModuleItemSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+// #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
     CrateRoot { root_module: ModulePath },
-    PackageDependency { lib_module: ModulePath },
+    PackageDependency { entity_path: EntityPath },
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
     Use(UseSymbol),
 }
 
 impl EntitySymbol {
-    fn accessibility(&self, db: &dyn EntityTreeDb) -> Visibility {
+    fn visibility(&self, db: &dyn EntityTreeDb) -> Visibility {
         match self {
             EntitySymbol::CrateRoot { root_module } => Visibility::PublicUnder(*root_module),
             EntitySymbol::PackageDependency { .. } => Visibility::Public,
-            EntitySymbol::Submodule(symbol) => symbol.accessibility(db),
-            EntitySymbol::ModuleItem(symbol) => symbol.accessibility(db),
-            EntitySymbol::Use(symbol) => symbol.accessibility(db),
+            EntitySymbol::Submodule(symbol) => symbol.visibility(db),
+            EntitySymbol::ModuleItem(symbol) => symbol.visibility(db),
+            EntitySymbol::Use(symbol) => symbol.visibility(db),
         }
     }
 
-    pub(crate) fn is_accessible_from(self, db: &dyn EntityTreeDb, module_path: ModulePath) -> bool {
-        self.accessibility(db).is_accessible_from(db, module_path)
+    pub(crate) fn is_visible_from(self, db: &dyn EntityTreeDb, module_path: ModulePath) -> bool {
+        self.visibility(db).is_visible_from(db, module_path)
     }
 
     pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module } => root_module.into(),
-            EntitySymbol::PackageDependency { lib_module } => lib_module.into(),
+            EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
             EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
             EntitySymbol::ModuleItem(symbol) => symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),

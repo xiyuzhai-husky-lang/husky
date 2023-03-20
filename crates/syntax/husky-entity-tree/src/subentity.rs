@@ -24,7 +24,7 @@ pub(crate) fn subentity_path(
                 .resolve_ident(ident)
             {
                 Some(_) => todo!(),
-                None => todo!(),
+                None => Err(OriginalEntityTreeError::NoSubentity)?,
             }
         }
         EntityPath::ModuleItem(module_item_path) => {

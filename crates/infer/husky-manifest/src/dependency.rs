@@ -17,14 +17,35 @@ impl PackageDependency {
         registry_path: RegistryPath,
         ast: &ManifestDependencyAst,
     ) -> Self {
+        // ad hoc
+        // todo: check source
         PackageDependency {
             package_path: PackagePath::new_registry_package(
                 db,
                 toolchain,
                 ast.name(),
                 registry_path,
-                /* ad hoc */ semver::Version::new(0, 1, 0),
+                semver::Version::new(0, 1, 0),
             ),
         }
     }
 }
+
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct PackageDependency {
+//     name: Word,
+//     source: PackageDependencySource,
+//     options: PackageDependencyOptions,
+// }
+
+// #[derive(Debug, PartialEq, Eq)]
+// pub enum PackageDependencySource {
+//     Git,
+//     Local,
+//     Registry,
+// }
+
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct PackageDependencyOptions {
+//     optional: bool,
+// }

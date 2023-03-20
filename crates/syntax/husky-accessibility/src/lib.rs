@@ -49,7 +49,7 @@ impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Visibility {
 }
 
 impl Visibility {
-    pub fn is_accessible_from(self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
+    pub fn is_visible_from(self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
         match self {
             Visibility::Public => true,
             Visibility::PublicUnder(parent_module) => module_path.starts_with(db, parent_module),

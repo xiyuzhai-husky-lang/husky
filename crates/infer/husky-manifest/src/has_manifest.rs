@@ -13,6 +13,6 @@ impl HasPackageManifest for PackagePath {
 
     fn package_dependencies(self, db: &dyn ManifestDb) -> ManifestResultRef<&[PackageDependency]> {
         // is this necessary for keeping things as lazy as possible?
-        Ok(package_dependencies(db, self)?.data(db))
+        package_dependencies(db, self)
     }
 }
