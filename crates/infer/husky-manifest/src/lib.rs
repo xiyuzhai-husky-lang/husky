@@ -16,10 +16,10 @@ use salsa::DbWithJar;
 
 #[salsa::jar(db = ManifestDb)]
 pub struct ManifestJar(
-    package_manifest,
+    package_manifest_aux,
     PackageManifest,
     PackageDependenciesSection,
-    package_dependencies,
+    package_dependencies_aux,
     PackageDevDependenciesSection,
     package_dev_dependencies,
 );

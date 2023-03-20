@@ -1,11 +1,11 @@
-use husky_toml_ast::TomlSectionAst;
+use husky_toml_ast::TomlSection;
 use vec_like::VecMap;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestDependenciesSectionAst {
-    idx: TomlSectionAstIdx,
+    idx: TomlSectionIdx,
     dependencies: VecMap<ManifestDependencyAst>,
 }
 
@@ -15,25 +15,40 @@ impl ManifestDependenciesSectionAst {
     }
 }
 
-impl<'a> ManifestAstBuilder<'a, TomlSectionAst> {
-    pub(crate) fn build_dependencies_section(
+impl<'a> ManifestAstParser<'a, TomlTable> {
+    pub(crate) fn parse_dependencies_section(
         &mut self,
         db: &dyn ManifestAstDb,
         errors: &mut Vec<ManifestAstError>,
     ) -> ManifestAstResult<Option<ManifestDependenciesSectionAst>> {
-        let Some((idx, dependencies_section_ast)) = self
-            .visit_new_normal_section_ast(self.menu().dependencies_section_tile())? else {
+        let Some(normal_section_parser)= self.normal_section_parser(
+            self.menu().dependencies_word(),
+            errors,
+        )? else {
             return Ok(None)
         };
-        Ok(Some(ManifestDependenciesSectionAst {
-            idx,
-            dependencies: dependencies_section_ast
-                .entries()
-                .iter()
-                .filter_map(|entry| {
-                    ManifestDependencyAst::from_toml_section_entry(db, entry, self, errors)
-                })
-                .collect(), // ad hoc
-        }))
+        Ok(Some(
+            normal_section_parser.parse_into_dependencies_section(errors),
+        ))
+    }
+}
+
+impl<'a> ManifestAstParser<'a, TomlSection> {
+    fn parse_into_dependencies_section(
+        mut self,
+        errors: &mut Vec<ManifestAstError>,
+    ) -> ManifestDependenciesSectionAst {
+        //      Ok(Some(ManifestDependenciesSectionAst {
+        //     idx,
+        //     dependencies: dependencies_section_ast
+        //         .entries()
+        //         .iter()
+        //         .filter_map(|entry| {
+        //             self.entry_parser()
+        //             ManifestDependencyAst::from_toml_section_entry(db, entry, self.expr_, errors)
+        //         })
+        //         .collect(), // ad hoc
+        // }))
+        todo!()
     }
 }

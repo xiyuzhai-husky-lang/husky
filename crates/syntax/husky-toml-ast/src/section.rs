@@ -14,17 +14,17 @@ use vec_like::{AsVecMapEntry, VecMap};
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlSectionAstSheet {
-    arena: Arena<TomlSectionAst>,
+pub struct TomlSectionSheet {
+    arena: Arena<TomlSection>,
     errors: Vec<TomlAstError>,
 }
 
-pub type TomlSectionArena = Arena<TomlSectionAst>;
-pub type TomlSectionAstIdx = ArenaIdx<TomlSectionAst>;
+pub type TomlSectionArena = Arena<TomlSection>;
+pub type TomlSectionIdx = ArenaIdx<TomlSection>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
-pub struct TomlSectionAst {
+pub struct TomlSection {
     title: TomlSectionTitle,
     kind: TomlSectionKind,
     entries: VecMap<TomlSectionEntry>,
@@ -73,13 +73,13 @@ pub enum TomlSectionKind {
     Scattered,
 }
 
-impl TomlSectionAst {
+impl TomlSection {
     pub fn kind(&self) -> TomlSectionKind {
         self.kind
     }
 
-    pub fn title(&self) -> TomlSectionTitle {
-        self.title
+    pub fn title(&self) -> &TomlSectionTitle {
+        &self.title
     }
 
     pub fn entries(&self) -> &[TomlSectionEntry] {
@@ -87,7 +87,7 @@ impl TomlSectionAst {
     }
 }
 
-impl TomlSectionAstSheet {
+impl TomlSectionSheet {
     pub(crate) fn parse_collect(
         db: &dyn TomlAstDb,
         toml_token_text: &TomlTokenSheet,
@@ -105,9 +105,7 @@ impl TomlSectionAstSheet {
         &self.errors
     }
 
-    pub fn indexed_section_iter(
-        &self,
-    ) -> impl Iterator<Item = (TomlSectionAstIdx, &TomlSectionAst)> {
+    pub fn indexed_section_iter(&self) -> impl Iterator<Item = (TomlSectionIdx, &TomlSection)> {
         self.arena.indexed_iter()
     }
 }

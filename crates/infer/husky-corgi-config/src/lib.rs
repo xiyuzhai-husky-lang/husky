@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 #![feature(trait_upcasting)]
 mod builder;
 mod db;
@@ -26,30 +27,30 @@ pub struct CorgiConfig {
     errors: Vec<CorgiConfigError>,
 }
 
-#[salsa::tracked(jar = CorgiConfigJar)]
+#[salsa::tracked(jar = CorgiConfigJar, return_ref)]
 pub(crate) fn package_registry_path(
     db: &dyn CorgiConfigDb,
     package: PackagePath,
-) -> VfsResult<RegistryPath> {
+) -> CorgiConfigResult<RegistryPath> {
     let corgi_config = package.corgi_config(db);
     todo!()
 }
 
 pub trait HasCorgiConfig: Copy {
-    fn corgi_config(self, db: &dyn CorgiConfigDb) -> VfsResult<&CorgiConfig>;
+    fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig>;
 
-    fn registry_path(self, db: &dyn CorgiConfigDb) -> VfsResult<RegistryPath>;
+    fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath>;
 }
 
 impl HasCorgiConfig for PackagePath {
-    fn corgi_config(self, db: &dyn CorgiConfigDb) -> VfsResult<&CorgiConfig> {
+    fn corgi_config(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<&CorgiConfig> {
         package_corgi_config(db, self)
             .as_ref()
             .map_err(|e| e.clone())
     }
 
-    fn registry_path(self, db: &dyn CorgiConfigDb) -> VfsResult<RegistryPath> {
-        package_registry_path(db, self)
+    fn registry_path(self, db: &dyn CorgiConfigDb) -> CorgiConfigResultRef<RegistryPath> {
+        package_registry_path(db, self).as_ref().copied()
     }
 }
 
@@ -57,7 +58,7 @@ impl HasCorgiConfig for PackagePath {
 fn package_corgi_config(
     db: &dyn CorgiConfigDb,
     package_path: PackagePath,
-) -> VfsResult<CorgiConfig> {
+) -> CorgiConfigResult<CorgiConfig> {
     let corgi_config_paths = package_corgi_config_paths(db, package_path)?;
     let mut builder = CorgiConfigBuilder::new(db);
     for path in corgi_config_paths {

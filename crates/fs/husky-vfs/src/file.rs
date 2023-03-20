@@ -21,16 +21,16 @@ pub enum FileContent {
 }
 
 impl File {
-    pub(crate) fn text(self, db: &dyn VfsDb) -> VfsResult<&str> {
+    pub fn text(self, db: &dyn VfsDb) -> VfsResult<Option<&str>> {
         self.content(db).text(self.path(db).path(db))
     }
 }
 
 impl FileContent {
-    pub(crate) fn text(&self, path: &Path) -> VfsResult<&str> {
+    pub(crate) fn text(&self, path: &Path) -> VfsResult<Option<&str>> {
         match self {
-            FileContent::NotExists => Err(VfsError::FileNotExists(path.to_owned())),
-            FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(text),
+            FileContent::NotExists => Ok(None),
+            FileContent::OnDisk(text) | FileContent::LiveDoc(text) => Ok(Some(text)),
             FileContent::Directory(_) => todo!(),
             FileContent::Err(_) => todo!(),
             FileContent::LiveNotebook(_) => todo!(),

@@ -16,6 +16,22 @@ impl DiffPath {
         std::path::absolute(db.vfs_cache().base_path()?.join(&self.data(db).0))
             .map_err(|_e| todo!())
     }
+
+    pub fn file(self, db: &dyn VfsDb) -> VfsResult<File> {
+        db.file_from_diff_path(self)
+    }
+
+    pub fn text<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> VfsResult<Option<&'a str>> {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        let file = self.file(db)?;
+        Ok(file.text(db)?)
+    }
+
+    pub fn text_expected<'a, Db: ?Sized + VfsDb>(self, db: &'a Db) -> VfsResult<&'a str> {
+        let db = <Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db);
+        let file = self.file(db)?;
+        file.text(db)?.ok_or(VfsError::FileNotExists(self))
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

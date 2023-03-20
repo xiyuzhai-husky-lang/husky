@@ -5,8 +5,7 @@ use salsa::DbWithJar;
 pub trait TomlTokenDb: DbWithJar<TomlTokenJar> + VfsDb {
     fn toml_tokenize(&self, input: &str) -> Vec<TomlToken>;
 
-    fn package_manifest_toml_token_sheet(&self, package: PackagePath)
-        -> &VfsResult<TomlTokenSheet>;
+    fn toml_token_sheet(&self, path: DiffPath) -> VfsResult<Option<&TomlTokenSheet>>;
 }
 
 impl<T> TomlTokenDb for T
@@ -17,20 +16,21 @@ where
         TomlTokenIter::new(self, input).collect()
     }
 
-    fn package_manifest_toml_token_sheet(
-        &self,
-        package: PackagePath,
-    ) -> &VfsResult<TomlTokenSheet> {
-        package_manifest_toml_token_sheet(self, package)
+    fn toml_token_sheet(&self, path: DiffPath) -> VfsResult<Option<&TomlTokenSheet>> {
+        match toml_token_sheet(self, path) {
+            Ok(Some(sheet)) => Ok(Some(sheet)),
+            Ok(None) => Ok(None),
+            Err(e) => Err(e.clone()),
+        }
     }
 }
 
 #[salsa::tracked(jar = TomlTokenJar, return_ref)]
-pub(crate) fn package_manifest_toml_token_sheet(
+pub(crate) fn toml_token_sheet(
     db: &dyn TomlTokenDb,
-    package_path: PackagePath,
-) -> VfsResult<TomlTokenSheet> {
-    Ok(TomlTokenSheet::new(
-        db.toml_tokenize(db.package_manifest_content(package_path)?),
-    ))
+    path: DiffPath,
+) -> VfsResult<Option<TomlTokenSheet>> {
+    Ok(path
+        .text(db)?
+        .map(|text| TomlTokenSheet::new(db.toml_tokenize(text))))
 }

@@ -11,7 +11,7 @@ use thiserror::Error;
 #[salsa::derive_debug_with_db(db = VfsDb)]
 pub enum VfsError {
     #[error("file {0:?} not found")]
-    FileNotExists(PathBuf),
+    FileNotExists(DiffPath),
     #[error("IO Error: ???")]
     IO {
         path: PathBuf,

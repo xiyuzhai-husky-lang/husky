@@ -41,11 +41,17 @@ pub trait VfsTestUtils: VfsDb {
         for _dir in test_dirs() {
             let toolchain = self.dev_toolchain().unwrap();
             for domain in vfs_test_domains() {
-                for path in collect_package_relative_dirs(&domain.src_base()).into_iter() {
+                for (path, name) in collect_package_relative_dirs(
+                    <Self as salsa::DbWithJar<WordJar>>::as_jar_db(self),
+                    &domain.src_base(),
+                )
+                .into_iter()
+                {
                     let vfs_db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(self);
-                    let package_path = PackagePath::new_local(
+                    let package_path = PackagePath::new_local_package(
                         vfs_db,
                         toolchain,
+                        name,
                         &path.to_logical_path(&domain.src_base()),
                     )
                     .unwrap();

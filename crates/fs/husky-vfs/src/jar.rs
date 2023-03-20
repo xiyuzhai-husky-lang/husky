@@ -16,6 +16,7 @@ pub struct VfsJar(
     NotebookSubsectionId,
     NotebookAst,
     package_dir,
+    package_manifest_path,
     module_diff_path,
     package_manifest_file,
     module_file,
@@ -23,7 +24,6 @@ pub struct VfsJar(
     PublishedToolchain,
     published_toolchain_library_path,
     current_toolchain,
-    package_ident,
 );
 
 impl salsa::storage::IngredientsFor for VfsCache {

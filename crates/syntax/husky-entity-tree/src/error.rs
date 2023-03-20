@@ -59,8 +59,8 @@ pub enum DerivedEntityTreeError {
     Vfs(#[from] VfsError),
     #[error("derived {0}")]
     EntityPath(#[from] EntityPathError),
-    #[error("derived {0}")]
-    Manifest(#[from] ManifestError),
+    #[error("derived")]
+    Manifest,
     #[error("from toolchain error {0}")]
     Toolchain(#[from] ToolchainError),
     #[error("from prelude error {0}")]

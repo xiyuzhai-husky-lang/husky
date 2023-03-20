@@ -2,14 +2,19 @@ mod env;
 mod error;
 mod module_tree;
 mod rel;
+#[cfg(test)]
+mod tests;
 
-pub use env::*;
-pub use error::*;
+pub use self::env::*;
+pub use self::error::*;
+pub use self::rel::*;
 pub use module_tree::*;
-pub use rel::*;
 pub use std::path::{Path, PathBuf};
 
+#[cfg(test)]
+use self::tests::*;
 use husky_check_utils::should_satisfy;
+use husky_word::{Name, WordDb, WordJar};
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
@@ -102,41 +107,52 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs(dir: &Path) -> Vec<PathBuf> {
+pub fn collect_husky_package_dirs<Db: ?Sized + WordDb>(
+    db: &Db,
+    dir: &Path,
+) -> Vec<(PathBuf, Name)> {
     should_satisfy!(&dir, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
-    collect_husky_package_dirs_aux(dir, &mut pack_paths);
+    collect_husky_package_dirs_aux(db, dir, &mut pack_paths);
     pack_paths.sort();
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux(dir: &Path, pack_paths: &mut Vec<PathBuf>) {
+fn collect_husky_package_dirs_aux<Db: ?Sized + WordDb>(
+    db: &Db,
+    dir: &Path,
+    pack_paths: &mut Vec<(PathBuf, Name)>,
+) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir).unwrap() {
         let entry = entry.unwrap();
         let subpath = entry.path();
         if subpath.is_dir() {
-            collect_husky_package_dirs_aux(&subpath, pack_paths)
+            collect_husky_package_dirs_aux(db, &subpath, pack_paths)
         }
     }
-    if manifest_path.exists() {
-        pack_paths.push(dir.to_owned())
+    if let Some(name) = read_package_name_from_manifest(db, &manifest_path) {
+        pack_paths.push((dir.to_owned(), name))
     }
 }
 
-pub fn collect_package_relative_dirs(base: &Path) -> Vec<RelativePathBuf> {
+pub fn collect_package_relative_dirs<Db: ?Sized + WordDb>(
+    db: &Db,
+    base: &Path,
+) -> Vec<(RelativePathBuf, Name)> {
     should_satisfy!(&base, |dir: &Path| dir.is_dir());
     let mut pack_paths = vec![];
     let dir = RelativePathBuf::from(".");
-    collect_package_relative_dirs_aux(base, &dir, &mut pack_paths);
+    collect_package_relative_dirs_aux(db, base, &dir, &mut pack_paths);
     pack_paths.sort();
     pack_paths
 }
 
-fn collect_package_relative_dirs_aux(
+fn collect_package_relative_dirs_aux<Db: ?Sized + WordDb>(
+    db: &Db,
     base: &Path,
     dir: &RelativePath,
-    pack_paths: &mut Vec<RelativePathBuf>,
+    pack_paths: &mut Vec<(RelativePathBuf, Name)>,
 ) {
     let manifest_path = dir.join("Corgi.toml");
     for entry in std::fs::read_dir(&dir.to_logical_path(base)).unwrap() {
@@ -144,19 +160,28 @@ fn collect_package_relative_dirs_aux(
         let subpath = entry.path();
         if subpath.is_dir() {
             collect_package_relative_dirs_aux(
+                db,
                 base,
                 &dir.join(subpath.file_name().unwrap().to_str().unwrap()),
                 pack_paths,
             )
         }
     }
-    if manifest_path.to_logical_path(base).exists() {
-        pack_paths.push(dir.to_owned())
+    if let Some(name) = read_package_name_from_manifest(db, &manifest_path.to_logical_path(base)) {
+        pack_paths.push((dir.to_owned(), name))
     }
+}
+
+fn read_package_name_from_manifest<Db: ?Sized + WordDb>(db: &Db, path: &Path) -> Option<Name> {
+    husky_minimal_toml_utils::find_package_name_in_toml(&std::fs::read_to_string(path).ok()?)
+        .ok()
+        .map(|s| Name::from_borrowed(<Db as salsa::DbWithJar<WordJar>>::as_jar_db(db), s))
+        .flatten()
 }
 
 #[test]
 fn collect_package_relative_dirs_works() {
+    let db = DB::default();
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
     let library_dir = cargo_manifest_dir
         .join("../../../library")
@@ -168,7 +193,7 @@ fn collect_package_relative_dirs_works() {
             "./std",
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&library_dir));
+    .assert_debug_eq(&collect_package_relative_dirs(&db, &library_dir));
 
     let examples_dir = cargo_manifest_dir
         .join("../../../examples")
@@ -182,29 +207,36 @@ fn collect_package_relative_dirs_works() {
             "./natural-number-game",
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&examples_dir));
+    .assert_debug_eq(&collect_package_relative_dirs(&db, &examples_dir));
 }
 
 #[test]
 fn collect_package_dirs_works() {
-    fn t(dir: &Path) {
+    let db = DB::default();
+    fn t(db: &DB, dir: &Path) {
         assert_eq!(
-            collect_package_relative_dirs(dir)
+            collect_package_relative_dirs(db, dir)
                 .into_iter()
-                .map(|rpath| rpath.to_logical_path(dir))
+                .map(|(rpath, name)| (rpath.to_logical_path(dir), name))
                 .collect::<Vec<_>>(),
-            collect_husky_package_dirs(dir)
+            collect_husky_package_dirs(db, dir)
         )
     }
     let cargo_manifest_dir: PathBuf = std::env::var("CARGO_MANIFEST_DIR").unwrap().into();
-    t(&cargo_manifest_dir
-        .join("../../../library")
-        .canonicalize()
-        .unwrap());
-    t(&cargo_manifest_dir
-        .join("../../../examples")
-        .canonicalize()
-        .unwrap())
+    t(
+        &db,
+        &cargo_manifest_dir
+            .join("../../../library")
+            .canonicalize()
+            .unwrap(),
+    );
+    t(
+        &db,
+        &cargo_manifest_dir
+            .join("../../../examples")
+            .canonicalize()
+            .unwrap(),
+    )
 }
 
 pub fn collect_all_source_files(dir: PathBuf) -> Vec<PathBuf> {

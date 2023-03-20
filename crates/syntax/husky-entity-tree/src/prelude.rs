@@ -4,25 +4,21 @@ use husky_vfs::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum PreludeError {
     #[error("{0}")]
     Toolchain(#[from] ToolchainError),
     #[error("core prelude")]
     CorePreludeEntityTreeSheet(Box<EntityTreeError>),
-    #[error("manifest error {0}")]
-    ManifestError(#[from] ManifestError),
+    #[error("manifest error")]
+    ManifestError,
     #[error("vfs error {0}")]
     VfsError(#[from] VfsError),
 }
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
-impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for PreludeError {
-    fn fmt(
-        &self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
+impl From<&ManifestError> for PreludeError {
+    fn from(value: &ManifestError) -> Self {
         todo!()
     }
 }
@@ -67,7 +63,7 @@ fn crate_symbol_context_works() {
     DB::default().ast_plain_test("crate-symbol-context", |db, crate_path| {
         let crate_symbol_context = crate_symbol_context(db, crate_path).unwrap();
         let t = |path: EntityPath| {
-            let symbol = match crate_symbol_context.resolve_ident(path.ident(db).unwrap()) {
+            let symbol = match crate_symbol_context.resolve_ident(path.ident(db)) {
                 Some(symbol) => symbol,
                 None => panic!(
                     r#"crate symbol context should contain {:?}

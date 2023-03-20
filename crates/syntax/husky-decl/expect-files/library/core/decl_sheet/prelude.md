@@ -1,5 +1,0 @@
-Ok(
-    DeclSheet {
-        decls: [],
-    },
-)

@@ -10,8 +10,14 @@ doctest = false
 thiserror = "1.0.37"
 relative-path = "1.7.2"
 pathdiff = "0.2.1"
-husky-print-utils = { path = "../husky-print-utils" }
-husky-check-utils = { path = "../husky-check-utils" }
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-minimal-toml-utils = { path = "../../utils/husky-minimal-toml-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"

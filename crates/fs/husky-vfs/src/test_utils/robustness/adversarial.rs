@@ -1,6 +1,6 @@
 use std::panic::AssertUnwindSafe;
 
-use husky_adversarial_utils::{new_rand_string2};
+use husky_adversarial_utils::new_rand_string2;
 
 use super::*;
 
@@ -39,7 +39,8 @@ impl VfsAdversarial {
     where
         Db: VfsDb + ?Sized,
     {
-        let original_text = db.module_content(module_path).unwrap().to_owned();
+        let original_text = module_path.text(db).unwrap();
+        let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
         let file = db
             .file_from_diff_path(db.module_diff_path(module_path).unwrap())

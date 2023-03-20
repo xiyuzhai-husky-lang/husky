@@ -2,7 +2,7 @@
 #![feature(try_trait_v2)]
 mod db;
 mod error;
-mod line_group;
+mod paragraph;
 mod sheet;
 mod special;
 mod stream;
@@ -13,15 +13,15 @@ mod tokenize;
 pub use db::*;
 pub use error::*;
 use husky_text::TextRange;
-pub use line_group::*;
+pub use paragraph::*;
 pub use sheet::*;
 pub use special::*;
 pub use stream::*;
 
 use tokenize::*;
 
-#[salsa::jar(db = TomlTokenDb)]
-pub struct TomlTokenJar(toml_token_sheet);
+#[salsa::jar(db = LaTexTokenDb)]
+pub struct LaTexTokenJar();
 
 use husky_text_span::DocumentSpan;
 use husky_word::Word;
@@ -34,14 +34,14 @@ pub type StringValue = Arc<String>;
 
 /// tokens in toml file
 #[derive(Debug, PartialEq, Eq)]
-pub struct TomlToken {
+pub struct EnglishToken {
     span: DocumentSpan,
     range: TextRange,
-    variant: TomlTokenVariant,
+    variant: EnglishTokenVariant,
 }
 
-impl TomlToken {
-    pub fn new(span: DocumentSpan, range: TextRange, variant: TomlTokenVariant) -> Self {
+impl EnglishToken {
+    pub fn new(span: DocumentSpan, range: TextRange, variant: EnglishTokenVariant) -> Self {
         Self {
             span,
             range,
@@ -57,46 +57,46 @@ impl TomlToken {
         self.range
     }
 
-    pub fn variant(&self) -> &TomlTokenVariant {
+    pub fn variant(&self) -> &EnglishTokenVariant {
         &self.variant
     }
 }
 
 /// variants for tokens in toml file
 #[derive(Debug, Eq, PartialEq, Clone)]
-pub enum TomlTokenVariant {
+pub enum EnglishTokenVariant {
     Comment,
-    Special(TomlSpecialToken),
+    Special(EnglishSpecialToken),
     Word(Word),
     StringLiteral { val: StringValue, multiline: bool },
-    Err(TomlTokenError),
+    Err(EnglishTokenError),
 }
 
-impl TomlTokenVariant {
+impl EnglishTokenVariant {
     pub fn describe(&self) -> &'static str {
         match *self {
-            TomlTokenVariant::Word(_) => "a word",
-            TomlTokenVariant::Comment => "a comment",
-            TomlTokenVariant::Special(special) => special.describe(),
-            TomlTokenVariant::StringLiteral { multiline, .. } => {
+            EnglishTokenVariant::Word(_) => "a word",
+            EnglishTokenVariant::Comment => "a comment",
+            EnglishTokenVariant::Special(special) => special.describe(),
+            EnglishTokenVariant::StringLiteral { multiline, .. } => {
                 if multiline {
                     "a multiline string"
                 } else {
                     "a string"
                 }
             }
-            TomlTokenVariant::Err(_) => todo!(),
+            EnglishTokenVariant::Err(_) => todo!(),
         }
     }
 }
 
-impl const std::ops::FromResidual<Result<core::convert::Infallible, TomlTokenError>>
-    for TomlTokenVariant
+impl const std::ops::FromResidual<Result<core::convert::Infallible, EnglishTokenError>>
+    for EnglishTokenVariant
 {
-    fn from_residual(residual: Result<core::convert::Infallible, TomlTokenError>) -> Self {
+    fn from_residual(residual: Result<core::convert::Infallible, EnglishTokenError>) -> Self {
         match residual {
             Ok(_) => unreachable!(),
-            Err(e) => TomlTokenVariant::Err(e),
+            Err(e) => EnglishTokenVariant::Err(e),
         }
     }
 }

@@ -1,11 +1,15 @@
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Hash, PartialOrd, Ord, Clone, Copy)]
 pub struct Name(Word);
 
 impl Name {
     pub fn word(self) -> Word {
         self.0
+    }
+
+    pub fn ident(self, db: &dyn WordDb) -> Ident {
+        name_to_ident(db, self.0)
     }
 
     pub fn from_word(db: &dyn WordDb, word: Word) -> Option<Self> {
@@ -30,6 +34,17 @@ impl Name {
 
     pub fn data(self, db: &dyn WordDb) -> &str {
         db.dt_word(self.0)
+    }
+}
+
+/// only use in this module
+#[salsa::tracked(jar = WordJar)]
+pub(crate) fn name_to_ident(db: &dyn WordDb, word: Word) -> Ident {
+    let mut name = word.data(db);
+    if !name.contains("-") {
+        return Ident::from_borrowed(db, name).unwrap();
+    } else {
+        Ident::from_owned(db, name.replace("-", "_")).unwrap()
     }
 }
 

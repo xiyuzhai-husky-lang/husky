@@ -62,12 +62,12 @@ impl From<ModuleItemPath> for EntityPath {
 }
 
 impl EntityPath {
-    pub fn ident(self, db: &dyn EntityPathDb) -> VfsResult<Ident> {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
             EntityPath::Module(path) => path.ident(db),
-            EntityPath::ModuleItem(path) => Ok(path.ident(db)),
-            EntityPath::AssociatedItem(path) => Ok(path.ident(db)),
-            EntityPath::Variant(path) => Ok(path.ident(db)),
+            EntityPath::ModuleItem(path) => path.ident(db),
+            EntityPath::AssociatedItem(path) => path.ident(db),
+            EntityPath::Variant(path) => path.ident(db),
         }
     }
 
