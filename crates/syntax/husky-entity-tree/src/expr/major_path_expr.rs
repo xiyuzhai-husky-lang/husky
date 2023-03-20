@@ -93,7 +93,8 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
                 return Err(OriginalMajorPathExprError::UnrecognizedIdent(ident_token).into())
             };
         let module_item_symbol = match entity_symbol {
-            EntitySymbol::CrateRoot(_) => todo!(),
+            EntitySymbol::CrateRoot { .. } => todo!(),
+            EntitySymbol::PackageDependency { lib_module } => todo!(),
             EntitySymbol::Submodule(_) => todo!(),
             EntitySymbol::ModuleItem(module_item_symbol) => module_item_symbol,
             EntitySymbol::Use(_) => todo!(),

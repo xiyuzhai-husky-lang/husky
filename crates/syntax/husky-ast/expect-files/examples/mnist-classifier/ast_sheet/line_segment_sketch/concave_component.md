@@ -320,7 +320,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -348,7 +348,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -376,7 +376,7 @@ Ok(
                     body: ArenaIdxRange(
                         7..13,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -404,7 +404,7 @@ Ok(
                     body: ArenaIdxRange(
                         16..20,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -432,7 +432,7 @@ Ok(
                     body: ArenaIdxRange(
                         25..32,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -460,7 +460,7 @@ Ok(
                     body: ArenaIdxRange(
                         32..33,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -488,7 +488,7 @@ Ok(
                     body: ArenaIdxRange(
                         33..34,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -516,7 +516,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -544,7 +544,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -572,7 +572,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -600,7 +600,7 @@ Ok(
                     body: ArenaIdxRange(
                         37..38,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -628,7 +628,7 @@ Ok(
                     body: ArenaIdxRange(
                         38..39,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     entity_kind: AssociatedItem {
@@ -828,7 +828,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -869,7 +869,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..69,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,

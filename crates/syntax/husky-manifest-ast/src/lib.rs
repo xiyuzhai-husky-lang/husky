@@ -1,10 +1,11 @@
+#![feature(result_flattening)]
 #![feature(trait_upcasting)]
 mod db;
 mod dependency;
 mod error;
 mod menu;
-mod parser;
 mod sections;
+mod transformer;
 
 pub use self::db::*;
 pub use self::dependency::*;
@@ -12,29 +13,43 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::sections::*;
 
-use self::parser::ManifestAstParser;
+use self::transformer::*;
 use husky_text::TextRange;
 use husky_toml_ast::*;
 use husky_vfs::*;
 
 #[salsa::jar(db = ManifestAstDb)]
-pub struct ManifestAstJar(
-    PackageManifestAstSheet,
-    package_manifest_ast_sheet,
-    manifest_ast_menu,
-);
+pub struct ManifestAstJar(package_manifest_ast_sheet_aux, manifest_ast_menu);
 
-#[salsa::tracked(db = ManifestAstDb, jar = ManifestAstJar)]
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ManifestAstDb)]
 pub struct PackageManifestAstSheet {
-    /// required
-    #[return_ref]
-    pub package_section: ManifestAstResult<ManifestPackageSectionAst>,
-    #[return_ref]
-    pub dependencies_section: ManifestAstResult<Option<ManifestDependenciesSectionAst>>,
-    #[return_ref]
-    pub dev_dependencies_section: ManifestAstResult<Option<ManifestDevDependenciesSectionAst>>,
-    #[return_ref]
-    pub errors: Vec<ManifestAstError>,
+    package_section: ManifestAstResult<ManifestPackageSectionAst>,
+    dependencies_section: Option<ManifestAstResult<ManifestDependenciesSectionAst>>,
+    dev_dependencies_section: Option<ManifestAstResult<ManifestDevDependenciesSectionAst>>,
+    errors: Vec<ManifestAstError>,
+}
+
+impl PackageManifestAstSheet {
+    pub fn package_section(&self) -> Result<&ManifestPackageSectionAst, &ManifestAstError> {
+        self.package_section.as_ref()
+    }
+
+    pub fn dependencies_section(
+        &self,
+    ) -> Option<ManifestAstResultRef<&ManifestDependenciesSectionAst>> {
+        self.dependencies_section.as_ref().map(|r| r.as_ref())
+    }
+
+    pub fn dev_dependencies_section(
+        &self,
+    ) -> Option<ManifestAstResultRef<&ManifestDevDependenciesSectionAst>> {
+        self.dev_dependencies_section.as_ref().map(|r| r.as_ref())
+    }
+
+    pub fn errors(&self) -> &[ManifestAstError] {
+        self.errors.as_ref()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -43,40 +58,44 @@ pub enum ManifestExprVariant {
 }
 
 pub trait HasPackageManifestAstSheet: Copy {
-    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<PackageManifestAstSheet>;
+    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<&PackageManifestAstSheet>;
 }
 
 impl HasPackageManifestAstSheet for PackagePath {
-    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<PackageManifestAstSheet> {
+    fn manifest_ast_sheet(self, db: &dyn ManifestAstDb) -> VfsResult<&PackageManifestAstSheet> {
         package_manifest_ast_sheet(db, self)
     }
 }
 
-#[salsa::tracked(jar = ManifestAstJar)]
 fn package_manifest_ast_sheet(
     db: &dyn ManifestAstDb,
     path: PackagePath,
-) -> VfsResult<PackageManifestAstSheet> {
-    let toml_ast_sheet = db.package_manifest_toml_ast_sheet(path)?;
-    Ok(build_package_manifest_ast_sheet(db, toml_ast_sheet))
+) -> VfsResult<&PackageManifestAstSheet> {
+    package_manifest_ast_sheet_aux(db, path)
+        .as_ref()
+        .map_err(|e| e.clone())
 }
 
-fn build_package_manifest_ast_sheet(
+#[salsa::tracked(jar = ManifestAstJar, return_ref)]
+fn package_manifest_ast_sheet_aux(
     db: &dyn ManifestAstDb,
-    toml_ast_sheet: &TomlAstSheet,
-) -> PackageManifestAstSheet {
-    todo!()
-    // let mut parser: ManifestAstParser<TomlTable> =
-    //     ManifestAstParser::new(db, toml_ast_sheet, toml_ast_sheet.root_visitor());
-    // let mut errors = vec![];
-    // let package_section = parser.parse_package_section(&mut errors);
-    // let dependencies_section = parser.parse_dependencies_section(db, &mut errors);
-    // let dev_dependencies_section = parser.parse_dev_dependencies_section(&mut errors);
-    // PackageManifestAstSheet::new(
-    //     db,
-    //     package_section,
-    //     dependencies_section,
-    //     dev_dependencies_section,
-    //     errors,
-    // )
+    path: PackagePath,
+) -> VfsResult<PackageManifestAstSheet> {
+    let mut errors = vec![];
+    let mut transformer: ManifestAstTransformer<TomlTable> =
+        ManifestAstTransformer::new_root_expected(
+            db,
+            path.manifest_path(db)?.path(),
+            manifest_ast_menu(db),
+            &mut errors,
+        )?;
+    Ok(PackageManifestAstSheet {
+        package_section: transformer
+            .transform_normal_section()
+            .ok_or(OriginalManifestAstError::MissingPackageSection.into())
+            .flatten(),
+        dependencies_section: transformer.transform_normal_section(),
+        dev_dependencies_section: transformer.transform_normal_section(),
+        errors: transformer.finish(),
+    })
 }

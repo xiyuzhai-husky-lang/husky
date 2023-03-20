@@ -9,7 +9,7 @@ use with_db::PartialOrdWithDb;
 /// Accessibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = VfsDb)]
-pub enum Accessibility {
+pub enum Visibility {
     Public,                  // everyone can access it
     PublicUnder(ModulePath), // everyone under a path can access it
     Private,                 // only self
@@ -24,39 +24,37 @@ pub struct FileAccessibility {
     token_idx_range: TokenIdxRange,
 }
 
-impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Accessibility {
+impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Visibility {
     fn partial_cmp_with_db(&self, db: &Db, other: &Self) -> Option<Ordering> {
         let db = <Db as salsa::DbWithJar<husky_vfs::VfsJar>>::as_jar_db(db);
         match (self, other) {
-            (Accessibility::Public, Accessibility::Public) => Some(Ordering::Equal),
-            (Accessibility::Public, _) => Some(Ordering::Greater),
-            (Accessibility::PublicUnder(_), Accessibility::Public) => Some(Ordering::Less),
-            (
-                Accessibility::PublicUnder(module_path0),
-                Accessibility::PublicUnder(module_path1),
-            ) => module_path0.partial_cmp_with_db(db, module_path1),
-            (
-                Accessibility::PublicUnder(_),
-                Accessibility::Private | Accessibility::Disconnected { .. },
-            ) => Some(Ordering::Greater),
-            (Accessibility::Private, Accessibility::Public) => {
+            (Visibility::Public, Visibility::Public) => Some(Ordering::Equal),
+            (Visibility::Public, _) => Some(Ordering::Greater),
+            (Visibility::PublicUnder(_), Visibility::Public) => Some(Ordering::Less),
+            (Visibility::PublicUnder(module_path0), Visibility::PublicUnder(module_path1)) => {
+                module_path0.partial_cmp_with_db(db, module_path1)
+            }
+            (Visibility::PublicUnder(_), Visibility::Private | Visibility::Disconnected { .. }) => {
+                Some(Ordering::Greater)
+            }
+            (Visibility::Private, Visibility::Public) => {
                 todo!()
             }
-            (Accessibility::Private, Accessibility::PublicUnder(_)) => todo!(),
-            (Accessibility::Private, Accessibility::Private) => Some(Ordering::Equal),
-            (Accessibility::Private, Accessibility::Disconnected { .. }) => Some(Ordering::Greater),
-            (Accessibility::Disconnected { .. }, _) => todo!(),
+            (Visibility::Private, Visibility::PublicUnder(_)) => todo!(),
+            (Visibility::Private, Visibility::Private) => Some(Ordering::Equal),
+            (Visibility::Private, Visibility::Disconnected { .. }) => Some(Ordering::Greater),
+            (Visibility::Disconnected { .. }, _) => todo!(),
         }
     }
 }
 
-impl Accessibility {
+impl Visibility {
     pub fn is_accessible_from(self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
         match self {
-            Accessibility::Public => true,
-            Accessibility::PublicUnder(parent_module) => module_path.starts_with(db, parent_module),
-            Accessibility::Private => todo!(),
-            Accessibility::Disconnected { .. } => todo!(),
+            Visibility::Public => true,
+            Visibility::PublicUnder(parent_module) => module_path.starts_with(db, parent_module),
+            Visibility::Private => todo!(),
+            Visibility::Disconnected { .. } => todo!(),
         }
     }
 }

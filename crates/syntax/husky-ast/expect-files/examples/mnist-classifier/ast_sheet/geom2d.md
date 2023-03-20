@@ -49,7 +49,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -77,7 +77,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -105,7 +105,7 @@ Ok(
                     body: ArenaIdxRange(
                         2..3,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -133,7 +133,7 @@ Ok(
                     body: ArenaIdxRange(
                         3..4,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -161,7 +161,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -441,7 +441,7 @@ Ok(
                     body: ArenaIdxRange(
                         10..11,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -467,7 +467,7 @@ Ok(
                     body: ArenaIdxRange(
                         11..12,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -493,7 +493,7 @@ Ok(
                     body: ArenaIdxRange(
                         12..13,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -521,7 +521,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -549,7 +549,7 @@ Ok(
                     body: ArenaIdxRange(
                         14..15,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -577,7 +577,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..25,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -605,7 +605,7 @@ Ok(
                     body: ArenaIdxRange(
                         25..26,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -633,7 +633,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..41,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -717,7 +717,7 @@ Ok(
                     body: ArenaIdxRange(
                         49..54,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -745,7 +745,7 @@ Ok(
                     body: ArenaIdxRange(
                         54..56,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -837,7 +837,7 @@ Ok(
                     body: ArenaIdxRange(
                         60..61,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -865,7 +865,7 @@ Ok(
                     body: ArenaIdxRange(
                         61..62,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -893,7 +893,7 @@ Ok(
                     body: ArenaIdxRange(
                         62..63,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -921,7 +921,7 @@ Ok(
                     body: ArenaIdxRange(
                         63..64,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -949,7 +949,7 @@ Ok(
                     body: ArenaIdxRange(
                         64..65,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -977,7 +977,7 @@ Ok(
                     body: ArenaIdxRange(
                         65..66,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1037,7 +1037,7 @@ Ok(
                     body: ArenaIdxRange(
                         72..73,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1065,7 +1065,7 @@ Ok(
                     body: ArenaIdxRange(
                         73..74,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1093,7 +1093,7 @@ Ok(
                     body: ArenaIdxRange(
                         74..75,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1121,7 +1121,7 @@ Ok(
                     body: ArenaIdxRange(
                         75..76,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1149,7 +1149,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1190,7 +1190,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1223,7 +1223,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1264,7 +1264,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1305,7 +1305,7 @@ Ok(
                     body: ArenaIdxRange(
                         58..60,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1354,7 +1354,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,

@@ -11,16 +11,11 @@ impl CorgiConfigRegistrySectionAst {
     }
 }
 
-impl TransformFromToml<CorgiConfigAstTomlTransformContext> for CorgiConfigRegistrySectionAst {
+impl TransformFromTomlAst<CorgiConfigAstTransformContext> for CorgiConfigRegistrySectionAst {
     type Ast = TomlSection;
 
     fn transform_from<'a, 'b>(
-        mut section_transformer: TomlTransformer<
-            'a,
-            'b,
-            CorgiConfigAstTomlTransformContext,
-            Self::Ast,
-        >,
+        mut section_transformer: TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, Self::Ast>,
     ) -> CorgiConfigAstResult<Self> {
         let key = section_transformer.menu().path_word();
         Ok(CorgiConfigRegistrySectionAst {
@@ -29,11 +24,11 @@ impl TransformFromToml<CorgiConfigAstTomlTransformContext> for CorgiConfigRegist
     }
 }
 
-impl TransformFromTomlParentKeyed<CorgiConfigAstTomlTransformContext>
+impl TransformFromTomlParentKeyed<CorgiConfigAstTransformContext>
     for CorgiConfigRegistrySectionAst
 {
     fn key(
-        menu: &<CorgiConfigAstTomlTransformContext as TomlDeserializeContext>::Menu,
+        menu: &<CorgiConfigAstTransformContext as TomlDeserializeContext>::Menu,
     ) -> husky_word::Word {
         menu.registry_word()
     }

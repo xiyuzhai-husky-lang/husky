@@ -99,7 +99,7 @@ where
 
 impl<K, V> IntoIterator for VecMap<V>
 where
-    K: PartialEq + Eq + std::fmt::Debug,
+    K: PartialEq + Eq,
     V: AsVecMapEntry<K = K>,
 {
     type Item = V;

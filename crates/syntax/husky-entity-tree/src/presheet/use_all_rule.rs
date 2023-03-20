@@ -6,7 +6,7 @@ pub struct UseAllRule {
     parent: ModulePath,
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    accessibility: Accessibility,
+    accessibility: Visibility,
     // how many symbols have been checked
     progress: usize,
 }
@@ -16,7 +16,7 @@ impl UseAllRule {
         parent: ModulePath,
         ast_idx: AstIdx,
         use_expr_idx: UseExprIdx,
-        accessibility: Accessibility,
+        accessibility: Visibility,
     ) -> Self {
         Self {
             parent,
@@ -43,7 +43,7 @@ impl UseAllRule {
         self.use_expr_idx
     }
 
-    pub fn accessibility(&self) -> Accessibility {
+    pub fn accessibility(&self) -> Visibility {
         self.accessibility
     }
 

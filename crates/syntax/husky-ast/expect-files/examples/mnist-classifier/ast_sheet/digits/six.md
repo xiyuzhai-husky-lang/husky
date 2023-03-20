@@ -435,7 +435,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::six`,
                     ),
                     entity_kind: ModuleItem {
@@ -470,7 +470,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..2,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::six`,
                     ),
                     entity_kind: ModuleItem {
@@ -505,7 +505,7 @@ Ok(
                     body: ArenaIdxRange(
                         26..38,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::six`,
                     ),
                     entity_kind: ModuleItem {
@@ -540,7 +540,7 @@ Ok(
                     body: ArenaIdxRange(
                         38..41,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::six`,
                     ),
                     entity_kind: ModuleItem {
@@ -575,7 +575,7 @@ Ok(
                     body: ArenaIdxRange(
                         43..49,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::six`,
                     ),
                     entity_kind: ModuleItem {

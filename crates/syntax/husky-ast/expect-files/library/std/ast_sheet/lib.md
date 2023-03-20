@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,
@@ -37,7 +37,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,
@@ -65,7 +65,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `std`,
                     ),
                     entity_kind: Module,

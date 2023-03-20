@@ -11,7 +11,7 @@ use husky_token::{IdentToken, TokenIdx};
 pub struct ModuleItemSymbol {
     #[id]
     pub path: ModuleItemPath,
-    pub accessibility: Accessibility,
+    pub accessibility: Visibility,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -20,7 +20,7 @@ pub struct ModuleItemSymbol {
 pub struct SubmoduleSymbol {
     #[id]
     pub path: ModulePath,
-    pub accessibility: Accessibility,
+    pub accessibility: Visibility,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -30,7 +30,7 @@ pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
     pub path: EntityPath,
-    pub accessibility: Accessibility,
+    pub accessibility: Visibility,
     pub ast_idx: AstIdx,
     pub use_expr_idx: UseExprIdx,
 }
@@ -45,16 +45,18 @@ impl ModuleItemSymbol {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
-    CrateRoot(ModulePath),
+    CrateRoot { root_module: ModulePath },
+    PackageDependency { lib_module: ModulePath },
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
     Use(UseSymbol),
 }
 
 impl EntitySymbol {
-    fn accessibility(&self, db: &dyn EntityTreeDb) -> Accessibility {
+    fn accessibility(&self, db: &dyn EntityTreeDb) -> Visibility {
         match self {
-            EntitySymbol::CrateRoot(root) => Accessibility::PublicUnder(*root),
+            EntitySymbol::CrateRoot { root_module } => Visibility::PublicUnder(*root_module),
+            EntitySymbol::PackageDependency { .. } => Visibility::Public,
             EntitySymbol::Submodule(symbol) => symbol.accessibility(db),
             EntitySymbol::ModuleItem(symbol) => symbol.accessibility(db),
             EntitySymbol::Use(symbol) => symbol.accessibility(db),
@@ -67,7 +69,8 @@ impl EntitySymbol {
 
     pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
         match self {
-            EntitySymbol::CrateRoot(root) => root.into(),
+            EntitySymbol::CrateRoot { root_module } => root_module.into(),
+            EntitySymbol::PackageDependency { lib_module } => lib_module.into(),
             EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
             EntitySymbol::ModuleItem(symbol) => symbol.path(db).into(),
             EntitySymbol::Use(symbol) => symbol.path(db).into(),

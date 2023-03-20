@@ -9,7 +9,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
-    fn parse_accessibility(&mut self) -> AstResult<Accessibility> {
+    fn parse_accessibility(&mut self) -> AstResult<Visibility> {
         let token_stream = self.borrow_mut();
         Ok(match token_stream.peek().unwrap() {
             Token::Keyword(Keyword::Pub) => {
@@ -20,10 +20,10 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
                     ),
                 )? {
                     Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
-                    _ => Accessibility::Public,
+                    _ => Visibility::Public,
                 }
             }
-            _ => Accessibility::PublicUnder(self.module_path()),
+            _ => Visibility::PublicUnder(self.module_path()),
         })
     }
 

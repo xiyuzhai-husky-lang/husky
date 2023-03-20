@@ -197,7 +197,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
@@ -232,7 +232,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {
@@ -267,7 +267,7 @@ Ok(
                     body: ArenaIdxRange(
                         15..17,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     entity_kind: ModuleItem {

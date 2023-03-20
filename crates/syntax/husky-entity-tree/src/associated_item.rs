@@ -21,7 +21,7 @@ pub struct AssociatedItem {
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub associated_item_kind: AssociatedItemKind,
-    pub accessibility: Accessibility,
+    pub accessibility: Visibility,
     pub is_generic: bool,
 }
 
@@ -53,7 +53,7 @@ impl AssociatedItem {
         ast_idx: AstIdx,
         ident: Ident,
         associated_item_kind: AssociatedItemKind,
-        accessibility: Accessibility,
+        accessibility: Visibility,
         is_generic: bool,
     ) -> Self {
         let id = AssociatedItemId {

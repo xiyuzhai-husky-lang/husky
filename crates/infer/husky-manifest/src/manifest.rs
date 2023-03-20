@@ -77,15 +77,14 @@ impl PackageManifest {
         db: &dyn ManifestDb,
         toolchain: Toolchain,
         registry_path: RegistryPath,
-        manifest_ast: PackageManifestAstSheet,
+        manifest_ast: &PackageManifestAstSheet,
     ) -> Self {
         let dependencies_section = PackageDependenciesSection::new(
             db,
             manifest_ast
-                .dependencies_section(db)
+                .dependencies_section()
                 .as_ref()
-                .ok()
-                .map(|s| s.as_ref())
+                .map(|s| s.as_ref().ok())
                 .flatten()
                 .map(|dependencies_section_ast| {
                     dependencies_section_ast
@@ -106,12 +105,24 @@ impl PackageManifest {
         let dev_dependencies_section = PackageDevDependenciesSection::new(
             db,
             manifest_ast
-                .dependencies_section(db)
+                .dependencies_section()
                 .as_ref()
-                .ok()
-                .map(|s| s.as_ref())
+                .map(|s| s.as_ref().ok())
                 .flatten()
-                .map(|ast| todo!())
+                .map(|dev_dependencies_section_ast| {
+                    dev_dependencies_section_ast
+                        .dependencies()
+                        .iter()
+                        .map(|dependency_ast| {
+                            PackageDependency::from_ast(
+                                db,
+                                toolchain,
+                                registry_path,
+                                dependency_ast,
+                            )
+                        })
+                        .collect()
+                })
                 .unwrap_or_default(),
         );
         Self::new(db, dependencies_section, dev_dependencies_section)

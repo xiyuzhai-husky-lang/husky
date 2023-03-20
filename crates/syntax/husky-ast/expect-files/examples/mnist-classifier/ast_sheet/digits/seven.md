@@ -358,7 +358,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {
@@ -393,7 +393,7 @@ Ok(
                     body: ArenaIdxRange(
                         1..4,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {
@@ -428,7 +428,7 @@ Ok(
                     body: ArenaIdxRange(
                         4..5,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {
@@ -463,7 +463,7 @@ Ok(
                     body: ArenaIdxRange(
                         5..9,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {
@@ -498,7 +498,7 @@ Ok(
                     body: ArenaIdxRange(
                         9..15,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {
@@ -533,7 +533,7 @@ Ok(
                     body: ArenaIdxRange(
                         28..39,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     entity_kind: ModuleItem {

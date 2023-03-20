@@ -33,7 +33,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
@@ -112,7 +112,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {
@@ -147,7 +147,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `natural_number_game`,
                     ),
                     entity_kind: ModuleItem {

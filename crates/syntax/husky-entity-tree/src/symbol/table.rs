@@ -1,6 +1,9 @@
+use husky_manifest::PackageDependency;
+
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntitySymbolTable(Vec<EntitySymbolEntry>);
 
 impl EntitySymbolTable {
@@ -31,19 +34,6 @@ impl EntitySymbolTable {
             self.insert(new_entry)?
         }
         Ok(())
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        f.debug_tuple("EntitySymbolTable")
-            .field(&(&self.0).debug(db))
-            .finish()
     }
 }
 
@@ -82,19 +72,34 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable
 }
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntitySymbolEntry {
     ident: Ident,
-    accessibility: Accessibility,
+    visibility: Visibility,
     symbol: EntitySymbol,
 }
 
 impl EntitySymbolEntry {
     pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
-        let root = ModulePath::new_root(db, crate_path);
+        let root_module = ModulePath::new_root(db, crate_path);
         Self {
             ident: db.word_menu().crate_ident(),
-            accessibility: Accessibility::PublicUnder(root),
-            symbol: EntitySymbol::CrateRoot(root),
+            visibility: Visibility::PublicUnder(root_module),
+            symbol: EntitySymbol::CrateRoot { root_module },
+        }
+    }
+
+    pub(crate) fn new_package_dependency(
+        db: &dyn EntityTreeDb,
+        package_dependency: &PackageDependency,
+    ) -> Self {
+        let package_path = package_dependency.package_path();
+        Self {
+            ident: package_path.ident(db),
+            visibility: Visibility::Public,
+            symbol: EntitySymbol::PackageDependency {
+                lib_module: package_path.lib_module(db),
+            },
         }
     }
 
@@ -107,7 +112,7 @@ impl EntitySymbolEntry {
         let accessibility = rule.accessibility();
         Self {
             ident: rule.ident().unwrap(),
-            accessibility,
+            visibility: accessibility,
             symbol: UseSymbol::new(
                 db,
                 original_symbol,
@@ -130,7 +135,7 @@ impl EntitySymbolEntry {
             .is_accessible_from(db, target_module_path)
             .then_some(EntitySymbolEntry {
                 ident: self.ident,
-                accessibility: rule.accessibility(),
+                visibility: rule.accessibility(),
                 symbol: UseSymbol::new(
                     db,
                     self.symbol,
@@ -151,28 +156,13 @@ impl EntitySymbolEntry {
         self.ident
     }
 
-    pub fn accessibility(&self) -> Accessibility {
-        self.accessibility
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolEntry {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("EntitySymbolEntry")
-            .field("ident", &self.ident.debug(db))
-            .field("accessibility", &self.accessibility.debug(db))
-            .field("symbol", &self.symbol.debug(db))
-            .finish()
+    pub fn accessibility(&self) -> Visibility {
+        self.visibility
     }
 }
 
 #[derive(Debug, Default, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct NativeEntitySymbolTable(Vec<NativeEntitySymbolEntry>);
 
 impl NativeEntitySymbolTable {
@@ -196,23 +186,11 @@ impl NativeEntitySymbolTable {
     }
 }
 
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbolTable {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        f.debug_tuple("NativeEntitySymbolTable")
-            .field(&(&self.0).debug(db))
-            .finish()
-    }
-}
-
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct NativeEntitySymbolEntry {
     ident: Ident,
-    accessibility: Accessibility,
+    accessibility: Visibility,
     symbol: NativeEntitySymbol,
 }
 
@@ -220,14 +198,14 @@ impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
     fn from(val: &NativeEntitySymbolEntry) -> Self {
         EntitySymbolEntry {
             ident: val.ident,
-            accessibility: val.accessibility,
+            visibility: val.accessibility,
             symbol: val.symbol.into(),
         }
     }
 }
 
 impl NativeEntitySymbolEntry {
-    pub fn new(ident: Ident, accessibility: Accessibility, symbol: NativeEntitySymbol) -> Self {
+    pub fn new(ident: Ident, accessibility: Visibility, symbol: NativeEntitySymbol) -> Self {
         Self {
             ident,
             accessibility,
@@ -237,21 +215,5 @@ impl NativeEntitySymbolEntry {
 
     pub fn symbol(&self) -> NativeEntitySymbol {
         self.symbol
-    }
-}
-
-impl<Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for NativeEntitySymbolEntry {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("NativeEntitySymbolEntry")
-            .field("ident", &self.ident.debug(db))
-            .field("accessibility", &self.accessibility.debug(db))
-            .field("symbol", &self.symbol.debug(db))
-            .finish()
     }
 }

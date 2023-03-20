@@ -249,7 +249,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..2,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,
@@ -282,7 +282,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..7,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -317,7 +317,7 @@ Ok(
                     body: ArenaIdxRange(
                         18..24,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -357,7 +357,7 @@ Ok(
                     body: ArenaIdxRange(
                         24..27,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {
@@ -397,7 +397,7 @@ Ok(
                     body: ArenaIdxRange(
                         27..30,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `quick_sort`,
                     ),
                     entity_kind: ModuleItem {

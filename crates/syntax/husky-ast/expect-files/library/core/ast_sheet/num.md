@@ -9,7 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -35,7 +35,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -61,7 +61,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -87,7 +87,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -113,7 +113,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -139,7 +139,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `core::num`,
                     ),
                     entity_kind: AssociatedItem {
@@ -167,7 +167,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -193,7 +193,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -219,7 +219,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -245,7 +245,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -271,7 +271,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -297,7 +297,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -323,7 +323,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -349,7 +349,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -375,7 +375,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -401,7 +401,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -427,7 +427,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -453,7 +453,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -479,7 +479,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -505,7 +505,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -531,7 +531,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -557,7 +557,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -583,7 +583,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -609,7 +609,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -635,7 +635,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -661,7 +661,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `core::num`,
                     ),
                     entity_kind: AssociatedItem {
@@ -689,7 +689,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -715,7 +715,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeAsTraitItem(
                             MethodFn,
@@ -756,7 +756,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -815,7 +815,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -874,7 +874,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -933,7 +933,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -992,7 +992,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1051,7 +1051,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1110,7 +1110,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1169,7 +1169,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1228,7 +1228,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1287,7 +1287,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1346,7 +1346,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1405,7 +1405,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1464,7 +1464,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1523,7 +1523,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,

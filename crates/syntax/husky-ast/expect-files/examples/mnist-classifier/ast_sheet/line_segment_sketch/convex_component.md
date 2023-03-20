@@ -34,7 +34,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     entity_kind: ModuleItem {

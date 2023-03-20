@@ -91,6 +91,14 @@ impl PackagePath {
     pub fn manifest_path(self, db: &dyn VfsDb) -> VfsResult<ManifestPath> {
         package_manifest_path(db, self)
     }
+
+    pub fn lib_crate(self, db: &dyn VfsDb) -> CratePath {
+        CratePath::new(db, self, CrateKind::Library)
+    }
+
+    pub fn lib_module(self, db: &dyn VfsDb) -> ModulePath {
+        ModulePath::new_root(db, self.lib_crate(db))
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

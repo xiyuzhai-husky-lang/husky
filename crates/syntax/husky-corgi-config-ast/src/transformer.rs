@@ -1,11 +1,11 @@
 use crate::*;
 
 pub(crate) type CorgiConfigAstTransformer<'a, 'b, A: TomlAst> =
-    TomlTransformer<'a, 'b, CorgiConfigAstTomlTransformContext, A>;
+    TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, A>;
 
-pub struct CorgiConfigAstTomlTransformContext;
+pub struct CorgiConfigAstTransformContext;
 
-impl TomlDeserializeContext for CorgiConfigAstTomlTransformContext {
+impl TomlDeserializeContext for CorgiConfigAstTransformContext {
     type Db<'a> = dyn CorgiConfigAstDb + 'a;
     type Menu = CorgiConfigAstMenu;
     type Error = CorgiConfigAstError;

@@ -225,7 +225,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..1,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -253,7 +253,7 @@ Ok(
                     body: ArenaIdxRange(
                         6..13,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -281,7 +281,7 @@ Ok(
                     body: ArenaIdxRange(
                         13..14,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -309,7 +309,7 @@ Ok(
                     body: ArenaIdxRange(
                         17..23,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -337,7 +337,7 @@ Ok(
                     body: ArenaIdxRange(
                         23..27,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: AssociatedItem {
@@ -1704,7 +1704,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::Public,
+                    accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -1745,7 +1745,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..34,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1812,7 +1812,7 @@ Ok(
                     body: ArenaIdxRange(
                         34..35,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1847,7 +1847,7 @@ Ok(
                     body: ArenaIdxRange(
                         35..36,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1882,7 +1882,7 @@ Ok(
                     body: ArenaIdxRange(
                         36..37,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1917,7 +1917,7 @@ Ok(
                     body: ArenaIdxRange(
                         62..65,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1952,7 +1952,7 @@ Ok(
                     body: ArenaIdxRange(
                         71..73,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -1987,7 +1987,7 @@ Ok(
                     body: ArenaIdxRange(
                         115..118,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -2022,7 +2022,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -2057,7 +2057,7 @@ Ok(
                     body: ArenaIdxRange(
                         118..122,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
@@ -2092,7 +2092,7 @@ Ok(
                     body: ArenaIdxRange(
                         190..195,
                     ),
-                    accessibility: Accessibility::PublicUnder(
+                    accessibility: Visibility::PublicUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     entity_kind: ModuleItem {
