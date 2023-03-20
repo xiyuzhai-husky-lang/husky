@@ -2,29 +2,39 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigRegistrySectionAst {
-    path: Option<CorgiConfigAstResult<String>>,
+    path: Option<CorgiConfigAstResult<DiffPath>>,
 }
 
 impl CorgiConfigRegistrySectionAst {
-    pub fn path(&self) -> Option<CorgiConfigAstResultRef<&String>> {
-        self.path.as_ref().map(|s| s.as_ref())
+    pub fn path(&self) -> Option<CorgiConfigAstResultRef<DiffPath>> {
+        self.path.as_ref().map(|s| s.as_ref().copied())
     }
 }
 
-impl ParseFromToml for CorgiConfigRegistrySectionAst {
-    type Context = CorgiConfigAstTomlParseContext;
-
+impl TransformFromToml<CorgiConfigAstTomlTransformContext> for CorgiConfigRegistrySectionAst {
     type Ast = TomlSection;
 
-    fn parse_from<'a, 'b>(
-        mut parser: TomlParser<'a, 'b, Self::Context, Self::Ast>,
-    ) -> Result<Self, <Self::Context as TomlParseContext>::Error> {
-        Ok(CorgiConfigRegistrySectionAst { path: todo!() })
+    fn transform_from<'a, 'b>(
+        mut section_transformer: TomlTransformer<
+            'a,
+            'b,
+            CorgiConfigAstTomlTransformContext,
+            Self::Ast,
+        >,
+    ) -> CorgiConfigAstResult<Self> {
+        let key = section_transformer.menu().path_word();
+        Ok(CorgiConfigRegistrySectionAst {
+            path: section_transformer.transform_value(key),
+        })
     }
 }
 
-impl ParseFromTomlParentKeyed for CorgiConfigRegistrySectionAst {
-    fn key(menu: &<Self::Context as TomlParseContext>::Menu) -> husky_word::Word {
+impl TransformFromTomlParentKeyed<CorgiConfigAstTomlTransformContext>
+    for CorgiConfigRegistrySectionAst
+{
+    fn key(
+        menu: &<CorgiConfigAstTomlTransformContext as TomlDeserializeContext>::Menu,
+    ) -> husky_word::Word {
         menu.registry_word()
     }
 }

@@ -32,8 +32,8 @@ pub(crate) fn package_registry_path(
     db: &dyn CorgiConfigDb,
     package: PackagePath,
 ) -> CorgiConfigResult<RegistryPath> {
-    let corgi_config = package.corgi_config(db);
-    todo!()
+    let corgi_config = package.corgi_config(db)?;
+    Ok(corgi_config.registry_section.path)
 }
 
 pub trait HasCorgiConfig: Copy {
