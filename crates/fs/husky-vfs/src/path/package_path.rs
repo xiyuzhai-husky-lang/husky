@@ -1,6 +1,5 @@
 use super::*;
 
-use husky_minimal_toml_utils::find_package_name_in_toml;
 use husky_word::Ident;
 use salsa::DebugWithDb;
 use std::path::Path;

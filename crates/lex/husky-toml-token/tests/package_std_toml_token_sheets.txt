@@ -1,466 +1,468 @@
-TomlTokenSheet {
-    tokens: [
-        TomlToken {
-            span: DocumentSpan {
-                start: 0,
-                end: 1,
-            },
-            range: [1:1, 1:2),
-            variant: Special(
-                LeftBox,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 1,
-                end: 8,
-            },
-            range: [1:2, 1:9),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 40,
-                    },
+Some(
+    TomlTokenSheet {
+        tokens: [
+            TomlToken {
+                span: DocumentSpan {
+                    start: 0,
+                    end: 1,
+                },
+                range: [1:1, 1:2),
+                variant: Special(
+                    LeftBox,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 8,
-                end: 9,
             },
-            range: [1:9, 1:10),
-            variant: Special(
-                RightBox,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 10,
-                end: 14,
-            },
-            range: [2:1, 2:5),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 41,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 1,
+                    end: 8,
+                },
+                range: [1:2, 1:9),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 40,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 15,
-                end: 16,
             },
-            range: [2:6, 2:7),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 17,
-                end: 22,
-            },
-            range: [2:8, 2:13),
-            variant: StringLiteral {
-                val: "std",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 23,
-                end: 30,
-            },
-            range: [3:1, 3:8),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 42,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 8,
+                    end: 9,
+                },
+                range: [1:9, 1:10),
+                variant: Special(
+                    RightBox,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 31,
-                end: 32,
             },
-            range: [3:9, 3:10),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 33,
-                end: 40,
-            },
-            range: [3:11, 3:18),
-            variant: StringLiteral {
-                val: "0.0.0",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 41,
-                end: 48,
-            },
-            range: [4:1, 4:8),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 43,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 10,
+                    end: 14,
+                },
+                range: [2:1, 2:5),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 41,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 49,
-                end: 50,
             },
-            range: [4:9, 4:10),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 51,
-                end: 70,
-            },
-            range: [4:11, 4:30),
-            variant: StringLiteral {
-                val: "MIT OR Apache-2.0",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 71,
-                end: 81,
-            },
-            range: [5:1, 5:11),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 44,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 15,
+                    end: 16,
+                },
+                range: [2:6, 2:7),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 82,
-                end: 83,
             },
-            range: [5:12, 5:13),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 84,
-                end: 134,
+            TomlToken {
+                span: DocumentSpan {
+                    start: 17,
+                    end: 22,
+                },
+                range: [2:8, 2:13),
+                variant: StringLiteral {
+                    val: "std",
+                    multiline: false,
+                },
             },
-            range: [5:14, 5:64),
-            variant: StringLiteral {
-                val: "https://github.com/xiyuzhai-husky-lang/husky.git",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 135,
-                end: 146,
-            },
-            range: [6:1, 6:12),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 45,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 23,
+                    end: 30,
+                },
+                range: [3:1, 3:8),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 42,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 147,
-                end: 148,
             },
-            range: [6:13, 6:14),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 149,
-                end: 177,
-            },
-            range: [6:15, 6:43),
-            variant: StringLiteral {
-                val: "The Husky Standard Library",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 178,
-                end: 187,
-            },
-            range: [7:1, 7:10),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 46,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 31,
+                    end: 32,
+                },
+                range: [3:9, 3:10),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 188,
-                end: 189,
             },
-            range: [7:11, 7:12),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 190,
-                end: 195,
+            TomlToken {
+                span: DocumentSpan {
+                    start: 33,
+                    end: 40,
+                },
+                range: [3:11, 3:18),
+                variant: StringLiteral {
+                    val: "0.0.0",
+                    multiline: false,
+                },
             },
-            range: [7:13, 7:18),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 47,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 41,
+                    end: 48,
+                },
+                range: [4:1, 4:8),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 43,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 196,
-                end: 207,
             },
-            range: [8:1, 8:12),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 48,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 49,
+                    end: 50,
+                },
+                range: [4:9, 4:10),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 208,
-                end: 209,
             },
-            range: [8:13, 8:14),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 210,
-                end: 215,
+            TomlToken {
+                span: DocumentSpan {
+                    start: 51,
+                    end: 70,
+                },
+                range: [4:11, 4:30),
+                variant: StringLiteral {
+                    val: "MIT OR Apache-2.0",
+                    multiline: false,
+                },
             },
-            range: [8:15, 8:20),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 47,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 71,
+                    end: 81,
+                },
+                range: [5:1, 5:11),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 44,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 216,
-                end: 290,
             },
-            range: [9:1, 9:75),
-            variant: Comment,
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 291,
-                end: 367,
-            },
-            range: [10:1, 10:77),
-            variant: Comment,
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 368,
-                end: 375,
-            },
-            range: [11:1, 11:8),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 49,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 82,
+                    end: 83,
+                },
+                range: [5:12, 5:13),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 376,
-                end: 377,
             },
-            range: [11:9, 11:10),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 378,
-                end: 384,
+            TomlToken {
+                span: DocumentSpan {
+                    start: 84,
+                    end: 134,
+                },
+                range: [5:14, 5:64),
+                variant: StringLiteral {
+                    val: "https://github.com/xiyuzhai-husky-lang/husky.git",
+                    multiline: false,
+                },
             },
-            range: [11:11, 11:17),
-            variant: StringLiteral {
-                val: "2021",
-                multiline: false,
-            },
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 386,
-                end: 387,
-            },
-            range: [13:1, 13:2),
-            variant: Special(
-                LeftBox,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 387,
-                end: 390,
-            },
-            range: [13:2, 13:5),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 50,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 135,
+                    end: 146,
+                },
+                range: [6:1, 6:12),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 45,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 390,
-                end: 391,
             },
-            range: [13:5, 13:6),
-            variant: Special(
-                RightBox,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 392,
-                end: 396,
-            },
-            range: [14:1, 14:5),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 51,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 147,
+                    end: 148,
+                },
+                range: [6:13, 6:14),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 397,
-                end: 398,
             },
-            range: [14:6, 14:7),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 399,
-                end: 404,
+            TomlToken {
+                span: DocumentSpan {
+                    start: 149,
+                    end: 177,
+                },
+                range: [6:15, 6:43),
+                variant: StringLiteral {
+                    val: "The Husky Standard Library",
+                    multiline: false,
+                },
             },
-            range: [14:8, 14:13),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 47,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 178,
+                    end: 187,
+                },
+                range: [7:1, 7:10),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 46,
+                        },
+                    ),
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 405,
-                end: 410,
             },
-            range: [15:1, 15:6),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 52,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 188,
+                    end: 189,
+                },
+                range: [7:11, 7:12),
+                variant: Special(
+                    Equals,
                 ),
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 411,
-                end: 412,
             },
-            range: [15:7, 15:8),
-            variant: Special(
-                Equals,
-            ),
-        },
-        TomlToken {
-            span: DocumentSpan {
-                start: 413,
-                end: 418,
-            },
-            range: [15:9, 15:14),
-            variant: Word(
-                Word(
-                    Id {
-                        value: 47,
-                    },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 190,
+                    end: 195,
+                },
+                range: [7:13, 7:18),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 47,
+                        },
+                    ),
                 ),
-            ),
-        },
-    ],
-    line_group_starts: [
-        0,
-        3,
-        6,
-        9,
-        12,
-        15,
-        18,
-        21,
-        24,
-        25,
-        26,
-        29,
-        32,
-        35,
-    ],
-}
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 196,
+                    end: 207,
+                },
+                range: [8:1, 8:12),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 48,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 208,
+                    end: 209,
+                },
+                range: [8:13, 8:14),
+                variant: Special(
+                    Equals,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 210,
+                    end: 215,
+                },
+                range: [8:15, 8:20),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 47,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 216,
+                    end: 290,
+                },
+                range: [9:1, 9:75),
+                variant: Comment,
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 291,
+                    end: 367,
+                },
+                range: [10:1, 10:77),
+                variant: Comment,
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 368,
+                    end: 375,
+                },
+                range: [11:1, 11:8),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 49,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 376,
+                    end: 377,
+                },
+                range: [11:9, 11:10),
+                variant: Special(
+                    Equals,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 378,
+                    end: 384,
+                },
+                range: [11:11, 11:17),
+                variant: StringLiteral {
+                    val: "2021",
+                    multiline: false,
+                },
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 386,
+                    end: 387,
+                },
+                range: [13:1, 13:2),
+                variant: Special(
+                    LeftBox,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 387,
+                    end: 390,
+                },
+                range: [13:2, 13:5),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 50,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 390,
+                    end: 391,
+                },
+                range: [13:5, 13:6),
+                variant: Special(
+                    RightBox,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 392,
+                    end: 396,
+                },
+                range: [14:1, 14:5),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 397,
+                    end: 398,
+                },
+                range: [14:6, 14:7),
+                variant: Special(
+                    Equals,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 399,
+                    end: 404,
+                },
+                range: [14:8, 14:13),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 47,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 405,
+                    end: 410,
+                },
+                range: [15:1, 15:6),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 52,
+                        },
+                    ),
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 411,
+                    end: 412,
+                },
+                range: [15:7, 15:8),
+                variant: Special(
+                    Equals,
+                ),
+            },
+            TomlToken {
+                span: DocumentSpan {
+                    start: 413,
+                    end: 418,
+                },
+                range: [15:9, 15:14),
+                variant: Word(
+                    Word(
+                        Id {
+                            value: 47,
+                        },
+                    ),
+                ),
+            },
+        ],
+        line_group_starts: [
+            0,
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21,
+            24,
+            25,
+            26,
+            29,
+            32,
+            35,
+        ],
+    },
+)

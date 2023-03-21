@@ -8,6 +8,7 @@ mod tests;
 pub use self::env::*;
 pub use self::error::*;
 pub use self::rel::*;
+use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
 pub use std::path::{Path, PathBuf};
 
@@ -172,13 +173,6 @@ fn collect_package_relative_dirs_aux<Db: ?Sized + WordDb>(
     }
 }
 
-fn read_package_name_from_manifest<Db: ?Sized + WordDb>(db: &Db, path: &Path) -> Option<Name> {
-    husky_minimal_toml_utils::find_package_name_in_toml(&std::fs::read_to_string(path).ok()?)
-        .ok()
-        .map(|s| Name::from_borrowed(<Db as salsa::DbWithJar<WordJar>>::as_jar_db(db), s))
-        .flatten()
-}
-
 #[test]
 fn collect_package_relative_dirs_works() {
     let db = DB::default();
@@ -189,8 +183,26 @@ fn collect_package_relative_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            "./core",
-            "./std",
+            (
+                "./core",
+                Name(
+                    Word(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+            ),
+            (
+                "./std",
+                Name(
+                    Word(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            ),
         ]
     "#]]
     .assert_debug_eq(&collect_package_relative_dirs(&db, &library_dir));
@@ -201,10 +213,36 @@ fn collect_package_relative_dirs_works() {
         .unwrap();
     expect_test::expect![[r#"
         [
-            "./algorithms/quick-sort",
-            "./husky-recognizer",
-            "./mnist-classifier",
-            "./natural-number-game",
+            (
+                "./algorithms/quick-sort",
+                Name(
+                    Word(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                ),
+            ),
+            (
+                "./mnist-classifier",
+                Name(
+                    Word(
+                        Id {
+                            value: 5,
+                        },
+                    ),
+                ),
+            ),
+            (
+                "./natural-number-game",
+                Name(
+                    Word(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+            ),
         ]
     "#]]
     .assert_debug_eq(&collect_package_relative_dirs(&db, &examples_dir));

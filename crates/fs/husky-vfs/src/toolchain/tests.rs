@@ -9,7 +9,7 @@ fn toolchain_debug_works() {
     expect_test::expect![[r#"
         Toolchain {
             [salsa id]: 0,
-            data: Local {
+            data: ToolchainData::Local {
                 library_path: DiffPath {
                     data: DiffPathBuf(
                         "../../../library",

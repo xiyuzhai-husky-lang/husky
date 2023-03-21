@@ -36,7 +36,10 @@ impl UseAllRule {
     }
 
     pub(crate) fn is_unresolved(&self, ctx: &EntityTreeSymbolContext) -> bool {
-        self.progress < ctx.module_symbols(self.parent).len()
+        let Ok(module_symbols) = ctx.module_symbols(self.parent) else {
+            todo!()
+        };
+        self.progress < module_symbols.len()
     }
 
     pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {

@@ -1,0 +1,18 @@
+Ok(
+    [
+        `core::basic`,
+        `core::logic`,
+        `core::mem`,
+        `core::num`,
+        `core::ops`,
+        `core::prelude`,
+        `core::raw_bits`,
+        `core::fmt`,
+        `core::clone`,
+        `core::marker`,
+        `core::list`,
+        `core::cmp`,
+        `core::str`,
+        `core::option`,
+    ],
+)

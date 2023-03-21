@@ -1,0 +1,380 @@
+Ok(
+    EntityTreePresheet {
+        module_path: `mnist_classifier::connected_component`,
+        native_symbol_entries: NativeEntitySymbolTable(
+            [
+                NativeEntitySymbolEntry {
+                    ident: `ConnectedComponentDistribution`,
+                    accessibility: Visibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                            ),
+                            visibility: Visibility::Public,
+                            ast_idx: 121,
+                            ident_token: IdentToken {
+                                ident: `ConnectedComponentDistribution`,
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `EffHoles`,
+                    accessibility: Visibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                            ),
+                            visibility: Visibility::Public,
+                            ast_idx: 122,
+                            ident_token: IdentToken {
+                                ident: `EffHoles`,
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `hole_tmpl`,
+                    accessibility: Visibility::PublicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            ),
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 123,
+                            ident_token: IdentToken {
+                                ident: `hole_tmpl`,
+                                token_idx: TokenIdx(
+                                    53,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `ConnectedComponent`,
+                    accessibility: Visibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ),
+                            visibility: Visibility::Public,
+                            ast_idx: 124,
+                            ident_token: IdentToken {
+                                ident: `ConnectedComponent`,
+                                token_idx: TokenIdx(
+                                    79,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `horizontal_extend`,
+                    accessibility: Visibility::PublicUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            ),
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 126,
+                            ident_token: IdentToken {
+                                ident: `horizontal_extend`,
+                                token_idx: TokenIdx(
+                                    560,
+                                ),
+                            },
+                        },
+                    ),
+                },
+                NativeEntitySymbolEntry {
+                    ident: `find_connected_components`,
+                    accessibility: Visibility::Public,
+                    symbol: NativeEntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                            ),
+                            visibility: Visibility::Public,
+                            ast_idx: 127,
+                            ident_token: IdentToken {
+                                ident: `find_connected_components`,
+                                token_idx: TokenIdx(
+                                    646,
+                                ),
+                            },
+                        },
+                    ),
+                },
+            ],
+        ),
+        use_one_trackers: UseExprRules(
+            [
+                UseExprRule {
+                    ast_idx: 118,
+                    use_expr_idx: 3,
+                    accessibility: AccessibilityProgress::Done {
+                        accessibility: Visibility::PublicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            2..3,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 119,
+                    use_expr_idx: 6,
+                    accessibility: AccessibilityProgress::Done {
+                        accessibility: Visibility::PublicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            5..6,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 120,
+                    use_expr_idx: 8,
+                    accessibility: AccessibilityProgress::Done {
+                        accessibility: Visibility::PublicUnder(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            7..8,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+            ],
+        ),
+        use_all_trackers: UseAllRules(
+            [],
+        ),
+        use_expr_arena: Arena {
+            data: [
+                UseExpr::Leaf {
+                    ident_token: IdentToken {
+                        ident: `BinaryImage28`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `mnist`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    6,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `datasets`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    4,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 1,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `cv`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    2,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 2,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            13,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `raw_contour`,
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    12,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 4,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    10,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 5,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            17,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    16,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 7,
+                            },
+                        ),
+                    },
+                ),
+            ],
+        },
+        mod_path_arena: Arena {
+            data: [],
+        },
+        errors: [],
+    },
+)

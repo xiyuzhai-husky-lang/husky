@@ -1,3 +1,6 @@
+use std::path::Path;
+
+use husky_word::{Name, WordDb, WordJar};
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -12,7 +15,14 @@ pub enum MinimalTomlError {
 
 pub type MinimalTomlResult<T> = Result<T, MinimalTomlError>;
 
-pub fn find_package_name_in_toml(input: &str) -> MinimalTomlResult<&str> {
+pub fn read_package_name_from_manifest<Db: ?Sized + WordDb>(db: &Db, path: &Path) -> Option<Name> {
+    find_package_name_in_manifest_toml(&std::fs::read_to_string(path).ok()?)
+        .ok()
+        .map(|s| Name::from_borrowed(<Db as salsa::DbWithJar<WordJar>>::as_jar_db(db), s))
+        .flatten()
+}
+
+fn find_package_name_in_manifest_toml(input: &str) -> MinimalTomlResult<&str> {
     let mut lines = input.lines();
     while let Some(line) = lines.next() {
         let line = line.trim();
@@ -51,7 +61,7 @@ pub fn find_package_name_in_toml(input: &str) -> MinimalTomlResult<&str> {
 #[test]
 fn find_package_name_in_toml_works() {
     assert_eq!(
-        find_package_name_in_toml(
+        find_package_name_in_manifest_toml(
             r#"
 
 [package]
