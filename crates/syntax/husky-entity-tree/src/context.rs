@@ -72,12 +72,15 @@ impl<'a> EntityTreeSymbolContext<'a> {
         }
     }
 
-    pub(crate) fn module_symbols(&self, module_path: ModulePath) -> EntitySymbolTableRef<'a> {
+    pub(crate) fn module_symbols(
+        &self,
+        module_path: ModulePath,
+    ) -> EntityTreeResult<EntitySymbolTableRef<'a>> {
         let query_crate_path = module_path.crate_path(self.db);
         if query_crate_path == self.crate_path {
-            self.sheets[module_path].module_specific_symbols()
+            Ok(self.sheets[module_path].module_specific_symbols())
         } else {
-            todo!()
+            Ok(self.db.entity_tree_sheet(module_path)?.module_symbols())
         }
     }
 

@@ -6,6 +6,7 @@ mod package_path;
 
 pub use crate_path::*;
 pub use diff_path::*;
+use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use menu::*;
 pub use module_path::*;
 pub use package_path::*;
@@ -62,26 +63,39 @@ pub(crate) fn resolve_module_path(
         .file_stem()
         .and_then(|s| s.to_str())
         .ok_or(VfsError::ModulePathResolveFailure)?;
-    Ok(
-        if parent.ends_with("src")
-            && parent
-                .parent()
-                .ok_or(VfsError::ModulePathResolveFailure)?
-                .join("Corgi.toml")
-                .exists()
-        {
-            let package_name = todo!();
-            match file_stem {
+    let manifest_path = parent
+        .parent()
+        .ok_or(VfsError::ModulePathResolveFailure)?
+        .join("Corgi.toml");
+    Ok(if parent.ends_with("src") && manifest_path.exists() {
+        let package_name = read_package_name_from_manifest(db, &manifest_path)
+            .ok_or(VfsError::FailToReadPackageNameFromManifest)?;
+        match file_stem {
                 "lib" =>  ModulePath::new_root(
                     db,
-                    CratePath::new(db,   PackagePath::new_local_package(db, toolchain,package_name,parent.parent().ok_or(VfsError::ModulePathResolveFailure)?)?,
-                    CrateKind::Library,)
+                    CratePath::new(
+                        db,
+                        PackagePath::new_local_package(
+                            db,
+                            toolchain,
+                            package_name,
+                            parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
+                        )?,
+                        CrateKind::Library,
+                    )
                 ) ,
                 "main" => ModulePath::new_root(
                     db,
-                    CratePath::new(db, PackagePath::new_local_package(db, toolchain,package_name,
-                        parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
-                    )?  ,  CrateKind::Main,)
+                    CratePath::new(
+                        db,
+                        PackagePath::new_local_package(
+                            db,
+                            toolchain,
+                            package_name,
+                            parent.parent().ok_or(VfsError::ModulePathResolveFailure)?
+                        )?,
+                        CrateKind::Main,
+                    )
                  ),
                 _ => {
                     if let lib_path = parent.join("lib.hsy") && lib_path.exists() {
@@ -103,19 +117,18 @@ pub(crate) fn resolve_module_path(
                     }
                 }
             }
-        } else {
-            let parent_module_path = parent.with_extension("hsy");
-            if !parent_module_path.exists() {
-                todo!()
-            }
-            ModulePath::new_child(
-                db,
-                resolve_module_path(db, toolchain, parent_module_path)?,
-                db.it_ident_borrowed(file_stem)
-                    .ok_or(VfsError::ModulePathResolveFailure)?,
-            )
-        },
-    )
+    } else {
+        let parent_module_path = parent.with_extension("hsy");
+        if !parent_module_path.exists() {
+            todo!()
+        }
+        ModulePath::new_child(
+            db,
+            resolve_module_path(db, toolchain, parent_module_path)?,
+            db.it_ident_borrowed(file_stem)
+                .ok_or(VfsError::ModulePathResolveFailure)?,
+        )
+    })
 }
 
 #[test]

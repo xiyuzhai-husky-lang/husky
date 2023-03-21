@@ -1,0 +1,61 @@
+Ok(
+    TokenSheetData {
+        tokens: [
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Enum,
+                ),
+            ),
+            Token::Ident(
+                `Option`,
+            ),
+            Token::Punctuation(
+                Punctuation::LaOrLt,
+            ),
+            Token::Ident(
+                `T`,
+            ),
+            Token::Punctuation(
+                Punctuation::RaOrGt,
+            ),
+            Token::Punctuation(
+                Punctuation::Vertical,
+            ),
+            Token::Ident(
+                `Some`,
+            ),
+            Token::Punctuation(
+                Punctuation::Bra(
+                    Par,
+                ),
+            ),
+            Token::Ident(
+                `T`,
+            ),
+            Token::Punctuation(
+                Punctuation::Ket(
+                    Par,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Vertical,
+            ),
+            Token::Ident(
+                `None`,
+            ),
+        ],
+        group_starts: [
+            0,
+            6,
+            11,
+        ],
+        indents: [
+            0,
+            0,
+            0,
+        ],
+    },
+)

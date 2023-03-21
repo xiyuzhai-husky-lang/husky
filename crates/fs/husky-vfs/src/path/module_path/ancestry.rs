@@ -59,13 +59,23 @@ fn module_ancestry_works() {
         ModuleAncestry {
             crate_path: CratePath {
                 package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
+                    toolchain: Toolchain {
+                        data: ToolchainData::Local {
+                            library_path: DiffPath {
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
                         },
                     },
+                    name: Name(
+                        Word(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    data: PackagePathSource::Toolchain,
                 },
                 crate_kind: Library,
             },
@@ -79,13 +89,23 @@ fn module_ancestry_works() {
         ModuleAncestry {
             crate_path: CratePath {
                 package_path: PackagePath {
-                    data: Local {
-                        path: DiffPath {
-                            data: DiffPathBuf(
-                                "../../../library/core",
-                            ),
+                    toolchain: Toolchain {
+                        data: ToolchainData::Local {
+                            library_path: DiffPath {
+                                data: DiffPathBuf(
+                                    "../../../library",
+                                ),
+                            },
                         },
                     },
+                    name: Name(
+                        Word(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                    data: PackagePathSource::Toolchain,
                 },
                 crate_kind: Library,
             },

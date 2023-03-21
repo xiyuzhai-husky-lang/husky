@@ -1,0 +1,11 @@
+Ok(
+    [
+        `mnist_classifier::connected_component`,
+        `mnist_classifier::raw_contour`,
+        `mnist_classifier::geom2d`,
+        `mnist_classifier::line_segment_sketch`,
+        `mnist_classifier::fermi`,
+        `mnist_classifier::digits`,
+        `mnist_classifier::major`,
+    ],
+)

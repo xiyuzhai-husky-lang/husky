@@ -36,6 +36,8 @@ pub enum VfsError {
     PathUtils(#[from] PathUtilsError),
     #[error("fs specs")]
     FsSpecs(#[from] FsSpecsError),
+    #[error("FailToReadPackageNameFromManifest")]
+    FailToReadPackageNameFromManifest,
 }
 
 impl From<&VfsError> for VfsError {
