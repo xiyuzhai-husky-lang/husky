@@ -10,6 +10,7 @@ pub use self::error::*;
 pub use self::rel::*;
 use husky_minimal_toml_utils::read_package_name_from_manifest;
 pub use module_tree::*;
+use salsa::DebugWithDb;
 pub use std::path::{Path, PathBuf};
 
 #[cfg(test)]
@@ -186,26 +187,18 @@ fn collect_package_relative_dirs_works() {
             (
                 "./core",
                 Name(
-                    Word(
-                        Id {
-                            value: 2,
-                        },
-                    ),
+                    "core",
                 ),
             ),
             (
                 "./std",
                 Name(
-                    Word(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                    "std",
                 ),
             ),
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&db, &library_dir));
+    .assert_debug_eq(&collect_package_relative_dirs(&db, &library_dir).debug(&db));
 
     let examples_dir = cargo_manifest_dir
         .join("../../../examples")
@@ -216,36 +209,24 @@ fn collect_package_relative_dirs_works() {
             (
                 "./algorithms/quick-sort",
                 Name(
-                    Word(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+                    "quick-sort",
                 ),
             ),
             (
                 "./mnist-classifier",
                 Name(
-                    Word(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+                    "mnist-classifier",
                 ),
             ),
             (
                 "./natural-number-game",
                 Name(
-                    Word(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                    "natural-number-game",
                 ),
             ),
         ]
     "#]]
-    .assert_debug_eq(&collect_package_relative_dirs(&db, &examples_dir));
+    .assert_debug_eq(&collect_package_relative_dirs(&db, &examples_dir).debug(&db));
 }
 
 #[test]
