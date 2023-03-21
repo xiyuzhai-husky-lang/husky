@@ -1,4 +1,5 @@
 use either::*;
+use relative_path::{RelativePath, RelativePathBuf};
 use smallvec::{Array, SmallVec};
 use std::{
     collections::{HashMap, HashSet},
@@ -340,6 +341,18 @@ where
             .iter()
             .map(|v| v.debug_with(db, level.parallel()));
         f.debug_list().entries(elements).finish()
+    }
+}
+
+impl<Db: ?Sized> DebugWithDb<Db> for RelativePathBuf {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(&self, f)
+    }
+}
+
+impl<Db: ?Sized> DebugWithDb<Db> for RelativePath {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }
 
