@@ -68,13 +68,7 @@ fn module_ancestry_works() {
                             },
                         },
                     },
-                    name: Name(
-                        Word(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    name: `core`,
                     data: PackagePathSource::Toolchain,
                 },
                 crate_kind: Library,
@@ -98,13 +92,7 @@ fn module_ancestry_works() {
                             },
                         },
                     },
-                    name: Name(
-                        Word(
-                            Id {
-                                value: 1,
-                            },
-                        ),
-                    ),
+                    name: `core`,
                     data: PackagePathSource::Toolchain,
                 },
                 crate_kind: Library,

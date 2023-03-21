@@ -132,7 +132,7 @@ impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Ident {
         if level.is_root() {
             f.debug_tuple("Ident").field(&self.data(db)).finish()
         } else {
-            f.write_fmt(format_args!("`{}`", &self.data(db)))
+            f.write_fmt(format_args!("`{}`", self.data(db)))
         }
     }
 }

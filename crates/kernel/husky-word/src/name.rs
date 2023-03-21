@@ -77,3 +77,19 @@ pub fn is_char_valid_name_nonfirst_char(c: char) -> bool {
     // ad hoc
     c.is_alphanumeric() || c == '-'
 }
+
+impl<Db: WordDb + ?Sized> salsa::DebugWithDb<Db> for Name {
+    fn fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
+        level: salsa::DebugFormatLevel,
+    ) -> std::fmt::Result {
+        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        if level.is_root() {
+            f.debug_tuple("Name").field(&self.data(db)).finish()
+        } else {
+            f.write_fmt(format_args!("`{}`", self.data(db)))
+        }
+    }
+}
