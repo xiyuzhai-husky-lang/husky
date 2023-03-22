@@ -63,11 +63,10 @@ impl<'a> ExprTypeEngine<'a> {
                         },
                     })
                 }
-                _ => {
-                    p!(self.path());
-                    p!(resolved_expectee.debug(self.db()));
-                    todo!()
-                }
+                _ => Some(LocalTermExpectationEffect {
+                    result: Err(OriginalLocalTermExpectationError::Todo.into()),
+                    actions: smallvec![],
+                }),
             },
             LocalTerm::Unresolved(_) => None,
         }

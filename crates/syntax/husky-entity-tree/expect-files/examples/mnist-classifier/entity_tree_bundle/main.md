@@ -2160,7 +2160,7 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 81,
+                            ast_idx: 79,
                             body: ArenaIdxRange(
                                 5..10,
                             ),
@@ -2173,7 +2173,7 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 84,
+                            ast_idx: 82,
                             body: ArenaIdxRange(
                                 41..49,
                             ),
@@ -2185,7 +2185,7 @@ Ok(
                                 module: `mnist_classifier::geom2d`,
                                 disambiguator: 0,
                             },
-                            ast_idx: 86,
+                            ast_idx: 84,
                             body: ArenaIdxRange(
                                 56..58,
                             ),
@@ -2210,9 +2210,9 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 89,
+                            ast_idx: 86,
                             body: ArenaIdxRange(
-                                66..72,
+                                64..70,
                             ),
                         },
                     ),
@@ -2223,9 +2223,9 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 91,
+                            ast_idx: 88,
                             body: ArenaIdxRange(
-                                76..80,
+                                74..78,
                             ),
                         },
                     ),

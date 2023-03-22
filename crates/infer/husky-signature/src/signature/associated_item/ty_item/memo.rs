@@ -12,7 +12,7 @@ pub(crate) fn ty_memo_signature(
     let return_ty = match decl.return_ty(db) {
         Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
             Ok(return_ty) => return_ty,
-            Err(_) => return Err(SignatureError::OutputTypeRawTermError),
+            Err(_) => return Err(SignatureError::ReturnTypeRawTermError),
         },
         Err(_) => return Err(todo!()),
     };

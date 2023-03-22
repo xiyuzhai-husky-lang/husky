@@ -469,19 +469,6 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 99,
-            start_character: Some(
-                0,
-            ),
-            end_line: 101,
-            end_character: Some(
-                28,
-            ),
-            kind: Some(
-                Region,
-            ),
-        },
-        FoldingRange {
             start_line: 104,
             start_character: Some(
                 0,

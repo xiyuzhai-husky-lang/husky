@@ -45,11 +45,10 @@ impl<'token> Tokenizer<'token> {
                     todo!()
                 }
                 TokenizerAction::NewLine => self.line = self.line.to_next_line(),
-                TokenizerAction::Comment(range) => self.comments.push(Comment::new(
-                    CommentKind::Todo,
-                    TokenIdx(self.tokens.len()),
-                    range,
-                )),
+                TokenizerAction::Comment(range) => {
+                    self.comments
+                        .push(Comment::new(CommentKind::Todo, self.tokens.len(), range))
+                }
             }
         }
     }

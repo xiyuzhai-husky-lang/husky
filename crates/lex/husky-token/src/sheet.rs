@@ -5,6 +5,7 @@ use salsa::DebugWithDb;
 
 use crate::*;
 
+/// is eof if raw is equal to the len of all tokens
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct TokenIdx(pub(crate) usize);
@@ -184,21 +185,25 @@ pub struct TokenSheetData {
 #[derive(Debug, PartialEq, Eq)]
 pub struct Comment {
     kind: CommentKind,
-    next_token_idx: TokenIdx,
+    number_of_preceding_tokens: usize,
     range: TextRange,
 }
 
 impl Comment {
-    pub(crate) fn new(kind: CommentKind, next_token_idx: TokenIdx, range: TextRange) -> Self {
+    pub(crate) fn new(
+        kind: CommentKind,
+        number_of_preceding_tokens: usize,
+        range: TextRange,
+    ) -> Self {
         Self {
             kind,
-            next_token_idx,
+            number_of_preceding_tokens,
             range,
         }
     }
 
-    pub fn next_token_idx(&self) -> TokenIdx {
-        self.next_token_idx
+    pub fn number_of_preceding_tokens(&self) -> usize {
+        self.number_of_preceding_tokens
     }
 
     pub fn range(&self) -> TextRange {
@@ -296,6 +301,12 @@ pub(crate) fn token_sheet(db: &dyn TokenDb, module_path: ModulePath) -> VfsResul
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TokenGroupIdx(usize);
+
+impl std::fmt::Display for TokenGroupIdx {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Display::fmt(&self.0, f)
+    }
+}
 
 pub struct TokenGroupIter<'a> {
     tokens: &'a [Token],
@@ -401,9 +412,9 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
     let mut i = 0;
     let mut line_group_starts = vec![];
     while i < line_starts.len() {
-        let line_start0 = line_starts[i];
-        let line_indent0 = token_ranges[line_start0].start.col.0;
-        line_group_starts.push(line_start0);
+        let line0_start = line_starts[i];
+        let line0_indent = token_ranges[line0_start].start.col.0;
+        line_group_starts.push(line0_start);
         i = {
             let mut j = i + 1;
             while j < line_starts.len() {
@@ -415,22 +426,25 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                     Continue,
                 }
                 use ControlFlow::*;
-                let flag = if line_indent1 > line_indent0 {
+                let flag = if line_indent1 > line0_indent {
                     // detect an indentation
                     match tokens[line_start1 - 1] {
                         Token::Keyword(Keyword::End(_))
                         | Token::Punctuation(Punctuation::Colon) => Break,
+                        Token::Punctuation(Punctuation::Bra(_)) => Continue,
                         _ => match line_start_token {
-                            Token::Keyword(Keyword::Pronoun(_)) => Continue,
-                            Token::Keyword(kw) => match kw {
-                                Keyword::Pattern(_) | Keyword::End(_) => Continue,
-                                _ => Break,
-                            },
+                            Token::Keyword(
+                                Keyword::Pronoun(_)
+                                | Keyword::Pattern(_)
+                                | Keyword::End(_)
+                                | Keyword::Pub,
+                            ) => Continue,
+                            Token::Keyword(kw) => Break,
                             _ => Continue,
                         },
                     }
                 } else {
-                    if line_indent1 == line_indent0 {
+                    if line_indent1 == line0_indent {
                         match line_start_token {
                             Token::Punctuation(Punctuation::Ket(_)) => Continue,
                             _ => Break,
@@ -495,7 +509,12 @@ impl RangedTokenSheet {
     }
 
     pub fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
-        self.token_ranges[token_idx.0]
+        if token_idx.0 < self.token_ranges.len() {
+            self.token_ranges[token_idx.0]
+        } else {
+            // eof
+            self.token_ranges.last().copied().unwrap_or_default()
+        }
     }
 }
 
@@ -524,6 +543,17 @@ impl TokenSheetData {
 
     pub fn tokens(&self) -> &[Token] {
         self.tokens.as_ref()
+    }
+
+    pub fn token_group_idx(&self, token_idx: TokenIdx) -> TokenGroupIdx {
+        assert!(self.group_starts[0] == 0);
+        TokenGroupIdx(match self.group_starts.binary_search(&token_idx.raw()) {
+            Ok(i) => i,
+            Err(i) => {
+                assert!(i > 0);
+                i - 1
+            }
+        })
     }
 }
 

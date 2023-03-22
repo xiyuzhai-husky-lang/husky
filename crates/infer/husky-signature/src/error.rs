@@ -12,7 +12,7 @@ pub enum SignatureError {
     #[error("todo")]
     FieldTypeRawTermError(u8),
     #[error("todo")]
-    OutputTypeRawTermError,
+    ReturnTypeRawTermError,
     // derived
     #[error("todo")]
     DeclError,

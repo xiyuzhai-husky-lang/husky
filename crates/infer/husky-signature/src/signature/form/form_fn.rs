@@ -24,7 +24,7 @@ pub fn form_fn_signature(db: &dyn SignatureDb, decl: FnDecl) -> SignatureResult<
     let return_ty = match decl.return_ty(db) {
         Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
             Ok(return_ty) => return_ty,
-            Err(_) => todo!(),
+            Err(_) => return Err(SignatureError::ReturnTypeRawTermError),
         },
         Err(_) => return Err(SignatureError::ExprError),
     };

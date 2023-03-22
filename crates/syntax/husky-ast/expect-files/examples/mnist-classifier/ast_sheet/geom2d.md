@@ -766,25 +766,25 @@ Ok(
                         567,
                     ),
                 },
-                Ast::Err {
+                Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        62,
+                        64,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExpectedDecoratorOrEntityKeyword,
-                    ),
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        63,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::ExpectedDecoratorOrEntityKeyword,
+                    body: ArenaIdxRange(
+                        58..58,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        67,
+                        66,
+                    ),
+                    body: ArenaIdxRange(
+                        59..59,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        68,
                     ),
                     body: ArenaIdxRange(
                         60..60,
@@ -792,7 +792,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        69,
+                        70,
                     ),
                     body: ArenaIdxRange(
                         61..61,
@@ -800,7 +800,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        71,
+                        72,
                     ),
                     body: ArenaIdxRange(
                         62..62,
@@ -808,34 +808,18 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        73,
+                        74,
                     ),
                     body: ArenaIdxRange(
                         63..63,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        75,
-                    ),
-                    body: ArenaIdxRange(
-                        64..64,
-                    ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        77,
-                    ),
-                    body: ArenaIdxRange(
-                        65..65,
-                    ),
-                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        66,
+                        63,
                     ),
                     body: ArenaIdxRange(
-                        60..61,
+                        58..59,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -860,10 +844,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        68,
+                        65,
                     ),
                     body: ArenaIdxRange(
-                        61..62,
+                        59..60,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -888,10 +872,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        70,
+                        67,
                     ),
                     body: ArenaIdxRange(
-                        62..63,
+                        60..61,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -916,10 +900,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        72,
+                        69,
                     ),
                     body: ArenaIdxRange(
-                        63..64,
+                        61..62,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -944,10 +928,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        74,
+                        71,
                     ),
                     body: ArenaIdxRange(
-                        64..65,
+                        62..63,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -972,10 +956,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        76,
+                        73,
                     ),
                     body: ArenaIdxRange(
-                        65..66,
+                        63..64,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -1000,7 +984,23 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        81,
+                        78,
+                    ),
+                    body: ArenaIdxRange(
+                        70..70,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        80,
+                    ),
+                    body: ArenaIdxRange(
+                        71..71,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        82,
                     ),
                     body: ArenaIdxRange(
                         72..72,
@@ -1008,34 +1008,18 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        83,
+                        84,
                     ),
                     body: ArenaIdxRange(
                         73..73,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        85,
-                    ),
-                    body: ArenaIdxRange(
-                        74..74,
-                    ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        87,
-                    ),
-                    body: ArenaIdxRange(
-                        75..75,
-                    ),
-                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        80,
+                        77,
                     ),
                     body: ArenaIdxRange(
-                        72..73,
+                        70..71,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -1060,10 +1044,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        82,
+                        79,
                     ),
                     body: ArenaIdxRange(
-                        73..74,
+                        71..72,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -1088,10 +1072,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        84,
+                        81,
                     ),
                     body: ArenaIdxRange(
-                        74..75,
+                        72..73,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -1116,10 +1100,10 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        86,
+                        83,
                     ),
                     body: ArenaIdxRange(
-                        75..76,
+                        73..74,
                     ),
                     accessibility: Visibility::PublicUnder(
                         `mnist_classifier::geom2d`,
@@ -1303,7 +1287,7 @@ Ok(
                         61,
                     ),
                     body: ArenaIdxRange(
-                        58..60,
+                        0..0,
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: ModuleItem {
@@ -1326,30 +1310,22 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
+                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         597,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        64,
-                    ),
-                    body: ArenaIdxRange(
-                        60..60,
-                    ),
-                },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        65,
+                        62,
                     ),
                     body: ArenaIdxRange(
-                        66..72,
+                        64..70,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        78,
+                        75,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -1382,16 +1358,16 @@ Ok(
                 },
                 Ast::Impl {
                     token_group_idx: TokenGroupIdx(
-                        79,
+                        76,
                     ),
                     body: ArenaIdxRange(
-                        76..80,
+                        74..78,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            80..92,
+            78..89,
         ),
     },
 )

@@ -1,7 +1,7 @@
 use husky_entity_tree::EntityTreeResult;
 use husky_text::TextRange;
 
-use husky_token::Token;
+use husky_token::{RangedTokenSheet, Token, TokenGroupIdx, TokenSheetData};
 use husky_token_info::TokenInfo;
 
 use crate::*;
@@ -24,6 +24,7 @@ struct HoverResultCalculator<'a> {
     markdown_content: String,
     actions: Vec<CommandLinkGroup>,
     hover_config_data: &'a HoverConfigData,
+    token_group_idx: TokenGroupIdx,
 }
 
 impl<'a> HoverResultCalculator<'a> {
@@ -35,6 +36,7 @@ impl<'a> HoverResultCalculator<'a> {
         let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
         let token_sheet_data = db.token_sheet_data(module_path)?;
         let token_info_sheet = db.token_info_sheet(module_path)?;
+        let token_group_idx = token_sheet_data.token_group_idx(token_idx);
         Ok(Self {
             db,
             module_path,
@@ -45,6 +47,7 @@ impl<'a> HoverResultCalculator<'a> {
             markdown_content: String::new(),
             actions: vec![],
             hover_config_data: db.hover_config().data(db),
+            token_group_idx,
         })
     }
 
@@ -121,6 +124,8 @@ impl<'a> HoverResultCalculator<'a> {
             r#"
 token_idx = {};
 
+token_line_group_idx = {}
+
 token = {:#?};
 
 token_info = {:#?};
@@ -128,6 +133,7 @@ token_info = {:#?};
 {additional_debug_content}
 "#,
             self.token_idx.raw(),
+            self.token_group_idx,
             self.token.debug(self.db),
             self.token_info.debug(self.db),
         )

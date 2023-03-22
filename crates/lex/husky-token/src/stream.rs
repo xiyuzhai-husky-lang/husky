@@ -1,5 +1,4 @@
 use crate::*;
-
 use husky_opn_syntax::Bracket;
 
 #[derive(Debug, Clone)]
