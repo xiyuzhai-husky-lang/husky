@@ -1,6 +1,6 @@
 [
     Err(
-        OutputTypeRawTermError,
+        ReturnTypeRawTermError,
     ),
     Ok(
         Signature::Form(
@@ -29,13 +29,13 @@
         ),
     ),
     Err(
-        OutputTypeRawTermError,
+        ReturnTypeRawTermError,
     ),
     Err(
-        OutputTypeRawTermError,
+        ReturnTypeRawTermError,
     ),
     Err(
-        OutputTypeRawTermError,
+        ReturnTypeRawTermError,
     ),
     Ok(
         Signature::Form(

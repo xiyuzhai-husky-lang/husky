@@ -49,7 +49,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
             LocalTerm::Resolved(expectee) => Some(LocalTermExpectationEffect {
-                result: Err(todo!()),
+                result: Err(OriginalLocalTermExpectationError::Todo.into()),
                 actions: smallvec![],
             }),
             LocalTerm::Unresolved(unresolved_expectee) => {

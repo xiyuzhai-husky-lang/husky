@@ -7,18 +7,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     ast_diagnostic_sheet: AstDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expected decorator or entity keyword",
-                severity: Error,
-                range: [101:5, 101:29),
-            },
-            Diagnostic {
-                message: "Syntax Error: expected decorator or entity keyword",
-                severity: Error,
-                range: [102:5, 102:29),
-            },
-        ],
+        diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [],

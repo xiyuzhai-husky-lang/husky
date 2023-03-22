@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 80,
+                            ast_idx: 78,
                             ident_token: IdentToken {
                                 ident: `Point2d`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 82,
+                            ast_idx: 80,
                             ident_token: IdentToken {
                                 ident: `RelativePoint2d`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 83,
+                            ast_idx: 81,
                             ident_token: IdentToken {
                                 ident: `Vector2d`,
                                 token_idx: TokenIdx(
@@ -69,7 +69,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 85,
+                            ast_idx: 83,
                             ident_token: IdentToken {
                                 ident: `ClosedRange`,
                                 token_idx: TokenIdx(
@@ -88,7 +88,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 87,
+                            ast_idx: 85,
                             ident_token: IdentToken {
                                 ident: `BoundingBox`,
                                 token_idx: TokenIdx(
@@ -107,7 +107,7 @@ Ok(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 90,
+                            ast_idx: 87,
                             ident_token: IdentToken {
                                 ident: `RelativeBoundingBox`,
                                 token_idx: TokenIdx(

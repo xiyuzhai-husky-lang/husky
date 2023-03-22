@@ -17,16 +17,16 @@ mod tests;
 mod token_accessibility;
 mod tokenize;
 
-pub use convexity::*;
-pub use db::*;
-pub use error::*;
-pub use kind::*;
-pub use literal::*;
-pub use parse_utils::*;
-pub use sheet::*;
-pub use snippet::*;
-pub use stream::*;
-pub use token_accessibility::*;
+pub use self::convexity::*;
+pub use self::db::*;
+pub use self::error::*;
+pub use self::kind::*;
+pub use self::literal::*;
+pub use self::parse_utils::*;
+pub use self::sheet::*;
+pub use self::snippet::*;
+pub use self::stream::*;
+pub use self::token_accessibility::*;
 
 use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};

@@ -16,7 +16,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    ast_idx: 80,
+                                    ast_idx: 78,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -198,7 +198,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                    ast_idx: 82,
+                                    ast_idx: 80,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -380,7 +380,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    ast_idx: 83,
+                                    ast_idx: 81,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -562,7 +562,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    ast_idx: 85,
+                                    ast_idx: 83,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -744,7 +744,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    ast_idx: 87,
+                                    ast_idx: 85,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -835,7 +835,7 @@ Ok(
                                 path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 decl: RegularStructTypeDecl {
                                     path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    ast_idx: 90,
+                                    ast_idx: 87,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -1016,14 +1016,14 @@ Ok(
                     Defn::Impl(
                         ImplDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 81,
+                                ast_idx: 79,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module: `mnist_classifier::geom2d`,
                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 81,
+                                    ast_idx: 79,
                                     body: ArenaIdxRange(
                                         5..10,
                                     ),
@@ -2115,7 +2115,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 81,
+                                                    ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
                                                     ),
@@ -2706,7 +2706,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 81,
+                                                    ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
                                                     ),
@@ -3503,7 +3503,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 81,
+                                                    ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
                                                     ),
@@ -4149,7 +4149,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 81,
+                                                    ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
                                                     ),
@@ -4808,14 +4808,14 @@ Ok(
                     Defn::Impl(
                         ImplDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 84,
+                                ast_idx: 82,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module: `mnist_classifier::geom2d`,
                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 84,
+                                    ast_idx: 82,
                                     body: ArenaIdxRange(
                                         41..49,
                                     ),
@@ -4991,7 +4991,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -5580,7 +5580,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -6375,7 +6375,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -7021,7 +7021,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -7788,7 +7788,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -8555,7 +8555,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -9695,7 +9695,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -10413,7 +10413,7 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 84,
+                                                    ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
                                                     ),
@@ -11997,16 +11997,16 @@ Ok(
                     Defn::Impl(
                         ImplDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 89,
+                                ast_idx: 86,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module: `mnist_classifier::geom2d`,
                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 89,
+                                    ast_idx: 86,
                                     body: ArenaIdxRange(
-                                        66..72,
+                                        64..70,
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -12180,13 +12180,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 66,
+                                            ast_idx: 64,
                                             ident: `relative_bounding_box`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -12196,7 +12196,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 66,
+                                        ast_idx: 64,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -13004,13 +13004,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 67,
+                                            ast_idx: 65,
                                             ident: `relative_point`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -13020,7 +13020,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 67,
+                                        ast_idx: 65,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -13828,13 +13828,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 68,
+                                            ast_idx: 66,
                                             ident: `xmin`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -13844,7 +13844,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 68,
+                                        ast_idx: 66,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -14374,13 +14374,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 69,
+                                            ast_idx: 67,
                                             ident: `xmax`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -14390,7 +14390,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 69,
+                                        ast_idx: 67,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -14920,13 +14920,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 70,
+                                            ast_idx: 68,
                                             ident: `ymin`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -14936,7 +14936,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 70,
+                                        ast_idx: 68,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -15466,13 +15466,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 89,
+                                                    ast_idx: 86,
                                                     body: ArenaIdxRange(
-                                                        66..72,
+                                                        64..70,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 71,
+                                            ast_idx: 69,
                                             ident: `ymax`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -15482,7 +15482,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 71,
+                                        ast_idx: 69,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -15953,16 +15953,16 @@ Ok(
                     Defn::Impl(
                         ImplDecl::Type(
                             TypeImplBlockDecl {
-                                ast_idx: 91,
+                                ast_idx: 88,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
                                         module: `mnist_classifier::geom2d`,
                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         disambiguator: 0,
                                     },
-                                    ast_idx: 91,
+                                    ast_idx: 88,
                                     body: ArenaIdxRange(
-                                        76..80,
+                                        74..78,
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -16136,13 +16136,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 91,
+                                                    ast_idx: 88,
                                                     body: ArenaIdxRange(
-                                                        76..80,
+                                                        74..78,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 76,
+                                            ast_idx: 74,
                                             ident: `xmin`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -16152,7 +16152,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 76,
+                                        ast_idx: 74,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -16682,13 +16682,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 91,
+                                                    ast_idx: 88,
                                                     body: ArenaIdxRange(
-                                                        76..80,
+                                                        74..78,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 77,
+                                            ast_idx: 75,
                                             ident: `xmax`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -16698,7 +16698,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 77,
+                                        ast_idx: 75,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -17228,13 +17228,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 91,
+                                                    ast_idx: 88,
                                                     body: ArenaIdxRange(
-                                                        76..80,
+                                                        74..78,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 78,
+                                            ast_idx: 76,
                                             ident: `ymin`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -17244,7 +17244,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 78,
+                                        ast_idx: 76,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
@@ -17774,13 +17774,13 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
-                                                    ast_idx: 91,
+                                                    ast_idx: 88,
                                                     body: ArenaIdxRange(
-                                                        76..80,
+                                                        74..78,
                                                     ),
                                                 },
                                             ),
-                                            ast_idx: 79,
+                                            ast_idx: 77,
                                             ident: `ymax`,
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
@@ -17790,7 +17790,7 @@ Ok(
                                             ),
                                             is_generic: false,
                                         },
-                                        ast_idx: 79,
+                                        ast_idx: 77,
                                         expr_region: ExprRegion {
                                             data: ExprRegionData {
                                                 parent: Some(
