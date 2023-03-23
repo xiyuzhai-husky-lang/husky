@@ -83,8 +83,26 @@
             ),
         ),
     ),
-    Err(
-        DeclExprError,
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: `xrange`,
+                            ty: RawTerm(`mnist_classifier::geom2d::ClosedRange`),
+                        },
+                        RegularStructFieldSignature {
+                            ident: `yrange`,
+                            ty: RawTerm(`mnist_classifier::geom2d::ClosedRange`),
+                        },
+                    ],
+                },
+            ),
+        ),
     ),
     Ok(
         Signature::Type(

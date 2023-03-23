@@ -123,7 +123,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `start`,
                                                 token_idx: TokenIdx(
@@ -137,7 +139,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `end`,
                                                 token_idx: TokenIdx(

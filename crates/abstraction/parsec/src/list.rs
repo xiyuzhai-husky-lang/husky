@@ -1,5 +1,19 @@
 use crate::*;
 
+pub fn parse_consecutive_list<Context, Element, Error>(
+    ctx: &mut Context,
+) -> Result<Vec<Element>, Error>
+where
+    Context: ParseContext,
+    Element: ParseFrom<Context, Error = Error>,
+{
+    let mut elements = vec![];
+    while let Some(element) = ctx.parse::<Element>()? {
+        elements.push(element)
+    }
+    Ok(elements)
+}
+
 pub fn parse_separated_list<Context, Element, Separator, Error>(
     ctx: &mut Context,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)

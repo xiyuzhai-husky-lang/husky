@@ -13,13 +13,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expect `}`",
-                severity: Error,
-                range: [101:5, 101:8),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

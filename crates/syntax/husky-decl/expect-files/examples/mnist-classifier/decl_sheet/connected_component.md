@@ -173,7 +173,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `row_start`,
                                                 token_idx: TokenIdx(
@@ -187,7 +189,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `row_end`,
                                                 token_idx: TokenIdx(
@@ -201,7 +205,9 @@ Ok(
                                             ),
                                             ty: 1,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `upper_mass`,
                                                 token_idx: TokenIdx(
@@ -215,7 +221,9 @@ Ok(
                                             ),
                                             ty: 2,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `lower_mass`,
                                                 token_idx: TokenIdx(
@@ -394,7 +402,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
@@ -739,7 +749,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `mask`,
                                                 token_idx: TokenIdx(

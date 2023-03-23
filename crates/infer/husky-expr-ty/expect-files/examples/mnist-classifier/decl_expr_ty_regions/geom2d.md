@@ -645,7 +645,76 @@
                 ),
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                TermUniverse(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                TermUniverse(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
+        ],
         extra_expr_errors: [],
         expr_local_terms: [],
         inherited_symbol_tys: [],
@@ -660,7 +729,64 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationRule {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -2433,19 +2559,38 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Ontology,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                TermUniverse(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -2462,7 +2607,36 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationRule {
+                            src_expr_idx: 0,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

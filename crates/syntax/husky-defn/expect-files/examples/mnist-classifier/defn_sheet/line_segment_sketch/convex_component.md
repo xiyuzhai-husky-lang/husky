@@ -169,7 +169,9 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `line_segment_sketch`,
                                                     token_idx: TokenIdx(
@@ -183,7 +185,9 @@ Ok(
                                                 ),
                                                 ty: 1,
                                             },
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `line_segments`,
                                                     token_idx: TokenIdx(

@@ -147,7 +147,9 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `cc`,
                                                     token_idx: TokenIdx(
@@ -161,7 +163,9 @@ Ok(
                                                 ),
                                                 ty: 1,
                                             },
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `points`,
                                                     token_idx: TokenIdx(
@@ -5090,7 +5094,9 @@ Ok(
                                     ),
                                     field_comma_list: (
                                         [
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `prev1`,
                                                     token_idx: TokenIdx(
@@ -5104,7 +5110,9 @@ Ok(
                                                 ),
                                                 ty: 0,
                                             },
-                                            RegularStructFieldPattern {
+                                            FieldDeclPattern {
+                                                decorators: [],
+                                                visibility: None,
                                                 ident_token: IdentToken {
                                                     ident: `prev2`,
                                                     token_idx: TokenIdx(
