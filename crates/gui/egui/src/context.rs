@@ -1701,7 +1701,7 @@ impl Context {
     }
 }
 
-/// ## Accessibility
+/// ## Visibility
 impl Context {
     /// Call the provided function with the given ID pushed on the stack of
     /// parent IDs for accessibility purposes. If the `accesskit` feature

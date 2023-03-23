@@ -276,7 +276,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 28,
                     use_expr_idx: 2,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `core::num`,
                         ),

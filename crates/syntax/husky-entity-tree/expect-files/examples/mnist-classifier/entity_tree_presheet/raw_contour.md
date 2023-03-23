@@ -259,7 +259,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 195,
                     use_expr_idx: 2,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
@@ -282,7 +282,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 196,
                     use_expr_idx: 5,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
@@ -305,7 +305,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 197,
                     use_expr_idx: 8,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),
@@ -328,7 +328,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 198,
                     use_expr_idx: 11,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::raw_contour`,
                         ),

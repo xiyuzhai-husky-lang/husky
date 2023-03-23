@@ -9,7 +9,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {

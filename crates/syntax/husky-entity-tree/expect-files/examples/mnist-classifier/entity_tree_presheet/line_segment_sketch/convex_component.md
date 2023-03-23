@@ -33,7 +33,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 2,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
