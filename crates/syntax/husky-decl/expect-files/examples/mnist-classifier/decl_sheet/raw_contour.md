@@ -2825,6 +2825,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            42,
+                                        ),
+                                    },
                                     ast_idx: 200,
                                     body: ArenaIdxRange(
                                         27..34,
@@ -2979,6 +2984,11 @@ Ok(
                                                     module: `mnist_classifier::raw_contour`,
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
                                                 },
                                                 ast_idx: 200,
                                                 body: ArenaIdxRange(
@@ -3228,6 +3238,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
+                                                },
                                                 ast_idx: 200,
                                                 body: ArenaIdxRange(
                                                     27..34,
@@ -3476,6 +3491,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
+                                                },
                                                 ast_idx: 200,
                                                 body: ArenaIdxRange(
                                                     27..34,
@@ -3723,6 +3743,11 @@ Ok(
                                                     module: `mnist_classifier::raw_contour`,
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
                                                 },
                                                 ast_idx: 200,
                                                 body: ArenaIdxRange(
@@ -3981,6 +4006,11 @@ Ok(
                                                     module: `mnist_classifier::raw_contour`,
                                                     ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
                                                 },
                                                 ast_idx: 200,
                                                 body: ArenaIdxRange(

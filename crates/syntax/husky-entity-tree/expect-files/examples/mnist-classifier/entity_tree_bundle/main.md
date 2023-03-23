@@ -1176,6 +1176,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    85,
+                                ),
+                            },
                             ast_idx: 125,
                             body: ArenaIdxRange(
                                 67..79,
@@ -1710,6 +1715,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    42,
+                                ),
+                            },
                             ast_idx: 200,
                             body: ArenaIdxRange(
                                 27..34,
@@ -2160,6 +2170,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
+                            },
                             ast_idx: 79,
                             body: ArenaIdxRange(
                                 5..10,
@@ -2173,6 +2188,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    168,
+                                ),
+                            },
                             ast_idx: 82,
                             body: ArenaIdxRange(
                                 41..49,
@@ -2184,6 +2204,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `mnist_classifier::geom2d`,
                                 disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    499,
+                                ),
                             },
                             ast_idx: 84,
                             body: ArenaIdxRange(
@@ -2210,6 +2235,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    609,
+                                ),
+                            },
                             ast_idx: 86,
                             body: ArenaIdxRange(
                                 64..70,
@@ -2222,6 +2252,11 @@ Ok(
                                 module: `mnist_classifier::geom2d`,
                                 ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    743,
+                                ),
                             },
                             ast_idx: 88,
                             body: ArenaIdxRange(
@@ -2515,6 +2550,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    81,
+                                ),
+                            },
                             ast_idx: 170,
                             body: ArenaIdxRange(
                                 3..7,
@@ -2527,6 +2567,11 @@ Ok(
                                 module: `mnist_classifier::line_segment_sketch`,
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    175,
+                                ),
                             },
                             ast_idx: 172,
                             body: ArenaIdxRange(
@@ -3416,6 +3461,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    49,
+                                ),
+                            },
                             ast_idx: 75,
                             body: ArenaIdxRange(
                                 39..53,
@@ -4189,6 +4239,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
                             ast_idx: 4,
                             body: ArenaIdxRange(
                                 0..2,
@@ -4946,6 +5001,11 @@ Ok(
                                 ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
+                            },
                             ast_idx: 17,
                             body: ArenaIdxRange(
                                 13..15,
@@ -5357,6 +5417,11 @@ Ok(
                                 module: `mnist_classifier::fermi`,
                                 ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
                             },
                             ast_idx: 23,
                             body: ArenaIdxRange(

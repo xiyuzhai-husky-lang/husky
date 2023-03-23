@@ -631,6 +631,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
+                                    },
                                     ast_idx: 23,
                                     body: ArenaIdxRange(
                                         12..15,
@@ -785,6 +790,11 @@ Ok(
                                                     module: `mnist_classifier::fermi`,
                                                     ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        23,
+                                                    ),
                                                 },
                                                 ast_idx: 23,
                                                 body: ArenaIdxRange(
@@ -1034,6 +1044,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        23,
+                                                    ),
+                                                },
                                                 ast_idx: 23,
                                                 body: ArenaIdxRange(
                                                     12..15,
@@ -1281,6 +1296,11 @@ Ok(
                                                     module: `mnist_classifier::fermi`,
                                                     ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        23,
+                                                    ),
                                                 },
                                                 ast_idx: 23,
                                                 body: ArenaIdxRange(

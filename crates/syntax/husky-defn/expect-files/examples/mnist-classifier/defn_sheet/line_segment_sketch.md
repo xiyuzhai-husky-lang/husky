@@ -13933,6 +13933,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            81,
+                                        ),
+                                    },
                                     ast_idx: 170,
                                     body: ArenaIdxRange(
                                         3..7,
@@ -15161,6 +15166,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            81,
+                                                        ),
+                                                    },
                                                     ast_idx: 170,
                                                     body: ArenaIdxRange(
                                                         3..7,
@@ -15682,6 +15692,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            175,
+                                        ),
+                                    },
                                     ast_idx: 172,
                                     body: ArenaIdxRange(
                                         21..26,
@@ -15844,6 +15859,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            175,
+                                                        ),
                                                     },
                                                     ast_idx: 172,
                                                     body: ArenaIdxRange(
@@ -16395,6 +16415,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            175,
+                                                        ),
                                                     },
                                                     ast_idx: 172,
                                                     body: ArenaIdxRange(

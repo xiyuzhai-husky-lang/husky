@@ -201,6 +201,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            19,
+                                        ),
+                                    },
                                     ast_idx: 17,
                                     body: ArenaIdxRange(
                                         13..15,
@@ -365,6 +370,11 @@ Ok(
                                                     module: `mnist_classifier::line_segment_sketch::line_segment`,
                                                     ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        19,
+                                                    ),
                                                 },
                                                 ast_idx: 17,
                                                 body: ArenaIdxRange(
@@ -647,6 +657,11 @@ Ok(
                                                     module: `mnist_classifier::line_segment_sketch::line_segment`,
                                                     ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        19,
+                                                    ),
                                                 },
                                                 ast_idx: 17,
                                                 body: ArenaIdxRange(

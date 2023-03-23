@@ -532,6 +532,11 @@ Ok(
                                 ty: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    30,
+                                ),
+                            },
                             ast_idx: 32,
                             body: ArenaIdxRange(
                                 0..1,
@@ -543,6 +548,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    41,
+                                ),
                             },
                             ast_idx: 33,
                             body: ArenaIdxRange(
@@ -569,6 +579,11 @@ Ok(
                                 ty: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    82,
+                                ),
+                            },
                             ast_idx: 37,
                             body: ArenaIdxRange(
                                 2..3,
@@ -580,6 +595,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 1,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    93,
+                                ),
                             },
                             ast_idx: 38,
                             body: ArenaIdxRange(
@@ -606,6 +626,11 @@ Ok(
                                 ty: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    134,
+                                ),
+                            },
                             ast_idx: 42,
                             body: ArenaIdxRange(
                                 4..5,
@@ -617,6 +642,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 2,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    145,
+                                ),
                             },
                             ast_idx: 43,
                             body: ArenaIdxRange(
@@ -643,6 +673,11 @@ Ok(
                                 ty: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    185,
+                                ),
+                            },
                             ast_idx: 47,
                             body: ArenaIdxRange(
                                 6..7,
@@ -654,6 +689,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 3,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    196,
+                                ),
                             },
                             ast_idx: 48,
                             body: ArenaIdxRange(
@@ -680,6 +720,11 @@ Ok(
                                 ty: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    237,
+                                ),
+                            },
                             ast_idx: 52,
                             body: ArenaIdxRange(
                                 8..9,
@@ -691,6 +736,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 4,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    248,
+                                ),
                             },
                             ast_idx: 53,
                             body: ArenaIdxRange(
@@ -717,6 +767,11 @@ Ok(
                                 ty: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    289,
+                                ),
+                            },
                             ast_idx: 57,
                             body: ArenaIdxRange(
                                 10..11,
@@ -728,6 +783,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 5,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    300,
+                                ),
                             },
                             ast_idx: 58,
                             body: ArenaIdxRange(
@@ -754,6 +814,11 @@ Ok(
                                 ty: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    341,
+                                ),
+                            },
                             ast_idx: 62,
                             body: ArenaIdxRange(
                                 12..13,
@@ -765,6 +830,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 6,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    352,
+                                ),
                             },
                             ast_idx: 63,
                             body: ArenaIdxRange(
@@ -791,6 +861,11 @@ Ok(
                                 ty: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    393,
+                                ),
+                            },
                             ast_idx: 67,
                             body: ArenaIdxRange(
                                 14..15,
@@ -802,6 +877,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 7,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    404,
+                                ),
                             },
                             ast_idx: 68,
                             body: ArenaIdxRange(
@@ -828,6 +908,11 @@ Ok(
                                 ty: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    445,
+                                ),
+                            },
                             ast_idx: 72,
                             body: ArenaIdxRange(
                                 16..17,
@@ -839,6 +924,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 8,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    456,
+                                ),
                             },
                             ast_idx: 73,
                             body: ArenaIdxRange(
@@ -865,6 +955,11 @@ Ok(
                                 ty: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    497,
+                                ),
+                            },
                             ast_idx: 77,
                             body: ArenaIdxRange(
                                 18..19,
@@ -876,6 +971,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 9,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    508,
+                                ),
                             },
                             ast_idx: 78,
                             body: ArenaIdxRange(
@@ -902,6 +1002,11 @@ Ok(
                                 ty: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    549,
+                                ),
+                            },
                             ast_idx: 82,
                             body: ArenaIdxRange(
                                 20..21,
@@ -913,6 +1018,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 10,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    560,
+                                ),
                             },
                             ast_idx: 83,
                             body: ArenaIdxRange(
@@ -939,6 +1049,11 @@ Ok(
                                 ty: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    601,
+                                ),
+                            },
                             ast_idx: 87,
                             body: ArenaIdxRange(
                                 22..23,
@@ -950,6 +1065,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 11,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    612,
+                                ),
                             },
                             ast_idx: 88,
                             body: ArenaIdxRange(
@@ -976,6 +1096,11 @@ Ok(
                                 ty: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    653,
+                                ),
+                            },
                             ast_idx: 92,
                             body: ArenaIdxRange(
                                 24..25,
@@ -987,6 +1112,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 12,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    664,
+                                ),
                             },
                             ast_idx: 93,
                             body: ArenaIdxRange(
@@ -1013,6 +1143,11 @@ Ok(
                                 ty: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    704,
+                                ),
+                            },
                             ast_idx: 97,
                             body: ArenaIdxRange(
                                 26..27,
@@ -1024,6 +1159,11 @@ Ok(
                             id: IllFormedImplBlockId {
                                 module: `core::num`,
                                 disambiguator: 13,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    715,
+                                ),
                             },
                             ast_idx: 98,
                             body: ArenaIdxRange(
