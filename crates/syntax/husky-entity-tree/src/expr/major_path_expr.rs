@@ -82,7 +82,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
 }
 
 impl<'a, 'b> MajorPathExprParser<'a, 'b> {
-    pub(crate) fn parse_principal_path_expr(
+    pub(crate) fn parse_major_path_expr(
         &mut self,
     ) -> MajorPathExprResult<(MajorPathExprIdx, ModuleItemPath)> {
         let ident_token: IdentToken =

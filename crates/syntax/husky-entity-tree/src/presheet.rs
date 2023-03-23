@@ -36,7 +36,7 @@ pub struct EntityTreePresheet {
     use_one_trackers: UseExprRules,
     use_all_trackers: UseAllRules,
     use_expr_arena: UseExprArena,
-    mod_path_arena: ModPathExprArena,
+    mod_path_arena: ModulePathExprArena,
     errors: Vec<EntityTreeError>,
 }
 
@@ -73,7 +73,7 @@ pub(crate) struct EntityTreePresheetMut<'a> {
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
     use_expr_arena: &'a UseExprArena,
-    mod_path_arena: &'a ModPathExprArena,
+    mod_path_arena: &'a ModulePathExprArena,
 }
 
 impl<'a> EntityTreePresheetMut<'a> {
@@ -118,7 +118,7 @@ struct EntityTreePresheetBuilder<'a> {
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
-    mod_path_expr_arena: ModPathExprArena,
+    mod_path_expr_arena: ModulePathExprArena,
     use_expr_arena: UseExprArena,
     entity_use_trackers: UseExprRules,
     token_sheet_data: &'a TokenSheetData,

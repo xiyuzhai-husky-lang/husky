@@ -59,7 +59,7 @@ impl ImplBlock {
                 Err(_e) => todo!(),
             }
         }
-        let (_expr, path) = match parser.parse_principal_path_expr() {
+        let (_expr, path) = match parser.parse_major_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
                 return IllFormedImplBlock::new(
