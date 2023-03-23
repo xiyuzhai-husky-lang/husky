@@ -5,17 +5,17 @@ use husky_token::*;
 /// because path is resolved top-down
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum ModPathExpr {
+pub enum ModulePathExpr {
     Leaf {
         ident: IdentToken,
     },
     Parent {
         ident: IdentToken,
         scope_resolution_token: ScopeResolutionToken,
-        child: ModPathExprIdx,
+        child: ModulePathExprIdx,
     },
 }
 
-pub type ModPathExprArena = Arena<ModPathExpr>;
-pub type ModPathExprIdx = ArenaIdx<ModPathExpr>;
-pub type ModPathExprIdxRange = ArenaIdxRange<ModPathExpr>;
+pub type ModulePathExprArena = Arena<ModulePathExpr>;
+pub type ModulePathExprIdx = ArenaIdx<ModulePathExpr>;
+pub type ModulePathExprIdxRange = ArenaIdxRange<ModulePathExpr>;

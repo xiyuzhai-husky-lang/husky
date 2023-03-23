@@ -11,7 +11,7 @@ pub enum VisibilityExpr {
     PublicUnder {
         pub_token: PubToken,
         lpar: LeftParenthesisToken,
-        scope: ModPathExprIdx,
+        scope: ModulePathExprIdx,
         rpar: RightParenthesisToken,
     },
 }
@@ -27,7 +27,7 @@ pub type VisibilityExprResult<T> = Result<T, VisibilityExprError>;
 
 pub(crate) fn parse_accessibility_expr(
     token_stream: &mut TokenStream,
-    mod_path_expr_arena: &mut ModPathExprArena,
+    mod_path_expr_arena: &mut ModulePathExprArena,
 ) -> VisibilityExprResult<Option<VisibilityExpr>> {
     VisibilityExprParser {
         token_stream,
@@ -38,7 +38,7 @@ pub(crate) fn parse_accessibility_expr(
 
 struct VisibilityExprParser<'a, 'b> {
     token_stream: &'b mut TokenStream<'a>,
-    mod_path_expr_arena: &'b mut ModPathExprArena,
+    mod_path_expr_arena: &'b mut ModulePathExprArena,
 }
 
 impl<'a, 'b> parsec::ParseFrom<VisibilityExprParser<'a, 'b>> for VisibilityExpr {
