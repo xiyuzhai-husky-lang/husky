@@ -1867,6 +1867,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            49,
+                                        ),
+                                    },
                                     ast_idx: 75,
                                     body: ArenaIdxRange(
                                         39..53,
@@ -2029,6 +2034,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -2526,6 +2536,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -3082,6 +3097,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -4436,6 +4456,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
                                                         39..53,
@@ -5526,6 +5551,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -7204,6 +7234,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
                                                         39..53,
@@ -7764,6 +7799,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -8468,6 +8508,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
                                                         39..53,
@@ -9057,6 +9102,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -9648,6 +9698,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                    },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
                                                         39..53,
@@ -10213,6 +10268,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(
@@ -10791,6 +10851,11 @@ Ok(
                                                         module: `mnist_classifier::line_segment_sketch::concave_component`,
                                                         ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            49,
+                                                        ),
                                                     },
                                                     ast_idx: 75,
                                                     body: ArenaIdxRange(

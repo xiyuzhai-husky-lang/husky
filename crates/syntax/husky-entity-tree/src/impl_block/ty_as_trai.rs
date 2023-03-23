@@ -4,6 +4,7 @@ use super::*;
 pub struct TypeAsTraitImplBlock {
     #[id]
     pub id: TypeAsTraitImplBlockId,
+    pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub body: AstIdxRange,
 }

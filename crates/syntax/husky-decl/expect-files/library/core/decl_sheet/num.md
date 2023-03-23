@@ -960,6 +960,11 @@ Ok(
                                         ty: TypePath(`core::num::i8`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            30,
+                                        ),
+                                    },
                                     ast_idx: 32,
                                     body: ArenaIdxRange(
                                         0..1,
@@ -1124,6 +1129,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::i8`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        30,
+                                                    ),
                                                 },
                                                 ast_idx: 32,
                                                 body: ArenaIdxRange(
@@ -1381,6 +1391,11 @@ Ok(
                                         ty: TypePath(`core::num::i16`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            82,
+                                        ),
+                                    },
                                     ast_idx: 37,
                                     body: ArenaIdxRange(
                                         2..3,
@@ -1545,6 +1560,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::i16`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        82,
+                                                    ),
                                                 },
                                                 ast_idx: 37,
                                                 body: ArenaIdxRange(
@@ -1802,6 +1822,11 @@ Ok(
                                         ty: TypePath(`core::num::i32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            134,
+                                        ),
+                                    },
                                     ast_idx: 42,
                                     body: ArenaIdxRange(
                                         4..5,
@@ -1966,6 +1991,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::i32`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        134,
+                                                    ),
                                                 },
                                                 ast_idx: 42,
                                                 body: ArenaIdxRange(
@@ -2223,6 +2253,11 @@ Ok(
                                         ty: TypePath(`core::num::i64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            185,
+                                        ),
+                                    },
                                     ast_idx: 47,
                                     body: ArenaIdxRange(
                                         6..7,
@@ -2387,6 +2422,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::i64`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        185,
+                                                    ),
                                                 },
                                                 ast_idx: 47,
                                                 body: ArenaIdxRange(
@@ -2644,6 +2684,11 @@ Ok(
                                         ty: TypePath(`core::num::i128`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            237,
+                                        ),
+                                    },
                                     ast_idx: 52,
                                     body: ArenaIdxRange(
                                         8..9,
@@ -2808,6 +2853,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::i128`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        237,
+                                                    ),
                                                 },
                                                 ast_idx: 52,
                                                 body: ArenaIdxRange(
@@ -3065,6 +3115,11 @@ Ok(
                                         ty: TypePath(`core::num::isize`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            289,
+                                        ),
+                                    },
                                     ast_idx: 57,
                                     body: ArenaIdxRange(
                                         10..11,
@@ -3229,6 +3284,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::isize`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        289,
+                                                    ),
                                                 },
                                                 ast_idx: 57,
                                                 body: ArenaIdxRange(
@@ -3486,6 +3546,11 @@ Ok(
                                         ty: TypePath(`core::num::u8`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            341,
+                                        ),
+                                    },
                                     ast_idx: 62,
                                     body: ArenaIdxRange(
                                         12..13,
@@ -3650,6 +3715,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::u8`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        341,
+                                                    ),
                                                 },
                                                 ast_idx: 62,
                                                 body: ArenaIdxRange(
@@ -3907,6 +3977,11 @@ Ok(
                                         ty: TypePath(`core::num::u16`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            393,
+                                        ),
+                                    },
                                     ast_idx: 67,
                                     body: ArenaIdxRange(
                                         14..15,
@@ -4071,6 +4146,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::u16`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        393,
+                                                    ),
                                                 },
                                                 ast_idx: 67,
                                                 body: ArenaIdxRange(
@@ -4328,6 +4408,11 @@ Ok(
                                         ty: TypePath(`core::num::u32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            445,
+                                        ),
+                                    },
                                     ast_idx: 72,
                                     body: ArenaIdxRange(
                                         16..17,
@@ -4492,6 +4577,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::u32`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        445,
+                                                    ),
                                                 },
                                                 ast_idx: 72,
                                                 body: ArenaIdxRange(
@@ -4749,6 +4839,11 @@ Ok(
                                         ty: TypePath(`core::num::u64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            497,
+                                        ),
+                                    },
                                     ast_idx: 77,
                                     body: ArenaIdxRange(
                                         18..19,
@@ -4913,6 +5008,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::u64`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        497,
+                                                    ),
                                                 },
                                                 ast_idx: 77,
                                                 body: ArenaIdxRange(
@@ -5170,6 +5270,11 @@ Ok(
                                         ty: TypePath(`core::num::u128`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            549,
+                                        ),
+                                    },
                                     ast_idx: 82,
                                     body: ArenaIdxRange(
                                         20..21,
@@ -5334,6 +5439,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::u128`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        549,
+                                                    ),
                                                 },
                                                 ast_idx: 82,
                                                 body: ArenaIdxRange(
@@ -5591,6 +5701,11 @@ Ok(
                                         ty: TypePath(`core::num::usize`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            601,
+                                        ),
+                                    },
                                     ast_idx: 87,
                                     body: ArenaIdxRange(
                                         22..23,
@@ -5755,6 +5870,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::usize`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        601,
+                                                    ),
                                                 },
                                                 ast_idx: 87,
                                                 body: ArenaIdxRange(
@@ -6012,6 +6132,11 @@ Ok(
                                         ty: TypePath(`core::num::f32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            653,
+                                        ),
+                                    },
                                     ast_idx: 92,
                                     body: ArenaIdxRange(
                                         24..25,
@@ -6176,6 +6301,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::f32`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        653,
+                                                    ),
                                                 },
                                                 ast_idx: 92,
                                                 body: ArenaIdxRange(
@@ -6433,6 +6563,11 @@ Ok(
                                         ty: TypePath(`core::num::f64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            704,
+                                        ),
+                                    },
                                     ast_idx: 97,
                                     body: ArenaIdxRange(
                                         26..27,
@@ -6597,6 +6732,11 @@ Ok(
                                                     module: `core::num`,
                                                     ty: TypePath(`core::num::f64`, `Extern`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        704,
+                                                    ),
                                                 },
                                                 ast_idx: 97,
                                                 body: ArenaIdxRange(

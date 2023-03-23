@@ -4,6 +4,7 @@ use super::*;
 pub struct TypeImplBlock {
     #[id]
     pub id: TypeImplBlockId,
+    pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub body: AstIdxRange,
 }
@@ -11,6 +12,7 @@ pub struct TypeImplBlock {
 impl TypeImplBlock {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
+        impl_token: ImplToken,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -25,6 +27,7 @@ impl TypeImplBlock {
                 disambiguator: registry
                     .issue_disambiguitor(module_path, ImplBlockKind::Type { ty }),
             },
+            impl_token,
             ast_idx,
             body,
         )

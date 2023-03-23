@@ -1284,6 +1284,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            85,
+                                        ),
+                                    },
                                     ast_idx: 125,
                                     body: ArenaIdxRange(
                                         67..79,
@@ -1438,6 +1443,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
@@ -1702,6 +1712,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
+                                                },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
                                                     67..79,
@@ -1949,6 +1964,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
@@ -2198,6 +2218,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
+                                                },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
                                                     67..79,
@@ -2445,6 +2470,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
@@ -2694,6 +2724,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
+                                                },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
                                                     67..79,
@@ -2942,6 +2977,11 @@ Ok(
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
+                                                },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
                                                     67..79,
@@ -3189,6 +3229,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
@@ -3447,6 +3492,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(
@@ -3802,6 +3852,11 @@ Ok(
                                                     module: `mnist_classifier::connected_component`,
                                                     ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     disambiguator: 0,
+                                                },
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        85,
+                                                    ),
                                                 },
                                                 ast_idx: 125,
                                                 body: ArenaIdxRange(

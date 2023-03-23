@@ -245,6 +245,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            22,
+                                        ),
+                                    },
                                     ast_idx: 4,
                                     body: ArenaIdxRange(
                                         0..2,

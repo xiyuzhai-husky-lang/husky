@@ -52,7 +52,7 @@ impl ImplBlock {
             princiapl_entity_path_expr_arena,
             module_symbol_context,
         );
-        parser.parse::<ImplToken>().unwrap().unwrap();
+        let impl_token = parser.parse::<ImplToken>().unwrap().unwrap();
         if let Some(_) = parser.try_parse::<LeftAngleBracketOrLessThanToken>() {
             match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),
@@ -65,6 +65,7 @@ impl ImplBlock {
                 return IllFormedImplBlock::new(
                     db,
                     registry,
+                    impl_token,
                     module_path,
                     ast_idx,
                     body,
@@ -75,7 +76,7 @@ impl ImplBlock {
         };
         match path {
             ModuleItemPath::Type(ty) => {
-                TypeImplBlock::new(db, registry, module_path, ast_idx, body, ty).into()
+                TypeImplBlock::new(db, impl_token, registry, module_path, ast_idx, body, ty).into()
             }
             ModuleItemPath::Trait(_) => {
                 todo!();

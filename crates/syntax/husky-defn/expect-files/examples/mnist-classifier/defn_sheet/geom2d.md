@@ -1023,6 +1023,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                    },
                                     ast_idx: 79,
                                     body: ArenaIdxRange(
                                         5..10,
@@ -2115,6 +2120,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
                                                     ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
@@ -2705,6 +2715,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
                                                     },
                                                     ast_idx: 79,
                                                     body: ArenaIdxRange(
@@ -3503,6 +3518,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
                                                     ast_idx: 79,
                                                     body: ArenaIdxRange(
                                                         5..10,
@@ -4148,6 +4168,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
                                                     },
                                                     ast_idx: 79,
                                                     body: ArenaIdxRange(
@@ -4815,6 +4840,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            168,
+                                        ),
+                                    },
                                     ast_idx: 82,
                                     body: ArenaIdxRange(
                                         41..49,
@@ -4990,6 +5020,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
                                                     },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
@@ -5579,6 +5614,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
                                                     },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
@@ -6375,6 +6415,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
+                                                    },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
@@ -7020,6 +7065,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
                                                     },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
@@ -7788,6 +7838,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
+                                                    },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
@@ -8554,6 +8609,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
                                                     },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
@@ -9695,6 +9755,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
+                                                    },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
                                                         41..49,
@@ -10412,6 +10477,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
                                                     },
                                                     ast_idx: 82,
                                                     body: ArenaIdxRange(
@@ -12004,6 +12074,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            609,
+                                        ),
+                                    },
                                     ast_idx: 86,
                                     body: ArenaIdxRange(
                                         64..70,
@@ -12179,6 +12254,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
                                                     },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
@@ -13004,6 +13084,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
+                                                    },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
                                                         64..70,
@@ -13828,6 +13913,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
+                                                    },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
                                                         64..70,
@@ -14373,6 +14463,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
                                                     },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
@@ -14920,6 +15015,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
+                                                    },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
                                                         64..70,
@@ -15466,6 +15566,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            609,
+                                                        ),
+                                                    },
                                                     ast_idx: 86,
                                                     body: ArenaIdxRange(
                                                         64..70,
@@ -15960,6 +16065,11 @@ Ok(
                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            743,
+                                        ),
+                                    },
                                     ast_idx: 88,
                                     body: ArenaIdxRange(
                                         74..78,
@@ -16135,6 +16245,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            743,
+                                                        ),
                                                     },
                                                     ast_idx: 88,
                                                     body: ArenaIdxRange(
@@ -16682,6 +16797,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            743,
+                                                        ),
+                                                    },
                                                     ast_idx: 88,
                                                     body: ArenaIdxRange(
                                                         74..78,
@@ -17228,6 +17348,11 @@ Ok(
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            743,
+                                                        ),
+                                                    },
                                                     ast_idx: 88,
                                                     body: ArenaIdxRange(
                                                         74..78,
@@ -17773,6 +17898,11 @@ Ok(
                                                         module: `mnist_classifier::geom2d`,
                                                         ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
+                                                    },
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            743,
+                                                        ),
                                                     },
                                                     ast_idx: 88,
                                                     body: ArenaIdxRange(

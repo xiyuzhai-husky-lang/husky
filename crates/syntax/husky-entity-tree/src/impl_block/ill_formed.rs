@@ -4,6 +4,7 @@ use super::*;
 pub struct IllFormedImplBlock {
     #[id]
     pub id: IllFormedImplBlockId,
+    pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub body: AstIdxRange,
     #[return_ref]
@@ -14,6 +15,7 @@ impl IllFormedImplBlock {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut ImplBlockRegistry,
+        impl_token: ImplToken,
         module: ModulePath,
         ast_idx: AstIdx,
         body: AstIdxRange,
@@ -25,6 +27,7 @@ impl IllFormedImplBlock {
                 module,
                 disambiguator: registry.issue_disambiguitor(module, ImplBlockKind::Err),
             },
+            impl_token,
             ast_idx,
             body,
             ill_form,

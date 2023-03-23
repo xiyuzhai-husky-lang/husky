@@ -232,6 +232,11 @@ Ok(
                                         ty: TypePath(`natural_number_game::Nat`, `Inductive`),
                                         disambiguator: 0,
                                     },
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
                                     ast_idx: 6,
                                     body: ArenaIdxRange(
                                         0..3,
