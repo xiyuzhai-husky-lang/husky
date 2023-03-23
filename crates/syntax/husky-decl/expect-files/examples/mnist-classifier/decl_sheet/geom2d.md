@@ -123,7 +123,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `x`,
                                                 token_idx: TokenIdx(
@@ -137,7 +139,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `y`,
                                                 token_idx: TokenIdx(
@@ -302,7 +306,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `x`,
                                                 token_idx: TokenIdx(
@@ -316,7 +322,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `y`,
                                                 token_idx: TokenIdx(
@@ -481,7 +489,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `x`,
                                                 token_idx: TokenIdx(
@@ -495,7 +505,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `y`,
                                                 token_idx: TokenIdx(
@@ -660,7 +672,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `min`,
                                                 token_idx: TokenIdx(
@@ -674,7 +688,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `max`,
                                                 token_idx: TokenIdx(
@@ -744,10 +760,54 @@ Ok(
                                             ),
                                         ),
                                         expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        601,
+                                                    ),
+                                                    ident: `ClosedRange`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        606,
+                                                    ),
+                                                    ident: `ClosedRange`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -773,7 +833,16 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [],
+                                        roots: [
+                                            ExprRoot {
+                                                kind: FieldType,
+                                                expr: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: FieldType,
+                                                expr: 1,
+                                            },
+                                        ],
                                     },
                                 },
                                 implicit_parameter_decl_list: Ok(
@@ -785,18 +854,64 @@ Ok(
                                     ),
                                 ),
                                 field_comma_list: (
-                                    [],
-                                    [],
+                                    [
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: Some(
+                                                FieldVisibilityExpr::Pub,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `xrange`,
+                                                token_idx: TokenIdx(
+                                                    599,
+                                                ),
+                                            },
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    600,
+                                                ),
+                                            ),
+                                            ty: 0,
+                                        },
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: Some(
+                                                FieldVisibilityExpr::Pub,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `yrange`,
+                                                token_idx: TokenIdx(
+                                                    604,
+                                                ),
+                                            },
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    605,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                    ],
+                                    [
+                                        CommaToken(
+                                            TokenIdx(
+                                                602,
+                                            ),
+                                        ),
+                                        CommaToken(
+                                            TokenIdx(
+                                                607,
+                                            ),
+                                        ),
+                                    ],
                                     Ok(
                                         (),
                                     ),
                                 ),
-                                rcurl: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectRightCurlyBrace(
-                                            TokenIdx(
-                                                598,
-                                            ),
+                                rcurl: Ok(
+                                    RightCurlyBraceToken(
+                                        TokenIdx(
+                                            608,
                                         ),
                                     ),
                                 ),
@@ -927,7 +1042,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `xrange`,
                                                 token_idx: TokenIdx(
@@ -941,7 +1058,9 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `yrange`,
                                                 token_idx: TokenIdx(

@@ -174,7 +174,9 @@ Ok(
                                 ),
                                 field_comma_list: (
                                     [
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
@@ -188,7 +190,9 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        RegularStructFieldPattern {
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
                                             ident_token: IdentToken {
                                                 ident: `others`,
                                                 token_idx: TokenIdx(
