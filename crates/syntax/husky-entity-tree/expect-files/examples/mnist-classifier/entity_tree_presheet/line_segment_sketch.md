@@ -247,7 +247,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 163,
                     use_expr_idx: 1,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
@@ -269,7 +269,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 164,
                     use_expr_idx: 3,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
@@ -291,7 +291,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 165,
                     use_expr_idx: 5,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::Public,
                     },
                     variant: UseExprRuleVariant::Parent {
@@ -313,7 +313,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 166,
                     use_expr_idx: 8,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
@@ -336,7 +336,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 167,
                     use_expr_idx: 11,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),
@@ -359,7 +359,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 168,
                     use_expr_idx: 13,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch`,
                         ),

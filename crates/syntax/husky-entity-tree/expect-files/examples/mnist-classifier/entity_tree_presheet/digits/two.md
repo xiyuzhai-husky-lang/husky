@@ -125,7 +125,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 49,
                     use_expr_idx: 5,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::two`,
                         ),
@@ -149,7 +149,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 50,
                     use_expr_idx: 10,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::two`,
                         ),
@@ -173,7 +173,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 51,
                     use_expr_idx: 15,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::two`,
                         ),
@@ -197,7 +197,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 52,
                     use_expr_idx: 20,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::two`,
                         ),
@@ -221,7 +221,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 53,
                     use_expr_idx: 22,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::two`,
                         ),

@@ -48,7 +48,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 69,
                     use_expr_idx: 2,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
@@ -71,7 +71,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 70,
                     use_expr_idx: 6,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
@@ -94,7 +94,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 71,
                     use_expr_idx: 10,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
@@ -117,7 +117,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 72,
                     use_expr_idx: 13,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),
@@ -140,7 +140,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 73,
                     use_expr_idx: 15,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::line_segment_sketch::concave_component`,
                         ),

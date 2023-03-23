@@ -79,7 +79,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 17,
                     use_expr_idx: 5,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -103,7 +103,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 18,
                     use_expr_idx: 8,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -126,7 +126,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 11,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -149,7 +149,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 16,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -173,7 +173,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 19,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -196,7 +196,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 22,
                     use_expr_idx: 22,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -219,7 +219,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 23,
                     use_expr_idx: 25,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -242,7 +242,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 24,
                     use_expr_idx: 28,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -265,7 +265,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 25,
                     use_expr_idx: 32,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -288,7 +288,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 26,
                     use_expr_idx: 35,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),
@@ -311,7 +311,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 27,
                     use_expr_idx: 38,
-                    accessibility: AccessibilityProgress::Done {
+                    accessibility: VisibilityProgress::Done {
                         accessibility: Visibility::PublicUnder(
                             `mnist_classifier::digits::eight`,
                         ),

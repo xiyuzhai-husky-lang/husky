@@ -6,7 +6,7 @@ use husky_vfs::{ModulePath, VfsDb};
 use std::cmp::Ordering;
 use with_db::PartialOrdWithDb;
 
-/// Accessibility is greater if it can be accessed from more places
+/// Visibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = VfsDb)]
 pub enum Visibility {
@@ -15,12 +15,12 @@ pub enum Visibility {
     Private,                 // only self
     Disconnected {
         module_path: ModulePath,
-        file_accessibility: FileAccessibility,
+        file_accessibility: FileVisibility,
     },
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FileAccessibility {
+pub struct FileVisibility {
     token_idx_range: TokenIdxRange,
 }
 

@@ -57,7 +57,7 @@ impl UseExprRules {
 pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    accessibility: AccessibilityProgress,
+    accessibility: VisibilityProgress,
     variant: UseExprRuleVariant,
     parent: Option<EntityPath>,
     state: UseExprRuleState,
@@ -78,21 +78,21 @@ pub enum UseExprRuleVariant {
 // ad hoc
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum AccessibilityProgress {
+pub enum VisibilityProgress {
     Done { accessibility: Visibility },
     Todo,
 }
 
-impl AccessibilityProgress {
-    fn new(expr: Option<AccessibilityExpr>, module_path: ModulePath) -> Self {
+impl VisibilityProgress {
+    fn new(expr: Option<VisibilityExpr>, module_path: ModulePath) -> Self {
         match expr {
             Some(expr) => match expr {
-                AccessibilityExpr::Public { .. } => AccessibilityProgress::Done {
+                VisibilityExpr::Public { .. } => VisibilityProgress::Done {
                     accessibility: Visibility::Public,
                 },
-                AccessibilityExpr::PublicUnder { .. } => todo!(),
+                VisibilityExpr::PublicUnder { .. } => todo!(),
             },
-            None => AccessibilityProgress::Done {
+            None => VisibilityProgress::Done {
                 accessibility: Visibility::PublicUnder(module_path),
             },
         }
@@ -111,7 +111,7 @@ impl UseExprRule {
     pub fn new_root(
         ast_idx: AstIdx,
         use_expr_root: UseExprRoot,
-        accessibility_expr: Option<AccessibilityExpr>,
+        accessibility_expr: Option<VisibilityExpr>,
         use_expr_arena: &UseExprArena,
         module_path: ModulePath,
     ) -> Option<Self> {
@@ -124,7 +124,7 @@ impl UseExprRule {
         Some(Self {
             ast_idx,
             use_expr_idx: parent_use_expr_idx.into(),
-            accessibility: AccessibilityProgress::new(accessibility_expr, module_path),
+            accessibility: VisibilityProgress::new(accessibility_expr, module_path),
             parent: None,
             state: UseExprRuleState::Unresolved,
             variant: UseExprRuleVariant::Parent {
@@ -175,8 +175,8 @@ impl UseExprRule {
 
     pub(crate) fn accessibility(&self) -> Visibility {
         match self.accessibility {
-            AccessibilityProgress::Done { accessibility } => accessibility,
-            AccessibilityProgress::Todo => todo!(),
+            VisibilityProgress::Done { accessibility } => accessibility,
+            VisibilityProgress::Todo => todo!(),
         }
     }
 

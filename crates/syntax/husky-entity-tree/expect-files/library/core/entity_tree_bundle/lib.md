@@ -1049,7 +1049,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 2,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::PublicUnder(
                                     `core::num`,
                                 ),
@@ -1588,7 +1588,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 2,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1617,7 +1617,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 1,
                             use_expr_idx: 5,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1646,7 +1646,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 8,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1675,7 +1675,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 3,
                             use_expr_idx: 11,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1704,7 +1704,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 4,
                             use_expr_idx: 14,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1733,7 +1733,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 5,
                             use_expr_idx: 17,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1762,7 +1762,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 6,
                             use_expr_idx: 20,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1791,7 +1791,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 1,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1825,7 +1825,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 1,
                             use_expr_idx: 4,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1859,7 +1859,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 7,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1893,7 +1893,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 3,
                             use_expr_idx: 10,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1927,7 +1927,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 4,
                             use_expr_idx: 13,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1961,7 +1961,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 5,
                             use_expr_idx: 16,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
@@ -1995,7 +1995,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 6,
                             use_expr_idx: 19,
-                            accessibility: AccessibilityProgress::Done {
+                            accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::Public,
                             },
                             variant: UseExprRuleVariant::Parent {
