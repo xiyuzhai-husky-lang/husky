@@ -104,23 +104,11 @@ impl<'a> RequestDispatcher<'a> {
             let snapshot = self.server.db.snapshot();
             let sender = self.server.event_loop_comm.sender.clone();
             move || {
-                let result = panic::catch_unwind(move || {
-                    let _pctx = error_utils::panic_context::enter(panic_context);
-                    f(snapshot, params)
-                });
-                // ad hoc
-                match result {
-                    Ok(_) => (),
-                    Err(ref e) => {
-                        if let Some(s) = e.downcast_ref::<&str>() {
-                            panic!("result is Err({s})")
-                        } else if let Some(s) = e.downcast_ref::<String>() {
-                            panic!("result is Err({s})")
-                        } else {
-                            panic!("result is Err(unknown)")
-                        }
-                    }
-                }
+                // let result = panic::catch_unwind(move || {
+                //     let _pctx = error_utils::panic_context::enter(panic_context);
+                //     f(snapshot, params)
+                // });
+                let result = Ok(f(snapshot, params));
                 let response = thread_result_to_response::<R>(id, result);
                 sender.send(TaskSet::Respond(response)).expect("ok");
             }
