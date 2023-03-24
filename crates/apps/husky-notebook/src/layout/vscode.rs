@@ -1,3 +1,5 @@
+use egui::Layout;
+
 use super::*;
 
 impl HuskyNotebookApp {
@@ -8,16 +10,22 @@ impl HuskyNotebookApp {
     ) {
         ui.vertical(|ui| {
             self.render_main_menu(ctx, ui);
-            self.render_middle_ground(ctx, ui);
-            self.render_status_bar(ctx, ui)
+            ui.separator();
+            ui.vertical_reversed(|ui| {
+                self.render_status_bar(ctx, ui);
+                ui.separator();
+                ui.centered_and_justified(|ui| self.render_middle_ground(ctx, ui))
+            })
         });
     }
 
     fn render_middle_ground(&mut self, ctx: &egui::Context, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             self.render_activity_bar(ctx, ui);
+            ui.separator();
             self.render_activity_view(ctx, ui);
-            self.render_main_view(ctx, ui)
+            ui.separator();
+            ui.centered_and_justified(|ui| self.render_main_view(ctx, ui))
         });
     }
 

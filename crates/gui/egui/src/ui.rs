@@ -1940,6 +1940,14 @@ impl Ui {
         self.with_layout_dyn(Layout::top_down(Align::Min), Box::new(add_contents))
     }
 
+    #[inline]
+    pub fn vertical_reversed<R>(
+        &mut self,
+        add_contents: impl FnOnce(&mut Ui) -> R,
+    ) -> InnerResponse<R> {
+        self.with_layout_dyn(Layout::bottom_up(Align::Min), Box::new(add_contents))
+    }
+
     /// Start a ui with vertical layout.
     /// Widgets will be horizontally centered.
     ///
