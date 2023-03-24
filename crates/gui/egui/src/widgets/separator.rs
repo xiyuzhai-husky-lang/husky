@@ -13,22 +13,6 @@ use crate::*;
 /// ```
 #[must_use = "You should put this widget in an ui with `ui.add(widget);`"]
 pub struct Separator {
-    spacing: f32,
-    grow: f32,
-    is_horizontal_line: Option<bool>,
-}
-
-impl Default for Separator {
-    fn default() -> Self {
-        Self {
-            spacing: 6.0,
-            grow: 0.0,
-            is_horizontal_line: None,
-        }
-    }
-}
-
-impl Separator {
     /// How much space we take up. The line is painted in the middle of this.
     ///
     /// In a vertical layout, with a horizontal Separator,
@@ -36,9 +20,18 @@ impl Separator {
     ///
     /// In a horizontal layout, with a vertical Separator,
     /// this is the width of the separator widget.
-    pub fn spacing(mut self, spacing: f32) -> Self {
-        self.spacing = spacing;
-        self
+    spacing: f32,
+    grow: f32,
+    is_horizontal_line: Option<bool>,
+}
+
+impl Separator {
+    pub fn new(spacing: f32) -> Self {
+        Self {
+            spacing,
+            grow: 0.0,
+            is_horizontal_line: None,
+        }
     }
 
     /// Explicitly ask for a horizontal line.

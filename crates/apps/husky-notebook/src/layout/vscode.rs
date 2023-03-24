@@ -10,10 +10,10 @@ impl HuskyNotebookApp {
     ) {
         ui.vertical(|ui| {
             self.render_main_menu(ctx, ui);
-            ui.separator();
+            ui.separator(0.);
             ui.vertical_reversed(|ui| {
                 self.render_status_bar(ctx, ui);
-                ui.separator();
+                ui.separator(0.);
                 ui.centered_and_justified(|ui| self.render_middle_ground(ctx, ui))
             })
         });
@@ -22,9 +22,9 @@ impl HuskyNotebookApp {
     fn render_middle_ground(&mut self, ctx: &egui::Context, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             self.render_activity_bar(ctx, ui);
-            ui.separator();
+            ui.separator(0.);
             self.render_activity_view(ctx, ui);
-            ui.separator();
+            ui.separator(0.);
             ui.centered_and_justified(|ui| self.render_main_view(ctx, ui))
         });
     }
