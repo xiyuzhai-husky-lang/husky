@@ -320,7 +320,7 @@ mod response;
 mod sense;
 pub mod style;
 mod ui;
-pub mod util;
+pub mod utils;
 pub mod widget_text;
 pub mod widgets;
 

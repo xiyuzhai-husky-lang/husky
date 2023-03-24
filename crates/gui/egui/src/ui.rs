@@ -7,7 +7,7 @@ use epaint::mutex::RwLock;
 
 use crate::{
     containers::*, ecolor::*, epaint::text::Fonts, layout::*, menu::MenuState, placer::Placer,
-    util::IdTypeMap, widgets::*, *,
+    utils::IdTypeMap, widgets::*, *,
 };
 
 // ----------------------------------------------------------------------------

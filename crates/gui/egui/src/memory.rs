@@ -30,7 +30,7 @@ pub struct Memory {
     /// This will be saved between different program runs if you use the `persistence` feature.
     ///
     /// To store a state common for all your widgets (a singleton), use [`Id::null`] as the key.
-    pub data: crate::util::IdTypeMap,
+    pub data: crate::utils::IdTypeMap,
 
     // ------------------------------------------
     /// Can be used to cache computations from one frame to another.
@@ -58,7 +58,7 @@ pub struct Memory {
     /// });
     /// ```
     #[cfg_attr(feature = "persistence", serde(skip))]
-    pub caches: crate::util::cache::CacheStorage,
+    pub caches: crate::utils::cache::CacheStorage,
 
     // ------------------------------------------
     /// new scale that will be applied at the start of the next frame

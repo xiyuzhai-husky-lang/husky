@@ -1,6 +1,6 @@
 //! Color picker widgets.
 
-use crate::util::fixed_cache::FixedCache;
+use crate::utils::fixed_cache::FixedCache;
 use crate::*;
 use epaint::{ecolor::*, *};
 
