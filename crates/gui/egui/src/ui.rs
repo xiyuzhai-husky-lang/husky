@@ -1491,12 +1491,12 @@ impl Ui {
         response
     }
 
-    /// Shortcut for `add(Separator::default())`
+    /// Shortcut for `add(Separator::new(spacing))`
     ///
     /// See also [`Separator`].
     #[inline]
-    pub fn separator(&mut self) -> Response {
-        Separator::default().ui(self)
+    pub fn separator(&mut self, spacing: f32) -> Response {
+        Separator::new(spacing).ui(self)
     }
 
     /// Shortcut for `add(Spinner::new())`
