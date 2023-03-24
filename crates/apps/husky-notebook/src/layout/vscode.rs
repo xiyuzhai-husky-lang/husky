@@ -1,4 +1,4 @@
-use egui::Layout;
+use egui::{Layout, Vec2};
 
 use super::*;
 
