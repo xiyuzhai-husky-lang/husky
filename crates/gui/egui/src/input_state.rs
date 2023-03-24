@@ -1,7 +1,7 @@
 mod touch_state;
 
 use crate::data::input::*;
-use crate::{emath::*, util::History};
+use crate::{emath::*, utils::History};
 use std::collections::{BTreeMap, HashSet};
 
 pub use crate::data::input::Key;

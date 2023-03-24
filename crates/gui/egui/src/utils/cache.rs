@@ -57,7 +57,7 @@ impl<Value, Computer> FrameCache<Value, Computer> {
         Value: Clone,
         Computer: ComputerMut<Key, Value>,
     {
-        let hash = crate::util::hash(key);
+        let hash = crate::utils::hash(key);
 
         match self.cache.entry(hash) {
             std::collections::hash_map::Entry::Occupied(entry) => {

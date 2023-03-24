@@ -4,7 +4,7 @@ use std::sync::Arc;
 use crate::{
     animation_manager::AnimationManager, data::output::PlatformOutput, frame_state::FrameState,
     input_state::*, layers::GraphicLayers, memory::Options, os::OperatingSystem,
-    output::FullOutput, util::IdTypeMap, TextureHandle, *,
+    output::FullOutput, utils::IdTypeMap, TextureHandle, *,
 };
 use epaint::{mutex::*, stats::*, text::Fonts, TessellationOptions, *};
 
