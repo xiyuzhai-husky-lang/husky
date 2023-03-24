@@ -4,12 +4,9 @@ use crate::*;
 use egui::{Color32, Vec2, Visuals};
 
 impl HuskyNotebookApp {
-    pub(crate) fn render_layout(&mut self, ctx: &egui::Context, ui: &mut egui::Ui) {
-        ui.spacing_mut().item_spacing = Vec2 { x: 0., y: 0. };
-        ui.visuals_mut().extreme_bg_color = Color32::RED;
-        ui.visuals_mut().code_bg_color = Color32::RED;
+    pub(crate) fn render_panels(&mut self, ctx: &egui::Context) {
         match self.config.layout().high_level() {
-            HuskyNotebookHighLevelLayout::Vscode => self.render_vscode_high_level_layout(ctx, ui),
+            HuskyNotebookHighLevelLayout::Vscode => self.render_vscode_panels(ctx),
         }
     }
 }

@@ -1,6 +1,6 @@
 mod components;
 mod config;
-mod layout;
+mod panels;
 
 use self::config::*;
 use eframe::egui;
@@ -33,6 +33,7 @@ impl Default for HuskyNotebookApp {
 
 impl eframe::App for HuskyNotebookApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| self.render_layout(ctx, ui));
+        self.render_panels(ctx)
+        // egui::CentralPanel::default().show(ctx, |ui|);
     }
 }
