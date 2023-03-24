@@ -1,4 +1,4 @@
-use egui::{Layout, Vec2};
+use egui::{Align, Layout, Vec2};
 
 use super::*;
 
@@ -10,10 +10,10 @@ impl HuskyNotebookApp {
     ) {
         ui.vertical(|ui| {
             self.render_main_menu(ctx, ui);
-            ui.separator(0.);
-            ui.vertical_reversed(|ui| {
+            ui.separator();
+            ui.with_layout(Layout::bottom_up(Align::Min), |ui| {
                 self.render_status_bar(ctx, ui);
-                ui.separator(0.);
+                ui.separator();
                 ui.centered_and_justified(|ui| self.render_middle_ground(ctx, ui))
             })
         });
@@ -22,9 +22,9 @@ impl HuskyNotebookApp {
     fn render_middle_ground(&mut self, ctx: &egui::Context, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             self.render_activity_bar(ctx, ui);
-            ui.separator(0.);
+            ui.separator();
             self.render_activity_view(ctx, ui);
-            ui.separator(0.);
+            ui.separator();
             ui.centered_and_justified(|ui| self.render_main_view(ctx, ui))
         });
     }

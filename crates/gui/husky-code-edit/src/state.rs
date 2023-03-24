@@ -6,7 +6,7 @@ use crate::*;
 
 use super::{CCursorRange, CursorRange};
 
-type Undoer = egui::utils::undoer::Undoer<(CCursorRange, String)>;
+type Undoer = egui::util::undoer::Undoer<(CCursorRange, String)>;
 
 /// The text edit state stored between frames.
 #[derive(Clone, Default)]

@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 tracing-subscriber = "0.3.16"
-eframe = { path = "../../gui/eframe" }
-egui = { path = "../../gui/egui" }
+eframe = "0.21.0"
+egui = "0.21.0"
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 husky-code-edit = { path = "../../gui/husky-code-edit" }
