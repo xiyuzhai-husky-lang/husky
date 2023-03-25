@@ -13,7 +13,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 32,
+                                        value: 34,
                                     },
                                 ),
                             ),
@@ -26,7 +26,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 33,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -39,7 +39,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 34,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -52,7 +52,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 35,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -65,7 +65,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 36,
+                                        value: 38,
                                     },
                                 ),
                             ),
@@ -78,7 +78,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 37,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -91,7 +91,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -323,7 +323,7 @@ Ok(
                                     entity_path: Module(
                                         ModulePath(
                                             Id {
-                                                value: 60,
+                                                value: 62,
                                             },
                                         ),
                                     ),
@@ -357,7 +357,7 @@ Ok(
                                     entity_path: Module(
                                         ModulePath(
                                             Id {
-                                                value: 60,
+                                                value: 62,
                                             },
                                         ),
                                     ),
@@ -390,7 +390,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -422,7 +422,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 37,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -454,7 +454,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -486,7 +486,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -518,7 +518,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -575,7 +575,7 @@ Ok(
                                     entity_path: Module(
                                         ModulePath(
                                             Id {
-                                                value: 60,
+                                                value: 62,
                                             },
                                         ),
                                     ),
@@ -666,7 +666,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 21,
@@ -674,7 +674,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -683,7 +683,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 44,
+                                    value: 46,
                                 },
                             ),
                             ast_idx: 22,
@@ -691,7 +691,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -700,7 +700,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 23,
@@ -708,7 +708,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -717,7 +717,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 25,
@@ -725,7 +725,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -734,7 +734,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 60,
+                                    value: 62,
                                 },
                             ),
                             ast_idx: 27,
@@ -742,7 +742,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 38,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -1239,7 +1239,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -1270,7 +1270,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -1306,7 +1306,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -1319,7 +1319,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                             ast_idx: 120,
@@ -1327,7 +1327,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -1336,7 +1336,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                             ast_idx: 119,
@@ -1344,7 +1344,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -1754,7 +1754,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -1785,7 +1785,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -1816,7 +1816,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -1849,7 +1849,7 @@ Ok(
                                     entity_path: Module(
                                         ModulePath(
                                             Id {
-                                                value: 60,
+                                                value: 62,
                                             },
                                         ),
                                     ),
@@ -1886,7 +1886,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -1922,7 +1922,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 32,
+                                            value: 34,
                                         },
                                     ),
                                 ),
@@ -1958,7 +1958,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -2017,7 +2017,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                             ast_idx: 195,
@@ -2025,7 +2025,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 40,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -2034,7 +2034,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 39,
+                                    value: 41,
                                 },
                             ),
                             ast_idx: 196,
@@ -2042,7 +2042,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 40,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -2051,7 +2051,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 197,
@@ -2059,7 +2059,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 40,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -2285,7 +2285,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 39,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -2298,7 +2298,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 40,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -2311,7 +2311,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 41,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -2324,7 +2324,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 42,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -2606,7 +2606,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -2636,7 +2636,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 40,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -2666,7 +2666,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 42,
+                                            value: 44,
                                         },
                                     ),
                                 ),
@@ -2697,7 +2697,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -2728,7 +2728,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -2760,7 +2760,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 42,
+                                            value: 44,
                                         },
                                     ),
                                 ),
@@ -2796,7 +2796,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -2832,7 +2832,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -2876,7 +2876,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 163,
@@ -2887,7 +2887,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 47,
+                                    value: 49,
                                 },
                             ),
                             ast_idx: 164,
@@ -2898,7 +2898,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 49,
+                                    value: 51,
                                 },
                             ),
                             ast_idx: 165,
@@ -2909,7 +2909,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 49,
+                                    value: 51,
                                 },
                             ),
                             ast_idx: 168,
@@ -2917,7 +2917,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 42,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -2926,7 +2926,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                             ast_idx: 166,
@@ -2934,7 +2934,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 42,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -3500,7 +3500,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -3531,7 +3531,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -3562,7 +3562,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -3593,7 +3593,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -3624,7 +3624,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -3660,7 +3660,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3696,7 +3696,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3732,7 +3732,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3768,7 +3768,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -3804,7 +3804,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 42,
+                                            value: 44,
                                         },
                                     ),
                                 ),
@@ -3840,7 +3840,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 41,
+                                            value: 43,
                                         },
                                     ),
                                 ),
@@ -3853,7 +3853,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                             ast_idx: 73,
@@ -3861,7 +3861,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -3870,7 +3870,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 69,
@@ -3878,7 +3878,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -3887,7 +3887,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                             ast_idx: 72,
@@ -3895,7 +3895,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -3904,7 +3904,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 49,
+                                    value: 51,
                                 },
                             ),
                             ast_idx: 70,
@@ -3912,7 +3912,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -3921,7 +3921,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 48,
+                                    value: 50,
                                 },
                             ),
                             ast_idx: 71,
@@ -3929,7 +3929,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -4278,7 +4278,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -4314,7 +4314,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -4327,7 +4327,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 2,
@@ -4335,7 +4335,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 47,
+                                        value: 49,
                                     },
                                 ),
                             ),
@@ -4663,7 +4663,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -4694,7 +4694,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -4725,7 +4725,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -4761,7 +4761,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -4797,7 +4797,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -4833,7 +4833,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -4846,7 +4846,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 19,
@@ -4854,7 +4854,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 48,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -4863,7 +4863,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                             ast_idx: 20,
@@ -4871,7 +4871,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 48,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -4880,7 +4880,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                             ast_idx: 21,
@@ -4888,7 +4888,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 48,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -5040,7 +5040,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -5076,7 +5076,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 34,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -5089,7 +5089,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 41,
+                                    value: 43,
                                 },
                             ),
                             ast_idx: 15,
@@ -5097,7 +5097,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 49,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -5457,7 +5457,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -5470,7 +5470,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                             ast_idx: 21,
@@ -5478,7 +5478,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 43,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -5500,7 +5500,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 43,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -5513,7 +5513,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 44,
+                                        value: 46,
                                     },
                                 ),
                             ),
@@ -5526,7 +5526,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -5539,7 +5539,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 46,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -5552,7 +5552,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 47,
+                                        value: 49,
                                     },
                                 ),
                             ),
@@ -5565,7 +5565,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 48,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -5578,7 +5578,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 49,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -5591,7 +5591,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 50,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -5604,7 +5604,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 51,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -5617,7 +5617,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -5753,7 +5753,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 44,
+                                            value: 46,
                                         },
                                     ),
                                 ),
@@ -5785,7 +5785,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 45,
+                                            value: 47,
                                         },
                                     ),
                                 ),
@@ -5817,7 +5817,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 43,
+                                            value: 45,
                                         },
                                     ),
                                 ),
@@ -5849,7 +5849,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 52,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -5881,7 +5881,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 46,
+                                            value: 48,
                                         },
                                     ),
                                 ),
@@ -5913,7 +5913,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 48,
+                                            value: 50,
                                         },
                                     ),
                                 ),
@@ -5945,7 +5945,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 45,
+                                            value: 47,
                                         },
                                     ),
                                 ),
@@ -5977,7 +5977,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 49,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -6009,7 +6009,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 50,
+                                            value: 52,
                                         },
                                     ),
                                 ),
@@ -6041,7 +6041,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 51,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -6744,7 +6744,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -6775,7 +6775,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -6806,7 +6806,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -6837,7 +6837,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -6873,7 +6873,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -6909,7 +6909,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -6945,7 +6945,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -7009,7 +7009,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -7022,7 +7022,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 29,
@@ -7030,7 +7030,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 50,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -7039,7 +7039,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 30,
@@ -7047,7 +7047,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 50,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -7056,7 +7056,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 31,
@@ -7064,7 +7064,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 50,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -7458,7 +7458,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -7489,7 +7489,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -7520,7 +7520,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -7556,7 +7556,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -7592,7 +7592,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -7628,7 +7628,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -7664,7 +7664,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -7677,7 +7677,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 65,
@@ -7685,7 +7685,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 51,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -7694,7 +7694,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 66,
@@ -7702,7 +7702,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 51,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -7711,7 +7711,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 67,
@@ -7719,7 +7719,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 51,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -8105,7 +8105,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8136,7 +8136,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8167,7 +8167,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8198,7 +8198,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8234,7 +8234,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -8270,7 +8270,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -8306,7 +8306,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -8370,7 +8370,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -8383,7 +8383,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 53,
@@ -8391,7 +8391,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -8400,7 +8400,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 54,
@@ -8408,7 +8408,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -8417,7 +8417,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 55,
@@ -8425,7 +8425,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 52,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -8821,7 +8821,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8852,7 +8852,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8883,7 +8883,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -8919,7 +8919,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -8955,7 +8955,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -8991,7 +8991,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -9027,7 +9027,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -9040,7 +9040,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 31,
@@ -9048,7 +9048,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 53,
+                                        value: 55,
                                     },
                                 ),
                             ),
@@ -9057,7 +9057,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 32,
@@ -9065,7 +9065,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 53,
+                                        value: 55,
                                     },
                                 ),
                             ),
@@ -9074,7 +9074,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 33,
@@ -9082,7 +9082,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 53,
+                                        value: 55,
                                     },
                                 ),
                             ),
@@ -9494,7 +9494,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -9525,7 +9525,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -9556,7 +9556,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -9592,7 +9592,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -9628,7 +9628,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -9664,7 +9664,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -9700,7 +9700,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -9713,7 +9713,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 41,
@@ -9721,7 +9721,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -9730,7 +9730,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 42,
@@ -9738,7 +9738,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -9747,7 +9747,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 43,
@@ -9755,7 +9755,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 54,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -10317,7 +10317,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10348,7 +10348,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10403,7 +10403,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10434,7 +10434,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10465,7 +10465,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10496,7 +10496,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -10532,7 +10532,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -10568,7 +10568,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -10604,7 +10604,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -10640,7 +10640,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -10676,7 +10676,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -10712,7 +10712,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 37,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -10810,7 +10810,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -10823,7 +10823,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 43,
@@ -10831,7 +10831,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 56,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -10840,7 +10840,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 44,
@@ -10848,7 +10848,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 56,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -10857,7 +10857,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 44,
+                                    value: 46,
                                 },
                             ),
                             ast_idx: 46,
@@ -10865,7 +10865,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 56,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -10874,7 +10874,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 45,
@@ -10882,7 +10882,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 56,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -11098,7 +11098,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11129,7 +11129,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11184,7 +11184,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11215,7 +11215,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11246,7 +11246,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11277,7 +11277,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11308,7 +11308,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11339,7 +11339,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11370,7 +11370,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -11406,7 +11406,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -11442,7 +11442,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -11590,7 +11590,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -11626,7 +11626,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -11662,7 +11662,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -11760,7 +11760,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -11773,7 +11773,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 26,
@@ -11781,7 +11781,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 57,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -11790,7 +11790,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                             ast_idx: 27,
@@ -11798,7 +11798,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 57,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -11807,7 +11807,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 25,
@@ -11815,7 +11815,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 57,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -12221,7 +12221,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -12252,7 +12252,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -12283,7 +12283,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -12314,7 +12314,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -12345,7 +12345,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -12381,7 +12381,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -12417,7 +12417,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 36,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -12453,7 +12453,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -12545,7 +12545,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -12558,7 +12558,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 45,
+                                    value: 47,
                                 },
                             ),
                             ast_idx: 39,
@@ -12566,7 +12566,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -12575,7 +12575,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 43,
+                                    value: 45,
                                 },
                             ),
                             ast_idx: 40,
@@ -12583,7 +12583,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -12592,7 +12592,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 41,
@@ -12600,7 +12600,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 58,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -13162,7 +13162,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13175,7 +13175,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                             ast_idx: 53,
@@ -13183,7 +13183,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 59,
+                                        value: 61,
                                     },
                                 ),
                             ),
@@ -13605,7 +13605,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13636,7 +13636,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13667,7 +13667,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13698,7 +13698,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13729,7 +13729,7 @@ Ok(
                                 original_symbol: CrateRoot {
                                     root_module: ModulePath(
                                         Id {
-                                            value: 38,
+                                            value: 40,
                                         },
                                     ),
                                 },
@@ -13765,7 +13765,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 32,
+                                            value: 34,
                                         },
                                     ),
                                 ),
@@ -13801,7 +13801,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 33,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -13837,7 +13837,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -13873,7 +13873,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 35,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -13909,7 +13909,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -13922,7 +13922,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                             ast_idx: 22,
@@ -13930,7 +13930,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -13939,7 +13939,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 39,
+                                    value: 41,
                                 },
                             ),
                             ast_idx: 18,
@@ -13947,7 +13947,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -13956,7 +13956,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 40,
+                                    value: 42,
                                 },
                             ),
                             ast_idx: 19,
@@ -13964,7 +13964,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -13973,7 +13973,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 42,
+                                    value: 44,
                                 },
                             ),
                             ast_idx: 20,
@@ -13981,7 +13981,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -13990,7 +13990,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 46,
+                                    value: 48,
                                 },
                             ),
                             ast_idx: 21,
@@ -13998,7 +13998,7 @@ Ok(
                             accessibility: PublicUnder(
                                 ModulePath(
                                     Id {
-                                        value: 45,
+                                        value: 47,
                                     },
                                 ),
                             ),

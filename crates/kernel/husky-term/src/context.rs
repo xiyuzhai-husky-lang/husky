@@ -1,7 +1,5 @@
 mod entry;
 
-pub(crate) use entry::is_ty_path_lifetime_ty;
-
 use crate::*;
 use entry::*;
 use husky_entity_path::EntityPath;

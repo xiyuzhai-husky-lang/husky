@@ -43,7 +43,7 @@ pub(crate) fn crate_symbol_context<'a>(
     crate_path: CratePath,
 ) -> PreludeResult<CrateSymbolContext<'a>> {
     let toolchain = crate_path.toolchain(db);
-    let path_menu = db.vfs_path_menu(toolchain)?;
+    let path_menu = db.vfs_path_menu(toolchain);
     let core_prelude_module = path_menu.core_prelude();
     Ok(CrateSymbolContext::new(
         entity_tree_sheet(db, core_prelude_module)
@@ -80,8 +80,8 @@ fn crate_symbol_context_works() {
             }
         };
         let toolchain = crate_path.toolchain(db);
-        let _vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
-        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        let _vfs_path_menu = db.vfs_path_menu(toolchain);
+        let entity_path_menu = db.entity_path_menu(toolchain);
         t(entity_path_menu.bool_ty_path().into());
         t(entity_path_menu.i32_ty_path().into());
         t(entity_path_menu.i64_ty_path().into());

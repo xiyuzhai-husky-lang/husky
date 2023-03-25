@@ -177,7 +177,7 @@ impl RawTermShowContext {
 
 fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
     match symbol.ty(db) {
-        Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if is_ty_path_lifetime_ty(db, ty) => {
+        Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
             RawTermSymbolShowKind::Lifetime
         }
         Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,
@@ -185,15 +185,4 @@ fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolS
         Ok(RawTerm::Category(_)) => RawTermSymbolShowKind::Kind,
         _ => RawTermSymbolShowKind::Other,
     }
-}
-
-// this might be the most efficient way to do it
-// only use this in this module
-#[salsa::tracked(jar = RawTermJar)]
-pub(crate) fn is_ty_path_lifetime_ty(db: &dyn RawTermDb, ty_path: TypePath) -> bool {
-    let toolchain = ty_path.toolchain(db);
-    let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
-        return false
-    };
-    ty_path == entity_path_menu.lifetime_ty_path()
 }

@@ -9,9 +9,7 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
@@ -21,13 +19,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `basic`,
                         token_idx: TokenIdx(
-                            1,
+                            2,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        2,
+                        3,
                     ),
                 },
                 Ast::Defn {
@@ -37,45 +35,15 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::logic`,
+                            `core::default`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `logic`,
-                        token_idx: TokenIdx(
-                            3,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        4,
-                    ),
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        2,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::mem`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `mem`,
+                        ident: `default`,
                         token_idx: TokenIdx(
                             5,
                         ),
@@ -88,78 +56,46 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::logic`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `logic`,
+                        token_idx: TokenIdx(
+                            8,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        9,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         3,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::num`,
+                            `core::mem`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `num`,
-                        token_idx: TokenIdx(
-                            7,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        8,
-                    ),
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        4,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `ops`,
-                        token_idx: TokenIdx(
-                            9,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        10,
-                    ),
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        5,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::prelude`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `prelude`,
+                        ident: `mem`,
                         token_idx: TokenIdx(
                             11,
                         ),
@@ -172,78 +108,46 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        4,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::raw_bits`,
+                            `core::num`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `raw_bits`,
+                        ident: `num`,
                         token_idx: TokenIdx(
-                            13,
+                            14,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        14,
+                        15,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        7,
+                        5,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::fmt`,
+                            `core::ops`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `fmt`,
-                        token_idx: TokenIdx(
-                            15,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        16,
-                    ),
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        8,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::clone`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `clone`,
+                        ident: `ops`,
                         token_idx: TokenIdx(
                             17,
                         ),
@@ -256,78 +160,46 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        6,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::marker`,
+                            `core::prelude`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `marker`,
+                        ident: `prelude`,
                         token_idx: TokenIdx(
-                            19,
+                            20,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        20,
+                        21,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        10,
+                        7,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::list`,
+                            `core::raw_bits`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `list`,
-                        token_idx: TokenIdx(
-                            21,
-                        ),
-                    },
-                    is_generic: false,
-                    body_kind: None,
-                    saved_stream_state: TokenIdx(
-                        22,
-                    ),
-                },
-                Ast::Defn {
-                    token_group_idx: TokenGroupIdx(
-                        11,
-                    ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::cmp`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `cmp`,
+                        ident: `raw_bits`,
                         token_idx: TokenIdx(
                             23,
                         ),
@@ -340,30 +212,132 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        8,
                     ),
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
-                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `core::str`,
+                            `core::fmt`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `str`,
+                        ident: `fmt`,
                         token_idx: TokenIdx(
-                            25,
+                            26,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        26,
+                        27,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::clone`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `clone`,
+                        token_idx: TokenIdx(
+                            29,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        30,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        10,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::marker`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `marker`,
+                        token_idx: TokenIdx(
+                            32,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        33,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        11,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::list`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `list`,
+                        token_idx: TokenIdx(
+                            35,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        36,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::cmp`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `cmp`,
+                        token_idx: TokenIdx(
+                            38,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        39,
                     ),
                 },
                 Ast::Defn {
@@ -373,9 +347,33 @@ Ok(
                     body: ArenaIdxRange(
                         0..0,
                     ),
-                    accessibility: Visibility::PublicUnder(
-                        `core`,
+                    accessibility: Visibility::Public,
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `core::str`,
+                        ),
                     ),
+                    ident_token: IdentToken {
+                        ident: `str`,
+                        token_idx: TokenIdx(
+                            41,
+                        ),
+                    },
+                    is_generic: false,
+                    body_kind: None,
+                    saved_stream_state: TokenIdx(
+                        42,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        14,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                    accessibility: Visibility::Public,
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
@@ -385,19 +383,19 @@ Ok(
                     ident_token: IdentToken {
                         ident: `option`,
                         token_idx: TokenIdx(
-                            27,
+                            44,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        28,
+                        45,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..14,
+            0..15,
         ),
     },
 )

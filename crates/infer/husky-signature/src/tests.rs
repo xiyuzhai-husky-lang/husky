@@ -67,7 +67,7 @@ fn module_signatures_works() {
 fn menu_ty_signatures_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain);
     assert!(db
         .ty_signature_from_decl(db.ty_decl(entity_path_menu.i16_ty_path()).unwrap())
         .is_ok());

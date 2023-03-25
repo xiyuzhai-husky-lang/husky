@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 43,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 12\n\ntoken = Token::Ident(\n    `zero`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 5,\n    rule_idx: UseExprRuleIdx(\n        2,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 45,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `five`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: UseExprRuleIdx(\n        5,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 48,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 42;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `five`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 11,\n    rule_idx: UseExprRuleIdx(\n        5,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 50,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -550,7 +550,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 54;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 50,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 54;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 17,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 52,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

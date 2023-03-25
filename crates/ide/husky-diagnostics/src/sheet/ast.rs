@@ -155,7 +155,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock => {
                 format!("Syntax Error: UnexpectedTypeDefnInsideTypeImplBlock")
             }
-            OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
+            OriginalAstError::ExpectedEntityKeywordGroup(_) => {
+                format!("Syntax Error: ExpectedEntityKeywordGroup")
+            }
         }
     }
 

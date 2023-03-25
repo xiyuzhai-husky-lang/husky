@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 45;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `major`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 22,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 38,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 45;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `major`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 22,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: Submodule(\n            SubmoduleSymbol(\n                Id {\n                    value: 40,\n                },\n            ),\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

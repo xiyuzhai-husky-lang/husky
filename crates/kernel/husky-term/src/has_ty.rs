@@ -12,7 +12,7 @@ pub trait HasType: Copy {
 impl HasTypeGivenDisambiguation for EntityPath {
     fn ty(self, db: &dyn TermDb, disambiguation: TypePathDisambiguation) -> TermResult<Term> {
         match self {
-            EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db))?.module_ty_ontology()),
+            EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db)).module_ty_ontology()),
             EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
             EntityPath::AssociatedItem(path) => path.ty(db, disambiguation),
             EntityPath::Variant(path) => path.ty(db, disambiguation),

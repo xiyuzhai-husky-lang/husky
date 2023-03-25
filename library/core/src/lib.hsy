@@ -1,14 +1,15 @@
-mod basic
-mod logic
-mod mem
-mod num
-mod ops
-mod prelude
-mod raw_bits
-mod fmt
-mod clone
-mod marker
-mod list
-mod cmp
-mod str
-mod option
+pub mod basic
+pub mod default
+pub mod logic
+pub mod mem
+pub mod num
+pub mod ops
+pub mod prelude
+pub mod raw_bits
+pub mod fmt
+pub mod clone
+pub mod marker
+pub mod list
+pub mod cmp
+pub mod str
+pub mod option

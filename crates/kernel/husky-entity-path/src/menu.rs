@@ -1,10 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = EntityPathJar, return_ref)]
-pub(crate) fn entity_path_menu(
-    db: &dyn EntityPathDb,
-    toolchain: Toolchain,
-) -> EntityPathResult<EntityPathMenu> {
+pub(crate) fn entity_path_menu(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathMenu {
     EntityPathMenu::new(db, toolchain)
 }
 
@@ -38,6 +35,7 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
+    default_trai_path: TraitPath,
     option_ty_path: TypePath,
     slice_ty_path: TypePath,
     string_literal_ty_path: TypePath,
@@ -76,14 +74,15 @@ pub struct EntityPathMenu {
 }
 
 impl EntityPathMenu {
-    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> EntityPathResult<Self> {
+    pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> Self {
         let ident_menu = db.word_menu();
-        let path_menu = db.vfs_path_menu(toolchain)?;
+        let path_menu = db.vfs_path_menu(toolchain);
         let core_ops = path_menu.core_ops();
         let core_option = path_menu.core_option_ty_path();
         let core_slice = path_menu.core_slice();
         let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
+        let core_default = path_menu.core_default();
         let core_num = path_menu.core_num();
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
@@ -410,7 +409,13 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
-        Ok(Self {
+        let default_trai_path = TraitPath::new(
+            db,
+            core_default,
+            db.it_ident_borrowed("Default").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        Self {
             unit_ty_path,
             never_ty_path,
             bool_ty_path,
@@ -459,7 +464,8 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
-        })
+            default_trai_path,
+        }
     }
 
     pub fn unit_ty_path(&self) -> TypePath {
@@ -653,13 +659,17 @@ impl EntityPathMenu {
     pub fn core_ops_not(&self) -> TraitPath {
         self.core_ops_not
     }
+
+    pub fn default_trai_path(&self) -> TraitPath {
+        self.default_trai_path
+    }
 }
 
 #[test]
 fn menu_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain);
     assert_eq!(entity_path_menu.core_ops_add().show(&db), "core::ops::Add");
     assert_eq!(
         entity_path_menu.core_ops_add_assign().show(&db),

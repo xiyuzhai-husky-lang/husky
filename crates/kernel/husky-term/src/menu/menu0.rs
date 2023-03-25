@@ -68,14 +68,15 @@ pub struct TermMenu0 {
     lifetime_ty_ontology: Term,
     trai_ty_ontology: Term,
     module_ty_ontology: Term,
+    default_trai: Term,
 }
 
 impl TermMenu0 {
     pub fn new(db: &dyn TermDb, toolchain: Toolchain) -> Self {
         // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
-        let vfs_path_menu = db.vfs_path_menu(toolchain).unwrap();
-        let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+        let vfs_path_menu = db.vfs_path_menu(toolchain);
+        let entity_path_menu = db.entity_path_menu(toolchain);
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         TermMenu0 {
@@ -145,6 +146,7 @@ impl TermMenu0 {
             r128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r128_ty_path()).into(),
             rsize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.rsize_ty_path())
                 .into(),
+            default_trai: TermEntityPath::Trait(entity_path_menu.default_trai_path()).into(),
         }
     }
 
@@ -378,5 +380,9 @@ impl TermMenu0 {
 
     pub fn leash_ty_ontology(&self) -> Term {
         self.leash_ty_ontology
+    }
+
+    pub fn default_trai(&self) -> Term {
+        self.default_trai
     }
 }

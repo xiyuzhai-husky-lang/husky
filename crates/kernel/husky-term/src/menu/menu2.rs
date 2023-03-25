@@ -18,15 +18,14 @@ impl std::ops::Deref for TermMenu2 {
 }
 
 impl TermMenu2 {
-    pub(crate) fn new(db: &dyn TermDb, toolchain: Toolchain, menu1: TermMenu1) -> TermResult<Self> {
-        // db.it_entity_path_term(db.entity_path_menu(toolchain).as_ref()?.r32());
-        Ok(TermMenu2 {
+    pub(crate) fn new(db: &dyn TermDb, toolchain: Toolchain, menu1: TermMenu1) -> Self {
+        TermMenu2 {
             static_str_ref: TermApplication::new(
                 db,
                 menu1.static_ref_ty(),
                 menu1.str_ty_ontology(),
             )
-            .unwrap()
+            .expect("valid toolchain")
             .into(),
             ex_co_lifetime_to_ex_co_ty0_to_ty0: TermCurry::new(
                 db,
@@ -53,7 +52,7 @@ impl TermMenu2 {
                 menu1.ex_inv_ty0_to_ty0().into(),
             ),
             parent: menu1,
-        })
+        }
     }
 
     pub fn static_str_ref(&self) -> Term {

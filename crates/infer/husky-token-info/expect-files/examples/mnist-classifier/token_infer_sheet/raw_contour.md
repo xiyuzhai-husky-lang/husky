@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 34,
+                                value: 36,
                             },
                         ),
                     ),
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 32,
+                                value: 34,
                             },
                         ),
                     ),
@@ -79,7 +79,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -95,7 +95,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 35,
+                                value: 37,
                             },
                         ),
                     ),
@@ -114,7 +114,7 @@ Ok(
                         entity_path: Module(
                             ModulePath(
                                 Id {
-                                    value: 60,
+                                    value: 62,
                                 },
                             ),
                         ),

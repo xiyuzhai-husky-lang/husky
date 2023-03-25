@@ -42,7 +42,7 @@ impl<'a> EntityTreeCollector<'a> {
             })
             .collect();
         let toolchain = crate_path.toolchain(db);
-        let path_menu = db.vfs_path_menu(toolchain)?;
+        let path_menu = db.vfs_path_menu(toolchain);
         let core_prelude_module = path_menu.core_prelude();
         let universal_prelude: Option<EntitySymbolTableRef<'a>> = {
             if crate_path != path_menu.core_library() {

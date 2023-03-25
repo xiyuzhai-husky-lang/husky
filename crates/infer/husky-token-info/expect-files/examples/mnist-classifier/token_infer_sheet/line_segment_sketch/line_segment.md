@@ -11,7 +11,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -27,7 +27,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 34,
+                                value: 36,
                             },
                         ),
                     ),

@@ -13,7 +13,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 29,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -26,7 +26,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 30,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -39,7 +39,7 @@ Ok(
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
-                                        value: 31,
+                                        value: 33,
                                     },
                                 ),
                             ),
