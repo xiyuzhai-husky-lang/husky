@@ -53,7 +53,7 @@ pub(super) fn vfs_adversarial_test<Db, U, R>(
     ) else {
         return;
     };
-    let module = unit.module().unwrap();
+    let module = unit.vfs_test_unit_downcast_as_module_path().unwrap();
     let manager = VfsAdversarialManager::new(module, adversarial_path);
     manager.run(db, &|db| {
         f(db, unit);

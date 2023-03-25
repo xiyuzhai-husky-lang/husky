@@ -23,6 +23,10 @@ impl CratePath {
     pub fn package_ident(self, db: &dyn VfsDb) -> Ident {
         self.package_path(db).ident(db)
     }
+
+    pub fn root_module_path<Db: ?Sized + VfsDb>(self, db: &Db) -> ModulePath {
+        ModulePath::new_root(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]

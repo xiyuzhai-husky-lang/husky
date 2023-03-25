@@ -24,7 +24,7 @@ impl Name {
         }
     }
 
-    pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+    pub fn from_ref(db: &dyn WordDb, data: &str) -> Option<Self> {
         if is_str_valid_name(data) {
             Some(Self(db.it_word_borrowed(data)))
         } else {
