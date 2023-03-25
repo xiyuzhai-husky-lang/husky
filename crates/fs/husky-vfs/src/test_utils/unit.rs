@@ -1,28 +1,5 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum AdversarialKind {
-    Vfs,
-    Token,
-    Ast,
-}
-
-impl AdversarialKind {
-    fn as_str(self) -> &'static str {
-        match self {
-            AdversarialKind::Vfs => "vfs",
-            AdversarialKind::Token => "token",
-            AdversarialKind::Ast => "ast",
-        }
-    }
-}
-
-impl std::fmt::Display for AdversarialKind {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str(self.as_str())
-    }
-}
-
 pub trait VfsTestUnit: Copy {
     fn collect_from_package_path(db: &dyn VfsDb, package_path: PackagePath) -> Vec<Self>;
     fn determine_expect_file_path(

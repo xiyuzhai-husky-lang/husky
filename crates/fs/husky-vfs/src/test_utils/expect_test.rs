@@ -35,7 +35,7 @@ where
                     Err(_) => (),
                 }
                 if let Some(adversarials_base) = domain.adversarials_base() {
-                    vfs_robustness_test(
+                    vfs_adversarial_test(
                         db,
                         task_name,
                         &path.to_logical_path(adversarials_base),
