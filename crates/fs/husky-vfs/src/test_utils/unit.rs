@@ -15,7 +15,7 @@ pub trait VfsTestUnit: Copy {
         task_name: &str,
         package_adversarials_dir: &Path,
     ) -> Option<PathBuf>;
-    fn module(self) -> Option<ModulePath>;
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
 
 impl VfsTestUnit for PackagePath {
@@ -44,7 +44,7 @@ impl VfsTestUnit for PackagePath {
         None
     }
 
-    fn module(self) -> Option<ModulePath> {
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         None
     }
 }
@@ -82,7 +82,7 @@ impl VfsTestUnit for CratePath {
         None
     }
 
-    fn module(self) -> Option<ModulePath> {
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         None
     }
 }
@@ -177,7 +177,7 @@ impl VfsTestUnit for ModulePath {
         })
     }
 
-    fn module(self) -> Option<ModulePath> {
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         Some(self)
     }
 }

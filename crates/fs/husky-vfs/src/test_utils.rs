@@ -1,7 +1,7 @@
+mod ad_hoc_package;
 mod adversarial_test;
 mod domain;
 mod expect_test;
-mod temp_package;
 mod unit;
 
 pub use self::adversarial_test::*;

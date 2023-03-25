@@ -10,7 +10,6 @@ pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
     fn live_packages(
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>>;
-    fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath>;
     fn collect_local_packages(
         &self,
         toolchain: Toolchain,
@@ -167,10 +166,6 @@ where
         &self,
     ) -> std::sync::LockResult<std::sync::RwLockReadGuard<'_, VecSet<PackagePath>>> {
         self.vfs_cache().live_packages()
-    }
-
-    fn module_diff_path(&self, module_path: ModulePath) -> VfsResult<DiffPath> {
-        module_diff_path(self, module_path)
     }
 
     fn collect_local_packages(

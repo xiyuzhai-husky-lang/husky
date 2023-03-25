@@ -39,6 +39,11 @@ impl ModulePath {
         self.crate_path(db).toolchain(db)
     }
 
+    #[inline(always)]
+    pub fn diff_path<Db: ?Sized + VfsDb>(self, db: &Db) -> VfsResult<DiffPath> {
+        module_diff_path(<Db as salsa::DbWithJar<VfsJar>>::as_jar_db(db), self)
+    }
+
     pub fn ident(self, db: &dyn VfsDb) -> Ident {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),

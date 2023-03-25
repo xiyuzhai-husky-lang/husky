@@ -18,7 +18,7 @@ pub type MinimalTomlResult<T> = Result<T, MinimalTomlError>;
 pub fn read_package_name_from_manifest<Db: ?Sized + WordDb>(db: &Db, path: &Path) -> Option<Name> {
     find_package_name_in_manifest_toml(&std::fs::read_to_string(path).ok()?)
         .ok()
-        .map(|s| Name::from_borrowed(<Db as salsa::DbWithJar<WordJar>>::as_jar_db(db), s))
+        .map(|s| Name::from_ref(<Db as salsa::DbWithJar<WordJar>>::as_jar_db(db), s))
         .flatten()
 }
 
