@@ -1,5 +1,6 @@
 use husky_entity_path::*;
 
+use husky_vfs::Toolchain;
 use salsa::DisplayWithDb;
 
 use super::*;
@@ -28,6 +29,15 @@ impl TermEntityPath {
             TermEntityPath::Form(_)
             | TermEntityPath::Trait(_)
             | TermEntityPath::TypeConstructor(_) => None,
+        }
+    }
+
+    pub fn toolchain(self, db: &dyn TermPreludeDb) -> Toolchain {
+        match self {
+            TermEntityPath::Form(path) => path.toolchain(db),
+            TermEntityPath::Trait(path) => path.toolchain(db),
+            TermEntityPath::TypeOntology(path) => path.toolchain(db),
+            TermEntityPath::TypeConstructor(path) => path.toolchain(db),
         }
     }
 }
