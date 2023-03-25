@@ -1,0 +1,78 @@
+use crate::*;
+
+impl Term {
+    /// returns a toolchain except for universe, literals and categories
+    pub(crate) fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
+        match self {
+            Term::Literal(_) => None,
+            Term::Symbol(term) => term.toolchain(db),
+            Term::EntityPath(path) => Some(path.toolchain(db)),
+            Term::Category(_) => todo!(),
+            Term::Universe(_) => None,
+            Term::Curry(term) => curry_term_toolchain(db, term),
+            Term::Ritchie(term) => ritchie_term_toolchain(db, term),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(_) => todo!(),
+            Term::Subentity(_) => todo!(),
+            Term::AsTraitSubentity(_) => todo!(),
+            Term::TraitConstraint(_) => todo!(),
+        }
+    }
+}
+
+impl TermSymbol {
+    fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
+        self.ty(db).toolchain(db)
+    }
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn curry_term_toolchain(db: &dyn TermDb, term: TermCurry) -> Option<Toolchain> {
+    let mut merger = ToolchainMerger::default();
+    if let Some(parameter_symbol) = term.parameter_symbol(db) {
+        merger.accept(parameter_symbol.toolchain(db))
+    }
+    merger.accept(term.parameter_ty(db).toolchain(db));
+    merger.accept(term.return_ty(db).toolchain(db));
+    merger.finish()
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn application_term_toolchain(
+    db: &dyn TermDb,
+    term: TermApplication,
+) -> Option<Toolchain> {
+    let mut merger = ToolchainMerger::default();
+    merger.accept(term.function(db).toolchain(db));
+    merger.accept(term.argument(db).toolchain(db));
+    merger.finish()
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn ritchie_term_toolchain(db: &dyn TermDb, term: TermRitchie) -> Option<Toolchain> {
+    let mut merger = ToolchainMerger::default();
+    for parameter_liasoned_ty in term.parameter_liasoned_tys(db) {
+        merger.accept(parameter_liasoned_ty.ty().toolchain(db))
+    }
+    merger.accept(term.return_ty(db).toolchain(db));
+    merger.finish()
+}
+
+#[derive(Debug, Default)]
+struct ToolchainMerger {
+    toolchain: Option<Toolchain>,
+}
+
+impl ToolchainMerger {
+    fn accept(&mut self, toolchain: Option<Toolchain>) {
+        match (self.toolchain, toolchain) {
+            (_, None) => (),
+            (None, Some(_)) => self.toolchain = toolchain,
+            (Some(self_toolchain), Some(toolchain)) => assert_eq!(self_toolchain, toolchain),
+        }
+    }
+
+    fn finish(self) -> Option<Toolchain> {
+        self.toolchain
+    }
+}
