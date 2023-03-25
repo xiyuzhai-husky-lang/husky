@@ -12,7 +12,30 @@ use serde::{Deserialize, Serialize};
 
 use xrng::XRng;
 
-pub(super) fn vfs_robustness_test<Db, U, R>(
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AdversarialKind {
+    Vfs,
+    Token,
+    Ast,
+}
+
+impl AdversarialKind {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            AdversarialKind::Vfs => "vfs",
+            AdversarialKind::Token => "token",
+            AdversarialKind::Ast => "ast",
+        }
+    }
+}
+
+impl std::fmt::Display for AdversarialKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str(self.as_str())
+    }
+}
+
+pub(super) fn vfs_adversarial_test<Db, U, R>(
     db: &mut Db,
     task_name: &str,
     package_adversarials_dir: &Path,

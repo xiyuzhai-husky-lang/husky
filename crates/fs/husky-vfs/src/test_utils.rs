@@ -1,10 +1,11 @@
+mod adversarial_test;
 mod domain;
-mod expect;
-mod robustness;
+mod expect_test;
+mod temp_package;
 mod unit;
 
-pub use self::expect::*;
-pub use self::robustness::*;
+pub use self::adversarial_test::*;
+pub use self::expect_test::*;
 pub use self::unit::*;
 
 use self::domain::*;
@@ -59,7 +60,7 @@ pub trait VfsTestUtils: VfsDb {
                     {
                         f(self, unit);
                         if let Some(adversarials_base) = domain.adversarials_base() {
-                            vfs_robustness_test(
+                            vfs_adversarial_test(
                                 self,
                                 task_name,
                                 &path.to_logical_path(adversarials_base),
