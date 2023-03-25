@@ -70,7 +70,7 @@ impl HasTypeGivenDisambiguation for TraitItemPath {
     }
 }
 
-impl HasTypeGivenDisambiguation for TypeAsTraitItemPath {
+impl HasTypeGivenDisambiguation for TraitForTypeItemPath {
     fn ty(self, db: &dyn TermDb, disambiguation: TypePathDisambiguation) -> TermResult<Term> {
         todo!()
     }

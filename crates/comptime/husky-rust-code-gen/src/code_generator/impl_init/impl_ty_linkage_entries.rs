@@ -58,7 +58,7 @@ impl<'a> RustCodeGenerator<'a> {
                                 == self.db.entity_route_menu().std_ops_index_trai.variant
                             {
                                 self.db
-                                    .ty_as_trai_subroute(ty, trai, ident, Default::default())
+                                    .trai_for_ty_subroute(ty, trai, ident, Default::default())
                             } else {
                                 continue;
                             }

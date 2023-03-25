@@ -10,7 +10,9 @@ pub struct VfsPathMenu {
     core: ModulePath,
     std: ModulePath,
     core_basic: ModulePath,
+    core_clone: ModulePath,
     core_default: ModulePath,
+    core_marker: ModulePath,
     core_mem: ModulePath,
     /// core::num
     core_num: ModulePath,
@@ -38,9 +40,11 @@ impl VfsPathMenu {
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
         let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
+        let core_clone = ModulePath::new_child(db, core, db.it_ident_borrowed("clone").unwrap());
         let core_default =
             ModulePath::new_child(db, core, db.it_ident_borrowed("default").unwrap());
         let core_list = ModulePath::new_child(db, core, db.it_ident_borrowed("list").unwrap());
+        let core_marker = ModulePath::new_child(db, core, db.it_ident_borrowed("marker").unwrap());
         let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("mem").unwrap());
         let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
         let core_ops = ModulePath::new_child(db, core, db.it_ident_borrowed("ops").unwrap());
@@ -59,7 +63,9 @@ impl VfsPathMenu {
             core,
             std,
             core_basic,
+            core_clone,
             core_default,
+            core_marker,
             core_mem,
             core_num,
             core_ops,
@@ -92,8 +98,17 @@ impl VfsPathMenu {
         self.core_basic
     }
 
+    pub fn core_clone(&self) -> ModulePath {
+        self.core_clone
+    }
+
     pub fn core_default(&self) -> ModulePath {
         self.core_default
+    }
+
+    /// core::marker
+    pub fn core_marker(&self) -> ModulePath {
+        self.core_marker
     }
 
     /// core::mem

@@ -45,8 +45,8 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDec
 pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
     match impl_block {
         ImplBlock::Type(impl_block) => ty_impl_block_decl(db, impl_block).map(Into::into),
-        ImplBlock::TypeAsTrait(impl_block) => {
-            ty_as_trai_impl_block_decl(db, impl_block).map(Into::into)
+        ImplBlock::TraitForType(impl_block) => {
+            trai_for_ty_impl_block_decl(db, impl_block).map(Into::into)
         }
         ImplBlock::IllFormed(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
     }
@@ -599,10 +599,10 @@ impl<'a> DeclParser<'a> {
                             .into(),
                     })
                 }
-                AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => {
-                    AssociatedItemDecl::TypeAsTraitItem(match ty_as_trai_item_kind {
+                AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => {
+                    AssociatedItemDecl::TraitForTypeItem(match trai_for_ty_item_kind {
                         TraitItemKind::MethodFn => self
-                            .parse_ty_as_trai_method_decl(
+                            .parse_trai_for_ty_method_decl(
                                 ast_idx,
                                 token_group_idx,
                                 associated_item,
@@ -750,7 +750,7 @@ impl<'a> DeclParser<'a> {
         .into())
     }
 
-    fn parse_ty_as_trai_method_decl(
+    fn parse_trai_for_ty_method_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,

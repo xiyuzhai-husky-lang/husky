@@ -44,7 +44,7 @@ pub enum ModuleItemKind {
 pub enum AssociatedItemKind {
     TraitItem(TraitItemKind),
     TypeItem(TypeItemKind),
-    TypeAsTraitItem(TraitItemKind),
+    TraitForTypeItem(TraitItemKind),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

@@ -3,10 +3,10 @@ mod associated_value;
 mod function;
 mod method;
 
-pub use associated_ty::*;
-pub use associated_value::*;
-pub use function::*;
-pub use method::*;
+pub use self::associated_ty::*;
+pub use self::associated_value::*;
+pub use self::function::*;
+pub use self::method::*;
 
 use super::*;
 
@@ -20,20 +20,20 @@ pub enum TypeAsTraitItemSignature {
     AssociatedValue(TypeAsTraitAssociatedValueSignature),
 }
 
-pub(crate) fn ty_as_trai_associated_item_signature_from_decl(
+pub(crate) fn trai_for_ty_associated_item_signature_from_decl(
     db: &dyn SignatureDb,
     decl: TypeAsTraitItemDecl,
 ) -> SignatureResult<TypeAsTraitItemSignature> {
     match decl {
         TypeAsTraitItemDecl::AssociatedFunction(decl) => {
-            ty_as_trai_associated_form_fn_signature(db, decl).map(Into::into)
+            trai_for_ty_associated_form_fn_signature(db, decl).map(Into::into)
         }
-        TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_signature(db, decl).map(Into::into),
+        TypeAsTraitItemDecl::Method(decl) => trai_for_ty_method_signature(db, decl).map(Into::into),
         TypeAsTraitItemDecl::AssociatedType(decl) => {
-            ty_as_trai_associated_ty_signature(db, decl).map(Into::into)
+            trai_for_ty_associated_ty_signature(db, decl).map(Into::into)
         }
         TypeAsTraitItemDecl::AssociatedValue(decl) => {
-            ty_as_trai_associated_value_signature(db, decl).map(Into::into)
+            trai_for_ty_associated_value_signature(db, decl).map(Into::into)
         }
     }
 }

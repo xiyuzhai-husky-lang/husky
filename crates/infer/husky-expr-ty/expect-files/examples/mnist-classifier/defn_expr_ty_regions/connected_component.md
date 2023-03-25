@@ -4581,8 +4581,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -4681,8 +4681,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -5788,8 +5788,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -6506,8 +6506,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -7136,8 +7136,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -7743,8 +7743,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -9004,8 +9004,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -9292,8 +9292,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -9580,8 +9580,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -10388,8 +10388,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::connected_component`,
-                            ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            module_path: `mnist_classifier::connected_component`,
+                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
                         },
                     ),

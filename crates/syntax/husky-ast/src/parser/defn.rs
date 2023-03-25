@@ -167,7 +167,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 EntityKeywordGroup::Mod(_) => todo!(),
                 EntityKeywordGroup::Fn(_) => {
                     EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TypeAsTraitItem(
+                        associated_item_kind: AssociatedItemKind::TraitForTypeItem(
                             match self.token_stream_mut().peek() {
                                 Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
                                     todo!()

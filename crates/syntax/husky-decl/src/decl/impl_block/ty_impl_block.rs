@@ -14,6 +14,19 @@ pub struct TypeImplBlockDecl {
     pub expr_region: ExprRegion,
 }
 
+impl TypeImplBlockDecl {
+    pub fn implicit_parameters<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+        self.implicit_parameter_decl_list(db)
+            .as_ref()?
+            .as_ref()
+            .map(ImplicitParameterDeclList::implicit_parameters)
+            .unwrap_or(Ok(&[]))
+    }
+}
+
 pub fn ty_impl_block_decl(
     db: &dyn DeclDb,
     impl_block: TypeImplBlock,
@@ -28,19 +41,6 @@ pub(crate) fn ty_impl_block_decl_aux(
 ) -> DeclResult<TypeImplBlockDecl> {
     let parser = DeclParser::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_ty_impl_block_decl(impl_block)?.into())
-}
-
-impl TypeImplBlockDecl {
-    pub fn implicit_parameters<'a>(
-        self,
-        db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
-        self.implicit_parameter_decl_list(db)
-            .as_ref()?
-            .as_ref()
-            .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(Ok(&[]))
-    }
 }
 
 impl<'a> DeclParser<'a> {

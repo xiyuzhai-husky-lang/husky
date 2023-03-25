@@ -50,16 +50,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `natural_number_game`,
-                                ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                module_path: `natural_number_game`,
+                                ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 6,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     9,
                                 ),
                             },
-                            ast_idx: 6,
+                            ty_expr: 0,
                             body: ArenaIdxRange(
                                 0..3,
                             ),

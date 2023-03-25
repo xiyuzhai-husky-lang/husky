@@ -4,6 +4,7 @@ use parsec::*;
 use thiserror::Error;
 
 /// major path expr is bottom-up
+/// only module item path is allowed
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum MajorPathExpr {
@@ -92,17 +93,21 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
             .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
                 return Err(OriginalMajorPathExprError::UnrecognizedIdent(ident_token).into())
             };
-        let module_item_symbol = match entity_symbol {
+        let path = match entity_symbol {
             EntitySymbol::CrateRoot { .. } => todo!(),
             EntitySymbol::PackageDependency { entity_path } => todo!(),
             EntitySymbol::Submodule(_) => todo!(),
-            EntitySymbol::ModuleItem(module_item_symbol) => module_item_symbol,
-            EntitySymbol::Use(_) => todo!(),
+            EntitySymbol::ModuleItem(symbol) => symbol.path(self.db),
+            EntitySymbol::Use(symbol) => match symbol.path(self.db) {
+                EntityPath::Module(_) => todo!(),
+                EntityPath::ModuleItem(path) => path,
+                EntityPath::AssociatedItem(_) => todo!(),
+                EntityPath::Variant(_) => todo!(),
+            },
         };
         let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
             todo!()
         } else {
-            let path = module_item_symbol.path(self.db);
             (
                 MajorPathExpr::Root {
                     ident_token,

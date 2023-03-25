@@ -1,9 +1,9 @@
+mod trai_for_ty_item;
 mod trai_item;
-mod ty_as_trai_item;
 mod ty_item;
 
+pub use trai_for_ty_item::*;
 pub use trai_item::*;
-pub use ty_as_trai_item::*;
 pub use ty_item::*;
 
 use super::*;
@@ -19,8 +19,8 @@ pub(crate) fn associated_item_signature_from_decl(
         AssociatedItemDecl::TraitItem(decl) => {
             trai_associated_item_signature_from_decl(db, decl).map(|s| s.into())
         }
-        AssociatedItemDecl::TypeAsTraitItem(decl) => {
-            ty_as_trai_associated_item_signature_from_decl(db, decl).map(|s| s.into())
+        AssociatedItemDecl::TraitForTypeItem(decl) => {
+            trai_for_ty_associated_item_signature_from_decl(db, decl).map(|s| s.into())
         } // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }

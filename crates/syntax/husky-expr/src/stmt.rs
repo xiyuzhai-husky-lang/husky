@@ -41,14 +41,14 @@ pub enum Stmt {
         expr_idx: ExprIdx,
     },
     ForBetween {
-        for_token: ForToken,
+        for_token: StmtForToken,
         particulars: ForBetweenParticulars,
         frame_var_symbol_idx: CurrentSymbolIdx,
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,
     },
     ForIn {
-        for_token: ForToken,
+        for_token: StmtForToken,
         condition: ExprResult<ExprIdx>,
         eol_colon: ExprResult<EolColonToken>,
         block: ExprResult<StmtIdxRange>,

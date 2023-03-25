@@ -1,9 +1,9 @@
+mod trai_for_ty_item;
 mod trai_item;
-mod ty_as_trai_item;
 mod ty_item;
 
+pub use trai_for_ty_item::*;
 pub use trai_item::*;
-pub use ty_as_trai_item::*;
 pub use ty_item::*;
 
 use crate::*;
@@ -14,7 +14,7 @@ use crate::*;
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
-    TypeAsTraitItem(TypeAsTraitItemPath),
+    TypeAsTraitItem(TraitForTypeItemPath),
 }
 
 impl AssociatedItemPath {

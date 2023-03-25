@@ -1,8 +1,8 @@
-mod ty_as_trai_im;
-mod ty_im;
+mod trai_for_ty_impl_block;
+mod ty_impl_block;
 
-pub use ty_as_trai_im::*;
-pub use ty_im::*;
+pub use trai_for_ty_impl_block::*;
+pub use ty_impl_block::*;
 
 use super::*;
 
@@ -13,7 +13,7 @@ use husky_token::ImplToken;
 #[enum_class::from_variants]
 pub enum ImplDecl {
     Type(TypeImplBlockDecl),
-    TypeAsTrait(TypeAsTraitImplBlockDecl),
+    TypeAsTrait(TraitForTypeImplBlockDecl),
 }
 
 impl ImplDecl {

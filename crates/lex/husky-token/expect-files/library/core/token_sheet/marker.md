@@ -14,6 +14,90 @@ Ok(
                 Punctuation::Semicolon,
             ),
             Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `i8`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `i16`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `i64`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `i128`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Ident(
+                `Copy`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
+            ),
+            Token::Ident(
+                `isize`,
+            ),
+            Token::Keyword(
                 Keyword::Pub,
             ),
             Token::Keyword(
@@ -29,8 +113,20 @@ Ok(
         group_starts: [
             0,
             4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28,
         ],
         indents: [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
         ],

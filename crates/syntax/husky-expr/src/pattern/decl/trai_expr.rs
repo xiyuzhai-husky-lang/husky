@@ -5,6 +5,12 @@ pub struct TraitExpr {
     expr: ExprIdx,
 }
 
+impl TraitExpr {
+    pub fn expr(&self) -> ArenaIdx<Expr> {
+        self.expr
+    }
+}
+
 impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for TraitExpr {
     type Error = ExprError;
 

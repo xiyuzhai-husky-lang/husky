@@ -151,6 +151,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &self.token_stream
     }
 
+    pub fn expr_arena(&self) -> &ExprArena {
+        &self.parser.expr_arena
+    }
+
     #[inline(always)]
     pub fn parse_expr(&mut self, env: impl Into<Option<ExprEnvironment>>) -> Option<ExprIdx> {
         let env = env.into();

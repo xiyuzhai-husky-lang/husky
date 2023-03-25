@@ -35,7 +35,7 @@ pub struct EntityPathJar(
     FormPath,
     TypeItemPath,
     TraitItemPath,
-    TypeAsTraitItemPath,
+    TraitForTypeItemPath,
     VariantPath,
     entity_path_menu,
 );

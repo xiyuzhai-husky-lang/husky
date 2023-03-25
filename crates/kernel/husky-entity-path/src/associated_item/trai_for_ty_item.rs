@@ -1,14 +1,14 @@
 use super::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct TypeAsTraitItemPath {
+pub struct TraitForTypeItemPath {
     pub parent_ty: TypePath,
     pub trai: TraitPath,
     pub ident: Ident,
-    pub ty_as_trai_item_kind: TraitItemKind,
+    pub trai_for_ty_item_kind: TraitItemKind,
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TypeAsTraitItemPath
+impl<Db> salsa::DisplayWithDb<Db> for TraitForTypeItemPath
 where
     Db: EntityPathDb + ?Sized,
 {
@@ -23,7 +23,7 @@ where
     }
 }
 
-impl TypeAsTraitItemPath {
+impl TraitForTypeItemPath {
     fn show_aux(
         self,
         _f: &mut std::fmt::Formatter<'_>,

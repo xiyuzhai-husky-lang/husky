@@ -3,8 +3,7 @@ use super::*;
 /// expect term to be equal to `Type` i.e. `Sort 1`
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub(crate) struct ExpectSubtype {
-    // todo: add variance,
-    expected: LocalTerm,
+    pub(crate) expected: LocalTerm,
 }
 
 impl ExpectSubtype {

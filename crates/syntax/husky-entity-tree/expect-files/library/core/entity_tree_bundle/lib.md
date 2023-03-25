@@ -525,16 +525,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i8`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 32,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     30,
                                 ),
                             },
-                            ast_idx: 32,
+                            ty_expr: 0,
                             body: ArenaIdxRange(
                                 0..1,
                             ),
@@ -572,16 +573,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i16`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 37,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     82,
                                 ),
                             },
-                            ast_idx: 37,
+                            ty_expr: 1,
                             body: ArenaIdxRange(
                                 2..3,
                             ),
@@ -619,16 +621,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 42,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     134,
                                 ),
                             },
-                            ast_idx: 42,
+                            ty_expr: 2,
                             body: ArenaIdxRange(
                                 4..5,
                             ),
@@ -666,16 +669,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 47,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     185,
                                 ),
                             },
-                            ast_idx: 47,
+                            ty_expr: 3,
                             body: ArenaIdxRange(
                                 6..7,
                             ),
@@ -713,16 +717,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i128`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 52,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     237,
                                 ),
                             },
-                            ast_idx: 52,
+                            ty_expr: 4,
                             body: ArenaIdxRange(
                                 8..9,
                             ),
@@ -760,16 +765,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::isize`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 57,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     289,
                                 ),
                             },
-                            ast_idx: 57,
+                            ty_expr: 5,
                             body: ArenaIdxRange(
                                 10..11,
                             ),
@@ -807,16 +813,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u8`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 62,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     341,
                                 ),
                             },
-                            ast_idx: 62,
+                            ty_expr: 6,
                             body: ArenaIdxRange(
                                 12..13,
                             ),
@@ -854,16 +861,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u16`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 67,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     393,
                                 ),
                             },
-                            ast_idx: 67,
+                            ty_expr: 7,
                             body: ArenaIdxRange(
                                 14..15,
                             ),
@@ -901,16 +909,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 72,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     445,
                                 ),
                             },
-                            ast_idx: 72,
+                            ty_expr: 8,
                             body: ArenaIdxRange(
                                 16..17,
                             ),
@@ -948,16 +957,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 77,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     497,
                                 ),
                             },
-                            ast_idx: 77,
+                            ty_expr: 9,
                             body: ArenaIdxRange(
                                 18..19,
                             ),
@@ -995,16 +1005,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u128`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 82,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     549,
                                 ),
                             },
-                            ast_idx: 82,
+                            ty_expr: 10,
                             body: ArenaIdxRange(
                                 20..21,
                             ),
@@ -1042,16 +1053,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::usize`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 87,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     601,
                                 ),
                             },
-                            ast_idx: 87,
+                            ty_expr: 11,
                             body: ArenaIdxRange(
                                 22..23,
                             ),
@@ -1089,16 +1101,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::f32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 92,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     653,
                                 ),
                             },
-                            ast_idx: 92,
+                            ty_expr: 12,
                             body: ArenaIdxRange(
                                 24..25,
                             ),
@@ -1136,16 +1149,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::f64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 97,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     704,
                                 ),
                             },
-                            ast_idx: 97,
+                            ty_expr: 13,
                             body: ArenaIdxRange(
                                 26..27,
                             ),
@@ -2354,7 +2368,152 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_blocks: [
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 1,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    4,
+                                ),
+                            },
+                            trai_expr: 14,
+                            for_token: TokenIdx(
+                                6,
+                            ),
+                            ty_expr: 15,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 2,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    8,
+                                ),
+                            },
+                            trai_expr: 16,
+                            for_token: TokenIdx(
+                                10,
+                            ),
+                            ty_expr: 17,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 3,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    12,
+                                ),
+                            },
+                            trai_expr: 18,
+                            for_token: TokenIdx(
+                                14,
+                            ),
+                            ty_expr: 19,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 4,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    16,
+                                ),
+                            },
+                            trai_expr: 20,
+                            for_token: TokenIdx(
+                                18,
+                            ),
+                            ty_expr: 21,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 5,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    20,
+                                ),
+                            },
+                            trai_expr: 22,
+                            for_token: TokenIdx(
+                                22,
+                            ),
+                            ty_expr: 23,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::marker`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 6,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    24,
+                                ),
+                            },
+                            trai_expr: 24,
+                            for_token: TokenIdx(
+                                26,
+                            ),
+                            ty_expr: 25,
+                            body: ArenaIdxRange(
+                                0..0,
+                            ),
+                        },
+                    ),
+                ],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2693,6 +2852,162 @@ Ok(
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i8`,
+                        token_idx: TokenIdx(
+                            7,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            9,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i16`,
+                        token_idx: TokenIdx(
+                            11,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i32`,
+                        token_idx: TokenIdx(
+                            15,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            17,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i64`,
+                        token_idx: TokenIdx(
+                            19,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            21,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i128`,
+                        token_idx: TokenIdx(
+                            23,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Copy`,
+                        token_idx: TokenIdx(
+                            25,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::marker::Copy`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `isize`,
+                        token_idx: TokenIdx(
+                            27,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 },

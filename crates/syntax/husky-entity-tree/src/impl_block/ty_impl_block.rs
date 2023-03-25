@@ -4,8 +4,9 @@ use super::*;
 pub struct TypeImplBlock {
     #[id]
     pub id: TypeImplBlockId,
-    pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
+    pub impl_token: ImplToken,
+    pub ty_expr: MajorPathExprIdx,
     pub body: AstIdxRange,
 }
 
@@ -17,46 +18,48 @@ impl TypeImplBlock {
         module_path: ModulePath,
         ast_idx: AstIdx,
         body: AstIdxRange,
-        ty: TypePath,
+        ty_path: TypePath,
+        ty_expr: MajorPathExprIdx,
     ) -> Self {
         Self::new_inner(
             db,
             TypeImplBlockId {
-                module: module_path,
-                ty,
+                module_path,
+                ty_path,
                 disambiguator: registry
-                    .issue_disambiguitor(module_path, ImplBlockKind::Type { ty }),
+                    .issue_disambiguitor(module_path, ImplBlockKind::Type { ty_path }),
             },
-            impl_token,
             ast_idx,
+            impl_token,
+            ty_expr,
             body,
         )
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.id(db).module
+        self.id(db).module_path
     }
 
     pub fn ty(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.id(db).ty
+        self.id(db).ty_path
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct TypeImplBlockId {
-    module: ModulePath,
-    ty: TypePath,
+    module_path: ModulePath,
+    ty_path: TypePath,
     disambiguator: u8,
 }
 
 impl TypeImplBlockId {
-    pub fn module(&self) -> ModulePath {
-        self.module
+    pub fn module_path(&self) -> ModulePath {
+        self.module_path
     }
 
-    pub fn ty(&self) -> TypePath {
-        self.ty
+    pub fn ty_path(&self) -> TypePath {
+        self.ty_path
     }
 
     pub fn disambiguator(&self) -> u8 {

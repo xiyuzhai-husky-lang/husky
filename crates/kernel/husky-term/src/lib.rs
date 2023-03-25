@@ -33,6 +33,8 @@ use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::*;
 use husky_word::Ident;
 use salsa::DebugWithDb;
+#[cfg(test)]
+use tests::*;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(

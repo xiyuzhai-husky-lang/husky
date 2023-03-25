@@ -14,7 +14,7 @@ pub fn ty_method_signature(
                 ty_impl_block_signature(db, ty_impl_block_decl(db, impl_block)?)?;
             RegularParameterSignature::new_self_parameter(ty_impl_block_signature.ty(db))
         }
-        ImplBlock::TypeAsTrait(_) | ImplBlock::IllFormed(_) => unreachable!(),
+        ImplBlock::TraitForType(_) | ImplBlock::IllFormed(_) => unreachable!(),
     };
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);

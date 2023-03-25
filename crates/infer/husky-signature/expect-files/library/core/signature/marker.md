@@ -17,4 +17,46 @@
             },
         ),
     ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeAsTraitImpl(
+                TraitForTypeImplBlockSignature,
+            ),
+        ),
+    ),
 ]

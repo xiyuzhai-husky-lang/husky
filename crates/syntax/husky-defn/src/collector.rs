@@ -200,7 +200,7 @@ fn associated_item_defn(db: &dyn DefnDb, decl: AssociatedItemDecl) -> Associated
     match decl {
         AssociatedItemDecl::TypeItem(decl) => ty_item_defn(db, decl).into(),
         AssociatedItemDecl::TraitItem(decl) => trai_item_defn(db, decl).into(),
-        AssociatedItemDecl::TypeAsTraitItem(decl) => ty_as_trai_item_defn(db, decl).into(),
+        AssociatedItemDecl::TraitForTypeItem(decl) => trai_for_ty_item_defn(db, decl).into(),
     }
 }
 
@@ -289,19 +289,21 @@ pub(crate) fn trai_associated_value_defn(
     todo!()
 }
 
-fn ty_as_trai_item_defn(db: &dyn DefnDb, decl: TypeAsTraitItemDecl) -> TypeAsTraitItemDefn {
+fn trai_for_ty_item_defn(db: &dyn DefnDb, decl: TypeAsTraitItemDecl) -> TypeAsTraitItemDefn {
     match decl {
         TypeAsTraitItemDecl::AssociatedFunction(_) => todo!(),
-        TypeAsTraitItemDecl::Method(decl) => ty_as_trai_method_defn(db, decl).into(),
-        TypeAsTraitItemDecl::AssociatedType(decl) => ty_as_trai_associated_ty_defn(db, decl).into(),
+        TypeAsTraitItemDecl::Method(decl) => trai_for_ty_method_defn(db, decl).into(),
+        TypeAsTraitItemDecl::AssociatedType(decl) => {
+            trai_for_ty_associated_ty_defn(db, decl).into()
+        }
         TypeAsTraitItemDecl::AssociatedValue(decl) => {
-            ty_as_trai_associated_value_defn(db, decl).into()
+            trai_for_ty_associated_value_defn(db, decl).into()
         }
     }
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_as_trai_associated_function_defn(
+pub(crate) fn trai_for_ty_associated_function_defn(
     _db: &dyn DefnDb,
     _decl: TypeAsTraitAssociatedFunctionDecl,
 ) -> TypeAsTraitAssociatedFunctionDefn {
@@ -309,7 +311,7 @@ pub(crate) fn ty_as_trai_associated_function_defn(
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_as_trai_method_defn(
+pub(crate) fn trai_for_ty_method_defn(
     db: &dyn DefnDb,
     decl: TypeAsTraitMethodDecl,
 ) -> TypeAsTraitMethodDefn {
@@ -333,7 +335,7 @@ pub(crate) fn ty_as_trai_method_defn(
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_as_trai_associated_ty_defn(
+pub(crate) fn trai_for_ty_associated_ty_defn(
     _db: &dyn DefnDb,
     _decl: TypeAsTraitAssociatedTypeDecl,
 ) -> TypeAsTraitAssociatedTypeDefn {
@@ -341,7 +343,7 @@ pub(crate) fn ty_as_trai_associated_ty_defn(
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_as_trai_associated_value_defn(
+pub(crate) fn trai_for_ty_associated_value_defn(
     _db: &dyn DefnDb,
     _decl: TypeAsTraitAssociatedValueDecl,
 ) -> TypeAsTraitAssociatedValueDefn {

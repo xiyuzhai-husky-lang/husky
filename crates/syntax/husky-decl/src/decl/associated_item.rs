@@ -1,9 +1,9 @@
+mod trai_for_ty_item;
 mod trai_item;
-mod ty_as_trai_item;
 mod ty_item;
 
+pub use trai_for_ty_item::*;
 pub use trai_item::*;
-pub use ty_as_trai_item::*;
 pub use ty_item::*;
 
 use super::*;
@@ -14,7 +14,7 @@ use super::*;
 pub enum AssociatedItemDecl {
     TypeItem(TypeItemDecl),
     TraitItem(TraitItemDecl),
-    TypeAsTraitItem(TypeAsTraitItemDecl),
+    TraitForTypeItem(TypeAsTraitItemDecl),
 }
 
 impl AssociatedItemDecl {
@@ -22,7 +22,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.ast_idx(db),
             AssociatedItemDecl::TraitItem(decl) => decl.ast_idx(db),
-            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.ast_idx(db),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.ast_idx(db),
         }
     }
 
@@ -33,7 +33,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.implicit_parameters(db),
             AssociatedItemDecl::TraitItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemDecl::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDecl::TraitForTypeItem(_) => todo!(),
         }
     }
 
@@ -41,7 +41,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.expr_region(db),
             AssociatedItemDecl::TraitItem(decl) => decl.expr_region(db),
-            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.expr_region(db),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.expr_region(db),
         }
     }
 
@@ -49,7 +49,7 @@ impl AssociatedItemDecl {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.path(db).map(|path| path.into()),
             AssociatedItemDecl::TraitItem(decl) => Some(decl.path(db).into()),
-            AssociatedItemDecl::TypeAsTraitItem(decl) => decl.path(db).map(|path| path.into()),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.path(db).map(|path| path.into()),
         }
     }
 }

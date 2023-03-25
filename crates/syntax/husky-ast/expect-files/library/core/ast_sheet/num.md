@@ -37,7 +37,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -89,7 +89,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -143,7 +143,7 @@ Ok(
                         `core::num`,
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -195,7 +195,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -247,7 +247,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -299,7 +299,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -351,7 +351,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -403,7 +403,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -455,7 +455,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -507,7 +507,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -559,7 +559,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -611,7 +611,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -665,7 +665,7 @@ Ok(
                         `core::num`,
                     ),
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },
@@ -717,7 +717,7 @@ Ok(
                     ),
                     accessibility: Visibility::Public,
                     entity_kind: AssociatedItem {
-                        associated_item_kind: TypeAsTraitItem(
+                        associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
                     },

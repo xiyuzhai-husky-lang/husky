@@ -256,7 +256,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     fn visit_impl_decl(&mut self, decl: ImplDecl) {
         match decl {
             ImplDecl::Type(decl) => self.visit_ty_impl_block_decl(decl),
-            ImplDecl::TypeAsTrait(decl) => self.visit_ty_as_trai_impl_block_decl(decl),
+            ImplDecl::TypeAsTrait(decl) => self.visit_trai_for_ty_impl_block_decl(decl),
         }
     }
 
@@ -268,7 +268,7 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
         }
     }
 
-    fn visit_ty_as_trai_impl_block_decl(&mut self, _decl: TypeAsTraitImplBlockDecl) {
+    fn visit_trai_for_ty_impl_block_decl(&mut self, _decl: TraitForTypeImplBlockDecl) {
         // todo!()
     }
 

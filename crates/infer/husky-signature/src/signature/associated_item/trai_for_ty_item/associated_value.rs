@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_as_trai_associated_value_signature(
+pub(crate) fn trai_for_ty_associated_value_signature(
     db: &dyn SignatureDb,
     decl: TypeAsTraitAssociatedValueDecl,
 ) -> SignatureResult<TypeAsTraitAssociatedValueSignature> {

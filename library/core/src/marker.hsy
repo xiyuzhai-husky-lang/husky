@@ -1,3 +1,15 @@
 pub trait Copy;
 
+impl Copy for i8
+
+impl Copy for i16
+
+impl Copy for i32
+
+impl Copy for i64
+
+impl Copy for i128
+
+impl Copy for isize
+
 pub trait Sized;

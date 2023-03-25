@@ -1,10 +1,10 @@
 mod trai;
+mod trai_for_ty;
 mod ty;
-mod ty_as_trai;
 
 pub use self::trai::*;
+pub use self::trai_for_ty::*;
 pub use self::ty::*;
-pub use self::ty_as_trai::*;
 
 use crate::*;
 use husky_decl::{TypeItemDecl, TypeMethodFnDecl};
