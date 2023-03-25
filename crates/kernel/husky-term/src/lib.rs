@@ -3,7 +3,6 @@
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
-mod card;
 mod context;
 mod db;
 mod error;
@@ -13,14 +12,15 @@ mod rewrite;
 mod term;
 #[cfg(test)]
 mod tests;
+mod ty;
 
-pub use self::card::*;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
+pub use self::ty::*;
 
 use either::*;
 use husky_entity_path::*;
