@@ -12,7 +12,9 @@ mod rewrite;
 mod term;
 #[cfg(test)]
 mod tests;
+mod trai;
 mod ty;
+mod utils;
 
 pub use self::context::*;
 pub use self::db::*;
@@ -87,4 +89,7 @@ pub struct TermJar(
     TypeMethodFnCard,
     TypeAsTraitMethodFnCard,
     TypeAssociatedFnCard,
+    utils::curry_term_toolchain,
+    utils::application_term_toolchain,
+    utils::ritchie_term_toolchain,
 );
