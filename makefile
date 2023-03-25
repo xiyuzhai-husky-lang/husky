@@ -27,7 +27,6 @@ count-todo:
 
 update-expect:
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --test-threads 1 --nocapture
-	spd-say "update expect is done"
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh

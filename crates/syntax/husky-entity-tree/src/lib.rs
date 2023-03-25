@@ -53,7 +53,7 @@ pub struct EntityTreeJar(
     ModuleItemSymbol,
     UseSymbol,
     TypeImplBlock,
-    TypeAsTraitImplBlock,
+    TraitForTypeImplBlock,
     IllFormedImplBlock,
     AssociatedItem,
     TypeAssociatedItem,
@@ -66,5 +66,5 @@ pub struct EntityTreeJar(
     ty_impl_blocks,
     ty_items,
     ty_impl_block_items,
-    ty_as_trai_impl_block_items,
+    trai_for_ty_impl_block_items,
 );

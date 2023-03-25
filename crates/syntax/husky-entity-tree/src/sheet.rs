@@ -86,20 +86,20 @@ impl EntityTreeSheet {
             .copied()
             .filter_map(|impl_block| match impl_block {
                 ImplBlock::Type(impl_block) => Some(impl_block),
-                ImplBlock::TypeAsTrait(_) => None,
+                ImplBlock::TraitForType(_) => None,
                 ImplBlock::IllFormed(_) => None,
             })
     }
 
-    pub fn all_ty_as_trai_impl_blocks<'a>(
+    pub fn all_trai_for_ty_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TypeAsTraitImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
         self.impl_blocks
             .iter()
             .copied()
             .filter_map(|impl_block| match impl_block {
                 ImplBlock::Type(_) => None,
-                ImplBlock::TypeAsTrait(impl_block) => Some(impl_block),
+                ImplBlock::TraitForType(impl_block) => Some(impl_block),
                 ImplBlock::IllFormed(_) => None,
             })
     }

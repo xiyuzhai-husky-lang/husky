@@ -207,7 +207,7 @@ impl<'a> BlockExprParser<'a> {
     fn parse_for_loop_stmt(
         &mut self,
         expr: ExprIdx,
-        for_token: ForToken,
+        for_token: StmtForToken,
         eol_colon: ExprResult<EolColonToken>,
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,

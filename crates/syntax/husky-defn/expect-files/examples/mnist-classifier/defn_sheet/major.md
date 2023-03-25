@@ -752,7 +752,7 @@ Ok(
                                                     ),
                                                 },
                                                 Stmt::ForBetween {
-                                                    for_token: ForToken {
+                                                    for_token: StmtForToken {
                                                         token_idx: TokenIdx(
                                                             58,
                                                         ),
@@ -1335,7 +1335,7 @@ Ok(
                                                     ),
                                                 },
                                                 Stmt::ForBetween {
-                                                    for_token: ForToken {
+                                                    for_token: StmtForToken {
                                                         token_idx: TokenIdx(
                                                             103,
                                                         ),

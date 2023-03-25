@@ -54,12 +54,12 @@ impl EntityTreeCrateBundle {
             .flatten()
     }
 
-    pub fn all_ty_as_trai_impl_blocks<'a>(
+    pub fn all_trai_for_ty_impl_blocks<'a>(
         &'a self,
-    ) -> impl Iterator<Item = TypeAsTraitImplBlock> + 'a {
+    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_as_trai_impl_blocks())
+            .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
             .flatten()
     }
 

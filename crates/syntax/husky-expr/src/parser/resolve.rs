@@ -14,33 +14,42 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         token: Token,
     ) -> TokenResolveResult<ResolvedToken> {
         TokenResolveResult::Continue(match token {
-            Token::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
-                PronounKeyword::Crate => todo!(),
-                PronounKeyword::SelfType => match self.allow_self_type() {
-                    AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
-                    AllowSelfType::False => ResolvedToken::AtomicExpr(Expr::Err(
-                        OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
-                    )),
-                },
-                PronounKeyword::SelfValue => match self.peek() {
-                    Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::ScopeResolution))) => {
-                        todo!()
+            Token::Keyword(keyword) => match keyword {
+                Keyword::Connection(keyword) => match keyword {
+                    ConnectionKeyword::For | ConnectionKeyword::Where => {
+                        return TokenResolveResult::Break(())
                     }
-                    _ => match self.allow_self_value() {
-                        AllowSelfValue::True => {
-                            ResolvedToken::AtomicExpr(Expr::SelfValue(token_idx))
-                        }
-                        AllowSelfValue::False => ResolvedToken::AtomicExpr(Expr::Err(
-                            OriginalExprError::SelfValueNotAllowed(token_idx).into(),
+                },
+                Keyword::Pronoun(pronoun) => match pronoun {
+                    PronounKeyword::Crate => todo!(),
+                    PronounKeyword::SelfType => match self.allow_self_type() {
+                        AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
+                        AllowSelfType::False => ResolvedToken::AtomicExpr(Expr::Err(
+                            OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
                         )),
                     },
-                },
+                    PronounKeyword::SelfValue => match self.peek() {
+                        Some(Token::Punctuation(Punctuation::Binary(
+                            BinaryOpr::ScopeResolution,
+                        ))) => {
+                            todo!()
+                        }
+                        _ => match self.allow_self_value() {
+                            AllowSelfValue::True => {
+                                ResolvedToken::AtomicExpr(Expr::SelfValue(token_idx))
+                            }
+                            AllowSelfValue::False => ResolvedToken::AtomicExpr(Expr::Err(
+                                OriginalExprError::SelfValueNotAllowed(token_idx).into(),
+                            )),
+                        },
+                    },
 
-                PronounKeyword::Super => todo!(),
+                    PronounKeyword::Super => todo!(),
+                },
+                _ => ResolvedToken::AtomicExpr(Expr::Err(
+                    OriginalExprError::UnexpectedKeyword(token_idx).into(),
+                )),
             },
-            Token::Keyword(keyword) => ResolvedToken::AtomicExpr(Expr::Err(
-                OriginalExprError::UnexpectedKeyword(token_idx).into(),
-            )),
             Token::Ident(ident) => self.resolve_ident(token_idx, ident),
             Token::Label(_) => todo!(),
             Token::Punctuation(punc) => match punc {

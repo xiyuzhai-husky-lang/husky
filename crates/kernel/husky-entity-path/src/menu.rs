@@ -35,6 +35,8 @@ pub struct EntityPathMenu {
     core_ops_neg: TraitPath,
     // Not	The unary logical negation operator !.
     core_ops_not: TraitPath,
+    clone_trai_path: TraitPath,
+    copy_trai_path: TraitPath,
     default_trai_path: TraitPath,
     option_ty_path: TypePath,
     slice_ty_path: TypePath,
@@ -82,7 +84,9 @@ impl EntityPathMenu {
         let core_slice = path_menu.core_slice();
         let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
+        let core_clone = path_menu.core_clone();
         let core_default = path_menu.core_default();
+        let core_marker = path_menu.core_marker();
         let core_num = path_menu.core_num();
         let core_raw_bits = path_menu.core_raw_bits();
         let core_mem = path_menu.core_mem();
@@ -409,6 +413,18 @@ impl EntityPathMenu {
             db.it_ident_borrowed("Not").unwrap(),
             ModuleItemConnection::Connected,
         );
+        let clone_trai_path = TraitPath::new(
+            db,
+            core_clone,
+            db.it_ident_borrowed("Clone").unwrap(),
+            ModuleItemConnection::Connected,
+        );
+        let copy_trai_path = TraitPath::new(
+            db,
+            core_marker,
+            db.it_ident_borrowed("Copy").unwrap(),
+            ModuleItemConnection::Connected,
+        );
         let default_trai_path = TraitPath::new(
             db,
             core_default,
@@ -464,6 +480,8 @@ impl EntityPathMenu {
             core_ops_mul_assign,
             core_ops_neg,
             core_ops_not,
+            clone_trai_path,
+            copy_trai_path,
             default_trai_path,
         }
     }
@@ -658,6 +676,14 @@ impl EntityPathMenu {
 
     pub fn core_ops_not(&self) -> TraitPath {
         self.core_ops_not
+    }
+
+    pub fn clone_trai_path(&self) -> TraitPath {
+        self.clone_trai_path
+    }
+
+    pub fn copy_trai_path(&self) -> TraitPath {
+        self.copy_trai_path
     }
 
     pub fn default_trai_path(&self) -> TraitPath {

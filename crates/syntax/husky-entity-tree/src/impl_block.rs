@@ -1,12 +1,12 @@
-mod ill_formed;
+mod ill_formed_impl_block;
 mod registry;
-mod ty;
-mod ty_as_trai;
+mod trai_for_ty_impl_block;
+mod ty_impl_block;
 
-pub use self::ill_formed::*;
+pub use self::ill_formed_impl_block::*;
 pub use self::registry::*;
-pub use self::ty::*;
-pub use self::ty_as_trai::*;
+pub use self::trai_for_ty_impl_block::*;
+pub use self::ty_impl_block::*;
 
 use crate::*;
 use husky_print_utils::p;
@@ -21,7 +21,7 @@ use vec_like::VecPairMap;
 #[enum_class::from_variants]
 pub enum ImplBlock {
     Type(TypeImplBlock),
-    TypeAsTrait(TypeAsTraitImplBlock),
+    TraitForType(TraitForTypeImplBlock),
     IllFormed(IllFormedImplBlock),
 }
 
@@ -29,7 +29,7 @@ impl ImplBlock {
     pub fn id(self, db: &dyn EntityTreeDb) -> ImplBlockId {
         match self {
             ImplBlock::Type(impl_block) => impl_block.id(db).into(),
-            ImplBlock::TypeAsTrait(impl_block) => impl_block.id(db).into(),
+            ImplBlock::TraitForType(impl_block) => impl_block.id(db).into(),
             ImplBlock::IllFormed(impl_block) => impl_block.id(db).into(),
         }
     }
@@ -59,7 +59,7 @@ impl ImplBlock {
                 Err(_e) => todo!(),
             }
         }
-        let (_expr, path) = match parser.parse_major_path_expr() {
+        let (expr, path) = match parser.parse_major_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
                 return IllFormedImplBlock::new(
@@ -75,13 +75,64 @@ impl ImplBlock {
             }
         };
         match path {
-            ModuleItemPath::Type(ty) => {
-                TypeImplBlock::new(db, impl_token, registry, module_path, ast_idx, body, ty).into()
-            }
-            ModuleItemPath::Trait(_) => {
-                todo!();
-
-                new_impl(db, registry, module_path, ast_idx, body, todo!())
+            ModuleItemPath::Type(ty) => TypeImplBlock::new(
+                db,
+                impl_token,
+                registry,
+                module_path,
+                ast_idx,
+                body,
+                ty,
+                expr,
+            )
+            .into(),
+            ModuleItemPath::Trait(trai_path) => {
+                let trai_expr = expr;
+                let for_token = match ignore_util_for_is_eaten(&mut parser) {
+                    Ok(for_token) => for_token,
+                    Err(_) => todo!(),
+                };
+                let (ty_expr, ty_path) = match parser.parse_major_path_expr() {
+                    Ok((expr, ModuleItemPath::Type(path))) => (expr, path),
+                    Ok((expr, path)) => {
+                        return IllFormedImplBlock::new(
+                            db,
+                            registry,
+                            impl_token,
+                            module_path,
+                            ast_idx,
+                            body,
+                            ImplBlockIllForm::ExpectTypePathAfterFor,
+                        )
+                        .into();
+                    }
+                    Err(e) => {
+                        return IllFormedImplBlock::new(
+                            db,
+                            registry,
+                            impl_token,
+                            module_path,
+                            ast_idx,
+                            body,
+                            ImplBlockIllForm::MissingFor,
+                        )
+                        .into();
+                    }
+                };
+                TraitForTypeImplBlock::new(
+                    db,
+                    registry,
+                    module_path,
+                    ast_idx,
+                    impl_token,
+                    trai_expr,
+                    trai_path,
+                    for_token,
+                    ty_expr,
+                    ty_path,
+                    body,
+                )
+                .into()
             }
             ModuleItemPath::Form(_) => todo!(),
         }
@@ -98,14 +149,14 @@ impl ImplBlock {
 #[enum_class::from_variants]
 pub enum ImplBlockId {
     Type(TypeImplBlockId),
-    TypeAsTrait(TypeAsTraitImplBlockId),
+    TypeAsTrait(TraitForTypeImplBlockId),
     IllFormed(IllFormedImplBlockId),
 }
 
 impl ImplBlockId {
     pub fn module(self) -> ModulePath {
         match self {
-            ImplBlockId::Type(id) => id.module(),
+            ImplBlockId::Type(id) => id.module_path(),
             ImplBlockId::TypeAsTrait(id) => id.module(),
             ImplBlockId::IllFormed(id) => id.module(),
         }
@@ -161,6 +212,19 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
         0 => Ok(()),
         _ => Err(ImplError::UnmatchedAngleBras),
     }
+}
+
+fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<TokenIdx> {
+    while let Some(token) = token_stream.next() {
+        match token {
+            Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
+                return Ok(token_stream.state() - 1)
+            }
+            Token::Error(e) => return Err(e.clone().into()),
+            _ => continue,
+        }
+    }
+    todo!()
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]

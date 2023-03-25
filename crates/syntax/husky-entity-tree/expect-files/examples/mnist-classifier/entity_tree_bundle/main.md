@@ -1172,16 +1172,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::connected_component`,
-                                ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                module_path: `mnist_classifier::connected_component`,
+                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 125,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     85,
                                 ),
                             },
-                            ast_idx: 125,
+                            ty_expr: 0,
                             body: ArenaIdxRange(
                                 67..79,
                             ),
@@ -1711,16 +1712,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::raw_contour`,
-                                ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                module_path: `mnist_classifier::raw_contour`,
+                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 200,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     42,
                                 ),
                             },
-                            ast_idx: 200,
+                            ty_expr: 1,
                             body: ArenaIdxRange(
                                 27..34,
                             ),
@@ -2166,16 +2168,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::geom2d`,
-                                ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 79,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     13,
                                 ),
                             },
-                            ast_idx: 79,
+                            ty_expr: 2,
                             body: ArenaIdxRange(
                                 5..10,
                             ),
@@ -2184,16 +2187,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::geom2d`,
-                                ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 82,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     168,
                                 ),
                             },
-                            ast_idx: 82,
+                            ty_expr: 3,
                             body: ArenaIdxRange(
                                 41..49,
                             ),
@@ -2231,16 +2235,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::geom2d`,
-                                ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 86,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     609,
                                 ),
                             },
-                            ast_idx: 86,
+                            ty_expr: 4,
                             body: ArenaIdxRange(
                                 64..70,
                             ),
@@ -2249,16 +2254,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::geom2d`,
-                                ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 88,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     743,
                                 ),
                             },
-                            ast_idx: 88,
+                            ty_expr: 5,
                             body: ArenaIdxRange(
                                 74..78,
                             ),
@@ -2546,16 +2552,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::line_segment_sketch`,
-                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 170,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     81,
                                 ),
                             },
-                            ast_idx: 170,
+                            ty_expr: 6,
                             body: ArenaIdxRange(
                                 3..7,
                             ),
@@ -2564,16 +2571,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::line_segment_sketch`,
-                                ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                module_path: `mnist_classifier::line_segment_sketch`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 172,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     175,
                                 ),
                             },
-                            ast_idx: 172,
+                            ty_expr: 7,
                             body: ArenaIdxRange(
                                 21..26,
                             ),
@@ -3457,16 +3465,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::line_segment_sketch::concave_component`,
-                                ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 75,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     49,
                                 ),
                             },
-                            ast_idx: 75,
+                            ty_expr: 8,
                             body: ArenaIdxRange(
                                 39..53,
                             ),
@@ -4235,16 +4244,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::line_segment_sketch::convex_component`,
-                                ty: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 4,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     22,
                                 ),
                             },
-                            ast_idx: 4,
+                            ty_expr: 9,
                             body: ArenaIdxRange(
                                 0..2,
                             ),
@@ -4997,16 +5007,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::line_segment_sketch::line_segment`,
-                                ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 17,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     19,
                                 ),
                             },
-                            ast_idx: 17,
+                            ty_expr: 10,
                             body: ArenaIdxRange(
                                 13..15,
                             ),
@@ -5414,16 +5425,17 @@ Ok(
                     ImplBlock::Type(
                         TypeImplBlock {
                             id: TypeImplBlockId {
-                                module: `mnist_classifier::fermi`,
-                                ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                module_path: `mnist_classifier::fermi`,
+                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 23,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     23,
                                 ),
                             },
-                            ast_idx: 23,
+                            ty_expr: 11,
                             body: ArenaIdxRange(
                                 12..15,
                             ),

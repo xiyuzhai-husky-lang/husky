@@ -42,7 +42,7 @@ pub(crate) fn subentity_path(
                                 TypeItemPath::new(db, ty, ident, ty_item_kind).into()
                             }
                             AssociatedItemKind::TraitItem(_) => todo!(),
-                            AssociatedItemKind::TypeAsTraitItem(_) => todo!(),
+                            AssociatedItemKind::TraitForTypeItem(_) => todo!(),
                         })
                     } else {
                         // todo: check trait impls

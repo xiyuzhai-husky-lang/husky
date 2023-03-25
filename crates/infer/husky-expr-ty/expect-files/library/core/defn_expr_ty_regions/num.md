@@ -5,8 +5,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i8`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -45,8 +45,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i16`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -85,8 +85,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -125,8 +125,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -165,8 +165,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i128`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -205,8 +205,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::isize`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -245,8 +245,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u8`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -285,8 +285,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u16`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -325,8 +325,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -365,8 +365,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -405,8 +405,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u128`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -445,8 +445,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::usize`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -485,8 +485,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::f32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -525,8 +525,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::f64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),

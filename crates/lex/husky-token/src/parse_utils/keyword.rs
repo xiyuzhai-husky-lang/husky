@@ -66,11 +66,11 @@ impl BreakToken {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct ForToken {
+pub struct StmtForToken {
     token_idx: TokenIdx,
 }
 
-impl ForToken {
+impl StmtForToken {
     pub fn token_idx(&self) -> TokenIdx {
         self.token_idx
     }
@@ -121,7 +121,7 @@ pub enum BasicStmtKeywordToken {
     Require(RequireToken),
     Assert(AssertToken),
     Break(BreakToken),
-    For(ForToken),
+    For(StmtForToken),
     ForExt(ForextToken),
     While(WhileToken),
     Do(DoToken),
@@ -178,7 +178,7 @@ where
                     Ok(Some(BreakToken { token_idx }.into()))
                 }
                 Token::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
-                    Ok(Some(ForToken { token_idx }.into()))
+                    Ok(Some(StmtForToken { token_idx }.into()))
                 }
                 Token::Keyword(Keyword::Stmt(StmtKeyword::ForExt)) => {
                     Ok(Some(ForextToken { token_idx }.into()))
@@ -1006,4 +1006,35 @@ pub struct TypeToken {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TraitToken {
     token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ConnectionForToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::ParseFrom<Context> for ConnectionForToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
+            match token {
+                Token::Keyword(Keyword::Connection(ConnectionKeyword::For)) => {
+                    Ok(Some(ConnectionForToken { token_idx }))
+                }
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
 }

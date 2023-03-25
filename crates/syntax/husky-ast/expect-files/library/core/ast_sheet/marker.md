@@ -33,9 +33,57 @@ Ok(
                         3,
                     ),
                 },
-                Ast::Defn {
+                Ast::Impl {
                     token_group_idx: TokenGroupIdx(
                         1,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        7,
                     ),
                     body: ArenaIdxRange(
                         0..0,
@@ -55,19 +103,19 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Sized`,
                         token_idx: TokenIdx(
-                            6,
+                            30,
                         ),
                     },
                     is_generic: false,
                     body_kind: None,
                     saved_stream_state: TokenIdx(
-                        7,
+                        31,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..2,
+            0..8,
         ),
     },
 )

@@ -943,8 +943,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i8`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -956,16 +956,17 @@ Ok(
                                 ast_idx: 32,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::i8`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 32,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             30,
                                         ),
                                     },
-                                    ast_idx: 32,
+                                    ty_expr: 0,
                                     body: ArenaIdxRange(
                                         0..1,
                                     ),
@@ -995,8 +996,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::i8`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -1073,8 +1074,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i8`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -1089,8 +1090,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::i8`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i8`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -1107,8 +1108,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i8`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -1126,16 +1127,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i8`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 32,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         30,
                                                     ),
                                                 },
-                                                ast_idx: 32,
+                                                ty_expr: 0,
                                                 body: ArenaIdxRange(
                                                     0..1,
                                                 ),
@@ -1160,8 +1162,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::i8`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -1234,8 +1236,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::i8`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -1374,8 +1376,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i16`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -1387,16 +1389,17 @@ Ok(
                                 ast_idx: 37,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::i16`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 37,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             82,
                                         ),
                                     },
-                                    ast_idx: 37,
+                                    ty_expr: 1,
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
@@ -1426,8 +1429,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::i16`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -1504,8 +1507,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i16`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -1520,8 +1523,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::i16`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i16`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -1538,8 +1541,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i16`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -1557,16 +1560,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i16`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 37,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         82,
                                                     ),
                                                 },
-                                                ast_idx: 37,
+                                                ty_expr: 1,
                                                 body: ArenaIdxRange(
                                                     2..3,
                                                 ),
@@ -1591,8 +1595,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::i16`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -1665,8 +1669,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::i16`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -1805,8 +1809,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -1818,16 +1822,17 @@ Ok(
                                 ast_idx: 42,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::i32`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 42,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             134,
                                         ),
                                     },
-                                    ast_idx: 42,
+                                    ty_expr: 2,
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
@@ -1857,8 +1862,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::i32`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -1935,8 +1940,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -1951,8 +1956,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::i32`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -1969,8 +1974,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -1988,16 +1993,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 42,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         134,
                                                     ),
                                                 },
-                                                ast_idx: 42,
+                                                ty_expr: 2,
                                                 body: ArenaIdxRange(
                                                     4..5,
                                                 ),
@@ -2022,8 +2028,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::i32`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -2096,8 +2102,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::i32`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -2236,8 +2242,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -2249,16 +2255,17 @@ Ok(
                                 ast_idx: 47,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::i64`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 47,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             185,
                                         ),
                                     },
-                                    ast_idx: 47,
+                                    ty_expr: 3,
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
@@ -2288,8 +2295,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::i64`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -2366,8 +2373,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -2382,8 +2389,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::i64`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -2400,8 +2407,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -2419,16 +2426,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 47,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         185,
                                                     ),
                                                 },
-                                                ast_idx: 47,
+                                                ty_expr: 3,
                                                 body: ArenaIdxRange(
                                                     6..7,
                                                 ),
@@ -2453,8 +2461,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::i64`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -2527,8 +2535,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::i64`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -2667,8 +2675,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::i128`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -2680,16 +2688,17 @@ Ok(
                                 ast_idx: 52,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::i128`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 52,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             237,
                                         ),
                                     },
-                                    ast_idx: 52,
+                                    ty_expr: 4,
                                     body: ArenaIdxRange(
                                         8..9,
                                     ),
@@ -2719,8 +2728,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::i128`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -2797,8 +2806,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::i128`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -2813,8 +2822,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::i128`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::i128`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -2831,8 +2840,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i128`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -2850,16 +2859,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::i128`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 52,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         237,
                                                     ),
                                                 },
-                                                ast_idx: 52,
+                                                ty_expr: 4,
                                                 body: ArenaIdxRange(
                                                     8..9,
                                                 ),
@@ -2884,8 +2894,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::i128`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -2958,8 +2968,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::i128`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -3098,8 +3108,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::isize`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -3111,16 +3121,17 @@ Ok(
                                 ast_idx: 57,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::isize`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 57,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             289,
                                         ),
                                     },
-                                    ast_idx: 57,
+                                    ty_expr: 5,
                                     body: ArenaIdxRange(
                                         10..11,
                                     ),
@@ -3150,8 +3161,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::isize`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -3228,8 +3239,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::isize`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -3244,8 +3255,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::isize`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::isize`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -3262,8 +3273,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::isize`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -3281,16 +3292,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::isize`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 57,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         289,
                                                     ),
                                                 },
-                                                ast_idx: 57,
+                                                ty_expr: 5,
                                                 body: ArenaIdxRange(
                                                     10..11,
                                                 ),
@@ -3315,8 +3327,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::isize`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -3389,8 +3401,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::isize`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -3529,8 +3541,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u8`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -3542,16 +3554,17 @@ Ok(
                                 ast_idx: 62,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::u8`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 62,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             341,
                                         ),
                                     },
-                                    ast_idx: 62,
+                                    ty_expr: 6,
                                     body: ArenaIdxRange(
                                         12..13,
                                     ),
@@ -3581,8 +3594,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::u8`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -3659,8 +3672,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u8`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -3675,8 +3688,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::u8`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u8`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -3693,8 +3706,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u8`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -3712,16 +3725,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u8`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 62,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         341,
                                                     ),
                                                 },
-                                                ast_idx: 62,
+                                                ty_expr: 6,
                                                 body: ArenaIdxRange(
                                                     12..13,
                                                 ),
@@ -3746,8 +3760,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::u8`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -3820,8 +3834,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::u8`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -3960,8 +3974,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u16`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -3973,16 +3987,17 @@ Ok(
                                 ast_idx: 67,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::u16`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 67,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             393,
                                         ),
                                     },
-                                    ast_idx: 67,
+                                    ty_expr: 7,
                                     body: ArenaIdxRange(
                                         14..15,
                                     ),
@@ -4012,8 +4027,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::u16`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -4090,8 +4105,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u16`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -4106,8 +4121,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::u16`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u16`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -4124,8 +4139,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u16`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -4143,16 +4158,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u16`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 67,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         393,
                                                     ),
                                                 },
-                                                ast_idx: 67,
+                                                ty_expr: 7,
                                                 body: ArenaIdxRange(
                                                     14..15,
                                                 ),
@@ -4177,8 +4193,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::u16`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -4251,8 +4267,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::u16`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -4391,8 +4407,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -4404,16 +4420,17 @@ Ok(
                                 ast_idx: 72,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::u32`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 72,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             445,
                                         ),
                                     },
-                                    ast_idx: 72,
+                                    ty_expr: 8,
                                     body: ArenaIdxRange(
                                         16..17,
                                     ),
@@ -4443,8 +4460,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::u32`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -4521,8 +4538,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -4537,8 +4554,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::u32`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -4555,8 +4572,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -4574,16 +4591,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 72,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         445,
                                                     ),
                                                 },
-                                                ast_idx: 72,
+                                                ty_expr: 8,
                                                 body: ArenaIdxRange(
                                                     16..17,
                                                 ),
@@ -4608,8 +4626,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::u32`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -4682,8 +4700,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::u32`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -4822,8 +4840,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -4835,16 +4853,17 @@ Ok(
                                 ast_idx: 77,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::u64`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 77,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             497,
                                         ),
                                     },
-                                    ast_idx: 77,
+                                    ty_expr: 9,
                                     body: ArenaIdxRange(
                                         18..19,
                                     ),
@@ -4874,8 +4893,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::u64`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -4952,8 +4971,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -4968,8 +4987,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::u64`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -4986,8 +5005,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -5005,16 +5024,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 77,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         497,
                                                     ),
                                                 },
-                                                ast_idx: 77,
+                                                ty_expr: 9,
                                                 body: ArenaIdxRange(
                                                     18..19,
                                                 ),
@@ -5039,8 +5059,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::u64`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -5113,8 +5133,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::u64`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -5253,8 +5273,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::u128`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -5266,16 +5286,17 @@ Ok(
                                 ast_idx: 82,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::u128`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 82,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             549,
                                         ),
                                     },
-                                    ast_idx: 82,
+                                    ty_expr: 10,
                                     body: ArenaIdxRange(
                                         20..21,
                                     ),
@@ -5305,8 +5326,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::u128`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -5383,8 +5404,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::u128`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -5399,8 +5420,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::u128`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::u128`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -5417,8 +5438,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u128`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -5436,16 +5457,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::u128`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 82,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         549,
                                                     ),
                                                 },
-                                                ast_idx: 82,
+                                                ty_expr: 10,
                                                 body: ArenaIdxRange(
                                                     20..21,
                                                 ),
@@ -5470,8 +5492,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::u128`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -5544,8 +5566,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::u128`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -5684,8 +5706,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::usize`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -5697,16 +5719,17 @@ Ok(
                                 ast_idx: 87,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::usize`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 87,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             601,
                                         ),
                                     },
-                                    ast_idx: 87,
+                                    ty_expr: 11,
                                     body: ArenaIdxRange(
                                         22..23,
                                     ),
@@ -5736,8 +5759,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::usize`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -5814,8 +5837,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::usize`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -5830,8 +5853,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::usize`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::usize`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -5848,8 +5871,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::usize`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -5867,16 +5890,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::usize`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 87,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         601,
                                                     ),
                                                 },
-                                                ast_idx: 87,
+                                                ty_expr: 11,
                                                 body: ArenaIdxRange(
                                                     22..23,
                                                 ),
@@ -5901,8 +5925,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::usize`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -5975,8 +5999,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::usize`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -6115,8 +6139,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::f32`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -6128,16 +6152,17 @@ Ok(
                                 ast_idx: 92,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::f32`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 92,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             653,
                                         ),
                                     },
-                                    ast_idx: 92,
+                                    ty_expr: 12,
                                     body: ArenaIdxRange(
                                         24..25,
                                     ),
@@ -6167,8 +6192,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::f32`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -6245,8 +6270,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::f32`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -6261,8 +6286,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::f32`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -6279,8 +6304,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::f32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -6298,16 +6323,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::f32`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 92,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         653,
                                                     ),
                                                 },
-                                                ast_idx: 92,
+                                                ty_expr: 12,
                                                 body: ArenaIdxRange(
                                                     24..25,
                                                 ),
@@ -6332,8 +6358,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::f32`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -6406,8 +6432,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::f32`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),
@@ -6546,8 +6572,8 @@ Ok(
                 DeclRegionPath::Impl(
                     ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `core::num`,
-                            ty: TypePath(`core::num::f64`, `Extern`),
+                            module_path: `core::num`,
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
@@ -6559,16 +6585,17 @@ Ok(
                                 ast_idx: 97,
                                 impl_block: TypeImplBlock {
                                     id: TypeImplBlockId {
-                                        module: `core::num`,
-                                        ty: TypePath(`core::num::f64`, `Extern`),
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
                                         disambiguator: 0,
                                     },
+                                    ast_idx: 97,
                                     impl_token: ImplToken {
                                         token_idx: TokenIdx(
                                             704,
                                         ),
                                     },
-                                    ast_idx: 97,
+                                    ty_expr: 13,
                                     body: ArenaIdxRange(
                                         26..27,
                                     ),
@@ -6598,8 +6625,8 @@ Ok(
                                             DeclRegionPath::Impl(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
-                                                        module: `core::num`,
-                                                        ty: TypePath(`core::num::f64`, `Extern`),
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 ),
@@ -6676,8 +6703,8 @@ Ok(
                     AssociatedItemId {
                         impl_block_id: ImplBlockId::Type(
                             TypeImplBlockId {
-                                module: `core::num`,
-                                ty: TypePath(`core::num::f64`, `Extern`),
+                                module_path: `core::num`,
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
                         ),
@@ -6692,8 +6719,8 @@ Ok(
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
                                             TypeImplBlockId {
-                                                module: `core::num`,
-                                                ty: TypePath(`core::num::f64`, `Extern`),
+                                                module_path: `core::num`,
+                                                ty_path: TypePath(`core::num::f64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         ),
@@ -6710,8 +6737,8 @@ Ok(
                                         id: AssociatedItemId {
                                             impl_block_id: ImplBlockId::Type(
                                                 TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::f64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             ),
@@ -6729,16 +6756,17 @@ Ok(
                                         impl_block: ImplBlock::Type(
                                             TypeImplBlock {
                                                 id: TypeImplBlockId {
-                                                    module: `core::num`,
-                                                    ty: TypePath(`core::num::f64`, `Extern`),
+                                                    module_path: `core::num`,
+                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
+                                                ast_idx: 97,
                                                 impl_token: ImplToken {
                                                     token_idx: TokenIdx(
                                                         704,
                                                     ),
                                                 },
-                                                ast_idx: 97,
+                                                ty_expr: 13,
                                                 body: ArenaIdxRange(
                                                     26..27,
                                                 ),
@@ -6763,8 +6791,8 @@ Ok(
                                                             DeclRegionPath::Impl(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
-                                                                        module: `core::num`,
-                                                                        ty: TypePath(`core::num::f64`, `Extern`),
+                                                                        module_path: `core::num`,
+                                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 ),
@@ -6837,8 +6865,8 @@ Ok(
                                                     AssociatedItemId {
                                                         impl_block_id: ImplBlockId::Type(
                                                             TypeImplBlockId {
-                                                                module: `core::num`,
-                                                                ty: TypePath(`core::num::f64`, `Extern`),
+                                                                module_path: `core::num`,
+                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
                                                                 disambiguator: 0,
                                                             },
                                                         ),

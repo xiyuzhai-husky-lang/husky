@@ -68,6 +68,8 @@ pub struct TermMenu0 {
     lifetime_ty_ontology: Term,
     trai_ty_ontology: Term,
     module_ty_ontology: Term,
+    clone_trai: Term,
+    copy_trai: Term,
     default_trai: Term,
 }
 
@@ -146,6 +148,8 @@ impl TermMenu0 {
             r128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r128_ty_path()).into(),
             rsize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.rsize_ty_path())
                 .into(),
+            clone_trai: TermEntityPath::Trait(entity_path_menu.clone_trai_path()).into(),
+            copy_trai: TermEntityPath::Trait(entity_path_menu.copy_trai_path()).into(),
             default_trai: TermEntityPath::Trait(entity_path_menu.default_trai_path()).into(),
         }
     }
@@ -380,6 +384,14 @@ impl TermMenu0 {
 
     pub fn leash_ty_ontology(&self) -> Term {
         self.leash_ty_ontology
+    }
+
+    pub fn clone_trai(&self) -> Term {
+        self.clone_trai
+    }
+
+    pub fn copy_trai(&self) -> Term {
+        self.copy_trai
     }
 
     pub fn default_trai(&self) -> Term {

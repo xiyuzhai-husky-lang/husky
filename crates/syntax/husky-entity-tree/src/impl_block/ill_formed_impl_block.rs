@@ -57,4 +57,8 @@ pub enum ImplBlockIllForm {
     Token(#[from] TokenError),
     #[error("principal path expr error")]
     MajorPath(#[from] MajorPathExprError),
+    #[error("MissingFor")]
+    MissingFor,
+    #[error("ExpectTypePathAfterFor")]
+    ExpectTypePathAfterFor,
 }

@@ -4,7 +4,7 @@ use husky_entity_tree::AssociatedItem;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAsTraitMethodDecl {
     #[id]
-    pub path: Option<TypeAsTraitItemPath>,
+    pub path: Option<TraitForTypeItemPath>,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,

@@ -1,8 +1,8 @@
-mod ty;
-mod ty_as_trai;
+mod trai_for_ty_impl_block;
+mod ty_impl_block;
 
-pub use ty::*;
-pub use ty_as_trai::*;
+pub use trai_for_ty_impl_block::*;
+pub use ty_impl_block::*;
 
 use super::*;
 
@@ -12,7 +12,7 @@ pub(crate) fn impl_block_signature_from_decl(
 ) -> SignatureResult<ImplSignature> {
     match decl {
         ImplDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
-        ImplDecl::TypeAsTrait(decl) => ty_as_trai_im_signature(db, decl).map(Into::into),
+        ImplDecl::TypeAsTrait(decl) => trai_for_ty_impl_block_signature(db, decl).map(Into::into),
     }
 }
 
@@ -20,11 +20,11 @@ pub(crate) fn impl_block_signature_from_decl(
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum ImplSignature {
     TypeImpl(TypeImplSignature),
-    TypeAsTraitImpl(TypeAsTraitImplSignature),
+    TypeAsTraitImpl(TraitForTypeImplBlockSignature),
 }
 
-impl From<TypeAsTraitImplSignature> for ImplSignature {
-    fn from(v: TypeAsTraitImplSignature) -> Self {
+impl From<TraitForTypeImplBlockSignature> for ImplSignature {
+    fn from(v: TraitForTypeImplBlockSignature) -> Self {
         Self::TypeAsTraitImpl(v)
     }
 }

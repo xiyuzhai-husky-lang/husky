@@ -1,10 +1,10 @@
 mod trai;
+mod trai_for_ty;
 mod ty;
-mod ty_as_trai;
 
 pub use self::trai::*;
+pub use self::trai_for_ty::*;
 pub use self::ty::*;
-pub use self::ty_as_trai::*;
 
 use husky_entity_taxonomy::AssociatedItemKind;
 use husky_print_utils::p;
@@ -66,17 +66,17 @@ impl AssociatedItem {
                 ImplBlock::Type(impl_block) => {
                     Some(TypeItemPath::new(db, impl_block.ty(db), ident, ty_item_kind).into())
                 }
-                ImplBlock::TypeAsTrait(_) => unreachable!(),
+                ImplBlock::TraitForType(_) => unreachable!(),
                 ImplBlock::IllFormed(_) => None,
             },
-            AssociatedItemKind::TypeAsTraitItem(ty_as_trai_item_kind) => match impl_block {
-                ImplBlock::TypeAsTrait(impl_block) => Some(
-                    TypeAsTraitItemPath::new(
+            AssociatedItemKind::TraitForTypeItem(trai_for_ty_item_kind) => match impl_block {
+                ImplBlock::TraitForType(impl_block) => Some(
+                    TraitForTypeItemPath::new(
                         db,
                         impl_block.ty(db),
                         impl_block.trai(db),
                         ident,
-                        ty_as_trai_item_kind,
+                        trai_for_ty_item_kind,
                     )
                     .into(),
                 ),
@@ -123,7 +123,7 @@ pub fn impl_block_associated_items(
 ) -> &[(Ident, AssociatedItem)] {
     match impl_block {
         ImplBlock::Type(impl_block) => ty_impl_block_items(db, impl_block),
-        ImplBlock::TypeAsTrait(impl_block) => ty_as_trai_impl_block_items(db, impl_block),
+        ImplBlock::TraitForType(impl_block) => trai_for_ty_impl_block_items(db, impl_block),
         ImplBlock::IllFormed(_) => &[],
     }
 }
@@ -142,14 +142,14 @@ pub(crate) fn ty_impl_block_items(
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_as_trai_impl_block_items(
+pub(crate) fn trai_for_ty_impl_block_items(
     db: &dyn EntityTreeDb,
-    impl_block: TypeAsTraitImplBlock,
+    impl_block: TraitForTypeImplBlock,
 ) -> IdentPairMap<AssociatedItem> {
     impl_block_associated_items_aux(
         db,
         impl_block.into(),
-        impl_block.module(db),
+        impl_block.module_path(db),
         impl_block.body(db),
     )
 }

@@ -52,7 +52,7 @@ impl TypeAsTraitItemDecl {
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> Option<TypeAsTraitItemPath> {
+    pub fn path(self, db: &dyn DeclDb) -> Option<TraitForTypeItemPath> {
         match self {
             TypeAsTraitItemDecl::AssociatedFunction(_) => todo!(),
             TypeAsTraitItemDecl::Method(decl) => decl.path(db),

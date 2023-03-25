@@ -40,8 +40,8 @@ use husky_word::WordJar;
     TermJar
 )]
 #[derive(Default)]
-pub(crate) struct TermTestsDb {
-    storage: salsa::Storage<TermTestsDb>,
+pub(crate) struct DB {
+    storage: salsa::Storage<DB>,
 }
 
-impl salsa::Database for TermTestsDb {}
+impl salsa::Database for DB {}

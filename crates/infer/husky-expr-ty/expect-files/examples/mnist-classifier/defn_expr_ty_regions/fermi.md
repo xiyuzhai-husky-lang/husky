@@ -740,8 +740,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::fermi`,
-                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            module_path: `mnist_classifier::fermi`,
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -1148,8 +1148,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::fermi`,
-                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            module_path: `mnist_classifier::fermi`,
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
@@ -1556,8 +1556,8 @@
                 AssociatedItemId {
                     impl_block_id: ImplBlockId::Type(
                         TypeImplBlockId {
-                            module: `mnist_classifier::fermi`,
-                            ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                            module_path: `mnist_classifier::fermi`,
+                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             disambiguator: 0,
                         },
                     ),

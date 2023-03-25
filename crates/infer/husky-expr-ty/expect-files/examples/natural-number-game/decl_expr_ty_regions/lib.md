@@ -103,8 +103,8 @@
             DeclRegionPath::Impl(
                 ImplBlockId::Type(
                     TypeImplBlockId {
-                        module: `natural_number_game`,
-                        ty: TypePath(`natural_number_game::Nat`, `Inductive`),
+                        module_path: `natural_number_game`,
+                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         disambiguator: 0,
                     },
                 ),

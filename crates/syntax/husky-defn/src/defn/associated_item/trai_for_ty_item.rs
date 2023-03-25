@@ -30,7 +30,7 @@ impl TypeAsTraitItemDefn {
         }
     }
 
-    pub fn path(self, _db: &dyn DefnDb) -> TypeAsTraitItemPath {
+    pub fn path(self, _db: &dyn DefnDb) -> TraitForTypeItemPath {
         todo!()
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
