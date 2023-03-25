@@ -60,7 +60,7 @@ impl LocalTermPattern {
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => LocalTermPattern::TypeOntology {
                     path,
-                    refined_path: path.refine(db).expect("should be checked"),
+                    refined_path: path.refine(db),
                     argument_tys: smallvec![],
                 },
                 TermEntityPath::TypeConstructor(path) => todo!(),
@@ -89,7 +89,7 @@ impl LocalTermPattern {
                 match expansion.function() {
                     TermFunctionReduced::TypeOntology(path) => LocalTermPattern::TypeOntology {
                         path,
-                        refined_path: path.refine(db).expect("should work"),
+                        refined_path: path.refine(db),
                         argument_tys: expansion
                             .arguments(db)
                             .iter()
@@ -116,7 +116,7 @@ impl LocalTermPattern {
             }
             UnresolvedTerm::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
                 path: *path,
-                refined_path: path.refine(db).expect("should checked before"),
+                refined_path: path.refine(db),
                 argument_tys: arguments.clone(),
             },
             UnresolvedTerm::Ritchie {

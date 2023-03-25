@@ -93,25 +93,19 @@ fn prelude_ty_path_size_works() {
 }
 
 impl TypePath {
-    pub fn prelude_ty_path(
-        self,
-        db: &dyn EntityPathDb,
-    ) -> EntityPathResult<Option<PreludeTypePath>> {
+    pub fn prelude_ty_path(self, db: &dyn EntityPathDb) -> Option<PreludeTypePath> {
         prelude_ty_path(db, self)
     }
 }
 
 #[salsa::tracked(jar = EntityPathJar)]
-pub(crate) fn prelude_ty_path(
-    db: &dyn EntityPathDb,
-    path: TypePath,
-) -> EntityPathResult<Option<PreludeTypePath>> {
-    let menu: &EntityPathMenu = db.entity_path_menu(path.toolchain(db))?;
-    let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db))?;
+pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<PreludeTypePath> {
+    let menu: &EntityPathMenu = db.entity_path_menu(path.toolchain(db));
+    let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));
     if path.crate_path(db) != vfs_path_menu.core_library() {
-        return Ok(None);
+        return None;
     }
-    Ok(Some(match path {
+    Some(match path {
         path if path == menu.unit_ty_path() => PreludeBasicTypePath::Unit.into(),
         path if path == menu.never_ty_path() => PreludeBasicTypePath::Never.into(),
         path if path == menu.bool_ty_path() => PreludeBasicTypePath::Bool.into(),
@@ -145,6 +139,6 @@ pub(crate) fn prelude_ty_path(
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),
         path if path == menu.str_ty_path() => PreludeTypePath::Str.into(),
-        _ => return Ok(None),
-    }))
+        _ => return None,
+    })
 }

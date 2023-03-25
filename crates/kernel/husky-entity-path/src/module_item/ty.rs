@@ -16,8 +16,8 @@ pub struct TypePath {
 }
 
 impl TypePath {
-    pub fn eqs_lifetime_ty_path(self, db: &dyn EntityPathDb) -> EntityPathResult<bool> {
-        Ok(self.prelude_ty_path(db)? == Some(PreludeTypePath::Lifetime))
+    pub fn eqs_lifetime_ty_path(self, db: &dyn EntityPathDb) -> bool {
+        self.prelude_ty_path(db) == Some(PreludeTypePath::Lifetime)
     }
 
     pub fn show_aux(

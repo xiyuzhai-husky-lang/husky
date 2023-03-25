@@ -75,8 +75,8 @@ impl<'a> ExprTypeEngine<'a> {
         Self {
             db,
             toolchain,
-            entity_path_menu: db.entity_path_menu(toolchain).unwrap(),
-            term_menu: db.term_menu(toolchain).unwrap(),
+            entity_path_menu: db.entity_path_menu(toolchain),
+            term_menu: db.term_menu(toolchain),
             token_sheet_data: db
                 .token_sheet_data(expr_region_data.path().module_path(db))
                 .unwrap(),

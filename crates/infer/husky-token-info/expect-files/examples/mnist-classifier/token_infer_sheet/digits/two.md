@@ -77,7 +77,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },

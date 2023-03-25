@@ -5,7 +5,7 @@ use husky_path_utils::collect_husky_package_dirs;
 use vec_like::VecSet;
 
 pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
-    fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu>;
+    fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
     fn live_packages(
         &self,
@@ -156,10 +156,8 @@ impl<Db> VfsDb for Db
 where
     Db: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
 {
-    fn vfs_path_menu(&self, toolchain: Toolchain) -> ToolchainResult<&VfsPathMenu> {
-        Ok(vfs_path_menu(self, toolchain)
-            .as_ref()
-            .map_err(|e| e.clone())?)
+    fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu {
+        vfs_path_menu(self, toolchain)
     }
 
     fn live_packages(

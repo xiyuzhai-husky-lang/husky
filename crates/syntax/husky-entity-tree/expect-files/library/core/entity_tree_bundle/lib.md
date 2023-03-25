@@ -7,9 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `basic`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -19,10 +17,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `logic`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `default`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -32,10 +28,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `mem`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `logic`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -45,10 +39,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `num`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `mem`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -58,10 +50,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ops`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `num`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -71,10 +61,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `prelude`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `ops`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -84,10 +72,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `raw_bits`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `prelude`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -97,10 +83,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `fmt`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `raw_bits`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -110,10 +94,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `clone`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `fmt`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -123,10 +105,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `marker`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `clone`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -136,10 +116,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `list`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `marker`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -149,10 +127,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `cmp`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `list`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -162,10 +138,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `str`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `cmp`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -175,14 +149,23 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `option`,
-                            visibility: Visibility::PublicUnder(
-                                `core`,
-                            ),
+                            ident: `str`,
+                            visibility: Visibility::Public,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
                                         value: 14,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `option`,
+                            visibility: Visibility::Public,
+                            symbol: Submodule(
+                                SubmoduleSymbol(
+                                    Id {
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -258,6 +241,20 @@ Ok(
                             ),
                         },
                     ],
+                ),
+                impl_blocks: [],
+                use_expr_rules: UseExprRules(
+                    [],
+                ),
+                use_all_rules: UseAllRules(
+                    [],
+                ),
+                errors: [],
+            },
+            EntityTreeSheet {
+                module_path: `core::default`,
+                symbols: EntitySymbolTable(
+                    [],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
@@ -1990,7 +1987,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 4,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -2024,7 +2021,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2058,7 +2055,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 8,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -2092,7 +2089,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 10,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -2126,7 +2123,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 9,
+                                            value: 10,
                                         },
                                     ),
                                 ),
@@ -2160,7 +2157,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 12,
+                                            value: 13,
                                         },
                                     ),
                                 ),
@@ -2184,7 +2181,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 5,
+                                    value: 6,
                                 },
                             ),
                             ast_idx: 1,
@@ -2195,7 +2192,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 8,
+                                    value: 9,
                                 },
                             ),
                             ast_idx: 2,
@@ -2206,7 +2203,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 9,
+                                    value: 10,
                                 },
                             ),
                             ast_idx: 3,
@@ -2217,7 +2214,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 11,
+                                    value: 12,
                                 },
                             ),
                             ast_idx: 4,
@@ -2228,7 +2225,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 10,
+                                    value: 11,
                                 },
                             ),
                             ast_idx: 5,
@@ -2239,7 +2236,7 @@ Ok(
                         UseAllRule {
                             parent: ModulePath(
                                 Id {
-                                    value: 13,
+                                    value: 14,
                                 },
                             ),
                             ast_idx: 6,

@@ -10,6 +10,7 @@ pub struct VfsPathMenu {
     core: ModulePath,
     std: ModulePath,
     core_basic: ModulePath,
+    core_default: ModulePath,
     core_mem: ModulePath,
     /// core::num
     core_num: ModulePath,
@@ -23,12 +24,12 @@ pub struct VfsPathMenu {
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-pub(crate) fn vfs_path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<VfsPathMenu> {
+pub(crate) fn vfs_path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> VfsPathMenu {
     VfsPathMenu::new(db, toolchain)
 }
 
 impl VfsPathMenu {
-    fn new(db: &dyn VfsDb, toolchain: Toolchain) -> ToolchainResult<Self> {
+    fn new(db: &dyn VfsDb, toolchain: Toolchain) -> Self {
         let word_menu = db.word_menu();
         let core_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.core_name());
         let std_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.std_name());
@@ -37,6 +38,8 @@ impl VfsPathMenu {
         let core = ModulePath::new_root(db, core_library);
         let std = ModulePath::new_root(db, std_library);
         let core_basic = ModulePath::new_child(db, core, db.it_ident_borrowed("basic").unwrap());
+        let core_default =
+            ModulePath::new_child(db, core, db.it_ident_borrowed("default").unwrap());
         let core_list = ModulePath::new_child(db, core, db.it_ident_borrowed("list").unwrap());
         let core_mem = ModulePath::new_child(db, core, db.it_ident_borrowed("mem").unwrap());
         let core_num = ModulePath::new_child(db, core, db.it_ident_borrowed("num").unwrap());
@@ -48,7 +51,7 @@ impl VfsPathMenu {
             ModulePath::new_child(db, core, db.it_ident_borrowed("raw_bits").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
         let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
-        Ok(Self {
+        Self {
             core_package,
             std_package,
             core_library,
@@ -56,6 +59,7 @@ impl VfsPathMenu {
             core,
             std,
             core_basic,
+            core_default,
             core_mem,
             core_num,
             core_ops,
@@ -65,7 +69,7 @@ impl VfsPathMenu {
             core_slice,
             core_str,
             core_list,
-        })
+        }
     }
 
     pub fn core_package(&self) -> PackagePath {
@@ -86,6 +90,10 @@ impl VfsPathMenu {
 
     pub fn core_basic(&self) -> ModulePath {
         self.core_basic
+    }
+
+    pub fn core_default(&self) -> ModulePath {
+        self.core_default
     }
 
     /// core::mem
@@ -137,10 +145,11 @@ impl VfsPathMenu {
 fn vfs_path_menu_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let menu = db.vfs_path_menu(toolchain).unwrap();
+    let menu = db.vfs_path_menu(toolchain);
     assert_eq!(menu.core().to_string_with_db(&db), "core");
     assert_eq!(menu.std().to_string_with_db(&db), "std");
     assert_eq!(menu.core_basic().to_string_with_db(&db), "core::basic");
+    assert_eq!(menu.core_default().to_string_with_db(&db), "core::default");
     assert_eq!(menu.core_mem().to_string_with_db(&db), "core::mem");
     assert_eq!(menu.core_num().to_string_with_db(&db), "core::num");
     assert_eq!(menu.core_slice().to_string_with_db(&db), "core::slice");

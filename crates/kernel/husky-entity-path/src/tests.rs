@@ -14,7 +14,7 @@ impl salsa::Database for DB {}
 fn entity_path_debug_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain);
     expect_test::expect![[r#"
         TypePath(`core::num::i32`, `Extern`)
     "#]]

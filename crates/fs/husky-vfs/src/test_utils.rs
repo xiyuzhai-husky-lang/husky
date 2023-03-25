@@ -30,7 +30,7 @@ pub trait VfsTestUtils: VfsDb {
 
     fn dev_path_menu(&self) -> ToolchainResult<&VfsPathMenu> {
         let toolchain = self.dev_toolchain()?;
-        self.vfs_path_menu(toolchain)
+        Ok(self.vfs_path_menu(toolchain))
     }
 
     /// only run to see whether the program will panic

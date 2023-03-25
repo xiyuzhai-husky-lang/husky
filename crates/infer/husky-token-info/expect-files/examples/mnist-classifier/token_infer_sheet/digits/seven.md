@@ -29,7 +29,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -45,7 +45,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     ),
@@ -77,7 +77,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -93,7 +93,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     ),
@@ -141,7 +141,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -157,7 +157,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     ),
@@ -175,7 +175,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -191,7 +191,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 36,
+                                value: 38,
                             },
                         ),
                     ),
@@ -209,7 +209,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -225,7 +225,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 35,
+                                value: 37,
                             },
                         ),
                     ),
@@ -241,7 +241,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 39,
+                                value: 41,
                             },
                         ),
                     ),
@@ -259,7 +259,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -275,7 +275,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 37,
+                                value: 39,
                             },
                         ),
                     ),

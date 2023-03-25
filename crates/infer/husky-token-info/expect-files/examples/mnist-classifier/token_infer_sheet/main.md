@@ -33,7 +33,7 @@ Ok(
                         entity_path: Module(
                             ModulePath(
                                 Id {
-                                    value: 60,
+                                    value: 62,
                                 },
                             ),
                         ),
@@ -59,7 +59,7 @@ Ok(
                         entity_path: Module(
                             ModulePath(
                                 Id {
-                                    value: 60,
+                                    value: 62,
                                 },
                             ),
                         ),
@@ -84,7 +84,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     ),
@@ -102,7 +102,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 37,
+                                value: 39,
                             },
                         ),
                     ),
@@ -120,7 +120,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 36,
+                                value: 38,
                             },
                         ),
                     ),
@@ -139,7 +139,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 33,
+                                value: 35,
                             },
                         ),
                     ),
@@ -171,7 +171,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 35,
+                                value: 37,
                             },
                         ),
                     ),
@@ -206,7 +206,7 @@ Ok(
                         entity_path: Module(
                             ModulePath(
                                 Id {
-                                    value: 60,
+                                    value: 62,
                                 },
                             ),
                         ),

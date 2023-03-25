@@ -2,10 +2,25 @@ Ok(
     TokenSheetData {
         tokens: [
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `basic`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Mod,
+            ),
+            Token::Ident(
+                `default`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -14,10 +29,16 @@ Ok(
                 `logic`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `mem`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -26,10 +47,16 @@ Ok(
                 `num`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `ops`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -38,10 +65,16 @@ Ok(
                 `prelude`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `raw_bits`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -50,10 +83,16 @@ Ok(
                 `fmt`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `clone`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -62,10 +101,16 @@ Ok(
                 `marker`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `list`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -74,10 +119,16 @@ Ok(
                 `cmp`,
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
                 `str`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
             ),
             Token::Keyword(
                 Keyword::Mod,
@@ -88,21 +139,23 @@ Ok(
         ],
         group_starts: [
             0,
-            2,
-            4,
+            3,
             6,
-            8,
-            10,
+            9,
             12,
-            14,
-            16,
+            15,
             18,
-            20,
-            22,
+            21,
             24,
-            26,
+            27,
+            30,
+            33,
+            36,
+            39,
+            42,
         ],
         indents: [
+            0,
             0,
             0,
             0,

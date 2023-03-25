@@ -32,5 +32,4 @@ pub struct RawTermJar(
     RawTermTraitConstraint,
     RawTermList,
     raw_term_menu,
-    is_ty_path_lifetime_ty,
 );

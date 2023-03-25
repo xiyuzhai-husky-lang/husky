@@ -11,13 +11,10 @@ impl From<CustomTypePath> for TypePath {
 }
 
 impl TypePath {
-    pub fn refine(
-        self,
-        db: &dyn EntityPathDb,
-    ) -> EntityPathResult<Either<CustomTypePath, PreludeTypePath>> {
-        Ok(match self.prelude_ty_path(db)? {
+    pub fn refine(self, db: &dyn EntityPathDb) -> Either<CustomTypePath, PreludeTypePath> {
+        match self.prelude_ty_path(db) {
             None => Left(CustomTypePath(self)),
             Some(path) => Right(path),
-        })
+        }
     }
 }

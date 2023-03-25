@@ -18,6 +18,10 @@ impl Term {
             Term::TraitConstraint(_) => todo!(),
         }
     }
+
+    pub(crate) fn term_menu(self, db: &dyn TermDb) -> Option<&TermMenu> {
+        Some(db.term_menu(self.toolchain(db)?))
+    }
 }
 
 impl TermSymbol {

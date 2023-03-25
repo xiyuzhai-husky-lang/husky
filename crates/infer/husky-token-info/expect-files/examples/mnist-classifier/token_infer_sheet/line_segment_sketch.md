@@ -20,7 +20,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 39,
+                                value: 41,
                             },
                         ),
                     ),
@@ -39,7 +39,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 40,
+                                value: 42,
                             },
                         ),
                     ),
@@ -58,7 +58,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 42,
+                                value: 44,
                             },
                         ),
                     ),
@@ -76,7 +76,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -92,7 +92,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 34,
+                                value: 36,
                             },
                         ),
                     ),
@@ -110,7 +110,7 @@ Ok(
                     original_symbol: CrateRoot {
                         root_module: ModulePath(
                             Id {
-                                value: 38,
+                                value: 40,
                             },
                         ),
                     },
@@ -126,7 +126,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 33,
+                                value: 35,
                             },
                         ),
                     ),
@@ -158,7 +158,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 42,
+                                value: 44,
                             },
                         ),
                     ),

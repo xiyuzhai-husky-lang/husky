@@ -80,8 +80,6 @@ pub struct TermJar(
     // other
     term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
     term_from_raw_term_list_unchecked,
-    // only use this inside crate::context::entry
-    is_ty_path_lifetime_ty,
     // card
     // method ty
     term_application_ty_method_card,

@@ -1,6 +1,7 @@
 Ok(
     [
         `core::basic`,
+        `core::default`,
         `core::logic`,
         `core::mem`,
         `core::num`,

@@ -26,7 +26,7 @@ pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
 fn ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let menu = db.entity_path_menu(toolchain).unwrap();
+    let menu = db.entity_path_menu(toolchain);
     assert!(db.ty_decl(menu.never_ty_path()).is_ok());
 }
 

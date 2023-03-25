@@ -54,7 +54,7 @@ pub fn entity_path_raw_ty(
 fn entity_path_raw_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain).unwrap();
+    let entity_path_menu = db.entity_path_menu(toolchain);
     let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
     let invariant_ty0_to_trai_ty: RawTerm = raw_term_menu.invariant_ty0_to_trai_ty().into();
     let _ex_co_lifetime_to_ex_co_ty0_to_ty0: RawTerm =

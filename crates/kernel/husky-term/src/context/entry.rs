@@ -177,9 +177,7 @@ impl TermShowContext {
 
 fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
     match symbol.ty(db) {
-        Term::EntityPath(TermEntityPath::TypeOntology(path))
-            if path.eqs_lifetime_ty_path(db).unwrap_or_default() =>
-        {
+        Term::EntityPath(TermEntityPath::TypeOntology(path)) if path.eqs_lifetime_ty_path(db) => {
             TermSymbolShowKind::Lifetime
         }
         Term::Category(cat) if cat.universe().raw() == 0 => TermSymbolShowKind::Prop,
@@ -187,15 +185,4 @@ fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
         Term::Category(_) => TermSymbolShowKind::Kind,
         _ => TermSymbolShowKind::Other,
     }
-}
-
-// this might be the most efficient way to do it
-// only use this in this module
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn is_ty_path_lifetime_ty(db: &dyn TermDb, ty_path: TypePath) -> bool {
-    let toolchain = ty_path.toolchain(db);
-    let Ok(entity_path_menu) = db.entity_path_menu(toolchain) else {
-        return false
-    };
-    ty_path == entity_path_menu.lifetime_ty_path()
 }

@@ -94,20 +94,7 @@ impl Term {
         match self {
             Term::Literal(_) => Ok(()),
             Term::Symbol(term) => term.check(db),
-            Term::EntityPath(path) => {
-                match path {
-                    TermEntityPath::Form(_) => todo!(),
-                    TermEntityPath::Trait(_) => todo!(),
-                    TermEntityPath::TypeOntology(path) => {
-                        path.refine(db)?;
-                    }
-                    TermEntityPath::TypeConstructor(_) => {
-                        p!(path.debug(db));
-                        todo!()
-                    }
-                }
-                Ok(())
-            }
+            Term::EntityPath(path) => Ok(()),
             Term::Category(_) => Ok(()),
             Term::Universe(_) => Ok(()),
             Term::Curry(term) => term.check(db),
@@ -191,10 +178,10 @@ impl Term {
             }
             RawTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort => {
-                    db.term_menu(toolchain)?.leash_ty_ontology()
+                    db.term_menu(toolchain).leash_ty_ontology()
                 }
                 TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
-                    match path.prelude_ty_path(db)? {
+                    match path.prelude_ty_path(db) {
                         Some(PreludeTypePath::Num(_)) => {
                             todo!()
                         }
@@ -263,7 +250,7 @@ impl Term {
             }
             Right(other_ty) => match self {
                 Term::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-                    Ok(ty_path.prelude_ty_path(db)? == Some(other_ty))
+                    Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
                 }
                 _ => todo!(),
             },
@@ -365,7 +352,7 @@ pub(crate) fn term_from_raw_term_list_unchecked(
 ) -> TermResult<Term> {
     match term_ty_expectation {
         TermTypeExpectation::FinalDestinationEqsSort => {
-            let term_menu = db.term_menu(raw_term_list.toolchain(db))?;
+            let term_menu = db.term_menu(raw_term_list.toolchain(db));
             let items = raw_term_list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
@@ -373,7 +360,7 @@ pub(crate) fn term_from_raw_term_list_unchecked(
             }
         }
         TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path) => {
-            match path.prelude_ty_path(db)? {
+            match path.prelude_ty_path(db) {
                 Some(PreludeTypePath::List) => {
                     todo!()
                 }

@@ -1,0 +1,5 @@
+Ok(
+    DeclSheet {
+        decls: [],
+    },
+)
