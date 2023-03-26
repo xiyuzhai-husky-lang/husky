@@ -69,7 +69,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `from_i_shift28`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -198,7 +198,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `vector`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -252,7 +252,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `to`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -344,7 +344,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `norm`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -400,7 +400,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `dist`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -576,7 +576,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `point`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -631,7 +631,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `to`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -723,7 +723,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `norm`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -779,7 +779,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `dot`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -859,7 +859,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `cross`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -939,7 +939,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `angle`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1078,7 +1078,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `rotation_direction_to`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1147,7 +1147,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ident: `angle_to`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1608,7 +1608,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `relative_bounding_box`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1707,7 +1707,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `relative_point`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1806,7 +1806,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `xmin`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1846,7 +1846,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `xmax`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1886,7 +1886,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `ymin`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -1926,7 +1926,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ident: `ymax`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -2025,7 +2025,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ident: `xmin`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -2065,7 +2065,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ident: `xmax`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -2105,7 +2105,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ident: `ymin`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -2145,7 +2145,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ident: `ymax`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),

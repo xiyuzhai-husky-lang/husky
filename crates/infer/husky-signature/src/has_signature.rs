@@ -1,3 +1,5 @@
+use husky_entity_tree::TraitForTypeImplBlock;
+
 use crate::*;
 
 pub trait HasSignature: Copy {
@@ -27,5 +29,13 @@ impl HasSignature for TypeAssociatedFnDecl {
 
     fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeAssociatedFnSignature> {
         ty_associated_fn_signature(db, self)
+    }
+}
+
+impl HasSignature for TraitForTypeImplBlock {
+    type Signature = TraitForTypeImplBlockSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        trai_for_ty_impl_block_signature(db, self.decl(db)?)
     }
 }

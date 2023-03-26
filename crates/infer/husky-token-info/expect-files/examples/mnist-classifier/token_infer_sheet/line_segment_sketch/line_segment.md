@@ -102,7 +102,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ident: `displacement`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -147,7 +147,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ident: `dist_to_point`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),

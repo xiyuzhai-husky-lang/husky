@@ -1,7 +1,7 @@
 #![feature(trait_upcasting)]
 mod db;
 mod decl;
-mod error;
+mod error; 
 mod parameter;
 mod parser;
 mod sheet;
@@ -10,7 +10,7 @@ mod tests;
 
 pub use db::*;
 pub use decl::*;
-pub use error::*;
+pub use error::*; 
 pub use parameter::*;
 pub use sheet::*;
 

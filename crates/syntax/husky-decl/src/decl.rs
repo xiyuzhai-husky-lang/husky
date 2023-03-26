@@ -74,3 +74,9 @@ impl Decl {
         }
     }
 }
+
+pub trait HasDecl: Copy {
+    type Decl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl>;
+}

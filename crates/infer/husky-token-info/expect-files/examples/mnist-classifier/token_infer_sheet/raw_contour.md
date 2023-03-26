@@ -209,7 +209,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `line_segment_sketch`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -252,7 +252,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -272,7 +272,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `bounding_box`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -615,7 +615,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `relative_bounding_box`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -665,7 +665,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `contour_len`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -936,7 +936,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `displacement`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -3350,7 +3350,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `from_i_shift28`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3457,7 +3457,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `from_i_shift28`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3583,7 +3583,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `from_i_shift28`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3657,7 +3657,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ident: `from_i_shift28`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),

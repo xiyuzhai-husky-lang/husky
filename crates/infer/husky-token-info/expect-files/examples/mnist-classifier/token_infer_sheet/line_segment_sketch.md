@@ -263,7 +263,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -413,7 +413,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `displacement`,
-                                ty_item_kind: MethodFn,
+                                item_kind: MethodFn,
                             },
                         ),
                     ),
@@ -539,7 +539,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ident: `concave_components`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -587,7 +587,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ident: `bounding_box`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -935,7 +935,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3492,7 +3492,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3693,7 +3693,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -3830,7 +3830,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -4107,7 +4107,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
@@ -4373,7 +4373,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ident: `new`,
-                                ty_item_kind: AssociatedFn,
+                                item_kind: AssociatedFn,
                             },
                         ),
                     ),
