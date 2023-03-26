@@ -6,6 +6,7 @@ mod error;
 mod menu;
 mod rewrite;
 mod term;
+mod utils;
 
 pub use self::context::*;
 pub use self::db::*;

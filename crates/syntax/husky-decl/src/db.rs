@@ -11,7 +11,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn ty_decl(&self, path: TypePath) -> DeclResultRef<TypeDecl>;
     fn trai_decl(&self, path: TraitPath) -> DeclResultRef<TraitDecl>;
     fn form_decl(&self, path: FormPath) -> DeclResultRef<FormDecl>;
-    fn impl_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplDecl>;
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplBlockDecl>;
     fn associated_item_decl(
         &self,
         associated_item: AssociatedItem,
@@ -48,8 +48,8 @@ where
         decl_sheet(self, module_path)
     }
 
-    fn impl_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
-        impl_decl(self, impl_block)
+    fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplBlockDecl> {
+        impl_block_decl(self, impl_block)
     }
 
     fn associated_item_decl(

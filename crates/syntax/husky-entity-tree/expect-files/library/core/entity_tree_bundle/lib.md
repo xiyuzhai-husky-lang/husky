@@ -2331,7 +2331,152 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_blocks: [
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 8,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
+                            trai_expr: 14,
+                            for_token: TokenIdx(
+                                13,
+                            ),
+                            ty_expr: 15,
+                            body: ArenaIdxRange(
+                                1..2,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 9,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                            trai_expr: 16,
+                            for_token: TokenIdx(
+                                25,
+                            ),
+                            ty_expr: 17,
+                            body: ArenaIdxRange(
+                                2..3,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 10,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    35,
+                                ),
+                            },
+                            trai_expr: 18,
+                            for_token: TokenIdx(
+                                37,
+                            ),
+                            ty_expr: 19,
+                            body: ArenaIdxRange(
+                                3..4,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 11,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                            trai_expr: 20,
+                            for_token: TokenIdx(
+                                49,
+                            ),
+                            ty_expr: 21,
+                            body: ArenaIdxRange(
+                                4..5,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 12,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    59,
+                                ),
+                            },
+                            trai_expr: 22,
+                            for_token: TokenIdx(
+                                61,
+                            ),
+                            ty_expr: 23,
+                            body: ArenaIdxRange(
+                                5..6,
+                            ),
+                        },
+                    ),
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::clone`,
+                                trai_path: TraitPath(`core::clone::Clone`),
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
+                            },
+                            ast_idx: 13,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    71,
+                                ),
+                            },
+                            trai_expr: 24,
+                            for_token: TokenIdx(
+                                73,
+                            ),
+                            ty_expr: 25,
+                            body: ArenaIdxRange(
+                                6..7,
+                            ),
+                        },
+                    ),
+                ],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
@@ -2383,11 +2528,11 @@ Ok(
                                     4,
                                 ),
                             },
-                            trai_expr: 14,
+                            trai_expr: 26,
                             for_token: TokenIdx(
                                 6,
                             ),
-                            ty_expr: 15,
+                            ty_expr: 27,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2407,11 +2552,11 @@ Ok(
                                     8,
                                 ),
                             },
-                            trai_expr: 16,
+                            trai_expr: 28,
                             for_token: TokenIdx(
                                 10,
                             ),
-                            ty_expr: 17,
+                            ty_expr: 29,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2431,11 +2576,11 @@ Ok(
                                     12,
                                 ),
                             },
-                            trai_expr: 18,
+                            trai_expr: 30,
                             for_token: TokenIdx(
                                 14,
                             ),
-                            ty_expr: 19,
+                            ty_expr: 31,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2455,11 +2600,11 @@ Ok(
                                     16,
                                 ),
                             },
-                            trai_expr: 20,
+                            trai_expr: 32,
                             for_token: TokenIdx(
                                 18,
                             ),
-                            ty_expr: 21,
+                            ty_expr: 33,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2479,11 +2624,11 @@ Ok(
                                     20,
                                 ),
                             },
-                            trai_expr: 22,
+                            trai_expr: 34,
                             for_token: TokenIdx(
                                 22,
                             ),
-                            ty_expr: 23,
+                            ty_expr: 35,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2503,11 +2648,11 @@ Ok(
                                     24,
                                 ),
                             },
-                            trai_expr: 24,
+                            trai_expr: 36,
                             for_token: TokenIdx(
                                 26,
                             ),
-                            ty_expr: 25,
+                            ty_expr: 37,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2852,6 +2997,162 @@ Ok(
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`core::num::f64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            12,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i8`,
+                        token_idx: TokenIdx(
+                            14,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            24,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i16`,
+                        token_idx: TokenIdx(
+                            26,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            36,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i32`,
+                        token_idx: TokenIdx(
+                            38,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            48,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i64`,
+                        token_idx: TokenIdx(
+                            50,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            60,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i128`,
+                        token_idx: TokenIdx(
+                            62,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Clone`,
+                        token_idx: TokenIdx(
+                            72,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::clone::Clone`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `isize`,
+                        token_idx: TokenIdx(
+                            74,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
                         ),
                     ),
                 },

@@ -1,12 +1,12 @@
 mod assoc_ty;
 mod assoc_val;
 mod function;
-mod method;
+mod method_fn;
 
 pub use assoc_ty::*;
 pub use assoc_val::*;
 pub use function::*;
-pub use method::*;
+pub use method_fn::*;
 
 use super::*;
 use husky_ast::*;

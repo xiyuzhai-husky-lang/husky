@@ -22,7 +22,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 },
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => todo!(),
-                    PronounKeyword::SelfType => match self.allow_self_type() {
+                    PronounKeyword::SelfType => match self.allow_self_ty() {
                         AllowSelfType::True => ResolvedToken::AtomicExpr(Expr::SelfType(token_idx)),
                         AllowSelfType::False => ResolvedToken::AtomicExpr(Expr::Err(
                             OriginalExprError::SelfTypeNotAllowed(token_idx).into(),

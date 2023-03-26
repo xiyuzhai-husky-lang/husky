@@ -12,7 +12,7 @@ Ok(
                                 TraitPath(`core::clone::Clone`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 1,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `Clone`,
                                 token_idx: TokenIdx(

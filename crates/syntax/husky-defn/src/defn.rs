@@ -21,7 +21,7 @@ pub enum Defn {
     Trait(TraitDefn),
     Form(FormDefn),
     Variant(VariantDefn),
-    Impl(ImplDecl),
+    Impl(ImplBlockDecl),
     AssociatedItem(AssociatedItemDefn),
 }
 

@@ -10,10 +10,10 @@ pub struct TraitForTypeImplBlockDecl {
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
-    pub trai: TraitExpr,
+    pub trai_expr: TraitExpr,
     #[return_ref]
     pub for_token: ConnectionForToken,
-    pub ty: TypeExpr,
+    pub ty_expr: TypeExpr,
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
     pub expr_region: ExprRegion,
@@ -74,7 +74,7 @@ impl<'a> DeclParser<'a> {
         impl_block: TraitForTypeImplBlock,
     ) -> DeclResult<TraitForTypeImplBlockDecl> {
         let mut parser = self.expr_parser(
-            DeclRegionPath::Impl(impl_block.id(self.db()).into()),
+            DeclRegionPath::ImplBlock(impl_block.id(self.db()).into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,

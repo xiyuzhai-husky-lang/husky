@@ -1360,7 +1360,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,
@@ -1581,7 +1581,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `mnist_classifier::line_segment_sketch`,

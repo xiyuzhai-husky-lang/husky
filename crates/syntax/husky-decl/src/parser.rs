@@ -4,6 +4,7 @@ use husky_ast::*;
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
 
+use husky_print_utils::p;
 use husky_token::*;
 
 use parsec::*;
@@ -42,7 +43,10 @@ pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDec
     parser.parse_trai_decl(path)
 }
 
-pub(crate) fn impl_decl(db: &dyn DeclDb, impl_block: ImplBlock) -> DeclResultRef<ImplDecl> {
+pub(crate) fn impl_block_decl(
+    db: &dyn DeclDb,
+    impl_block: ImplBlock,
+) -> DeclResultRef<ImplBlockDecl> {
     match impl_block {
         ImplBlock::Type(impl_block) => ty_impl_block_decl(db, impl_block).map(Into::into),
         ImplBlock::TraitForType(impl_block) => {
@@ -624,11 +628,11 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodFnDecl> {
-        let Ok(impl_decl) = self.db.impl_decl(associated_item.impl_block(self.db))
+        let Ok(impl_block_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into()) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
-            Some(impl_decl.expr_region(self.db)),
+            Some(impl_block_decl.expr_region(self.db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -671,7 +675,7 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAssociatedFnDecl> {
-        let Ok(impl_decl) = self.db.impl_decl(associated_item.impl_block(self.db))
+        let Ok(impl_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into()) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
@@ -716,7 +720,7 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMemoDecl> {
-        let Ok(impl_decl) = self.db.impl_decl(associated_item.impl_block(self.db))
+        let Ok(impl_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else { todo!() };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db)),
@@ -757,7 +761,7 @@ impl<'a> DeclParser<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAsTraitMethodDecl> {
-        let Ok(impl_decl) = self.db.impl_decl(associated_item.impl_block(self.db))
+        let Ok(impl_decl) = self.db.impl_block_decl(associated_item.impl_block(self.db))
             else {
                 return Err(
                     DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl.into()
@@ -776,7 +780,7 @@ impl<'a> DeclParser<'a> {
         );
         let implicit_parameter_decl_list = ctx.parse();
         let path = match associated_item.path(self.db) {
-            Some(AssociatedItemPath::TypeAsTraitItem(path)) => Some(path),
+            Some(AssociatedItemPath::TraitForTypeItem(path)) => Some(path),
             None => None,
             _ => unreachable!(),
         };

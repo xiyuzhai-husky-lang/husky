@@ -7,7 +7,7 @@ pub struct TermCategory {
 }
 
 impl TermCategory {
-    pub fn new(universe: TermUniverse) -> Self {
+    pub const fn new(universe: TermUniverse) -> Self {
         Self { universe }
     }
 

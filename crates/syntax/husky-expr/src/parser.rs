@@ -284,8 +284,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    fn allow_self_type(&self) -> AllowSelfType {
-        self.parser.symbol_context.symbol_region().allow_self_type()
+    fn allow_self_ty(&self) -> AllowSelfType {
+        self.parser.symbol_context.symbol_region().allow_self_ty()
     }
 
     fn allow_self_value(&self) -> AllowSelfValue {

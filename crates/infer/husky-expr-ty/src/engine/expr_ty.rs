@@ -134,7 +134,13 @@ impl<'a> ExprTypeEngine<'a> {
                 current_symbol_kind,
                 ..
             } => todo!(),
-            Expr::SelfType(_) => todo!(),
+            Expr::SelfType(_) => Ok((
+                ExprDisambiguation::Trivial,
+                match self.self_ty {
+                    Some(self_ty) => Ok(self_ty.ty(self.db, self.toolchain)?.into()), // todo: impl binding
+                    None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
+                },
+            )),
             Expr::SelfValue(_) => Ok((
                 ExprDisambiguation::Trivial,
                 match self.self_ty {

@@ -36,7 +36,7 @@
                                 annotated_variance: None,
                                 symbol: RawTermSymbol(
                                     Id {
-                                        value: 2,
+                                        value: 8,
                                     },
                                 ),
                                 ty: Category(
@@ -80,7 +80,7 @@
                                 annotated_variance: None,
                                 symbol: RawTermSymbol(
                                     Id {
-                                        value: 2,
+                                        value: 8,
                                     },
                                 ),
                                 ty: Category(

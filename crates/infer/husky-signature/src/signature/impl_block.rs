@@ -8,11 +8,13 @@ use super::*;
 
 pub(crate) fn impl_block_signature_from_decl(
     db: &dyn SignatureDb,
-    decl: ImplDecl,
+    decl: ImplBlockDecl,
 ) -> SignatureResult<ImplSignature> {
     match decl {
-        ImplDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
-        ImplDecl::TypeAsTrait(decl) => trai_for_ty_impl_block_signature(db, decl).map(Into::into),
+        ImplBlockDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
+        ImplBlockDecl::TraitForType(decl) => {
+            trai_for_ty_impl_block_signature(db, decl).map(Into::into)
+        }
     }
 }
 

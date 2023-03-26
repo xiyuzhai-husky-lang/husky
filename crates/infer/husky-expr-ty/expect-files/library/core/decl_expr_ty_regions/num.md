@@ -463,7 +463,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -666,7 +666,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -869,7 +869,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -1072,7 +1072,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -1275,7 +1275,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -1478,7 +1478,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -1681,7 +1681,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -1884,7 +1884,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -2087,7 +2087,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -2290,7 +2290,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -2493,7 +2493,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -2696,7 +2696,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -2899,7 +2899,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,
@@ -3102,7 +3102,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::Type(
                     TypeImplBlockId {
                         module_path: `core::num`,

@@ -11,16 +11,16 @@ use husky_token::ImplToken;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum ImplDecl {
+pub enum ImplBlockDecl {
     Type(TypeImplBlockDecl),
-    TypeAsTrait(TraitForTypeImplBlockDecl),
+    TraitForType(TraitForTypeImplBlockDecl),
 }
 
-impl ImplDecl {
+impl ImplBlockDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            ImplDecl::Type(decl) => decl.ast_idx(db),
-            ImplDecl::TypeAsTrait(decl) => decl.ast_idx(db),
+            ImplBlockDecl::Type(decl) => decl.ast_idx(db),
+            ImplBlockDecl::TraitForType(decl) => decl.ast_idx(db),
         }
     }
 
@@ -33,8 +33,8 @@ impl ImplDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            ImplDecl::Type(decl) => decl.expr_region(db),
-            ImplDecl::TypeAsTrait(decl) => decl.expr_region(db),
+            ImplBlockDecl::Type(decl) => decl.expr_region(db),
+            ImplBlockDecl::TraitForType(decl) => decl.expr_region(db),
         }
     }
 }

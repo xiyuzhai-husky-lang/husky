@@ -42,6 +42,8 @@ pub enum SemanticToken {
     XmlTagKind,
     WordPattern,
     WordOpr,
+    SelfType,
+    SelfValue,
 }
 
 impl SemanticToken {
@@ -112,6 +114,8 @@ impl SemanticToken {
             SemanticToken::WordPattern => ext::SemanticTokenType::ENUM_MEMBER,
             SemanticToken::Attribute => ext::SemanticTokenType::DECORATOR,
             SemanticToken::WordOpr => ext::SemanticTokenType::KEYWORD,
+            SemanticToken::SelfType => ext::SemanticTokenType::TYPE,
+            SemanticToken::SelfValue => ext::SemanticTokenType::VARIABLE,
         })
     }
 

@@ -1,7 +1,12 @@
 use super::*;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TraitForTypeImplBlockSignature {}
+pub struct TraitForTypeImplBlockSignature {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterSignatures,
+    pub trai: RawTerm,
+    pub ty: RawTerm,
+}
 
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn trai_for_ty_impl_block_signature(
@@ -9,11 +14,27 @@ pub(crate) fn trai_for_ty_impl_block_signature(
     decl: TraitForTypeImplBlockDecl,
 ) -> SignatureResult<TraitForTypeImplBlockSignature> {
     let expr_region = decl.expr_region(db);
-    let _signature_term_region = signature_term_region(db, expr_region);
-    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let signature_term_region = signature_term_region(db, expr_region);
+    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+        decl.implicit_parameters(db)?,
+        &signature_term_region,
+        raw_term_menu,
+    );
+    let trai_expr = decl.trai_expr(db);
+    let trai = match signature_term_region.expr_term(trai_expr.expr()) {
+        Ok(trai) => trai,
+        Err(_) => todo!(),
+    };
+    let ty_expr = decl.ty_expr(db);
+    let ty = match signature_term_region.expr_term(ty_expr.expr()) {
+        Ok(ty) => ty,
+        Err(_) => todo!(),
+    };
     Ok(TraitForTypeImplBlockSignature::new(
         db,
-        // ImplicitParameterSignatureList::from_decl(decl.implicit_parameters(db), signature_term_region),
-        // engine.finish(),
+        implicit_parameters,
+        trai,
+        ty,
     ))
 }

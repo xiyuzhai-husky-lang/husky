@@ -14,7 +14,7 @@ use crate::*;
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
-    TypeAsTraitItem(TraitForTypeItemPath),
+    TraitForTypeItem(TraitForTypeItemPath),
 }
 
 impl AssociatedItemPath {
@@ -22,7 +22,7 @@ impl AssociatedItemPath {
         match self {
             AssociatedItemPath::TypeItem(_) => todo!(),
             AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
         }
     }
 
@@ -30,17 +30,22 @@ impl AssociatedItemPath {
         match self {
             AssociatedItemPath::TypeItem(path) => path.module_path(db),
             AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
         }
     }
 
     pub(crate) fn entity_kind(self, db: &dyn EntityPathDb) -> EntityKind {
-        match self {
-            AssociatedItemPath::TypeItem(path) => EntityKind::AssociatedItem {
-                associated_item_kind: AssociatedItemKind::TypeItem(path.ty_item_kind(db)),
+        EntityKind::AssociatedItem {
+            associated_item_kind: match self {
+                AssociatedItemPath::TypeItem(path) => {
+                    AssociatedItemKind::TypeItem(path.item_kind(db))
+                }
+
+                AssociatedItemPath::TraitItem(_) => todo!(),
+                AssociatedItemPath::TraitForTypeItem(path) => {
+                    AssociatedItemKind::TraitForTypeItem(path.item_kind(db))
+                }
             },
-            AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
         }
     }
 }
@@ -70,7 +75,7 @@ where
         match self {
             AssociatedItemPath::TypeItem(path) => path.display_with_db_fmt(f, db, level.next()),
             AssociatedItemPath::TraitItem(path) => path.display_with_db_fmt(f, db, level.next()),
-            AssociatedItemPath::TypeAsTraitItem(path) => {
+            AssociatedItemPath::TraitForTypeItem(path) => {
                 path.display_with_db_fmt(f, db, level.next())
             }
         }

@@ -67,7 +67,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,
@@ -237,7 +237,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,
@@ -407,7 +407,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,
@@ -577,7 +577,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,
@@ -747,7 +747,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,
@@ -917,7 +917,7 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            DeclRegionPath::Impl(
+            DeclRegionPath::ImplBlock(
                 ImplBlockId::TypeAsTrait(
                     TraitForTypeImplBlockId {
                         module_path: `core::marker`,

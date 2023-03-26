@@ -1276,7 +1276,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `mnist_classifier::connected_component`,
@@ -1287,7 +1287,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 125,
                                 impl_block: TypeImplBlock {
@@ -1315,7 +1315,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -1329,7 +1329,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `mnist_classifier::connected_component`,
@@ -1427,7 +1427,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `raw_contours`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1446,7 +1446,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `raw_contours`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1487,7 +1487,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -1696,7 +1696,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `eff_holes`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1715,7 +1715,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `eff_holes`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1756,7 +1756,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -1950,7 +1950,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_hole_ilen`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1969,7 +1969,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_hole_ilen`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -2010,7 +2010,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -2204,7 +2204,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_row_span`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2223,7 +2223,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_row_span`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -2264,7 +2264,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -2458,7 +2458,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `row_span_sum`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2477,7 +2477,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `row_span_sum`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -2518,7 +2518,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -2712,7 +2712,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `distribution`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2731,7 +2731,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `distribution`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -2772,7 +2772,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -2966,7 +2966,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `upper_mass`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2985,7 +2985,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `upper_mass`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -3026,7 +3026,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -3220,7 +3220,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `lower_mass`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3239,7 +3239,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `lower_mass`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -3280,7 +3280,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -3484,7 +3484,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `top_k_row_span_sum`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3503,7 +3503,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `top_k_row_span_sum`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3544,7 +3544,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,
@@ -3845,7 +3845,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `top_k_row_right_mass_sum`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3864,7 +3864,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `top_k_row_right_mass_sum`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3905,7 +3905,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::connected_component`,

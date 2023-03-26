@@ -5,7 +5,7 @@ pub struct TraitForTypeItemPath {
     pub parent_ty: TypePath,
     pub trai: TraitPath,
     pub ident: Ident,
-    pub trai_for_ty_item_kind: TraitItemKind,
+    pub item_kind: TraitItemKind,
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for TraitForTypeItemPath
