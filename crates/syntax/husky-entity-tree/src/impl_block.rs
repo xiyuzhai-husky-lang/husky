@@ -233,7 +233,7 @@ pub(crate) fn ty_impl_blocks(
     ty: TypePath,
 ) -> EntityTreeBundleResult<Vec<TypeImplBlock>> {
     let crate_path = ty.module_path(db).crate_path(db);
-    let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+    let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
         .filter_map(|impl_block| (impl_block.ty(db) == ty).then_some(impl_block))
@@ -246,7 +246,7 @@ pub(crate) fn ty_items(
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
-    let entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+    let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
         .filter_map(|impl_block| {

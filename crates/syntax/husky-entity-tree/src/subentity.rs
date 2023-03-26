@@ -29,7 +29,7 @@ pub(crate) fn subentity_path(
         }
         EntityPath::ModuleItem(module_item_path) => {
             let crate_path = module_item_path.crate_path(db);
-            let _entity_tree_crate_bundle = db.entity_tree_crate_bundle(crate_path)?;
+            let _entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(ty) => {
                     let ty_items = match ty_items(db, ty) {

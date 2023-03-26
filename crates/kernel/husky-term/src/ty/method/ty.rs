@@ -50,6 +50,8 @@ pub(crate) fn term_application_ty_method_card(
             application_expansion.opt_arguments(db).unwrap(),
             ident,
         ),
+        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Other(_) => todo!(),
     }
 }
 

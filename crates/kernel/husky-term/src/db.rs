@@ -8,7 +8,6 @@ use salsa::DbWithJar;
 
 pub trait TermDb: DbWithJar<TermJar> + RawTypeDb {
     fn term_menu(&self, toolchain: Toolchain) -> &TermMenu;
-    fn term_application_expansion(&self, reduced_term: Term) -> ApplicationExpansion;
     fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool;
     fn ty_path_ty(
         &self,
@@ -27,10 +26,6 @@ where
 {
     fn term_menu(&self, toolchain: Toolchain) -> &TermMenu {
         term_menu(self, toolchain)
-    }
-
-    fn term_application_expansion(&self, reduced_term: Term) -> ApplicationExpansion {
-        application_expansion(self, reduced_term)
     }
 
     fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool {

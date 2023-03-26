@@ -44,7 +44,7 @@ impl LocalTerm {
                 Ok(TermApplication::new(db, function, argument)?.into())
             }
             (LocalTerm::Resolved(function), argument) => {
-                let expansion = db.term_application_expansion(function);
+                let expansion = function.application_expansion(db);
                 match expansion.function() {
                     TermFunctionReduced::TypeOntology(path) => {
                         let mut arguments: SmallVec<[LocalTerm; 2]> = expansion
@@ -59,6 +59,8 @@ impl LocalTerm {
                             UnresolvedTerm::TypeOntology { path, arguments },
                         ))
                     }
+                    TermFunctionReduced::Trait(_) => todo!(),
+                    TermFunctionReduced::Other(_) => todo!(),
                 }
             }
             (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),

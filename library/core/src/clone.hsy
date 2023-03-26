@@ -1,2 +1,21 @@
 pub trait Clone:
     fn clone() -> Self;
+
+impl Clone for i8:
+    fn clone() -> Self;
+
+
+impl Clone for i16:
+    fn clone() -> Self;
+
+impl Clone for i32:
+    fn clone() -> Self;
+
+impl Clone for i64:
+    fn clone() -> Self;
+
+impl Clone for i128:
+    fn clone() -> Self;
+
+impl Clone for isize:
+    fn clone() -> Self;
