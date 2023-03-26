@@ -68,7 +68,7 @@
             ),
         ),
         Ok(
-            RawTerm(`Fp(~ mnist_classifier::raw_contour::RawContour, core::num::f32) -> core::list::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+            RawTerm(`Fp(~ mnist_classifier::raw_contour::RawContour, core::num::f32) -> [] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
         ),
     ),
 ]

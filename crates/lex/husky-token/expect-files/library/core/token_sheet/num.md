@@ -4,8 +4,10 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
-            Token::Ident(
-                `core`,
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
             ),
             Token::Punctuation(
                 Punctuation::ColonColon,

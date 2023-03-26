@@ -1,4 +1,4 @@
-use core::ops::Add
+use crate::ops::Add
 
 #[rust(i8)]
 @derive(Debug, PartialEq, Eq, Clone, Copy)

@@ -18,14 +18,14 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 28,
+                                            value: 41,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                    return_ty: RawTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),

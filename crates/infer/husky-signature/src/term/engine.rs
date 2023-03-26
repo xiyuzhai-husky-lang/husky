@@ -281,41 +281,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 let Ok(argument) = self.infer_new(argument) else {
                     Err(DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication)?
                 };
-                match self.expr_region_data.expr_arena()[function] {
-                    Expr::BoxColonList { items, .. } => match items.len() {
-                        0 => Ok(RawTermExplicitApplication::new(
-                            self.db,
-                            self.raw_term_menu.slice_ty_path(),
-                            argument,
-                        )
-                        .into()),
-                        _ => todo!(),
-                    },
-                    Expr::List { items, .. } => match items.len() {
-                        0 => Ok(RawTermExplicitApplication::new(
-                            self.db,
-                            self.raw_term_menu.list(),
-                            argument,
-                        )
-                        .into()),
-                        1 => match self.expr_region_data.expr_arena()[items.start()] {
-                            Expr::Literal(_) => todo!(),
-                            Expr::Err(_) => {
-                                Err(DerivedSignatureRawTermError::CannotInferArrayLength)?
-                            }
-                            ref _expr => {
-                                Err(OriginalSignatureRawTermError::ExpectedLiteralForArrayLength)?
-                            }
-                        },
-                        _ => todo!(),
-                    },
-                    _ => {
-                        let Ok(_function) = self.infer_new(function) else {
-                            return Err(DerivedSignatureRawTermError::CannotInferFunctionRawTermInApplication.into())
-                        };
-                        todo!()
-                    }
-                }
+                let Ok( function) = self.infer_new(function) else {
+                    Err(DerivedSignatureRawTermError::CannotInferFunctionRawTermInApplication)?
+                };
+                Ok(RawTermExplicitApplication::new(self.db, function, argument).into())
             }
             Expr::NewTuple { items, .. } => {
                 p!(self.expr_region_data.path().debug(self.db));
@@ -334,7 +303,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 )
                 .into())
             }
-            Expr::BoxColonList { .. } => todo!(),
+            Expr::BoxColonList { items, .. } => match items.len() {
+                0 => Ok(self.raw_term_menu.slice_ty_path()),
+                _ => todo!(),
+            },
             Expr::Bracketed { item, .. } => self.infer_new(item),
             Expr::Block { stmts: _ } => todo!(),
             Expr::IndexOrCompositionWithList {

@@ -1359,16 +1359,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::i8`, `Extern`),
                             disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 33,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 33,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
+                                    },
+                                    trai_expr: 1,
+                                    for_token: TokenIdx(
+                                        44,
+                                    ),
+                                    ty_expr: 2,
+                                    body: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        41,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        44,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            46,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        43,
+                                                    ),
+                                                    ident: `i8`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        45,
+                                                    ),
+                                                    ident: `i8`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::i8`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::i8`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 33,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        41,
+                                                    ),
+                                                },
+                                                trai_expr: 1,
+                                                for_token: TokenIdx(
+                                                    44,
+                                                ),
+                                                ty_expr: 2,
+                                                body: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 1,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 1,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i8`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i8`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        42,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        43,
+                                                                    ),
+                                                                    ident: `i8`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i8`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        45,
+                                                                    ),
+                                                                    ident: `i8`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i8`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            53,
+                                                        ),
+                                                        ident: `i8`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            56,
+                                                        ),
+                                                        ident: `i8`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    51,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                52,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    50,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            52,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        54,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                55,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    57,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -1399,7 +1991,7 @@ Ok(
                                             82,
                                         ),
                                     },
-                                    ty_expr: 1,
+                                    ty_expr: 3,
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
@@ -1570,7 +2162,7 @@ Ok(
                                                         82,
                                                     ),
                                                 },
-                                                ty_expr: 1,
+                                                ty_expr: 3,
                                                 body: ArenaIdxRange(
                                                     2..3,
                                                 ),
@@ -1792,16 +2384,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 1,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 38,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 38,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            93,
+                                        ),
+                                    },
+                                    trai_expr: 4,
+                                    for_token: TokenIdx(
+                                        96,
+                                    ),
+                                    ty_expr: 5,
+                                    body: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        93,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        96,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            98,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        94,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        95,
+                                                    ),
+                                                    ident: `i32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        97,
+                                                    ),
+                                                    ident: `i16`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i16`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::i16`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::i16`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 38,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        93,
+                                                    ),
+                                                },
+                                                trai_expr: 4,
+                                                for_token: TokenIdx(
+                                                    96,
+                                                ),
+                                                ty_expr: 5,
+                                                body: ArenaIdxRange(
+                                                    3..4,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 3,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 3,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i16`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        94,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        95,
+                                                                    ),
+                                                                    ident: `i32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        97,
+                                                                    ),
+                                                                    ident: `i16`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i16`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            105,
+                                                        ),
+                                                        ident: `i32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            108,
+                                                        ),
+                                                        ident: `i16`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    103,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                104,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    102,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            104,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        106,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                107,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    109,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -1832,7 +3016,7 @@ Ok(
                                             134,
                                         ),
                                     },
-                                    ty_expr: 2,
+                                    ty_expr: 6,
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
@@ -2003,7 +3187,7 @@ Ok(
                                                         134,
                                                     ),
                                                 },
-                                                ty_expr: 2,
+                                                ty_expr: 6,
                                                 body: ArenaIdxRange(
                                                     4..5,
                                                 ),
@@ -2225,16 +3409,610 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 2,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 43,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 43,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            145,
+                                        ),
+                                    },
+                                    trai_expr: 7,
+                                    for_token: TokenIdx(
+                                        148,
+                                    ),
+                                    ty_expr: 8,
+                                    body: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        145,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        148,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            150,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        146,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        147,
+                                                    ),
+                                                    ident: `i32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        149,
+                                                    ),
+                                                    ident: `i32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::i32`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::i32`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 43,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        145,
+                                                    ),
+                                                },
+                                                trai_expr: 7,
+                                                for_token: TokenIdx(
+                                                    148,
+                                                ),
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    5..6,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 5,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::PublicUnder(
+                                            `core::num`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 5,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        146,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        147,
+                                                                    ),
+                                                                    ident: `i32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        149,
+                                                                    ),
+                                                                    ident: `i32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            156,
+                                                        ),
+                                                        ident: `i32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            159,
+                                                        ),
+                                                        ident: `i32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    154,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                155,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    153,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            155,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        157,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                158,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    160,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -2265,7 +4043,7 @@ Ok(
                                             185,
                                         ),
                                     },
-                                    ty_expr: 3,
+                                    ty_expr: 9,
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
@@ -2436,7 +4214,7 @@ Ok(
                                                         185,
                                                     ),
                                                 },
-                                                ty_expr: 3,
+                                                ty_expr: 9,
                                                 body: ArenaIdxRange(
                                                     6..7,
                                                 ),
@@ -2658,16 +4436,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 3,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 48,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 48,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            196,
+                                        ),
+                                    },
+                                    trai_expr: 10,
+                                    for_token: TokenIdx(
+                                        199,
+                                    ),
+                                    ty_expr: 11,
+                                    body: ArenaIdxRange(
+                                        7..8,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        196,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        199,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            201,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        197,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        198,
+                                                    ),
+                                                    ident: `i64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        200,
+                                                    ),
+                                                    ident: `i64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::i64`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::i64`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 48,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        196,
+                                                    ),
+                                                },
+                                                trai_expr: 10,
+                                                for_token: TokenIdx(
+                                                    199,
+                                                ),
+                                                ty_expr: 11,
+                                                body: ArenaIdxRange(
+                                                    7..8,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 7,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 7,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        197,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        198,
+                                                                    ),
+                                                                    ident: `i64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        200,
+                                                                    ),
+                                                                    ident: `i64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            208,
+                                                        ),
+                                                        ident: `i64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            211,
+                                                        ),
+                                                        ident: `i64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    206,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                207,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    205,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            207,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        209,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                210,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    212,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -2698,7 +5068,7 @@ Ok(
                                             237,
                                         ),
                                     },
-                                    ty_expr: 4,
+                                    ty_expr: 12,
                                     body: ArenaIdxRange(
                                         8..9,
                                     ),
@@ -2869,7 +5239,7 @@ Ok(
                                                         237,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 12,
                                                 body: ArenaIdxRange(
                                                     8..9,
                                                 ),
@@ -3091,16 +5461,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 4,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 53,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 53,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            248,
+                                        ),
+                                    },
+                                    trai_expr: 13,
+                                    for_token: TokenIdx(
+                                        251,
+                                    ),
+                                    ty_expr: 14,
+                                    body: ArenaIdxRange(
+                                        9..10,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        248,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        251,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            253,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        249,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        250,
+                                                    ),
+                                                    ident: `i128`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i128`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        252,
+                                                    ),
+                                                    ident: `i128`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i128`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::i128`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::i128`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 53,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        248,
+                                                    ),
+                                                },
+                                                trai_expr: 13,
+                                                for_token: TokenIdx(
+                                                    251,
+                                                ),
+                                                ty_expr: 14,
+                                                body: ArenaIdxRange(
+                                                    9..10,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 9,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 9,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i128`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::i128`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        249,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        250,
+                                                                    ),
+                                                                    ident: `i128`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i128`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        252,
+                                                                    ),
+                                                                    ident: `i128`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::i128`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i128`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::i128`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            260,
+                                                        ),
+                                                        ident: `i128`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            263,
+                                                        ),
+                                                        ident: `i128`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    258,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                259,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    257,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            259,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        261,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                262,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    264,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -3131,7 +6093,7 @@ Ok(
                                             289,
                                         ),
                                     },
-                                    ty_expr: 5,
+                                    ty_expr: 15,
                                     body: ArenaIdxRange(
                                         10..11,
                                     ),
@@ -3302,7 +6264,7 @@ Ok(
                                                         289,
                                                     ),
                                                 },
-                                                ty_expr: 5,
+                                                ty_expr: 15,
                                                 body: ArenaIdxRange(
                                                     10..11,
                                                 ),
@@ -3524,16 +6486,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 5,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 58,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 58,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            300,
+                                        ),
+                                    },
+                                    trai_expr: 16,
+                                    for_token: TokenIdx(
+                                        303,
+                                    ),
+                                    ty_expr: 17,
+                                    body: ArenaIdxRange(
+                                        11..12,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        300,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        303,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            305,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        301,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        302,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        304,
+                                                    ),
+                                                    ident: `isize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::isize`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::isize`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 58,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        300,
+                                                    ),
+                                                },
+                                                trai_expr: 16,
+                                                for_token: TokenIdx(
+                                                    303,
+                                                ),
+                                                ty_expr: 17,
+                                                body: ArenaIdxRange(
+                                                    11..12,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 11,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 11,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::isize`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::isize`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        301,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        302,
+                                                                    ),
+                                                                    ident: `isize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::isize`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        304,
+                                                                    ),
+                                                                    ident: `isize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::isize`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::isize`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::isize`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            312,
+                                                        ),
+                                                        ident: `isize`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            315,
+                                                        ),
+                                                        ident: `isize`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::isize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    310,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                311,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    309,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            311,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        313,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                314,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    316,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -3564,7 +7118,7 @@ Ok(
                                             341,
                                         ),
                                     },
-                                    ty_expr: 6,
+                                    ty_expr: 18,
                                     body: ArenaIdxRange(
                                         12..13,
                                     ),
@@ -3735,7 +7289,7 @@ Ok(
                                                         341,
                                                     ),
                                                 },
-                                                ty_expr: 6,
+                                                ty_expr: 18,
                                                 body: ArenaIdxRange(
                                                     12..13,
                                                 ),
@@ -3957,16 +7511,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 6,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 63,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 63,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            352,
+                                        ),
+                                    },
+                                    trai_expr: 19,
+                                    for_token: TokenIdx(
+                                        355,
+                                    ),
+                                    ty_expr: 20,
+                                    body: ArenaIdxRange(
+                                        13..14,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        352,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        355,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            357,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        353,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        354,
+                                                    ),
+                                                    ident: `u8`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        356,
+                                                    ),
+                                                    ident: `u8`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u8`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::u8`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::u8`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 63,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        352,
+                                                    ),
+                                                },
+                                                trai_expr: 19,
+                                                for_token: TokenIdx(
+                                                    355,
+                                                ),
+                                                ty_expr: 20,
+                                                body: ArenaIdxRange(
+                                                    13..14,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 13,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 13,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u8`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u8`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        353,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        354,
+                                                                    ),
+                                                                    ident: `u8`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u8`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        356,
+                                                                    ),
+                                                                    ident: `u8`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u8`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u8`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            364,
+                                                        ),
+                                                        ident: `u8`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            367,
+                                                        ),
+                                                        ident: `u8`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u8`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    362,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                363,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    361,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            363,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        365,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                366,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    368,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -3997,7 +8143,7 @@ Ok(
                                             393,
                                         ),
                                     },
-                                    ty_expr: 7,
+                                    ty_expr: 21,
                                     body: ArenaIdxRange(
                                         14..15,
                                     ),
@@ -4168,7 +8314,7 @@ Ok(
                                                         393,
                                                     ),
                                                 },
-                                                ty_expr: 7,
+                                                ty_expr: 21,
                                                 body: ArenaIdxRange(
                                                     14..15,
                                                 ),
@@ -4390,16 +8536,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 7,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 68,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 68,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            404,
+                                        ),
+                                    },
+                                    trai_expr: 22,
+                                    for_token: TokenIdx(
+                                        407,
+                                    ),
+                                    ty_expr: 23,
+                                    body: ArenaIdxRange(
+                                        15..16,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        404,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        407,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            409,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        405,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        406,
+                                                    ),
+                                                    ident: `u16`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u16`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        408,
+                                                    ),
+                                                    ident: `u16`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u16`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::u16`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::u16`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 68,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        404,
+                                                    ),
+                                                },
+                                                trai_expr: 22,
+                                                for_token: TokenIdx(
+                                                    407,
+                                                ),
+                                                ty_expr: 23,
+                                                body: ArenaIdxRange(
+                                                    15..16,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 15,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 15,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u16`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u16`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        405,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        406,
+                                                                    ),
+                                                                    ident: `u16`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u16`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        408,
+                                                                    ),
+                                                                    ident: `u16`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u16`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u16`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            416,
+                                                        ),
+                                                        ident: `u16`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            419,
+                                                        ),
+                                                        ident: `u16`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u16`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    414,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                415,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    413,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            415,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        417,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                418,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    420,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -4430,7 +9168,7 @@ Ok(
                                             445,
                                         ),
                                     },
-                                    ty_expr: 8,
+                                    ty_expr: 24,
                                     body: ArenaIdxRange(
                                         16..17,
                                     ),
@@ -4601,7 +9339,7 @@ Ok(
                                                         445,
                                                     ),
                                                 },
-                                                ty_expr: 8,
+                                                ty_expr: 24,
                                                 body: ArenaIdxRange(
                                                     16..17,
                                                 ),
@@ -4823,16 +9561,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 8,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 73,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 73,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            456,
+                                        ),
+                                    },
+                                    trai_expr: 25,
+                                    for_token: TokenIdx(
+                                        459,
+                                    ),
+                                    ty_expr: 26,
+                                    body: ArenaIdxRange(
+                                        17..18,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        456,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        459,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            461,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        457,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        458,
+                                                    ),
+                                                    ident: `u32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        460,
+                                                    ),
+                                                    ident: `u32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::u32`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::u32`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 73,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        456,
+                                                    ),
+                                                },
+                                                trai_expr: 25,
+                                                for_token: TokenIdx(
+                                                    459,
+                                                ),
+                                                ty_expr: 26,
+                                                body: ArenaIdxRange(
+                                                    17..18,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 17,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 17,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        457,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        458,
+                                                                    ),
+                                                                    ident: `u32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        460,
+                                                                    ),
+                                                                    ident: `u32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            468,
+                                                        ),
+                                                        ident: `u32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            471,
+                                                        ),
+                                                        ident: `u32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    466,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                467,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    465,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            467,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        469,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                470,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    472,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -4863,7 +10193,7 @@ Ok(
                                             497,
                                         ),
                                     },
-                                    ty_expr: 9,
+                                    ty_expr: 27,
                                     body: ArenaIdxRange(
                                         18..19,
                                     ),
@@ -5034,7 +10364,7 @@ Ok(
                                                         497,
                                                     ),
                                                 },
-                                                ty_expr: 9,
+                                                ty_expr: 27,
                                                 body: ArenaIdxRange(
                                                     18..19,
                                                 ),
@@ -5256,16 +10586,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 9,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 78,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 78,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            508,
+                                        ),
+                                    },
+                                    trai_expr: 28,
+                                    for_token: TokenIdx(
+                                        511,
+                                    ),
+                                    ty_expr: 29,
+                                    body: ArenaIdxRange(
+                                        19..20,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        508,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        511,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            513,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        509,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        510,
+                                                    ),
+                                                    ident: `u64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        512,
+                                                    ),
+                                                    ident: `u64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::u64`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::u64`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 78,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        508,
+                                                    ),
+                                                },
+                                                trai_expr: 28,
+                                                for_token: TokenIdx(
+                                                    511,
+                                                ),
+                                                ty_expr: 29,
+                                                body: ArenaIdxRange(
+                                                    19..20,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 19,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 19,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        509,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        510,
+                                                                    ),
+                                                                    ident: `u64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        512,
+                                                                    ),
+                                                                    ident: `u64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            520,
+                                                        ),
+                                                        ident: `u64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            523,
+                                                        ),
+                                                        ident: `u64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    518,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                519,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    517,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            519,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        521,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                522,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    524,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -5296,7 +11218,7 @@ Ok(
                                             549,
                                         ),
                                     },
-                                    ty_expr: 10,
+                                    ty_expr: 30,
                                     body: ArenaIdxRange(
                                         20..21,
                                     ),
@@ -5467,7 +11389,7 @@ Ok(
                                                         549,
                                                     ),
                                                 },
-                                                ty_expr: 10,
+                                                ty_expr: 30,
                                                 body: ArenaIdxRange(
                                                     20..21,
                                                 ),
@@ -5689,16 +11611,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 10,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 83,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 83,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            560,
+                                        ),
+                                    },
+                                    trai_expr: 31,
+                                    for_token: TokenIdx(
+                                        563,
+                                    ),
+                                    ty_expr: 32,
+                                    body: ArenaIdxRange(
+                                        21..22,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        560,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        563,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            565,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        561,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        562,
+                                                    ),
+                                                    ident: `u128`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u128`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        564,
+                                                    ),
+                                                    ident: `u128`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::u128`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::u128`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::u128`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 83,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        560,
+                                                    ),
+                                                },
+                                                trai_expr: 31,
+                                                for_token: TokenIdx(
+                                                    563,
+                                                ),
+                                                ty_expr: 32,
+                                                body: ArenaIdxRange(
+                                                    21..22,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 21,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 21,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u128`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::u128`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        561,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        562,
+                                                                    ),
+                                                                    ident: `u128`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u128`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        564,
+                                                                    ),
+                                                                    ident: `u128`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::u128`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u128`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::u128`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            572,
+                                                        ),
+                                                        ident: `u128`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            575,
+                                                        ),
+                                                        ident: `u128`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::u128`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    570,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                571,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    569,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            571,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        573,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                574,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    576,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -5729,7 +12243,7 @@ Ok(
                                             601,
                                         ),
                                     },
-                                    ty_expr: 11,
+                                    ty_expr: 33,
                                     body: ArenaIdxRange(
                                         22..23,
                                     ),
@@ -5900,7 +12414,7 @@ Ok(
                                                         601,
                                                     ),
                                                 },
-                                                ty_expr: 11,
+                                                ty_expr: 33,
                                                 body: ArenaIdxRange(
                                                     22..23,
                                                 ),
@@ -6122,16 +12636,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 11,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 88,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 88,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            612,
+                                        ),
+                                    },
+                                    trai_expr: 34,
+                                    for_token: TokenIdx(
+                                        615,
+                                    ),
+                                    ty_expr: 35,
+                                    body: ArenaIdxRange(
+                                        23..24,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        612,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        615,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            617,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        613,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        614,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        616,
+                                                    ),
+                                                    ident: `usize`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::usize`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::usize`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 88,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        612,
+                                                    ),
+                                                },
+                                                trai_expr: 34,
+                                                for_token: TokenIdx(
+                                                    615,
+                                                ),
+                                                ty_expr: 35,
+                                                body: ArenaIdxRange(
+                                                    23..24,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 23,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 23,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::usize`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::usize`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        613,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        614,
+                                                                    ),
+                                                                    ident: `usize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        616,
+                                                                    ),
+                                                                    ident: `usize`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::usize`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::usize`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            624,
+                                                        ),
+                                                        ident: `usize`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            627,
+                                                        ),
+                                                        ident: `usize`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::usize`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    622,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                623,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    621,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            623,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        625,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                626,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    628,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -6162,7 +13268,7 @@ Ok(
                                             653,
                                         ),
                                     },
-                                    ty_expr: 12,
+                                    ty_expr: 36,
                                     body: ArenaIdxRange(
                                         24..25,
                                     ),
@@ -6333,7 +13439,7 @@ Ok(
                                                         653,
                                                     ),
                                                 },
-                                                ty_expr: 12,
+                                                ty_expr: 36,
                                                 body: ArenaIdxRange(
                                                     24..25,
                                                 ),
@@ -6555,16 +13661,610 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 12,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 93,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 93,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            664,
+                                        ),
+                                    },
+                                    trai_expr: 37,
+                                    for_token: TokenIdx(
+                                        667,
+                                    ),
+                                    ty_expr: 38,
+                                    body: ArenaIdxRange(
+                                        25..26,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        664,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        667,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            669,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        665,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        666,
+                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        668,
+                                                    ),
+                                                    ident: `f32`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::f32`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 93,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        664,
+                                                    ),
+                                                },
+                                                trai_expr: 37,
+                                                for_token: TokenIdx(
+                                                    667,
+                                                ),
+                                                ty_expr: 38,
+                                                body: ArenaIdxRange(
+                                                    25..26,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 25,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::PublicUnder(
+                                            `core::num`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 25,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        665,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        666,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        668,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            675,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            678,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    673,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                674,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    672,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            674,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        676,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                677,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    679,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -6595,7 +14295,7 @@ Ok(
                                             704,
                                         ),
                                     },
-                                    ty_expr: 13,
+                                    ty_expr: 39,
                                     body: ArenaIdxRange(
                                         26..27,
                                     ),
@@ -6766,7 +14466,7 @@ Ok(
                                                         704,
                                                     ),
                                                 },
-                                                ty_expr: 13,
+                                                ty_expr: 39,
                                                 body: ArenaIdxRange(
                                                     26..27,
                                                 ),
@@ -6988,16 +14688,608 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `core::num`,
-                            disambiguator: 13,
+                    ImplBlockId::TypeAsTrait(
+                        TraitForTypeImplBlockId {
+                            module_path: `core::num`,
+                            trai_path: TraitPath(`core::ops::Add`),
+                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::Impl(
+                        ImplBlockDecl::TraitForType(
+                            TraitForTypeImplBlockDecl {
+                                ast_idx: 98,
+                                impl_block: TraitForTypeImplBlock {
+                                    id: TraitForTypeImplBlockId {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 98,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            715,
+                                        ),
+                                    },
+                                    trai_expr: 40,
+                                    for_token: TokenIdx(
+                                        718,
+                                    ),
+                                    ty_expr: 41,
+                                    body: ArenaIdxRange(
+                                        27..28,
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        715,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: Ok(
+                                    None,
+                                ),
+                                trai_expr: TraitExpr {
+                                    expr: 2,
+                                },
+                                for_token: ConnectionForToken {
+                                    token_idx: TokenIdx(
+                                        718,
+                                    ),
+                                },
+                                ty_expr: TypeExpr {
+                                    expr: 3,
+                                },
+                                eol_colon: Ok(
+                                    EolColonToken(
+                                        TokenIdx(
+                                            720,
+                                        ),
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::TypeAsTrait(
+                                                    TraitForTypeImplBlockId {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Trait(
+                                                                TraitPath(`core::ops::Add`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 2,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        716,
+                                                    ),
+                                                    ident: `Add`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Trait(
+                                                            TraitPath(`core::ops::Add`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        717,
+                                                    ),
+                                                    ident: `f64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        719,
+                                                    ),
+                                                    ident: `f64`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f64`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: Trait,
+                                                expr: 2,
+                                            },
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::TypeAsTrait(
+                            TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `add`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TraitForTypeItem(
+                            TypeAsTraitItemDecl::Method(
+                                TypeAsTraitMethodDecl {
+                                    path: Some(
+                                        TraitForTypeItemPath {
+                                            parent_ty: TypePath(`core::num::f64`, `Extern`),
+                                            trai: TraitPath(`core::ops::Add`),
+                                            ident: `add`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::TypeAsTrait(
+                                                TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `add`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TraitForTypeItem(
+                                                TraitForTypeItemPath {
+                                                    parent_ty: TypePath(`core::num::f64`, `Extern`),
+                                                    trai: TraitPath(`core::ops::Add`),
+                                                    ident: `add`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::TraitForType(
+                                            TraitForTypeImplBlock {
+                                                id: TraitForTypeImplBlockId {
+                                                    module_path: `core::num`,
+                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 98,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        715,
+                                                    ),
+                                                },
+                                                trai_expr: 40,
+                                                for_token: TokenIdx(
+                                                    718,
+                                                ),
+                                                ty_expr: 41,
+                                                body: ArenaIdxRange(
+                                                    27..28,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 27,
+                                        ident: `add`,
+                                        associated_item_kind: TraitForTypeItem(
+                                            MethodFn,
+                                        ),
+                                        accessibility: Visibility::Public,
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 27,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::TypeAsTrait(
+                                                                    TraitForTypeImplBlockId {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Trait(
+                                                                                TraitPath(`core::ops::Add`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 1,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                Expr::ExplicitApplication {
+                                                                    function: 0,
+                                                                    argument: 1,
+                                                                },
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 2,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f64`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        716,
+                                                                    ),
+                                                                    ident: `Add`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Trait(
+                                                                            TraitPath(`core::ops::Add`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        717,
+                                                                    ),
+                                                                    ident: `f64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        719,
+                                                                    ),
+                                                                    ident: `f64`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f64`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: Trait,
+                                                                expr: 2,
+                                                            },
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 3,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::TypeAsTrait(
+                                                            TraitForTypeImplBlockId {
+                                                                module_path: `core::num`,
+                                                                trai_path: TraitPath(`core::ops::Add`),
+                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `add`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f64`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            727,
+                                                        ),
+                                                        ident: `f64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            730,
+                                                        ),
+                                                        ident: `f64`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f64`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    725,
+                                                                ),
+                                                            },
+                                                            liason: None,
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                726,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    RegularParameter {
+                                                        pattern: 0,
+                                                        ty: 0,
+                                                    },
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: Ok(
+                                        None,
+                                    ),
+                                    parameter_decl_list: Ok(
+                                        ExplicitParameterDeclList {
+                                            lpar: LeftParenthesisToken(
+                                                TokenIdx(
+                                                    724,
+                                                ),
+                                            ),
+                                            parameters: [
+                                                ExplicitParameterDeclPattern {
+                                                    pattern: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                    colon: ColonToken(
+                                                        TokenIdx(
+                                                            726,
+                                                        ),
+                                                    ),
+                                                    ty: 0,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rpar: Ok(
+                                                RightParenthesisToken(
+                                                    TokenIdx(
+                                                        728,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    curry_token: Ok(
+                                        CurryToken(
+                                            TokenIdx(
+                                                729,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Ok(
+                                        OutputTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: Err(
+                                        DeclExprError::Original(
+                                            OriginalDeclExprError::ExpectEolColon(
+                                                TokenIdx(
+                                                    731,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),

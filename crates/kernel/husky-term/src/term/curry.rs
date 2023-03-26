@@ -29,7 +29,14 @@ impl TermCurry {
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        todo!()
+        match self.parameter_ty(db).raw_ty(db)? {
+            Left(RawTerm::Category(_)) => (),
+            _ => todo!(),
+        };
+        match self.return_ty(db).raw_ty(db)? {
+            Left(RawTerm::Category(_)) => Ok(()),
+            _ => todo!(),
+        }
     }
 
     pub(crate) fn show_with_db_fmt(

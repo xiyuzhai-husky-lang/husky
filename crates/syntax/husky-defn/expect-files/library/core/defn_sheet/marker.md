@@ -166,11 +166,11 @@ Ok(
                                             4,
                                         ),
                                     },
-                                    trai_expr: 26,
+                                    trai_expr: 54,
                                     for_token: TokenIdx(
                                         6,
                                     ),
-                                    ty_expr: 27,
+                                    ty_expr: 55,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),
@@ -338,11 +338,11 @@ Ok(
                                             8,
                                         ),
                                     },
-                                    trai_expr: 28,
+                                    trai_expr: 56,
                                     for_token: TokenIdx(
                                         10,
                                     ),
-                                    ty_expr: 29,
+                                    ty_expr: 57,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),
@@ -510,11 +510,11 @@ Ok(
                                             12,
                                         ),
                                     },
-                                    trai_expr: 30,
+                                    trai_expr: 58,
                                     for_token: TokenIdx(
                                         14,
                                     ),
-                                    ty_expr: 31,
+                                    ty_expr: 59,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),
@@ -682,11 +682,11 @@ Ok(
                                             16,
                                         ),
                                     },
-                                    trai_expr: 32,
+                                    trai_expr: 60,
                                     for_token: TokenIdx(
                                         18,
                                     ),
-                                    ty_expr: 33,
+                                    ty_expr: 61,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),
@@ -854,11 +854,11 @@ Ok(
                                             20,
                                         ),
                                     },
-                                    trai_expr: 34,
+                                    trai_expr: 62,
                                     for_token: TokenIdx(
                                         22,
                                     ),
-                                    ty_expr: 35,
+                                    ty_expr: 63,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),
@@ -1026,11 +1026,11 @@ Ok(
                                             24,
                                         ),
                                     },
-                                    trai_expr: 36,
+                                    trai_expr: 64,
                                     for_token: TokenIdx(
                                         26,
                                     ),
-                                    ty_expr: 37,
+                                    ty_expr: 65,
                                     body: ArenaIdxRange(
                                         0..0,
                                     ),

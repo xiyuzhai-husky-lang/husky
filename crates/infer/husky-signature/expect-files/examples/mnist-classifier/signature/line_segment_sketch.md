@@ -16,7 +16,7 @@
                         },
                         RegularStructFieldSignature {
                             ident: `strokes`,
-                            ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                            ty: RawTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         },
                     ],
                 },
@@ -117,7 +117,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 16,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -167,7 +167,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 16,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -229,7 +229,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 16,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -248,7 +248,7 @@
                             },
                         ],
                     },
-                    return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                    return_ty: RawTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                 },
             ),
         ),
@@ -280,7 +280,7 @@
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
-                                                value: 16,
+                                                value: 29,
                                             },
                                         ),
                                     ),
@@ -363,7 +363,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: RawTerm(`core::list::List mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        return_ty: RawTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
             ),
@@ -395,7 +395,7 @@
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
-                                                value: 16,
+                                                value: 29,
                                             },
                                         ),
                                     ),

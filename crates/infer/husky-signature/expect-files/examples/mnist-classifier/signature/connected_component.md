@@ -38,7 +38,7 @@
                     fields: [
                         RegularStructFieldSignature {
                             ident: `matches`,
-                            ty: RawTerm(`core::list::List core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
+                            ty: RawTerm(`[] core::option::Option ~ mnist_classifier::raw_contour::RawContour`),
                         },
                     ],
                 },
@@ -59,7 +59,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 16,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -138,7 +138,7 @@
             AssociatedItemSignature::TypeItem(
                 TypeItemSignature::Memo(
                     TypeMemoSignature {
-                        return_ty: RawTerm(`core::list::List mnist_classifier::raw_contour::RawContour`),
+                        return_ty: RawTerm(`[] mnist_classifier::raw_contour::RawContour`),
                     },
                 ),
             ),
